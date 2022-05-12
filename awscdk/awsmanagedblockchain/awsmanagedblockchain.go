@@ -1,12 +1,12 @@
 package awsmanagedblockchain
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsmanagedblockchain/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsmanagedblockchain/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::ManagedBlockchain::Member`.
@@ -16,8 +16,11 @@ import (
 // Applies only to Hyperledger Fabric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
-//   cfnMember := managedblockchain.NewCfnMember(this, jsii.String("MyCfnMember"), &cfnMemberProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMember := awscdk.Aws_managedblockchain.NewCfnMember(this, jsii.String("MyCfnMember"), &cfnMemberProps{
 //   	memberConfiguration: &memberConfigurationProperty{
 //   		name: jsii.String("name"),
 //
@@ -64,16 +67,13 @@ type CfnMember interface {
 	// The unique identifier of the network to which the member belongs.
 	AttrNetworkId() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The unique identifier of the invitation to join the network sent to the account that creates the member.
 	InvitationId() *string
@@ -87,7 +87,6 @@ type CfnMember interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// Configuration properties of the member.
 	MemberConfiguration() interface{}
@@ -98,34 +97,28 @@ type CfnMember interface {
 	// The unique identifier of the network to which the member belongs.
 	NetworkId() *string
 	SetNetworkId(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -134,7 +127,6 @@ type CfnMember interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -179,15 +171,12 @@ type CfnMember interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -198,13 +187,11 @@ type CfnMember interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -213,74 +200,21 @@ type CfnMember interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -400,8 +334,8 @@ func (j *jsiiProxy_CfnMember) NetworkId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMember) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnMember) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -442,13 +376,13 @@ func (j *jsiiProxy_CfnMember) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ManagedBlockchain::Member`.
-func NewCfnMember(scope awscdk.Construct, id *string, props *CfnMemberProps) CfnMember {
+func NewCfnMember(scope constructs.Construct, id *string, props *CfnMemberProps) CfnMember {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnMember{}
 
 	_jsii_.Create(
-		"monocdk.aws_managedblockchain.CfnMember",
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -457,11 +391,11 @@ func NewCfnMember(scope awscdk.Construct, id *string, props *CfnMemberProps) Cfn
 }
 
 // Create a new `AWS::ManagedBlockchain::Member`.
-func NewCfnMember_Override(c CfnMember, scope awscdk.Construct, id *string, props *CfnMemberProps) {
+func NewCfnMember_Override(c CfnMember, scope constructs.Construct, id *string, props *CfnMemberProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_managedblockchain.CfnMember",
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -505,14 +439,13 @@ func (j *jsiiProxy_CfnMember) SetNetworkId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnMember_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_managedblockchain.CfnMember",
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -522,14 +455,13 @@ func CfnMember_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnMember_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_managedblockchain.CfnMember",
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -538,15 +470,17 @@ func CfnMember_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnMember_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_managedblockchain.CfnMember",
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -559,7 +493,7 @@ func CfnMember_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_managedblockchain.CfnMember",
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -656,48 +590,11 @@ func (c *jsiiProxy_CfnMember) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnMember) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnMember) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnMember) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnMember) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnMember) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -727,33 +624,12 @@ func (c *jsiiProxy_CfnMember) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnMember) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnMember) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnMember) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -776,7 +652,10 @@ func (c *jsiiProxy_CfnMember) ValidateProperties(_properties interface{}) {
 // Applies only to Hyperledger Fabric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   approvalThresholdPolicyProperty := &approvalThresholdPolicyProperty{
 //   	proposalDurationInHours: jsii.Number(123),
 //   	thresholdComparator: jsii.String("thresholdComparator"),
@@ -787,13 +666,13 @@ type CfnMember_ApprovalThresholdPolicyProperty struct {
 	// The duration from the time that a proposal is created until it expires.
 	//
 	// If members cast neither the required number of `YES` votes to approve the proposal nor the number of `NO` votes required to reject it before the duration expires, the proposal is `EXPIRED` and `ProposalActions` are not carried out.
-	ProposalDurationInHours *float64 `json:"proposalDurationInHours" yaml:"proposalDurationInHours"`
+	ProposalDurationInHours *float64 `field:"optional" json:"proposalDurationInHours" yaml:"proposalDurationInHours"`
 	// Determines whether the vote percentage must be greater than the `ThresholdPercentage` or must be greater than or equal to the `ThreholdPercentage` to be approved.
-	ThresholdComparator *string `json:"thresholdComparator" yaml:"thresholdComparator"`
+	ThresholdComparator *string `field:"optional" json:"thresholdComparator" yaml:"thresholdComparator"`
 	// The percentage of votes among all members that must be `YES` for a proposal to be approved.
 	//
 	// For example, a `ThresholdPercentage` value of `50` indicates 50%. The `ThresholdComparator` determines the precise comparison. If a `ThresholdPercentage` value of `50` is specified on a network with 10 members, along with a `ThresholdComparator` value of `GREATER_THAN` , this indicates that 6 `YES` votes are required for the proposal to be approved.
-	ThresholdPercentage *float64 `json:"thresholdPercentage" yaml:"thresholdPercentage"`
+	ThresholdPercentage *float64 `field:"optional" json:"thresholdPercentage" yaml:"thresholdPercentage"`
 }
 
 // Configuration properties of the member.
@@ -801,7 +680,10 @@ type CfnMember_ApprovalThresholdPolicyProperty struct {
 // Applies only to Hyperledger Fabric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memberConfigurationProperty := &memberConfigurationProperty{
 //   	name: jsii.String("name"),
 //
@@ -817,17 +699,20 @@ type CfnMember_ApprovalThresholdPolicyProperty struct {
 //
 type CfnMember_MemberConfigurationProperty struct {
 	// The name of the member.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// An optional description of the member.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Configuration properties of the blockchain framework relevant to the member.
-	MemberFrameworkConfiguration interface{} `json:"memberFrameworkConfiguration" yaml:"memberFrameworkConfiguration"`
+	MemberFrameworkConfiguration interface{} `field:"optional" json:"memberFrameworkConfiguration" yaml:"memberFrameworkConfiguration"`
 }
 
 // Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memberFabricConfigurationProperty := &memberFabricConfigurationProperty{
 //   	adminPassword: jsii.String("adminPassword"),
 //   	adminUsername: jsii.String("adminUsername"),
@@ -837,15 +722,18 @@ type CfnMember_MemberFabricConfigurationProperty struct {
 	// The password for the member's initial administrative user.
 	//
 	// The `AdminPassword` must be at least eight characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward slash(\), @, or a space.
-	AdminPassword *string `json:"adminPassword" yaml:"adminPassword"`
+	AdminPassword *string `field:"required" json:"adminPassword" yaml:"adminPassword"`
 	// The user name for the member's initial administrative user.
-	AdminUsername *string `json:"adminUsername" yaml:"adminUsername"`
+	AdminUsername *string `field:"required" json:"adminUsername" yaml:"adminUsername"`
 }
 
 // Configuration properties relevant to a member for the blockchain framework that the Managed Blockchain network uses.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memberFrameworkConfigurationProperty := &memberFrameworkConfigurationProperty{
 //   	memberFabricConfiguration: &memberFabricConfigurationProperty{
 //   		adminPassword: jsii.String("adminPassword"),
@@ -855,13 +743,16 @@ type CfnMember_MemberFabricConfigurationProperty struct {
 //
 type CfnMember_MemberFrameworkConfigurationProperty struct {
 	// Configuration properties for Hyperledger Fabric.
-	MemberFabricConfiguration interface{} `json:"memberFabricConfiguration" yaml:"memberFabricConfiguration"`
+	MemberFabricConfiguration interface{} `field:"optional" json:"memberFabricConfiguration" yaml:"memberFabricConfiguration"`
 }
 
 // Configuration properties of the network to which the member belongs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkConfigurationProperty := &networkConfigurationProperty{
 //   	framework: jsii.String("framework"),
 //   	frameworkVersion: jsii.String("frameworkVersion"),
@@ -885,23 +776,26 @@ type CfnMember_MemberFrameworkConfigurationProperty struct {
 //
 type CfnMember_NetworkConfigurationProperty struct {
 	// The blockchain framework that the network uses.
-	Framework *string `json:"framework" yaml:"framework"`
+	Framework *string `field:"required" json:"framework" yaml:"framework"`
 	// The version of the blockchain framework that the network uses.
-	FrameworkVersion *string `json:"frameworkVersion" yaml:"frameworkVersion"`
+	FrameworkVersion *string `field:"required" json:"frameworkVersion" yaml:"frameworkVersion"`
 	// The name of the network.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The voting rules for the network to decide if a proposal is accepted.
-	VotingPolicy interface{} `json:"votingPolicy" yaml:"votingPolicy"`
+	VotingPolicy interface{} `field:"required" json:"votingPolicy" yaml:"votingPolicy"`
 	// Attributes of the blockchain framework for the network.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Configuration properties relevant to the network for the blockchain framework that the network uses.
-	NetworkFrameworkConfiguration interface{} `json:"networkFrameworkConfiguration" yaml:"networkFrameworkConfiguration"`
+	NetworkFrameworkConfiguration interface{} `field:"optional" json:"networkFrameworkConfiguration" yaml:"networkFrameworkConfiguration"`
 }
 
 // Hyperledger Fabric configuration properties for the network.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkFabricConfigurationProperty := &networkFabricConfigurationProperty{
 //   	edition: jsii.String("edition"),
 //   }
@@ -910,13 +804,16 @@ type CfnMember_NetworkFabricConfigurationProperty struct {
 	// The edition of Amazon Managed Blockchain that the network uses.
 	//
 	// Valid values are `standard` and `starter` . For more information, see
-	Edition *string `json:"edition" yaml:"edition"`
+	Edition *string `field:"required" json:"edition" yaml:"edition"`
 }
 
 // Configuration properties relevant to the network for the blockchain framework that the network uses.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkFrameworkConfigurationProperty := &networkFrameworkConfigurationProperty{
 //   	networkFabricConfiguration: &networkFabricConfigurationProperty{
 //   		edition: jsii.String("edition"),
@@ -925,7 +822,7 @@ type CfnMember_NetworkFabricConfigurationProperty struct {
 //
 type CfnMember_NetworkFrameworkConfigurationProperty struct {
 	// Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.
-	NetworkFabricConfiguration interface{} `json:"networkFabricConfiguration" yaml:"networkFabricConfiguration"`
+	NetworkFabricConfiguration interface{} `field:"optional" json:"networkFabricConfiguration" yaml:"networkFabricConfiguration"`
 }
 
 // The voting rules for the network to decide if a proposal is accepted.
@@ -933,7 +830,10 @@ type CfnMember_NetworkFrameworkConfigurationProperty struct {
 // Applies only to Hyperledger Fabric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   votingPolicyProperty := &votingPolicyProperty{
 //   	approvalThresholdPolicy: &approvalThresholdPolicyProperty{
 //   		proposalDurationInHours: jsii.Number(123),
@@ -946,13 +846,16 @@ type CfnMember_VotingPolicyProperty struct {
 	// Defines the rules for the network for voting on proposals, such as the percentage of `YES` votes required for the proposal to be approved and the duration of the proposal.
 	//
 	// The policy applies to all proposals and is specified when the network is created.
-	ApprovalThresholdPolicy interface{} `json:"approvalThresholdPolicy" yaml:"approvalThresholdPolicy"`
+	ApprovalThresholdPolicy interface{} `field:"optional" json:"approvalThresholdPolicy" yaml:"approvalThresholdPolicy"`
 }
 
 // Properties for defining a `CfnMember`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMemberProps := &cfnMemberProps{
 //   	memberConfiguration: &memberConfigurationProperty{
 //   		name: jsii.String("name"),
@@ -994,13 +897,13 @@ type CfnMember_VotingPolicyProperty struct {
 //
 type CfnMemberProps struct {
 	// Configuration properties of the member.
-	MemberConfiguration interface{} `json:"memberConfiguration" yaml:"memberConfiguration"`
+	MemberConfiguration interface{} `field:"required" json:"memberConfiguration" yaml:"memberConfiguration"`
 	// The unique identifier of the invitation to join the network sent to the account that creates the member.
-	InvitationId *string `json:"invitationId" yaml:"invitationId"`
+	InvitationId *string `field:"optional" json:"invitationId" yaml:"invitationId"`
 	// Configuration properties of the network to which the member belongs.
-	NetworkConfiguration interface{} `json:"networkConfiguration" yaml:"networkConfiguration"`
+	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// The unique identifier of the network to which the member belongs.
-	NetworkId *string `json:"networkId" yaml:"networkId"`
+	NetworkId *string `field:"optional" json:"networkId" yaml:"networkId"`
 }
 
 // A CloudFormation `AWS::ManagedBlockchain::Node`.
@@ -1010,8 +913,11 @@ type CfnMemberProps struct {
 // Applies to Hyperledger Fabric and Ethereum.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
-//   cfnNode := managedblockchain.NewCfnNode(this, jsii.String("MyCfnNode"), &cfnNodeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNode := awscdk.Aws_managedblockchain.NewCfnNode(this, jsii.String("MyCfnNode"), &cfnNodeProps{
 //   	networkId: jsii.String("networkId"),
 //   	nodeConfiguration: &nodeConfigurationProperty{
 //   		availabilityZone: jsii.String("availabilityZone"),
@@ -1036,16 +942,13 @@ type CfnNode interface {
 	// The unique identifier of the node.
 	AttrNodeId() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -1056,7 +959,6 @@ type CfnNode interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The unique identifier of the member to which the node belongs.
 	//
@@ -1072,9 +974,8 @@ type CfnNode interface {
 	// - `n-ethereum-ropsten`.
 	NetworkId() *string
 	SetNetworkId(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Configuration properties of a peer node.
 	NodeConfiguration() interface{}
 	SetNodeConfiguration(val interface{})
@@ -1082,27 +983,22 @@ type CfnNode interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1111,7 +1007,6 @@ type CfnNode interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1156,15 +1051,12 @@ type CfnNode interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1175,13 +1067,11 @@ type CfnNode interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1190,74 +1080,21 @@ type CfnNode interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1377,8 +1214,8 @@ func (j *jsiiProxy_CfnNode) NetworkId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNode) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnNode) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1429,13 +1266,13 @@ func (j *jsiiProxy_CfnNode) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ManagedBlockchain::Node`.
-func NewCfnNode(scope awscdk.Construct, id *string, props *CfnNodeProps) CfnNode {
+func NewCfnNode(scope constructs.Construct, id *string, props *CfnNodeProps) CfnNode {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnNode{}
 
 	_jsii_.Create(
-		"monocdk.aws_managedblockchain.CfnNode",
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1444,11 +1281,11 @@ func NewCfnNode(scope awscdk.Construct, id *string, props *CfnNodeProps) CfnNode
 }
 
 // Create a new `AWS::ManagedBlockchain::Node`.
-func NewCfnNode_Override(c CfnNode, scope awscdk.Construct, id *string, props *CfnNodeProps) {
+func NewCfnNode_Override(c CfnNode, scope constructs.Construct, id *string, props *CfnNodeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_managedblockchain.CfnNode",
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1484,14 +1321,13 @@ func (j *jsiiProxy_CfnNode) SetNodeConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnNode_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_managedblockchain.CfnNode",
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1501,14 +1337,13 @@ func CfnNode_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnNode_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_managedblockchain.CfnNode",
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1517,15 +1352,17 @@ func CfnNode_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnNode_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_managedblockchain.CfnNode",
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1538,7 +1375,7 @@ func CfnNode_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_managedblockchain.CfnNode",
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1635,48 +1472,11 @@ func (c *jsiiProxy_CfnNode) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnNode) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnNode) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnNode) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnNode) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnNode) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1706,33 +1506,12 @@ func (c *jsiiProxy_CfnNode) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnNode) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnNode) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnNode) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1751,7 +1530,10 @@ func (c *jsiiProxy_CfnNode) ValidateProperties(_properties interface{}) {
 // Configuration properties of a peer node within a membership.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   nodeConfigurationProperty := &nodeConfigurationProperty{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	instanceType: jsii.String("instanceType"),
@@ -1761,15 +1543,18 @@ type CfnNode_NodeConfigurationProperty struct {
 	// The Availability Zone in which the node exists.
 	//
 	// Required for Ethereum nodes.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// The Amazon Managed Blockchain instance type for the node.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 }
 
 // Properties for defining a `CfnNode`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNodeProps := &cfnNodeProps{
 //   	networkId: jsii.String("networkId"),
 //   	nodeConfiguration: &nodeConfigurationProperty{
@@ -1789,12 +1574,12 @@ type CfnNodeProps struct {
 	// - `n-ethereum-mainnet`
 	// - `n-ethereum-rinkeby`
 	// - `n-ethereum-ropsten`.
-	NetworkId *string `json:"networkId" yaml:"networkId"`
+	NetworkId *string `field:"required" json:"networkId" yaml:"networkId"`
 	// Configuration properties of a peer node.
-	NodeConfiguration interface{} `json:"nodeConfiguration" yaml:"nodeConfiguration"`
+	NodeConfiguration interface{} `field:"required" json:"nodeConfiguration" yaml:"nodeConfiguration"`
 	// The unique identifier of the member to which the node belongs.
 	//
 	// Applies only to Hyperledger Fabric.
-	MemberId *string `json:"memberId" yaml:"memberId"`
+	MemberId *string `field:"optional" json:"memberId" yaml:"memberId"`
 }
 

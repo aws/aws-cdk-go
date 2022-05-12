@@ -1,12 +1,12 @@
 package awsssmcontacts
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsssmcontacts/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsssmcontacts/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::SSMContacts::Contact`.
@@ -14,8 +14,11 @@ import (
 // The `AWS::SSMContacts::Contact` resource specifies a contact or escalation plan. Incident Manager contacts are a subset of actions and data types that you can use for managing responder engagement and interaction.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
-//   cfnContact := ssmcontacts.NewCfnContact(this, jsii.String("MyCfnContact"), &cfnContactProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnContact := awscdk.Aws_ssmcontacts.NewCfnContact(this, jsii.String("MyCfnContact"), &cfnContactProps{
 //   	alias: jsii.String("alias"),
 //   	displayName: jsii.String("displayName"),
 //   	plan: []interface{}{
@@ -49,16 +52,13 @@ type CfnContact interface {
 	// The Amazon Resource Name (ARN) of the `Contact` resource, such as `arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias` .
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The full name of the contact or escalation plan.
 	DisplayName() *string
@@ -72,11 +72,9 @@ type CfnContact interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// A list of stages.
 	//
 	// A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
@@ -86,12 +84,10 @@ type CfnContact interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Refers to the type of contact.
 	//
@@ -102,16 +98,13 @@ type CfnContact interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -120,7 +113,6 @@ type CfnContact interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -165,15 +157,12 @@ type CfnContact interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -184,13 +173,11 @@ type CfnContact interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -199,74 +186,21 @@ type CfnContact interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -356,8 +290,8 @@ func (j *jsiiProxy_CfnContact) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContact) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnContact) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -418,13 +352,13 @@ func (j *jsiiProxy_CfnContact) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::SSMContacts::Contact`.
-func NewCfnContact(scope awscdk.Construct, id *string, props *CfnContactProps) CfnContact {
+func NewCfnContact(scope constructs.Construct, id *string, props *CfnContactProps) CfnContact {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnContact{}
 
 	_jsii_.Create(
-		"monocdk.aws_ssmcontacts.CfnContact",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -433,11 +367,11 @@ func NewCfnContact(scope awscdk.Construct, id *string, props *CfnContactProps) C
 }
 
 // Create a new `AWS::SSMContacts::Contact`.
-func NewCfnContact_Override(c CfnContact, scope awscdk.Construct, id *string, props *CfnContactProps) {
+func NewCfnContact_Override(c CfnContact, scope constructs.Construct, id *string, props *CfnContactProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ssmcontacts.CfnContact",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -481,14 +415,13 @@ func (j *jsiiProxy_CfnContact) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnContact_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmcontacts.CfnContact",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -498,14 +431,13 @@ func CfnContact_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnContact_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmcontacts.CfnContact",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -514,15 +446,17 @@ func CfnContact_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnContact_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmcontacts.CfnContact",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -535,7 +469,7 @@ func CfnContact_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ssmcontacts.CfnContact",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -632,48 +566,11 @@ func (c *jsiiProxy_CfnContact) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnContact) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnContact) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnContact) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnContact) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnContact) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -703,33 +600,12 @@ func (c *jsiiProxy_CfnContact) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnContact) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnContact) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnContact) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -748,7 +624,10 @@ func (c *jsiiProxy_CfnContact) ValidateProperties(_properties interface{}) {
 // Information about the contact channel that Incident Manager uses to engage the contact.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   channelTargetInfoProperty := &channelTargetInfoProperty{
 //   	channelId: jsii.String("channelId"),
 //   	retryIntervalInMinutes: jsii.Number(123),
@@ -756,15 +635,18 @@ func (c *jsiiProxy_CfnContact) ValidateProperties(_properties interface{}) {
 //
 type CfnContact_ChannelTargetInfoProperty struct {
 	// The Amazon Resource Name (ARN) of the contact channel.
-	ChannelId *string `json:"channelId" yaml:"channelId"`
+	ChannelId *string `field:"required" json:"channelId" yaml:"channelId"`
 	// The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
-	RetryIntervalInMinutes *float64 `json:"retryIntervalInMinutes" yaml:"retryIntervalInMinutes"`
+	RetryIntervalInMinutes *float64 `field:"required" json:"retryIntervalInMinutes" yaml:"retryIntervalInMinutes"`
 }
 
 // The contact that Incident Manager is engaging during an incident.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   contactTargetInfoProperty := &contactTargetInfoProperty{
 //   	contactId: jsii.String("contactId"),
 //   	isEssential: jsii.Boolean(false),
@@ -772,15 +654,18 @@ type CfnContact_ChannelTargetInfoProperty struct {
 //
 type CfnContact_ContactTargetInfoProperty struct {
 	// The Amazon Resource Name (ARN) of the contact.
-	ContactId *string `json:"contactId" yaml:"contactId"`
+	ContactId *string `field:"required" json:"contactId" yaml:"contactId"`
 	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-	IsEssential interface{} `json:"isEssential" yaml:"isEssential"`
+	IsEssential interface{} `field:"required" json:"isEssential" yaml:"isEssential"`
 }
 
 // The `Stage` property type specifies a set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stageProperty := &stageProperty{
 //   	durationInMinutes: jsii.Number(123),
 //
@@ -803,15 +688,18 @@ type CfnContact_StageProperty struct {
 	// The time to wait until beginning the next stage.
 	//
 	// The duration can only be set to 0 if a target is specified.
-	DurationInMinutes *float64 `json:"durationInMinutes" yaml:"durationInMinutes"`
+	DurationInMinutes *float64 `field:"required" json:"durationInMinutes" yaml:"durationInMinutes"`
 	// The contacts or contact methods that the escalation plan or engagement plan is engaging.
-	Targets interface{} `json:"targets" yaml:"targets"`
+	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`
 }
 
 // The contact or contact channel that's being engaged.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetsProperty := &targetsProperty{
 //   	channelTargetInfo: &channelTargetInfoProperty{
 //   		channelId: jsii.String("channelId"),
@@ -825,9 +713,9 @@ type CfnContact_StageProperty struct {
 //
 type CfnContact_TargetsProperty struct {
 	// Information about the contact channel Incident Manager is engaging.
-	ChannelTargetInfo interface{} `json:"channelTargetInfo" yaml:"channelTargetInfo"`
+	ChannelTargetInfo interface{} `field:"optional" json:"channelTargetInfo" yaml:"channelTargetInfo"`
 	// The contact that Incident Manager is engaging during an incident.
-	ContactTargetInfo interface{} `json:"contactTargetInfo" yaml:"contactTargetInfo"`
+	ContactTargetInfo interface{} `field:"optional" json:"contactTargetInfo" yaml:"contactTargetInfo"`
 }
 
 // A CloudFormation `AWS::SSMContacts::ContactChannel`.
@@ -835,8 +723,11 @@ type CfnContact_TargetsProperty struct {
 // The `AWS::SSMContacts::ContactChannel` resource specifies a contact channel as the method that Incident Manager uses to engage your contact.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
-//   cfnContactChannel := ssmcontacts.NewCfnContactChannel(this, jsii.String("MyCfnContactChannel"), &cfnContactChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnContactChannel := awscdk.Aws_ssmcontacts.NewCfnContactChannel(this, jsii.String("MyCfnContactChannel"), &cfnContactChannelProps{
 //   	channelAddress: jsii.String("channelAddress"),
 //   	channelName: jsii.String("channelName"),
 //   	channelType: jsii.String("channelType"),
@@ -852,11 +743,9 @@ type CfnContactChannel interface {
 	// The Amazon Resource Name (ARN) of the `ContactChannel` resource.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The details that Incident Manager uses when trying to engage the contact channel.
 	ChannelAddress() *string
@@ -877,7 +766,6 @@ type CfnContactChannel interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// If you want to activate the channel at a later time, you can choose to defer activation.
 	//
@@ -893,36 +781,29 @@ type CfnContactChannel interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -931,7 +812,6 @@ type CfnContactChannel interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -976,15 +856,12 @@ type CfnContactChannel interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -995,13 +872,11 @@ type CfnContactChannel interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1010,74 +885,21 @@ type CfnContactChannel interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1197,8 +1019,8 @@ func (j *jsiiProxy_CfnContactChannel) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContactChannel) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnContactChannel) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1239,13 +1061,13 @@ func (j *jsiiProxy_CfnContactChannel) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::SSMContacts::ContactChannel`.
-func NewCfnContactChannel(scope awscdk.Construct, id *string, props *CfnContactChannelProps) CfnContactChannel {
+func NewCfnContactChannel(scope constructs.Construct, id *string, props *CfnContactChannelProps) CfnContactChannel {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnContactChannel{}
 
 	_jsii_.Create(
-		"monocdk.aws_ssmcontacts.CfnContactChannel",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1254,11 +1076,11 @@ func NewCfnContactChannel(scope awscdk.Construct, id *string, props *CfnContactC
 }
 
 // Create a new `AWS::SSMContacts::ContactChannel`.
-func NewCfnContactChannel_Override(c CfnContactChannel, scope awscdk.Construct, id *string, props *CfnContactChannelProps) {
+func NewCfnContactChannel_Override(c CfnContactChannel, scope constructs.Construct, id *string, props *CfnContactChannelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ssmcontacts.CfnContactChannel",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1310,14 +1132,13 @@ func (j *jsiiProxy_CfnContactChannel) SetDeferActivation(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnContactChannel_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmcontacts.CfnContactChannel",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1327,14 +1148,13 @@ func CfnContactChannel_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnContactChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmcontacts.CfnContactChannel",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1343,15 +1163,17 @@ func CfnContactChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnContactChannel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmcontacts.CfnContactChannel",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1364,7 +1186,7 @@ func CfnContactChannel_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ssmcontacts.CfnContactChannel",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1461,48 +1283,11 @@ func (c *jsiiProxy_CfnContactChannel) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnContactChannel) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnContactChannel) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnContactChannel) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnContactChannel) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnContactChannel) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1532,33 +1317,12 @@ func (c *jsiiProxy_CfnContactChannel) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnContactChannel) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnContactChannel) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnContactChannel) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1577,7 +1341,10 @@ func (c *jsiiProxy_CfnContactChannel) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnContactChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnContactChannelProps := &cfnContactChannelProps{
 //   	channelAddress: jsii.String("channelAddress"),
 //   	channelName: jsii.String("channelName"),
@@ -1590,27 +1357,30 @@ func (c *jsiiProxy_CfnContactChannel) ValidateProperties(_properties interface{}
 //
 type CfnContactChannelProps struct {
 	// The details that Incident Manager uses when trying to engage the contact channel.
-	ChannelAddress *string `json:"channelAddress" yaml:"channelAddress"`
+	ChannelAddress *string `field:"required" json:"channelAddress" yaml:"channelAddress"`
 	// The name of the contact channel.
-	ChannelName *string `json:"channelName" yaml:"channelName"`
+	ChannelName *string `field:"required" json:"channelName" yaml:"channelName"`
 	// The type of the contact channel. Incident Manager supports three contact methods:.
 	//
 	// - SMS
 	// - VOICE
 	// - EMAIL.
-	ChannelType *string `json:"channelType" yaml:"channelType"`
+	ChannelType *string `field:"required" json:"channelType" yaml:"channelType"`
 	// The Amazon Resource Name (ARN) of the contact you are adding the contact channel to.
-	ContactId *string `json:"contactId" yaml:"contactId"`
+	ContactId *string `field:"required" json:"contactId" yaml:"contactId"`
 	// If you want to activate the channel at a later time, you can choose to defer activation.
 	//
 	// Incident Manager can't engage your contact channel until it has been activated.
-	DeferActivation interface{} `json:"deferActivation" yaml:"deferActivation"`
+	DeferActivation interface{} `field:"optional" json:"deferActivation" yaml:"deferActivation"`
 }
 
 // Properties for defining a `CfnContact`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnContactProps := &cfnContactProps{
 //   	alias: jsii.String("alias"),
 //   	displayName: jsii.String("displayName"),
@@ -1638,16 +1408,16 @@ type CfnContactChannelProps struct {
 //
 type CfnContactProps struct {
 	// The unique and identifiable alias of the contact or escalation plan.
-	Alias *string `json:"alias" yaml:"alias"`
+	Alias *string `field:"required" json:"alias" yaml:"alias"`
 	// The full name of the contact or escalation plan.
-	DisplayName *string `json:"displayName" yaml:"displayName"`
+	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
 	// A list of stages.
 	//
 	// A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
-	Plan interface{} `json:"plan" yaml:"plan"`
+	Plan interface{} `field:"required" json:"plan" yaml:"plan"`
 	// Refers to the type of contact.
 	//
 	// A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

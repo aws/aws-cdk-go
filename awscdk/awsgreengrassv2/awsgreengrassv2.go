@@ -1,12 +1,12 @@
 package awsgreengrassv2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsgreengrassv2/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsgreengrassv2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::GreengrassV2::ComponentVersion`.
@@ -36,8 +36,11 @@ import (
 // To create a component from a Lambda function, specify `lambdaFunction` when you call this operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrassv2 "github.com/aws/aws-cdk-go/awscdk/aws_greengrassv2"
-//   cfnComponentVersion := greengrassv2.NewCfnComponentVersion(this, jsii.String("MyCfnComponentVersion"), &cfnComponentVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnComponentVersion := awscdk.Aws_greengrassv2.NewCfnComponentVersion(this, jsii.String("MyCfnComponentVersion"), &cfnComponentVersionProps{
 //   	inlineRecipe: jsii.String("inlineRecipe"),
 //   	lambdaFunction: &lambdaFunctionRecipeSourceProperty{
 //   		componentDependencies: map[string]interface{}{
@@ -116,16 +119,13 @@ type CfnComponentVersion interface {
 	// The version of the component.
 	AttrComponentVersion() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The recipe to use to create the component.
 	//
@@ -148,21 +148,17 @@ type CfnComponentVersion interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Application-specific metadata to attach to the component version.
 	//
@@ -179,16 +175,13 @@ type CfnComponentVersion interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -197,7 +190,6 @@ type CfnComponentVersion interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -242,15 +234,12 @@ type CfnComponentVersion interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -261,13 +250,11 @@ type CfnComponentVersion interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -276,74 +263,21 @@ type CfnComponentVersion interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -453,8 +387,8 @@ func (j *jsiiProxy_CfnComponentVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponentVersion) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnComponentVersion) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -505,13 +439,13 @@ func (j *jsiiProxy_CfnComponentVersion) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::GreengrassV2::ComponentVersion`.
-func NewCfnComponentVersion(scope awscdk.Construct, id *string, props *CfnComponentVersionProps) CfnComponentVersion {
+func NewCfnComponentVersion(scope constructs.Construct, id *string, props *CfnComponentVersionProps) CfnComponentVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnComponentVersion{}
 
 	_jsii_.Create(
-		"monocdk.aws_greengrassv2.CfnComponentVersion",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -520,11 +454,11 @@ func NewCfnComponentVersion(scope awscdk.Construct, id *string, props *CfnCompon
 }
 
 // Create a new `AWS::GreengrassV2::ComponentVersion`.
-func NewCfnComponentVersion_Override(c CfnComponentVersion, scope awscdk.Construct, id *string, props *CfnComponentVersionProps) {
+func NewCfnComponentVersion_Override(c CfnComponentVersion, scope constructs.Construct, id *string, props *CfnComponentVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_greengrassv2.CfnComponentVersion",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -552,14 +486,13 @@ func (j *jsiiProxy_CfnComponentVersion) SetLambdaFunction(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnComponentVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_greengrassv2.CfnComponentVersion",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -569,14 +502,13 @@ func CfnComponentVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnComponentVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_greengrassv2.CfnComponentVersion",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -585,15 +517,17 @@ func CfnComponentVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnComponentVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_greengrassv2.CfnComponentVersion",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -606,7 +540,7 @@ func CfnComponentVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_greengrassv2.CfnComponentVersion",
+		"aws-cdk-lib.aws_greengrassv2.CfnComponentVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -703,48 +637,11 @@ func (c *jsiiProxy_CfnComponentVersion) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-func (c *jsiiProxy_CfnComponentVersion) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnComponentVersion) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnComponentVersion) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnComponentVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnComponentVersion) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -774,33 +671,12 @@ func (c *jsiiProxy_CfnComponentVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnComponentVersion) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnComponentVersion) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnComponentVersion) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -819,7 +695,10 @@ func (c *jsiiProxy_CfnComponentVersion) ValidateProperties(_properties interface
 // Contains information about a component dependency for a Lambda function component.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrassv2 "github.com/aws/aws-cdk-go/awscdk/aws_greengrassv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   componentDependencyRequirementProperty := &componentDependencyRequirementProperty{
 //   	dependencyType: jsii.String("dependencyType"),
 //   	versionRequirement: jsii.String("versionRequirement"),
@@ -832,17 +711,20 @@ type CfnComponentVersion_ComponentDependencyRequirementProperty struct {
 	// - `HARD` – The component restarts if the dependency changes state.
 	//
 	// Default: `HARD`.
-	DependencyType *string `json:"dependencyType" yaml:"dependencyType"`
+	DependencyType *string `field:"optional" json:"dependencyType" yaml:"dependencyType"`
 	// The component version requirement for the component dependency.
 	//
 	// AWS IoT Greengrass uses semantic version constraints. For more information, see [Semantic Versioning](https://docs.aws.amazon.com/https://semver.org/) .
-	VersionRequirement *string `json:"versionRequirement" yaml:"versionRequirement"`
+	VersionRequirement *string `field:"optional" json:"versionRequirement" yaml:"versionRequirement"`
 }
 
 // Contains information about a platform that a component supports.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrassv2 "github.com/aws/aws-cdk-go/awscdk/aws_greengrassv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   componentPlatformProperty := &componentPlatformProperty{
 //   	attributes: map[string]*string{
 //   		"attributesKey": jsii.String("attributes"),
@@ -854,17 +736,20 @@ type CfnComponentVersion_ComponentPlatformProperty struct {
 	// A dictionary of attributes for the platform.
 	//
 	// The  software defines the `os` and `platform` by default. You can specify additional platform attributes for a core device when you deploy the Greengrass nucleus component. For more information, see the [Greengrass nucleus component](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html) in the *AWS IoT Greengrass V2 Developer Guide* .
-	Attributes interface{} `json:"attributes" yaml:"attributes"`
+	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// The friendly name of the platform. This name helps you identify the platform.
 	//
 	// If you omit this parameter, AWS IoT Greengrass creates a friendly name from the `os` and `architecture` of the platform.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Contains information about a container in which AWS Lambda functions run on Greengrass core devices.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrassv2 "github.com/aws/aws-cdk-go/awscdk/aws_greengrassv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaContainerParamsProperty := &lambdaContainerParamsProperty{
 //   	devices: []interface{}{
 //   		&lambdaDeviceMountProperty{
@@ -887,23 +772,26 @@ type CfnComponentVersion_ComponentPlatformProperty struct {
 //
 type CfnComponentVersion_LambdaContainerParamsProperty struct {
 	// The list of system devices that the container can access.
-	Devices interface{} `json:"devices" yaml:"devices"`
+	Devices interface{} `field:"optional" json:"devices" yaml:"devices"`
 	// The memory size of the container, expressed in kilobytes.
 	//
 	// Default: `16384` (16 MB).
-	MemorySizeInKb *float64 `json:"memorySizeInKb" yaml:"memorySizeInKb"`
+	MemorySizeInKb *float64 `field:"optional" json:"memorySizeInKb" yaml:"memorySizeInKb"`
 	// Whether or not the container can read information from the device's `/sys` folder.
 	//
 	// Default: `false`.
-	MountRoSysfs interface{} `json:"mountRoSysfs" yaml:"mountRoSysfs"`
+	MountRoSysfs interface{} `field:"optional" json:"mountRoSysfs" yaml:"mountRoSysfs"`
 	// The list of volumes that the container can access.
-	Volumes interface{} `json:"volumes" yaml:"volumes"`
+	Volumes interface{} `field:"optional" json:"volumes" yaml:"volumes"`
 }
 
 // Contains information about a device that Linux processes in a container can access.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrassv2 "github.com/aws/aws-cdk-go/awscdk/aws_greengrassv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaDeviceMountProperty := &lambdaDeviceMountProperty{
 //   	addGroupOwner: jsii.Boolean(false),
 //   	path: jsii.String("path"),
@@ -914,13 +802,13 @@ type CfnComponentVersion_LambdaDeviceMountProperty struct {
 	// Whether or not to add the component's system user as an owner of the device.
 	//
 	// Default: `false`.
-	AddGroupOwner interface{} `json:"addGroupOwner" yaml:"addGroupOwner"`
+	AddGroupOwner interface{} `field:"optional" json:"addGroupOwner" yaml:"addGroupOwner"`
 	// The mount path for the device in the file system.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The permission to access the device: read/only ( `ro` ) or read/write ( `rw` ).
 	//
 	// Default: `ro`.
-	Permission *string `json:"permission" yaml:"permission"`
+	Permission *string `field:"optional" json:"permission" yaml:"permission"`
 }
 
 // Contains information about an event source for an AWS Lambda function.
@@ -928,7 +816,10 @@ type CfnComponentVersion_LambdaDeviceMountProperty struct {
 // The event source defines the topics on which this Lambda function subscribes to receive messages that run the function.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrassv2 "github.com/aws/aws-cdk-go/awscdk/aws_greengrassv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaEventSourceProperty := &lambdaEventSourceProperty{
 //   	topic: jsii.String("topic"),
 //   	type: jsii.String("type"),
@@ -936,18 +827,21 @@ type CfnComponentVersion_LambdaDeviceMountProperty struct {
 //
 type CfnComponentVersion_LambdaEventSourceProperty struct {
 	// The topic to which to subscribe to receive event messages.
-	Topic *string `json:"topic" yaml:"topic"`
+	Topic *string `field:"optional" json:"topic" yaml:"topic"`
 	// The type of event source. Choose from the following options:.
 	//
 	// - `PUB_SUB` – Subscribe to local publish/subscribe messages. This event source type doesn't support MQTT wildcards ( `+` and `#` ) in the event source topic.
 	// - `IOT_CORE` – Subscribe to AWS IoT Core MQTT messages. This event source type supports MQTT wildcards ( `+` and `#` ) in the event source topic.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Contains parameters for a Lambda function that runs on AWS IoT Greengrass .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrassv2 "github.com/aws/aws-cdk-go/awscdk/aws_greengrassv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaExecutionParametersProperty := &lambdaExecutionParametersProperty{
 //   	environmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
@@ -994,44 +888,47 @@ type CfnComponentVersion_LambdaEventSourceProperty struct {
 //
 type CfnComponentVersion_LambdaExecutionParametersProperty struct {
 	// The map of environment variables that are available to the Lambda function when it runs.
-	EnvironmentVariables interface{} `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The list of event sources to which to subscribe to receive work messages.
 	//
 	// The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
-	EventSources interface{} `json:"eventSources" yaml:"eventSources"`
+	EventSources interface{} `field:"optional" json:"eventSources" yaml:"eventSources"`
 	// The list of arguments to pass to the Lambda function when it runs.
-	ExecArgs *[]*string `json:"execArgs" yaml:"execArgs"`
+	ExecArgs *[]*string `field:"optional" json:"execArgs" yaml:"execArgs"`
 	// The encoding type that the Lambda function supports.
 	//
 	// Default: `json`.
-	InputPayloadEncodingType *string `json:"inputPayloadEncodingType" yaml:"inputPayloadEncodingType"`
+	InputPayloadEncodingType *string `field:"optional" json:"inputPayloadEncodingType" yaml:"inputPayloadEncodingType"`
 	// The parameters for the Linux process that contains the Lambda function.
-	LinuxProcessParams interface{} `json:"linuxProcessParams" yaml:"linuxProcessParams"`
+	LinuxProcessParams interface{} `field:"optional" json:"linuxProcessParams" yaml:"linuxProcessParams"`
 	// The maximum amount of time in seconds that a non-pinned Lambda function can idle before the  software stops its process.
-	MaxIdleTimeInSeconds *float64 `json:"maxIdleTimeInSeconds" yaml:"maxIdleTimeInSeconds"`
+	MaxIdleTimeInSeconds *float64 `field:"optional" json:"maxIdleTimeInSeconds" yaml:"maxIdleTimeInSeconds"`
 	// The maximum number of instances that a non-pinned Lambda function can run at the same time.
-	MaxInstancesCount *float64 `json:"maxInstancesCount" yaml:"maxInstancesCount"`
+	MaxInstancesCount *float64 `field:"optional" json:"maxInstancesCount" yaml:"maxInstancesCount"`
 	// The maximum size of the message queue for the Lambda function component.
 	//
 	// The Greengrass core device stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda function to consume each message.
-	MaxQueueSize *float64 `json:"maxQueueSize" yaml:"maxQueueSize"`
+	MaxQueueSize *float64 `field:"optional" json:"maxQueueSize" yaml:"maxQueueSize"`
 	// Whether or not the Lambda function is pinned, or long-lived.
 	//
 	// - A pinned Lambda function starts when the  starts and keeps running in its own container.
 	// - A non-pinned Lambda function starts only when it receives a work item and exists after it idles for `maxIdleTimeInSeconds` . If the function has multiple work items, the  software creates multiple instances of the function.
 	//
 	// Default: `true`.
-	Pinned interface{} `json:"pinned" yaml:"pinned"`
+	Pinned interface{} `field:"optional" json:"pinned" yaml:"pinned"`
 	// The interval in seconds at which a pinned (also known as long-lived) Lambda function component sends status updates to the Lambda manager component.
-	StatusTimeoutInSeconds *float64 `json:"statusTimeoutInSeconds" yaml:"statusTimeoutInSeconds"`
+	StatusTimeoutInSeconds *float64 `field:"optional" json:"statusTimeoutInSeconds" yaml:"statusTimeoutInSeconds"`
 	// The maximum amount of time in seconds that the Lambda function can process a work item.
-	TimeoutInSeconds *float64 `json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
+	TimeoutInSeconds *float64 `field:"optional" json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
 }
 
 // Contains information about an AWS Lambda function to import to create a component.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrassv2 "github.com/aws/aws-cdk-go/awscdk/aws_greengrassv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaFunctionRecipeSourceProperty := &lambdaFunctionRecipeSourceProperty{
 //   	componentDependencies: map[string]interface{}{
 //   		"componentDependenciesKey": &ComponentDependencyRequirementProperty{
@@ -1097,29 +994,32 @@ type CfnComponentVersion_LambdaExecutionParametersProperty struct {
 //
 type CfnComponentVersion_LambdaFunctionRecipeSourceProperty struct {
 	// The component versions on which this Lambda function component depends.
-	ComponentDependencies interface{} `json:"componentDependencies" yaml:"componentDependencies"`
+	ComponentDependencies interface{} `field:"optional" json:"componentDependencies" yaml:"componentDependencies"`
 	// The system and runtime parameters for the Lambda function as it runs on the Greengrass core device.
-	ComponentLambdaParameters interface{} `json:"componentLambdaParameters" yaml:"componentLambdaParameters"`
+	ComponentLambdaParameters interface{} `field:"optional" json:"componentLambdaParameters" yaml:"componentLambdaParameters"`
 	// The name of the component.
 	//
 	// Defaults to the name of the Lambda function.
-	ComponentName *string `json:"componentName" yaml:"componentName"`
+	ComponentName *string `field:"optional" json:"componentName" yaml:"componentName"`
 	// The platforms that the component version supports.
-	ComponentPlatforms interface{} `json:"componentPlatforms" yaml:"componentPlatforms"`
+	ComponentPlatforms interface{} `field:"optional" json:"componentPlatforms" yaml:"componentPlatforms"`
 	// The version of the component.
 	//
 	// Defaults to the version of the Lambda function as a semantic version. For example, if your function version is `3` , the component version becomes `3.0.0` .
-	ComponentVersion *string `json:"componentVersion" yaml:"componentVersion"`
+	ComponentVersion *string `field:"optional" json:"componentVersion" yaml:"componentVersion"`
 	// The ARN of the Lambda function.
 	//
 	// The ARN must include the version of the function to import. You can't use version aliases like `$LATEST` .
-	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
+	LambdaArn *string `field:"optional" json:"lambdaArn" yaml:"lambdaArn"`
 }
 
 // Contains parameters for a Linux process that contains an AWS Lambda function.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrassv2 "github.com/aws/aws-cdk-go/awscdk/aws_greengrassv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaLinuxProcessParamsProperty := &lambdaLinuxProcessParamsProperty{
 //   	containerParams: &lambdaContainerParamsProperty{
 //   		devices: []interface{}{
@@ -1145,13 +1045,13 @@ type CfnComponentVersion_LambdaFunctionRecipeSourceProperty struct {
 //
 type CfnComponentVersion_LambdaLinuxProcessParamsProperty struct {
 	// The parameters for the container in which the Lambda function runs.
-	ContainerParams interface{} `json:"containerParams" yaml:"containerParams"`
+	ContainerParams interface{} `field:"optional" json:"containerParams" yaml:"containerParams"`
 	// The isolation mode for the process that contains the Lambda function.
 	//
 	// The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
 	//
 	// Default: `GreengrassContainer`.
-	IsolationMode *string `json:"isolationMode" yaml:"isolationMode"`
+	IsolationMode *string `field:"optional" json:"isolationMode" yaml:"isolationMode"`
 }
 
 // Contains information about a volume that Linux processes in a container can access.
@@ -1159,7 +1059,10 @@ type CfnComponentVersion_LambdaLinuxProcessParamsProperty struct {
 // When you define a volume, the  software mounts the source files to the destination inside the container.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrassv2 "github.com/aws/aws-cdk-go/awscdk/aws_greengrassv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaVolumeMountProperty := &lambdaVolumeMountProperty{
 //   	addGroupOwner: jsii.Boolean(false),
 //   	destinationPath: jsii.String("destinationPath"),
@@ -1171,21 +1074,24 @@ type CfnComponentVersion_LambdaVolumeMountProperty struct {
 	// Whether or not to add the AWS IoT Greengrass user group as an owner of the volume.
 	//
 	// Default: `false`.
-	AddGroupOwner interface{} `json:"addGroupOwner" yaml:"addGroupOwner"`
+	AddGroupOwner interface{} `field:"optional" json:"addGroupOwner" yaml:"addGroupOwner"`
 	// The path to the logical volume in the file system.
-	DestinationPath *string `json:"destinationPath" yaml:"destinationPath"`
+	DestinationPath *string `field:"optional" json:"destinationPath" yaml:"destinationPath"`
 	// The permission to access the volume: read/only ( `ro` ) or read/write ( `rw` ).
 	//
 	// Default: `ro`.
-	Permission *string `json:"permission" yaml:"permission"`
+	Permission *string `field:"optional" json:"permission" yaml:"permission"`
 	// The path to the physical volume in the file system.
-	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
+	SourcePath *string `field:"optional" json:"sourcePath" yaml:"sourcePath"`
 }
 
 // Properties for defining a `CfnComponentVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrassv2 "github.com/aws/aws-cdk-go/awscdk/aws_greengrassv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnComponentVersionProps := &cfnComponentVersionProps{
 //   	inlineRecipe: jsii.String("inlineRecipe"),
 //   	lambdaFunction: &lambdaFunctionRecipeSourceProperty{
@@ -1261,11 +1167,11 @@ type CfnComponentVersionProps struct {
 	// The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
 	//
 	// You must specify either `InlineRecipe` or `LambdaFunction` .
-	InlineRecipe *string `json:"inlineRecipe" yaml:"inlineRecipe"`
+	InlineRecipe *string `field:"optional" json:"inlineRecipe" yaml:"inlineRecipe"`
 	// The parameters to create a component from a Lambda function.
 	//
 	// You must specify either `InlineRecipe` or `LambdaFunction` .
-	LambdaFunction interface{} `json:"lambdaFunction" yaml:"lambdaFunction"`
+	LambdaFunction interface{} `field:"optional" json:"lambdaFunction" yaml:"lambdaFunction"`
 	// Application-specific metadata to attach to the component version.
 	//
 	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
@@ -1276,6 +1182,6 @@ type CfnComponentVersionProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

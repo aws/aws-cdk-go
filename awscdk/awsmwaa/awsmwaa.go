@@ -1,12 +1,12 @@
 package awsmwaa
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsmwaa/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsmwaa/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::MWAA::Environment`.
@@ -14,11 +14,14 @@ import (
 // The `AWS::MWAA::Environment` resource creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mwaa "github.com/aws/aws-cdk-go/awscdk/aws_mwaa"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var airflowConfigurationOptions interface{}
 //   var tags interface{}
-//   cfnEnvironment := mwaa.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &cfnEnvironmentProps{
+//
+//   cfnEnvironment := awscdk.Aws_mwaa.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &cfnEnvironmentProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -104,16 +107,13 @@ type CfnEnvironment interface {
 	// The URL of your Apache Airflow UI.
 	AttrWebserverUrl() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The relative path to the DAGs folder on your Amazon S3 bucket.
 	//
@@ -147,7 +147,6 @@ type CfnEnvironment interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The maximum number of workers that you want to run in your environment.
 	//
@@ -167,9 +166,8 @@ type CfnEnvironment interface {
 	// To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
 	NetworkConfiguration() interface{}
 	SetNetworkConfiguration(val interface{})
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The version of the plugins.zip file on your Amazon S3 bucket. To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
 	PluginsS3ObjectVersion() *string
 	SetPluginsS3ObjectVersion(val *string)
@@ -180,7 +178,6 @@ type CfnEnvironment interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The version of the requirements.txt file on your Amazon S3 bucket. To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
 	RequirementsS3ObjectVersion() *string
@@ -202,7 +199,6 @@ type CfnEnvironment interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The key-value tag pairs associated to your environment.
 	//
@@ -212,7 +208,6 @@ type CfnEnvironment interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The Apache Airflow *Web server* access mode.
 	//
@@ -227,13 +222,11 @@ type CfnEnvironment interface {
 	WeeklyMaintenanceWindowStart() *string
 	SetWeeklyMaintenanceWindowStart(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -242,7 +235,6 @@ type CfnEnvironment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -287,15 +279,12 @@ type CfnEnvironment interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -306,13 +295,11 @@ type CfnEnvironment interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -321,74 +308,21 @@ type CfnEnvironment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -628,8 +562,8 @@ func (j *jsiiProxy_CfnEnvironment) NetworkConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnEnvironment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -760,13 +694,13 @@ func (j *jsiiProxy_CfnEnvironment) WeeklyMaintenanceWindowStart() *string {
 
 
 // Create a new `AWS::MWAA::Environment`.
-func NewCfnEnvironment(scope awscdk.Construct, id *string, props *CfnEnvironmentProps) CfnEnvironment {
+func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnvironmentProps) CfnEnvironment {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEnvironment{}
 
 	_jsii_.Create(
-		"monocdk.aws_mwaa.CfnEnvironment",
+		"aws-cdk-lib.aws_mwaa.CfnEnvironment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -775,11 +709,11 @@ func NewCfnEnvironment(scope awscdk.Construct, id *string, props *CfnEnvironment
 }
 
 // Create a new `AWS::MWAA::Environment`.
-func NewCfnEnvironment_Override(c CfnEnvironment, scope awscdk.Construct, id *string, props *CfnEnvironmentProps) {
+func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id *string, props *CfnEnvironmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_mwaa.CfnEnvironment",
+		"aws-cdk-lib.aws_mwaa.CfnEnvironment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -943,14 +877,13 @@ func (j *jsiiProxy_CfnEnvironment) SetWeeklyMaintenanceWindowStart(val *string) 
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnEnvironment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_mwaa.CfnEnvironment",
+		"aws-cdk-lib.aws_mwaa.CfnEnvironment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -960,14 +893,13 @@ func CfnEnvironment_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnEnvironment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_mwaa.CfnEnvironment",
+		"aws-cdk-lib.aws_mwaa.CfnEnvironment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -976,15 +908,17 @@ func CfnEnvironment_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnEnvironment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_mwaa.CfnEnvironment",
+		"aws-cdk-lib.aws_mwaa.CfnEnvironment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -997,7 +931,7 @@ func CfnEnvironment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_mwaa.CfnEnvironment",
+		"aws-cdk-lib.aws_mwaa.CfnEnvironment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1094,48 +1028,11 @@ func (c *jsiiProxy_CfnEnvironment) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnEnvironment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnEnvironment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnEnvironment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnEnvironment) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnEnvironment) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1165,33 +1062,12 @@ func (c *jsiiProxy_CfnEnvironment) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnEnvironment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnEnvironment) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnEnvironment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1210,7 +1086,10 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 // The type of Apache Airflow logs to send to CloudWatch Logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mwaa "github.com/aws/aws-cdk-go/awscdk/aws_mwaa"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggingConfigurationProperty := &loggingConfigurationProperty{
 //   	dagProcessingLogs: &moduleLoggingConfigurationProperty{
 //   		cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
@@ -1241,21 +1120,24 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 //
 type CfnEnvironment_LoggingConfigurationProperty struct {
 	// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
-	DagProcessingLogs interface{} `json:"dagProcessingLogs" yaml:"dagProcessingLogs"`
+	DagProcessingLogs interface{} `field:"optional" json:"dagProcessingLogs" yaml:"dagProcessingLogs"`
 	// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
-	SchedulerLogs interface{} `json:"schedulerLogs" yaml:"schedulerLogs"`
+	SchedulerLogs interface{} `field:"optional" json:"schedulerLogs" yaml:"schedulerLogs"`
 	// Defines the task logs sent to CloudWatch Logs and the logging level to send.
-	TaskLogs interface{} `json:"taskLogs" yaml:"taskLogs"`
+	TaskLogs interface{} `field:"optional" json:"taskLogs" yaml:"taskLogs"`
 	// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
-	WebserverLogs interface{} `json:"webserverLogs" yaml:"webserverLogs"`
+	WebserverLogs interface{} `field:"optional" json:"webserverLogs" yaml:"webserverLogs"`
 	// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
-	WorkerLogs interface{} `json:"workerLogs" yaml:"workerLogs"`
+	WorkerLogs interface{} `field:"optional" json:"workerLogs" yaml:"workerLogs"`
 }
 
 // Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mwaa "github.com/aws/aws-cdk-go/awscdk/aws_mwaa"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   moduleLoggingConfigurationProperty := &moduleLoggingConfigurationProperty{
 //   	cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
 //   	enabled: jsii.Boolean(false),
@@ -1266,11 +1148,11 @@ type CfnEnvironment_ModuleLoggingConfigurationProperty struct {
 	// The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
 	//
 	// > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
-	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
+	CloudWatchLogGroupArn *string `field:"optional" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
 	// Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
-	LogLevel *string `json:"logLevel" yaml:"logLevel"`
+	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`
 }
 
 // The VPC networking components used to secure and enable network traffic between the AWS resources for your environment.
@@ -1278,7 +1160,10 @@ type CfnEnvironment_ModuleLoggingConfigurationProperty struct {
 // To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mwaa "github.com/aws/aws-cdk-go/awscdk/aws_mwaa"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkConfigurationProperty := &networkConfigurationProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -1292,20 +1177,23 @@ type CfnEnvironment_NetworkConfigurationProperty struct {
 	// A list of one or more security group IDs.
 	//
 	// Accepts up to 5 security group IDs. A security group must be attached to the same VPC as the subnets. To learn more, see [Security in your VPC on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html) .
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of subnet IDs.
 	//
 	// *Required* to create an environment. Must be private subnets in two different availability zones. A subnet must be attached to the same VPC as the security group. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 }
 
 // Properties for defining a `CfnEnvironment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mwaa "github.com/aws/aws-cdk-go/awscdk/aws_mwaa"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var airflowConfigurationOptions interface{}
 //   var tags interface{}
+//
 //   cfnEnvironmentProps := &cfnEnvironmentProps{
 //   	name: jsii.String("name"),
 //
@@ -1366,75 +1254,75 @@ type CfnEnvironment_NetworkConfigurationProperty struct {
 //
 type CfnEnvironmentProps struct {
 	// The name of your Amazon MWAA environment.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A list of key-value pairs containing the Airflow configuration options for your environment.
 	//
 	// For example, `core.default_timezone: utc` . To learn more, see [Apache Airflow configuration options](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html) .
-	AirflowConfigurationOptions interface{} `json:"airflowConfigurationOptions" yaml:"airflowConfigurationOptions"`
+	AirflowConfigurationOptions interface{} `field:"optional" json:"airflowConfigurationOptions" yaml:"airflowConfigurationOptions"`
 	// The version of Apache Airflow to use for the environment.
 	//
 	// If no value is specified, defaults to the latest version. Valid values: `2.0.2` , `1.10.12` .
-	AirflowVersion *string `json:"airflowVersion" yaml:"airflowVersion"`
+	AirflowVersion *string `field:"optional" json:"airflowVersion" yaml:"airflowVersion"`
 	// The relative path to the DAGs folder on your Amazon S3 bucket.
 	//
 	// For example, `dags` . To learn more, see [Adding or updating DAGs](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html) .
-	DagS3Path *string `json:"dagS3Path" yaml:"dagS3Path"`
+	DagS3Path *string `field:"optional" json:"dagS3Path" yaml:"dagS3Path"`
 	// The environment class type.
 	//
 	// Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
-	EnvironmentClass *string `json:"environmentClass" yaml:"environmentClass"`
+	EnvironmentClass *string `field:"optional" json:"environmentClass" yaml:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment.
 	//
 	// For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
-	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The AWS Key Management Service (KMS) key to encrypt and decrypt the data in your environment.
 	//
 	// You can use an AWS KMS key managed by MWAA, or a customer-managed KMS key (advanced).
-	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey *string `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
-	LoggingConfiguration interface{} `json:"loggingConfiguration" yaml:"loggingConfiguration"`
+	LoggingConfiguration interface{} `field:"optional" json:"loggingConfiguration" yaml:"loggingConfiguration"`
 	// The maximum number of workers that you want to run in your environment.
 	//
 	// MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
-	MaxWorkers *float64 `json:"maxWorkers" yaml:"maxWorkers"`
+	MaxWorkers *float64 `field:"optional" json:"maxWorkers" yaml:"maxWorkers"`
 	// The minimum number of workers that you want to run in your environment.
 	//
 	// MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
-	MinWorkers *float64 `json:"minWorkers" yaml:"minWorkers"`
+	MinWorkers *float64 `field:"optional" json:"minWorkers" yaml:"minWorkers"`
 	// The VPC networking components used to secure and enable network traffic between the AWS resources for your environment.
 	//
 	// To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
-	NetworkConfiguration interface{} `json:"networkConfiguration" yaml:"networkConfiguration"`
+	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// The version of the plugins.zip file on your Amazon S3 bucket. To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
-	PluginsS3ObjectVersion *string `json:"pluginsS3ObjectVersion" yaml:"pluginsS3ObjectVersion"`
+	PluginsS3ObjectVersion *string `field:"optional" json:"pluginsS3ObjectVersion" yaml:"pluginsS3ObjectVersion"`
 	// The relative path to the `plugins.zip` file on your Amazon S3 bucket. For example, `plugins.zip` . To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
-	PluginsS3Path *string `json:"pluginsS3Path" yaml:"pluginsS3Path"`
+	PluginsS3Path *string `field:"optional" json:"pluginsS3Path" yaml:"pluginsS3Path"`
 	// The version of the requirements.txt file on your Amazon S3 bucket. To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
-	RequirementsS3ObjectVersion *string `json:"requirementsS3ObjectVersion" yaml:"requirementsS3ObjectVersion"`
+	RequirementsS3ObjectVersion *string `field:"optional" json:"requirementsS3ObjectVersion" yaml:"requirementsS3ObjectVersion"`
 	// The relative path to the `requirements.txt` file on your Amazon S3 bucket. For example, `requirements.txt` . To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
-	RequirementsS3Path *string `json:"requirementsS3Path" yaml:"requirementsS3Path"`
+	RequirementsS3Path *string `field:"optional" json:"requirementsS3Path" yaml:"requirementsS3Path"`
 	// The number of schedulers that you want to run in your environment. Valid values:.
 	//
 	// - *v2.0.2* - Accepts between 2 to 5. Defaults to 2.
 	// - *v1.10.12* - Accepts 1.
-	Schedulers *float64 `json:"schedulers" yaml:"schedulers"`
+	Schedulers *float64 `field:"optional" json:"schedulers" yaml:"schedulers"`
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored.
 	//
 	// For example, `arn:aws:s3:::my-airflow-bucket-unique-name` . To learn more, see [Create an Amazon S3 bucket for Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html) .
-	SourceBucketArn *string `json:"sourceBucketArn" yaml:"sourceBucketArn"`
+	SourceBucketArn *string `field:"optional" json:"sourceBucketArn" yaml:"sourceBucketArn"`
 	// The key-value tag pairs associated to your environment.
 	//
 	// For example, `"Environment": "Staging"` . To learn more, see [Tagging](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// The Apache Airflow *Web server* access mode.
 	//
 	// To learn more, see [Apache Airflow access modes](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html) . Valid values: `PRIVATE_ONLY` or `PUBLIC_ONLY` .
-	WebserverAccessMode *string `json:"webserverAccessMode" yaml:"webserverAccessMode"`
+	WebserverAccessMode *string `field:"optional" json:"webserverAccessMode" yaml:"webserverAccessMode"`
 	// The day and time of the week to start weekly maintenance updates of your environment in the following format: `DAY:HH:MM` .
 	//
 	// For example: `TUE:03:30` . You can specify a start time in 30 minute increments only. Supported input includes the following:
 	//
 	// - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\d|2[0-3]):(00|30).
-	WeeklyMaintenanceWindowStart *string `json:"weeklyMaintenanceWindowStart" yaml:"weeklyMaintenanceWindowStart"`
+	WeeklyMaintenanceWindowStart *string `field:"optional" json:"weeklyMaintenanceWindowStart" yaml:"weeklyMaintenanceWindowStart"`
 }
 

@@ -1,12 +1,12 @@
 package awsfis
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsfis/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsfis/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::FIS::ExperimentTemplate`.
@@ -22,11 +22,14 @@ import (
 // For more information, see [Experiment templates](https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html) in the *AWS Fault Injection Simulator User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudWatchLogsConfiguration interface{}
 //   var s3Configuration interface{}
-//   cfnExperimentTemplate := fis.NewCfnExperimentTemplate(this, jsii.String("MyCfnExperimentTemplate"), &cfnExperimentTemplateProps{
+//
+//   cfnExperimentTemplate := awscdk.Aws_fis.NewCfnExperimentTemplate(this, jsii.String("MyCfnExperimentTemplate"), &cfnExperimentTemplateProps{
 //   	description: jsii.String("description"),
 //   	roleArn: jsii.String("roleArn"),
 //   	stopConditions: []interface{}{
@@ -102,16 +105,13 @@ type CfnExperimentTemplate interface {
 	// The ID of the experiment template.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A description for the experiment template.
 	Description() *string
@@ -128,16 +128,13 @@ type CfnExperimentTemplate interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn() *string
@@ -145,7 +142,6 @@ type CfnExperimentTemplate interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The stop conditions.
 	StopConditions() interface{}
@@ -159,16 +155,13 @@ type CfnExperimentTemplate interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -177,7 +170,6 @@ type CfnExperimentTemplate interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -222,15 +214,12 @@ type CfnExperimentTemplate interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -241,13 +230,11 @@ type CfnExperimentTemplate interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -256,74 +243,21 @@ type CfnExperimentTemplate interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -423,8 +357,8 @@ func (j *jsiiProxy_CfnExperimentTemplate) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnExperimentTemplate) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnExperimentTemplate) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -505,13 +439,13 @@ func (j *jsiiProxy_CfnExperimentTemplate) UpdatedProperites() *map[string]interf
 
 
 // Create a new `AWS::FIS::ExperimentTemplate`.
-func NewCfnExperimentTemplate(scope awscdk.Construct, id *string, props *CfnExperimentTemplateProps) CfnExperimentTemplate {
+func NewCfnExperimentTemplate(scope constructs.Construct, id *string, props *CfnExperimentTemplateProps) CfnExperimentTemplate {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnExperimentTemplate{}
 
 	_jsii_.Create(
-		"monocdk.aws_fis.CfnExperimentTemplate",
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -520,11 +454,11 @@ func NewCfnExperimentTemplate(scope awscdk.Construct, id *string, props *CfnExpe
 }
 
 // Create a new `AWS::FIS::ExperimentTemplate`.
-func NewCfnExperimentTemplate_Override(c CfnExperimentTemplate, scope awscdk.Construct, id *string, props *CfnExperimentTemplateProps) {
+func NewCfnExperimentTemplate_Override(c CfnExperimentTemplate, scope constructs.Construct, id *string, props *CfnExperimentTemplateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_fis.CfnExperimentTemplate",
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -584,14 +518,13 @@ func (j *jsiiProxy_CfnExperimentTemplate) SetTargets(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnExperimentTemplate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_fis.CfnExperimentTemplate",
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -601,14 +534,13 @@ func CfnExperimentTemplate_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnExperimentTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_fis.CfnExperimentTemplate",
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -617,15 +549,17 @@ func CfnExperimentTemplate_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnExperimentTemplate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_fis.CfnExperimentTemplate",
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -638,7 +572,7 @@ func CfnExperimentTemplate_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_fis.CfnExperimentTemplate",
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -735,48 +669,11 @@ func (c *jsiiProxy_CfnExperimentTemplate) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
-func (c *jsiiProxy_CfnExperimentTemplate) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnExperimentTemplate) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnExperimentTemplate) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnExperimentTemplate) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnExperimentTemplate) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -806,33 +703,12 @@ func (c *jsiiProxy_CfnExperimentTemplate) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnExperimentTemplate) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnExperimentTemplate) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnExperimentTemplate) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -853,7 +729,10 @@ func (c *jsiiProxy_CfnExperimentTemplate) ValidateProperties(_properties interfa
 // For more information, see [Actions](https://docs.aws.amazon.com/fis/latest/userguide/actions.html) in the *AWS Fault Injection Simulator User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   experimentTemplateActionProperty := &experimentTemplateActionProperty{
 //   	actionId: jsii.String("actionId"),
 //
@@ -874,26 +753,29 @@ type CfnExperimentTemplate_ExperimentTemplateActionProperty struct {
 	// The ID of the action.
 	//
 	// The format of the action ID is: aws: *service-name* : *action-type* .
-	ActionId *string `json:"actionId" yaml:"actionId"`
+	ActionId *string `field:"required" json:"actionId" yaml:"actionId"`
 	// A description for the action.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The parameters for the action, if applicable.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The name of the action that must be completed before the current action starts.
 	//
 	// Omit this parameter to run the action at the start of the experiment.
-	StartAfter *[]*string `json:"startAfter" yaml:"startAfter"`
+	StartAfter *[]*string `field:"optional" json:"startAfter" yaml:"startAfter"`
 	// The targets for the action.
-	Targets interface{} `json:"targets" yaml:"targets"`
+	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`
 }
 
 // Specifies the configuration for experiment logging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudWatchLogsConfiguration interface{}
 //   var s3Configuration interface{}
+//
 //   experimentTemplateLogConfigurationProperty := &experimentTemplateLogConfigurationProperty{
 //   	logSchemaVersion: jsii.Number(123),
 //
@@ -906,11 +788,11 @@ type CfnExperimentTemplate_ExperimentTemplateLogConfigurationProperty struct {
 	// The schema version.
 	//
 	// The supported value is 1.
-	LogSchemaVersion *float64 `json:"logSchemaVersion" yaml:"logSchemaVersion"`
-	// The configuration for experiment logging to Amazon CloudWatch Logs. The supported field is `logGroupArn` . For example:.
+	LogSchemaVersion *float64 `field:"required" json:"logSchemaVersion" yaml:"logSchemaVersion"`
+	// The configuration for experiment logging to Amazon CloudWatch Logs. The supported field is `LogGroupArn` . For example:.
 	//
-	// `{"logGroupArn": "aws:arn:logs: *region_name* : *account_id* :log-group: *log_group_name* "}`.
-	CloudWatchLogsConfiguration interface{} `json:"cloudWatchLogsConfiguration" yaml:"cloudWatchLogsConfiguration"`
+	// `{"LogGroupArn": "aws:arn:logs: *region_name* : *account_id* :log-group: *log_group_name* "}`.
+	CloudWatchLogsConfiguration interface{} `field:"optional" json:"cloudWatchLogsConfiguration" yaml:"cloudWatchLogsConfiguration"`
 	// The configuration for experiment logging to Amazon S3. The following fields are supported:.
 	//
 	// - `bucketName` - The name of the destination bucket.
@@ -918,14 +800,17 @@ type CfnExperimentTemplate_ExperimentTemplateLogConfigurationProperty struct {
 	//
 	// For example:
 	//
-	// `{"bucketName": " *my-s3-bucket* ", "prefix": " *log-folder* "}`.
-	S3Configuration interface{} `json:"s3Configuration" yaml:"s3Configuration"`
+	// `{"BucketName": " *my-s3-bucket* ", "Prefix": " *log-folder* "}`.
+	S3Configuration interface{} `field:"optional" json:"s3Configuration" yaml:"s3Configuration"`
 }
 
 // Specifies a stop condition for an experiment template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   experimentTemplateStopConditionProperty := &experimentTemplateStopConditionProperty{
 //   	source: jsii.String("source"),
 //
@@ -937,11 +822,11 @@ type CfnExperimentTemplate_ExperimentTemplateStopConditionProperty struct {
 	// The source for the stop condition.
 	//
 	// Specify `aws:cloudwatch:alarm` if the stop condition is defined by a CloudWatch alarm. Specify `none` if there is no stop condition.
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"required" json:"source" yaml:"source"`
 	// The Amazon Resource Name (ARN) of the CloudWatch alarm.
 	//
 	// This is required if the source is a CloudWatch alarm.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Specifies a filter used for the target resource input in an experiment template.
@@ -949,7 +834,10 @@ type CfnExperimentTemplate_ExperimentTemplateStopConditionProperty struct {
 // For more information, see [Resource filters](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters) in the *AWS Fault Injection Simulator User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   experimentTemplateTargetFilterProperty := &experimentTemplateTargetFilterProperty{
 //   	path: jsii.String("path"),
 //   	values: []*string{
@@ -959,9 +847,9 @@ type CfnExperimentTemplate_ExperimentTemplateStopConditionProperty struct {
 //
 type CfnExperimentTemplate_ExperimentTemplateTargetFilterProperty struct {
 	// The attribute path for the filter.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// The attribute values for the filter.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // Specifies a target for an experiment.
@@ -971,7 +859,10 @@ type CfnExperimentTemplate_ExperimentTemplateTargetFilterProperty struct {
 // For more information, see [Targets](https://docs.aws.amazon.com/fis/latest/userguide/targets.html) in the *AWS Fault Injection Simulator User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   experimentTemplateTargetProperty := &experimentTemplateTargetProperty{
 //   	resourceType: jsii.String("resourceType"),
 //   	selectionMode: jsii.String("selectionMode"),
@@ -1000,7 +891,7 @@ type CfnExperimentTemplate_ExperimentTemplateTargetProperty struct {
 	// The resource type.
 	//
 	// The resource type must be supported for the specified action.
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 	// Scopes the identified resources to a specific count of the resources at random, or a percentage of the resources.
 	//
 	// All identified resources are included in the target.
@@ -1008,24 +899,27 @@ type CfnExperimentTemplate_ExperimentTemplateTargetProperty struct {
 	// - ALL - Run the action on all identified targets. This is the default.
 	// - COUNT(n) - Run the action on the specified number of targets, chosen from the identified targets at random. For example, COUNT(1) selects one of the targets.
 	// - PERCENT(n) - Run the action on the specified percentage of targets, chosen from the identified targets at random. For example, PERCENT(25) selects 25% of the targets.
-	SelectionMode *string `json:"selectionMode" yaml:"selectionMode"`
+	SelectionMode *string `field:"required" json:"selectionMode" yaml:"selectionMode"`
 	// The filters to apply to identify target resources using specific attributes.
-	Filters interface{} `json:"filters" yaml:"filters"`
+	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`
 	// The parameters for the resource type.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The Amazon Resource Names (ARNs) of the resources.
-	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
+	ResourceArns *[]*string `field:"optional" json:"resourceArns" yaml:"resourceArns"`
 	// The tags for the target resources.
-	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
+	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 }
 
 // Properties for defining a `CfnExperimentTemplate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudWatchLogsConfiguration interface{}
 //   var s3Configuration interface{}
+//
 //   cfnExperimentTemplateProps := &cfnExperimentTemplateProps{
 //   	description: jsii.String("description"),
 //   	roleArn: jsii.String("roleArn"),
@@ -1095,18 +989,18 @@ type CfnExperimentTemplate_ExperimentTemplateTargetProperty struct {
 //
 type CfnExperimentTemplateProps struct {
 	// A description for the experiment template.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The stop conditions.
-	StopConditions interface{} `json:"stopConditions" yaml:"stopConditions"`
+	StopConditions interface{} `field:"required" json:"stopConditions" yaml:"stopConditions"`
 	// The tags to apply to the experiment template.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"required" json:"tags" yaml:"tags"`
 	// The targets for the experiment.
-	Targets interface{} `json:"targets" yaml:"targets"`
+	Targets interface{} `field:"required" json:"targets" yaml:"targets"`
 	// The actions for the experiment.
-	Actions interface{} `json:"actions" yaml:"actions"`
+	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 	// The configuration for experiment logging.
-	LogConfiguration interface{} `json:"logConfiguration" yaml:"logConfiguration"`
+	LogConfiguration interface{} `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
 }
 

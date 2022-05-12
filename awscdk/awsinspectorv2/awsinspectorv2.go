@@ -1,19 +1,22 @@
 package awsinspectorv2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsinspectorv2/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsinspectorv2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::InspectorV2::Filter`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspectorv2 "github.com/aws/aws-cdk-go/awscdk/aws_inspectorv2"
-//   cfnFilter := inspectorv2.NewCfnFilter(this, jsii.String("MyCfnFilter"), &cfnFilterProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFilter := awscdk.Aws_inspectorv2.NewCfnFilter(this, jsii.String("MyCfnFilter"), &cfnFilterProps{
 //   	filterAction: jsii.String("filterAction"),
 //   	filterCriteria: &filterCriteriaProperty{
 //   		awsAccountId: []interface{}{
@@ -239,16 +242,13 @@ type CfnFilter interface {
 	awscdk.IInspectable
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::InspectorV2::Filter.Description`.
 	Description() *string
@@ -268,39 +268,32 @@ type CfnFilter interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// `AWS::InspectorV2::Filter.Name`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -309,7 +302,6 @@ type CfnFilter interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -354,15 +346,12 @@ type CfnFilter interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -373,13 +362,11 @@ type CfnFilter interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -388,74 +375,21 @@ type CfnFilter interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -565,8 +499,8 @@ func (j *jsiiProxy_CfnFilter) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFilter) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnFilter) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -607,13 +541,13 @@ func (j *jsiiProxy_CfnFilter) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::InspectorV2::Filter`.
-func NewCfnFilter(scope awscdk.Construct, id *string, props *CfnFilterProps) CfnFilter {
+func NewCfnFilter(scope constructs.Construct, id *string, props *CfnFilterProps) CfnFilter {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFilter{}
 
 	_jsii_.Create(
-		"monocdk.aws_inspectorv2.CfnFilter",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -622,11 +556,11 @@ func NewCfnFilter(scope awscdk.Construct, id *string, props *CfnFilterProps) Cfn
 }
 
 // Create a new `AWS::InspectorV2::Filter`.
-func NewCfnFilter_Override(c CfnFilter, scope awscdk.Construct, id *string, props *CfnFilterProps) {
+func NewCfnFilter_Override(c CfnFilter, scope constructs.Construct, id *string, props *CfnFilterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_inspectorv2.CfnFilter",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -670,14 +604,13 @@ func (j *jsiiProxy_CfnFilter) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnFilter_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_inspectorv2.CfnFilter",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -687,14 +620,13 @@ func CfnFilter_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnFilter_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_inspectorv2.CfnFilter",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -703,15 +635,17 @@ func CfnFilter_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_inspectorv2.CfnFilter",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -724,7 +658,7 @@ func CfnFilter_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_inspectorv2.CfnFilter",
+		"aws-cdk-lib.aws_inspectorv2.CfnFilter",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -821,48 +755,11 @@ func (c *jsiiProxy_CfnFilter) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnFilter) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnFilter) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnFilter) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnFilter) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnFilter) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -892,33 +789,12 @@ func (c *jsiiProxy_CfnFilter) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnFilter) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnFilter) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnFilter) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -935,7 +811,10 @@ func (c *jsiiProxy_CfnFilter) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspectorv2 "github.com/aws/aws-cdk-go/awscdk/aws_inspectorv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dateFilterProperty := &dateFilterProperty{
 //   	endInclusive: jsii.Number(123),
 //   	startInclusive: jsii.Number(123),
@@ -943,13 +822,16 @@ func (c *jsiiProxy_CfnFilter) ValidateProperties(_properties interface{}) {
 //
 type CfnFilter_DateFilterProperty struct {
 	// `CfnFilter.DateFilterProperty.EndInclusive`.
-	EndInclusive *float64 `json:"endInclusive" yaml:"endInclusive"`
+	EndInclusive *float64 `field:"optional" json:"endInclusive" yaml:"endInclusive"`
 	// `CfnFilter.DateFilterProperty.StartInclusive`.
-	StartInclusive *float64 `json:"startInclusive" yaml:"startInclusive"`
+	StartInclusive *float64 `field:"optional" json:"startInclusive" yaml:"startInclusive"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspectorv2 "github.com/aws/aws-cdk-go/awscdk/aws_inspectorv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   filterCriteriaProperty := &filterCriteriaProperty{
 //   	awsAccountId: []interface{}{
 //   		&stringFilterProperty{
@@ -1166,71 +1048,74 @@ type CfnFilter_DateFilterProperty struct {
 //
 type CfnFilter_FilterCriteriaProperty struct {
 	// `CfnFilter.FilterCriteriaProperty.AwsAccountId`.
-	AwsAccountId interface{} `json:"awsAccountId" yaml:"awsAccountId"`
+	AwsAccountId interface{} `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
 	// `CfnFilter.FilterCriteriaProperty.ComponentId`.
-	ComponentId interface{} `json:"componentId" yaml:"componentId"`
+	ComponentId interface{} `field:"optional" json:"componentId" yaml:"componentId"`
 	// `CfnFilter.FilterCriteriaProperty.ComponentType`.
-	ComponentType interface{} `json:"componentType" yaml:"componentType"`
+	ComponentType interface{} `field:"optional" json:"componentType" yaml:"componentType"`
 	// `CfnFilter.FilterCriteriaProperty.Ec2InstanceImageId`.
-	Ec2InstanceImageId interface{} `json:"ec2InstanceImageId" yaml:"ec2InstanceImageId"`
+	Ec2InstanceImageId interface{} `field:"optional" json:"ec2InstanceImageId" yaml:"ec2InstanceImageId"`
 	// `CfnFilter.FilterCriteriaProperty.Ec2InstanceSubnetId`.
-	Ec2InstanceSubnetId interface{} `json:"ec2InstanceSubnetId" yaml:"ec2InstanceSubnetId"`
+	Ec2InstanceSubnetId interface{} `field:"optional" json:"ec2InstanceSubnetId" yaml:"ec2InstanceSubnetId"`
 	// `CfnFilter.FilterCriteriaProperty.Ec2InstanceVpcId`.
-	Ec2InstanceVpcId interface{} `json:"ec2InstanceVpcId" yaml:"ec2InstanceVpcId"`
+	Ec2InstanceVpcId interface{} `field:"optional" json:"ec2InstanceVpcId" yaml:"ec2InstanceVpcId"`
 	// `CfnFilter.FilterCriteriaProperty.EcrImageArchitecture`.
-	EcrImageArchitecture interface{} `json:"ecrImageArchitecture" yaml:"ecrImageArchitecture"`
+	EcrImageArchitecture interface{} `field:"optional" json:"ecrImageArchitecture" yaml:"ecrImageArchitecture"`
 	// `CfnFilter.FilterCriteriaProperty.EcrImageHash`.
-	EcrImageHash interface{} `json:"ecrImageHash" yaml:"ecrImageHash"`
+	EcrImageHash interface{} `field:"optional" json:"ecrImageHash" yaml:"ecrImageHash"`
 	// `CfnFilter.FilterCriteriaProperty.EcrImagePushedAt`.
-	EcrImagePushedAt interface{} `json:"ecrImagePushedAt" yaml:"ecrImagePushedAt"`
+	EcrImagePushedAt interface{} `field:"optional" json:"ecrImagePushedAt" yaml:"ecrImagePushedAt"`
 	// `CfnFilter.FilterCriteriaProperty.EcrImageRegistry`.
-	EcrImageRegistry interface{} `json:"ecrImageRegistry" yaml:"ecrImageRegistry"`
+	EcrImageRegistry interface{} `field:"optional" json:"ecrImageRegistry" yaml:"ecrImageRegistry"`
 	// `CfnFilter.FilterCriteriaProperty.EcrImageRepositoryName`.
-	EcrImageRepositoryName interface{} `json:"ecrImageRepositoryName" yaml:"ecrImageRepositoryName"`
+	EcrImageRepositoryName interface{} `field:"optional" json:"ecrImageRepositoryName" yaml:"ecrImageRepositoryName"`
 	// `CfnFilter.FilterCriteriaProperty.EcrImageTags`.
-	EcrImageTags interface{} `json:"ecrImageTags" yaml:"ecrImageTags"`
+	EcrImageTags interface{} `field:"optional" json:"ecrImageTags" yaml:"ecrImageTags"`
 	// `CfnFilter.FilterCriteriaProperty.FindingArn`.
-	FindingArn interface{} `json:"findingArn" yaml:"findingArn"`
+	FindingArn interface{} `field:"optional" json:"findingArn" yaml:"findingArn"`
 	// `CfnFilter.FilterCriteriaProperty.FindingStatus`.
-	FindingStatus interface{} `json:"findingStatus" yaml:"findingStatus"`
+	FindingStatus interface{} `field:"optional" json:"findingStatus" yaml:"findingStatus"`
 	// `CfnFilter.FilterCriteriaProperty.FindingType`.
-	FindingType interface{} `json:"findingType" yaml:"findingType"`
+	FindingType interface{} `field:"optional" json:"findingType" yaml:"findingType"`
 	// `CfnFilter.FilterCriteriaProperty.FirstObservedAt`.
-	FirstObservedAt interface{} `json:"firstObservedAt" yaml:"firstObservedAt"`
+	FirstObservedAt interface{} `field:"optional" json:"firstObservedAt" yaml:"firstObservedAt"`
 	// `CfnFilter.FilterCriteriaProperty.InspectorScore`.
-	InspectorScore interface{} `json:"inspectorScore" yaml:"inspectorScore"`
+	InspectorScore interface{} `field:"optional" json:"inspectorScore" yaml:"inspectorScore"`
 	// `CfnFilter.FilterCriteriaProperty.LastObservedAt`.
-	LastObservedAt interface{} `json:"lastObservedAt" yaml:"lastObservedAt"`
+	LastObservedAt interface{} `field:"optional" json:"lastObservedAt" yaml:"lastObservedAt"`
 	// `CfnFilter.FilterCriteriaProperty.NetworkProtocol`.
-	NetworkProtocol interface{} `json:"networkProtocol" yaml:"networkProtocol"`
+	NetworkProtocol interface{} `field:"optional" json:"networkProtocol" yaml:"networkProtocol"`
 	// `CfnFilter.FilterCriteriaProperty.PortRange`.
-	PortRange interface{} `json:"portRange" yaml:"portRange"`
+	PortRange interface{} `field:"optional" json:"portRange" yaml:"portRange"`
 	// `CfnFilter.FilterCriteriaProperty.RelatedVulnerabilities`.
-	RelatedVulnerabilities interface{} `json:"relatedVulnerabilities" yaml:"relatedVulnerabilities"`
+	RelatedVulnerabilities interface{} `field:"optional" json:"relatedVulnerabilities" yaml:"relatedVulnerabilities"`
 	// `CfnFilter.FilterCriteriaProperty.ResourceId`.
-	ResourceId interface{} `json:"resourceId" yaml:"resourceId"`
+	ResourceId interface{} `field:"optional" json:"resourceId" yaml:"resourceId"`
 	// `CfnFilter.FilterCriteriaProperty.ResourceTags`.
-	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
+	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 	// `CfnFilter.FilterCriteriaProperty.ResourceType`.
-	ResourceType interface{} `json:"resourceType" yaml:"resourceType"`
+	ResourceType interface{} `field:"optional" json:"resourceType" yaml:"resourceType"`
 	// `CfnFilter.FilterCriteriaProperty.Severity`.
-	Severity interface{} `json:"severity" yaml:"severity"`
+	Severity interface{} `field:"optional" json:"severity" yaml:"severity"`
 	// `CfnFilter.FilterCriteriaProperty.Title`.
-	Title interface{} `json:"title" yaml:"title"`
+	Title interface{} `field:"optional" json:"title" yaml:"title"`
 	// `CfnFilter.FilterCriteriaProperty.UpdatedAt`.
-	UpdatedAt interface{} `json:"updatedAt" yaml:"updatedAt"`
+	UpdatedAt interface{} `field:"optional" json:"updatedAt" yaml:"updatedAt"`
 	// `CfnFilter.FilterCriteriaProperty.VendorSeverity`.
-	VendorSeverity interface{} `json:"vendorSeverity" yaml:"vendorSeverity"`
+	VendorSeverity interface{} `field:"optional" json:"vendorSeverity" yaml:"vendorSeverity"`
 	// `CfnFilter.FilterCriteriaProperty.VulnerabilityId`.
-	VulnerabilityId interface{} `json:"vulnerabilityId" yaml:"vulnerabilityId"`
+	VulnerabilityId interface{} `field:"optional" json:"vulnerabilityId" yaml:"vulnerabilityId"`
 	// `CfnFilter.FilterCriteriaProperty.VulnerabilitySource`.
-	VulnerabilitySource interface{} `json:"vulnerabilitySource" yaml:"vulnerabilitySource"`
+	VulnerabilitySource interface{} `field:"optional" json:"vulnerabilitySource" yaml:"vulnerabilitySource"`
 	// `CfnFilter.FilterCriteriaProperty.VulnerablePackages`.
-	VulnerablePackages interface{} `json:"vulnerablePackages" yaml:"vulnerablePackages"`
+	VulnerablePackages interface{} `field:"optional" json:"vulnerablePackages" yaml:"vulnerablePackages"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspectorv2 "github.com/aws/aws-cdk-go/awscdk/aws_inspectorv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mapFilterProperty := &mapFilterProperty{
 //   	comparison: jsii.String("comparison"),
 //
@@ -1241,15 +1126,18 @@ type CfnFilter_FilterCriteriaProperty struct {
 //
 type CfnFilter_MapFilterProperty struct {
 	// `CfnFilter.MapFilterProperty.Comparison`.
-	Comparison *string `json:"comparison" yaml:"comparison"`
+	Comparison *string `field:"required" json:"comparison" yaml:"comparison"`
 	// `CfnFilter.MapFilterProperty.Key`.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// `CfnFilter.MapFilterProperty.Value`.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspectorv2 "github.com/aws/aws-cdk-go/awscdk/aws_inspectorv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   numberFilterProperty := &numberFilterProperty{
 //   	lowerInclusive: jsii.Number(123),
 //   	upperInclusive: jsii.Number(123),
@@ -1257,13 +1145,16 @@ type CfnFilter_MapFilterProperty struct {
 //
 type CfnFilter_NumberFilterProperty struct {
 	// `CfnFilter.NumberFilterProperty.LowerInclusive`.
-	LowerInclusive *float64 `json:"lowerInclusive" yaml:"lowerInclusive"`
+	LowerInclusive *float64 `field:"optional" json:"lowerInclusive" yaml:"lowerInclusive"`
 	// `CfnFilter.NumberFilterProperty.UpperInclusive`.
-	UpperInclusive *float64 `json:"upperInclusive" yaml:"upperInclusive"`
+	UpperInclusive *float64 `field:"optional" json:"upperInclusive" yaml:"upperInclusive"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspectorv2 "github.com/aws/aws-cdk-go/awscdk/aws_inspectorv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   packageFilterProperty := &packageFilterProperty{
 //   	architecture: &stringFilterProperty{
 //   		comparison: jsii.String("comparison"),
@@ -1293,21 +1184,24 @@ type CfnFilter_NumberFilterProperty struct {
 //
 type CfnFilter_PackageFilterProperty struct {
 	// `CfnFilter.PackageFilterProperty.Architecture`.
-	Architecture interface{} `json:"architecture" yaml:"architecture"`
+	Architecture interface{} `field:"optional" json:"architecture" yaml:"architecture"`
 	// `CfnFilter.PackageFilterProperty.Epoch`.
-	Epoch interface{} `json:"epoch" yaml:"epoch"`
+	Epoch interface{} `field:"optional" json:"epoch" yaml:"epoch"`
 	// `CfnFilter.PackageFilterProperty.Name`.
-	Name interface{} `json:"name" yaml:"name"`
+	Name interface{} `field:"optional" json:"name" yaml:"name"`
 	// `CfnFilter.PackageFilterProperty.Release`.
-	Release interface{} `json:"release" yaml:"release"`
+	Release interface{} `field:"optional" json:"release" yaml:"release"`
 	// `CfnFilter.PackageFilterProperty.SourceLayerHash`.
-	SourceLayerHash interface{} `json:"sourceLayerHash" yaml:"sourceLayerHash"`
+	SourceLayerHash interface{} `field:"optional" json:"sourceLayerHash" yaml:"sourceLayerHash"`
 	// `CfnFilter.PackageFilterProperty.Version`.
-	Version interface{} `json:"version" yaml:"version"`
+	Version interface{} `field:"optional" json:"version" yaml:"version"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspectorv2 "github.com/aws/aws-cdk-go/awscdk/aws_inspectorv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   portRangeFilterProperty := &portRangeFilterProperty{
 //   	beginInclusive: jsii.Number(123),
 //   	endInclusive: jsii.Number(123),
@@ -1315,13 +1209,16 @@ type CfnFilter_PackageFilterProperty struct {
 //
 type CfnFilter_PortRangeFilterProperty struct {
 	// `CfnFilter.PortRangeFilterProperty.BeginInclusive`.
-	BeginInclusive *float64 `json:"beginInclusive" yaml:"beginInclusive"`
+	BeginInclusive *float64 `field:"optional" json:"beginInclusive" yaml:"beginInclusive"`
 	// `CfnFilter.PortRangeFilterProperty.EndInclusive`.
-	EndInclusive *float64 `json:"endInclusive" yaml:"endInclusive"`
+	EndInclusive *float64 `field:"optional" json:"endInclusive" yaml:"endInclusive"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspectorv2 "github.com/aws/aws-cdk-go/awscdk/aws_inspectorv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stringFilterProperty := &stringFilterProperty{
 //   	comparison: jsii.String("comparison"),
 //   	value: jsii.String("value"),
@@ -1329,15 +1226,18 @@ type CfnFilter_PortRangeFilterProperty struct {
 //
 type CfnFilter_StringFilterProperty struct {
 	// `CfnFilter.StringFilterProperty.Comparison`.
-	Comparison *string `json:"comparison" yaml:"comparison"`
+	Comparison *string `field:"required" json:"comparison" yaml:"comparison"`
 	// `CfnFilter.StringFilterProperty.Value`.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnFilter`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspectorv2 "github.com/aws/aws-cdk-go/awscdk/aws_inspectorv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFilterProps := &cfnFilterProps{
 //   	filterAction: jsii.String("filterAction"),
 //   	filterCriteria: &filterCriteriaProperty{
@@ -1561,12 +1461,12 @@ type CfnFilter_StringFilterProperty struct {
 //
 type CfnFilterProps struct {
 	// `AWS::InspectorV2::Filter.FilterAction`.
-	FilterAction *string `json:"filterAction" yaml:"filterAction"`
+	FilterAction *string `field:"required" json:"filterAction" yaml:"filterAction"`
 	// `AWS::InspectorV2::Filter.FilterCriteria`.
-	FilterCriteria interface{} `json:"filterCriteria" yaml:"filterCriteria"`
+	FilterCriteria interface{} `field:"required" json:"filterCriteria" yaml:"filterCriteria"`
 	// `AWS::InspectorV2::Filter.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::InspectorV2::Filter.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

@@ -1,12 +1,12 @@
 package awsappflow
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsappflow/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsappflow/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::AppFlow::ConnectorProfile`.
@@ -16,11 +16,14 @@ import (
 // > If you want to use AWS CloudFormation to create a connector profile for connectors that implement OAuth (such as Salesforce, Slack, Zendesk, and Google Analytics), you must fetch the access and refresh tokens. You can do this by implementing your own UI for OAuth, or by retrieving the tokens from elsewhere. Alternatively, you can use the Amazon AppFlow console to create the connector profile, and then use that connector profile in the flow creation CloudFormation template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var basicAuthCredentials interface{}
 //   var oAuthCredentials interface{}
-//   cfnConnectorProfile := appflow.NewCfnConnectorProfile(this, jsii.String("MyCfnConnectorProfile"), &cfnConnectorProfileProps{
+//
+//   cfnConnectorProfile := awscdk.Aws_appflow.NewCfnConnectorProfile(this, jsii.String("MyCfnConnectorProfile"), &cfnConnectorProfileProps{
 //   	connectionMode: jsii.String("connectionMode"),
 //   	connectorProfileName: jsii.String("connectorProfileName"),
 //   	connectorType: jsii.String("connectorType"),
@@ -204,11 +207,9 @@ type CfnConnectorProfile interface {
 	// The Amazon Resource Name (ARN) of the connector profile credentials.
 	AttrCredentialsArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Indicates the connection mode and if it is public or private.
 	ConnectionMode() *string
@@ -227,7 +228,6 @@ type CfnConnectorProfile interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption.
 	//
@@ -243,36 +243,29 @@ type CfnConnectorProfile interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -281,7 +274,6 @@ type CfnConnectorProfile interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -326,15 +318,12 @@ type CfnConnectorProfile interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -345,13 +334,11 @@ type CfnConnectorProfile interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -360,74 +347,21 @@ type CfnConnectorProfile interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -557,8 +491,8 @@ func (j *jsiiProxy_CfnConnectorProfile) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectorProfile) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnConnectorProfile) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -599,13 +533,13 @@ func (j *jsiiProxy_CfnConnectorProfile) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::AppFlow::ConnectorProfile`.
-func NewCfnConnectorProfile(scope awscdk.Construct, id *string, props *CfnConnectorProfileProps) CfnConnectorProfile {
+func NewCfnConnectorProfile(scope constructs.Construct, id *string, props *CfnConnectorProfileProps) CfnConnectorProfile {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConnectorProfile{}
 
 	_jsii_.Create(
-		"monocdk.aws_appflow.CfnConnectorProfile",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -614,11 +548,11 @@ func NewCfnConnectorProfile(scope awscdk.Construct, id *string, props *CfnConnec
 }
 
 // Create a new `AWS::AppFlow::ConnectorProfile`.
-func NewCfnConnectorProfile_Override(c CfnConnectorProfile, scope awscdk.Construct, id *string, props *CfnConnectorProfileProps) {
+func NewCfnConnectorProfile_Override(c CfnConnectorProfile, scope constructs.Construct, id *string, props *CfnConnectorProfileProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appflow.CfnConnectorProfile",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -670,14 +604,13 @@ func (j *jsiiProxy_CfnConnectorProfile) SetKmsArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnConnectorProfile_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appflow.CfnConnectorProfile",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -687,14 +620,13 @@ func CfnConnectorProfile_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnConnectorProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appflow.CfnConnectorProfile",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -703,15 +635,17 @@ func CfnConnectorProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnConnectorProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appflow.CfnConnectorProfile",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -724,7 +658,7 @@ func CfnConnectorProfile_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_appflow.CfnConnectorProfile",
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -821,48 +755,11 @@ func (c *jsiiProxy_CfnConnectorProfile) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-func (c *jsiiProxy_CfnConnectorProfile) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnConnectorProfile) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnConnectorProfile) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnConnectorProfile) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnConnectorProfile) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -892,33 +789,12 @@ func (c *jsiiProxy_CfnConnectorProfile) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnConnectorProfile) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnConnectorProfile) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnConnectorProfile) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -937,7 +813,10 @@ func (c *jsiiProxy_CfnConnectorProfile) ValidateProperties(_properties interface
 // The connector-specific credentials required when using Amplitude.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   amplitudeConnectorProfileCredentialsProperty := &amplitudeConnectorProfileCredentialsProperty{
 //   	apiKey: jsii.String("apiKey"),
 //   	secretKey: jsii.String("secretKey"),
@@ -945,15 +824,18 @@ func (c *jsiiProxy_CfnConnectorProfile) ValidateProperties(_properties interface
 //
 type CfnConnectorProfile_AmplitudeConnectorProfileCredentialsProperty struct {
 	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-	ApiKey *string `json:"apiKey" yaml:"apiKey"`
+	ApiKey *string `field:"required" json:"apiKey" yaml:"apiKey"`
 	// The Secret Access Key portion of the credentials.
-	SecretKey *string `json:"secretKey" yaml:"secretKey"`
+	SecretKey *string `field:"required" json:"secretKey" yaml:"secretKey"`
 }
 
 // Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   connectorOAuthRequestProperty := &connectorOAuthRequestProperty{
 //   	authCode: jsii.String("authCode"),
 //   	redirectUri: jsii.String("redirectUri"),
@@ -961,18 +843,21 @@ type CfnConnectorProfile_AmplitudeConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_ConnectorOAuthRequestProperty struct {
 	// The code provided by the connector when it has been authenticated via the connected app.
-	AuthCode *string `json:"authCode" yaml:"authCode"`
+	AuthCode *string `field:"optional" json:"authCode" yaml:"authCode"`
 	// The URL to which the authentication server redirects the browser after authorization has been granted.
-	RedirectUri *string `json:"redirectUri" yaml:"redirectUri"`
+	RedirectUri *string `field:"optional" json:"redirectUri" yaml:"redirectUri"`
 }
 
 // Defines the connector-specific configuration and credentials for the connector profile.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var basicAuthCredentials interface{}
 //   var oAuthCredentials interface{}
+//
 //   connectorProfileConfigProperty := &connectorProfileConfigProperty{
 //   	connectorProfileCredentials: &connectorProfileCredentialsProperty{
 //   		amplitude: &amplitudeConnectorProfileCredentialsProperty{
@@ -1143,18 +1028,21 @@ type CfnConnectorProfile_ConnectorOAuthRequestProperty struct {
 //
 type CfnConnectorProfile_ConnectorProfileConfigProperty struct {
 	// The connector-specific credentials required by each connector.
-	ConnectorProfileCredentials interface{} `json:"connectorProfileCredentials" yaml:"connectorProfileCredentials"`
+	ConnectorProfileCredentials interface{} `field:"required" json:"connectorProfileCredentials" yaml:"connectorProfileCredentials"`
 	// The connector-specific properties of the profile configuration.
-	ConnectorProfileProperties interface{} `json:"connectorProfileProperties" yaml:"connectorProfileProperties"`
+	ConnectorProfileProperties interface{} `field:"optional" json:"connectorProfileProperties" yaml:"connectorProfileProperties"`
 }
 
 // The connector-specific credentials required by a connector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var basicAuthCredentials interface{}
 //   var oAuthCredentials interface{}
+//
 //   connectorProfileCredentialsProperty := &connectorProfileCredentialsProperty{
 //   	amplitude: &amplitudeConnectorProfileCredentialsProperty{
 //   		apiKey: jsii.String("apiKey"),
@@ -1257,43 +1145,46 @@ type CfnConnectorProfile_ConnectorProfileConfigProperty struct {
 //
 type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	// The connector-specific credentials required when using Amplitude.
-	Amplitude interface{} `json:"amplitude" yaml:"amplitude"`
+	Amplitude interface{} `field:"optional" json:"amplitude" yaml:"amplitude"`
 	// The connector-specific credentials required when using Datadog.
-	Datadog interface{} `json:"datadog" yaml:"datadog"`
+	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`
 	// The connector-specific credentials required when using Dynatrace.
-	Dynatrace interface{} `json:"dynatrace" yaml:"dynatrace"`
+	Dynatrace interface{} `field:"optional" json:"dynatrace" yaml:"dynatrace"`
 	// The connector-specific credentials required when using Google Analytics.
-	GoogleAnalytics interface{} `json:"googleAnalytics" yaml:"googleAnalytics"`
+	GoogleAnalytics interface{} `field:"optional" json:"googleAnalytics" yaml:"googleAnalytics"`
 	// The connector-specific credentials required when using Infor Nexus.
-	InforNexus interface{} `json:"inforNexus" yaml:"inforNexus"`
+	InforNexus interface{} `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// The connector-specific credentials required when using Marketo.
-	Marketo interface{} `json:"marketo" yaml:"marketo"`
+	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
 	// The connector-specific credentials required when using Amazon Redshift.
-	Redshift interface{} `json:"redshift" yaml:"redshift"`
+	Redshift interface{} `field:"optional" json:"redshift" yaml:"redshift"`
 	// The connector-specific credentials required when using Salesforce.
-	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
+	Salesforce interface{} `field:"optional" json:"salesforce" yaml:"salesforce"`
 	// The connector-specific profile credentials required when using SAPOData.
-	SapoData interface{} `json:"sapoData" yaml:"sapoData"`
+	SapoData interface{} `field:"optional" json:"sapoData" yaml:"sapoData"`
 	// The connector-specific credentials required when using ServiceNow.
-	ServiceNow interface{} `json:"serviceNow" yaml:"serviceNow"`
+	ServiceNow interface{} `field:"optional" json:"serviceNow" yaml:"serviceNow"`
 	// The connector-specific credentials required when using Singular.
-	Singular interface{} `json:"singular" yaml:"singular"`
+	Singular interface{} `field:"optional" json:"singular" yaml:"singular"`
 	// The connector-specific credentials required when using Slack.
-	Slack interface{} `json:"slack" yaml:"slack"`
+	Slack interface{} `field:"optional" json:"slack" yaml:"slack"`
 	// The connector-specific credentials required when using Snowflake.
-	Snowflake interface{} `json:"snowflake" yaml:"snowflake"`
+	Snowflake interface{} `field:"optional" json:"snowflake" yaml:"snowflake"`
 	// The connector-specific credentials required when using Trend Micro.
-	Trendmicro interface{} `json:"trendmicro" yaml:"trendmicro"`
+	Trendmicro interface{} `field:"optional" json:"trendmicro" yaml:"trendmicro"`
 	// The connector-specific credentials required when using Veeva.
-	Veeva interface{} `json:"veeva" yaml:"veeva"`
+	Veeva interface{} `field:"optional" json:"veeva" yaml:"veeva"`
 	// The connector-specific credentials required when using Zendesk.
-	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
+	Zendesk interface{} `field:"optional" json:"zendesk" yaml:"zendesk"`
 }
 
 // The connector-specific profile properties required by each connector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   connectorProfilePropertiesProperty := &connectorProfilePropertiesProperty{
 //   	datadog: &datadogConnectorProfilePropertiesProperty{
 //   		instanceUrl: jsii.String("instanceUrl"),
@@ -1361,35 +1252,38 @@ type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 	// The connector-specific properties required by Datadog.
-	Datadog interface{} `json:"datadog" yaml:"datadog"`
+	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`
 	// The connector-specific properties required by Dynatrace.
-	Dynatrace interface{} `json:"dynatrace" yaml:"dynatrace"`
+	Dynatrace interface{} `field:"optional" json:"dynatrace" yaml:"dynatrace"`
 	// The connector-specific properties required by Infor Nexus.
-	InforNexus interface{} `json:"inforNexus" yaml:"inforNexus"`
+	InforNexus interface{} `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// The connector-specific properties required by Marketo.
-	Marketo interface{} `json:"marketo" yaml:"marketo"`
+	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
 	// The connector-specific properties required by Amazon Redshift.
-	Redshift interface{} `json:"redshift" yaml:"redshift"`
+	Redshift interface{} `field:"optional" json:"redshift" yaml:"redshift"`
 	// The connector-specific properties required by Salesforce.
-	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
+	Salesforce interface{} `field:"optional" json:"salesforce" yaml:"salesforce"`
 	// The connector-specific profile properties required when using SAPOData.
-	SapoData interface{} `json:"sapoData" yaml:"sapoData"`
+	SapoData interface{} `field:"optional" json:"sapoData" yaml:"sapoData"`
 	// The connector-specific properties required by serviceNow.
-	ServiceNow interface{} `json:"serviceNow" yaml:"serviceNow"`
+	ServiceNow interface{} `field:"optional" json:"serviceNow" yaml:"serviceNow"`
 	// The connector-specific properties required by Slack.
-	Slack interface{} `json:"slack" yaml:"slack"`
+	Slack interface{} `field:"optional" json:"slack" yaml:"slack"`
 	// The connector-specific properties required by Snowflake.
-	Snowflake interface{} `json:"snowflake" yaml:"snowflake"`
+	Snowflake interface{} `field:"optional" json:"snowflake" yaml:"snowflake"`
 	// The connector-specific properties required by Veeva.
-	Veeva interface{} `json:"veeva" yaml:"veeva"`
+	Veeva interface{} `field:"optional" json:"veeva" yaml:"veeva"`
 	// The connector-specific properties required by Zendesk.
-	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
+	Zendesk interface{} `field:"optional" json:"zendesk" yaml:"zendesk"`
 }
 
 // The connector-specific credentials required by Datadog.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   datadogConnectorProfileCredentialsProperty := &datadogConnectorProfileCredentialsProperty{
 //   	apiKey: jsii.String("apiKey"),
 //   	applicationKey: jsii.String("applicationKey"),
@@ -1397,56 +1291,68 @@ type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_DatadogConnectorProfileCredentialsProperty struct {
 	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-	ApiKey *string `json:"apiKey" yaml:"apiKey"`
+	ApiKey *string `field:"required" json:"apiKey" yaml:"apiKey"`
 	// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API.
 	//
 	// Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
-	ApplicationKey *string `json:"applicationKey" yaml:"applicationKey"`
+	ApplicationKey *string `field:"required" json:"applicationKey" yaml:"applicationKey"`
 }
 
 // The connector-specific profile properties required by Datadog.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   datadogConnectorProfilePropertiesProperty := &datadogConnectorProfilePropertiesProperty{
 //   	instanceUrl: jsii.String("instanceUrl"),
 //   }
 //
 type CfnConnectorProfile_DatadogConnectorProfilePropertiesProperty struct {
 	// The location of the Datadog resource.
-	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
+	InstanceUrl *string `field:"required" json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The connector-specific profile credentials required by Dynatrace.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynatraceConnectorProfileCredentialsProperty := &dynatraceConnectorProfileCredentialsProperty{
 //   	apiToken: jsii.String("apiToken"),
 //   }
 //
 type CfnConnectorProfile_DynatraceConnectorProfileCredentialsProperty struct {
 	// The API tokens used by Dynatrace API to authenticate various API calls.
-	ApiToken *string `json:"apiToken" yaml:"apiToken"`
+	ApiToken *string `field:"required" json:"apiToken" yaml:"apiToken"`
 }
 
 // The connector-specific profile properties required by Dynatrace.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynatraceConnectorProfilePropertiesProperty := &dynatraceConnectorProfilePropertiesProperty{
 //   	instanceUrl: jsii.String("instanceUrl"),
 //   }
 //
 type CfnConnectorProfile_DynatraceConnectorProfilePropertiesProperty struct {
 	// The location of the Dynatrace resource.
-	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
+	InstanceUrl *string `field:"required" json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The connector-specific profile credentials required by Google Analytics.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   googleAnalyticsConnectorProfileCredentialsProperty := &googleAnalyticsConnectorProfileCredentialsProperty{
 //   	clientId: jsii.String("clientId"),
 //   	clientSecret: jsii.String("clientSecret"),
@@ -1462,23 +1368,26 @@ type CfnConnectorProfile_DynatraceConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_GoogleAnalyticsConnectorProfileCredentialsProperty struct {
 	// The identifier for the desired client.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The credentials used to access protected Google Analytics resources.
-	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
+	ConnectorOAuthRequest interface{} `field:"optional" json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 	// The credentials used to acquire new access tokens.
 	//
 	// This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
-	RefreshToken *string `json:"refreshToken" yaml:"refreshToken"`
+	RefreshToken *string `field:"optional" json:"refreshToken" yaml:"refreshToken"`
 }
 
 // The connector-specific profile credentials required by Infor Nexus.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inforNexusConnectorProfileCredentialsProperty := &inforNexusConnectorProfileCredentialsProperty{
 //   	accessKeyId: jsii.String("accessKeyId"),
 //   	datakey: jsii.String("datakey"),
@@ -1488,32 +1397,38 @@ type CfnConnectorProfile_GoogleAnalyticsConnectorProfileCredentialsProperty stru
 //
 type CfnConnectorProfile_InforNexusConnectorProfileCredentialsProperty struct {
 	// The Access Key portion of the credentials.
-	AccessKeyId *string `json:"accessKeyId" yaml:"accessKeyId"`
+	AccessKeyId *string `field:"required" json:"accessKeyId" yaml:"accessKeyId"`
 	// The encryption keys used to encrypt data.
-	Datakey *string `json:"datakey" yaml:"datakey"`
+	Datakey *string `field:"required" json:"datakey" yaml:"datakey"`
 	// The secret key used to sign requests.
-	SecretAccessKey *string `json:"secretAccessKey" yaml:"secretAccessKey"`
+	SecretAccessKey *string `field:"required" json:"secretAccessKey" yaml:"secretAccessKey"`
 	// The identifier for the user.
-	UserId *string `json:"userId" yaml:"userId"`
+	UserId *string `field:"required" json:"userId" yaml:"userId"`
 }
 
 // The connector-specific profile properties required by Infor Nexus.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inforNexusConnectorProfilePropertiesProperty := &inforNexusConnectorProfilePropertiesProperty{
 //   	instanceUrl: jsii.String("instanceUrl"),
 //   }
 //
 type CfnConnectorProfile_InforNexusConnectorProfilePropertiesProperty struct {
 	// The location of the Infor Nexus resource.
-	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
+	InstanceUrl *string `field:"required" json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The connector-specific profile credentials required by Marketo.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   marketoConnectorProfileCredentialsProperty := &marketoConnectorProfileCredentialsProperty{
 //   	clientId: jsii.String("clientId"),
 //   	clientSecret: jsii.String("clientSecret"),
@@ -1528,32 +1443,38 @@ type CfnConnectorProfile_InforNexusConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_MarketoConnectorProfileCredentialsProperty struct {
 	// The identifier for the desired client.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The credentials used to access protected Marketo resources.
-	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
+	ConnectorOAuthRequest interface{} `field:"optional" json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 }
 
 // The connector-specific profile properties required when using Marketo.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   marketoConnectorProfilePropertiesProperty := &marketoConnectorProfilePropertiesProperty{
 //   	instanceUrl: jsii.String("instanceUrl"),
 //   }
 //
 type CfnConnectorProfile_MarketoConnectorProfilePropertiesProperty struct {
 	// The location of the Marketo resource.
-	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
+	InstanceUrl *string `field:"required" json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The OAuth properties required for OAuth type authentication.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   oAuthPropertiesProperty := &oAuthPropertiesProperty{
 //   	authCodeUrl: jsii.String("authCodeUrl"),
 //   	oAuthScopes: []*string{
@@ -1564,17 +1485,20 @@ type CfnConnectorProfile_MarketoConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_OAuthPropertiesProperty struct {
 	// The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
-	AuthCodeUrl *string `json:"authCodeUrl" yaml:"authCodeUrl"`
+	AuthCodeUrl *string `field:"optional" json:"authCodeUrl" yaml:"authCodeUrl"`
 	// The OAuth scopes required for OAuth type authentication.
-	OAuthScopes *[]*string `json:"oAuthScopes" yaml:"oAuthScopes"`
+	OAuthScopes *[]*string `field:"optional" json:"oAuthScopes" yaml:"oAuthScopes"`
 	// The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
-	TokenUrl *string `json:"tokenUrl" yaml:"tokenUrl"`
+	TokenUrl *string `field:"optional" json:"tokenUrl" yaml:"tokenUrl"`
 }
 
 // The connector-specific profile credentials required when using Amazon Redshift.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redshiftConnectorProfileCredentialsProperty := &redshiftConnectorProfileCredentialsProperty{
 //   	password: jsii.String("password"),
 //   	username: jsii.String("username"),
@@ -1582,15 +1506,18 @@ type CfnConnectorProfile_OAuthPropertiesProperty struct {
 //
 type CfnConnectorProfile_RedshiftConnectorProfileCredentialsProperty struct {
 	// The password that corresponds to the user name.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// The name of the user.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 }
 
 // The connector-specific profile properties when using Amazon Redshift.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redshiftConnectorProfilePropertiesProperty := &redshiftConnectorProfilePropertiesProperty{
 //   	bucketName: jsii.String("bucketName"),
 //   	databaseUrl: jsii.String("databaseUrl"),
@@ -1602,22 +1529,25 @@ type CfnConnectorProfile_RedshiftConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_RedshiftConnectorProfilePropertiesProperty struct {
 	// A name for the associated Amazon S3 bucket.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The JDBC URL of the Amazon Redshift cluster.
-	DatabaseUrl *string `json:"databaseUrl" yaml:"databaseUrl"`
+	DatabaseUrl *string `field:"required" json:"databaseUrl" yaml:"databaseUrl"`
 	// The Amazon Resource Name (ARN) of the IAM role.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The object key for the destination bucket in which Amazon AppFlow places the files.
-	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
+	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 }
 
 // The connector-specific profile credentials required when using SAPOData.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var basicAuthCredentials interface{}
 //   var oAuthCredentials interface{}
+//
 //   sAPODataConnectorProfileCredentialsProperty := &sAPODataConnectorProfileCredentialsProperty{
 //   	basicAuthCredentials: basicAuthCredentials,
 //   	oAuthCredentials: oAuthCredentials,
@@ -1625,15 +1555,18 @@ type CfnConnectorProfile_RedshiftConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_SAPODataConnectorProfileCredentialsProperty struct {
 	// The SAPOData basic authentication credentials.
-	BasicAuthCredentials interface{} `json:"basicAuthCredentials" yaml:"basicAuthCredentials"`
+	BasicAuthCredentials interface{} `field:"optional" json:"basicAuthCredentials" yaml:"basicAuthCredentials"`
 	// The SAPOData OAuth type authentication credentials.
-	OAuthCredentials interface{} `json:"oAuthCredentials" yaml:"oAuthCredentials"`
+	OAuthCredentials interface{} `field:"optional" json:"oAuthCredentials" yaml:"oAuthCredentials"`
 }
 
 // The connector-specific profile properties required when using SAPOData.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sAPODataConnectorProfilePropertiesProperty := &sAPODataConnectorProfilePropertiesProperty{
 //   	applicationHostUrl: jsii.String("applicationHostUrl"),
 //   	applicationServicePath: jsii.String("applicationServicePath"),
@@ -1652,25 +1585,28 @@ type CfnConnectorProfile_SAPODataConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_SAPODataConnectorProfilePropertiesProperty struct {
 	// The location of the SAPOData resource.
-	ApplicationHostUrl *string `json:"applicationHostUrl" yaml:"applicationHostUrl"`
+	ApplicationHostUrl *string `field:"optional" json:"applicationHostUrl" yaml:"applicationHostUrl"`
 	// The application path to catalog service.
-	ApplicationServicePath *string `json:"applicationServicePath" yaml:"applicationServicePath"`
+	ApplicationServicePath *string `field:"optional" json:"applicationServicePath" yaml:"applicationServicePath"`
 	// The client number for the client creating the connection.
-	ClientNumber *string `json:"clientNumber" yaml:"clientNumber"`
+	ClientNumber *string `field:"optional" json:"clientNumber" yaml:"clientNumber"`
 	// The logon language of SAPOData instance.
-	LogonLanguage *string `json:"logonLanguage" yaml:"logonLanguage"`
+	LogonLanguage *string `field:"optional" json:"logonLanguage" yaml:"logonLanguage"`
 	// The SAPOData OAuth properties required for OAuth type authentication.
-	OAuthProperties interface{} `json:"oAuthProperties" yaml:"oAuthProperties"`
+	OAuthProperties interface{} `field:"optional" json:"oAuthProperties" yaml:"oAuthProperties"`
 	// The port number of the SAPOData instance.
-	PortNumber *float64 `json:"portNumber" yaml:"portNumber"`
+	PortNumber *float64 `field:"optional" json:"portNumber" yaml:"portNumber"`
 	// The SAPOData Private Link service name to be used for private data transfers.
-	PrivateLinkServiceName *string `json:"privateLinkServiceName" yaml:"privateLinkServiceName"`
+	PrivateLinkServiceName *string `field:"optional" json:"privateLinkServiceName" yaml:"privateLinkServiceName"`
 }
 
 // The connector-specific profile credentials required when using Salesforce.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   salesforceConnectorProfileCredentialsProperty := &salesforceConnectorProfileCredentialsProperty{
 //   	accessToken: jsii.String("accessToken"),
 //   	clientCredentialsArn: jsii.String("clientCredentialsArn"),
@@ -1683,19 +1619,22 @@ type CfnConnectorProfile_SAPODataConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_SalesforceConnectorProfileCredentialsProperty struct {
 	// The credentials used to access protected Salesforce resources.
-	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// The secret manager ARN, which contains the client ID and client secret of the connected app.
-	ClientCredentialsArn *string `json:"clientCredentialsArn" yaml:"clientCredentialsArn"`
+	ClientCredentialsArn *string `field:"optional" json:"clientCredentialsArn" yaml:"clientCredentialsArn"`
 	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
+	ConnectorOAuthRequest interface{} `field:"optional" json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 	// The credentials used to acquire new access tokens.
-	RefreshToken *string `json:"refreshToken" yaml:"refreshToken"`
+	RefreshToken *string `field:"optional" json:"refreshToken" yaml:"refreshToken"`
 }
 
 // The connector-specific profile properties required when using Salesforce.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   salesforceConnectorProfilePropertiesProperty := &salesforceConnectorProfilePropertiesProperty{
 //   	instanceUrl: jsii.String("instanceUrl"),
 //   	isSandboxEnvironment: jsii.Boolean(false),
@@ -1703,15 +1642,18 @@ type CfnConnectorProfile_SalesforceConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_SalesforceConnectorProfilePropertiesProperty struct {
 	// The location of the Salesforce resource.
-	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
+	InstanceUrl *string `field:"optional" json:"instanceUrl" yaml:"instanceUrl"`
 	// Indicates whether the connector profile applies to a sandbox or production environment.
-	IsSandboxEnvironment interface{} `json:"isSandboxEnvironment" yaml:"isSandboxEnvironment"`
+	IsSandboxEnvironment interface{} `field:"optional" json:"isSandboxEnvironment" yaml:"isSandboxEnvironment"`
 }
 
 // The connector-specific profile credentials required when using ServiceNow.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serviceNowConnectorProfileCredentialsProperty := &serviceNowConnectorProfileCredentialsProperty{
 //   	password: jsii.String("password"),
 //   	username: jsii.String("username"),
@@ -1719,41 +1661,50 @@ type CfnConnectorProfile_SalesforceConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_ServiceNowConnectorProfileCredentialsProperty struct {
 	// The password that corresponds to the user name.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// The name of the user.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 }
 
 // The connector-specific profile properties required when using ServiceNow.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serviceNowConnectorProfilePropertiesProperty := &serviceNowConnectorProfilePropertiesProperty{
 //   	instanceUrl: jsii.String("instanceUrl"),
 //   }
 //
 type CfnConnectorProfile_ServiceNowConnectorProfilePropertiesProperty struct {
 	// The location of the ServiceNow resource.
-	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
+	InstanceUrl *string `field:"required" json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The connector-specific profile credentials required when using Singular.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   singularConnectorProfileCredentialsProperty := &singularConnectorProfileCredentialsProperty{
 //   	apiKey: jsii.String("apiKey"),
 //   }
 //
 type CfnConnectorProfile_SingularConnectorProfileCredentialsProperty struct {
 	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-	ApiKey *string `json:"apiKey" yaml:"apiKey"`
+	ApiKey *string `field:"required" json:"apiKey" yaml:"apiKey"`
 }
 
 // The connector-specific profile credentials required when using Slack.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   slackConnectorProfileCredentialsProperty := &slackConnectorProfileCredentialsProperty{
 //   	clientId: jsii.String("clientId"),
 //   	clientSecret: jsii.String("clientSecret"),
@@ -1768,32 +1719,38 @@ type CfnConnectorProfile_SingularConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_SlackConnectorProfileCredentialsProperty struct {
 	// The identifier for the client.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The credentials used to access protected Slack resources.
-	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
+	ConnectorOAuthRequest interface{} `field:"optional" json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 }
 
 // The connector-specific profile properties required when using Slack.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   slackConnectorProfilePropertiesProperty := &slackConnectorProfilePropertiesProperty{
 //   	instanceUrl: jsii.String("instanceUrl"),
 //   }
 //
 type CfnConnectorProfile_SlackConnectorProfilePropertiesProperty struct {
 	// The location of the Slack resource.
-	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
+	InstanceUrl *string `field:"required" json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The connector-specific profile credentials required when using Snowflake.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   snowflakeConnectorProfileCredentialsProperty := &snowflakeConnectorProfileCredentialsProperty{
 //   	password: jsii.String("password"),
 //   	username: jsii.String("username"),
@@ -1801,15 +1758,18 @@ type CfnConnectorProfile_SlackConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_SnowflakeConnectorProfileCredentialsProperty struct {
 	// The password that corresponds to the user name.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// The name of the user.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 }
 
 // The connector-specific profile properties required when using Snowflake.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   snowflakeConnectorProfilePropertiesProperty := &snowflakeConnectorProfilePropertiesProperty{
 //   	bucketName: jsii.String("bucketName"),
 //   	stage: jsii.String("stage"),
@@ -1824,40 +1784,46 @@ type CfnConnectorProfile_SnowflakeConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_SnowflakeConnectorProfilePropertiesProperty struct {
 	// The name of the Amazon S3 bucket associated with Snowflake.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account.
 	//
 	// This is written in the following format: < Database>< Schema><Stage Name>.
-	Stage *string `json:"stage" yaml:"stage"`
+	Stage *string `field:"required" json:"stage" yaml:"stage"`
 	// The name of the Snowflake warehouse.
-	Warehouse *string `json:"warehouse" yaml:"warehouse"`
+	Warehouse *string `field:"required" json:"warehouse" yaml:"warehouse"`
 	// The name of the account.
-	AccountName *string `json:"accountName" yaml:"accountName"`
+	AccountName *string `field:"optional" json:"accountName" yaml:"accountName"`
 	// The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
-	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
+	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 	// The Snowflake Private Link service name to be used for private data transfers.
-	PrivateLinkServiceName *string `json:"privateLinkServiceName" yaml:"privateLinkServiceName"`
+	PrivateLinkServiceName *string `field:"optional" json:"privateLinkServiceName" yaml:"privateLinkServiceName"`
 	// The AWS Region of the Snowflake account.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 
 // The connector-specific profile credentials required when using Trend Micro.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   trendmicroConnectorProfileCredentialsProperty := &trendmicroConnectorProfileCredentialsProperty{
 //   	apiSecretKey: jsii.String("apiSecretKey"),
 //   }
 //
 type CfnConnectorProfile_TrendmicroConnectorProfileCredentialsProperty struct {
 	// The Secret Access Key portion of the credentials.
-	ApiSecretKey *string `json:"apiSecretKey" yaml:"apiSecretKey"`
+	ApiSecretKey *string `field:"required" json:"apiSecretKey" yaml:"apiSecretKey"`
 }
 
 // The connector-specific profile credentials required when using Veeva.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   veevaConnectorProfileCredentialsProperty := &veevaConnectorProfileCredentialsProperty{
 //   	password: jsii.String("password"),
 //   	username: jsii.String("username"),
@@ -1865,28 +1831,34 @@ type CfnConnectorProfile_TrendmicroConnectorProfileCredentialsProperty struct {
 //
 type CfnConnectorProfile_VeevaConnectorProfileCredentialsProperty struct {
 	// The password that corresponds to the user name.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// The name of the user.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 }
 
 // The connector-specific profile properties required when using Veeva.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   veevaConnectorProfilePropertiesProperty := &veevaConnectorProfilePropertiesProperty{
 //   	instanceUrl: jsii.String("instanceUrl"),
 //   }
 //
 type CfnConnectorProfile_VeevaConnectorProfilePropertiesProperty struct {
 	// The location of the Veeva resource.
-	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
+	InstanceUrl *string `field:"required" json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // The connector-specific profile credentials required when using Zendesk.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   zendeskConnectorProfileCredentialsProperty := &zendeskConnectorProfileCredentialsProperty{
 //   	clientId: jsii.String("clientId"),
 //   	clientSecret: jsii.String("clientSecret"),
@@ -1901,35 +1873,41 @@ type CfnConnectorProfile_VeevaConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfile_ZendeskConnectorProfileCredentialsProperty struct {
 	// The identifier for the desired client.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The credentials used to access protected Zendesk resources.
-	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
+	ConnectorOAuthRequest interface{} `field:"optional" json:"connectorOAuthRequest" yaml:"connectorOAuthRequest"`
 }
 
 // The connector-specific profile properties required when using Zendesk.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   zendeskConnectorProfilePropertiesProperty := &zendeskConnectorProfilePropertiesProperty{
 //   	instanceUrl: jsii.String("instanceUrl"),
 //   }
 //
 type CfnConnectorProfile_ZendeskConnectorProfilePropertiesProperty struct {
 	// The location of the Zendesk resource.
-	InstanceUrl *string `json:"instanceUrl" yaml:"instanceUrl"`
+	InstanceUrl *string `field:"required" json:"instanceUrl" yaml:"instanceUrl"`
 }
 
 // Properties for defining a `CfnConnectorProfile`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var basicAuthCredentials interface{}
 //   var oAuthCredentials interface{}
+//
 //   cfnConnectorProfileProps := &cfnConnectorProfileProps{
 //   	connectionMode: jsii.String("connectionMode"),
 //   	connectorProfileName: jsii.String("connectorProfileName"),
@@ -2108,19 +2086,19 @@ type CfnConnectorProfile_ZendeskConnectorProfilePropertiesProperty struct {
 //
 type CfnConnectorProfileProps struct {
 	// Indicates the connection mode and if it is public or private.
-	ConnectionMode *string `json:"connectionMode" yaml:"connectionMode"`
+	ConnectionMode *string `field:"required" json:"connectionMode" yaml:"connectionMode"`
 	// The name of the connector profile.
 	//
 	// The name is unique for each `ConnectorProfile` in the AWS account .
-	ConnectorProfileName *string `json:"connectorProfileName" yaml:"connectorProfileName"`
+	ConnectorProfileName *string `field:"required" json:"connectorProfileName" yaml:"connectorProfileName"`
 	// The type of connector, such as Salesforce, Amplitude, and so on.
-	ConnectorType *string `json:"connectorType" yaml:"connectorType"`
+	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// Defines the connector-specific configuration and credentials.
-	ConnectorProfileConfig interface{} `json:"connectorProfileConfig" yaml:"connectorProfileConfig"`
+	ConnectorProfileConfig interface{} `field:"optional" json:"connectorProfileConfig" yaml:"connectorProfileConfig"`
 	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption.
 	//
 	// This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn *string `json:"kmsArn" yaml:"kmsArn"`
+	KmsArn *string `field:"optional" json:"kmsArn" yaml:"kmsArn"`
 }
 
 // A CloudFormation `AWS::AppFlow::Flow`.
@@ -2130,8 +2108,11 @@ type CfnConnectorProfileProps struct {
 // > If you want to use AWS CloudFormation to create a connector profile for connectors that implement OAuth (such as Salesforce, Slack, Zendesk, and Google Analytics), you must fetch the access and refresh tokens. You can do this by implementing your own UI for OAuth, or by retrieving the tokens from elsewhere. Alternatively, you can use the Amazon AppFlow console to create the connector profile, and then use that connector profile in the flow creation CloudFormation template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
-//   cfnFlow := appflow.NewCfnFlow(this, jsii.String("MyCfnFlow"), &cfnFlowProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFlow := awscdk.Aws_appflow.NewCfnFlow(this, jsii.String("MyCfnFlow"), &cfnFlowProps{
 //   	destinationFlowConfigList: []interface{}{
 //   		&destinationFlowConfigProperty{
 //   			connectorType: jsii.String("connectorType"),
@@ -2409,16 +2390,13 @@ type CfnFlow interface {
 	// The flow's Amazon Resource Name (ARN).
 	AttrFlowArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A user-entered description of the flow.
 	Description() *string
@@ -2445,16 +2423,13 @@ type CfnFlow interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Contains information about the configuration of the source connector used in the flow.
 	SourceFlowConfig() interface{}
@@ -2462,7 +2437,6 @@ type CfnFlow interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The tags used to organize, track, or control access for your flow.
 	Tags() awscdk.TagManager
@@ -2476,16 +2450,13 @@ type CfnFlow interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2494,7 +2465,6 @@ type CfnFlow interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2539,15 +2509,12 @@ type CfnFlow interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2558,13 +2525,11 @@ type CfnFlow interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2573,74 +2538,21 @@ type CfnFlow interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2750,8 +2662,8 @@ func (j *jsiiProxy_CfnFlow) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlow) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnFlow) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2832,13 +2744,13 @@ func (j *jsiiProxy_CfnFlow) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::AppFlow::Flow`.
-func NewCfnFlow(scope awscdk.Construct, id *string, props *CfnFlowProps) CfnFlow {
+func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) CfnFlow {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFlow{}
 
 	_jsii_.Create(
-		"monocdk.aws_appflow.CfnFlow",
+		"aws-cdk-lib.aws_appflow.CfnFlow",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2847,11 +2759,11 @@ func NewCfnFlow(scope awscdk.Construct, id *string, props *CfnFlowProps) CfnFlow
 }
 
 // Create a new `AWS::AppFlow::Flow`.
-func NewCfnFlow_Override(c CfnFlow, scope awscdk.Construct, id *string, props *CfnFlowProps) {
+func NewCfnFlow_Override(c CfnFlow, scope constructs.Construct, id *string, props *CfnFlowProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appflow.CfnFlow",
+		"aws-cdk-lib.aws_appflow.CfnFlow",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2919,14 +2831,13 @@ func (j *jsiiProxy_CfnFlow) SetTriggerConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnFlow_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appflow.CfnFlow",
+		"aws-cdk-lib.aws_appflow.CfnFlow",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2936,14 +2847,13 @@ func CfnFlow_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnFlow_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appflow.CfnFlow",
+		"aws-cdk-lib.aws_appflow.CfnFlow",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2952,15 +2862,17 @@ func CfnFlow_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnFlow_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appflow.CfnFlow",
+		"aws-cdk-lib.aws_appflow.CfnFlow",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2973,7 +2885,7 @@ func CfnFlow_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_appflow.CfnFlow",
+		"aws-cdk-lib.aws_appflow.CfnFlow",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3070,48 +2982,11 @@ func (c *jsiiProxy_CfnFlow) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnFlow) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnFlow) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnFlow) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnFlow) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnFlow) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3141,33 +3016,12 @@ func (c *jsiiProxy_CfnFlow) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnFlow) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnFlow) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnFlow) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3186,33 +3040,42 @@ func (c *jsiiProxy_CfnFlow) ValidateProperties(_properties interface{}) {
 // The aggregation settings that you can use to customize the output format of your flow data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aggregationConfigProperty := &aggregationConfigProperty{
 //   	aggregationType: jsii.String("aggregationType"),
 //   }
 //
 type CfnFlow_AggregationConfigProperty struct {
 	// Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated.
-	AggregationType *string `json:"aggregationType" yaml:"aggregationType"`
+	AggregationType *string `field:"optional" json:"aggregationType" yaml:"aggregationType"`
 }
 
 // The properties that are applied when Amplitude is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   amplitudeSourcePropertiesProperty := &amplitudeSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnFlow_AmplitudeSourcePropertiesProperty struct {
 	// The object specified in the Amplitude flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // The operation to be performed on the provided source fields.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   connectorOperatorProperty := &connectorOperatorProperty{
 //   	amplitude: jsii.String("amplitude"),
 //   	datadog: jsii.String("datadog"),
@@ -3233,54 +3096,60 @@ type CfnFlow_AmplitudeSourcePropertiesProperty struct {
 //
 type CfnFlow_ConnectorOperatorProperty struct {
 	// The operation to be performed on the provided Amplitude source fields.
-	Amplitude *string `json:"amplitude" yaml:"amplitude"`
+	Amplitude *string `field:"optional" json:"amplitude" yaml:"amplitude"`
 	// The operation to be performed on the provided Datadog source fields.
-	Datadog *string `json:"datadog" yaml:"datadog"`
+	Datadog *string `field:"optional" json:"datadog" yaml:"datadog"`
 	// The operation to be performed on the provided Dynatrace source fields.
-	Dynatrace *string `json:"dynatrace" yaml:"dynatrace"`
+	Dynatrace *string `field:"optional" json:"dynatrace" yaml:"dynatrace"`
 	// The operation to be performed on the provided Google Analytics source fields.
-	GoogleAnalytics *string `json:"googleAnalytics" yaml:"googleAnalytics"`
+	GoogleAnalytics *string `field:"optional" json:"googleAnalytics" yaml:"googleAnalytics"`
 	// The operation to be performed on the provided Infor Nexus source fields.
-	InforNexus *string `json:"inforNexus" yaml:"inforNexus"`
+	InforNexus *string `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// The operation to be performed on the provided Marketo source fields.
-	Marketo *string `json:"marketo" yaml:"marketo"`
+	Marketo *string `field:"optional" json:"marketo" yaml:"marketo"`
 	// The operation to be performed on the provided Amazon S3 source fields.
-	S3 *string `json:"s3" yaml:"s3"`
+	S3 *string `field:"optional" json:"s3" yaml:"s3"`
 	// The operation to be performed on the provided Salesforce source fields.
-	Salesforce *string `json:"salesforce" yaml:"salesforce"`
+	Salesforce *string `field:"optional" json:"salesforce" yaml:"salesforce"`
 	// The operation to be performed on the provided SAPOData source fields.
-	SapoData *string `json:"sapoData" yaml:"sapoData"`
+	SapoData *string `field:"optional" json:"sapoData" yaml:"sapoData"`
 	// The operation to be performed on the provided ServiceNow source fields.
-	ServiceNow *string `json:"serviceNow" yaml:"serviceNow"`
+	ServiceNow *string `field:"optional" json:"serviceNow" yaml:"serviceNow"`
 	// The operation to be performed on the provided Singular source fields.
-	Singular *string `json:"singular" yaml:"singular"`
+	Singular *string `field:"optional" json:"singular" yaml:"singular"`
 	// The operation to be performed on the provided Slack source fields.
-	Slack *string `json:"slack" yaml:"slack"`
+	Slack *string `field:"optional" json:"slack" yaml:"slack"`
 	// The operation to be performed on the provided Trend Micro source fields.
-	Trendmicro *string `json:"trendmicro" yaml:"trendmicro"`
+	Trendmicro *string `field:"optional" json:"trendmicro" yaml:"trendmicro"`
 	// The operation to be performed on the provided Veeva source fields.
-	Veeva *string `json:"veeva" yaml:"veeva"`
+	Veeva *string `field:"optional" json:"veeva" yaml:"veeva"`
 	// The operation to be performed on the provided Zendesk source fields.
-	Zendesk *string `json:"zendesk" yaml:"zendesk"`
+	Zendesk *string `field:"optional" json:"zendesk" yaml:"zendesk"`
 }
 
 // The properties that are applied when Datadog is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   datadogSourcePropertiesProperty := &datadogSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnFlow_DatadogSourcePropertiesProperty struct {
 	// The object specified in the Datadog flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // This stores the information that is required to query a particular connector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationConnectorPropertiesProperty := &destinationConnectorPropertiesProperty{
 //   	eventBridge: &eventBridgeDestinationPropertiesProperty{
 //   		object: jsii.String("object"),
@@ -3413,31 +3282,34 @@ type CfnFlow_DatadogSourcePropertiesProperty struct {
 //
 type CfnFlow_DestinationConnectorPropertiesProperty struct {
 	// The properties required to query Amazon EventBridge.
-	EventBridge interface{} `json:"eventBridge" yaml:"eventBridge"`
+	EventBridge interface{} `field:"optional" json:"eventBridge" yaml:"eventBridge"`
 	// The properties required to query Amazon Lookout for Metrics.
-	LookoutMetrics interface{} `json:"lookoutMetrics" yaml:"lookoutMetrics"`
+	LookoutMetrics interface{} `field:"optional" json:"lookoutMetrics" yaml:"lookoutMetrics"`
 	// The properties required to query Marketo.
-	Marketo interface{} `json:"marketo" yaml:"marketo"`
+	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
 	// The properties required to query Amazon Redshift.
-	Redshift interface{} `json:"redshift" yaml:"redshift"`
+	Redshift interface{} `field:"optional" json:"redshift" yaml:"redshift"`
 	// The properties required to query Amazon S3.
-	S3 interface{} `json:"s3" yaml:"s3"`
+	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
 	// The properties required to query Salesforce.
-	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
+	Salesforce interface{} `field:"optional" json:"salesforce" yaml:"salesforce"`
 	// The properties required to query SAPOData.
-	SapoData interface{} `json:"sapoData" yaml:"sapoData"`
+	SapoData interface{} `field:"optional" json:"sapoData" yaml:"sapoData"`
 	// The properties required to query Snowflake.
-	Snowflake interface{} `json:"snowflake" yaml:"snowflake"`
+	Snowflake interface{} `field:"optional" json:"snowflake" yaml:"snowflake"`
 	// The properties required to query Upsolver.
-	Upsolver interface{} `json:"upsolver" yaml:"upsolver"`
+	Upsolver interface{} `field:"optional" json:"upsolver" yaml:"upsolver"`
 	// The properties required to query Zendesk.
-	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
+	Zendesk interface{} `field:"optional" json:"zendesk" yaml:"zendesk"`
 }
 
 // Contains information about the configuration of destination connectors present in the flow.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationFlowConfigProperty := &destinationFlowConfigProperty{
 //   	connectorType: jsii.String("connectorType"),
 //   	destinationConnectorProperties: &destinationConnectorPropertiesProperty{
@@ -3578,26 +3450,29 @@ type CfnFlow_DestinationFlowConfigProperty struct {
 	// The type of destination connector, such as Sales force, Amazon S3, and so on.
 	//
 	// *Allowed Values* : `EventBridge | Redshift | S3 | Salesforce | Snowflake`.
-	ConnectorType *string `json:"connectorType" yaml:"connectorType"`
+	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// This stores the information that is required to query a particular connector.
-	DestinationConnectorProperties interface{} `json:"destinationConnectorProperties" yaml:"destinationConnectorProperties"`
+	DestinationConnectorProperties interface{} `field:"required" json:"destinationConnectorProperties" yaml:"destinationConnectorProperties"`
 	// The name of the connector profile.
 	//
 	// This name must be unique for each connector profile in the AWS account .
-	ConnectorProfileName *string `json:"connectorProfileName" yaml:"connectorProfileName"`
+	ConnectorProfileName *string `field:"optional" json:"connectorProfileName" yaml:"connectorProfileName"`
 }
 
 // The properties that are applied when Dynatrace is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynatraceSourcePropertiesProperty := &dynatraceSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnFlow_DynatraceSourcePropertiesProperty struct {
 	// The object specified in the Dynatrace flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // The settings that determine how Amazon AppFlow handles an error when placing data in the destination.
@@ -3605,7 +3480,10 @@ type CfnFlow_DynatraceSourcePropertiesProperty struct {
 // For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   errorHandlingConfigProperty := &errorHandlingConfigProperty{
 //   	bucketName: jsii.String("bucketName"),
 //   	bucketPrefix: jsii.String("bucketPrefix"),
@@ -3614,17 +3492,20 @@ type CfnFlow_DynatraceSourcePropertiesProperty struct {
 //
 type CfnFlow_ErrorHandlingConfigProperty struct {
 	// Specifies the name of the Amazon S3 bucket.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// Specifies the Amazon S3 bucket prefix.
-	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
+	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
-	FailOnFirstError interface{} `json:"failOnFirstError" yaml:"failOnFirstError"`
+	FailOnFirstError interface{} `field:"optional" json:"failOnFirstError" yaml:"failOnFirstError"`
 }
 
 // The properties that are applied when Amazon EventBridge is being used as a destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventBridgeDestinationPropertiesProperty := &eventBridgeDestinationPropertiesProperty{
 //   	object: jsii.String("object"),
 //
@@ -3638,67 +3519,82 @@ type CfnFlow_ErrorHandlingConfigProperty struct {
 //
 type CfnFlow_EventBridgeDestinationPropertiesProperty struct {
 	// The object specified in the Amazon EventBridge flow destination.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 	// The object specified in the Amplitude flow source.
-	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
+	ErrorHandlingConfig interface{} `field:"optional" json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 }
 
 // The properties that are applied when Google Analytics is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   googleAnalyticsSourcePropertiesProperty := &googleAnalyticsSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnFlow_GoogleAnalyticsSourcePropertiesProperty struct {
 	// The object specified in the Google Analytics flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // Specifies the configuration used when importing incremental records from the source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   incrementalPullConfigProperty := &incrementalPullConfigProperty{
 //   	datetimeTypeFieldName: jsii.String("datetimeTypeFieldName"),
 //   }
 //
 type CfnFlow_IncrementalPullConfigProperty struct {
 	// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
-	DatetimeTypeFieldName *string `json:"datetimeTypeFieldName" yaml:"datetimeTypeFieldName"`
+	DatetimeTypeFieldName *string `field:"optional" json:"datetimeTypeFieldName" yaml:"datetimeTypeFieldName"`
 }
 
 // The properties that are applied when Infor Nexus is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inforNexusSourcePropertiesProperty := &inforNexusSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnFlow_InforNexusSourcePropertiesProperty struct {
 	// The object specified in the Infor Nexus flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // The properties that are applied when Amazon Lookout for Metrics is used as a destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lookoutMetricsDestinationPropertiesProperty := &lookoutMetricsDestinationPropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnFlow_LookoutMetricsDestinationPropertiesProperty struct {
 	// The object specified in the Amazon Lookout for Metrics flow destination.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"optional" json:"object" yaml:"object"`
 }
 
 // The properties that Amazon AppFlow applies when you use Marketo as a flow destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   marketoDestinationPropertiesProperty := &marketoDestinationPropertiesProperty{
 //   	object: jsii.String("object"),
 //
@@ -3712,24 +3608,27 @@ type CfnFlow_LookoutMetricsDestinationPropertiesProperty struct {
 //
 type CfnFlow_MarketoDestinationPropertiesProperty struct {
 	// The object specified in the Marketo flow destination.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination.
 	//
 	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
-	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
+	ErrorHandlingConfig interface{} `field:"optional" json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 }
 
 // The properties that are applied when Marketo is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   marketoSourcePropertiesProperty := &marketoSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnFlow_MarketoSourcePropertiesProperty struct {
 	// The object specified in the Marketo flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // Determines the prefix that Amazon AppFlow applies to the destination folder name.
@@ -3737,7 +3636,10 @@ type CfnFlow_MarketoSourcePropertiesProperty struct {
 // You can name your destination folders according to the flow frequency and date.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   prefixConfigProperty := &prefixConfigProperty{
 //   	prefixFormat: jsii.String("prefixFormat"),
 //   	prefixType: jsii.String("prefixType"),
@@ -3745,15 +3647,18 @@ type CfnFlow_MarketoSourcePropertiesProperty struct {
 //
 type CfnFlow_PrefixConfigProperty struct {
 	// Determines the level of granularity that's included in the prefix.
-	PrefixFormat *string `json:"prefixFormat" yaml:"prefixFormat"`
+	PrefixFormat *string `field:"optional" json:"prefixFormat" yaml:"prefixFormat"`
 	// Determines the format of the prefix, and whether it applies to the file name, file path, or both.
-	PrefixType *string `json:"prefixType" yaml:"prefixType"`
+	PrefixType *string `field:"optional" json:"prefixType" yaml:"prefixType"`
 }
 
 // The properties that are applied when Amazon Redshift is being used as a destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redshiftDestinationPropertiesProperty := &redshiftDestinationPropertiesProperty{
 //   	intermediateBucketName: jsii.String("intermediateBucketName"),
 //   	object: jsii.String("object"),
@@ -3769,21 +3674,24 @@ type CfnFlow_PrefixConfigProperty struct {
 //
 type CfnFlow_RedshiftDestinationPropertiesProperty struct {
 	// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
-	IntermediateBucketName *string `json:"intermediateBucketName" yaml:"intermediateBucketName"`
+	IntermediateBucketName *string `field:"required" json:"intermediateBucketName" yaml:"intermediateBucketName"`
 	// The object specified in the Amazon Redshift flow destination.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 	// The object key for the bucket in which Amazon AppFlow places the destination files.
-	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
+	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the Amazon Redshift destination.
 	//
 	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
-	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
+	ErrorHandlingConfig interface{} `field:"optional" json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 }
 
 // The properties that are applied when Amazon S3 is used as a destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3DestinationPropertiesProperty := &s3DestinationPropertiesProperty{
 //   	bucketName: jsii.String("bucketName"),
 //
@@ -3803,30 +3711,36 @@ type CfnFlow_RedshiftDestinationPropertiesProperty struct {
 //
 type CfnFlow_S3DestinationPropertiesProperty struct {
 	// The Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The object key for the destination bucket in which Amazon AppFlow places the files.
-	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
+	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 	// The configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination.
-	S3OutputFormatConfig interface{} `json:"s3OutputFormatConfig" yaml:"s3OutputFormatConfig"`
+	S3OutputFormatConfig interface{} `field:"optional" json:"s3OutputFormatConfig" yaml:"s3OutputFormatConfig"`
 }
 
 // When you use Amazon S3 as the source, the configuration format that you provide the flow input data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3InputFormatConfigProperty := &s3InputFormatConfigProperty{
 //   	s3InputFileType: jsii.String("s3InputFileType"),
 //   }
 //
 type CfnFlow_S3InputFormatConfigProperty struct {
 	// The file type that Amazon AppFlow gets from your Amazon S3 bucket.
-	S3InputFileType *string `json:"s3InputFileType" yaml:"s3InputFileType"`
+	S3InputFileType *string `field:"optional" json:"s3InputFileType" yaml:"s3InputFileType"`
 }
 
 // The configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3OutputFormatConfigProperty := &s3OutputFormatConfigProperty{
 //   	aggregationConfig: &aggregationConfigProperty{
 //   		aggregationType: jsii.String("aggregationType"),
@@ -3840,19 +3754,22 @@ type CfnFlow_S3InputFormatConfigProperty struct {
 //
 type CfnFlow_S3OutputFormatConfigProperty struct {
 	// The aggregation settings that you can use to customize the output format of your flow data.
-	AggregationConfig interface{} `json:"aggregationConfig" yaml:"aggregationConfig"`
+	AggregationConfig interface{} `field:"optional" json:"aggregationConfig" yaml:"aggregationConfig"`
 	// Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
-	FileType *string `json:"fileType" yaml:"fileType"`
+	FileType *string `field:"optional" json:"fileType" yaml:"fileType"`
 	// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket.
 	//
 	// You can name folders according to the flow frequency and date.
-	PrefixConfig interface{} `json:"prefixConfig" yaml:"prefixConfig"`
+	PrefixConfig interface{} `field:"optional" json:"prefixConfig" yaml:"prefixConfig"`
 }
 
 // The properties that are applied when Amazon S3 is being used as the flow source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3SourcePropertiesProperty := &s3SourcePropertiesProperty{
 //   	bucketName: jsii.String("bucketName"),
 //   	bucketPrefix: jsii.String("bucketPrefix"),
@@ -3865,17 +3782,20 @@ type CfnFlow_S3OutputFormatConfigProperty struct {
 //
 type CfnFlow_S3SourcePropertiesProperty struct {
 	// The Amazon S3 bucket name where the source files are stored.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The object key for the Amazon S3 bucket in which the source files are stored.
-	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
+	BucketPrefix *string `field:"required" json:"bucketPrefix" yaml:"bucketPrefix"`
 	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data.
-	S3InputFormatConfig interface{} `json:"s3InputFormatConfig" yaml:"s3InputFormatConfig"`
+	S3InputFormatConfig interface{} `field:"optional" json:"s3InputFormatConfig" yaml:"s3InputFormatConfig"`
 }
 
 // The properties that are applied when using SAPOData as a flow destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sAPODataDestinationPropertiesProperty := &sAPODataDestinationPropertiesProperty{
 //   	objectPath: jsii.String("objectPath"),
 //
@@ -3897,40 +3817,46 @@ type CfnFlow_S3SourcePropertiesProperty struct {
 //
 type CfnFlow_SAPODataDestinationPropertiesProperty struct {
 	// The object path specified in the SAPOData flow destination.
-	ObjectPath *string `json:"objectPath" yaml:"objectPath"`
+	ObjectPath *string `field:"required" json:"objectPath" yaml:"objectPath"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination.
 	//
 	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
-	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
+	ErrorHandlingConfig interface{} `field:"optional" json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 	// A list of field names that can be used as an ID field when performing a write operation.
-	IdFieldNames *[]*string `json:"idFieldNames" yaml:"idFieldNames"`
+	IdFieldNames *[]*string `field:"optional" json:"idFieldNames" yaml:"idFieldNames"`
 	// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data.
 	//
 	// For example, this setting would determine where to write the response from a destination connector upon a successful insert operation.
-	SuccessResponseHandlingConfig interface{} `json:"successResponseHandlingConfig" yaml:"successResponseHandlingConfig"`
+	SuccessResponseHandlingConfig interface{} `field:"optional" json:"successResponseHandlingConfig" yaml:"successResponseHandlingConfig"`
 	// The possible write operations in the destination connector.
 	//
 	// When this value is not provided, this defaults to the `INSERT` operation.
-	WriteOperationType *string `json:"writeOperationType" yaml:"writeOperationType"`
+	WriteOperationType *string `field:"optional" json:"writeOperationType" yaml:"writeOperationType"`
 }
 
 // The properties that are applied when using SAPOData as a flow source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sAPODataSourcePropertiesProperty := &sAPODataSourcePropertiesProperty{
 //   	objectPath: jsii.String("objectPath"),
 //   }
 //
 type CfnFlow_SAPODataSourcePropertiesProperty struct {
 	// The object path specified in the SAPOData flow source.
-	ObjectPath *string `json:"objectPath" yaml:"objectPath"`
+	ObjectPath *string `field:"required" json:"objectPath" yaml:"objectPath"`
 }
 
 // The properties that are applied when Salesforce is being used as a destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   salesforceDestinationPropertiesProperty := &salesforceDestinationPropertiesProperty{
 //   	object: jsii.String("object"),
 //
@@ -3948,23 +3874,26 @@ type CfnFlow_SAPODataSourcePropertiesProperty struct {
 //
 type CfnFlow_SalesforceDestinationPropertiesProperty struct {
 	// The object specified in the Salesforce flow destination.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination.
 	//
 	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
-	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
+	ErrorHandlingConfig interface{} `field:"optional" json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
-	IdFieldNames *[]*string `json:"idFieldNames" yaml:"idFieldNames"`
+	IdFieldNames *[]*string `field:"optional" json:"idFieldNames" yaml:"idFieldNames"`
 	// This specifies the type of write operation to be performed in Salesforce.
 	//
 	// When the value is `UPSERT` , then `idFieldNames` is required.
-	WriteOperationType *string `json:"writeOperationType" yaml:"writeOperationType"`
+	WriteOperationType *string `field:"optional" json:"writeOperationType" yaml:"writeOperationType"`
 }
 
 // The properties that are applied when Salesforce is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   salesforceSourcePropertiesProperty := &salesforceSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //
@@ -3975,11 +3904,11 @@ type CfnFlow_SalesforceDestinationPropertiesProperty struct {
 //
 type CfnFlow_SalesforceSourcePropertiesProperty struct {
 	// The object specified in the Salesforce flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 	// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-	EnableDynamicFieldUpdate interface{} `json:"enableDynamicFieldUpdate" yaml:"enableDynamicFieldUpdate"`
+	EnableDynamicFieldUpdate interface{} `field:"optional" json:"enableDynamicFieldUpdate" yaml:"enableDynamicFieldUpdate"`
 	// Indicates whether Amazon AppFlow includes deleted files in the flow run.
-	IncludeDeletedRecords interface{} `json:"includeDeletedRecords" yaml:"includeDeletedRecords"`
+	IncludeDeletedRecords interface{} `field:"optional" json:"includeDeletedRecords" yaml:"includeDeletedRecords"`
 }
 
 // Specifies the configuration details of a schedule-triggered flow as defined by the user.
@@ -3987,7 +3916,10 @@ type CfnFlow_SalesforceSourcePropertiesProperty struct {
 // Currently, these settings only apply to the `Scheduled` trigger type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scheduledTriggerPropertiesProperty := &scheduledTriggerPropertiesProperty{
 //   	scheduleExpression: jsii.String("scheduleExpression"),
 //
@@ -4001,62 +3933,74 @@ type CfnFlow_SalesforceSourcePropertiesProperty struct {
 //
 type CfnFlow_ScheduledTriggerPropertiesProperty struct {
 	// The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)` .
-	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
+	ScheduleExpression *string `field:"required" json:"scheduleExpression" yaml:"scheduleExpression"`
 	// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
-	DataPullMode *string `json:"dataPullMode" yaml:"dataPullMode"`
+	DataPullMode *string `field:"optional" json:"dataPullMode" yaml:"dataPullMode"`
 	// Specifies the scheduled end time for a schedule-triggered flow.
-	ScheduleEndTime *float64 `json:"scheduleEndTime" yaml:"scheduleEndTime"`
+	ScheduleEndTime *float64 `field:"optional" json:"scheduleEndTime" yaml:"scheduleEndTime"`
 	// Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
-	ScheduleOffset *float64 `json:"scheduleOffset" yaml:"scheduleOffset"`
+	ScheduleOffset *float64 `field:"optional" json:"scheduleOffset" yaml:"scheduleOffset"`
 	// Specifies the scheduled start time for a schedule-triggered flow.
-	ScheduleStartTime *float64 `json:"scheduleStartTime" yaml:"scheduleStartTime"`
+	ScheduleStartTime *float64 `field:"optional" json:"scheduleStartTime" yaml:"scheduleStartTime"`
 	// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York` .
-	TimeZone *string `json:"timeZone" yaml:"timeZone"`
+	TimeZone *string `field:"optional" json:"timeZone" yaml:"timeZone"`
 }
 
 // The properties that are applied when ServiceNow is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serviceNowSourcePropertiesProperty := &serviceNowSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnFlow_ServiceNowSourcePropertiesProperty struct {
 	// The object specified in the ServiceNow flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // The properties that are applied when Singular is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   singularSourcePropertiesProperty := &singularSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnFlow_SingularSourcePropertiesProperty struct {
 	// The object specified in the Singular flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // The properties that are applied when Slack is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   slackSourcePropertiesProperty := &slackSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnFlow_SlackSourcePropertiesProperty struct {
 	// The object specified in the Slack flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // The properties that are applied when Snowflake is being used as a destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   snowflakeDestinationPropertiesProperty := &snowflakeDestinationPropertiesProperty{
 //   	intermediateBucketName: jsii.String("intermediateBucketName"),
 //   	object: jsii.String("object"),
@@ -4072,21 +4016,24 @@ type CfnFlow_SlackSourcePropertiesProperty struct {
 //
 type CfnFlow_SnowflakeDestinationPropertiesProperty struct {
 	// The intermediate bucket that Amazon AppFlow uses when moving data into Snowflake.
-	IntermediateBucketName *string `json:"intermediateBucketName" yaml:"intermediateBucketName"`
+	IntermediateBucketName *string `field:"required" json:"intermediateBucketName" yaml:"intermediateBucketName"`
 	// The object specified in the Snowflake flow destination.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 	// The object key for the destination bucket in which Amazon AppFlow places the files.
-	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
+	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the Snowflake destination.
 	//
 	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
-	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
+	ErrorHandlingConfig interface{} `field:"optional" json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 }
 
 // Specifies the information that is required to query a particular connector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceConnectorPropertiesProperty := &sourceConnectorPropertiesProperty{
 //   	amplitude: &amplitudeSourcePropertiesProperty{
 //   		object: jsii.String("object"),
@@ -4153,41 +4100,44 @@ type CfnFlow_SnowflakeDestinationPropertiesProperty struct {
 //
 type CfnFlow_SourceConnectorPropertiesProperty struct {
 	// Specifies the information that is required for querying Amplitude.
-	Amplitude interface{} `json:"amplitude" yaml:"amplitude"`
+	Amplitude interface{} `field:"optional" json:"amplitude" yaml:"amplitude"`
 	// Specifies the information that is required for querying Datadog.
-	Datadog interface{} `json:"datadog" yaml:"datadog"`
+	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`
 	// Specifies the information that is required for querying Dynatrace.
-	Dynatrace interface{} `json:"dynatrace" yaml:"dynatrace"`
+	Dynatrace interface{} `field:"optional" json:"dynatrace" yaml:"dynatrace"`
 	// Specifies the information that is required for querying Google Analytics.
-	GoogleAnalytics interface{} `json:"googleAnalytics" yaml:"googleAnalytics"`
+	GoogleAnalytics interface{} `field:"optional" json:"googleAnalytics" yaml:"googleAnalytics"`
 	// Specifies the information that is required for querying Infor Nexus.
-	InforNexus interface{} `json:"inforNexus" yaml:"inforNexus"`
+	InforNexus interface{} `field:"optional" json:"inforNexus" yaml:"inforNexus"`
 	// Specifies the information that is required for querying Marketo.
-	Marketo interface{} `json:"marketo" yaml:"marketo"`
+	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
 	// Specifies the information that is required for querying Amazon S3.
-	S3 interface{} `json:"s3" yaml:"s3"`
+	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
 	// Specifies the information that is required for querying Salesforce.
-	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
+	Salesforce interface{} `field:"optional" json:"salesforce" yaml:"salesforce"`
 	// The properties that are applied when using SAPOData as a flow source.
-	SapoData interface{} `json:"sapoData" yaml:"sapoData"`
+	SapoData interface{} `field:"optional" json:"sapoData" yaml:"sapoData"`
 	// Specifies the information that is required for querying ServiceNow.
-	ServiceNow interface{} `json:"serviceNow" yaml:"serviceNow"`
+	ServiceNow interface{} `field:"optional" json:"serviceNow" yaml:"serviceNow"`
 	// Specifies the information that is required for querying Singular.
-	Singular interface{} `json:"singular" yaml:"singular"`
+	Singular interface{} `field:"optional" json:"singular" yaml:"singular"`
 	// Specifies the information that is required for querying Slack.
-	Slack interface{} `json:"slack" yaml:"slack"`
+	Slack interface{} `field:"optional" json:"slack" yaml:"slack"`
 	// Specifies the information that is required for querying Trend Micro.
-	Trendmicro interface{} `json:"trendmicro" yaml:"trendmicro"`
+	Trendmicro interface{} `field:"optional" json:"trendmicro" yaml:"trendmicro"`
 	// Specifies the information that is required for querying Veeva.
-	Veeva interface{} `json:"veeva" yaml:"veeva"`
+	Veeva interface{} `field:"optional" json:"veeva" yaml:"veeva"`
 	// Specifies the information that is required for querying Zendesk.
-	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
+	Zendesk interface{} `field:"optional" json:"zendesk" yaml:"zendesk"`
 }
 
 // Contains information about the configuration of the source connector used in the flow.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceFlowConfigProperty := &sourceFlowConfigProperty{
 //   	connectorType: jsii.String("connectorType"),
 //   	sourceConnectorProperties: &sourceConnectorPropertiesProperty{
@@ -4265,17 +4215,17 @@ type CfnFlow_SourceFlowConfigProperty struct {
 	// The type of source connector, such as Salesforce, Amplitude, and so on.
 	//
 	// *Allowed Values* : S3 | Amplitude | Datadog | Dynatrace | Googleanalytics | Infornexus | Salesforce | Servicenow | Singular | Slack | Trendmicro | Veeva | Zendesk.
-	ConnectorType *string `json:"connectorType" yaml:"connectorType"`
+	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// Specifies the information that is required to query a particular source connector.
-	SourceConnectorProperties interface{} `json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`
+	SourceConnectorProperties interface{} `field:"required" json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`
 	// The name of the connector profile.
 	//
 	// This name must be unique for each connector profile in the AWS account .
-	ConnectorProfileName *string `json:"connectorProfileName" yaml:"connectorProfileName"`
+	ConnectorProfileName *string `field:"optional" json:"connectorProfileName" yaml:"connectorProfileName"`
 	// Defines the configuration for a scheduled incremental data pull.
 	//
 	// If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
-	IncrementalPullConfig interface{} `json:"incrementalPullConfig" yaml:"incrementalPullConfig"`
+	IncrementalPullConfig interface{} `field:"optional" json:"incrementalPullConfig" yaml:"incrementalPullConfig"`
 }
 
 // Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data.
@@ -4283,7 +4233,10 @@ type CfnFlow_SourceFlowConfigProperty struct {
 // For example, this setting would determine where to write the response from the destination connector upon a successful insert operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   successResponseHandlingConfigProperty := &successResponseHandlingConfigProperty{
 //   	bucketName: jsii.String("bucketName"),
 //   	bucketPrefix: jsii.String("bucketPrefix"),
@@ -4291,9 +4244,9 @@ type CfnFlow_SourceFlowConfigProperty struct {
 //
 type CfnFlow_SuccessResponseHandlingConfigProperty struct {
 	// The name of the Amazon S3 bucket.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// The Amazon S3 bucket prefix.
-	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
+	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 }
 
 // A map used to store task-related information.
@@ -4301,7 +4254,10 @@ type CfnFlow_SuccessResponseHandlingConfigProperty struct {
 // The execution service looks for particular information based on the `TaskType` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   taskPropertiesObjectProperty := &taskPropertiesObjectProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -4311,9 +4267,9 @@ type CfnFlow_TaskPropertiesObjectProperty struct {
 	// The task property key.
 	//
 	// *Allowed Values* : `VALUE | VALUES | DATA_TYPE | UPPER_BOUND | LOWER_BOUND | SOURCE_DATA_TYPE | DESTINATION_DATA_TYPE | VALIDATION_ACTION | MASK_VALUE | MASK_LENGTH | TRUNCATE_LENGTH | MATH_OPERATION_FIELDS_ORDER | CONCAT_FORMAT | SUBFIELD_CATEGORY_MAP` | `EXCLUDE_SOURCE_FIELDS_LIST`.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The task property value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // A class for modeling different type of tasks.
@@ -4321,7 +4277,10 @@ type CfnFlow_TaskPropertiesObjectProperty struct {
 // Task implementation varies based on the `TaskType` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   taskProperty := &taskProperty{
 //   	sourceFields: []*string{
 //   		jsii.String("sourceFields"),
@@ -4357,38 +4316,44 @@ type CfnFlow_TaskPropertiesObjectProperty struct {
 //
 type CfnFlow_TaskProperty struct {
 	// The source fields to which a particular task is applied.
-	SourceFields *[]*string `json:"sourceFields" yaml:"sourceFields"`
+	SourceFields *[]*string `field:"required" json:"sourceFields" yaml:"sourceFields"`
 	// Specifies the particular task implementation that Amazon AppFlow performs.
 	//
 	// *Allowed values* : `Arithmetic` | `Filter` | `Map` | `Map_all` | `Mask` | `Merge` | `Truncate` | `Validate`.
-	TaskType *string `json:"taskType" yaml:"taskType"`
+	TaskType *string `field:"required" json:"taskType" yaml:"taskType"`
 	// The operation to be performed on the provided source fields.
-	ConnectorOperator interface{} `json:"connectorOperator" yaml:"connectorOperator"`
+	ConnectorOperator interface{} `field:"optional" json:"connectorOperator" yaml:"connectorOperator"`
 	// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-	DestinationField *string `json:"destinationField" yaml:"destinationField"`
+	DestinationField *string `field:"optional" json:"destinationField" yaml:"destinationField"`
 	// A map used to store task-related information.
 	//
 	// The execution service looks for particular information based on the `TaskType` .
-	TaskProperties interface{} `json:"taskProperties" yaml:"taskProperties"`
+	TaskProperties interface{} `field:"optional" json:"taskProperties" yaml:"taskProperties"`
 }
 
 // The properties that are applied when using Trend Micro as a flow source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   trendmicroSourcePropertiesProperty := &trendmicroSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnFlow_TrendmicroSourcePropertiesProperty struct {
 	// The object specified in the Trend Micro flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   triggerConfigProperty := &triggerConfigProperty{
 //   	triggerType: jsii.String("triggerType"),
 //
@@ -4409,17 +4374,20 @@ type CfnFlow_TriggerConfigProperty struct {
 	// Specifies the type of flow trigger.
 	//
 	// This can be `OnDemand` , `Scheduled` , or `Event` .
-	TriggerType *string `json:"triggerType" yaml:"triggerType"`
+	TriggerType *string `field:"required" json:"triggerType" yaml:"triggerType"`
 	// Specifies the configuration details of a schedule-triggered flow as defined by the user.
 	//
 	// Currently, these settings only apply to the `Scheduled` trigger type.
-	TriggerProperties interface{} `json:"triggerProperties" yaml:"triggerProperties"`
+	TriggerProperties interface{} `field:"optional" json:"triggerProperties" yaml:"triggerProperties"`
 }
 
 // The properties that are applied when Upsolver is used as a destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   upsolverDestinationPropertiesProperty := &upsolverDestinationPropertiesProperty{
 //   	bucketName: jsii.String("bucketName"),
 //   	s3OutputFormatConfig: &upsolverS3OutputFormatConfigProperty{
@@ -4441,17 +4409,20 @@ type CfnFlow_TriggerConfigProperty struct {
 //
 type CfnFlow_UpsolverDestinationPropertiesProperty struct {
 	// The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The configuration that determines how data is formatted when Upsolver is used as the flow destination.
-	S3OutputFormatConfig interface{} `json:"s3OutputFormatConfig" yaml:"s3OutputFormatConfig"`
+	S3OutputFormatConfig interface{} `field:"required" json:"s3OutputFormatConfig" yaml:"s3OutputFormatConfig"`
 	// The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow places the files.
-	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
+	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 }
 
 // The configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   upsolverS3OutputFormatConfigProperty := &upsolverS3OutputFormatConfigProperty{
 //   	prefixConfig: &prefixConfigProperty{
 //   		prefixFormat: jsii.String("prefixFormat"),
@@ -4469,17 +4440,20 @@ type CfnFlow_UpsolverS3OutputFormatConfigProperty struct {
 	// Determines the prefix that Amazon AppFlow applies to the destination folder name.
 	//
 	// You can name your destination folders according to the flow frequency and date.
-	PrefixConfig interface{} `json:"prefixConfig" yaml:"prefixConfig"`
+	PrefixConfig interface{} `field:"required" json:"prefixConfig" yaml:"prefixConfig"`
 	// The aggregation settings that you can use to customize the output format of your flow data.
-	AggregationConfig interface{} `json:"aggregationConfig" yaml:"aggregationConfig"`
+	AggregationConfig interface{} `field:"optional" json:"aggregationConfig" yaml:"aggregationConfig"`
 	// Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket.
-	FileType *string `json:"fileType" yaml:"fileType"`
+	FileType *string `field:"optional" json:"fileType" yaml:"fileType"`
 }
 
 // The properties that are applied when using Veeva as a flow source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   veevaSourcePropertiesProperty := &veevaSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //
@@ -4492,21 +4466,24 @@ type CfnFlow_UpsolverS3OutputFormatConfigProperty struct {
 //
 type CfnFlow_VeevaSourcePropertiesProperty struct {
 	// The object specified in the Veeva flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 	// The document type specified in the Veeva document extract flow.
-	DocumentType *string `json:"documentType" yaml:"documentType"`
+	DocumentType *string `field:"optional" json:"documentType" yaml:"documentType"`
 	// Boolean value to include All Versions of files in Veeva document extract flow.
-	IncludeAllVersions interface{} `json:"includeAllVersions" yaml:"includeAllVersions"`
+	IncludeAllVersions interface{} `field:"optional" json:"includeAllVersions" yaml:"includeAllVersions"`
 	// Boolean value to include file renditions in Veeva document extract flow.
-	IncludeRenditions interface{} `json:"includeRenditions" yaml:"includeRenditions"`
+	IncludeRenditions interface{} `field:"optional" json:"includeRenditions" yaml:"includeRenditions"`
 	// Boolean value to include source files in Veeva document extract flow.
-	IncludeSourceFiles interface{} `json:"includeSourceFiles" yaml:"includeSourceFiles"`
+	IncludeSourceFiles interface{} `field:"optional" json:"includeSourceFiles" yaml:"includeSourceFiles"`
 }
 
 // The properties that are applied when Zendesk is used as a destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   zendeskDestinationPropertiesProperty := &zendeskDestinationPropertiesProperty{
 //   	object: jsii.String("object"),
 //
@@ -4524,36 +4501,42 @@ type CfnFlow_VeevaSourcePropertiesProperty struct {
 //
 type CfnFlow_ZendeskDestinationPropertiesProperty struct {
 	// The object specified in the Zendesk flow destination.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination.
 	//
 	// For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
-	ErrorHandlingConfig interface{} `json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
+	ErrorHandlingConfig interface{} `field:"optional" json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
 	// A list of field names that can be used as an ID field when performing a write operation.
-	IdFieldNames *[]*string `json:"idFieldNames" yaml:"idFieldNames"`
+	IdFieldNames *[]*string `field:"optional" json:"idFieldNames" yaml:"idFieldNames"`
 	// The possible write operations in the destination connector.
 	//
 	// When this value is not provided, this defaults to the `INSERT` operation.
-	WriteOperationType *string `json:"writeOperationType" yaml:"writeOperationType"`
+	WriteOperationType *string `field:"optional" json:"writeOperationType" yaml:"writeOperationType"`
 }
 
 // The properties that are applied when using Zendesk as a flow source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   zendeskSourcePropertiesProperty := &zendeskSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnFlow_ZendeskSourcePropertiesProperty struct {
 	// The object specified in the Zendesk flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // Properties for defining a `CfnFlow`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appflow "github.com/aws/aws-cdk-go/awscdk/aws_appflow"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFlowProps := &cfnFlowProps{
 //   	destinationFlowConfigList: []interface{}{
 //   		&destinationFlowConfigProperty{
@@ -4828,24 +4811,24 @@ type CfnFlow_ZendeskSourcePropertiesProperty struct {
 //
 type CfnFlowProps struct {
 	// The configuration that controls how Amazon AppFlow places data in the destination connector.
-	DestinationFlowConfigList interface{} `json:"destinationFlowConfigList" yaml:"destinationFlowConfigList"`
+	DestinationFlowConfigList interface{} `field:"required" json:"destinationFlowConfigList" yaml:"destinationFlowConfigList"`
 	// The specified name of the flow.
 	//
 	// Spaces are not allowed. Use underscores (_) or hyphens (-) only.
-	FlowName *string `json:"flowName" yaml:"flowName"`
+	FlowName *string `field:"required" json:"flowName" yaml:"flowName"`
 	// Contains information about the configuration of the source connector used in the flow.
-	SourceFlowConfig interface{} `json:"sourceFlowConfig" yaml:"sourceFlowConfig"`
+	SourceFlowConfig interface{} `field:"required" json:"sourceFlowConfig" yaml:"sourceFlowConfig"`
 	// A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
-	Tasks interface{} `json:"tasks" yaml:"tasks"`
+	Tasks interface{} `field:"required" json:"tasks" yaml:"tasks"`
 	// The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
-	TriggerConfig interface{} `json:"triggerConfig" yaml:"triggerConfig"`
+	TriggerConfig interface{} `field:"required" json:"triggerConfig" yaml:"triggerConfig"`
 	// A user-entered description of the flow.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption.
 	//
 	// This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn *string `json:"kmsArn" yaml:"kmsArn"`
+	KmsArn *string `field:"optional" json:"kmsArn" yaml:"kmsArn"`
 	// The tags used to organize, track, or control access for your flow.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

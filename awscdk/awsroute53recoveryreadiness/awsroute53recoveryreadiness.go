@@ -1,12 +1,12 @@
 package awsroute53recoveryreadiness
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53recoveryreadiness/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53recoveryreadiness/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::Cell`.
@@ -14,8 +14,11 @@ import (
 // Creates a cell in an account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
-//   cfnCell := route53recoveryreadiness.NewCfnCell(this, jsii.String("MyCfnCell"), &cfnCellProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCell := awscdk.Aws_route53recoveryreadiness.NewCfnCell(this, jsii.String("MyCfnCell"), &cfnCellProps{
 //   	cellName: jsii.String("cellName"),
 //
 //   	// the properties below are optional
@@ -48,16 +51,13 @@ type CfnCell interface {
 	Cells() *[]*string
 	SetCells(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -68,21 +68,17 @@ type CfnCell interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A collection of tags associated with a resource.
 	Tags() awscdk.TagManager
@@ -90,16 +86,13 @@ type CfnCell interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -108,7 +101,6 @@ type CfnCell interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -153,15 +145,12 @@ type CfnCell interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -172,13 +161,11 @@ type CfnCell interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -187,74 +174,21 @@ type CfnCell interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -354,8 +288,8 @@ func (j *jsiiProxy_CfnCell) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCell) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnCell) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -406,13 +340,13 @@ func (j *jsiiProxy_CfnCell) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Route53RecoveryReadiness::Cell`.
-func NewCfnCell(scope awscdk.Construct, id *string, props *CfnCellProps) CfnCell {
+func NewCfnCell(scope constructs.Construct, id *string, props *CfnCellProps) CfnCell {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCell{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53recoveryreadiness.CfnCell",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnCell",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -421,11 +355,11 @@ func NewCfnCell(scope awscdk.Construct, id *string, props *CfnCellProps) CfnCell
 }
 
 // Create a new `AWS::Route53RecoveryReadiness::Cell`.
-func NewCfnCell_Override(c CfnCell, scope awscdk.Construct, id *string, props *CfnCellProps) {
+func NewCfnCell_Override(c CfnCell, scope constructs.Construct, id *string, props *CfnCellProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53recoveryreadiness.CfnCell",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnCell",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -453,14 +387,13 @@ func (j *jsiiProxy_CfnCell) SetCells(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnCell_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53recoveryreadiness.CfnCell",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnCell",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -470,14 +403,13 @@ func CfnCell_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnCell_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53recoveryreadiness.CfnCell",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnCell",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -486,15 +418,17 @@ func CfnCell_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnCell_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53recoveryreadiness.CfnCell",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnCell",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -507,7 +441,7 @@ func CfnCell_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_route53recoveryreadiness.CfnCell",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnCell",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -604,48 +538,11 @@ func (c *jsiiProxy_CfnCell) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnCell) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnCell) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnCell) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnCell) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnCell) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -675,33 +572,12 @@ func (c *jsiiProxy_CfnCell) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnCell) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnCell) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnCell) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -720,7 +596,10 @@ func (c *jsiiProxy_CfnCell) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnCell`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCellProps := &cfnCellProps{
 //   	cellName: jsii.String("cellName"),
 //
@@ -738,13 +617,13 @@ func (c *jsiiProxy_CfnCell) ValidateProperties(_properties interface{}) {
 //
 type CfnCellProps struct {
 	// The name of the cell to create.
-	CellName *string `json:"cellName" yaml:"cellName"`
+	CellName *string `field:"required" json:"cellName" yaml:"cellName"`
 	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells.
 	//
 	// For example, Availability Zones within specific AWS Regions .
-	Cells *[]*string `json:"cells" yaml:"cells"`
+	Cells *[]*string `field:"optional" json:"cells" yaml:"cells"`
 	// A collection of tags associated with a resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::ReadinessCheck`.
@@ -752,8 +631,11 @@ type CfnCellProps struct {
 // Creates a readiness check in an account. A readiness check monitors a resource set in your application, such as a set of Amazon Aurora instances, that Application Recovery Controller is auditing recovery readiness for. The audits run once every minute on every resource that's associated with a readiness check.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
-//   cfnReadinessCheck := route53recoveryreadiness.NewCfnReadinessCheck(this, jsii.String("MyCfnReadinessCheck"), &cfnReadinessCheckProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnReadinessCheck := awscdk.Aws_route53recoveryreadiness.NewCfnReadinessCheck(this, jsii.String("MyCfnReadinessCheck"), &cfnReadinessCheckProps{
 //   	readinessCheckName: jsii.String("readinessCheckName"),
 //
 //   	// the properties below are optional
@@ -772,16 +654,13 @@ type CfnReadinessCheck interface {
 	// The Amazon Resource Name (ARN) of the readiness check.
 	AttrReadinessCheckArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -792,11 +671,9 @@ type CfnReadinessCheck interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The name of the readiness check to create.
 	ReadinessCheckName() *string
 	SetReadinessCheckName(val *string)
@@ -804,7 +681,6 @@ type CfnReadinessCheck interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The name of the resource set to check.
 	ResourceSetName() *string
@@ -812,7 +688,6 @@ type CfnReadinessCheck interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A collection of tags associated with a resource.
 	Tags() awscdk.TagManager
@@ -820,16 +695,13 @@ type CfnReadinessCheck interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -838,7 +710,6 @@ type CfnReadinessCheck interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -883,15 +754,12 @@ type CfnReadinessCheck interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -902,13 +770,11 @@ type CfnReadinessCheck interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -917,74 +783,21 @@ type CfnReadinessCheck interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1054,8 +867,8 @@ func (j *jsiiProxy_CfnReadinessCheck) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReadinessCheck) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnReadinessCheck) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1126,13 +939,13 @@ func (j *jsiiProxy_CfnReadinessCheck) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::Route53RecoveryReadiness::ReadinessCheck`.
-func NewCfnReadinessCheck(scope awscdk.Construct, id *string, props *CfnReadinessCheckProps) CfnReadinessCheck {
+func NewCfnReadinessCheck(scope constructs.Construct, id *string, props *CfnReadinessCheckProps) CfnReadinessCheck {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnReadinessCheck{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53recoveryreadiness.CfnReadinessCheck",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnReadinessCheck",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1141,11 +954,11 @@ func NewCfnReadinessCheck(scope awscdk.Construct, id *string, props *CfnReadines
 }
 
 // Create a new `AWS::Route53RecoveryReadiness::ReadinessCheck`.
-func NewCfnReadinessCheck_Override(c CfnReadinessCheck, scope awscdk.Construct, id *string, props *CfnReadinessCheckProps) {
+func NewCfnReadinessCheck_Override(c CfnReadinessCheck, scope constructs.Construct, id *string, props *CfnReadinessCheckProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53recoveryreadiness.CfnReadinessCheck",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnReadinessCheck",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1173,14 +986,13 @@ func (j *jsiiProxy_CfnReadinessCheck) SetResourceSetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnReadinessCheck_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53recoveryreadiness.CfnReadinessCheck",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnReadinessCheck",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1190,14 +1002,13 @@ func CfnReadinessCheck_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnReadinessCheck_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53recoveryreadiness.CfnReadinessCheck",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnReadinessCheck",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1206,15 +1017,17 @@ func CfnReadinessCheck_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnReadinessCheck_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53recoveryreadiness.CfnReadinessCheck",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnReadinessCheck",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1227,7 +1040,7 @@ func CfnReadinessCheck_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_route53recoveryreadiness.CfnReadinessCheck",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnReadinessCheck",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1324,48 +1137,11 @@ func (c *jsiiProxy_CfnReadinessCheck) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnReadinessCheck) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnReadinessCheck) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnReadinessCheck) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnReadinessCheck) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnReadinessCheck) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1395,33 +1171,12 @@ func (c *jsiiProxy_CfnReadinessCheck) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnReadinessCheck) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnReadinessCheck) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnReadinessCheck) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1440,7 +1195,10 @@ func (c *jsiiProxy_CfnReadinessCheck) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnReadinessCheck`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnReadinessCheckProps := &cfnReadinessCheckProps{
 //   	readinessCheckName: jsii.String("readinessCheckName"),
 //
@@ -1456,11 +1214,11 @@ func (c *jsiiProxy_CfnReadinessCheck) ValidateProperties(_properties interface{}
 //
 type CfnReadinessCheckProps struct {
 	// The name of the readiness check to create.
-	ReadinessCheckName *string `json:"readinessCheckName" yaml:"readinessCheckName"`
+	ReadinessCheckName *string `field:"required" json:"readinessCheckName" yaml:"readinessCheckName"`
 	// The name of the resource set to check.
-	ResourceSetName *string `json:"resourceSetName" yaml:"resourceSetName"`
+	ResourceSetName *string `field:"optional" json:"resourceSetName" yaml:"resourceSetName"`
 	// A collection of tags associated with a resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::RecoveryGroup`.
@@ -1468,8 +1226,11 @@ type CfnReadinessCheckProps struct {
 // Creates a recovery group in an account. A recovery group corresponds to an application and includes a list of the cells that make up the application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
-//   cfnRecoveryGroup := route53recoveryreadiness.NewCfnRecoveryGroup(this, jsii.String("MyCfnRecoveryGroup"), &cfnRecoveryGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRecoveryGroup := awscdk.Aws_route53recoveryreadiness.NewCfnRecoveryGroup(this, jsii.String("MyCfnRecoveryGroup"), &cfnRecoveryGroupProps{
 //   	recoveryGroupName: jsii.String("recoveryGroupName"),
 //
 //   	// the properties below are optional
@@ -1493,16 +1254,13 @@ type CfnRecoveryGroup interface {
 	Cells() *[]*string
 	SetCells(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -1513,11 +1271,9 @@ type CfnRecoveryGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The name of the recovery group to create.
 	RecoveryGroupName() *string
 	SetRecoveryGroupName(val *string)
@@ -1525,12 +1281,10 @@ type CfnRecoveryGroup interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A collection of tags associated with a resource.
 	Tags() awscdk.TagManager
@@ -1538,16 +1292,13 @@ type CfnRecoveryGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1556,7 +1307,6 @@ type CfnRecoveryGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1601,15 +1351,12 @@ type CfnRecoveryGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1620,13 +1367,11 @@ type CfnRecoveryGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1635,74 +1380,21 @@ type CfnRecoveryGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1782,8 +1474,8 @@ func (j *jsiiProxy_CfnRecoveryGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecoveryGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnRecoveryGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1844,13 +1536,13 @@ func (j *jsiiProxy_CfnRecoveryGroup) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::Route53RecoveryReadiness::RecoveryGroup`.
-func NewCfnRecoveryGroup(scope awscdk.Construct, id *string, props *CfnRecoveryGroupProps) CfnRecoveryGroup {
+func NewCfnRecoveryGroup(scope constructs.Construct, id *string, props *CfnRecoveryGroupProps) CfnRecoveryGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRecoveryGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53recoveryreadiness.CfnRecoveryGroup",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnRecoveryGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1859,11 +1551,11 @@ func NewCfnRecoveryGroup(scope awscdk.Construct, id *string, props *CfnRecoveryG
 }
 
 // Create a new `AWS::Route53RecoveryReadiness::RecoveryGroup`.
-func NewCfnRecoveryGroup_Override(c CfnRecoveryGroup, scope awscdk.Construct, id *string, props *CfnRecoveryGroupProps) {
+func NewCfnRecoveryGroup_Override(c CfnRecoveryGroup, scope constructs.Construct, id *string, props *CfnRecoveryGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53recoveryreadiness.CfnRecoveryGroup",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnRecoveryGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1891,14 +1583,13 @@ func (j *jsiiProxy_CfnRecoveryGroup) SetRecoveryGroupName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRecoveryGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53recoveryreadiness.CfnRecoveryGroup",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnRecoveryGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1908,14 +1599,13 @@ func CfnRecoveryGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRecoveryGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53recoveryreadiness.CfnRecoveryGroup",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnRecoveryGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1924,15 +1614,17 @@ func CfnRecoveryGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnRecoveryGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53recoveryreadiness.CfnRecoveryGroup",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnRecoveryGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1945,7 +1637,7 @@ func CfnRecoveryGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_route53recoveryreadiness.CfnRecoveryGroup",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnRecoveryGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2042,48 +1734,11 @@ func (c *jsiiProxy_CfnRecoveryGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnRecoveryGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnRecoveryGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnRecoveryGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnRecoveryGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnRecoveryGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2113,33 +1768,12 @@ func (c *jsiiProxy_CfnRecoveryGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnRecoveryGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnRecoveryGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnRecoveryGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2158,7 +1792,10 @@ func (c *jsiiProxy_CfnRecoveryGroup) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnRecoveryGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRecoveryGroupProps := &cfnRecoveryGroupProps{
 //   	recoveryGroupName: jsii.String("recoveryGroupName"),
 //
@@ -2176,11 +1813,11 @@ func (c *jsiiProxy_CfnRecoveryGroup) ValidateProperties(_properties interface{})
 //
 type CfnRecoveryGroupProps struct {
 	// The name of the recovery group to create.
-	RecoveryGroupName *string `json:"recoveryGroupName" yaml:"recoveryGroupName"`
+	RecoveryGroupName *string `field:"required" json:"recoveryGroupName" yaml:"recoveryGroupName"`
 	// A list of the cell Amazon Resource Names (ARNs) in the recovery group.
-	Cells *[]*string `json:"cells" yaml:"cells"`
+	Cells *[]*string `field:"optional" json:"cells" yaml:"cells"`
 	// A collection of tags associated with a resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::ResourceSet`.
@@ -2188,8 +1825,11 @@ type CfnRecoveryGroupProps struct {
 // Creates a resource set. A resource set is a set of resources of one type that span multiple cells. You can associate a resource set with a readiness check to monitor the resources for failover readiness.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
-//   cfnResourceSet := route53recoveryreadiness.NewCfnResourceSet(this, jsii.String("MyCfnResourceSet"), &cfnResourceSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResourceSet := awscdk.Aws_route53recoveryreadiness.NewCfnResourceSet(this, jsii.String("MyCfnResourceSet"), &cfnResourceSetProps{
 //   	resources: []interface{}{
 //   		&resourceProperty{
 //   			componentId: jsii.String("componentId"),
@@ -2232,16 +1872,13 @@ type CfnResourceSet interface {
 	// The Amazon Resource Name (ARN) of the resource set.
 	AttrResourceSetArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -2252,16 +1889,13 @@ type CfnResourceSet interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// A list of resource objects in the resource set.
 	Resources() interface{}
@@ -2279,7 +1913,6 @@ type CfnResourceSet interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A tag to associate with the parameters for a resource set.
 	Tags() awscdk.TagManager
@@ -2287,16 +1920,13 @@ type CfnResourceSet interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2305,7 +1935,6 @@ type CfnResourceSet interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2350,15 +1979,12 @@ type CfnResourceSet interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2369,13 +1995,11 @@ type CfnResourceSet interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2384,74 +2008,21 @@ type CfnResourceSet interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2521,8 +2092,8 @@ func (j *jsiiProxy_CfnResourceSet) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceSet) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnResourceSet) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2603,13 +2174,13 @@ func (j *jsiiProxy_CfnResourceSet) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Route53RecoveryReadiness::ResourceSet`.
-func NewCfnResourceSet(scope awscdk.Construct, id *string, props *CfnResourceSetProps) CfnResourceSet {
+func NewCfnResourceSet(scope constructs.Construct, id *string, props *CfnResourceSetProps) CfnResourceSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResourceSet{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53recoveryreadiness.CfnResourceSet",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnResourceSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2618,11 +2189,11 @@ func NewCfnResourceSet(scope awscdk.Construct, id *string, props *CfnResourceSet
 }
 
 // Create a new `AWS::Route53RecoveryReadiness::ResourceSet`.
-func NewCfnResourceSet_Override(c CfnResourceSet, scope awscdk.Construct, id *string, props *CfnResourceSetProps) {
+func NewCfnResourceSet_Override(c CfnResourceSet, scope constructs.Construct, id *string, props *CfnResourceSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53recoveryreadiness.CfnResourceSet",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnResourceSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2658,14 +2229,13 @@ func (j *jsiiProxy_CfnResourceSet) SetResourceSetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnResourceSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53recoveryreadiness.CfnResourceSet",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnResourceSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2675,14 +2245,13 @@ func CfnResourceSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnResourceSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53recoveryreadiness.CfnResourceSet",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnResourceSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2691,15 +2260,17 @@ func CfnResourceSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnResourceSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53recoveryreadiness.CfnResourceSet",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnResourceSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2712,7 +2283,7 @@ func CfnResourceSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_route53recoveryreadiness.CfnResourceSet",
+		"aws-cdk-lib.aws_route53recoveryreadiness.CfnResourceSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2809,48 +2380,11 @@ func (c *jsiiProxy_CfnResourceSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnResourceSet) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnResourceSet) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnResourceSet) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnResourceSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnResourceSet) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2880,33 +2414,12 @@ func (c *jsiiProxy_CfnResourceSet) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnResourceSet) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnResourceSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnResourceSet) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2925,7 +2438,10 @@ func (c *jsiiProxy_CfnResourceSet) ValidateProperties(_properties interface{}) {
 // A component for DNS/routing control readiness checks and architecture checks.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dNSTargetResourceProperty := &dNSTargetResourceProperty{
 //   	domainName: jsii.String("domainName"),
 //   	hostedZoneArn: jsii.String("hostedZoneArn"),
@@ -2944,34 +2460,40 @@ func (c *jsiiProxy_CfnResourceSet) ValidateProperties(_properties interface{}) {
 //
 type CfnResourceSet_DNSTargetResourceProperty struct {
 	// The domain name that acts as an ingress point to a portion of the customer application.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
-	HostedZoneArn *string `json:"hostedZoneArn" yaml:"hostedZoneArn"`
+	HostedZoneArn *string `field:"optional" json:"hostedZoneArn" yaml:"hostedZoneArn"`
 	// The Route 53 record set ID that uniquely identifies a DNS record, given a name and a type.
-	RecordSetId *string `json:"recordSetId" yaml:"recordSetId"`
+	RecordSetId *string `field:"optional" json:"recordSetId" yaml:"recordSetId"`
 	// The type of DNS record of the target resource.
-	RecordType *string `json:"recordType" yaml:"recordType"`
+	RecordType *string `field:"optional" json:"recordType" yaml:"recordType"`
 	// The target resource that the Route 53 record points to.
-	TargetResource interface{} `json:"targetResource" yaml:"targetResource"`
+	TargetResource interface{} `field:"optional" json:"targetResource" yaml:"targetResource"`
 }
 
 // The Network Load Balancer resource that a DNS target resource points to.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   nLBResourceProperty := &nLBResourceProperty{
 //   	arn: jsii.String("arn"),
 //   }
 //
 type CfnResourceSet_NLBResourceProperty struct {
 	// The Network Load Balancer resource Amazon Resource Name (ARN).
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 }
 
 // The Route 53 resource that a DNS target resource record points to.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   r53ResourceRecordProperty := &r53ResourceRecordProperty{
 //   	domainName: jsii.String("domainName"),
 //   	recordSetId: jsii.String("recordSetId"),
@@ -2979,15 +2501,18 @@ type CfnResourceSet_NLBResourceProperty struct {
 //
 type CfnResourceSet_R53ResourceRecordProperty struct {
 	// The DNS target domain name.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The Route 53 Resource Record Set ID.
-	RecordSetId *string `json:"recordSetId" yaml:"recordSetId"`
+	RecordSetId *string `field:"optional" json:"recordSetId" yaml:"recordSetId"`
 }
 
 // The resource element of a resource set.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceProperty := &resourceProperty{
 //   	componentId: jsii.String("componentId"),
 //   	dnsTargetResource: &dNSTargetResourceProperty{
@@ -3013,23 +2538,26 @@ type CfnResourceSet_R53ResourceRecordProperty struct {
 //
 type CfnResourceSet_ResourceProperty struct {
 	// The component identifier of the resource, generated when DNS target resource is used.
-	ComponentId *string `json:"componentId" yaml:"componentId"`
+	ComponentId *string `field:"optional" json:"componentId" yaml:"componentId"`
 	// A component for DNS/routing control readiness checks.
 	//
 	// This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
-	DnsTargetResource interface{} `json:"dnsTargetResource" yaml:"dnsTargetResource"`
+	DnsTargetResource interface{} `field:"optional" json:"dnsTargetResource" yaml:"dnsTargetResource"`
 	// The recovery group Amazon Resource Name (ARN) or the cell ARN that the readiness checks for this resource set are scoped to.
-	ReadinessScopes *[]*string `json:"readinessScopes" yaml:"readinessScopes"`
+	ReadinessScopes *[]*string `field:"optional" json:"readinessScopes" yaml:"readinessScopes"`
 	// The Amazon Resource Name (ARN) of the AWS resource.
 	//
 	// This is a required setting for all `ResourceSet` `ResourceSetType` settings except `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set this when `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` .
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"optional" json:"resourceArn" yaml:"resourceArn"`
 }
 
 // The target resource that the Route 53 record points to.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetResourceProperty := &targetResourceProperty{
 //   	nlbResource: &nLBResourceProperty{
 //   		arn: jsii.String("arn"),
@@ -3042,15 +2570,18 @@ type CfnResourceSet_ResourceProperty struct {
 //
 type CfnResourceSet_TargetResourceProperty struct {
 	// The Network Load Balancer resource that a DNS target resource points to.
-	NlbResource interface{} `json:"nlbResource" yaml:"nlbResource"`
+	NlbResource interface{} `field:"optional" json:"nlbResource" yaml:"nlbResource"`
 	// The Route 53 resource that a DNS target resource record points to.
-	R53Resource interface{} `json:"r53Resource" yaml:"r53Resource"`
+	R53Resource interface{} `field:"optional" json:"r53Resource" yaml:"r53Resource"`
 }
 
 // Properties for defining a `CfnResourceSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceSetProps := &cfnResourceSetProps{
 //   	resources: []interface{}{
 //   		&resourceProperty{
@@ -3090,16 +2621,16 @@ type CfnResourceSet_TargetResourceProperty struct {
 //
 type CfnResourceSetProps struct {
 	// A list of resource objects in the resource set.
-	Resources interface{} `json:"resources" yaml:"resources"`
+	Resources interface{} `field:"required" json:"resources" yaml:"resources"`
 	// The name of the resource set to create.
-	ResourceSetName *string `json:"resourceSetName" yaml:"resourceSetName"`
+	ResourceSetName *string `field:"required" json:"resourceSetName" yaml:"resourceSetName"`
 	// The resource type of the resources in the resource set. Enter one of the following values for resource type:.
 	//
 	// AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource.
 	//
 	// Note that AWS::Route53RecoveryReadiness::DNSTargetResource is only used for this setting. It isn't an actual AWS CloudFormation resource type.
-	ResourceSetType *string `json:"resourceSetType" yaml:"resourceSetType"`
+	ResourceSetType *string `field:"required" json:"resourceSetType" yaml:"resourceSetType"`
 	// A tag to associate with the parameters for a resource set.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

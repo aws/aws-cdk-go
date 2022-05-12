@@ -1,12 +1,12 @@
 package awslakeformation
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awslakeformation/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslakeformation/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::LakeFormation::DataLakeSettings`.
@@ -14,8 +14,11 @@ import (
 // The `AWS::LakeFormation::DataLakeSettings` resource is an AWS Lake Formation resource type that manages the data lake settings for your account. Note that the CloudFormation template only supports updating the `Admins` list. It does not support updating the [CreateDatabaseDefaultPermissions](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-settings.html#aws-lake-formation-api-aws-lake-formation-api-settings-DataLakeSettings) or [CreateTableDefaultPermissions](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-settings.html#aws-lake-formation-api-aws-lake-formation-api-settings-DataLakeSettings) . Those permissions can only be edited in the DataLakeSettings resource via the API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
-//   cfnDataLakeSettings := lakeformation.NewCfnDataLakeSettings(this, jsii.String("MyCfnDataLakeSettings"), &cfnDataLakeSettingsProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDataLakeSettings := awscdk.Aws_lakeformation.NewCfnDataLakeSettings(this, jsii.String("MyCfnDataLakeSettings"), &cfnDataLakeSettingsProps{
 //   	admins: []interface{}{
 //   		&dataLakePrincipalProperty{
 //   			dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
@@ -33,16 +36,13 @@ type CfnDataLakeSettings interface {
 	Admins() interface{}
 	SetAdmins(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -53,21 +53,17 @@ type CfnDataLakeSettings interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::LakeFormation::DataLakeSettings.TrustedResourceOwners`.
 	TrustedResourceOwners() *[]*string
@@ -76,16 +72,13 @@ type CfnDataLakeSettings interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -94,7 +87,6 @@ type CfnDataLakeSettings interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -139,15 +131,12 @@ type CfnDataLakeSettings interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -158,13 +147,11 @@ type CfnDataLakeSettings interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -173,74 +160,21 @@ type CfnDataLakeSettings interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -310,8 +244,8 @@ func (j *jsiiProxy_CfnDataLakeSettings) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataLakeSettings) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnDataLakeSettings) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -362,13 +296,13 @@ func (j *jsiiProxy_CfnDataLakeSettings) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::LakeFormation::DataLakeSettings`.
-func NewCfnDataLakeSettings(scope awscdk.Construct, id *string, props *CfnDataLakeSettingsProps) CfnDataLakeSettings {
+func NewCfnDataLakeSettings(scope constructs.Construct, id *string, props *CfnDataLakeSettingsProps) CfnDataLakeSettings {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDataLakeSettings{}
 
 	_jsii_.Create(
-		"monocdk.aws_lakeformation.CfnDataLakeSettings",
+		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -377,11 +311,11 @@ func NewCfnDataLakeSettings(scope awscdk.Construct, id *string, props *CfnDataLa
 }
 
 // Create a new `AWS::LakeFormation::DataLakeSettings`.
-func NewCfnDataLakeSettings_Override(c CfnDataLakeSettings, scope awscdk.Construct, id *string, props *CfnDataLakeSettingsProps) {
+func NewCfnDataLakeSettings_Override(c CfnDataLakeSettings, scope constructs.Construct, id *string, props *CfnDataLakeSettingsProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lakeformation.CfnDataLakeSettings",
+		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -409,14 +343,13 @@ func (j *jsiiProxy_CfnDataLakeSettings) SetTrustedResourceOwners(val *[]*string)
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDataLakeSettings_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lakeformation.CfnDataLakeSettings",
+		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -426,14 +359,13 @@ func CfnDataLakeSettings_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDataLakeSettings_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lakeformation.CfnDataLakeSettings",
+		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -442,15 +374,17 @@ func CfnDataLakeSettings_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnDataLakeSettings_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lakeformation.CfnDataLakeSettings",
+		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -463,7 +397,7 @@ func CfnDataLakeSettings_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lakeformation.CfnDataLakeSettings",
+		"aws-cdk-lib.aws_lakeformation.CfnDataLakeSettings",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -560,48 +494,11 @@ func (c *jsiiProxy_CfnDataLakeSettings) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-func (c *jsiiProxy_CfnDataLakeSettings) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnDataLakeSettings) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnDataLakeSettings) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnDataLakeSettings) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnDataLakeSettings) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -631,33 +528,12 @@ func (c *jsiiProxy_CfnDataLakeSettings) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnDataLakeSettings) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnDataLakeSettings) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnDataLakeSettings) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -676,20 +552,26 @@ func (c *jsiiProxy_CfnDataLakeSettings) ValidateProperties(_properties interface
 // The Lake Formation principal.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataLakePrincipalProperty := &dataLakePrincipalProperty{
 //   	dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
 //   }
 //
 type CfnDataLakeSettings_DataLakePrincipalProperty struct {
 	// An identifier for the Lake Formation principal.
-	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
+	DataLakePrincipalIdentifier *string `field:"optional" json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
 }
 
 // Properties for defining a `CfnDataLakeSettings`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDataLakeSettingsProps := &cfnDataLakeSettingsProps{
 //   	admins: []interface{}{
 //   		&dataLakePrincipalProperty{
@@ -703,9 +585,9 @@ type CfnDataLakeSettings_DataLakePrincipalProperty struct {
 //
 type CfnDataLakeSettingsProps struct {
 	// A list of AWS Lake Formation principals.
-	Admins interface{} `json:"admins" yaml:"admins"`
+	Admins interface{} `field:"optional" json:"admins" yaml:"admins"`
 	// `AWS::LakeFormation::DataLakeSettings.TrustedResourceOwners`.
-	TrustedResourceOwners *[]*string `json:"trustedResourceOwners" yaml:"trustedResourceOwners"`
+	TrustedResourceOwners *[]*string `field:"optional" json:"trustedResourceOwners" yaml:"trustedResourceOwners"`
 }
 
 // A CloudFormation `AWS::LakeFormation::Permissions`.
@@ -713,8 +595,11 @@ type CfnDataLakeSettingsProps struct {
 // The `AWS::LakeFormation::Permissions` resource represents the permissions that a principal has on an AWS Glue Data Catalog resource (such as AWS Glue database or AWS Glue tables). When you upload a permissions stack, the permissions are granted to the principal and when you remove the stack, the permissions are revoked from the principal. If you remove a stack, and the principal does not have the permissions referenced in the stack then AWS Lake Formation will throw an error because you can’t call revoke on non-existing permissions. To successfully remove the stack, you’ll need to regrant those permissions and then remove the stack.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
-//   cfnPermissions := lakeformation.NewCfnPermissions(this, jsii.String("MyCfnPermissions"), &cfnPermissionsProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPermissions := awscdk.Aws_lakeformation.NewCfnPermissions(this, jsii.String("MyCfnPermissions"), &cfnPermissionsProps{
 //   	dataLakePrincipal: &dataLakePrincipalProperty{
 //   		dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
 //   	},
@@ -762,16 +647,13 @@ type CfnPermissions interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The AWS Lake Formation principal.
 	DataLakePrincipal() interface{}
@@ -785,11 +667,9 @@ type CfnPermissions interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The permissions granted or revoked.
 	Permissions() *[]*string
 	SetPermissions(val *[]*string)
@@ -800,7 +680,6 @@ type CfnPermissions interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// A structure for the resource.
 	Resource() interface{}
@@ -808,22 +687,18 @@ type CfnPermissions interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -832,7 +707,6 @@ type CfnPermissions interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -877,15 +751,12 @@ type CfnPermissions interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -896,13 +767,11 @@ type CfnPermissions interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -911,74 +780,21 @@ type CfnPermissions interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1048,8 +864,8 @@ func (j *jsiiProxy_CfnPermissions) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPermissions) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnPermissions) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1120,13 +936,13 @@ func (j *jsiiProxy_CfnPermissions) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::LakeFormation::Permissions`.
-func NewCfnPermissions(scope awscdk.Construct, id *string, props *CfnPermissionsProps) CfnPermissions {
+func NewCfnPermissions(scope constructs.Construct, id *string, props *CfnPermissionsProps) CfnPermissions {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPermissions{}
 
 	_jsii_.Create(
-		"monocdk.aws_lakeformation.CfnPermissions",
+		"aws-cdk-lib.aws_lakeformation.CfnPermissions",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1135,11 +951,11 @@ func NewCfnPermissions(scope awscdk.Construct, id *string, props *CfnPermissions
 }
 
 // Create a new `AWS::LakeFormation::Permissions`.
-func NewCfnPermissions_Override(c CfnPermissions, scope awscdk.Construct, id *string, props *CfnPermissionsProps) {
+func NewCfnPermissions_Override(c CfnPermissions, scope constructs.Construct, id *string, props *CfnPermissionsProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lakeformation.CfnPermissions",
+		"aws-cdk-lib.aws_lakeformation.CfnPermissions",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1183,14 +999,13 @@ func (j *jsiiProxy_CfnPermissions) SetResource(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnPermissions_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lakeformation.CfnPermissions",
+		"aws-cdk-lib.aws_lakeformation.CfnPermissions",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1200,14 +1015,13 @@ func CfnPermissions_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnPermissions_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lakeformation.CfnPermissions",
+		"aws-cdk-lib.aws_lakeformation.CfnPermissions",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1216,15 +1030,17 @@ func CfnPermissions_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnPermissions_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lakeformation.CfnPermissions",
+		"aws-cdk-lib.aws_lakeformation.CfnPermissions",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1237,7 +1053,7 @@ func CfnPermissions_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lakeformation.CfnPermissions",
+		"aws-cdk-lib.aws_lakeformation.CfnPermissions",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1334,48 +1150,11 @@ func (c *jsiiProxy_CfnPermissions) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnPermissions) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnPermissions) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnPermissions) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnPermissions) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnPermissions) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1405,33 +1184,12 @@ func (c *jsiiProxy_CfnPermissions) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnPermissions) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnPermissions) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnPermissions) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1450,7 +1208,10 @@ func (c *jsiiProxy_CfnPermissions) ValidateProperties(_properties interface{}) {
 // A wildcard object, consisting of an optional list of excluded column names or indexes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   columnWildcardProperty := &columnWildcardProperty{
 //   	excludedColumnNames: []*string{
 //   		jsii.String("excludedColumnNames"),
@@ -1461,26 +1222,32 @@ type CfnPermissions_ColumnWildcardProperty struct {
 	// Excludes column names.
 	//
 	// Any column with this name will be excluded.
-	ExcludedColumnNames *[]*string `json:"excludedColumnNames" yaml:"excludedColumnNames"`
+	ExcludedColumnNames *[]*string `field:"optional" json:"excludedColumnNames" yaml:"excludedColumnNames"`
 }
 
 // The Lake Formation principal.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataLakePrincipalProperty := &dataLakePrincipalProperty{
 //   	dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
 //   }
 //
 type CfnPermissions_DataLakePrincipalProperty struct {
 	// An identifier for the Lake Formation principal.
-	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
+	DataLakePrincipalIdentifier *string `field:"optional" json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
 }
 
 // A structure for a data location object where permissions are granted or revoked.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataLocationResourceProperty := &dataLocationResourceProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	s3Resource: jsii.String("s3Resource"),
@@ -1488,15 +1255,18 @@ type CfnPermissions_DataLakePrincipalProperty struct {
 //
 type CfnPermissions_DataLocationResourceProperty struct {
 	// `CfnPermissions.DataLocationResourceProperty.CatalogId`.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// Currently not supported by AWS CloudFormation .
-	S3Resource *string `json:"s3Resource" yaml:"s3Resource"`
+	S3Resource *string `field:"optional" json:"s3Resource" yaml:"s3Resource"`
 }
 
 // A structure for the database object.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   databaseResourceProperty := &databaseResourceProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	name: jsii.String("name"),
@@ -1504,17 +1274,20 @@ type CfnPermissions_DataLocationResourceProperty struct {
 //
 type CfnPermissions_DatabaseResourceProperty struct {
 	// `CfnPermissions.DatabaseResourceProperty.CatalogId`.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The name of the database resource.
 	//
 	// Unique to the Data Catalog.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A structure for the resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceProperty := &resourceProperty{
 //   	databaseResource: &databaseResourceProperty{
 //   		catalogId: jsii.String("catalogId"),
@@ -1548,15 +1321,15 @@ type CfnPermissions_DatabaseResourceProperty struct {
 //
 type CfnPermissions_ResourceProperty struct {
 	// A structure for the database object.
-	DatabaseResource interface{} `json:"databaseResource" yaml:"databaseResource"`
+	DatabaseResource interface{} `field:"optional" json:"databaseResource" yaml:"databaseResource"`
 	// A structure for a data location object where permissions are granted or revoked.
-	DataLocationResource interface{} `json:"dataLocationResource" yaml:"dataLocationResource"`
+	DataLocationResource interface{} `field:"optional" json:"dataLocationResource" yaml:"dataLocationResource"`
 	// A structure for the table object.
 	//
 	// A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
-	TableResource interface{} `json:"tableResource" yaml:"tableResource"`
+	TableResource interface{} `field:"optional" json:"tableResource" yaml:"tableResource"`
 	// Currently not supported by AWS CloudFormation .
-	TableWithColumnsResource interface{} `json:"tableWithColumnsResource" yaml:"tableWithColumnsResource"`
+	TableWithColumnsResource interface{} `field:"optional" json:"tableWithColumnsResource" yaml:"tableWithColumnsResource"`
 }
 
 // A structure for the table object.
@@ -1564,7 +1337,10 @@ type CfnPermissions_ResourceProperty struct {
 // A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tableResourceProperty := &tableResourceProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseName: jsii.String("databaseName"),
@@ -1575,23 +1351,26 @@ type CfnPermissions_ResourceProperty struct {
 //
 type CfnPermissions_TableResourceProperty struct {
 	// `CfnPermissions.TableResourceProperty.CatalogId`.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The name of the database for the table.
 	//
 	// Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// The name of the table.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An empty object representing all tables under a database.
 	//
 	// If this field is specified instead of the `Name` field, all tables under `DatabaseName` will have permission changes applied.
-	TableWildcard interface{} `json:"tableWildcard" yaml:"tableWildcard"`
+	TableWildcard interface{} `field:"optional" json:"tableWildcard" yaml:"tableWildcard"`
 }
 
 // A wildcard object representing every table under a database.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tableWildcardProperty := &tableWildcardProperty{
 //   }
 //
@@ -1603,7 +1382,10 @@ type CfnPermissions_TableWildcardProperty struct {
 // This object must take a value for at least one of `ColumnsNames` , `ColumnsIndexes` , or `ColumnsWildcard` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tableWithColumnsResourceProperty := &tableWithColumnsResourceProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	columnNames: []*string{
@@ -1620,29 +1402,32 @@ type CfnPermissions_TableWildcardProperty struct {
 //
 type CfnPermissions_TableWithColumnsResourceProperty struct {
 	// `CfnPermissions.TableWithColumnsResourceProperty.CatalogId`.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The list of column names for the table.
 	//
 	// At least one of `ColumnNames` or `ColumnWildcard` is required.
-	ColumnNames *[]*string `json:"columnNames" yaml:"columnNames"`
+	ColumnNames *[]*string `field:"optional" json:"columnNames" yaml:"columnNames"`
 	// A wildcard specified by a `ColumnWildcard` object.
 	//
 	// At least one of `ColumnNames` or `ColumnWildcard` is required.
-	ColumnWildcard interface{} `json:"columnWildcard" yaml:"columnWildcard"`
+	ColumnWildcard interface{} `field:"optional" json:"columnWildcard" yaml:"columnWildcard"`
 	// The name of the database for the table with columns resource.
 	//
 	// Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// The name of the table resource.
 	//
 	// A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnPermissions`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPermissionsProps := &cfnPermissionsProps{
 //   	dataLakePrincipal: &dataLakePrincipalProperty{
 //   		dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
@@ -1689,13 +1474,13 @@ type CfnPermissions_TableWithColumnsResourceProperty struct {
 //
 type CfnPermissionsProps struct {
 	// The AWS Lake Formation principal.
-	DataLakePrincipal interface{} `json:"dataLakePrincipal" yaml:"dataLakePrincipal"`
+	DataLakePrincipal interface{} `field:"required" json:"dataLakePrincipal" yaml:"dataLakePrincipal"`
 	// A structure for the resource.
-	Resource interface{} `json:"resource" yaml:"resource"`
+	Resource interface{} `field:"required" json:"resource" yaml:"resource"`
 	// The permissions granted or revoked.
-	Permissions *[]*string `json:"permissions" yaml:"permissions"`
+	Permissions *[]*string `field:"optional" json:"permissions" yaml:"permissions"`
 	// Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).
-	PermissionsWithGrantOption *[]*string `json:"permissionsWithGrantOption" yaml:"permissionsWithGrantOption"`
+	PermissionsWithGrantOption *[]*string `field:"optional" json:"permissionsWithGrantOption" yaml:"permissionsWithGrantOption"`
 }
 
 // A CloudFormation `AWS::LakeFormation::Resource`.
@@ -1703,8 +1488,11 @@ type CfnPermissionsProps struct {
 // The `AWS::LakeFormation::Resource` represents the data (Amazon S3 buckets and folders) that is being registered with AWS Lake Formation . When a `Resource` type CloudFormation template is uploaded, an AWS Lake Formation [`RegisterResource`](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-credential-vending.html#aws-lake-formation-api-credential-vending-RegisterResource) API call is made to register the resource. When a `Resource` type CloudFormation template is removed, the AWS Lake Formation [`DeregisterResource`](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-credential-vending.html#aws-lake-formation-api-credential-vending-DeregisterResource) API is called.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
-//   cfnResource := lakeformation.NewCfnResource(this, jsii.String("MyCfnResource"), &cfnResourceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResource := awscdk.Aws_lakeformation.NewCfnResource(this, jsii.String("MyCfnResource"), &cfnResourceProps{
 //   	resourceArn: jsii.String("resourceArn"),
 //   	useServiceLinkedRole: jsii.Boolean(false),
 //
@@ -1716,16 +1504,13 @@ type CfnResource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -1736,16 +1521,13 @@ type CfnResource interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the resource.
 	ResourceArn() *string
@@ -1756,25 +1538,21 @@ type CfnResource interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Designates a trusted caller, an IAM principal, by registering this caller with the Data Catalog.
 	UseServiceLinkedRole() interface{}
 	SetUseServiceLinkedRole(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1783,7 +1561,6 @@ type CfnResource interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1828,15 +1605,12 @@ type CfnResource interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1847,13 +1621,11 @@ type CfnResource interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1862,74 +1634,21 @@ type CfnResource interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1989,8 +1708,8 @@ func (j *jsiiProxy_CfnResource) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResource) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnResource) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2061,13 +1780,13 @@ func (j *jsiiProxy_CfnResource) UseServiceLinkedRole() interface{} {
 
 
 // Create a new `AWS::LakeFormation::Resource`.
-func NewCfnResource(scope awscdk.Construct, id *string, props *CfnResourceProps) CfnResource {
+func NewCfnResource(scope constructs.Construct, id *string, props *CfnResourceProps) CfnResource {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lakeformation.CfnResource",
+		"aws-cdk-lib.aws_lakeformation.CfnResource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2076,11 +1795,11 @@ func NewCfnResource(scope awscdk.Construct, id *string, props *CfnResourceProps)
 }
 
 // Create a new `AWS::LakeFormation::Resource`.
-func NewCfnResource_Override(c CfnResource, scope awscdk.Construct, id *string, props *CfnResourceProps) {
+func NewCfnResource_Override(c CfnResource, scope constructs.Construct, id *string, props *CfnResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lakeformation.CfnResource",
+		"aws-cdk-lib.aws_lakeformation.CfnResource",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2116,14 +1835,13 @@ func (j *jsiiProxy_CfnResource) SetUseServiceLinkedRole(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnResource_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lakeformation.CfnResource",
+		"aws-cdk-lib.aws_lakeformation.CfnResource",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2133,14 +1851,13 @@ func CfnResource_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnResource_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lakeformation.CfnResource",
+		"aws-cdk-lib.aws_lakeformation.CfnResource",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2149,15 +1866,17 @@ func CfnResource_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnResource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lakeformation.CfnResource",
+		"aws-cdk-lib.aws_lakeformation.CfnResource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2170,7 +1889,7 @@ func CfnResource_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lakeformation.CfnResource",
+		"aws-cdk-lib.aws_lakeformation.CfnResource",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2267,48 +1986,11 @@ func (c *jsiiProxy_CfnResource) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnResource) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnResource) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnResource) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnResource) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnResource) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2338,33 +2020,12 @@ func (c *jsiiProxy_CfnResource) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnResource) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnResource) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnResource) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2383,7 +2044,10 @@ func (c *jsiiProxy_CfnResource) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnResource`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceProps := &cfnResourceProps{
 //   	resourceArn: jsii.String("resourceArn"),
 //   	useServiceLinkedRole: jsii.Boolean(false),
@@ -2394,10 +2058,10 @@ func (c *jsiiProxy_CfnResource) ValidateProperties(_properties interface{}) {
 //
 type CfnResourceProps struct {
 	// The Amazon Resource Name (ARN) of the resource.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// Designates a trusted caller, an IAM principal, by registering this caller with the Data Catalog.
-	UseServiceLinkedRole interface{} `json:"useServiceLinkedRole" yaml:"useServiceLinkedRole"`
+	UseServiceLinkedRole interface{} `field:"required" json:"useServiceLinkedRole" yaml:"useServiceLinkedRole"`
 	// The IAM role that registered a resource.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

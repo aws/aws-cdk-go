@@ -1,12 +1,12 @@
 package awslookoutmetrics
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awslookoutmetrics/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslookoutmetrics/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::LookoutMetrics::Alert`.
@@ -14,8 +14,11 @@ import (
 // The `AWS::LookoutMetrics::Alert` type creates an alert for an anomaly detector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
-//   cfnAlert := lookoutmetrics.NewCfnAlert(this, jsii.String("MyCfnAlert"), &cfnAlertProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAlert := awscdk.Aws_lookoutmetrics.NewCfnAlert(this, jsii.String("MyCfnAlert"), &cfnAlertProps{
 //   	action: &actionProperty{
 //   		lambdaConfiguration: &lambdaConfigurationProperty{
 //   			lambdaArn: jsii.String("lambdaArn"),
@@ -57,16 +60,13 @@ type CfnAlert interface {
 	// For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:Alert:my-alert`.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -77,36 +77,29 @@ type CfnAlert interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -115,7 +108,6 @@ type CfnAlert interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -160,15 +152,12 @@ type CfnAlert interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -179,13 +168,11 @@ type CfnAlert interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -194,74 +181,21 @@ type CfnAlert interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -381,8 +315,8 @@ func (j *jsiiProxy_CfnAlert) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlert) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnAlert) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -423,13 +357,13 @@ func (j *jsiiProxy_CfnAlert) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::LookoutMetrics::Alert`.
-func NewCfnAlert(scope awscdk.Construct, id *string, props *CfnAlertProps) CfnAlert {
+func NewCfnAlert(scope constructs.Construct, id *string, props *CfnAlertProps) CfnAlert {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAlert{}
 
 	_jsii_.Create(
-		"monocdk.aws_lookoutmetrics.CfnAlert",
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAlert",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -438,11 +372,11 @@ func NewCfnAlert(scope awscdk.Construct, id *string, props *CfnAlertProps) CfnAl
 }
 
 // Create a new `AWS::LookoutMetrics::Alert`.
-func NewCfnAlert_Override(c CfnAlert, scope awscdk.Construct, id *string, props *CfnAlertProps) {
+func NewCfnAlert_Override(c CfnAlert, scope constructs.Construct, id *string, props *CfnAlertProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lookoutmetrics.CfnAlert",
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAlert",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -494,14 +428,13 @@ func (j *jsiiProxy_CfnAlert) SetAnomalyDetectorArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAlert_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lookoutmetrics.CfnAlert",
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAlert",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -511,14 +444,13 @@ func CfnAlert_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAlert_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lookoutmetrics.CfnAlert",
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAlert",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -527,15 +459,17 @@ func CfnAlert_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnAlert_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lookoutmetrics.CfnAlert",
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAlert",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -548,7 +482,7 @@ func CfnAlert_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lookoutmetrics.CfnAlert",
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAlert",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -645,48 +579,11 @@ func (c *jsiiProxy_CfnAlert) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnAlert) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnAlert) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnAlert) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnAlert) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnAlert) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -716,33 +613,12 @@ func (c *jsiiProxy_CfnAlert) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnAlert) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnAlert) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnAlert) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -761,7 +637,10 @@ func (c *jsiiProxy_CfnAlert) ValidateProperties(_properties interface{}) {
 // A configuration that specifies the action to perform when anomalies are detected.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionProperty := &actionProperty{
 //   	lambdaConfiguration: &lambdaConfigurationProperty{
 //   		lambdaArn: jsii.String("lambdaArn"),
@@ -775,15 +654,18 @@ func (c *jsiiProxy_CfnAlert) ValidateProperties(_properties interface{}) {
 //
 type CfnAlert_ActionProperty struct {
 	// A configuration for an AWS Lambda channel.
-	LambdaConfiguration interface{} `json:"lambdaConfiguration" yaml:"lambdaConfiguration"`
+	LambdaConfiguration interface{} `field:"optional" json:"lambdaConfiguration" yaml:"lambdaConfiguration"`
 	// A configuration for an Amazon SNS channel.
-	SnsConfiguration interface{} `json:"snsConfiguration" yaml:"snsConfiguration"`
+	SnsConfiguration interface{} `field:"optional" json:"snsConfiguration" yaml:"snsConfiguration"`
 }
 
 // Contains information about a Lambda configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaConfigurationProperty := &lambdaConfigurationProperty{
 //   	lambdaArn: jsii.String("lambdaArn"),
 //   	roleArn: jsii.String("roleArn"),
@@ -791,15 +673,18 @@ type CfnAlert_ActionProperty struct {
 //
 type CfnAlert_LambdaConfigurationProperty struct {
 	// The ARN of the Lambda function.
-	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
+	LambdaArn *string `field:"required" json:"lambdaArn" yaml:"lambdaArn"`
 	// The ARN of an IAM role that has permission to invoke the Lambda function.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sNSConfigurationProperty := &sNSConfigurationProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	snsTopicArn: jsii.String("snsTopicArn"),
@@ -807,15 +692,18 @@ type CfnAlert_LambdaConfigurationProperty struct {
 //
 type CfnAlert_SNSConfigurationProperty struct {
 	// The ARN of the IAM role that has access to the target SNS topic.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The ARN of the target SNS topic.
-	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
+	SnsTopicArn *string `field:"required" json:"snsTopicArn" yaml:"snsTopicArn"`
 }
 
 // Properties for defining a `CfnAlert`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAlertProps := &cfnAlertProps{
 //   	action: &actionProperty{
 //   		lambdaConfiguration: &lambdaConfigurationProperty{
@@ -837,15 +725,15 @@ type CfnAlert_SNSConfigurationProperty struct {
 //
 type CfnAlertProps struct {
 	// Action that will be triggered when there is an alert.
-	Action interface{} `json:"action" yaml:"action"`
+	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// An integer from 0 to 100 specifying the alert sensitivity threshold.
-	AlertSensitivityThreshold *float64 `json:"alertSensitivityThreshold" yaml:"alertSensitivityThreshold"`
+	AlertSensitivityThreshold *float64 `field:"required" json:"alertSensitivityThreshold" yaml:"alertSensitivityThreshold"`
 	// The ARN of the detector to which the alert is attached.
-	AnomalyDetectorArn *string `json:"anomalyDetectorArn" yaml:"anomalyDetectorArn"`
+	AnomalyDetectorArn *string `field:"required" json:"anomalyDetectorArn" yaml:"anomalyDetectorArn"`
 	// A description of the alert.
-	AlertDescription *string `json:"alertDescription" yaml:"alertDescription"`
+	AlertDescription *string `field:"optional" json:"alertDescription" yaml:"alertDescription"`
 	// The name of the alert.
-	AlertName *string `json:"alertName" yaml:"alertName"`
+	AlertName *string `field:"optional" json:"alertName" yaml:"alertName"`
 }
 
 // A CloudFormation `AWS::LookoutMetrics::AnomalyDetector`.
@@ -853,8 +741,11 @@ type CfnAlertProps struct {
 // The `AWS::LookoutMetrics::AnomalyDetector` type creates an anomaly detector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
-//   cfnAnomalyDetector := lookoutmetrics.NewCfnAnomalyDetector(this, jsii.String("MyCfnAnomalyDetector"), &cfnAnomalyDetectorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAnomalyDetector := awscdk.Aws_lookoutmetrics.NewCfnAnomalyDetector(this, jsii.String("MyCfnAnomalyDetector"), &cfnAnomalyDetectorProps{
 //   	anomalyDetectorConfig: &anomalyDetectorConfigProperty{
 //   		anomalyDetectorFrequency: jsii.String("anomalyDetectorFrequency"),
 //   	},
@@ -979,16 +870,13 @@ type CfnAnomalyDetector interface {
 	// For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The ARN of the KMS key to use to encrypt your data.
 	KmsKeyArn() *string
@@ -1002,39 +890,32 @@ type CfnAnomalyDetector interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The detector's dataset.
 	MetricSetList() interface{}
 	SetMetricSetList(val interface{})
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1043,7 +924,6 @@ type CfnAnomalyDetector interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1088,15 +968,12 @@ type CfnAnomalyDetector interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1107,13 +984,11 @@ type CfnAnomalyDetector interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1122,74 +997,21 @@ type CfnAnomalyDetector interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1309,8 +1131,8 @@ func (j *jsiiProxy_CfnAnomalyDetector) MetricSetList() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnomalyDetector) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnAnomalyDetector) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1351,13 +1173,13 @@ func (j *jsiiProxy_CfnAnomalyDetector) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::LookoutMetrics::AnomalyDetector`.
-func NewCfnAnomalyDetector(scope awscdk.Construct, id *string, props *CfnAnomalyDetectorProps) CfnAnomalyDetector {
+func NewCfnAnomalyDetector(scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) CfnAnomalyDetector {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAnomalyDetector{}
 
 	_jsii_.Create(
-		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector",
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1366,11 +1188,11 @@ func NewCfnAnomalyDetector(scope awscdk.Construct, id *string, props *CfnAnomaly
 }
 
 // Create a new `AWS::LookoutMetrics::AnomalyDetector`.
-func NewCfnAnomalyDetector_Override(c CfnAnomalyDetector, scope awscdk.Construct, id *string, props *CfnAnomalyDetectorProps) {
+func NewCfnAnomalyDetector_Override(c CfnAnomalyDetector, scope constructs.Construct, id *string, props *CfnAnomalyDetectorProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector",
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1422,14 +1244,13 @@ func (j *jsiiProxy_CfnAnomalyDetector) SetMetricSetList(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAnomalyDetector_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector",
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1439,14 +1260,13 @@ func CfnAnomalyDetector_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAnomalyDetector_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector",
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1455,15 +1275,17 @@ func CfnAnomalyDetector_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnAnomalyDetector_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector",
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1476,7 +1298,7 @@ func CfnAnomalyDetector_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector",
+		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1573,48 +1395,11 @@ func (c *jsiiProxy_CfnAnomalyDetector) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnAnomalyDetector) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnAnomalyDetector) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnAnomalyDetector) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnAnomalyDetector) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnAnomalyDetector) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1644,33 +1429,12 @@ func (c *jsiiProxy_CfnAnomalyDetector) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnAnomalyDetector) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnAnomalyDetector) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnAnomalyDetector) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1689,20 +1453,26 @@ func (c *jsiiProxy_CfnAnomalyDetector) ValidateProperties(_properties interface{
 // Contains information about a detector's configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   anomalyDetectorConfigProperty := &anomalyDetectorConfigProperty{
 //   	anomalyDetectorFrequency: jsii.String("anomalyDetectorFrequency"),
 //   }
 //
 type CfnAnomalyDetector_AnomalyDetectorConfigProperty struct {
 	// The frequency at which the detector analyzes its source data.
-	AnomalyDetectorFrequency *string `json:"anomalyDetectorFrequency" yaml:"anomalyDetectorFrequency"`
+	AnomalyDetectorFrequency *string `field:"required" json:"anomalyDetectorFrequency" yaml:"anomalyDetectorFrequency"`
 }
 
 // Details about an Amazon AppFlow flow datasource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   appFlowConfigProperty := &appFlowConfigProperty{
 //   	flowName: jsii.String("flowName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -1710,28 +1480,34 @@ type CfnAnomalyDetector_AnomalyDetectorConfigProperty struct {
 //
 type CfnAnomalyDetector_AppFlowConfigProperty struct {
 	// name of the flow.
-	FlowName *string `json:"flowName" yaml:"flowName"`
+	FlowName *string `field:"required" json:"flowName" yaml:"flowName"`
 	// An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // Details about an Amazon CloudWatch datasource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudwatchConfigProperty := &cloudwatchConfigProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   }
 //
 type CfnAnomalyDetector_CloudwatchConfigProperty struct {
 	// An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // Contains information about how a source CSV data file should be analyzed.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   csvFormatDescriptorProperty := &csvFormatDescriptorProperty{
 //   	charset: jsii.String("charset"),
 //   	containsHeader: jsii.Boolean(false),
@@ -1745,23 +1521,26 @@ type CfnAnomalyDetector_CloudwatchConfigProperty struct {
 //
 type CfnAnomalyDetector_CsvFormatDescriptorProperty struct {
 	// The character set in which the source CSV file is written.
-	Charset *string `json:"charset" yaml:"charset"`
+	Charset *string `field:"optional" json:"charset" yaml:"charset"`
 	// Whether or not the source CSV file contains a header.
-	ContainsHeader interface{} `json:"containsHeader" yaml:"containsHeader"`
+	ContainsHeader interface{} `field:"optional" json:"containsHeader" yaml:"containsHeader"`
 	// The character used to delimit the source CSV file.
-	Delimiter *string `json:"delimiter" yaml:"delimiter"`
+	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 	// The level of compression of the source CSV file.
-	FileCompression *string `json:"fileCompression" yaml:"fileCompression"`
+	FileCompression *string `field:"optional" json:"fileCompression" yaml:"fileCompression"`
 	// A list of the source CSV file's headers, if any.
-	HeaderList *[]*string `json:"headerList" yaml:"headerList"`
+	HeaderList *[]*string `field:"optional" json:"headerList" yaml:"headerList"`
 	// The character used as a quote character.
-	QuoteSymbol *string `json:"quoteSymbol" yaml:"quoteSymbol"`
+	QuoteSymbol *string `field:"optional" json:"quoteSymbol" yaml:"quoteSymbol"`
 }
 
 // Contains information about a source file's formatting.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fileFormatDescriptorProperty := &fileFormatDescriptorProperty{
 //   	csvFormatDescriptor: &csvFormatDescriptorProperty{
 //   		charset: jsii.String("charset"),
@@ -1781,15 +1560,18 @@ type CfnAnomalyDetector_CsvFormatDescriptorProperty struct {
 //
 type CfnAnomalyDetector_FileFormatDescriptorProperty struct {
 	// Contains information about how a source CSV data file should be analyzed.
-	CsvFormatDescriptor interface{} `json:"csvFormatDescriptor" yaml:"csvFormatDescriptor"`
+	CsvFormatDescriptor interface{} `field:"optional" json:"csvFormatDescriptor" yaml:"csvFormatDescriptor"`
 	// Contains information about how a source JSON data file should be analyzed.
-	JsonFormatDescriptor interface{} `json:"jsonFormatDescriptor" yaml:"jsonFormatDescriptor"`
+	JsonFormatDescriptor interface{} `field:"optional" json:"jsonFormatDescriptor" yaml:"jsonFormatDescriptor"`
 }
 
 // Contains information about how a source JSON data file should be analyzed.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jsonFormatDescriptorProperty := &jsonFormatDescriptorProperty{
 //   	charset: jsii.String("charset"),
 //   	fileCompression: jsii.String("fileCompression"),
@@ -1797,15 +1579,18 @@ type CfnAnomalyDetector_FileFormatDescriptorProperty struct {
 //
 type CfnAnomalyDetector_JsonFormatDescriptorProperty struct {
 	// The character set in which the source JSON file is written.
-	Charset *string `json:"charset" yaml:"charset"`
+	Charset *string `field:"optional" json:"charset" yaml:"charset"`
 	// The level of compression of the source CSV file.
-	FileCompression *string `json:"fileCompression" yaml:"fileCompression"`
+	FileCompression *string `field:"optional" json:"fileCompression" yaml:"fileCompression"`
 }
 
 // A calculation made by contrasting a measure and a dimension from your source data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricProperty := &metricProperty{
 //   	aggregationFunction: jsii.String("aggregationFunction"),
 //   	metricName: jsii.String("metricName"),
@@ -1816,17 +1601,20 @@ type CfnAnomalyDetector_JsonFormatDescriptorProperty struct {
 //
 type CfnAnomalyDetector_MetricProperty struct {
 	// The function with which the metric is calculated.
-	AggregationFunction *string `json:"aggregationFunction" yaml:"aggregationFunction"`
+	AggregationFunction *string `field:"required" json:"aggregationFunction" yaml:"aggregationFunction"`
 	// The name of the metric.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace for the metric.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 
 // Contains information about a dataset.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricSetProperty := &metricSetProperty{
 //   	metricList: []interface{}{
 //   		&metricProperty{
@@ -1925,31 +1713,34 @@ type CfnAnomalyDetector_MetricProperty struct {
 //
 type CfnAnomalyDetector_MetricSetProperty struct {
 	// A list of metrics that the dataset will contain.
-	MetricList interface{} `json:"metricList" yaml:"metricList"`
+	MetricList interface{} `field:"required" json:"metricList" yaml:"metricList"`
 	// The name of the dataset.
-	MetricSetName *string `json:"metricSetName" yaml:"metricSetName"`
+	MetricSetName *string `field:"required" json:"metricSetName" yaml:"metricSetName"`
 	// Contains information about how the source data should be interpreted.
-	MetricSource interface{} `json:"metricSource" yaml:"metricSource"`
+	MetricSource interface{} `field:"required" json:"metricSource" yaml:"metricSource"`
 	// A list of the fields you want to treat as dimensions.
-	DimensionList *[]*string `json:"dimensionList" yaml:"dimensionList"`
+	DimensionList *[]*string `field:"optional" json:"dimensionList" yaml:"dimensionList"`
 	// A description of the dataset you are creating.
-	MetricSetDescription *string `json:"metricSetDescription" yaml:"metricSetDescription"`
+	MetricSetDescription *string `field:"optional" json:"metricSetDescription" yaml:"metricSetDescription"`
 	// The frequency with which the source data will be analyzed for anomalies.
-	MetricSetFrequency *string `json:"metricSetFrequency" yaml:"metricSetFrequency"`
+	MetricSetFrequency *string `field:"optional" json:"metricSetFrequency" yaml:"metricSetFrequency"`
 	// After an interval ends, the amount of seconds that the detector waits before importing data.
 	//
 	// Offset is only supported for S3 and Redshift datasources.
-	Offset *float64 `json:"offset" yaml:"offset"`
+	Offset *float64 `field:"optional" json:"offset" yaml:"offset"`
 	// Contains information about the column used for tracking time in your source data.
-	TimestampColumn interface{} `json:"timestampColumn" yaml:"timestampColumn"`
+	TimestampColumn interface{} `field:"optional" json:"timestampColumn" yaml:"timestampColumn"`
 	// The time zone in which your source data was recorded.
-	Timezone *string `json:"timezone" yaml:"timezone"`
+	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`
 }
 
 // Contains information about how the source data should be interpreted.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricSourceProperty := &metricSourceProperty{
 //   	appFlowConfig: &appFlowConfigProperty{
 //   		flowName: jsii.String("flowName"),
@@ -2023,21 +1814,24 @@ type CfnAnomalyDetector_MetricSetProperty struct {
 //
 type CfnAnomalyDetector_MetricSourceProperty struct {
 	// An object containing information about the AppFlow configuration.
-	AppFlowConfig interface{} `json:"appFlowConfig" yaml:"appFlowConfig"`
+	AppFlowConfig interface{} `field:"optional" json:"appFlowConfig" yaml:"appFlowConfig"`
 	// An object containing information about the Amazon CloudWatch monitoring configuration.
-	CloudwatchConfig interface{} `json:"cloudwatchConfig" yaml:"cloudwatchConfig"`
+	CloudwatchConfig interface{} `field:"optional" json:"cloudwatchConfig" yaml:"cloudwatchConfig"`
 	// An object containing information about the Amazon Relational Database Service (RDS) configuration.
-	RdsSourceConfig interface{} `json:"rdsSourceConfig" yaml:"rdsSourceConfig"`
+	RdsSourceConfig interface{} `field:"optional" json:"rdsSourceConfig" yaml:"rdsSourceConfig"`
 	// An object containing information about the Amazon Redshift database configuration.
-	RedshiftSourceConfig interface{} `json:"redshiftSourceConfig" yaml:"redshiftSourceConfig"`
+	RedshiftSourceConfig interface{} `field:"optional" json:"redshiftSourceConfig" yaml:"redshiftSourceConfig"`
 	// Contains information about the configuration of the S3 bucket that contains source files.
-	S3SourceConfig interface{} `json:"s3SourceConfig" yaml:"s3SourceConfig"`
+	S3SourceConfig interface{} `field:"optional" json:"s3SourceConfig" yaml:"s3SourceConfig"`
 }
 
 // Contains information about the Amazon Relational Database Service (RDS) configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rDSSourceConfigProperty := &rDSSourceConfigProperty{
 //   	databaseHost: jsii.String("databaseHost"),
 //   	databaseName: jsii.String("databaseName"),
@@ -2058,27 +1852,30 @@ type CfnAnomalyDetector_MetricSourceProperty struct {
 //
 type CfnAnomalyDetector_RDSSourceConfigProperty struct {
 	// The host name of the database.
-	DatabaseHost *string `json:"databaseHost" yaml:"databaseHost"`
+	DatabaseHost *string `field:"required" json:"databaseHost" yaml:"databaseHost"`
 	// The name of the RDS database.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// The port number where the database can be accessed.
-	DatabasePort *float64 `json:"databasePort" yaml:"databasePort"`
+	DatabasePort *float64 `field:"required" json:"databasePort" yaml:"databasePort"`
 	// A string identifying the database instance.
-	DbInstanceIdentifier *string `json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
+	DbInstanceIdentifier *string `field:"required" json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
 	// The Amazon Resource Name (ARN) of the role.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
-	SecretManagerArn *string `json:"secretManagerArn" yaml:"secretManagerArn"`
+	SecretManagerArn *string `field:"required" json:"secretManagerArn" yaml:"secretManagerArn"`
 	// The name of the table in the database.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.
-	VpcConfiguration interface{} `json:"vpcConfiguration" yaml:"vpcConfiguration"`
+	VpcConfiguration interface{} `field:"required" json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 
 // Provides information about the Amazon Redshift database configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redshiftSourceConfigProperty := &redshiftSourceConfigProperty{
 //   	clusterIdentifier: jsii.String("clusterIdentifier"),
 //   	databaseHost: jsii.String("databaseHost"),
@@ -2099,27 +1896,30 @@ type CfnAnomalyDetector_RDSSourceConfigProperty struct {
 //
 type CfnAnomalyDetector_RedshiftSourceConfigProperty struct {
 	// A string identifying the Redshift cluster.
-	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
+	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// The name of the database host.
-	DatabaseHost *string `json:"databaseHost" yaml:"databaseHost"`
+	DatabaseHost *string `field:"required" json:"databaseHost" yaml:"databaseHost"`
 	// The Redshift database name.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// The port number where the database can be accessed.
-	DatabasePort *float64 `json:"databasePort" yaml:"databasePort"`
+	DatabasePort *float64 `field:"required" json:"databasePort" yaml:"databasePort"`
 	// The Amazon Resource Name (ARN) of the role providing access to the database.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
-	SecretManagerArn *string `json:"secretManagerArn" yaml:"secretManagerArn"`
+	SecretManagerArn *string `field:"required" json:"secretManagerArn" yaml:"secretManagerArn"`
 	// The table name of the Redshift database.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
-	VpcConfiguration interface{} `json:"vpcConfiguration" yaml:"vpcConfiguration"`
+	VpcConfiguration interface{} `field:"required" json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 
 // Contains information about the configuration of the S3 bucket that contains source files.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3SourceConfigProperty := &s3SourceConfigProperty{
 //   	fileFormatDescriptor: &fileFormatDescriptorProperty{
 //   		csvFormatDescriptor: &csvFormatDescriptorProperty{
@@ -2150,19 +1950,22 @@ type CfnAnomalyDetector_RedshiftSourceConfigProperty struct {
 //
 type CfnAnomalyDetector_S3SourceConfigProperty struct {
 	// Contains information about a source file's formatting.
-	FileFormatDescriptor interface{} `json:"fileFormatDescriptor" yaml:"fileFormatDescriptor"`
+	FileFormatDescriptor interface{} `field:"required" json:"fileFormatDescriptor" yaml:"fileFormatDescriptor"`
 	// The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// A list of paths to the historical data files.
-	HistoricalDataPathList *[]*string `json:"historicalDataPathList" yaml:"historicalDataPathList"`
+	HistoricalDataPathList *[]*string `field:"optional" json:"historicalDataPathList" yaml:"historicalDataPathList"`
 	// A list of templated paths to the source files.
-	TemplatedPathList *[]*string `json:"templatedPathList" yaml:"templatedPathList"`
+	TemplatedPathList *[]*string `field:"optional" json:"templatedPathList" yaml:"templatedPathList"`
 }
 
 // Contains information about the column used to track time in a source data file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   timestampColumnProperty := &timestampColumnProperty{
 //   	columnFormat: jsii.String("columnFormat"),
 //   	columnName: jsii.String("columnName"),
@@ -2170,15 +1973,18 @@ type CfnAnomalyDetector_S3SourceConfigProperty struct {
 //
 type CfnAnomalyDetector_TimestampColumnProperty struct {
 	// The format of the timestamp column.
-	ColumnFormat *string `json:"columnFormat" yaml:"columnFormat"`
+	ColumnFormat *string `field:"optional" json:"columnFormat" yaml:"columnFormat"`
 	// The name of the timestamp column.
-	ColumnName *string `json:"columnName" yaml:"columnName"`
+	ColumnName *string `field:"optional" json:"columnName" yaml:"columnName"`
 }
 
 // Contains configuration information about the Amazon Virtual Private Cloud (VPC).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigurationProperty := &vpcConfigurationProperty{
 //   	securityGroupIdList: []*string{
 //   		jsii.String("securityGroupIdList"),
@@ -2190,15 +1996,18 @@ type CfnAnomalyDetector_TimestampColumnProperty struct {
 //
 type CfnAnomalyDetector_VpcConfigurationProperty struct {
 	// An array of strings containing the list of security groups.
-	SecurityGroupIdList *[]*string `json:"securityGroupIdList" yaml:"securityGroupIdList"`
+	SecurityGroupIdList *[]*string `field:"required" json:"securityGroupIdList" yaml:"securityGroupIdList"`
 	// An array of strings containing the Amazon VPC subnet IDs (e.g., `subnet-0bb1c79de3EXAMPLE` .
-	SubnetIdList *[]*string `json:"subnetIdList" yaml:"subnetIdList"`
+	SubnetIdList *[]*string `field:"required" json:"subnetIdList" yaml:"subnetIdList"`
 }
 
 // Properties for defining a `CfnAnomalyDetector`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAnomalyDetectorProps := &cfnAnomalyDetectorProps{
 //   	anomalyDetectorConfig: &anomalyDetectorConfigProperty{
 //   		anomalyDetectorFrequency: jsii.String("anomalyDetectorFrequency"),
@@ -2309,14 +2118,14 @@ type CfnAnomalyDetector_VpcConfigurationProperty struct {
 //
 type CfnAnomalyDetectorProps struct {
 	// Contains information about the configuration of the anomaly detector.
-	AnomalyDetectorConfig interface{} `json:"anomalyDetectorConfig" yaml:"anomalyDetectorConfig"`
+	AnomalyDetectorConfig interface{} `field:"required" json:"anomalyDetectorConfig" yaml:"anomalyDetectorConfig"`
 	// The detector's dataset.
-	MetricSetList interface{} `json:"metricSetList" yaml:"metricSetList"`
+	MetricSetList interface{} `field:"required" json:"metricSetList" yaml:"metricSetList"`
 	// A description of the detector.
-	AnomalyDetectorDescription *string `json:"anomalyDetectorDescription" yaml:"anomalyDetectorDescription"`
+	AnomalyDetectorDescription *string `field:"optional" json:"anomalyDetectorDescription" yaml:"anomalyDetectorDescription"`
 	// The name of the detector.
-	AnomalyDetectorName *string `json:"anomalyDetectorName" yaml:"anomalyDetectorName"`
+	AnomalyDetectorName *string `field:"optional" json:"anomalyDetectorName" yaml:"anomalyDetectorName"`
 	// The ARN of the KMS key to use to encrypt your data.
-	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 

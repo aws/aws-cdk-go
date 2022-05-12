@@ -1,23 +1,26 @@
 package awsiottwinmaker
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiottwinmaker/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiottwinmaker/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::IoTTwinMaker::ComponentType`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataTypeProperty_ dataTypeProperty
 //   var dataValueProperty_ dataValueProperty
 //   var relationshipValue interface{}
-//   cfnComponentType := iottwinmaker.NewCfnComponentType(this, jsii.String("MyCfnComponentType"), &cfnComponentTypeProps{
+//
+//   cfnComponentType := awscdk.Aws_iottwinmaker.NewCfnComponentType(this, jsii.String("MyCfnComponentType"), &cfnComponentTypeProps{
 //   	componentTypeId: jsii.String("componentTypeId"),
 //   	workspaceId: jsii.String("workspaceId"),
 //
@@ -109,11 +112,9 @@ type CfnComponentType interface {
 	AttrIsSchemaInitialized() awscdk.IResolvable
 	AttrUpdateDateTime() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// `AWS::IoTTwinMaker::ComponentType.ComponentTypeId`.
 	ComponentTypeId() *string
@@ -121,7 +122,6 @@ type CfnComponentType interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::IoTTwinMaker::ComponentType.Description`.
 	Description() *string
@@ -144,11 +144,9 @@ type CfnComponentType interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// `AWS::IoTTwinMaker::ComponentType.PropertyDefinitions`.
 	PropertyDefinitions() interface{}
 	SetPropertyDefinitions(val interface{})
@@ -156,12 +154,10 @@ type CfnComponentType interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::IoTTwinMaker::ComponentType.Tags`.
 	Tags() awscdk.TagManager
@@ -169,19 +165,16 @@ type CfnComponentType interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// `AWS::IoTTwinMaker::ComponentType.WorkspaceId`.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -190,7 +183,6 @@ type CfnComponentType interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -235,15 +227,12 @@ type CfnComponentType interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -254,13 +243,11 @@ type CfnComponentType interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -269,74 +256,21 @@ type CfnComponentType interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -496,8 +430,8 @@ func (j *jsiiProxy_CfnComponentType) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponentType) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnComponentType) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -568,13 +502,13 @@ func (j *jsiiProxy_CfnComponentType) WorkspaceId() *string {
 
 
 // Create a new `AWS::IoTTwinMaker::ComponentType`.
-func NewCfnComponentType(scope awscdk.Construct, id *string, props *CfnComponentTypeProps) CfnComponentType {
+func NewCfnComponentType(scope constructs.Construct, id *string, props *CfnComponentTypeProps) CfnComponentType {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnComponentType{}
 
 	_jsii_.Create(
-		"monocdk.aws_iottwinmaker.CfnComponentType",
+		"aws-cdk-lib.aws_iottwinmaker.CfnComponentType",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -583,11 +517,11 @@ func NewCfnComponentType(scope awscdk.Construct, id *string, props *CfnComponent
 }
 
 // Create a new `AWS::IoTTwinMaker::ComponentType`.
-func NewCfnComponentType_Override(c CfnComponentType, scope awscdk.Construct, id *string, props *CfnComponentTypeProps) {
+func NewCfnComponentType_Override(c CfnComponentType, scope constructs.Construct, id *string, props *CfnComponentTypeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_iottwinmaker.CfnComponentType",
+		"aws-cdk-lib.aws_iottwinmaker.CfnComponentType",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -655,14 +589,13 @@ func (j *jsiiProxy_CfnComponentType) SetWorkspaceId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnComponentType_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iottwinmaker.CfnComponentType",
+		"aws-cdk-lib.aws_iottwinmaker.CfnComponentType",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -672,14 +605,13 @@ func CfnComponentType_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnComponentType_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iottwinmaker.CfnComponentType",
+		"aws-cdk-lib.aws_iottwinmaker.CfnComponentType",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -688,15 +620,17 @@ func CfnComponentType_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnComponentType_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iottwinmaker.CfnComponentType",
+		"aws-cdk-lib.aws_iottwinmaker.CfnComponentType",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -709,7 +643,7 @@ func CfnComponentType_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_iottwinmaker.CfnComponentType",
+		"aws-cdk-lib.aws_iottwinmaker.CfnComponentType",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -806,48 +740,11 @@ func (c *jsiiProxy_CfnComponentType) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnComponentType) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnComponentType) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnComponentType) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnComponentType) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnComponentType) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -877,33 +774,12 @@ func (c *jsiiProxy_CfnComponentType) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnComponentType) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnComponentType) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnComponentType) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -920,7 +796,10 @@ func (c *jsiiProxy_CfnComponentType) ValidateProperties(_properties interface{})
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataConnectorProperty := &dataConnectorProperty{
 //   	isNative: jsii.Boolean(false),
 //   	lambda: &lambdaFunctionProperty{
@@ -930,17 +809,20 @@ func (c *jsiiProxy_CfnComponentType) ValidateProperties(_properties interface{})
 //
 type CfnComponentType_DataConnectorProperty struct {
 	// `CfnComponentType.DataConnectorProperty.IsNative`.
-	IsNative interface{} `json:"isNative" yaml:"isNative"`
+	IsNative interface{} `field:"optional" json:"isNative" yaml:"isNative"`
 	// `CfnComponentType.DataConnectorProperty.Lambda`.
-	Lambda interface{} `json:"lambda" yaml:"lambda"`
+	Lambda interface{} `field:"optional" json:"lambda" yaml:"lambda"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataTypeProperty_ dataTypeProperty
 //   var dataValueProperty_ dataValueProperty
 //   var relationshipValue interface{}
+//
 //   dataTypeProperty := &dataTypeProperty{
 //   	type: jsii.String("type"),
 //
@@ -999,22 +881,25 @@ type CfnComponentType_DataConnectorProperty struct {
 //
 type CfnComponentType_DataTypeProperty struct {
 	// `CfnComponentType.DataTypeProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `CfnComponentType.DataTypeProperty.AllowedValues`.
-	AllowedValues interface{} `json:"allowedValues" yaml:"allowedValues"`
+	AllowedValues interface{} `field:"optional" json:"allowedValues" yaml:"allowedValues"`
 	// `CfnComponentType.DataTypeProperty.NestedType`.
-	NestedType interface{} `json:"nestedType" yaml:"nestedType"`
+	NestedType interface{} `field:"optional" json:"nestedType" yaml:"nestedType"`
 	// `CfnComponentType.DataTypeProperty.Relationship`.
-	Relationship interface{} `json:"relationship" yaml:"relationship"`
+	Relationship interface{} `field:"optional" json:"relationship" yaml:"relationship"`
 	// `CfnComponentType.DataTypeProperty.UnitOfMeasure`.
-	UnitOfMeasure *string `json:"unitOfMeasure" yaml:"unitOfMeasure"`
+	UnitOfMeasure *string `field:"optional" json:"unitOfMeasure" yaml:"unitOfMeasure"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
 //   var relationshipValue interface{}
+//
 //   dataValueProperty := &dataValueProperty{
 //   	booleanValue: jsii.Boolean(false),
 //   	doubleValue: jsii.Number(123),
@@ -1061,27 +946,30 @@ type CfnComponentType_DataTypeProperty struct {
 //
 type CfnComponentType_DataValueProperty struct {
 	// `CfnComponentType.DataValueProperty.BooleanValue`.
-	BooleanValue interface{} `json:"booleanValue" yaml:"booleanValue"`
+	BooleanValue interface{} `field:"optional" json:"booleanValue" yaml:"booleanValue"`
 	// `CfnComponentType.DataValueProperty.DoubleValue`.
-	DoubleValue *float64 `json:"doubleValue" yaml:"doubleValue"`
+	DoubleValue *float64 `field:"optional" json:"doubleValue" yaml:"doubleValue"`
 	// `CfnComponentType.DataValueProperty.Expression`.
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"optional" json:"expression" yaml:"expression"`
 	// `CfnComponentType.DataValueProperty.IntegerValue`.
-	IntegerValue *float64 `json:"integerValue" yaml:"integerValue"`
+	IntegerValue *float64 `field:"optional" json:"integerValue" yaml:"integerValue"`
 	// `CfnComponentType.DataValueProperty.ListValue`.
-	ListValue interface{} `json:"listValue" yaml:"listValue"`
+	ListValue interface{} `field:"optional" json:"listValue" yaml:"listValue"`
 	// `CfnComponentType.DataValueProperty.LongValue`.
-	LongValue *float64 `json:"longValue" yaml:"longValue"`
+	LongValue *float64 `field:"optional" json:"longValue" yaml:"longValue"`
 	// `CfnComponentType.DataValueProperty.MapValue`.
-	MapValue interface{} `json:"mapValue" yaml:"mapValue"`
+	MapValue interface{} `field:"optional" json:"mapValue" yaml:"mapValue"`
 	// `CfnComponentType.DataValueProperty.RelationshipValue`.
-	RelationshipValue interface{} `json:"relationshipValue" yaml:"relationshipValue"`
+	RelationshipValue interface{} `field:"optional" json:"relationshipValue" yaml:"relationshipValue"`
 	// `CfnComponentType.DataValueProperty.StringValue`.
-	StringValue *string `json:"stringValue" yaml:"stringValue"`
+	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   functionProperty := &functionProperty{
 //   	implementedBy: &dataConnectorProperty{
 //   		isNative: jsii.Boolean(false),
@@ -1097,30 +985,36 @@ type CfnComponentType_DataValueProperty struct {
 //
 type CfnComponentType_FunctionProperty struct {
 	// `CfnComponentType.FunctionProperty.ImplementedBy`.
-	ImplementedBy interface{} `json:"implementedBy" yaml:"implementedBy"`
+	ImplementedBy interface{} `field:"optional" json:"implementedBy" yaml:"implementedBy"`
 	// `CfnComponentType.FunctionProperty.RequiredProperties`.
-	RequiredProperties *[]*string `json:"requiredProperties" yaml:"requiredProperties"`
+	RequiredProperties *[]*string `field:"optional" json:"requiredProperties" yaml:"requiredProperties"`
 	// `CfnComponentType.FunctionProperty.Scope`.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaFunctionProperty := &lambdaFunctionProperty{
 //   	arn: jsii.String("arn"),
 //   }
 //
 type CfnComponentType_LambdaFunctionProperty struct {
 	// `CfnComponentType.LambdaFunctionProperty.Arn`.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataTypeProperty_ dataTypeProperty
 //   var dataValueProperty_ dataValueProperty
 //   var relationshipValue interface{}
+//
 //   propertyDefinitionProperty := &propertyDefinitionProperty{
 //   	configurations: map[string]*string{
 //   		"configurationsKey": jsii.String("configurations"),
@@ -1176,23 +1070,26 @@ type CfnComponentType_LambdaFunctionProperty struct {
 //
 type CfnComponentType_PropertyDefinitionProperty struct {
 	// `CfnComponentType.PropertyDefinitionProperty.Configurations`.
-	Configurations interface{} `json:"configurations" yaml:"configurations"`
+	Configurations interface{} `field:"optional" json:"configurations" yaml:"configurations"`
 	// `CfnComponentType.PropertyDefinitionProperty.DataType`.
-	DataType interface{} `json:"dataType" yaml:"dataType"`
+	DataType interface{} `field:"optional" json:"dataType" yaml:"dataType"`
 	// `CfnComponentType.PropertyDefinitionProperty.DefaultValue`.
-	DefaultValue interface{} `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue interface{} `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// `CfnComponentType.PropertyDefinitionProperty.IsExternalId`.
-	IsExternalId interface{} `json:"isExternalId" yaml:"isExternalId"`
+	IsExternalId interface{} `field:"optional" json:"isExternalId" yaml:"isExternalId"`
 	// `CfnComponentType.PropertyDefinitionProperty.IsRequiredInEntity`.
-	IsRequiredInEntity interface{} `json:"isRequiredInEntity" yaml:"isRequiredInEntity"`
+	IsRequiredInEntity interface{} `field:"optional" json:"isRequiredInEntity" yaml:"isRequiredInEntity"`
 	// `CfnComponentType.PropertyDefinitionProperty.IsStoredExternally`.
-	IsStoredExternally interface{} `json:"isStoredExternally" yaml:"isStoredExternally"`
+	IsStoredExternally interface{} `field:"optional" json:"isStoredExternally" yaml:"isStoredExternally"`
 	// `CfnComponentType.PropertyDefinitionProperty.IsTimeSeries`.
-	IsTimeSeries interface{} `json:"isTimeSeries" yaml:"isTimeSeries"`
+	IsTimeSeries interface{} `field:"optional" json:"isTimeSeries" yaml:"isTimeSeries"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   relationshipProperty := &relationshipProperty{
 //   	relationshipType: jsii.String("relationshipType"),
 //   	targetComponentTypeId: jsii.String("targetComponentTypeId"),
@@ -1200,19 +1097,22 @@ type CfnComponentType_PropertyDefinitionProperty struct {
 //
 type CfnComponentType_RelationshipProperty struct {
 	// `CfnComponentType.RelationshipProperty.RelationshipType`.
-	RelationshipType *string `json:"relationshipType" yaml:"relationshipType"`
+	RelationshipType *string `field:"optional" json:"relationshipType" yaml:"relationshipType"`
 	// `CfnComponentType.RelationshipProperty.TargetComponentTypeId`.
-	TargetComponentTypeId *string `json:"targetComponentTypeId" yaml:"targetComponentTypeId"`
+	TargetComponentTypeId *string `field:"optional" json:"targetComponentTypeId" yaml:"targetComponentTypeId"`
 }
 
 // Properties for defining a `CfnComponentType`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataTypeProperty_ dataTypeProperty
 //   var dataValueProperty_ dataValueProperty
 //   var relationshipValue interface{}
+//
 //   cfnComponentTypeProps := &cfnComponentTypeProps{
 //   	componentTypeId: jsii.String("componentTypeId"),
 //   	workspaceId: jsii.String("workspaceId"),
@@ -1298,33 +1198,36 @@ type CfnComponentType_RelationshipProperty struct {
 //
 type CfnComponentTypeProps struct {
 	// `AWS::IoTTwinMaker::ComponentType.ComponentTypeId`.
-	ComponentTypeId *string `json:"componentTypeId" yaml:"componentTypeId"`
+	ComponentTypeId *string `field:"required" json:"componentTypeId" yaml:"componentTypeId"`
 	// `AWS::IoTTwinMaker::ComponentType.WorkspaceId`.
-	WorkspaceId *string `json:"workspaceId" yaml:"workspaceId"`
+	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
 	// `AWS::IoTTwinMaker::ComponentType.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTTwinMaker::ComponentType.ExtendsFrom`.
-	ExtendsFrom *[]*string `json:"extendsFrom" yaml:"extendsFrom"`
+	ExtendsFrom *[]*string `field:"optional" json:"extendsFrom" yaml:"extendsFrom"`
 	// `AWS::IoTTwinMaker::ComponentType.Functions`.
-	Functions interface{} `json:"functions" yaml:"functions"`
+	Functions interface{} `field:"optional" json:"functions" yaml:"functions"`
 	// `AWS::IoTTwinMaker::ComponentType.IsSingleton`.
-	IsSingleton interface{} `json:"isSingleton" yaml:"isSingleton"`
+	IsSingleton interface{} `field:"optional" json:"isSingleton" yaml:"isSingleton"`
 	// `AWS::IoTTwinMaker::ComponentType.PropertyDefinitions`.
-	PropertyDefinitions interface{} `json:"propertyDefinitions" yaml:"propertyDefinitions"`
+	PropertyDefinitions interface{} `field:"optional" json:"propertyDefinitions" yaml:"propertyDefinitions"`
 	// `AWS::IoTTwinMaker::ComponentType.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTTwinMaker::Entity`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
 //   var definition interface{}
 //   var error interface{}
 //   var relationshipValue interface{}
-//   cfnEntity := iottwinmaker.NewCfnEntity(this, jsii.String("MyCfnEntity"), &cfnEntityProps{
+//
+//   cfnEntity := awscdk.Aws_iottwinmaker.NewCfnEntity(this, jsii.String("MyCfnEntity"), &cfnEntityProps{
 //   	entityName: jsii.String("entityName"),
 //   	workspaceId: jsii.String("workspaceId"),
 //
@@ -1377,11 +1280,9 @@ type CfnEntity interface {
 	AttrHasChildEntities() awscdk.IResolvable
 	AttrUpdateDateTime() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// `AWS::IoTTwinMaker::Entity.Components`.
 	Components() interface{}
@@ -1389,7 +1290,6 @@ type CfnEntity interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::IoTTwinMaker::Entity.Description`.
 	Description() *string
@@ -1409,11 +1309,9 @@ type CfnEntity interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// `AWS::IoTTwinMaker::Entity.ParentEntityId`.
 	ParentEntityId() *string
 	SetParentEntityId(val *string)
@@ -1421,12 +1319,10 @@ type CfnEntity interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::IoTTwinMaker::Entity.Tags`.
 	Tags() awscdk.TagManager
@@ -1434,19 +1330,16 @@ type CfnEntity interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// `AWS::IoTTwinMaker::Entity.WorkspaceId`.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1455,7 +1348,6 @@ type CfnEntity interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1500,15 +1392,12 @@ type CfnEntity interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1519,13 +1408,11 @@ type CfnEntity interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1534,74 +1421,21 @@ type CfnEntity interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1741,8 +1575,8 @@ func (j *jsiiProxy_CfnEntity) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEntity) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnEntity) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1813,13 +1647,13 @@ func (j *jsiiProxy_CfnEntity) WorkspaceId() *string {
 
 
 // Create a new `AWS::IoTTwinMaker::Entity`.
-func NewCfnEntity(scope awscdk.Construct, id *string, props *CfnEntityProps) CfnEntity {
+func NewCfnEntity(scope constructs.Construct, id *string, props *CfnEntityProps) CfnEntity {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEntity{}
 
 	_jsii_.Create(
-		"monocdk.aws_iottwinmaker.CfnEntity",
+		"aws-cdk-lib.aws_iottwinmaker.CfnEntity",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1828,11 +1662,11 @@ func NewCfnEntity(scope awscdk.Construct, id *string, props *CfnEntityProps) Cfn
 }
 
 // Create a new `AWS::IoTTwinMaker::Entity`.
-func NewCfnEntity_Override(c CfnEntity, scope awscdk.Construct, id *string, props *CfnEntityProps) {
+func NewCfnEntity_Override(c CfnEntity, scope constructs.Construct, id *string, props *CfnEntityProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_iottwinmaker.CfnEntity",
+		"aws-cdk-lib.aws_iottwinmaker.CfnEntity",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1892,14 +1726,13 @@ func (j *jsiiProxy_CfnEntity) SetWorkspaceId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnEntity_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iottwinmaker.CfnEntity",
+		"aws-cdk-lib.aws_iottwinmaker.CfnEntity",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1909,14 +1742,13 @@ func CfnEntity_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnEntity_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iottwinmaker.CfnEntity",
+		"aws-cdk-lib.aws_iottwinmaker.CfnEntity",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1925,15 +1757,17 @@ func CfnEntity_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnEntity_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iottwinmaker.CfnEntity",
+		"aws-cdk-lib.aws_iottwinmaker.CfnEntity",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1946,7 +1780,7 @@ func CfnEntity_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_iottwinmaker.CfnEntity",
+		"aws-cdk-lib.aws_iottwinmaker.CfnEntity",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2043,48 +1877,11 @@ func (c *jsiiProxy_CfnEntity) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnEntity) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnEntity) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnEntity) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnEntity) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnEntity) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2114,33 +1911,12 @@ func (c *jsiiProxy_CfnEntity) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnEntity) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnEntity) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnEntity) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2157,12 +1933,15 @@ func (c *jsiiProxy_CfnEntity) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
 //   var definition interface{}
 //   var error interface{}
 //   var relationshipValue interface{}
+//
 //   componentProperty := &componentProperty{
 //   	componentName: jsii.String("componentName"),
 //   	componentTypeId: jsii.String("componentTypeId"),
@@ -2196,24 +1975,27 @@ func (c *jsiiProxy_CfnEntity) ValidateProperties(_properties interface{}) {
 //
 type CfnEntity_ComponentProperty struct {
 	// `CfnEntity.ComponentProperty.ComponentName`.
-	ComponentName *string `json:"componentName" yaml:"componentName"`
+	ComponentName *string `field:"optional" json:"componentName" yaml:"componentName"`
 	// `CfnEntity.ComponentProperty.ComponentTypeId`.
-	ComponentTypeId *string `json:"componentTypeId" yaml:"componentTypeId"`
+	ComponentTypeId *string `field:"optional" json:"componentTypeId" yaml:"componentTypeId"`
 	// `CfnEntity.ComponentProperty.DefinedIn`.
-	DefinedIn *string `json:"definedIn" yaml:"definedIn"`
+	DefinedIn *string `field:"optional" json:"definedIn" yaml:"definedIn"`
 	// `CfnEntity.ComponentProperty.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `CfnEntity.ComponentProperty.Properties`.
-	Properties interface{} `json:"properties" yaml:"properties"`
+	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
 	// `CfnEntity.ComponentProperty.Status`.
-	Status interface{} `json:"status" yaml:"status"`
+	Status interface{} `field:"optional" json:"status" yaml:"status"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
 //   var relationshipValue interface{}
+//
 //   dataValueProperty := &dataValueProperty{
 //   	booleanValue: jsii.Boolean(false),
 //   	doubleValue: jsii.Number(123),
@@ -2260,31 +2042,34 @@ type CfnEntity_ComponentProperty struct {
 //
 type CfnEntity_DataValueProperty struct {
 	// `CfnEntity.DataValueProperty.BooleanValue`.
-	BooleanValue interface{} `json:"booleanValue" yaml:"booleanValue"`
+	BooleanValue interface{} `field:"optional" json:"booleanValue" yaml:"booleanValue"`
 	// `CfnEntity.DataValueProperty.DoubleValue`.
-	DoubleValue *float64 `json:"doubleValue" yaml:"doubleValue"`
+	DoubleValue *float64 `field:"optional" json:"doubleValue" yaml:"doubleValue"`
 	// `CfnEntity.DataValueProperty.Expression`.
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"optional" json:"expression" yaml:"expression"`
 	// `CfnEntity.DataValueProperty.IntegerValue`.
-	IntegerValue *float64 `json:"integerValue" yaml:"integerValue"`
+	IntegerValue *float64 `field:"optional" json:"integerValue" yaml:"integerValue"`
 	// `CfnEntity.DataValueProperty.ListValue`.
-	ListValue interface{} `json:"listValue" yaml:"listValue"`
+	ListValue interface{} `field:"optional" json:"listValue" yaml:"listValue"`
 	// `CfnEntity.DataValueProperty.LongValue`.
-	LongValue *float64 `json:"longValue" yaml:"longValue"`
+	LongValue *float64 `field:"optional" json:"longValue" yaml:"longValue"`
 	// `CfnEntity.DataValueProperty.MapValue`.
-	MapValue interface{} `json:"mapValue" yaml:"mapValue"`
+	MapValue interface{} `field:"optional" json:"mapValue" yaml:"mapValue"`
 	// `CfnEntity.DataValueProperty.RelationshipValue`.
-	RelationshipValue interface{} `json:"relationshipValue" yaml:"relationshipValue"`
+	RelationshipValue interface{} `field:"optional" json:"relationshipValue" yaml:"relationshipValue"`
 	// `CfnEntity.DataValueProperty.StringValue`.
-	StringValue *string `json:"stringValue" yaml:"stringValue"`
+	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
 //   var definition interface{}
 //   var relationshipValue interface{}
+//
 //   propertyProperty := &propertyProperty{
 //   	definition: definition,
 //   	value: &dataValueProperty{
@@ -2306,15 +2091,18 @@ type CfnEntity_DataValueProperty struct {
 //
 type CfnEntity_PropertyProperty struct {
 	// `CfnEntity.PropertyProperty.Definition`.
-	Definition interface{} `json:"definition" yaml:"definition"`
+	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
 	// `CfnEntity.PropertyProperty.Value`.
-	Value interface{} `json:"value" yaml:"value"`
+	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var error interface{}
+//
 //   statusProperty := &statusProperty{
 //   	error: error,
 //   	state: jsii.String("state"),
@@ -2322,20 +2110,23 @@ type CfnEntity_PropertyProperty struct {
 //
 type CfnEntity_StatusProperty struct {
 	// `CfnEntity.StatusProperty.Error`.
-	Error interface{} `json:"error" yaml:"error"`
+	Error interface{} `field:"optional" json:"error" yaml:"error"`
 	// `CfnEntity.StatusProperty.State`.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 }
 
 // Properties for defining a `CfnEntity`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
 //   var definition interface{}
 //   var error interface{}
 //   var relationshipValue interface{}
+//
 //   cfnEntityProps := &cfnEntityProps{
 //   	entityName: jsii.String("entityName"),
 //   	workspaceId: jsii.String("workspaceId"),
@@ -2383,26 +2174,29 @@ type CfnEntity_StatusProperty struct {
 //
 type CfnEntityProps struct {
 	// `AWS::IoTTwinMaker::Entity.EntityName`.
-	EntityName *string `json:"entityName" yaml:"entityName"`
+	EntityName *string `field:"required" json:"entityName" yaml:"entityName"`
 	// `AWS::IoTTwinMaker::Entity.WorkspaceId`.
-	WorkspaceId *string `json:"workspaceId" yaml:"workspaceId"`
+	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
 	// `AWS::IoTTwinMaker::Entity.Components`.
-	Components interface{} `json:"components" yaml:"components"`
+	Components interface{} `field:"optional" json:"components" yaml:"components"`
 	// `AWS::IoTTwinMaker::Entity.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTTwinMaker::Entity.EntityId`.
-	EntityId *string `json:"entityId" yaml:"entityId"`
+	EntityId *string `field:"optional" json:"entityId" yaml:"entityId"`
 	// `AWS::IoTTwinMaker::Entity.ParentEntityId`.
-	ParentEntityId *string `json:"parentEntityId" yaml:"parentEntityId"`
+	ParentEntityId *string `field:"optional" json:"parentEntityId" yaml:"parentEntityId"`
 	// `AWS::IoTTwinMaker::Entity.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTTwinMaker::Scene`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
-//   cfnScene := iottwinmaker.NewCfnScene(this, jsii.String("MyCfnScene"), &cfnSceneProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnScene := awscdk.Aws_iottwinmaker.NewCfnScene(this, jsii.String("MyCfnScene"), &cfnSceneProps{
 //   	contentLocation: jsii.String("contentLocation"),
 //   	sceneId: jsii.String("sceneId"),
 //   	workspaceId: jsii.String("workspaceId"),
@@ -2427,11 +2221,9 @@ type CfnScene interface {
 	Capabilities() *[]*string
 	SetCapabilities(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// `AWS::IoTTwinMaker::Scene.ContentLocation`.
 	ContentLocation() *string
@@ -2439,7 +2231,6 @@ type CfnScene interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::IoTTwinMaker::Scene.Description`.
 	Description() *string
@@ -2453,16 +2244,13 @@ type CfnScene interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::IoTTwinMaker::Scene.SceneId`.
 	SceneId() *string
@@ -2470,7 +2258,6 @@ type CfnScene interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::IoTTwinMaker::Scene.Tags`.
 	Tags() awscdk.TagManager
@@ -2478,19 +2265,16 @@ type CfnScene interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// `AWS::IoTTwinMaker::Scene.WorkspaceId`.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2499,7 +2283,6 @@ type CfnScene interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2544,15 +2327,12 @@ type CfnScene interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2563,13 +2343,11 @@ type CfnScene interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2578,74 +2356,21 @@ type CfnScene interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2765,8 +2490,8 @@ func (j *jsiiProxy_CfnScene) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScene) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnScene) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2837,13 +2562,13 @@ func (j *jsiiProxy_CfnScene) WorkspaceId() *string {
 
 
 // Create a new `AWS::IoTTwinMaker::Scene`.
-func NewCfnScene(scope awscdk.Construct, id *string, props *CfnSceneProps) CfnScene {
+func NewCfnScene(scope constructs.Construct, id *string, props *CfnSceneProps) CfnScene {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnScene{}
 
 	_jsii_.Create(
-		"monocdk.aws_iottwinmaker.CfnScene",
+		"aws-cdk-lib.aws_iottwinmaker.CfnScene",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2852,11 +2577,11 @@ func NewCfnScene(scope awscdk.Construct, id *string, props *CfnSceneProps) CfnSc
 }
 
 // Create a new `AWS::IoTTwinMaker::Scene`.
-func NewCfnScene_Override(c CfnScene, scope awscdk.Construct, id *string, props *CfnSceneProps) {
+func NewCfnScene_Override(c CfnScene, scope constructs.Construct, id *string, props *CfnSceneProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_iottwinmaker.CfnScene",
+		"aws-cdk-lib.aws_iottwinmaker.CfnScene",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2908,14 +2633,13 @@ func (j *jsiiProxy_CfnScene) SetWorkspaceId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnScene_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iottwinmaker.CfnScene",
+		"aws-cdk-lib.aws_iottwinmaker.CfnScene",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2925,14 +2649,13 @@ func CfnScene_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnScene_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iottwinmaker.CfnScene",
+		"aws-cdk-lib.aws_iottwinmaker.CfnScene",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2941,15 +2664,17 @@ func CfnScene_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnScene_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iottwinmaker.CfnScene",
+		"aws-cdk-lib.aws_iottwinmaker.CfnScene",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2962,7 +2687,7 @@ func CfnScene_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_iottwinmaker.CfnScene",
+		"aws-cdk-lib.aws_iottwinmaker.CfnScene",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3059,48 +2784,11 @@ func (c *jsiiProxy_CfnScene) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnScene) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnScene) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnScene) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnScene) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnScene) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3130,33 +2818,12 @@ func (c *jsiiProxy_CfnScene) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnScene) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnScene) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnScene) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3175,7 +2842,10 @@ func (c *jsiiProxy_CfnScene) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnScene`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSceneProps := &cfnSceneProps{
 //   	contentLocation: jsii.String("contentLocation"),
 //   	sceneId: jsii.String("sceneId"),
@@ -3193,24 +2863,27 @@ func (c *jsiiProxy_CfnScene) ValidateProperties(_properties interface{}) {
 //
 type CfnSceneProps struct {
 	// `AWS::IoTTwinMaker::Scene.ContentLocation`.
-	ContentLocation *string `json:"contentLocation" yaml:"contentLocation"`
+	ContentLocation *string `field:"required" json:"contentLocation" yaml:"contentLocation"`
 	// `AWS::IoTTwinMaker::Scene.SceneId`.
-	SceneId *string `json:"sceneId" yaml:"sceneId"`
+	SceneId *string `field:"required" json:"sceneId" yaml:"sceneId"`
 	// `AWS::IoTTwinMaker::Scene.WorkspaceId`.
-	WorkspaceId *string `json:"workspaceId" yaml:"workspaceId"`
+	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
 	// `AWS::IoTTwinMaker::Scene.Capabilities`.
-	Capabilities *[]*string `json:"capabilities" yaml:"capabilities"`
+	Capabilities *[]*string `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// `AWS::IoTTwinMaker::Scene.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTTwinMaker::Scene.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTTwinMaker::Workspace`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
-//   cfnWorkspace := iottwinmaker.NewCfnWorkspace(this, jsii.String("MyCfnWorkspace"), &cfnWorkspaceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnWorkspace := awscdk.Aws_iottwinmaker.NewCfnWorkspace(this, jsii.String("MyCfnWorkspace"), &cfnWorkspaceProps{
 //   	role: jsii.String("role"),
 //   	s3Location: jsii.String("s3Location"),
 //   	workspaceId: jsii.String("workspaceId"),
@@ -3229,16 +2902,13 @@ type CfnWorkspace interface {
 	AttrCreationDateTime() *string
 	AttrUpdateDateTime() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::IoTTwinMaker::Workspace.Description`.
 	Description() *string
@@ -3252,16 +2922,13 @@ type CfnWorkspace interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::IoTTwinMaker::Workspace.Role`.
 	Role() *string
@@ -3272,7 +2939,6 @@ type CfnWorkspace interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::IoTTwinMaker::Workspace.Tags`.
 	Tags() awscdk.TagManager
@@ -3280,19 +2946,16 @@ type CfnWorkspace interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// `AWS::IoTTwinMaker::Workspace.WorkspaceId`.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3301,7 +2964,6 @@ type CfnWorkspace interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -3346,15 +3008,12 @@ type CfnWorkspace interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -3365,13 +3024,11 @@ type CfnWorkspace interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3380,74 +3037,21 @@ type CfnWorkspace interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3547,8 +3151,8 @@ func (j *jsiiProxy_CfnWorkspace) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspace) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnWorkspace) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3629,13 +3233,13 @@ func (j *jsiiProxy_CfnWorkspace) WorkspaceId() *string {
 
 
 // Create a new `AWS::IoTTwinMaker::Workspace`.
-func NewCfnWorkspace(scope awscdk.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
+func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWorkspace{}
 
 	_jsii_.Create(
-		"monocdk.aws_iottwinmaker.CfnWorkspace",
+		"aws-cdk-lib.aws_iottwinmaker.CfnWorkspace",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3644,11 +3248,11 @@ func NewCfnWorkspace(scope awscdk.Construct, id *string, props *CfnWorkspaceProp
 }
 
 // Create a new `AWS::IoTTwinMaker::Workspace`.
-func NewCfnWorkspace_Override(c CfnWorkspace, scope awscdk.Construct, id *string, props *CfnWorkspaceProps) {
+func NewCfnWorkspace_Override(c CfnWorkspace, scope constructs.Construct, id *string, props *CfnWorkspaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_iottwinmaker.CfnWorkspace",
+		"aws-cdk-lib.aws_iottwinmaker.CfnWorkspace",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3692,14 +3296,13 @@ func (j *jsiiProxy_CfnWorkspace) SetWorkspaceId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnWorkspace_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iottwinmaker.CfnWorkspace",
+		"aws-cdk-lib.aws_iottwinmaker.CfnWorkspace",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3709,14 +3312,13 @@ func CfnWorkspace_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnWorkspace_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iottwinmaker.CfnWorkspace",
+		"aws-cdk-lib.aws_iottwinmaker.CfnWorkspace",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3725,15 +3327,17 @@ func CfnWorkspace_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnWorkspace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iottwinmaker.CfnWorkspace",
+		"aws-cdk-lib.aws_iottwinmaker.CfnWorkspace",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3746,7 +3350,7 @@ func CfnWorkspace_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_iottwinmaker.CfnWorkspace",
+		"aws-cdk-lib.aws_iottwinmaker.CfnWorkspace",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3843,48 +3447,11 @@ func (c *jsiiProxy_CfnWorkspace) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnWorkspace) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnWorkspace) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnWorkspace) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnWorkspace) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnWorkspace) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3914,33 +3481,12 @@ func (c *jsiiProxy_CfnWorkspace) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnWorkspace) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnWorkspace) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnWorkspace) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3959,7 +3505,10 @@ func (c *jsiiProxy_CfnWorkspace) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnWorkspace`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnWorkspaceProps := &cfnWorkspaceProps{
 //   	role: jsii.String("role"),
 //   	s3Location: jsii.String("s3Location"),
@@ -3974,14 +3523,14 @@ func (c *jsiiProxy_CfnWorkspace) ValidateProperties(_properties interface{}) {
 //
 type CfnWorkspaceProps struct {
 	// `AWS::IoTTwinMaker::Workspace.Role`.
-	Role *string `json:"role" yaml:"role"`
+	Role *string `field:"required" json:"role" yaml:"role"`
 	// `AWS::IoTTwinMaker::Workspace.S3Location`.
-	S3Location *string `json:"s3Location" yaml:"s3Location"`
+	S3Location *string `field:"required" json:"s3Location" yaml:"s3Location"`
 	// `AWS::IoTTwinMaker::Workspace.WorkspaceId`.
-	WorkspaceId *string `json:"workspaceId" yaml:"workspaceId"`
+	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
 	// `AWS::IoTTwinMaker::Workspace.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTTwinMaker::Workspace.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

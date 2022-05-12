@@ -1,25 +1,28 @@
 package awssam
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awssam/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssam/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::Serverless::Api`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var authorizers interface{}
 //   var definitionBody interface{}
 //   var gatewayResponses interface{}
 //   var methodSettings interface{}
 //   var models interface{}
-//   cfnApi := sam.NewCfnApi(this, jsii.String("MyCfnApi"), &cfnApiProps{
+//
+//   cfnApi := awscdk.Aws_sam.NewCfnApi(this, jsii.String("MyCfnApi"), &cfnApiProps{
 //   	stageName: jsii.String("stageName"),
 //
 //   	// the properties below are optional
@@ -111,11 +114,9 @@ type CfnApi interface {
 	CanarySetting() interface{}
 	SetCanarySetting(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// `AWS::Serverless::Api.Cors`.
 	Cors() interface{}
@@ -123,7 +124,6 @@ type CfnApi interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::Serverless::Api.DefinitionBody`.
 	DefinitionBody() interface{}
@@ -152,7 +152,6 @@ type CfnApi interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// `AWS::Serverless::Api.MethodSettings`.
 	MethodSettings() interface{}
@@ -166,9 +165,8 @@ type CfnApi interface {
 	// `AWS::Serverless::Api.Name`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// `AWS::Serverless::Api.OpenApiVersion`.
 	OpenApiVersion() *string
 	SetOpenApiVersion(val *string)
@@ -176,12 +174,10 @@ type CfnApi interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::Serverless::Api.StageName`.
 	StageName() *string
@@ -195,19 +191,16 @@ type CfnApi interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// `AWS::Serverless::Api.Variables`.
 	Variables() interface{}
 	SetVariables(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -216,7 +209,6 @@ type CfnApi interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -261,15 +253,12 @@ type CfnApi interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -280,13 +269,11 @@ type CfnApi interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -295,74 +282,21 @@ type CfnApi interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -592,8 +526,8 @@ func (j *jsiiProxy_CfnApi) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApi) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnApi) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -684,13 +618,13 @@ func (j *jsiiProxy_CfnApi) Variables() interface{} {
 
 
 // Create a new `AWS::Serverless::Api`.
-func NewCfnApi(scope awscdk.Construct, id *string, props *CfnApiProps) CfnApi {
+func NewCfnApi(scope constructs.Construct, id *string, props *CfnApiProps) CfnApi {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnApi{}
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnApi",
+		"aws-cdk-lib.aws_sam.CfnApi",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -699,11 +633,11 @@ func NewCfnApi(scope awscdk.Construct, id *string, props *CfnApiProps) CfnApi {
 }
 
 // Create a new `AWS::Serverless::Api`.
-func NewCfnApi_Override(c CfnApi, scope awscdk.Construct, id *string, props *CfnApiProps) {
+func NewCfnApi_Override(c CfnApi, scope constructs.Construct, id *string, props *CfnApiProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnApi",
+		"aws-cdk-lib.aws_sam.CfnApi",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -883,14 +817,13 @@ func (j *jsiiProxy_CfnApi) SetVariables(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnApi_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnApi",
+		"aws-cdk-lib.aws_sam.CfnApi",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -900,14 +833,13 @@ func CfnApi_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnApi_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnApi",
+		"aws-cdk-lib.aws_sam.CfnApi",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -916,15 +848,17 @@ func CfnApi_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnApi_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnApi",
+		"aws-cdk-lib.aws_sam.CfnApi",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -937,7 +871,7 @@ func CfnApi_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnApi",
+		"aws-cdk-lib.aws_sam.CfnApi",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -948,7 +882,7 @@ func CfnApi_REQUIRED_TRANSFORM() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnApi",
+		"aws-cdk-lib.aws_sam.CfnApi",
 		"REQUIRED_TRANSFORM",
 		&returns,
 	)
@@ -1045,48 +979,11 @@ func (c *jsiiProxy_CfnApi) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnApi) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnApi) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnApi) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnApi) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnApi) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1116,33 +1013,12 @@ func (c *jsiiProxy_CfnApi) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnApi) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnApi) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnApi) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1159,7 +1035,10 @@ func (c *jsiiProxy_CfnApi) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessLogSettingProperty := &accessLogSettingProperty{
 //   	destinationArn: jsii.String("destinationArn"),
 //   	format: jsii.String("format"),
@@ -1167,15 +1046,18 @@ func (c *jsiiProxy_CfnApi) ValidateProperties(_properties interface{}) {
 //
 type CfnApi_AccessLogSettingProperty struct {
 	// `CfnApi.AccessLogSettingProperty.DestinationArn`.
-	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
 	// `CfnApi.AccessLogSettingProperty.Format`.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var authorizers interface{}
+//
 //   authProperty := &authProperty{
 //   	authorizers: authorizers,
 //   	defaultAuthorizer: jsii.String("defaultAuthorizer"),
@@ -1183,13 +1065,16 @@ type CfnApi_AccessLogSettingProperty struct {
 //
 type CfnApi_AuthProperty struct {
 	// `CfnApi.AuthProperty.Authorizers`.
-	Authorizers interface{} `json:"authorizers" yaml:"authorizers"`
+	Authorizers interface{} `field:"optional" json:"authorizers" yaml:"authorizers"`
 	// `CfnApi.AuthProperty.DefaultAuthorizer`.
-	DefaultAuthorizer *string `json:"defaultAuthorizer" yaml:"defaultAuthorizer"`
+	DefaultAuthorizer *string `field:"optional" json:"defaultAuthorizer" yaml:"defaultAuthorizer"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   canarySettingProperty := &canarySettingProperty{
 //   	deploymentId: jsii.String("deploymentId"),
 //   	percentTraffic: jsii.Number(123),
@@ -1201,17 +1086,20 @@ type CfnApi_AuthProperty struct {
 //
 type CfnApi_CanarySettingProperty struct {
 	// `CfnApi.CanarySettingProperty.DeploymentId`.
-	DeploymentId *string `json:"deploymentId" yaml:"deploymentId"`
+	DeploymentId *string `field:"optional" json:"deploymentId" yaml:"deploymentId"`
 	// `CfnApi.CanarySettingProperty.PercentTraffic`.
-	PercentTraffic *float64 `json:"percentTraffic" yaml:"percentTraffic"`
+	PercentTraffic *float64 `field:"optional" json:"percentTraffic" yaml:"percentTraffic"`
 	// `CfnApi.CanarySettingProperty.StageVariableOverrides`.
-	StageVariableOverrides interface{} `json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
+	StageVariableOverrides interface{} `field:"optional" json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
 	// `CfnApi.CanarySettingProperty.UseStageCache`.
-	UseStageCache interface{} `json:"useStageCache" yaml:"useStageCache"`
+	UseStageCache interface{} `field:"optional" json:"useStageCache" yaml:"useStageCache"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   corsConfigurationProperty := &corsConfigurationProperty{
 //   	allowOrigin: jsii.String("allowOrigin"),
 //
@@ -1224,19 +1112,22 @@ type CfnApi_CanarySettingProperty struct {
 //
 type CfnApi_CorsConfigurationProperty struct {
 	// `CfnApi.CorsConfigurationProperty.AllowOrigin`.
-	AllowOrigin *string `json:"allowOrigin" yaml:"allowOrigin"`
+	AllowOrigin *string `field:"required" json:"allowOrigin" yaml:"allowOrigin"`
 	// `CfnApi.CorsConfigurationProperty.AllowCredentials`.
-	AllowCredentials interface{} `json:"allowCredentials" yaml:"allowCredentials"`
+	AllowCredentials interface{} `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
 	// `CfnApi.CorsConfigurationProperty.AllowHeaders`.
-	AllowHeaders *string `json:"allowHeaders" yaml:"allowHeaders"`
+	AllowHeaders *string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
 	// `CfnApi.CorsConfigurationProperty.AllowMethods`.
-	AllowMethods *string `json:"allowMethods" yaml:"allowMethods"`
+	AllowMethods *string `field:"optional" json:"allowMethods" yaml:"allowMethods"`
 	// `CfnApi.CorsConfigurationProperty.MaxAge`.
-	MaxAge *string `json:"maxAge" yaml:"maxAge"`
+	MaxAge *string `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainConfigurationProperty := &domainConfigurationProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	domainName: jsii.String("domainName"),
@@ -1263,25 +1154,28 @@ type CfnApi_CorsConfigurationProperty struct {
 //
 type CfnApi_DomainConfigurationProperty struct {
 	// `CfnApi.DomainConfigurationProperty.CertificateArn`.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
 	// `CfnApi.DomainConfigurationProperty.DomainName`.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// `CfnApi.DomainConfigurationProperty.BasePath`.
-	BasePath *[]*string `json:"basePath" yaml:"basePath"`
+	BasePath *[]*string `field:"optional" json:"basePath" yaml:"basePath"`
 	// `CfnApi.DomainConfigurationProperty.EndpointConfiguration`.
-	EndpointConfiguration *string `json:"endpointConfiguration" yaml:"endpointConfiguration"`
+	EndpointConfiguration *string `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
 	// `CfnApi.DomainConfigurationProperty.MutualTlsAuthentication`.
-	MutualTlsAuthentication interface{} `json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
+	MutualTlsAuthentication interface{} `field:"optional" json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
 	// `CfnApi.DomainConfigurationProperty.OwnershipVerificationCertificateArn`.
-	OwnershipVerificationCertificateArn *string `json:"ownershipVerificationCertificateArn" yaml:"ownershipVerificationCertificateArn"`
+	OwnershipVerificationCertificateArn *string `field:"optional" json:"ownershipVerificationCertificateArn" yaml:"ownershipVerificationCertificateArn"`
 	// `CfnApi.DomainConfigurationProperty.Route53`.
-	Route53 interface{} `json:"route53" yaml:"route53"`
+	Route53 interface{} `field:"optional" json:"route53" yaml:"route53"`
 	// `CfnApi.DomainConfigurationProperty.SecurityPolicy`.
-	SecurityPolicy *string `json:"securityPolicy" yaml:"securityPolicy"`
+	SecurityPolicy *string `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   endpointConfigurationProperty := &endpointConfigurationProperty{
 //   	type: jsii.String("type"),
 //   	vpcEndpointIds: []*string{
@@ -1291,13 +1185,16 @@ type CfnApi_DomainConfigurationProperty struct {
 //
 type CfnApi_EndpointConfigurationProperty struct {
 	// `CfnApi.EndpointConfigurationProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// `CfnApi.EndpointConfigurationProperty.VpcEndpointIds`.
-	VpcEndpointIds *[]*string `json:"vpcEndpointIds" yaml:"vpcEndpointIds"`
+	VpcEndpointIds *[]*string `field:"optional" json:"vpcEndpointIds" yaml:"vpcEndpointIds"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mutualTlsAuthenticationProperty := &mutualTlsAuthenticationProperty{
 //   	truststoreUri: jsii.String("truststoreUri"),
 //   	truststoreVersion: jsii.String("truststoreVersion"),
@@ -1305,13 +1202,16 @@ type CfnApi_EndpointConfigurationProperty struct {
 //
 type CfnApi_MutualTlsAuthenticationProperty struct {
 	// `CfnApi.MutualTlsAuthenticationProperty.TruststoreUri`.
-	TruststoreUri *string `json:"truststoreUri" yaml:"truststoreUri"`
+	TruststoreUri *string `field:"optional" json:"truststoreUri" yaml:"truststoreUri"`
 	// `CfnApi.MutualTlsAuthenticationProperty.TruststoreVersion`.
-	TruststoreVersion *string `json:"truststoreVersion" yaml:"truststoreVersion"`
+	TruststoreVersion *string `field:"optional" json:"truststoreVersion" yaml:"truststoreVersion"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   route53ConfigurationProperty := &route53ConfigurationProperty{
 //   	distributedDomainName: jsii.String("distributedDomainName"),
 //   	evaluateTargetHealth: jsii.Boolean(false),
@@ -1322,19 +1222,22 @@ type CfnApi_MutualTlsAuthenticationProperty struct {
 //
 type CfnApi_Route53ConfigurationProperty struct {
 	// `CfnApi.Route53ConfigurationProperty.DistributedDomainName`.
-	DistributedDomainName *string `json:"distributedDomainName" yaml:"distributedDomainName"`
+	DistributedDomainName *string `field:"optional" json:"distributedDomainName" yaml:"distributedDomainName"`
 	// `CfnApi.Route53ConfigurationProperty.EvaluateTargetHealth`.
-	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
+	EvaluateTargetHealth interface{} `field:"optional" json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
 	// `CfnApi.Route53ConfigurationProperty.HostedZoneId`.
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"optional" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// `CfnApi.Route53ConfigurationProperty.HostedZoneName`.
-	HostedZoneName *string `json:"hostedZoneName" yaml:"hostedZoneName"`
+	HostedZoneName *string `field:"optional" json:"hostedZoneName" yaml:"hostedZoneName"`
 	// `CfnApi.Route53ConfigurationProperty.IpV6`.
-	IpV6 interface{} `json:"ipV6" yaml:"ipV6"`
+	IpV6 interface{} `field:"optional" json:"ipV6" yaml:"ipV6"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LocationProperty := &s3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //   	key: jsii.String("key"),
@@ -1343,23 +1246,26 @@ type CfnApi_Route53ConfigurationProperty struct {
 //
 type CfnApi_S3LocationProperty struct {
 	// `CfnApi.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// `CfnApi.S3LocationProperty.Key`.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// `CfnApi.S3LocationProperty.Version`.
-	Version *float64 `json:"version" yaml:"version"`
+	Version *float64 `field:"required" json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnApi`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var authorizers interface{}
 //   var definitionBody interface{}
 //   var gatewayResponses interface{}
 //   var methodSettings interface{}
 //   var models interface{}
+//
 //   cfnApiProps := &cfnApiProps{
 //   	stageName: jsii.String("stageName"),
 //
@@ -1432,56 +1338,59 @@ type CfnApi_S3LocationProperty struct {
 //
 type CfnApiProps struct {
 	// `AWS::Serverless::Api.StageName`.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
 	// `AWS::Serverless::Api.AccessLogSetting`.
-	AccessLogSetting interface{} `json:"accessLogSetting" yaml:"accessLogSetting"`
+	AccessLogSetting interface{} `field:"optional" json:"accessLogSetting" yaml:"accessLogSetting"`
 	// `AWS::Serverless::Api.Auth`.
-	Auth interface{} `json:"auth" yaml:"auth"`
+	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`
 	// `AWS::Serverless::Api.BinaryMediaTypes`.
-	BinaryMediaTypes *[]*string `json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
+	BinaryMediaTypes *[]*string `field:"optional" json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
 	// `AWS::Serverless::Api.CacheClusterEnabled`.
-	CacheClusterEnabled interface{} `json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
+	CacheClusterEnabled interface{} `field:"optional" json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
 	// `AWS::Serverless::Api.CacheClusterSize`.
-	CacheClusterSize *string `json:"cacheClusterSize" yaml:"cacheClusterSize"`
+	CacheClusterSize *string `field:"optional" json:"cacheClusterSize" yaml:"cacheClusterSize"`
 	// `AWS::Serverless::Api.CanarySetting`.
-	CanarySetting interface{} `json:"canarySetting" yaml:"canarySetting"`
+	CanarySetting interface{} `field:"optional" json:"canarySetting" yaml:"canarySetting"`
 	// `AWS::Serverless::Api.Cors`.
-	Cors interface{} `json:"cors" yaml:"cors"`
+	Cors interface{} `field:"optional" json:"cors" yaml:"cors"`
 	// `AWS::Serverless::Api.DefinitionBody`.
-	DefinitionBody interface{} `json:"definitionBody" yaml:"definitionBody"`
+	DefinitionBody interface{} `field:"optional" json:"definitionBody" yaml:"definitionBody"`
 	// `AWS::Serverless::Api.DefinitionUri`.
-	DefinitionUri interface{} `json:"definitionUri" yaml:"definitionUri"`
+	DefinitionUri interface{} `field:"optional" json:"definitionUri" yaml:"definitionUri"`
 	// `AWS::Serverless::Api.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::Serverless::Api.Domain`.
-	Domain interface{} `json:"domain" yaml:"domain"`
+	Domain interface{} `field:"optional" json:"domain" yaml:"domain"`
 	// `AWS::Serverless::Api.EndpointConfiguration`.
-	EndpointConfiguration interface{} `json:"endpointConfiguration" yaml:"endpointConfiguration"`
+	EndpointConfiguration interface{} `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
 	// `AWS::Serverless::Api.GatewayResponses`.
-	GatewayResponses interface{} `json:"gatewayResponses" yaml:"gatewayResponses"`
+	GatewayResponses interface{} `field:"optional" json:"gatewayResponses" yaml:"gatewayResponses"`
 	// `AWS::Serverless::Api.MethodSettings`.
-	MethodSettings interface{} `json:"methodSettings" yaml:"methodSettings"`
+	MethodSettings interface{} `field:"optional" json:"methodSettings" yaml:"methodSettings"`
 	// `AWS::Serverless::Api.MinimumCompressionSize`.
-	MinimumCompressionSize *float64 `json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
+	MinimumCompressionSize *float64 `field:"optional" json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
 	// `AWS::Serverless::Api.Models`.
-	Models interface{} `json:"models" yaml:"models"`
+	Models interface{} `field:"optional" json:"models" yaml:"models"`
 	// `AWS::Serverless::Api.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// `AWS::Serverless::Api.OpenApiVersion`.
-	OpenApiVersion *string `json:"openApiVersion" yaml:"openApiVersion"`
+	OpenApiVersion *string `field:"optional" json:"openApiVersion" yaml:"openApiVersion"`
 	// `AWS::Serverless::Api.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// `AWS::Serverless::Api.TracingEnabled`.
-	TracingEnabled interface{} `json:"tracingEnabled" yaml:"tracingEnabled"`
+	TracingEnabled interface{} `field:"optional" json:"tracingEnabled" yaml:"tracingEnabled"`
 	// `AWS::Serverless::Api.Variables`.
-	Variables interface{} `json:"variables" yaml:"variables"`
+	Variables interface{} `field:"optional" json:"variables" yaml:"variables"`
 }
 
 // A CloudFormation `AWS::Serverless::Application`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
-//   cfnApplication := sam.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplication := awscdk.Aws_sam.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
 //   	location: jsii.String("location"),
 //
 //   	// the properties below are optional
@@ -1501,16 +1410,13 @@ type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::Serverless::Application.Location`.
 	Location() interface{}
@@ -1524,11 +1430,9 @@ type CfnApplication interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// `AWS::Serverless::Application.NotificationArns`.
 	NotificationArns() *[]*string
 	SetNotificationArns(val *[]*string)
@@ -1539,12 +1443,10 @@ type CfnApplication interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::Serverless::Application.Tags`.
 	Tags() awscdk.TagManager
@@ -1555,16 +1457,13 @@ type CfnApplication interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1573,7 +1472,6 @@ type CfnApplication interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1618,15 +1516,12 @@ type CfnApplication interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1637,13 +1532,11 @@ type CfnApplication interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1652,74 +1545,21 @@ type CfnApplication interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1789,8 +1629,8 @@ func (j *jsiiProxy_CfnApplication) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnApplication) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1871,13 +1711,13 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Serverless::Application`.
-func NewCfnApplication(scope awscdk.Construct, id *string, props *CfnApplicationProps) CfnApplication {
+func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnApplication{}
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnApplication",
+		"aws-cdk-lib.aws_sam.CfnApplication",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1886,11 +1726,11 @@ func NewCfnApplication(scope awscdk.Construct, id *string, props *CfnApplication
 }
 
 // Create a new `AWS::Serverless::Application`.
-func NewCfnApplication_Override(c CfnApplication, scope awscdk.Construct, id *string, props *CfnApplicationProps) {
+func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnApplication",
+		"aws-cdk-lib.aws_sam.CfnApplication",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1934,14 +1774,13 @@ func (j *jsiiProxy_CfnApplication) SetTimeoutInMinutes(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnApplication_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnApplication",
+		"aws-cdk-lib.aws_sam.CfnApplication",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1951,14 +1790,13 @@ func CfnApplication_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnApplication_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnApplication",
+		"aws-cdk-lib.aws_sam.CfnApplication",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1967,15 +1805,17 @@ func CfnApplication_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnApplication_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnApplication",
+		"aws-cdk-lib.aws_sam.CfnApplication",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1988,7 +1828,7 @@ func CfnApplication_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnApplication",
+		"aws-cdk-lib.aws_sam.CfnApplication",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1999,7 +1839,7 @@ func CfnApplication_REQUIRED_TRANSFORM() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnApplication",
+		"aws-cdk-lib.aws_sam.CfnApplication",
 		"REQUIRED_TRANSFORM",
 		&returns,
 	)
@@ -2096,48 +1936,11 @@ func (c *jsiiProxy_CfnApplication) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnApplication) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnApplication) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnApplication) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnApplication) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnApplication) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2167,33 +1970,12 @@ func (c *jsiiProxy_CfnApplication) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnApplication) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnApplication) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnApplication) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2210,7 +1992,10 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   applicationLocationProperty := &applicationLocationProperty{
 //   	applicationId: jsii.String("applicationId"),
 //   	semanticVersion: jsii.String("semanticVersion"),
@@ -2218,15 +2003,18 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 //
 type CfnApplication_ApplicationLocationProperty struct {
 	// `CfnApplication.ApplicationLocationProperty.ApplicationId`.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// `CfnApplication.ApplicationLocationProperty.SemanticVersion`.
-	SemanticVersion *string `json:"semanticVersion" yaml:"semanticVersion"`
+	SemanticVersion *string `field:"required" json:"semanticVersion" yaml:"semanticVersion"`
 }
 
 // Properties for defining a `CfnApplication`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationProps := &cfnApplicationProps{
 //   	location: jsii.String("location"),
 //
@@ -2245,24 +2033,27 @@ type CfnApplication_ApplicationLocationProperty struct {
 //
 type CfnApplicationProps struct {
 	// `AWS::Serverless::Application.Location`.
-	Location interface{} `json:"location" yaml:"location"`
+	Location interface{} `field:"required" json:"location" yaml:"location"`
 	// `AWS::Serverless::Application.NotificationArns`.
-	NotificationArns *[]*string `json:"notificationArns" yaml:"notificationArns"`
+	NotificationArns *[]*string `field:"optional" json:"notificationArns" yaml:"notificationArns"`
 	// `AWS::Serverless::Application.Parameters`.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// `AWS::Serverless::Application.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// `AWS::Serverless::Application.TimeoutInMinutes`.
-	TimeoutInMinutes *float64 `json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
+	TimeoutInMinutes *float64 `field:"optional" json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
 }
 
 // A CloudFormation `AWS::Serverless::Function`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assumeRolePolicyDocument interface{}
-//   cfnFunction := sam.NewCfnFunction(this, jsii.String("MyCfnFunction"), &cfnFunctionProps{
+//
+//   cfnFunction := awscdk.Aws_sam.NewCfnFunction(this, jsii.String("MyCfnFunction"), &cfnFunctionProps{
 //   	architectures: []*string{
 //   		jsii.String("architectures"),
 //   	},
@@ -2387,11 +2178,9 @@ type CfnFunction interface {
 	AutoPublishCodeSha256() *string
 	SetAutoPublishCodeSha256(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// `AWS::Serverless::Function.CodeSigningConfigArn`.
 	CodeSigningConfigArn() *string
@@ -2402,7 +2191,6 @@ type CfnFunction interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::Serverless::Function.DeadLetterQueue`.
 	DeadLetterQueue() interface{}
@@ -2455,14 +2243,12 @@ type CfnFunction interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// `AWS::Serverless::Function.MemorySize`.
 	MemorySize() *float64
 	SetMemorySize(val *float64)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// `AWS::Serverless::Function.PackageType`.
 	PackageType() *string
 	SetPackageType(val *string)
@@ -2479,7 +2265,6 @@ type CfnFunction interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::Serverless::Function.ReservedConcurrentExecutions`.
 	ReservedConcurrentExecutions() *float64
@@ -2493,7 +2278,6 @@ type CfnFunction interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::Serverless::Function.Tags`.
 	Tags() awscdk.TagManager
@@ -2507,7 +2291,6 @@ type CfnFunction interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// `AWS::Serverless::Function.VersionDescription`.
 	VersionDescription() *string
@@ -2516,13 +2299,11 @@ type CfnFunction interface {
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2531,7 +2312,6 @@ type CfnFunction interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2576,15 +2356,12 @@ type CfnFunction interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2595,13 +2372,11 @@ type CfnFunction interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2610,74 +2385,21 @@ type CfnFunction interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2947,8 +2669,8 @@ func (j *jsiiProxy_CfnFunction) MemorySize() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunction) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnFunction) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3109,13 +2831,13 @@ func (j *jsiiProxy_CfnFunction) VpcConfig() interface{} {
 
 
 // Create a new `AWS::Serverless::Function`.
-func NewCfnFunction(scope awscdk.Construct, id *string, props *CfnFunctionProps) CfnFunction {
+func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionProps) CfnFunction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFunction{}
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnFunction",
+		"aws-cdk-lib.aws_sam.CfnFunction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3124,11 +2846,11 @@ func NewCfnFunction(scope awscdk.Construct, id *string, props *CfnFunctionProps)
 }
 
 // Create a new `AWS::Serverless::Function`.
-func NewCfnFunction_Override(c CfnFunction, scope awscdk.Construct, id *string, props *CfnFunctionProps) {
+func NewCfnFunction_Override(c CfnFunction, scope constructs.Construct, id *string, props *CfnFunctionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnFunction",
+		"aws-cdk-lib.aws_sam.CfnFunction",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3396,14 +3118,13 @@ func (j *jsiiProxy_CfnFunction) SetVpcConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnFunction_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnFunction",
+		"aws-cdk-lib.aws_sam.CfnFunction",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3413,14 +3134,13 @@ func CfnFunction_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnFunction_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnFunction",
+		"aws-cdk-lib.aws_sam.CfnFunction",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3429,15 +3149,17 @@ func CfnFunction_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnFunction",
+		"aws-cdk-lib.aws_sam.CfnFunction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3450,7 +3172,7 @@ func CfnFunction_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnFunction",
+		"aws-cdk-lib.aws_sam.CfnFunction",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3461,7 +3183,7 @@ func CfnFunction_REQUIRED_TRANSFORM() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnFunction",
+		"aws-cdk-lib.aws_sam.CfnFunction",
 		"REQUIRED_TRANSFORM",
 		&returns,
 	)
@@ -3558,48 +3280,11 @@ func (c *jsiiProxy_CfnFunction) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnFunction) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnFunction) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnFunction) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnFunction) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnFunction) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3629,33 +3314,12 @@ func (c *jsiiProxy_CfnFunction) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnFunction) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnFunction) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnFunction) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3672,7 +3336,10 @@ func (c *jsiiProxy_CfnFunction) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   alexaSkillEventProperty := &alexaSkillEventProperty{
 //   	variables: map[string]*string{
 //   		"variablesKey": jsii.String("variables"),
@@ -3681,13 +3348,16 @@ func (c *jsiiProxy_CfnFunction) ValidateProperties(_properties interface{}) {
 //
 type CfnFunction_AlexaSkillEventProperty struct {
 	// `CfnFunction.AlexaSkillEventProperty.Variables`.
-	Variables interface{} `json:"variables" yaml:"variables"`
+	Variables interface{} `field:"optional" json:"variables" yaml:"variables"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var customStatements interface{}
+//
 //   apiEventProperty := &apiEventProperty{
 //   	method: jsii.String("method"),
 //   	path: jsii.String("path"),
@@ -3740,19 +3410,22 @@ type CfnFunction_AlexaSkillEventProperty struct {
 //
 type CfnFunction_ApiEventProperty struct {
 	// `CfnFunction.ApiEventProperty.Method`.
-	Method *string `json:"method" yaml:"method"`
+	Method *string `field:"required" json:"method" yaml:"method"`
 	// `CfnFunction.ApiEventProperty.Path`.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// `CfnFunction.ApiEventProperty.Auth`.
-	Auth interface{} `json:"auth" yaml:"auth"`
+	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`
 	// `CfnFunction.ApiEventProperty.RestApiId`.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var customStatements interface{}
+//
 //   authProperty := &authProperty{
 //   	apiKeyRequired: jsii.Boolean(false),
 //   	authorizationScopes: []*string{
@@ -3798,19 +3471,22 @@ type CfnFunction_ApiEventProperty struct {
 //
 type CfnFunction_AuthProperty struct {
 	// `CfnFunction.AuthProperty.ApiKeyRequired`.
-	ApiKeyRequired interface{} `json:"apiKeyRequired" yaml:"apiKeyRequired"`
+	ApiKeyRequired interface{} `field:"optional" json:"apiKeyRequired" yaml:"apiKeyRequired"`
 	// `CfnFunction.AuthProperty.AuthorizationScopes`.
-	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
+	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// `CfnFunction.AuthProperty.Authorizer`.
-	Authorizer *string `json:"authorizer" yaml:"authorizer"`
+	Authorizer *string `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// `CfnFunction.AuthProperty.ResourcePolicy`.
-	ResourcePolicy interface{} `json:"resourcePolicy" yaml:"resourcePolicy"`
+	ResourcePolicy interface{} `field:"optional" json:"resourcePolicy" yaml:"resourcePolicy"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var customStatements interface{}
+//
 //   authResourcePolicyProperty := &authResourcePolicyProperty{
 //   	awsAccountBlacklist: []*string{
 //   		jsii.String("awsAccountBlacklist"),
@@ -3849,44 +3525,50 @@ type CfnFunction_AuthProperty struct {
 //
 type CfnFunction_AuthResourcePolicyProperty struct {
 	// `CfnFunction.AuthResourcePolicyProperty.AwsAccountBlacklist`.
-	AwsAccountBlacklist *[]*string `json:"awsAccountBlacklist" yaml:"awsAccountBlacklist"`
+	AwsAccountBlacklist *[]*string `field:"optional" json:"awsAccountBlacklist" yaml:"awsAccountBlacklist"`
 	// `CfnFunction.AuthResourcePolicyProperty.AwsAccountWhitelist`.
-	AwsAccountWhitelist *[]*string `json:"awsAccountWhitelist" yaml:"awsAccountWhitelist"`
+	AwsAccountWhitelist *[]*string `field:"optional" json:"awsAccountWhitelist" yaml:"awsAccountWhitelist"`
 	// `CfnFunction.AuthResourcePolicyProperty.CustomStatements`.
-	CustomStatements interface{} `json:"customStatements" yaml:"customStatements"`
+	CustomStatements interface{} `field:"optional" json:"customStatements" yaml:"customStatements"`
 	// `CfnFunction.AuthResourcePolicyProperty.IntrinsicVpcBlacklist`.
-	IntrinsicVpcBlacklist *[]*string `json:"intrinsicVpcBlacklist" yaml:"intrinsicVpcBlacklist"`
+	IntrinsicVpcBlacklist *[]*string `field:"optional" json:"intrinsicVpcBlacklist" yaml:"intrinsicVpcBlacklist"`
 	// `CfnFunction.AuthResourcePolicyProperty.IntrinsicVpceBlacklist`.
-	IntrinsicVpceBlacklist *[]*string `json:"intrinsicVpceBlacklist" yaml:"intrinsicVpceBlacklist"`
+	IntrinsicVpceBlacklist *[]*string `field:"optional" json:"intrinsicVpceBlacklist" yaml:"intrinsicVpceBlacklist"`
 	// `CfnFunction.AuthResourcePolicyProperty.IntrinsicVpceWhitelist`.
-	IntrinsicVpceWhitelist *[]*string `json:"intrinsicVpceWhitelist" yaml:"intrinsicVpceWhitelist"`
+	IntrinsicVpceWhitelist *[]*string `field:"optional" json:"intrinsicVpceWhitelist" yaml:"intrinsicVpceWhitelist"`
 	// `CfnFunction.AuthResourcePolicyProperty.IntrinsicVpcWhitelist`.
-	IntrinsicVpcWhitelist *[]*string `json:"intrinsicVpcWhitelist" yaml:"intrinsicVpcWhitelist"`
+	IntrinsicVpcWhitelist *[]*string `field:"optional" json:"intrinsicVpcWhitelist" yaml:"intrinsicVpcWhitelist"`
 	// `CfnFunction.AuthResourcePolicyProperty.IpRangeBlacklist`.
-	IpRangeBlacklist *[]*string `json:"ipRangeBlacklist" yaml:"ipRangeBlacklist"`
+	IpRangeBlacklist *[]*string `field:"optional" json:"ipRangeBlacklist" yaml:"ipRangeBlacklist"`
 	// `CfnFunction.AuthResourcePolicyProperty.IpRangeWhitelist`.
-	IpRangeWhitelist *[]*string `json:"ipRangeWhitelist" yaml:"ipRangeWhitelist"`
+	IpRangeWhitelist *[]*string `field:"optional" json:"ipRangeWhitelist" yaml:"ipRangeWhitelist"`
 	// `CfnFunction.AuthResourcePolicyProperty.SourceVpcBlacklist`.
-	SourceVpcBlacklist *[]*string `json:"sourceVpcBlacklist" yaml:"sourceVpcBlacklist"`
+	SourceVpcBlacklist *[]*string `field:"optional" json:"sourceVpcBlacklist" yaml:"sourceVpcBlacklist"`
 	// `CfnFunction.AuthResourcePolicyProperty.SourceVpcWhitelist`.
-	SourceVpcWhitelist *[]*string `json:"sourceVpcWhitelist" yaml:"sourceVpcWhitelist"`
+	SourceVpcWhitelist *[]*string `field:"optional" json:"sourceVpcWhitelist" yaml:"sourceVpcWhitelist"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   bucketSAMPTProperty := &bucketSAMPTProperty{
 //   	bucketName: jsii.String("bucketName"),
 //   }
 //
 type CfnFunction_BucketSAMPTProperty struct {
 	// `CfnFunction.BucketSAMPTProperty.BucketName`.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var pattern interface{}
+//
 //   cloudWatchEventEventProperty := &cloudWatchEventEventProperty{
 //   	pattern: pattern,
 //
@@ -3897,15 +3579,18 @@ type CfnFunction_BucketSAMPTProperty struct {
 //
 type CfnFunction_CloudWatchEventEventProperty struct {
 	// `CfnFunction.CloudWatchEventEventProperty.Pattern`.
-	Pattern interface{} `json:"pattern" yaml:"pattern"`
+	Pattern interface{} `field:"required" json:"pattern" yaml:"pattern"`
 	// `CfnFunction.CloudWatchEventEventProperty.Input`.
-	Input *string `json:"input" yaml:"input"`
+	Input *string `field:"optional" json:"input" yaml:"input"`
 	// `CfnFunction.CloudWatchEventEventProperty.InputPath`.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchLogsEventProperty := &cloudWatchLogsEventProperty{
 //   	filterPattern: jsii.String("filterPattern"),
 //   	logGroupName: jsii.String("logGroupName"),
@@ -3913,24 +3598,30 @@ type CfnFunction_CloudWatchEventEventProperty struct {
 //
 type CfnFunction_CloudWatchLogsEventProperty struct {
 	// `CfnFunction.CloudWatchLogsEventProperty.FilterPattern`.
-	FilterPattern *string `json:"filterPattern" yaml:"filterPattern"`
+	FilterPattern *string `field:"required" json:"filterPattern" yaml:"filterPattern"`
 	// `CfnFunction.CloudWatchLogsEventProperty.LogGroupName`.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   collectionSAMPTProperty := &collectionSAMPTProperty{
 //   	collectionId: jsii.String("collectionId"),
 //   }
 //
 type CfnFunction_CollectionSAMPTProperty struct {
 	// `CfnFunction.CollectionSAMPTProperty.CollectionId`.
-	CollectionId *string `json:"collectionId" yaml:"collectionId"`
+	CollectionId *string `field:"required" json:"collectionId" yaml:"collectionId"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deadLetterQueueProperty := &deadLetterQueueProperty{
 //   	targetArn: jsii.String("targetArn"),
 //   	type: jsii.String("type"),
@@ -3938,13 +3629,16 @@ type CfnFunction_CollectionSAMPTProperty struct {
 //
 type CfnFunction_DeadLetterQueueProperty struct {
 	// `CfnFunction.DeadLetterQueueProperty.TargetArn`.
-	TargetArn *string `json:"targetArn" yaml:"targetArn"`
+	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// `CfnFunction.DeadLetterQueueProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deploymentPreferenceProperty := &deploymentPreferenceProperty{
 //   	enabled: jsii.Boolean(false),
 //   	type: jsii.String("type"),
@@ -3961,17 +3655,20 @@ type CfnFunction_DeadLetterQueueProperty struct {
 //
 type CfnFunction_DeploymentPreferenceProperty struct {
 	// `CfnFunction.DeploymentPreferenceProperty.Enabled`.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// `CfnFunction.DeploymentPreferenceProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `CfnFunction.DeploymentPreferenceProperty.Alarms`.
-	Alarms *[]*string `json:"alarms" yaml:"alarms"`
+	Alarms *[]*string `field:"optional" json:"alarms" yaml:"alarms"`
 	// `CfnFunction.DeploymentPreferenceProperty.Hooks`.
-	Hooks interface{} `json:"hooks" yaml:"hooks"`
+	Hooks interface{} `field:"optional" json:"hooks" yaml:"hooks"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationConfigProperty := &destinationConfigProperty{
 //   	onFailure: &destinationProperty{
 //   		destination: jsii.String("destination"),
@@ -3983,11 +3680,14 @@ type CfnFunction_DeploymentPreferenceProperty struct {
 //
 type CfnFunction_DestinationConfigProperty struct {
 	// `CfnFunction.DestinationConfigProperty.OnFailure`.
-	OnFailure interface{} `json:"onFailure" yaml:"onFailure"`
+	OnFailure interface{} `field:"required" json:"onFailure" yaml:"onFailure"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationProperty := &destinationProperty{
 //   	destination: jsii.String("destination"),
 //
@@ -3997,24 +3697,30 @@ type CfnFunction_DestinationConfigProperty struct {
 //
 type CfnFunction_DestinationProperty struct {
 	// `CfnFunction.DestinationProperty.Destination`.
-	Destination *string `json:"destination" yaml:"destination"`
+	Destination *string `field:"required" json:"destination" yaml:"destination"`
 	// `CfnFunction.DestinationProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainSAMPTProperty := &domainSAMPTProperty{
 //   	domainName: jsii.String("domainName"),
 //   }
 //
 type CfnFunction_DomainSAMPTProperty struct {
 	// `CfnFunction.DomainSAMPTProperty.DomainName`.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynamoDBEventProperty := &dynamoDBEventProperty{
 //   	startingPosition: jsii.String("startingPosition"),
 //   	stream: jsii.String("stream"),
@@ -4039,29 +3745,32 @@ type CfnFunction_DomainSAMPTProperty struct {
 //
 type CfnFunction_DynamoDBEventProperty struct {
 	// `CfnFunction.DynamoDBEventProperty.StartingPosition`.
-	StartingPosition *string `json:"startingPosition" yaml:"startingPosition"`
+	StartingPosition *string `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// `CfnFunction.DynamoDBEventProperty.Stream`.
-	Stream *string `json:"stream" yaml:"stream"`
+	Stream *string `field:"required" json:"stream" yaml:"stream"`
 	// `CfnFunction.DynamoDBEventProperty.BatchSize`.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// `CfnFunction.DynamoDBEventProperty.BisectBatchOnFunctionError`.
-	BisectBatchOnFunctionError interface{} `json:"bisectBatchOnFunctionError" yaml:"bisectBatchOnFunctionError"`
+	BisectBatchOnFunctionError interface{} `field:"optional" json:"bisectBatchOnFunctionError" yaml:"bisectBatchOnFunctionError"`
 	// `CfnFunction.DynamoDBEventProperty.DestinationConfig`.
-	DestinationConfig interface{} `json:"destinationConfig" yaml:"destinationConfig"`
+	DestinationConfig interface{} `field:"optional" json:"destinationConfig" yaml:"destinationConfig"`
 	// `CfnFunction.DynamoDBEventProperty.Enabled`.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// `CfnFunction.DynamoDBEventProperty.MaximumBatchingWindowInSeconds`.
-	MaximumBatchingWindowInSeconds *float64 `json:"maximumBatchingWindowInSeconds" yaml:"maximumBatchingWindowInSeconds"`
+	MaximumBatchingWindowInSeconds *float64 `field:"optional" json:"maximumBatchingWindowInSeconds" yaml:"maximumBatchingWindowInSeconds"`
 	// `CfnFunction.DynamoDBEventProperty.MaximumRecordAgeInSeconds`.
-	MaximumRecordAgeInSeconds *float64 `json:"maximumRecordAgeInSeconds" yaml:"maximumRecordAgeInSeconds"`
+	MaximumRecordAgeInSeconds *float64 `field:"optional" json:"maximumRecordAgeInSeconds" yaml:"maximumRecordAgeInSeconds"`
 	// `CfnFunction.DynamoDBEventProperty.MaximumRetryAttempts`.
-	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
+	MaximumRetryAttempts *float64 `field:"optional" json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
 	// `CfnFunction.DynamoDBEventProperty.ParallelizationFactor`.
-	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
+	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   emptySAMPTProperty := &emptySAMPTProperty{
 //   }
 //
@@ -4069,9 +3778,12 @@ type CfnFunction_EmptySAMPTProperty struct {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var pattern interface{}
+//
 //   eventBridgeRuleEventProperty := &eventBridgeRuleEventProperty{
 //   	pattern: pattern,
 //
@@ -4083,17 +3795,20 @@ type CfnFunction_EmptySAMPTProperty struct {
 //
 type CfnFunction_EventBridgeRuleEventProperty struct {
 	// `CfnFunction.EventBridgeRuleEventProperty.Pattern`.
-	Pattern interface{} `json:"pattern" yaml:"pattern"`
+	Pattern interface{} `field:"required" json:"pattern" yaml:"pattern"`
 	// `CfnFunction.EventBridgeRuleEventProperty.EventBusName`.
-	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
+	EventBusName *string `field:"optional" json:"eventBusName" yaml:"eventBusName"`
 	// `CfnFunction.EventBridgeRuleEventProperty.Input`.
-	Input *string `json:"input" yaml:"input"`
+	Input *string `field:"optional" json:"input" yaml:"input"`
 	// `CfnFunction.EventBridgeRuleEventProperty.InputPath`.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventInvokeConfigProperty := &eventInvokeConfigProperty{
 //   	destinationConfig: &eventInvokeDestinationConfigProperty{
 //   		onFailure: &destinationProperty{
@@ -4115,15 +3830,18 @@ type CfnFunction_EventBridgeRuleEventProperty struct {
 //
 type CfnFunction_EventInvokeConfigProperty struct {
 	// `CfnFunction.EventInvokeConfigProperty.DestinationConfig`.
-	DestinationConfig interface{} `json:"destinationConfig" yaml:"destinationConfig"`
+	DestinationConfig interface{} `field:"optional" json:"destinationConfig" yaml:"destinationConfig"`
 	// `CfnFunction.EventInvokeConfigProperty.MaximumEventAgeInSeconds`.
-	MaximumEventAgeInSeconds *float64 `json:"maximumEventAgeInSeconds" yaml:"maximumEventAgeInSeconds"`
+	MaximumEventAgeInSeconds *float64 `field:"optional" json:"maximumEventAgeInSeconds" yaml:"maximumEventAgeInSeconds"`
 	// `CfnFunction.EventInvokeConfigProperty.MaximumRetryAttempts`.
-	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
+	MaximumRetryAttempts *float64 `field:"optional" json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventInvokeDestinationConfigProperty := &eventInvokeDestinationConfigProperty{
 //   	onFailure: &destinationProperty{
 //   		destination: jsii.String("destination"),
@@ -4141,13 +3859,16 @@ type CfnFunction_EventInvokeConfigProperty struct {
 //
 type CfnFunction_EventInvokeDestinationConfigProperty struct {
 	// `CfnFunction.EventInvokeDestinationConfigProperty.OnFailure`.
-	OnFailure interface{} `json:"onFailure" yaml:"onFailure"`
+	OnFailure interface{} `field:"required" json:"onFailure" yaml:"onFailure"`
 	// `CfnFunction.EventInvokeDestinationConfigProperty.OnSuccess`.
-	OnSuccess interface{} `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess interface{} `field:"required" json:"onSuccess" yaml:"onSuccess"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventSourceProperty := &eventSourceProperty{
 //   	properties: &s3EventProperty{
 //   		variables: map[string]*string{
@@ -4159,13 +3880,16 @@ type CfnFunction_EventInvokeDestinationConfigProperty struct {
 //
 type CfnFunction_EventSourceProperty struct {
 	// `CfnFunction.EventSourceProperty.Properties`.
-	Properties interface{} `json:"properties" yaml:"properties"`
+	Properties interface{} `field:"required" json:"properties" yaml:"properties"`
 	// `CfnFunction.EventSourceProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fileSystemConfigProperty := &fileSystemConfigProperty{
 //   	arn: jsii.String("arn"),
 //   	localMountPath: jsii.String("localMountPath"),
@@ -4173,13 +3897,16 @@ type CfnFunction_EventSourceProperty struct {
 //
 type CfnFunction_FileSystemConfigProperty struct {
 	// `CfnFunction.FileSystemConfigProperty.Arn`.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// `CfnFunction.FileSystemConfigProperty.LocalMountPath`.
-	LocalMountPath *string `json:"localMountPath" yaml:"localMountPath"`
+	LocalMountPath *string `field:"optional" json:"localMountPath" yaml:"localMountPath"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   functionEnvironmentProperty := &functionEnvironmentProperty{
 //   	variables: map[string]*string{
 //   		"variablesKey": jsii.String("variables"),
@@ -4188,22 +3915,28 @@ type CfnFunction_FileSystemConfigProperty struct {
 //
 type CfnFunction_FunctionEnvironmentProperty struct {
 	// `CfnFunction.FunctionEnvironmentProperty.Variables`.
-	Variables interface{} `json:"variables" yaml:"variables"`
+	Variables interface{} `field:"required" json:"variables" yaml:"variables"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   functionSAMPTProperty := &functionSAMPTProperty{
 //   	functionName: jsii.String("functionName"),
 //   }
 //
 type CfnFunction_FunctionSAMPTProperty struct {
 	// `CfnFunction.FunctionSAMPTProperty.FunctionName`.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hooksProperty := &hooksProperty{
 //   	postTraffic: jsii.String("postTraffic"),
 //   	preTraffic: jsii.String("preTraffic"),
@@ -4211,37 +3944,46 @@ type CfnFunction_FunctionSAMPTProperty struct {
 //
 type CfnFunction_HooksProperty struct {
 	// `CfnFunction.HooksProperty.PostTraffic`.
-	PostTraffic *string `json:"postTraffic" yaml:"postTraffic"`
+	PostTraffic *string `field:"optional" json:"postTraffic" yaml:"postTraffic"`
 	// `CfnFunction.HooksProperty.PreTraffic`.
-	PreTraffic *string `json:"preTraffic" yaml:"preTraffic"`
+	PreTraffic *string `field:"optional" json:"preTraffic" yaml:"preTraffic"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var statement interface{}
+//
 //   iAMPolicyDocumentProperty := map[string]interface{}{
 //   	"statement": statement,
 //   }
 //
 type CfnFunction_IAMPolicyDocumentProperty struct {
 	// `CfnFunction.IAMPolicyDocumentProperty.Statement`.
-	Statement interface{} `json:"statement" yaml:"statement"`
+	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   identitySAMPTProperty := &identitySAMPTProperty{
 //   	identityName: jsii.String("identityName"),
 //   }
 //
 type CfnFunction_IdentitySAMPTProperty struct {
 	// `CfnFunction.IdentitySAMPTProperty.IdentityName`.
-	IdentityName *string `json:"identityName" yaml:"identityName"`
+	IdentityName *string `field:"required" json:"identityName" yaml:"identityName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   imageConfigProperty := &imageConfigProperty{
 //   	command: []*string{
 //   		jsii.String("command"),
@@ -4254,15 +3996,18 @@ type CfnFunction_IdentitySAMPTProperty struct {
 //
 type CfnFunction_ImageConfigProperty struct {
 	// `CfnFunction.ImageConfigProperty.Command`.
-	Command *[]*string `json:"command" yaml:"command"`
+	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// `CfnFunction.ImageConfigProperty.EntryPoint`.
-	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
+	EntryPoint *[]*string `field:"optional" json:"entryPoint" yaml:"entryPoint"`
 	// `CfnFunction.ImageConfigProperty.WorkingDirectory`.
-	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
+	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ioTRuleEventProperty := &ioTRuleEventProperty{
 //   	sql: jsii.String("sql"),
 //
@@ -4272,24 +4017,30 @@ type CfnFunction_ImageConfigProperty struct {
 //
 type CfnFunction_IoTRuleEventProperty struct {
 	// `CfnFunction.IoTRuleEventProperty.Sql`.
-	Sql *string `json:"sql" yaml:"sql"`
+	Sql *string `field:"required" json:"sql" yaml:"sql"`
 	// `CfnFunction.IoTRuleEventProperty.AwsIotSqlVersion`.
-	AwsIotSqlVersion *string `json:"awsIotSqlVersion" yaml:"awsIotSqlVersion"`
+	AwsIotSqlVersion *string `field:"optional" json:"awsIotSqlVersion" yaml:"awsIotSqlVersion"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   keySAMPTProperty := &keySAMPTProperty{
 //   	keyId: jsii.String("keyId"),
 //   }
 //
 type CfnFunction_KeySAMPTProperty struct {
 	// `CfnFunction.KeySAMPTProperty.KeyId`.
-	KeyId *string `json:"keyId" yaml:"keyId"`
+	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kinesisEventProperty := &kinesisEventProperty{
 //   	startingPosition: jsii.String("startingPosition"),
 //   	stream: jsii.String("stream"),
@@ -4301,61 +4052,76 @@ type CfnFunction_KeySAMPTProperty struct {
 //
 type CfnFunction_KinesisEventProperty struct {
 	// `CfnFunction.KinesisEventProperty.StartingPosition`.
-	StartingPosition *string `json:"startingPosition" yaml:"startingPosition"`
+	StartingPosition *string `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// `CfnFunction.KinesisEventProperty.Stream`.
-	Stream *string `json:"stream" yaml:"stream"`
+	Stream *string `field:"required" json:"stream" yaml:"stream"`
 	// `CfnFunction.KinesisEventProperty.BatchSize`.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// `CfnFunction.KinesisEventProperty.Enabled`.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logGroupSAMPTProperty := &logGroupSAMPTProperty{
 //   	logGroupName: jsii.String("logGroupName"),
 //   }
 //
 type CfnFunction_LogGroupSAMPTProperty struct {
 	// `CfnFunction.LogGroupSAMPTProperty.LogGroupName`.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   parameterNameSAMPTProperty := &parameterNameSAMPTProperty{
 //   	parameterName: jsii.String("parameterName"),
 //   }
 //
 type CfnFunction_ParameterNameSAMPTProperty struct {
 	// `CfnFunction.ParameterNameSAMPTProperty.ParameterName`.
-	ParameterName *string `json:"parameterName" yaml:"parameterName"`
+	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   provisionedConcurrencyConfigProperty := &provisionedConcurrencyConfigProperty{
 //   	provisionedConcurrentExecutions: jsii.String("provisionedConcurrentExecutions"),
 //   }
 //
 type CfnFunction_ProvisionedConcurrencyConfigProperty struct {
 	// `CfnFunction.ProvisionedConcurrencyConfigProperty.ProvisionedConcurrentExecutions`.
-	ProvisionedConcurrentExecutions *string `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *string `field:"required" json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   queueSAMPTProperty := &queueSAMPTProperty{
 //   	queueName: jsii.String("queueName"),
 //   }
 //
 type CfnFunction_QueueSAMPTProperty struct {
 	// `CfnFunction.QueueSAMPTProperty.QueueName`.
-	QueueName *string `json:"queueName" yaml:"queueName"`
+	QueueName *string `field:"required" json:"queueName" yaml:"queueName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3EventProperty := &s3EventProperty{
 //   	bucket: jsii.String("bucket"),
 //   	events: jsii.String("events"),
@@ -4375,15 +4141,18 @@ type CfnFunction_QueueSAMPTProperty struct {
 //
 type CfnFunction_S3EventProperty struct {
 	// `CfnFunction.S3EventProperty.Bucket`.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// `CfnFunction.S3EventProperty.Events`.
-	Events interface{} `json:"events" yaml:"events"`
+	Events interface{} `field:"required" json:"events" yaml:"events"`
 	// `CfnFunction.S3EventProperty.Filter`.
-	Filter interface{} `json:"filter" yaml:"filter"`
+	Filter interface{} `field:"optional" json:"filter" yaml:"filter"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3KeyFilterProperty := &s3KeyFilterProperty{
 //   	rules: []interface{}{
 //   		&s3KeyFilterRuleProperty{
@@ -4395,11 +4164,14 @@ type CfnFunction_S3EventProperty struct {
 //
 type CfnFunction_S3KeyFilterProperty struct {
 	// `CfnFunction.S3KeyFilterProperty.Rules`.
-	Rules interface{} `json:"rules" yaml:"rules"`
+	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3KeyFilterRuleProperty := &s3KeyFilterRuleProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -4407,13 +4179,16 @@ type CfnFunction_S3KeyFilterProperty struct {
 //
 type CfnFunction_S3KeyFilterRuleProperty struct {
 	// `CfnFunction.S3KeyFilterRuleProperty.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `CfnFunction.S3KeyFilterRuleProperty.Value`.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LocationProperty := &s3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //   	key: jsii.String("key"),
@@ -4424,15 +4199,18 @@ type CfnFunction_S3KeyFilterRuleProperty struct {
 //
 type CfnFunction_S3LocationProperty struct {
 	// `CfnFunction.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// `CfnFunction.S3LocationProperty.Key`.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// `CfnFunction.S3LocationProperty.Version`.
-	Version *float64 `json:"version" yaml:"version"`
+	Version *float64 `field:"optional" json:"version" yaml:"version"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3NotificationFilterProperty := &s3NotificationFilterProperty{
 //   	s3Key: &s3KeyFilterProperty{
 //   		rules: []interface{}{
@@ -4446,11 +4224,14 @@ type CfnFunction_S3LocationProperty struct {
 //
 type CfnFunction_S3NotificationFilterProperty struct {
 	// `CfnFunction.S3NotificationFilterProperty.S3Key`.
-	S3Key interface{} `json:"s3Key" yaml:"s3Key"`
+	S3Key interface{} `field:"required" json:"s3Key" yaml:"s3Key"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sAMPolicyTemplateProperty := &sAMPolicyTemplateProperty{
 //   	amiDescribePolicy: &emptySAMPTProperty{
 //   	},
@@ -4551,88 +4332,94 @@ type CfnFunction_S3NotificationFilterProperty struct {
 //
 type CfnFunction_SAMPolicyTemplateProperty struct {
 	// `CfnFunction.SAMPolicyTemplateProperty.AMIDescribePolicy`.
-	AmiDescribePolicy interface{} `json:"amiDescribePolicy" yaml:"amiDescribePolicy"`
+	AmiDescribePolicy interface{} `field:"optional" json:"amiDescribePolicy" yaml:"amiDescribePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.AWSSecretsManagerGetSecretValuePolicy`.
-	AwsSecretsManagerGetSecretValuePolicy interface{} `json:"awsSecretsManagerGetSecretValuePolicy" yaml:"awsSecretsManagerGetSecretValuePolicy"`
+	AwsSecretsManagerGetSecretValuePolicy interface{} `field:"optional" json:"awsSecretsManagerGetSecretValuePolicy" yaml:"awsSecretsManagerGetSecretValuePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.CloudFormationDescribeStacksPolicy`.
-	CloudFormationDescribeStacksPolicy interface{} `json:"cloudFormationDescribeStacksPolicy" yaml:"cloudFormationDescribeStacksPolicy"`
+	CloudFormationDescribeStacksPolicy interface{} `field:"optional" json:"cloudFormationDescribeStacksPolicy" yaml:"cloudFormationDescribeStacksPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.CloudWatchPutMetricPolicy`.
-	CloudWatchPutMetricPolicy interface{} `json:"cloudWatchPutMetricPolicy" yaml:"cloudWatchPutMetricPolicy"`
+	CloudWatchPutMetricPolicy interface{} `field:"optional" json:"cloudWatchPutMetricPolicy" yaml:"cloudWatchPutMetricPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.DynamoDBCrudPolicy`.
-	DynamoDbCrudPolicy interface{} `json:"dynamoDbCrudPolicy" yaml:"dynamoDbCrudPolicy"`
+	DynamoDbCrudPolicy interface{} `field:"optional" json:"dynamoDbCrudPolicy" yaml:"dynamoDbCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.DynamoDBReadPolicy`.
-	DynamoDbReadPolicy interface{} `json:"dynamoDbReadPolicy" yaml:"dynamoDbReadPolicy"`
+	DynamoDbReadPolicy interface{} `field:"optional" json:"dynamoDbReadPolicy" yaml:"dynamoDbReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.DynamoDBStreamReadPolicy`.
-	DynamoDbStreamReadPolicy interface{} `json:"dynamoDbStreamReadPolicy" yaml:"dynamoDbStreamReadPolicy"`
+	DynamoDbStreamReadPolicy interface{} `field:"optional" json:"dynamoDbStreamReadPolicy" yaml:"dynamoDbStreamReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.DynamoDBWritePolicy`.
-	DynamoDbWritePolicy interface{} `json:"dynamoDbWritePolicy" yaml:"dynamoDbWritePolicy"`
+	DynamoDbWritePolicy interface{} `field:"optional" json:"dynamoDbWritePolicy" yaml:"dynamoDbWritePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.EC2DescribePolicy`.
-	Ec2DescribePolicy interface{} `json:"ec2DescribePolicy" yaml:"ec2DescribePolicy"`
+	Ec2DescribePolicy interface{} `field:"optional" json:"ec2DescribePolicy" yaml:"ec2DescribePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.ElasticsearchHttpPostPolicy`.
-	ElasticsearchHttpPostPolicy interface{} `json:"elasticsearchHttpPostPolicy" yaml:"elasticsearchHttpPostPolicy"`
+	ElasticsearchHttpPostPolicy interface{} `field:"optional" json:"elasticsearchHttpPostPolicy" yaml:"elasticsearchHttpPostPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.FilterLogEventsPolicy`.
-	FilterLogEventsPolicy interface{} `json:"filterLogEventsPolicy" yaml:"filterLogEventsPolicy"`
+	FilterLogEventsPolicy interface{} `field:"optional" json:"filterLogEventsPolicy" yaml:"filterLogEventsPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.KinesisCrudPolicy`.
-	KinesisCrudPolicy interface{} `json:"kinesisCrudPolicy" yaml:"kinesisCrudPolicy"`
+	KinesisCrudPolicy interface{} `field:"optional" json:"kinesisCrudPolicy" yaml:"kinesisCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.KinesisStreamReadPolicy`.
-	KinesisStreamReadPolicy interface{} `json:"kinesisStreamReadPolicy" yaml:"kinesisStreamReadPolicy"`
+	KinesisStreamReadPolicy interface{} `field:"optional" json:"kinesisStreamReadPolicy" yaml:"kinesisStreamReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.KMSDecryptPolicy`.
-	KmsDecryptPolicy interface{} `json:"kmsDecryptPolicy" yaml:"kmsDecryptPolicy"`
+	KmsDecryptPolicy interface{} `field:"optional" json:"kmsDecryptPolicy" yaml:"kmsDecryptPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.LambdaInvokePolicy`.
-	LambdaInvokePolicy interface{} `json:"lambdaInvokePolicy" yaml:"lambdaInvokePolicy"`
+	LambdaInvokePolicy interface{} `field:"optional" json:"lambdaInvokePolicy" yaml:"lambdaInvokePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.RekognitionDetectOnlyPolicy`.
-	RekognitionDetectOnlyPolicy interface{} `json:"rekognitionDetectOnlyPolicy" yaml:"rekognitionDetectOnlyPolicy"`
+	RekognitionDetectOnlyPolicy interface{} `field:"optional" json:"rekognitionDetectOnlyPolicy" yaml:"rekognitionDetectOnlyPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.RekognitionLabelsPolicy`.
-	RekognitionLabelsPolicy interface{} `json:"rekognitionLabelsPolicy" yaml:"rekognitionLabelsPolicy"`
+	RekognitionLabelsPolicy interface{} `field:"optional" json:"rekognitionLabelsPolicy" yaml:"rekognitionLabelsPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.RekognitionNoDataAccessPolicy`.
-	RekognitionNoDataAccessPolicy interface{} `json:"rekognitionNoDataAccessPolicy" yaml:"rekognitionNoDataAccessPolicy"`
+	RekognitionNoDataAccessPolicy interface{} `field:"optional" json:"rekognitionNoDataAccessPolicy" yaml:"rekognitionNoDataAccessPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.RekognitionReadPolicy`.
-	RekognitionReadPolicy interface{} `json:"rekognitionReadPolicy" yaml:"rekognitionReadPolicy"`
+	RekognitionReadPolicy interface{} `field:"optional" json:"rekognitionReadPolicy" yaml:"rekognitionReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.RekognitionWriteOnlyAccessPolicy`.
-	RekognitionWriteOnlyAccessPolicy interface{} `json:"rekognitionWriteOnlyAccessPolicy" yaml:"rekognitionWriteOnlyAccessPolicy"`
+	RekognitionWriteOnlyAccessPolicy interface{} `field:"optional" json:"rekognitionWriteOnlyAccessPolicy" yaml:"rekognitionWriteOnlyAccessPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.S3CrudPolicy`.
-	S3CrudPolicy interface{} `json:"s3CrudPolicy" yaml:"s3CrudPolicy"`
+	S3CrudPolicy interface{} `field:"optional" json:"s3CrudPolicy" yaml:"s3CrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.S3ReadPolicy`.
-	S3ReadPolicy interface{} `json:"s3ReadPolicy" yaml:"s3ReadPolicy"`
+	S3ReadPolicy interface{} `field:"optional" json:"s3ReadPolicy" yaml:"s3ReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.S3WritePolicy`.
-	S3WritePolicy interface{} `json:"s3WritePolicy" yaml:"s3WritePolicy"`
+	S3WritePolicy interface{} `field:"optional" json:"s3WritePolicy" yaml:"s3WritePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SESBulkTemplatedCrudPolicy`.
-	SesBulkTemplatedCrudPolicy interface{} `json:"sesBulkTemplatedCrudPolicy" yaml:"sesBulkTemplatedCrudPolicy"`
+	SesBulkTemplatedCrudPolicy interface{} `field:"optional" json:"sesBulkTemplatedCrudPolicy" yaml:"sesBulkTemplatedCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SESCrudPolicy`.
-	SesCrudPolicy interface{} `json:"sesCrudPolicy" yaml:"sesCrudPolicy"`
+	SesCrudPolicy interface{} `field:"optional" json:"sesCrudPolicy" yaml:"sesCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SESEmailTemplateCrudPolicy`.
-	SesEmailTemplateCrudPolicy interface{} `json:"sesEmailTemplateCrudPolicy" yaml:"sesEmailTemplateCrudPolicy"`
+	SesEmailTemplateCrudPolicy interface{} `field:"optional" json:"sesEmailTemplateCrudPolicy" yaml:"sesEmailTemplateCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SESSendBouncePolicy`.
-	SesSendBouncePolicy interface{} `json:"sesSendBouncePolicy" yaml:"sesSendBouncePolicy"`
+	SesSendBouncePolicy interface{} `field:"optional" json:"sesSendBouncePolicy" yaml:"sesSendBouncePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SNSCrudPolicy`.
-	SnsCrudPolicy interface{} `json:"snsCrudPolicy" yaml:"snsCrudPolicy"`
+	SnsCrudPolicy interface{} `field:"optional" json:"snsCrudPolicy" yaml:"snsCrudPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SNSPublishMessagePolicy`.
-	SnsPublishMessagePolicy interface{} `json:"snsPublishMessagePolicy" yaml:"snsPublishMessagePolicy"`
+	SnsPublishMessagePolicy interface{} `field:"optional" json:"snsPublishMessagePolicy" yaml:"snsPublishMessagePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SQSPollerPolicy`.
-	SqsPollerPolicy interface{} `json:"sqsPollerPolicy" yaml:"sqsPollerPolicy"`
+	SqsPollerPolicy interface{} `field:"optional" json:"sqsPollerPolicy" yaml:"sqsPollerPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SQSSendMessagePolicy`.
-	SqsSendMessagePolicy interface{} `json:"sqsSendMessagePolicy" yaml:"sqsSendMessagePolicy"`
+	SqsSendMessagePolicy interface{} `field:"optional" json:"sqsSendMessagePolicy" yaml:"sqsSendMessagePolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.SSMParameterReadPolicy`.
-	SsmParameterReadPolicy interface{} `json:"ssmParameterReadPolicy" yaml:"ssmParameterReadPolicy"`
+	SsmParameterReadPolicy interface{} `field:"optional" json:"ssmParameterReadPolicy" yaml:"ssmParameterReadPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.StepFunctionsExecutionPolicy`.
-	StepFunctionsExecutionPolicy interface{} `json:"stepFunctionsExecutionPolicy" yaml:"stepFunctionsExecutionPolicy"`
+	StepFunctionsExecutionPolicy interface{} `field:"optional" json:"stepFunctionsExecutionPolicy" yaml:"stepFunctionsExecutionPolicy"`
 	// `CfnFunction.SAMPolicyTemplateProperty.VPCAccessPolicy`.
-	VpcAccessPolicy interface{} `json:"vpcAccessPolicy" yaml:"vpcAccessPolicy"`
+	VpcAccessPolicy interface{} `field:"optional" json:"vpcAccessPolicy" yaml:"vpcAccessPolicy"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sNSEventProperty := &sNSEventProperty{
 //   	topic: jsii.String("topic"),
 //   }
 //
 type CfnFunction_SNSEventProperty struct {
 	// `CfnFunction.SNSEventProperty.Topic`.
-	Topic *string `json:"topic" yaml:"topic"`
+	Topic *string `field:"required" json:"topic" yaml:"topic"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sQSEventProperty := &sQSEventProperty{
 //   	queue: jsii.String("queue"),
 //
@@ -4643,15 +4430,18 @@ type CfnFunction_SNSEventProperty struct {
 //
 type CfnFunction_SQSEventProperty struct {
 	// `CfnFunction.SQSEventProperty.Queue`.
-	Queue *string `json:"queue" yaml:"queue"`
+	Queue *string `field:"required" json:"queue" yaml:"queue"`
 	// `CfnFunction.SQSEventProperty.BatchSize`.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// `CfnFunction.SQSEventProperty.Enabled`.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scheduleEventProperty := &scheduleEventProperty{
 //   	schedule: jsii.String("schedule"),
 //
@@ -4661,57 +4451,72 @@ type CfnFunction_SQSEventProperty struct {
 //
 type CfnFunction_ScheduleEventProperty struct {
 	// `CfnFunction.ScheduleEventProperty.Schedule`.
-	Schedule *string `json:"schedule" yaml:"schedule"`
+	Schedule *string `field:"required" json:"schedule" yaml:"schedule"`
 	// `CfnFunction.ScheduleEventProperty.Input`.
-	Input *string `json:"input" yaml:"input"`
+	Input *string `field:"optional" json:"input" yaml:"input"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   secretArnSAMPTProperty := &secretArnSAMPTProperty{
 //   	secretArn: jsii.String("secretArn"),
 //   }
 //
 type CfnFunction_SecretArnSAMPTProperty struct {
 	// `CfnFunction.SecretArnSAMPTProperty.SecretArn`.
-	SecretArn *string `json:"secretArn" yaml:"secretArn"`
+	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stateMachineSAMPTProperty := &stateMachineSAMPTProperty{
 //   	stateMachineName: jsii.String("stateMachineName"),
 //   }
 //
 type CfnFunction_StateMachineSAMPTProperty struct {
 	// `CfnFunction.StateMachineSAMPTProperty.StateMachineName`.
-	StateMachineName *string `json:"stateMachineName" yaml:"stateMachineName"`
+	StateMachineName *string `field:"required" json:"stateMachineName" yaml:"stateMachineName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   streamSAMPTProperty := &streamSAMPTProperty{
 //   	streamName: jsii.String("streamName"),
 //   }
 //
 type CfnFunction_StreamSAMPTProperty struct {
 	// `CfnFunction.StreamSAMPTProperty.StreamName`.
-	StreamName *string `json:"streamName" yaml:"streamName"`
+	StreamName *string `field:"required" json:"streamName" yaml:"streamName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tableSAMPTProperty := &tableSAMPTProperty{
 //   	tableName: jsii.String("tableName"),
 //   }
 //
 type CfnFunction_TableSAMPTProperty struct {
 	// `CfnFunction.TableSAMPTProperty.TableName`.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tableStreamSAMPTProperty := &tableStreamSAMPTProperty{
 //   	streamName: jsii.String("streamName"),
 //   	tableName: jsii.String("tableName"),
@@ -4719,24 +4524,30 @@ type CfnFunction_TableSAMPTProperty struct {
 //
 type CfnFunction_TableStreamSAMPTProperty struct {
 	// `CfnFunction.TableStreamSAMPTProperty.StreamName`.
-	StreamName *string `json:"streamName" yaml:"streamName"`
+	StreamName *string `field:"required" json:"streamName" yaml:"streamName"`
 	// `CfnFunction.TableStreamSAMPTProperty.TableName`.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   topicSAMPTProperty := &topicSAMPTProperty{
 //   	topicName: jsii.String("topicName"),
 //   }
 //
 type CfnFunction_TopicSAMPTProperty struct {
 	// `CfnFunction.TopicSAMPTProperty.TopicName`.
-	TopicName *string `json:"topicName" yaml:"topicName"`
+	TopicName *string `field:"required" json:"topicName" yaml:"topicName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigProperty := &vpcConfigProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -4748,17 +4559,20 @@ type CfnFunction_TopicSAMPTProperty struct {
 //
 type CfnFunction_VpcConfigProperty struct {
 	// `CfnFunction.VpcConfigProperty.SecurityGroupIds`.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// `CfnFunction.VpcConfigProperty.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 }
 
 // Properties for defining a `CfnFunction`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assumeRolePolicyDocument interface{}
+//
 //   cfnFunctionProps := &cfnFunctionProps{
 //   	architectures: []*string{
 //   		jsii.String("architectures"),
@@ -4870,81 +4684,84 @@ type CfnFunction_VpcConfigProperty struct {
 //
 type CfnFunctionProps struct {
 	// `AWS::Serverless::Function.Architectures`.
-	Architectures *[]*string `json:"architectures" yaml:"architectures"`
+	Architectures *[]*string `field:"optional" json:"architectures" yaml:"architectures"`
 	// `AWS::Serverless::Function.AssumeRolePolicyDocument`.
-	AssumeRolePolicyDocument interface{} `json:"assumeRolePolicyDocument" yaml:"assumeRolePolicyDocument"`
+	AssumeRolePolicyDocument interface{} `field:"optional" json:"assumeRolePolicyDocument" yaml:"assumeRolePolicyDocument"`
 	// `AWS::Serverless::Function.AutoPublishAlias`.
-	AutoPublishAlias *string `json:"autoPublishAlias" yaml:"autoPublishAlias"`
+	AutoPublishAlias *string `field:"optional" json:"autoPublishAlias" yaml:"autoPublishAlias"`
 	// `AWS::Serverless::Function.AutoPublishCodeSha256`.
-	AutoPublishCodeSha256 *string `json:"autoPublishCodeSha256" yaml:"autoPublishCodeSha256"`
+	AutoPublishCodeSha256 *string `field:"optional" json:"autoPublishCodeSha256" yaml:"autoPublishCodeSha256"`
 	// `AWS::Serverless::Function.CodeSigningConfigArn`.
-	CodeSigningConfigArn *string `json:"codeSigningConfigArn" yaml:"codeSigningConfigArn"`
+	CodeSigningConfigArn *string `field:"optional" json:"codeSigningConfigArn" yaml:"codeSigningConfigArn"`
 	// `AWS::Serverless::Function.CodeUri`.
-	CodeUri interface{} `json:"codeUri" yaml:"codeUri"`
+	CodeUri interface{} `field:"optional" json:"codeUri" yaml:"codeUri"`
 	// `AWS::Serverless::Function.DeadLetterQueue`.
-	DeadLetterQueue interface{} `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue interface{} `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// `AWS::Serverless::Function.DeploymentPreference`.
-	DeploymentPreference interface{} `json:"deploymentPreference" yaml:"deploymentPreference"`
+	DeploymentPreference interface{} `field:"optional" json:"deploymentPreference" yaml:"deploymentPreference"`
 	// `AWS::Serverless::Function.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::Serverless::Function.Environment`.
-	Environment interface{} `json:"environment" yaml:"environment"`
+	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 	// `AWS::Serverless::Function.EventInvokeConfig`.
-	EventInvokeConfig interface{} `json:"eventInvokeConfig" yaml:"eventInvokeConfig"`
+	EventInvokeConfig interface{} `field:"optional" json:"eventInvokeConfig" yaml:"eventInvokeConfig"`
 	// `AWS::Serverless::Function.Events`.
-	Events interface{} `json:"events" yaml:"events"`
+	Events interface{} `field:"optional" json:"events" yaml:"events"`
 	// `AWS::Serverless::Function.FileSystemConfigs`.
-	FileSystemConfigs interface{} `json:"fileSystemConfigs" yaml:"fileSystemConfigs"`
+	FileSystemConfigs interface{} `field:"optional" json:"fileSystemConfigs" yaml:"fileSystemConfigs"`
 	// `AWS::Serverless::Function.FunctionName`.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// `AWS::Serverless::Function.Handler`.
-	Handler *string `json:"handler" yaml:"handler"`
+	Handler *string `field:"optional" json:"handler" yaml:"handler"`
 	// `AWS::Serverless::Function.ImageConfig`.
-	ImageConfig interface{} `json:"imageConfig" yaml:"imageConfig"`
+	ImageConfig interface{} `field:"optional" json:"imageConfig" yaml:"imageConfig"`
 	// `AWS::Serverless::Function.ImageUri`.
-	ImageUri *string `json:"imageUri" yaml:"imageUri"`
+	ImageUri *string `field:"optional" json:"imageUri" yaml:"imageUri"`
 	// `AWS::Serverless::Function.InlineCode`.
-	InlineCode *string `json:"inlineCode" yaml:"inlineCode"`
+	InlineCode *string `field:"optional" json:"inlineCode" yaml:"inlineCode"`
 	// `AWS::Serverless::Function.KmsKeyArn`.
-	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// `AWS::Serverless::Function.Layers`.
-	Layers *[]*string `json:"layers" yaml:"layers"`
+	Layers *[]*string `field:"optional" json:"layers" yaml:"layers"`
 	// `AWS::Serverless::Function.MemorySize`.
-	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
+	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// `AWS::Serverless::Function.PackageType`.
-	PackageType *string `json:"packageType" yaml:"packageType"`
+	PackageType *string `field:"optional" json:"packageType" yaml:"packageType"`
 	// `AWS::Serverless::Function.PermissionsBoundary`.
-	PermissionsBoundary *string `json:"permissionsBoundary" yaml:"permissionsBoundary"`
+	PermissionsBoundary *string `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// `AWS::Serverless::Function.Policies`.
-	Policies interface{} `json:"policies" yaml:"policies"`
+	Policies interface{} `field:"optional" json:"policies" yaml:"policies"`
 	// `AWS::Serverless::Function.ProvisionedConcurrencyConfig`.
-	ProvisionedConcurrencyConfig interface{} `json:"provisionedConcurrencyConfig" yaml:"provisionedConcurrencyConfig"`
+	ProvisionedConcurrencyConfig interface{} `field:"optional" json:"provisionedConcurrencyConfig" yaml:"provisionedConcurrencyConfig"`
 	// `AWS::Serverless::Function.ReservedConcurrentExecutions`.
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// `AWS::Serverless::Function.Role`.
-	Role *string `json:"role" yaml:"role"`
+	Role *string `field:"optional" json:"role" yaml:"role"`
 	// `AWS::Serverless::Function.Runtime`.
-	Runtime *string `json:"runtime" yaml:"runtime"`
+	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`
 	// `AWS::Serverless::Function.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// `AWS::Serverless::Function.Timeout`.
-	Timeout *float64 `json:"timeout" yaml:"timeout"`
+	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
 	// `AWS::Serverless::Function.Tracing`.
-	Tracing *string `json:"tracing" yaml:"tracing"`
+	Tracing *string `field:"optional" json:"tracing" yaml:"tracing"`
 	// `AWS::Serverless::Function.VersionDescription`.
-	VersionDescription *string `json:"versionDescription" yaml:"versionDescription"`
+	VersionDescription *string `field:"optional" json:"versionDescription" yaml:"versionDescription"`
 	// `AWS::Serverless::Function.VpcConfig`.
-	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // A CloudFormation `AWS::Serverless::HttpApi`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var authorizers interface{}
 //   var definitionBody interface{}
-//   cfnHttpApi := sam.NewCfnHttpApi(this, jsii.String("MyCfnHttpApi"), &cfnHttpApiProps{
+//
+//   cfnHttpApi := awscdk.Aws_sam.NewCfnHttpApi(this, jsii.String("MyCfnHttpApi"), &cfnHttpApiProps{
 //   	accessLogSetting: &accessLogSettingProperty{
 //   		destinationArn: jsii.String("destinationArn"),
 //   		format: jsii.String("format"),
@@ -5012,11 +4829,9 @@ type CfnHttpApi interface {
 	Auth() interface{}
 	SetAuth(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// `AWS::Serverless::HttpApi.CorsConfiguration`.
 	CorsConfiguration() interface{}
@@ -5024,7 +4839,6 @@ type CfnHttpApi interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::Serverless::HttpApi.DefaultRouteSettings`.
 	DefaultRouteSettings() interface{}
@@ -5056,16 +4870,13 @@ type CfnHttpApi interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::Serverless::HttpApi.RouteSettings`.
 	RouteSettings() interface{}
@@ -5073,7 +4884,6 @@ type CfnHttpApi interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::Serverless::HttpApi.StageName`.
 	StageName() *string
@@ -5087,16 +4897,13 @@ type CfnHttpApi interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -5105,7 +4912,6 @@ type CfnHttpApi interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -5150,15 +4956,12 @@ type CfnHttpApi interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -5169,13 +4972,11 @@ type CfnHttpApi interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -5184,74 +4985,21 @@ type CfnHttpApi interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5411,8 +5159,8 @@ func (j *jsiiProxy_CfnHttpApi) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHttpApi) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnHttpApi) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5493,13 +5241,13 @@ func (j *jsiiProxy_CfnHttpApi) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Serverless::HttpApi`.
-func NewCfnHttpApi(scope awscdk.Construct, id *string, props *CfnHttpApiProps) CfnHttpApi {
+func NewCfnHttpApi(scope constructs.Construct, id *string, props *CfnHttpApiProps) CfnHttpApi {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnHttpApi{}
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnHttpApi",
+		"aws-cdk-lib.aws_sam.CfnHttpApi",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5508,11 +5256,11 @@ func NewCfnHttpApi(scope awscdk.Construct, id *string, props *CfnHttpApiProps) C
 }
 
 // Create a new `AWS::Serverless::HttpApi`.
-func NewCfnHttpApi_Override(c CfnHttpApi, scope awscdk.Construct, id *string, props *CfnHttpApiProps) {
+func NewCfnHttpApi_Override(c CfnHttpApi, scope constructs.Construct, id *string, props *CfnHttpApiProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnHttpApi",
+		"aws-cdk-lib.aws_sam.CfnHttpApi",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5628,14 +5376,13 @@ func (j *jsiiProxy_CfnHttpApi) SetStageVariables(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnHttpApi_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnHttpApi",
+		"aws-cdk-lib.aws_sam.CfnHttpApi",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5645,14 +5392,13 @@ func CfnHttpApi_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnHttpApi_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnHttpApi",
+		"aws-cdk-lib.aws_sam.CfnHttpApi",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5661,15 +5407,17 @@ func CfnHttpApi_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnHttpApi_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnHttpApi",
+		"aws-cdk-lib.aws_sam.CfnHttpApi",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5682,7 +5430,7 @@ func CfnHttpApi_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnHttpApi",
+		"aws-cdk-lib.aws_sam.CfnHttpApi",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5693,7 +5441,7 @@ func CfnHttpApi_REQUIRED_TRANSFORM() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnHttpApi",
+		"aws-cdk-lib.aws_sam.CfnHttpApi",
 		"REQUIRED_TRANSFORM",
 		&returns,
 	)
@@ -5790,48 +5538,11 @@ func (c *jsiiProxy_CfnHttpApi) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnHttpApi) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnHttpApi) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnHttpApi) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnHttpApi) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnHttpApi) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5861,33 +5572,12 @@ func (c *jsiiProxy_CfnHttpApi) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnHttpApi) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnHttpApi) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnHttpApi) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5904,7 +5594,10 @@ func (c *jsiiProxy_CfnHttpApi) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessLogSettingProperty := &accessLogSettingProperty{
 //   	destinationArn: jsii.String("destinationArn"),
 //   	format: jsii.String("format"),
@@ -5912,13 +5605,16 @@ func (c *jsiiProxy_CfnHttpApi) ValidateProperties(_properties interface{}) {
 //
 type CfnHttpApi_AccessLogSettingProperty struct {
 	// `CfnHttpApi.AccessLogSettingProperty.DestinationArn`.
-	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
 	// `CfnHttpApi.AccessLogSettingProperty.Format`.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   corsConfigurationObjectProperty := &corsConfigurationObjectProperty{
 //   	allowCredentials: jsii.Boolean(false),
 //   	allowHeaders: jsii.String("allowHeaders"),
@@ -5932,23 +5628,26 @@ type CfnHttpApi_AccessLogSettingProperty struct {
 //
 type CfnHttpApi_CorsConfigurationObjectProperty struct {
 	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowCredentials`.
-	AllowCredentials interface{} `json:"allowCredentials" yaml:"allowCredentials"`
+	AllowCredentials interface{} `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowHeaders`.
-	AllowHeaders *string `json:"allowHeaders" yaml:"allowHeaders"`
+	AllowHeaders *string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowMethods`.
-	AllowMethods *string `json:"allowMethods" yaml:"allowMethods"`
+	AllowMethods *string `field:"optional" json:"allowMethods" yaml:"allowMethods"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowOrigin`.
-	AllowOrigin *string `json:"allowOrigin" yaml:"allowOrigin"`
+	AllowOrigin *string `field:"optional" json:"allowOrigin" yaml:"allowOrigin"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.ExposeHeaders`.
-	ExposeHeaders *[]*string `json:"exposeHeaders" yaml:"exposeHeaders"`
+	ExposeHeaders *[]*string `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
 	// `CfnHttpApi.CorsConfigurationObjectProperty.MaxAge`.
-	MaxAge *string `json:"maxAge" yaml:"maxAge"`
+	MaxAge *string `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var authorizers interface{}
+//
 //   httpApiAuthProperty := &httpApiAuthProperty{
 //   	authorizers: authorizers,
 //   	defaultAuthorizer: jsii.String("defaultAuthorizer"),
@@ -5956,13 +5655,16 @@ type CfnHttpApi_CorsConfigurationObjectProperty struct {
 //
 type CfnHttpApi_HttpApiAuthProperty struct {
 	// `CfnHttpApi.HttpApiAuthProperty.Authorizers`.
-	Authorizers interface{} `json:"authorizers" yaml:"authorizers"`
+	Authorizers interface{} `field:"optional" json:"authorizers" yaml:"authorizers"`
 	// `CfnHttpApi.HttpApiAuthProperty.DefaultAuthorizer`.
-	DefaultAuthorizer *string `json:"defaultAuthorizer" yaml:"defaultAuthorizer"`
+	DefaultAuthorizer *string `field:"optional" json:"defaultAuthorizer" yaml:"defaultAuthorizer"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpApiDomainConfigurationProperty := &httpApiDomainConfigurationProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	domainName: jsii.String("domainName"),
@@ -5986,23 +5688,26 @@ type CfnHttpApi_HttpApiAuthProperty struct {
 //
 type CfnHttpApi_HttpApiDomainConfigurationProperty struct {
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.CertificateArn`.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.DomainName`.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.BasePath`.
-	BasePath *string `json:"basePath" yaml:"basePath"`
+	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.EndpointConfiguration`.
-	EndpointConfiguration *string `json:"endpointConfiguration" yaml:"endpointConfiguration"`
+	EndpointConfiguration *string `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.MutualTlsAuthentication`.
-	MutualTlsAuthentication interface{} `json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
+	MutualTlsAuthentication interface{} `field:"optional" json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.Route53`.
-	Route53 interface{} `json:"route53" yaml:"route53"`
+	Route53 interface{} `field:"optional" json:"route53" yaml:"route53"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.SecurityPolicy`.
-	SecurityPolicy *string `json:"securityPolicy" yaml:"securityPolicy"`
+	SecurityPolicy *string `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mutualTlsAuthenticationProperty := &mutualTlsAuthenticationProperty{
 //   	truststoreUri: jsii.String("truststoreUri"),
 //   	truststoreVersion: jsii.Boolean(false),
@@ -6010,13 +5715,16 @@ type CfnHttpApi_HttpApiDomainConfigurationProperty struct {
 //
 type CfnHttpApi_MutualTlsAuthenticationProperty struct {
 	// `CfnHttpApi.MutualTlsAuthenticationProperty.TruststoreUri`.
-	TruststoreUri *string `json:"truststoreUri" yaml:"truststoreUri"`
+	TruststoreUri *string `field:"optional" json:"truststoreUri" yaml:"truststoreUri"`
 	// `CfnHttpApi.MutualTlsAuthenticationProperty.TruststoreVersion`.
-	TruststoreVersion interface{} `json:"truststoreVersion" yaml:"truststoreVersion"`
+	TruststoreVersion interface{} `field:"optional" json:"truststoreVersion" yaml:"truststoreVersion"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   route53ConfigurationProperty := &route53ConfigurationProperty{
 //   	distributedDomainName: jsii.String("distributedDomainName"),
 //   	evaluateTargetHealth: jsii.Boolean(false),
@@ -6027,19 +5735,22 @@ type CfnHttpApi_MutualTlsAuthenticationProperty struct {
 //
 type CfnHttpApi_Route53ConfigurationProperty struct {
 	// `CfnHttpApi.Route53ConfigurationProperty.DistributedDomainName`.
-	DistributedDomainName *string `json:"distributedDomainName" yaml:"distributedDomainName"`
+	DistributedDomainName *string `field:"optional" json:"distributedDomainName" yaml:"distributedDomainName"`
 	// `CfnHttpApi.Route53ConfigurationProperty.EvaluateTargetHealth`.
-	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
+	EvaluateTargetHealth interface{} `field:"optional" json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
 	// `CfnHttpApi.Route53ConfigurationProperty.HostedZoneId`.
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"optional" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// `CfnHttpApi.Route53ConfigurationProperty.HostedZoneName`.
-	HostedZoneName *string `json:"hostedZoneName" yaml:"hostedZoneName"`
+	HostedZoneName *string `field:"optional" json:"hostedZoneName" yaml:"hostedZoneName"`
 	// `CfnHttpApi.Route53ConfigurationProperty.IpV6`.
-	IpV6 interface{} `json:"ipV6" yaml:"ipV6"`
+	IpV6 interface{} `field:"optional" json:"ipV6" yaml:"ipV6"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   routeSettingsProperty := &routeSettingsProperty{
 //   	dataTraceEnabled: jsii.Boolean(false),
 //   	detailedMetricsEnabled: jsii.Boolean(false),
@@ -6050,19 +5761,22 @@ type CfnHttpApi_Route53ConfigurationProperty struct {
 //
 type CfnHttpApi_RouteSettingsProperty struct {
 	// `CfnHttpApi.RouteSettingsProperty.DataTraceEnabled`.
-	DataTraceEnabled interface{} `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
+	DataTraceEnabled interface{} `field:"optional" json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// `CfnHttpApi.RouteSettingsProperty.DetailedMetricsEnabled`.
-	DetailedMetricsEnabled interface{} `json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
+	DetailedMetricsEnabled interface{} `field:"optional" json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
 	// `CfnHttpApi.RouteSettingsProperty.LoggingLevel`.
-	LoggingLevel *string `json:"loggingLevel" yaml:"loggingLevel"`
+	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// `CfnHttpApi.RouteSettingsProperty.ThrottlingBurstLimit`.
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `field:"optional" json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// `CfnHttpApi.RouteSettingsProperty.ThrottlingRateLimit`.
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LocationProperty := &s3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //   	key: jsii.String("key"),
@@ -6071,20 +5785,23 @@ type CfnHttpApi_RouteSettingsProperty struct {
 //
 type CfnHttpApi_S3LocationProperty struct {
 	// `CfnHttpApi.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// `CfnHttpApi.S3LocationProperty.Key`.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// `CfnHttpApi.S3LocationProperty.Version`.
-	Version *float64 `json:"version" yaml:"version"`
+	Version *float64 `field:"required" json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnHttpApi`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var authorizers interface{}
 //   var definitionBody interface{}
+//
 //   cfnHttpApiProps := &cfnHttpApiProps{
 //   	accessLogSetting: &accessLogSettingProperty{
 //   		destinationArn: jsii.String("destinationArn"),
@@ -6145,40 +5862,43 @@ type CfnHttpApi_S3LocationProperty struct {
 //
 type CfnHttpApiProps struct {
 	// `AWS::Serverless::HttpApi.AccessLogSetting`.
-	AccessLogSetting interface{} `json:"accessLogSetting" yaml:"accessLogSetting"`
+	AccessLogSetting interface{} `field:"optional" json:"accessLogSetting" yaml:"accessLogSetting"`
 	// `AWS::Serverless::HttpApi.Auth`.
-	Auth interface{} `json:"auth" yaml:"auth"`
+	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`
 	// `AWS::Serverless::HttpApi.CorsConfiguration`.
-	CorsConfiguration interface{} `json:"corsConfiguration" yaml:"corsConfiguration"`
+	CorsConfiguration interface{} `field:"optional" json:"corsConfiguration" yaml:"corsConfiguration"`
 	// `AWS::Serverless::HttpApi.DefaultRouteSettings`.
-	DefaultRouteSettings interface{} `json:"defaultRouteSettings" yaml:"defaultRouteSettings"`
+	DefaultRouteSettings interface{} `field:"optional" json:"defaultRouteSettings" yaml:"defaultRouteSettings"`
 	// `AWS::Serverless::HttpApi.DefinitionBody`.
-	DefinitionBody interface{} `json:"definitionBody" yaml:"definitionBody"`
+	DefinitionBody interface{} `field:"optional" json:"definitionBody" yaml:"definitionBody"`
 	// `AWS::Serverless::HttpApi.DefinitionUri`.
-	DefinitionUri interface{} `json:"definitionUri" yaml:"definitionUri"`
+	DefinitionUri interface{} `field:"optional" json:"definitionUri" yaml:"definitionUri"`
 	// `AWS::Serverless::HttpApi.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::Serverless::HttpApi.DisableExecuteApiEndpoint`.
-	DisableExecuteApiEndpoint interface{} `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint interface{} `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// `AWS::Serverless::HttpApi.Domain`.
-	Domain interface{} `json:"domain" yaml:"domain"`
+	Domain interface{} `field:"optional" json:"domain" yaml:"domain"`
 	// `AWS::Serverless::HttpApi.FailOnWarnings`.
-	FailOnWarnings interface{} `json:"failOnWarnings" yaml:"failOnWarnings"`
+	FailOnWarnings interface{} `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
 	// `AWS::Serverless::HttpApi.RouteSettings`.
-	RouteSettings interface{} `json:"routeSettings" yaml:"routeSettings"`
+	RouteSettings interface{} `field:"optional" json:"routeSettings" yaml:"routeSettings"`
 	// `AWS::Serverless::HttpApi.StageName`.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 	// `AWS::Serverless::HttpApi.StageVariables`.
-	StageVariables interface{} `json:"stageVariables" yaml:"stageVariables"`
+	StageVariables interface{} `field:"optional" json:"stageVariables" yaml:"stageVariables"`
 	// `AWS::Serverless::HttpApi.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Serverless::LayerVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
-//   cfnLayerVersion := sam.NewCfnLayerVersion(this, jsii.String("MyCfnLayerVersion"), &cfnLayerVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLayerVersion := awscdk.Aws_sam.NewCfnLayerVersion(this, jsii.String("MyCfnLayerVersion"), &cfnLayerVersionProps{
 //   	compatibleRuntimes: []*string{
 //   		jsii.String("compatibleRuntimes"),
 //   	},
@@ -6193,11 +5913,9 @@ type CfnLayerVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// `AWS::Serverless::LayerVersion.CompatibleRuntimes`.
 	CompatibleRuntimes() *[]*string
@@ -6208,7 +5926,6 @@ type CfnLayerVersion interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::Serverless::LayerVersion.Description`.
 	Description() *string
@@ -6228,16 +5945,13 @@ type CfnLayerVersion interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::Serverless::LayerVersion.RetentionPolicy`.
 	RetentionPolicy() *string
@@ -6245,22 +5959,18 @@ type CfnLayerVersion interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6269,7 +5979,6 @@ type CfnLayerVersion interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -6314,15 +6023,12 @@ type CfnLayerVersion interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -6333,13 +6039,11 @@ type CfnLayerVersion interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6348,74 +6052,21 @@ type CfnLayerVersion interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -6525,8 +6176,8 @@ func (j *jsiiProxy_CfnLayerVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLayerVersion) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLayerVersion) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6577,13 +6228,13 @@ func (j *jsiiProxy_CfnLayerVersion) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::Serverless::LayerVersion`.
-func NewCfnLayerVersion(scope awscdk.Construct, id *string, props *CfnLayerVersionProps) CfnLayerVersion {
+func NewCfnLayerVersion(scope constructs.Construct, id *string, props *CfnLayerVersionProps) CfnLayerVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLayerVersion{}
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnLayerVersion",
+		"aws-cdk-lib.aws_sam.CfnLayerVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6592,11 +6243,11 @@ func NewCfnLayerVersion(scope awscdk.Construct, id *string, props *CfnLayerVersi
 }
 
 // Create a new `AWS::Serverless::LayerVersion`.
-func NewCfnLayerVersion_Override(c CfnLayerVersion, scope awscdk.Construct, id *string, props *CfnLayerVersionProps) {
+func NewCfnLayerVersion_Override(c CfnLayerVersion, scope constructs.Construct, id *string, props *CfnLayerVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnLayerVersion",
+		"aws-cdk-lib.aws_sam.CfnLayerVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6656,14 +6307,13 @@ func (j *jsiiProxy_CfnLayerVersion) SetRetentionPolicy(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLayerVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnLayerVersion",
+		"aws-cdk-lib.aws_sam.CfnLayerVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6673,14 +6323,13 @@ func CfnLayerVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLayerVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnLayerVersion",
+		"aws-cdk-lib.aws_sam.CfnLayerVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6689,15 +6338,17 @@ func CfnLayerVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLayerVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnLayerVersion",
+		"aws-cdk-lib.aws_sam.CfnLayerVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6710,7 +6361,7 @@ func CfnLayerVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnLayerVersion",
+		"aws-cdk-lib.aws_sam.CfnLayerVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6721,7 +6372,7 @@ func CfnLayerVersion_REQUIRED_TRANSFORM() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnLayerVersion",
+		"aws-cdk-lib.aws_sam.CfnLayerVersion",
 		"REQUIRED_TRANSFORM",
 		&returns,
 	)
@@ -6818,48 +6469,11 @@ func (c *jsiiProxy_CfnLayerVersion) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnLayerVersion) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLayerVersion) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLayerVersion) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLayerVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLayerVersion) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -6889,33 +6503,12 @@ func (c *jsiiProxy_CfnLayerVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLayerVersion) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLayerVersion) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLayerVersion) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6932,7 +6525,10 @@ func (c *jsiiProxy_CfnLayerVersion) ValidateProperties(_properties interface{}) 
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LocationProperty := &s3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //   	key: jsii.String("key"),
@@ -6943,17 +6539,20 @@ func (c *jsiiProxy_CfnLayerVersion) ValidateProperties(_properties interface{}) 
 //
 type CfnLayerVersion_S3LocationProperty struct {
 	// `CfnLayerVersion.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// `CfnLayerVersion.S3LocationProperty.Key`.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// `CfnLayerVersion.S3LocationProperty.Version`.
-	Version *float64 `json:"version" yaml:"version"`
+	Version *float64 `field:"optional" json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnLayerVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLayerVersionProps := &cfnLayerVersionProps{
 //   	compatibleRuntimes: []*string{
 //   		jsii.String("compatibleRuntimes"),
@@ -6967,24 +6566,27 @@ type CfnLayerVersion_S3LocationProperty struct {
 //
 type CfnLayerVersionProps struct {
 	// `AWS::Serverless::LayerVersion.CompatibleRuntimes`.
-	CompatibleRuntimes *[]*string `json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
+	CompatibleRuntimes *[]*string `field:"optional" json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
 	// `AWS::Serverless::LayerVersion.ContentUri`.
-	ContentUri interface{} `json:"contentUri" yaml:"contentUri"`
+	ContentUri interface{} `field:"optional" json:"contentUri" yaml:"contentUri"`
 	// `AWS::Serverless::LayerVersion.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::Serverless::LayerVersion.LayerName`.
-	LayerName *string `json:"layerName" yaml:"layerName"`
+	LayerName *string `field:"optional" json:"layerName" yaml:"layerName"`
 	// `AWS::Serverless::LayerVersion.LicenseInfo`.
-	LicenseInfo *string `json:"licenseInfo" yaml:"licenseInfo"`
+	LicenseInfo *string `field:"optional" json:"licenseInfo" yaml:"licenseInfo"`
 	// `AWS::Serverless::LayerVersion.RetentionPolicy`.
-	RetentionPolicy *string `json:"retentionPolicy" yaml:"retentionPolicy"`
+	RetentionPolicy *string `field:"optional" json:"retentionPolicy" yaml:"retentionPolicy"`
 }
 
 // A CloudFormation `AWS::Serverless::SimpleTable`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
-//   cfnSimpleTable := sam.NewCfnSimpleTable(this, jsii.String("MyCfnSimpleTable"), &cfnSimpleTableProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSimpleTable := awscdk.Aws_sam.NewCfnSimpleTable(this, jsii.String("MyCfnSimpleTable"), &cfnSimpleTableProps{
 //   	primaryKey: &primaryKeyProperty{
 //   		type: jsii.String("type"),
 //
@@ -7010,16 +6612,13 @@ type CfnSimpleTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -7030,11 +6629,9 @@ type CfnSimpleTable interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// `AWS::Serverless::SimpleTable.PrimaryKey`.
 	PrimaryKey() interface{}
 	SetPrimaryKey(val interface{})
@@ -7045,7 +6642,6 @@ type CfnSimpleTable interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::Serverless::SimpleTable.SSESpecification`.
 	SseSpecification() interface{}
@@ -7053,7 +6649,6 @@ type CfnSimpleTable interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::Serverless::SimpleTable.TableName`.
 	TableName() *string
@@ -7064,16 +6659,13 @@ type CfnSimpleTable interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7082,7 +6674,6 @@ type CfnSimpleTable interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -7127,15 +6718,12 @@ type CfnSimpleTable interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -7146,13 +6734,11 @@ type CfnSimpleTable interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7161,74 +6747,21 @@ type CfnSimpleTable interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -7288,8 +6821,8 @@ func (j *jsiiProxy_CfnSimpleTable) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSimpleTable) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnSimpleTable) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7380,13 +6913,13 @@ func (j *jsiiProxy_CfnSimpleTable) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Serverless::SimpleTable`.
-func NewCfnSimpleTable(scope awscdk.Construct, id *string, props *CfnSimpleTableProps) CfnSimpleTable {
+func NewCfnSimpleTable(scope constructs.Construct, id *string, props *CfnSimpleTableProps) CfnSimpleTable {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSimpleTable{}
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnSimpleTable",
+		"aws-cdk-lib.aws_sam.CfnSimpleTable",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7395,11 +6928,11 @@ func NewCfnSimpleTable(scope awscdk.Construct, id *string, props *CfnSimpleTable
 }
 
 // Create a new `AWS::Serverless::SimpleTable`.
-func NewCfnSimpleTable_Override(c CfnSimpleTable, scope awscdk.Construct, id *string, props *CfnSimpleTableProps) {
+func NewCfnSimpleTable_Override(c CfnSimpleTable, scope constructs.Construct, id *string, props *CfnSimpleTableProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnSimpleTable",
+		"aws-cdk-lib.aws_sam.CfnSimpleTable",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7443,14 +6976,13 @@ func (j *jsiiProxy_CfnSimpleTable) SetTableName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSimpleTable_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnSimpleTable",
+		"aws-cdk-lib.aws_sam.CfnSimpleTable",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7460,14 +6992,13 @@ func CfnSimpleTable_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSimpleTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnSimpleTable",
+		"aws-cdk-lib.aws_sam.CfnSimpleTable",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7476,15 +7007,17 @@ func CfnSimpleTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnSimpleTable_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnSimpleTable",
+		"aws-cdk-lib.aws_sam.CfnSimpleTable",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7497,7 +7030,7 @@ func CfnSimpleTable_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnSimpleTable",
+		"aws-cdk-lib.aws_sam.CfnSimpleTable",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7508,7 +7041,7 @@ func CfnSimpleTable_REQUIRED_TRANSFORM() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnSimpleTable",
+		"aws-cdk-lib.aws_sam.CfnSimpleTable",
 		"REQUIRED_TRANSFORM",
 		&returns,
 	)
@@ -7605,48 +7138,11 @@ func (c *jsiiProxy_CfnSimpleTable) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnSimpleTable) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnSimpleTable) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnSimpleTable) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnSimpleTable) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnSimpleTable) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -7676,33 +7172,12 @@ func (c *jsiiProxy_CfnSimpleTable) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnSimpleTable) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnSimpleTable) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnSimpleTable) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7719,7 +7194,10 @@ func (c *jsiiProxy_CfnSimpleTable) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   primaryKeyProperty := &primaryKeyProperty{
 //   	type: jsii.String("type"),
 //
@@ -7729,13 +7207,16 @@ func (c *jsiiProxy_CfnSimpleTable) ValidateProperties(_properties interface{}) {
 //
 type CfnSimpleTable_PrimaryKeyProperty struct {
 	// `CfnSimpleTable.PrimaryKeyProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `CfnSimpleTable.PrimaryKeyProperty.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   provisionedThroughputProperty := &provisionedThroughputProperty{
 //   	writeCapacityUnits: jsii.Number(123),
 //
@@ -7745,26 +7226,32 @@ type CfnSimpleTable_PrimaryKeyProperty struct {
 //
 type CfnSimpleTable_ProvisionedThroughputProperty struct {
 	// `CfnSimpleTable.ProvisionedThroughputProperty.WriteCapacityUnits`.
-	WriteCapacityUnits *float64 `json:"writeCapacityUnits" yaml:"writeCapacityUnits"`
+	WriteCapacityUnits *float64 `field:"required" json:"writeCapacityUnits" yaml:"writeCapacityUnits"`
 	// `CfnSimpleTable.ProvisionedThroughputProperty.ReadCapacityUnits`.
-	ReadCapacityUnits *float64 `json:"readCapacityUnits" yaml:"readCapacityUnits"`
+	ReadCapacityUnits *float64 `field:"optional" json:"readCapacityUnits" yaml:"readCapacityUnits"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sSESpecificationProperty := &sSESpecificationProperty{
 //   	sseEnabled: jsii.Boolean(false),
 //   }
 //
 type CfnSimpleTable_SSESpecificationProperty struct {
 	// `CfnSimpleTable.SSESpecificationProperty.SSEEnabled`.
-	SseEnabled interface{} `json:"sseEnabled" yaml:"sseEnabled"`
+	SseEnabled interface{} `field:"optional" json:"sseEnabled" yaml:"sseEnabled"`
 }
 
 // Properties for defining a `CfnSimpleTable`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSimpleTableProps := &cfnSimpleTableProps{
 //   	primaryKey: &primaryKeyProperty{
 //   		type: jsii.String("type"),
@@ -7789,24 +7276,27 @@ type CfnSimpleTable_SSESpecificationProperty struct {
 //
 type CfnSimpleTableProps struct {
 	// `AWS::Serverless::SimpleTable.PrimaryKey`.
-	PrimaryKey interface{} `json:"primaryKey" yaml:"primaryKey"`
+	PrimaryKey interface{} `field:"optional" json:"primaryKey" yaml:"primaryKey"`
 	// `AWS::Serverless::SimpleTable.ProvisionedThroughput`.
-	ProvisionedThroughput interface{} `json:"provisionedThroughput" yaml:"provisionedThroughput"`
+	ProvisionedThroughput interface{} `field:"optional" json:"provisionedThroughput" yaml:"provisionedThroughput"`
 	// `AWS::Serverless::SimpleTable.SSESpecification`.
-	SseSpecification interface{} `json:"sseSpecification" yaml:"sseSpecification"`
+	SseSpecification interface{} `field:"optional" json:"sseSpecification" yaml:"sseSpecification"`
 	// `AWS::Serverless::SimpleTable.TableName`.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 	// `AWS::Serverless::SimpleTable.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Serverless::StateMachine`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var definition interface{}
-//   cfnStateMachine := sam.NewCfnStateMachine(this, jsii.String("MyCfnStateMachine"), &cfnStateMachineProps{
+//
+//   cfnStateMachine := awscdk.Aws_sam.NewCfnStateMachine(this, jsii.String("MyCfnStateMachine"), &cfnStateMachineProps{
 //   	definition: definition,
 //   	definitionSubstitutions: map[string]*string{
 //   		"definitionSubstitutionsKey": jsii.String("definitionSubstitutions"),
@@ -7852,16 +7342,13 @@ type CfnStateMachine interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::Serverless::StateMachine.Definition`.
 	Definition() interface{}
@@ -7887,14 +7374,12 @@ type CfnStateMachine interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// `AWS::Serverless::StateMachine.Name`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// `AWS::Serverless::StateMachine.PermissionsBoundaries`.
 	PermissionsBoundaries() *string
 	SetPermissionsBoundaries(val *string)
@@ -7905,7 +7390,6 @@ type CfnStateMachine interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::Serverless::StateMachine.Role`.
 	Role() *string
@@ -7913,7 +7397,6 @@ type CfnStateMachine interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::Serverless::StateMachine.Tags`.
 	Tags() awscdk.TagManager
@@ -7927,16 +7410,13 @@ type CfnStateMachine interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7945,7 +7425,6 @@ type CfnStateMachine interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -7990,15 +7469,12 @@ type CfnStateMachine interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -8009,13 +7485,11 @@ type CfnStateMachine interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8024,74 +7498,21 @@ type CfnStateMachine interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -8211,8 +7632,8 @@ func (j *jsiiProxy_CfnStateMachine) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateMachine) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnStateMachine) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8313,13 +7734,13 @@ func (j *jsiiProxy_CfnStateMachine) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::Serverless::StateMachine`.
-func NewCfnStateMachine(scope awscdk.Construct, id *string, props *CfnStateMachineProps) CfnStateMachine {
+func NewCfnStateMachine(scope constructs.Construct, id *string, props *CfnStateMachineProps) CfnStateMachine {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStateMachine{}
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnStateMachine",
+		"aws-cdk-lib.aws_sam.CfnStateMachine",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8328,11 +7749,11 @@ func NewCfnStateMachine(scope awscdk.Construct, id *string, props *CfnStateMachi
 }
 
 // Create a new `AWS::Serverless::StateMachine`.
-func NewCfnStateMachine_Override(c CfnStateMachine, scope awscdk.Construct, id *string, props *CfnStateMachineProps) {
+func NewCfnStateMachine_Override(c CfnStateMachine, scope constructs.Construct, id *string, props *CfnStateMachineProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sam.CfnStateMachine",
+		"aws-cdk-lib.aws_sam.CfnStateMachine",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8432,14 +7853,13 @@ func (j *jsiiProxy_CfnStateMachine) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnStateMachine_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnStateMachine",
+		"aws-cdk-lib.aws_sam.CfnStateMachine",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8449,14 +7869,13 @@ func CfnStateMachine_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnStateMachine_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnStateMachine",
+		"aws-cdk-lib.aws_sam.CfnStateMachine",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8465,15 +7884,17 @@ func CfnStateMachine_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnStateMachine_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sam.CfnStateMachine",
+		"aws-cdk-lib.aws_sam.CfnStateMachine",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8486,7 +7907,7 @@ func CfnStateMachine_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnStateMachine",
+		"aws-cdk-lib.aws_sam.CfnStateMachine",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8497,7 +7918,7 @@ func CfnStateMachine_REQUIRED_TRANSFORM() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sam.CfnStateMachine",
+		"aws-cdk-lib.aws_sam.CfnStateMachine",
 		"REQUIRED_TRANSFORM",
 		&returns,
 	)
@@ -8594,48 +8015,11 @@ func (c *jsiiProxy_CfnStateMachine) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnStateMachine) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnStateMachine) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnStateMachine) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnStateMachine) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnStateMachine) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -8665,33 +8049,12 @@ func (c *jsiiProxy_CfnStateMachine) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnStateMachine) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnStateMachine) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnStateMachine) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8708,7 +8071,10 @@ func (c *jsiiProxy_CfnStateMachine) ValidateProperties(_properties interface{}) 
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   apiEventProperty := &apiEventProperty{
 //   	method: jsii.String("method"),
 //   	path: jsii.String("path"),
@@ -8719,17 +8085,20 @@ func (c *jsiiProxy_CfnStateMachine) ValidateProperties(_properties interface{}) 
 //
 type CfnStateMachine_ApiEventProperty struct {
 	// `CfnStateMachine.ApiEventProperty.Method`.
-	Method *string `json:"method" yaml:"method"`
+	Method *string `field:"required" json:"method" yaml:"method"`
 	// `CfnStateMachine.ApiEventProperty.Path`.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// `CfnStateMachine.ApiEventProperty.RestApiId`.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var pattern interface{}
+//
 //   cloudWatchEventEventProperty := &cloudWatchEventEventProperty{
 //   	pattern: pattern,
 //
@@ -8741,30 +8110,36 @@ type CfnStateMachine_ApiEventProperty struct {
 //
 type CfnStateMachine_CloudWatchEventEventProperty struct {
 	// `CfnStateMachine.CloudWatchEventEventProperty.Pattern`.
-	Pattern interface{} `json:"pattern" yaml:"pattern"`
+	Pattern interface{} `field:"required" json:"pattern" yaml:"pattern"`
 	// `CfnStateMachine.CloudWatchEventEventProperty.EventBusName`.
-	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
+	EventBusName *string `field:"optional" json:"eventBusName" yaml:"eventBusName"`
 	// `CfnStateMachine.CloudWatchEventEventProperty.Input`.
-	Input *string `json:"input" yaml:"input"`
+	Input *string `field:"optional" json:"input" yaml:"input"`
 	// `CfnStateMachine.CloudWatchEventEventProperty.InputPath`.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchLogsLogGroupProperty := &cloudWatchLogsLogGroupProperty{
 //   	logGroupArn: jsii.String("logGroupArn"),
 //   }
 //
 type CfnStateMachine_CloudWatchLogsLogGroupProperty struct {
 	// `CfnStateMachine.CloudWatchLogsLogGroupProperty.LogGroupArn`.
-	LogGroupArn *string `json:"logGroupArn" yaml:"logGroupArn"`
+	LogGroupArn *string `field:"required" json:"logGroupArn" yaml:"logGroupArn"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var pattern interface{}
+//
 //   eventBridgeRuleEventProperty := &eventBridgeRuleEventProperty{
 //   	pattern: pattern,
 //
@@ -8776,17 +8151,20 @@ type CfnStateMachine_CloudWatchLogsLogGroupProperty struct {
 //
 type CfnStateMachine_EventBridgeRuleEventProperty struct {
 	// `CfnStateMachine.EventBridgeRuleEventProperty.Pattern`.
-	Pattern interface{} `json:"pattern" yaml:"pattern"`
+	Pattern interface{} `field:"required" json:"pattern" yaml:"pattern"`
 	// `CfnStateMachine.EventBridgeRuleEventProperty.EventBusName`.
-	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
+	EventBusName *string `field:"optional" json:"eventBusName" yaml:"eventBusName"`
 	// `CfnStateMachine.EventBridgeRuleEventProperty.Input`.
-	Input *string `json:"input" yaml:"input"`
+	Input *string `field:"optional" json:"input" yaml:"input"`
 	// `CfnStateMachine.EventBridgeRuleEventProperty.InputPath`.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventSourceProperty := &eventSourceProperty{
 //   	properties: &cloudWatchEventEventProperty{
 //   		method: jsii.String("method"),
@@ -8800,37 +8178,46 @@ type CfnStateMachine_EventBridgeRuleEventProperty struct {
 //
 type CfnStateMachine_EventSourceProperty struct {
 	// `CfnStateMachine.EventSourceProperty.Properties`.
-	Properties interface{} `json:"properties" yaml:"properties"`
+	Properties interface{} `field:"required" json:"properties" yaml:"properties"`
 	// `CfnStateMachine.EventSourceProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   functionSAMPTProperty := &functionSAMPTProperty{
 //   	functionName: jsii.String("functionName"),
 //   }
 //
 type CfnStateMachine_FunctionSAMPTProperty struct {
 	// `CfnStateMachine.FunctionSAMPTProperty.FunctionName`.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var statement interface{}
+//
 //   iAMPolicyDocumentProperty := map[string]interface{}{
 //   	"statement": statement,
 //   }
 //
 type CfnStateMachine_IAMPolicyDocumentProperty struct {
 	// `CfnStateMachine.IAMPolicyDocumentProperty.Statement`.
-	Statement interface{} `json:"statement" yaml:"statement"`
+	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logDestinationProperty := &logDestinationProperty{
 //   	cloudWatchLogsLogGroup: &cloudWatchLogsLogGroupProperty{
 //   		logGroupArn: jsii.String("logGroupArn"),
@@ -8839,11 +8226,14 @@ type CfnStateMachine_IAMPolicyDocumentProperty struct {
 //
 type CfnStateMachine_LogDestinationProperty struct {
 	// `CfnStateMachine.LogDestinationProperty.CloudWatchLogsLogGroup`.
-	CloudWatchLogsLogGroup interface{} `json:"cloudWatchLogsLogGroup" yaml:"cloudWatchLogsLogGroup"`
+	CloudWatchLogsLogGroup interface{} `field:"required" json:"cloudWatchLogsLogGroup" yaml:"cloudWatchLogsLogGroup"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggingConfigurationProperty := &loggingConfigurationProperty{
 //   	destinations: []interface{}{
 //   		&logDestinationProperty{
@@ -8858,15 +8248,18 @@ type CfnStateMachine_LogDestinationProperty struct {
 //
 type CfnStateMachine_LoggingConfigurationProperty struct {
 	// `CfnStateMachine.LoggingConfigurationProperty.Destinations`.
-	Destinations interface{} `json:"destinations" yaml:"destinations"`
+	Destinations interface{} `field:"required" json:"destinations" yaml:"destinations"`
 	// `CfnStateMachine.LoggingConfigurationProperty.IncludeExecutionData`.
-	IncludeExecutionData interface{} `json:"includeExecutionData" yaml:"includeExecutionData"`
+	IncludeExecutionData interface{} `field:"required" json:"includeExecutionData" yaml:"includeExecutionData"`
 	// `CfnStateMachine.LoggingConfigurationProperty.Level`.
-	Level *string `json:"level" yaml:"level"`
+	Level *string `field:"required" json:"level" yaml:"level"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LocationProperty := &s3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //   	key: jsii.String("key"),
@@ -8877,15 +8270,18 @@ type CfnStateMachine_LoggingConfigurationProperty struct {
 //
 type CfnStateMachine_S3LocationProperty struct {
 	// `CfnStateMachine.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// `CfnStateMachine.S3LocationProperty.Key`.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// `CfnStateMachine.S3LocationProperty.Version`.
-	Version *float64 `json:"version" yaml:"version"`
+	Version *float64 `field:"optional" json:"version" yaml:"version"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sAMPolicyTemplateProperty := &sAMPolicyTemplateProperty{
 //   	lambdaInvokePolicy: &functionSAMPTProperty{
 //   		functionName: jsii.String("functionName"),
@@ -8897,13 +8293,16 @@ type CfnStateMachine_S3LocationProperty struct {
 //
 type CfnStateMachine_SAMPolicyTemplateProperty struct {
 	// `CfnStateMachine.SAMPolicyTemplateProperty.LambdaInvokePolicy`.
-	LambdaInvokePolicy interface{} `json:"lambdaInvokePolicy" yaml:"lambdaInvokePolicy"`
+	LambdaInvokePolicy interface{} `field:"optional" json:"lambdaInvokePolicy" yaml:"lambdaInvokePolicy"`
 	// `CfnStateMachine.SAMPolicyTemplateProperty.StepFunctionsExecutionPolicy`.
-	StepFunctionsExecutionPolicy interface{} `json:"stepFunctionsExecutionPolicy" yaml:"stepFunctionsExecutionPolicy"`
+	StepFunctionsExecutionPolicy interface{} `field:"optional" json:"stepFunctionsExecutionPolicy" yaml:"stepFunctionsExecutionPolicy"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scheduleEventProperty := &scheduleEventProperty{
 //   	schedule: jsii.String("schedule"),
 //
@@ -8913,39 +8312,48 @@ type CfnStateMachine_SAMPolicyTemplateProperty struct {
 //
 type CfnStateMachine_ScheduleEventProperty struct {
 	// `CfnStateMachine.ScheduleEventProperty.Schedule`.
-	Schedule *string `json:"schedule" yaml:"schedule"`
+	Schedule *string `field:"required" json:"schedule" yaml:"schedule"`
 	// `CfnStateMachine.ScheduleEventProperty.Input`.
-	Input *string `json:"input" yaml:"input"`
+	Input *string `field:"optional" json:"input" yaml:"input"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stateMachineSAMPTProperty := &stateMachineSAMPTProperty{
 //   	stateMachineName: jsii.String("stateMachineName"),
 //   }
 //
 type CfnStateMachine_StateMachineSAMPTProperty struct {
 	// `CfnStateMachine.StateMachineSAMPTProperty.StateMachineName`.
-	StateMachineName *string `json:"stateMachineName" yaml:"stateMachineName"`
+	StateMachineName *string `field:"required" json:"stateMachineName" yaml:"stateMachineName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tracingConfigurationProperty := &tracingConfigurationProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
 //
 type CfnStateMachine_TracingConfigurationProperty struct {
 	// `CfnStateMachine.TracingConfigurationProperty.Enabled`.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Properties for defining a `CfnStateMachine`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sam "github.com/aws/aws-cdk-go/awscdk/aws_sam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var definition interface{}
+//
 //   cfnStateMachineProps := &cfnStateMachineProps{
 //   	definition: definition,
 //   	definitionSubstitutions: map[string]*string{
@@ -8990,28 +8398,28 @@ type CfnStateMachine_TracingConfigurationProperty struct {
 //
 type CfnStateMachineProps struct {
 	// `AWS::Serverless::StateMachine.Definition`.
-	Definition interface{} `json:"definition" yaml:"definition"`
+	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
 	// `AWS::Serverless::StateMachine.DefinitionSubstitutions`.
-	DefinitionSubstitutions interface{} `json:"definitionSubstitutions" yaml:"definitionSubstitutions"`
+	DefinitionSubstitutions interface{} `field:"optional" json:"definitionSubstitutions" yaml:"definitionSubstitutions"`
 	// `AWS::Serverless::StateMachine.DefinitionUri`.
-	DefinitionUri interface{} `json:"definitionUri" yaml:"definitionUri"`
+	DefinitionUri interface{} `field:"optional" json:"definitionUri" yaml:"definitionUri"`
 	// `AWS::Serverless::StateMachine.Events`.
-	Events interface{} `json:"events" yaml:"events"`
+	Events interface{} `field:"optional" json:"events" yaml:"events"`
 	// `AWS::Serverless::StateMachine.Logging`.
-	Logging interface{} `json:"logging" yaml:"logging"`
+	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`
 	// `AWS::Serverless::StateMachine.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// `AWS::Serverless::StateMachine.PermissionsBoundaries`.
-	PermissionsBoundaries *string `json:"permissionsBoundaries" yaml:"permissionsBoundaries"`
+	PermissionsBoundaries *string `field:"optional" json:"permissionsBoundaries" yaml:"permissionsBoundaries"`
 	// `AWS::Serverless::StateMachine.Policies`.
-	Policies interface{} `json:"policies" yaml:"policies"`
+	Policies interface{} `field:"optional" json:"policies" yaml:"policies"`
 	// `AWS::Serverless::StateMachine.Role`.
-	Role *string `json:"role" yaml:"role"`
+	Role *string `field:"optional" json:"role" yaml:"role"`
 	// `AWS::Serverless::StateMachine.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// `AWS::Serverless::StateMachine.Tracing`.
-	Tracing interface{} `json:"tracing" yaml:"tracing"`
+	Tracing interface{} `field:"optional" json:"tracing" yaml:"tracing"`
 	// `AWS::Serverless::StateMachine.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

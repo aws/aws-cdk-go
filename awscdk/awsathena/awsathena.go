@@ -1,12 +1,12 @@
 package awsathena
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsathena/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsathena/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::Athena::DataCatalog`.
@@ -14,8 +14,11 @@ import (
 // The AWS::Athena::DataCatalog resource specifies an Amazon Athena data catalog, which contains a name, description, type, parameters, and tags. For more information, see [DataCatalog](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html) in the *Amazon Athena API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
-//   cfnDataCatalog := athena.NewCfnDataCatalog(this, jsii.String("MyCfnDataCatalog"), &cfnDataCatalogProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDataCatalog := awscdk.Aws_athena.NewCfnDataCatalog(this, jsii.String("MyCfnDataCatalog"), &cfnDataCatalogProps{
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
 //
@@ -36,16 +39,13 @@ type CfnDataCatalog interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A description of the data catalog.
 	Description() *string
@@ -59,16 +59,14 @@ type CfnDataCatalog interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the data catalog.
 	//
 	// The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Specifies the Lambda function or functions to use for the data catalog.
 	//
 	// The mapping used depends on the catalog type.
@@ -97,12 +95,10 @@ type CfnDataCatalog interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The tags (key-value pairs) to associate with this resource.
 	Tags() awscdk.TagManager
@@ -113,16 +109,13 @@ type CfnDataCatalog interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -131,7 +124,6 @@ type CfnDataCatalog interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -176,15 +168,12 @@ type CfnDataCatalog interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -195,13 +184,11 @@ type CfnDataCatalog interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -210,74 +197,21 @@ type CfnDataCatalog interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -357,8 +291,8 @@ func (j *jsiiProxy_CfnDataCatalog) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataCatalog) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnDataCatalog) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -429,13 +363,13 @@ func (j *jsiiProxy_CfnDataCatalog) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Athena::DataCatalog`.
-func NewCfnDataCatalog(scope awscdk.Construct, id *string, props *CfnDataCatalogProps) CfnDataCatalog {
+func NewCfnDataCatalog(scope constructs.Construct, id *string, props *CfnDataCatalogProps) CfnDataCatalog {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDataCatalog{}
 
 	_jsii_.Create(
-		"monocdk.aws_athena.CfnDataCatalog",
+		"aws-cdk-lib.aws_athena.CfnDataCatalog",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -444,11 +378,11 @@ func NewCfnDataCatalog(scope awscdk.Construct, id *string, props *CfnDataCatalog
 }
 
 // Create a new `AWS::Athena::DataCatalog`.
-func NewCfnDataCatalog_Override(c CfnDataCatalog, scope awscdk.Construct, id *string, props *CfnDataCatalogProps) {
+func NewCfnDataCatalog_Override(c CfnDataCatalog, scope constructs.Construct, id *string, props *CfnDataCatalogProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_athena.CfnDataCatalog",
+		"aws-cdk-lib.aws_athena.CfnDataCatalog",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -492,14 +426,13 @@ func (j *jsiiProxy_CfnDataCatalog) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDataCatalog_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_athena.CfnDataCatalog",
+		"aws-cdk-lib.aws_athena.CfnDataCatalog",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -509,14 +442,13 @@ func CfnDataCatalog_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDataCatalog_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_athena.CfnDataCatalog",
+		"aws-cdk-lib.aws_athena.CfnDataCatalog",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -525,15 +457,17 @@ func CfnDataCatalog_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnDataCatalog_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_athena.CfnDataCatalog",
+		"aws-cdk-lib.aws_athena.CfnDataCatalog",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -546,7 +480,7 @@ func CfnDataCatalog_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_athena.CfnDataCatalog",
+		"aws-cdk-lib.aws_athena.CfnDataCatalog",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -643,48 +577,11 @@ func (c *jsiiProxy_CfnDataCatalog) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnDataCatalog) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnDataCatalog) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnDataCatalog) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnDataCatalog) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnDataCatalog) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -714,33 +611,12 @@ func (c *jsiiProxy_CfnDataCatalog) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnDataCatalog) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnDataCatalog) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnDataCatalog) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -759,7 +635,10 @@ func (c *jsiiProxy_CfnDataCatalog) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDataCatalog`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDataCatalogProps := &cfnDataCatalogProps{
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
@@ -781,11 +660,11 @@ type CfnDataCatalogProps struct {
 	// The name of the data catalog.
 	//
 	// The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// A description of the data catalog.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies the Lambda function or functions to use for the data catalog.
 	//
 	// The mapping used depends on the catalog type.
@@ -808,9 +687,9 @@ type CfnDataCatalogProps struct {
 	// - The `GLUE` data catalog type also applies to the default `AwsDataCatalog` that already exists in your account, of which you can have only one and cannot modify.
 	// - Queries that specify a GLUE data catalog other than the default `AwsDataCatalog` must be run on Athena engine version 2.
 	// - In Regions where Athena engine version 2 is not available, creating new GLUE data catalogs results in an `INVALID_INPUT` error.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The tags (key-value pairs) to associate with this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Athena::NamedQuery`.
@@ -818,8 +697,11 @@ type CfnDataCatalogProps struct {
 // The `AWS::Athena::NamedQuery` resource specifies an Amazon Athena saved query, where `QueryString` contains the SQL query statements that make up the query.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
-//   cfnNamedQuery := athena.NewCfnNamedQuery(this, jsii.String("MyCfnNamedQuery"), &cfnNamedQueryProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNamedQuery := awscdk.Aws_athena.NewCfnNamedQuery(this, jsii.String("MyCfnNamedQuery"), &cfnNamedQueryProps{
 //   	database: jsii.String("database"),
 //   	queryString: jsii.String("queryString"),
 //
@@ -835,16 +717,13 @@ type CfnNamedQuery interface {
 	// The unique ID of the query.
 	AttrNamedQueryId() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The database to which the query belongs.
 	Database() *string
@@ -861,14 +740,12 @@ type CfnNamedQuery interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The query name.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The SQL statements that make up the query.
 	QueryString() *string
 	SetQueryString(val *string)
@@ -876,30 +753,25 @@ type CfnNamedQuery interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The name of the workgroup that contains the named query.
 	WorkGroup() *string
 	SetWorkGroup(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -908,7 +780,6 @@ type CfnNamedQuery interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -953,15 +824,12 @@ type CfnNamedQuery interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -972,13 +840,11 @@ type CfnNamedQuery interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -987,74 +853,21 @@ type CfnNamedQuery interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1154,8 +967,8 @@ func (j *jsiiProxy_CfnNamedQuery) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNamedQuery) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnNamedQuery) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1216,13 +1029,13 @@ func (j *jsiiProxy_CfnNamedQuery) WorkGroup() *string {
 
 
 // Create a new `AWS::Athena::NamedQuery`.
-func NewCfnNamedQuery(scope awscdk.Construct, id *string, props *CfnNamedQueryProps) CfnNamedQuery {
+func NewCfnNamedQuery(scope constructs.Construct, id *string, props *CfnNamedQueryProps) CfnNamedQuery {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnNamedQuery{}
 
 	_jsii_.Create(
-		"monocdk.aws_athena.CfnNamedQuery",
+		"aws-cdk-lib.aws_athena.CfnNamedQuery",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1231,11 +1044,11 @@ func NewCfnNamedQuery(scope awscdk.Construct, id *string, props *CfnNamedQueryPr
 }
 
 // Create a new `AWS::Athena::NamedQuery`.
-func NewCfnNamedQuery_Override(c CfnNamedQuery, scope awscdk.Construct, id *string, props *CfnNamedQueryProps) {
+func NewCfnNamedQuery_Override(c CfnNamedQuery, scope constructs.Construct, id *string, props *CfnNamedQueryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_athena.CfnNamedQuery",
+		"aws-cdk-lib.aws_athena.CfnNamedQuery",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1287,14 +1100,13 @@ func (j *jsiiProxy_CfnNamedQuery) SetWorkGroup(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnNamedQuery_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_athena.CfnNamedQuery",
+		"aws-cdk-lib.aws_athena.CfnNamedQuery",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1304,14 +1116,13 @@ func CfnNamedQuery_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnNamedQuery_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_athena.CfnNamedQuery",
+		"aws-cdk-lib.aws_athena.CfnNamedQuery",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1320,15 +1131,17 @@ func CfnNamedQuery_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnNamedQuery_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_athena.CfnNamedQuery",
+		"aws-cdk-lib.aws_athena.CfnNamedQuery",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1341,7 +1154,7 @@ func CfnNamedQuery_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_athena.CfnNamedQuery",
+		"aws-cdk-lib.aws_athena.CfnNamedQuery",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1438,48 +1251,11 @@ func (c *jsiiProxy_CfnNamedQuery) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnNamedQuery) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnNamedQuery) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnNamedQuery) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnNamedQuery) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnNamedQuery) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1509,33 +1285,12 @@ func (c *jsiiProxy_CfnNamedQuery) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnNamedQuery) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnNamedQuery) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnNamedQuery) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1554,7 +1309,10 @@ func (c *jsiiProxy_CfnNamedQuery) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnNamedQuery`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNamedQueryProps := &cfnNamedQueryProps{
 //   	database: jsii.String("database"),
 //   	queryString: jsii.String("queryString"),
@@ -1567,15 +1325,15 @@ func (c *jsiiProxy_CfnNamedQuery) ValidateProperties(_properties interface{}) {
 //
 type CfnNamedQueryProps struct {
 	// The database to which the query belongs.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// The SQL statements that make up the query.
-	QueryString *string `json:"queryString" yaml:"queryString"`
+	QueryString *string `field:"required" json:"queryString" yaml:"queryString"`
 	// The query description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The query name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The name of the workgroup that contains the named query.
-	WorkGroup *string `json:"workGroup" yaml:"workGroup"`
+	WorkGroup *string `field:"optional" json:"workGroup" yaml:"workGroup"`
 }
 
 // A CloudFormation `AWS::Athena::PreparedStatement`.
@@ -1583,8 +1341,11 @@ type CfnNamedQueryProps struct {
 // Specifies a prepared statement for use with SQL queries in Athena.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
-//   cfnPreparedStatement := athena.NewCfnPreparedStatement(this, jsii.String("MyCfnPreparedStatement"), &cfnPreparedStatementProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPreparedStatement := awscdk.Aws_athena.NewCfnPreparedStatement(this, jsii.String("MyCfnPreparedStatement"), &cfnPreparedStatementProps{
 //   	queryStatement: jsii.String("queryStatement"),
 //   	statementName: jsii.String("statementName"),
 //   	workGroup: jsii.String("workGroup"),
@@ -1597,16 +1358,13 @@ type CfnPreparedStatement interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The description of the prepared statement.
 	Description() *string
@@ -1620,11 +1378,9 @@ type CfnPreparedStatement interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The query string for the prepared statement.
 	QueryStatement() *string
 	SetQueryStatement(val *string)
@@ -1632,12 +1388,10 @@ type CfnPreparedStatement interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The name of the prepared statement.
 	StatementName() *string
@@ -1646,19 +1400,16 @@ type CfnPreparedStatement interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The workgroup to which the prepared statement belongs.
 	WorkGroup() *string
 	SetWorkGroup(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1667,7 +1418,6 @@ type CfnPreparedStatement interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1712,15 +1462,12 @@ type CfnPreparedStatement interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1731,13 +1478,11 @@ type CfnPreparedStatement interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1746,74 +1491,21 @@ type CfnPreparedStatement interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1883,8 +1575,8 @@ func (j *jsiiProxy_CfnPreparedStatement) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPreparedStatement) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnPreparedStatement) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1955,13 +1647,13 @@ func (j *jsiiProxy_CfnPreparedStatement) WorkGroup() *string {
 
 
 // Create a new `AWS::Athena::PreparedStatement`.
-func NewCfnPreparedStatement(scope awscdk.Construct, id *string, props *CfnPreparedStatementProps) CfnPreparedStatement {
+func NewCfnPreparedStatement(scope constructs.Construct, id *string, props *CfnPreparedStatementProps) CfnPreparedStatement {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPreparedStatement{}
 
 	_jsii_.Create(
-		"monocdk.aws_athena.CfnPreparedStatement",
+		"aws-cdk-lib.aws_athena.CfnPreparedStatement",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1970,11 +1662,11 @@ func NewCfnPreparedStatement(scope awscdk.Construct, id *string, props *CfnPrepa
 }
 
 // Create a new `AWS::Athena::PreparedStatement`.
-func NewCfnPreparedStatement_Override(c CfnPreparedStatement, scope awscdk.Construct, id *string, props *CfnPreparedStatementProps) {
+func NewCfnPreparedStatement_Override(c CfnPreparedStatement, scope constructs.Construct, id *string, props *CfnPreparedStatementProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_athena.CfnPreparedStatement",
+		"aws-cdk-lib.aws_athena.CfnPreparedStatement",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2018,14 +1710,13 @@ func (j *jsiiProxy_CfnPreparedStatement) SetWorkGroup(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnPreparedStatement_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_athena.CfnPreparedStatement",
+		"aws-cdk-lib.aws_athena.CfnPreparedStatement",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2035,14 +1726,13 @@ func CfnPreparedStatement_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnPreparedStatement_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_athena.CfnPreparedStatement",
+		"aws-cdk-lib.aws_athena.CfnPreparedStatement",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2051,15 +1741,17 @@ func CfnPreparedStatement_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnPreparedStatement_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_athena.CfnPreparedStatement",
+		"aws-cdk-lib.aws_athena.CfnPreparedStatement",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2072,7 +1764,7 @@ func CfnPreparedStatement_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_athena.CfnPreparedStatement",
+		"aws-cdk-lib.aws_athena.CfnPreparedStatement",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2169,48 +1861,11 @@ func (c *jsiiProxy_CfnPreparedStatement) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
-func (c *jsiiProxy_CfnPreparedStatement) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnPreparedStatement) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnPreparedStatement) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnPreparedStatement) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnPreparedStatement) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2240,33 +1895,12 @@ func (c *jsiiProxy_CfnPreparedStatement) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnPreparedStatement) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnPreparedStatement) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnPreparedStatement) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2285,7 +1919,10 @@ func (c *jsiiProxy_CfnPreparedStatement) ValidateProperties(_properties interfac
 // Properties for defining a `CfnPreparedStatement`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPreparedStatementProps := &cfnPreparedStatementProps{
 //   	queryStatement: jsii.String("queryStatement"),
 //   	statementName: jsii.String("statementName"),
@@ -2297,13 +1934,13 @@ func (c *jsiiProxy_CfnPreparedStatement) ValidateProperties(_properties interfac
 //
 type CfnPreparedStatementProps struct {
 	// The query string for the prepared statement.
-	QueryStatement *string `json:"queryStatement" yaml:"queryStatement"`
+	QueryStatement *string `field:"required" json:"queryStatement" yaml:"queryStatement"`
 	// The name of the prepared statement.
-	StatementName *string `json:"statementName" yaml:"statementName"`
+	StatementName *string `field:"required" json:"statementName" yaml:"statementName"`
 	// The workgroup to which the prepared statement belongs.
-	WorkGroup *string `json:"workGroup" yaml:"workGroup"`
+	WorkGroup *string `field:"required" json:"workGroup" yaml:"workGroup"`
 	// The description of the prepared statement.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::Athena::WorkGroup`.
@@ -2311,8 +1948,11 @@ type CfnPreparedStatementProps struct {
 // The AWS::Athena::WorkGroup resource specifies an Amazon Athena workgroup, which contains a name, description, creation time, state, and other configuration, listed under `WorkGroupConfiguration` . Each workgroup enables you to isolate queries for you or your group from other queries in the same account. For more information, see [CreateWorkGroup](https://docs.aws.amazon.com/athena/latest/APIReference/API_CreateWorkGroup.html) in the *Amazon Athena API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
-//   cfnWorkGroup := athena.NewCfnWorkGroup(this, jsii.String("MyCfnWorkGroup"), &cfnWorkGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnWorkGroup := awscdk.Aws_athena.NewCfnWorkGroup(this, jsii.String("MyCfnWorkGroup"), &cfnWorkGroupProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -2355,16 +1995,13 @@ type CfnWorkGroup interface {
 	AttrCreationTime() *string
 	AttrWorkGroupConfigurationEngineVersionEffectiveEngineVersion() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The workgroup description.
 	Description() *string
@@ -2378,14 +2015,12 @@ type CfnWorkGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The workgroup name.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The option to delete a workgroup and its contents even if the workgroup contains any named queries.
 	//
 	// The default is false.
@@ -2395,12 +2030,10 @@ type CfnWorkGroup interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The state of the workgroup: ENABLED or DISABLED.
 	State() *string
@@ -2411,7 +2044,6 @@ type CfnWorkGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch Metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is specified.
 	//
@@ -2419,13 +2051,11 @@ type CfnWorkGroup interface {
 	WorkGroupConfiguration() interface{}
 	SetWorkGroupConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2434,7 +2064,6 @@ type CfnWorkGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2479,15 +2108,12 @@ type CfnWorkGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2498,13 +2124,11 @@ type CfnWorkGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2513,74 +2137,21 @@ type CfnWorkGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2680,8 +2251,8 @@ func (j *jsiiProxy_CfnWorkGroup) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnWorkGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2762,13 +2333,13 @@ func (j *jsiiProxy_CfnWorkGroup) WorkGroupConfiguration() interface{} {
 
 
 // Create a new `AWS::Athena::WorkGroup`.
-func NewCfnWorkGroup(scope awscdk.Construct, id *string, props *CfnWorkGroupProps) CfnWorkGroup {
+func NewCfnWorkGroup(scope constructs.Construct, id *string, props *CfnWorkGroupProps) CfnWorkGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWorkGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_athena.CfnWorkGroup",
+		"aws-cdk-lib.aws_athena.CfnWorkGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2777,11 +2348,11 @@ func NewCfnWorkGroup(scope awscdk.Construct, id *string, props *CfnWorkGroupProp
 }
 
 // Create a new `AWS::Athena::WorkGroup`.
-func NewCfnWorkGroup_Override(c CfnWorkGroup, scope awscdk.Construct, id *string, props *CfnWorkGroupProps) {
+func NewCfnWorkGroup_Override(c CfnWorkGroup, scope constructs.Construct, id *string, props *CfnWorkGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_athena.CfnWorkGroup",
+		"aws-cdk-lib.aws_athena.CfnWorkGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2833,14 +2404,13 @@ func (j *jsiiProxy_CfnWorkGroup) SetWorkGroupConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnWorkGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_athena.CfnWorkGroup",
+		"aws-cdk-lib.aws_athena.CfnWorkGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2850,14 +2420,13 @@ func CfnWorkGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnWorkGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_athena.CfnWorkGroup",
+		"aws-cdk-lib.aws_athena.CfnWorkGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2866,15 +2435,17 @@ func CfnWorkGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnWorkGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_athena.CfnWorkGroup",
+		"aws-cdk-lib.aws_athena.CfnWorkGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2887,7 +2458,7 @@ func CfnWorkGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_athena.CfnWorkGroup",
+		"aws-cdk-lib.aws_athena.CfnWorkGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2984,48 +2555,11 @@ func (c *jsiiProxy_CfnWorkGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnWorkGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnWorkGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnWorkGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnWorkGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnWorkGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3055,33 +2589,12 @@ func (c *jsiiProxy_CfnWorkGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnWorkGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnWorkGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnWorkGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3100,7 +2613,10 @@ func (c *jsiiProxy_CfnWorkGroup) ValidateProperties(_properties interface{}) {
 // If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionConfigurationProperty := &encryptionConfigurationProperty{
 //   	encryptionOption: jsii.String("encryptionOption"),
 //
@@ -3112,15 +2628,18 @@ type CfnWorkGroup_EncryptionConfigurationProperty struct {
 	// Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys ( `SSE_S3` ), server-side encryption with KMS-managed keys ( `SSE_KMS` ), or client-side encryption with KMS-managed keys ( `CSE_KMS` ) is used.
 	//
 	// If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-	EncryptionOption *string `json:"encryptionOption" yaml:"encryptionOption"`
+	EncryptionOption *string `field:"required" json:"encryptionOption" yaml:"encryptionOption"`
 	// For `SSE_KMS` and `CSE_KMS` , this is the KMS key ARN or ID.
-	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey *string `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 
 // The Athena engine version for running queries.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   engineVersionProperty := &engineVersionProperty{
 //   	effectiveEngineVersion: jsii.String("effectiveEngineVersion"),
 //   	selectedEngineVersion: jsii.String("selectedEngineVersion"),
@@ -3130,11 +2649,11 @@ type CfnWorkGroup_EngineVersionProperty struct {
 	// Read only.
 	//
 	// The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a `CreateWorkGroup` or `UpdateWorkGroup` operation, the `EffectiveEngineVersion` field is ignored.
-	EffectiveEngineVersion *string `json:"effectiveEngineVersion" yaml:"effectiveEngineVersion"`
+	EffectiveEngineVersion *string `field:"optional" json:"effectiveEngineVersion" yaml:"effectiveEngineVersion"`
 	// The engine version requested by the user.
 	//
 	// Possible values are determined by the output of `ListEngineVersions` , including Auto. The default is Auto.
-	SelectedEngineVersion *string `json:"selectedEngineVersion" yaml:"selectedEngineVersion"`
+	SelectedEngineVersion *string `field:"optional" json:"selectedEngineVersion" yaml:"selectedEngineVersion"`
 }
 
 // The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.
@@ -3142,7 +2661,10 @@ type CfnWorkGroup_EngineVersionProperty struct {
 // These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resultConfigurationProperty := &resultConfigurationProperty{
 //   	encryptionConfiguration: &encryptionConfigurationProperty{
 //   		encryptionOption: jsii.String("encryptionOption"),
@@ -3157,11 +2679,11 @@ type CfnWorkGroup_ResultConfigurationProperty struct {
 	// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information.
 	//
 	// This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` .
 	//
 	// To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
-	OutputLocation *string `json:"outputLocation" yaml:"outputLocation"`
+	OutputLocation *string `field:"optional" json:"outputLocation" yaml:"outputLocation"`
 }
 
 // The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch Metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is specified.
@@ -3169,7 +2691,10 @@ type CfnWorkGroup_ResultConfigurationProperty struct {
 // The `EnforceWorkGroupConfiguration` option determines whether workgroup settings override client-side query settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   workGroupConfigurationProperty := &workGroupConfigurationProperty{
 //   	bytesScannedCutoffPerQuery: jsii.Number(123),
 //   	enforceWorkGroupConfiguration: jsii.Boolean(false),
@@ -3196,31 +2721,34 @@ type CfnWorkGroup_WorkGroupConfigurationProperty struct {
 	// No default is defined.
 	//
 	// > This property currently supports integer types. Support for long values is planned.
-	BytesScannedCutoffPerQuery *float64 `json:"bytesScannedCutoffPerQuery" yaml:"bytesScannedCutoffPerQuery"`
+	BytesScannedCutoffPerQuery *float64 `field:"optional" json:"bytesScannedCutoffPerQuery" yaml:"bytesScannedCutoffPerQuery"`
 	// If set to "true", the settings for the workgroup override client-side settings.
 	//
 	// If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	EnforceWorkGroupConfiguration interface{} `json:"enforceWorkGroupConfiguration" yaml:"enforceWorkGroupConfiguration"`
+	EnforceWorkGroupConfiguration interface{} `field:"optional" json:"enforceWorkGroupConfiguration" yaml:"enforceWorkGroupConfiguration"`
 	// The engine version that all queries running on the workgroup use.
 	//
 	// Queries on the `AmazonAthenaPreviewFunctionality` workgroup run on the preview engine regardless of this setting.
-	EngineVersion interface{} `json:"engineVersion" yaml:"engineVersion"`
+	EngineVersion interface{} `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
-	PublishCloudWatchMetricsEnabled interface{} `json:"publishCloudWatchMetricsEnabled" yaml:"publishCloudWatchMetricsEnabled"`
+	PublishCloudWatchMetricsEnabled interface{} `field:"optional" json:"publishCloudWatchMetricsEnabled" yaml:"publishCloudWatchMetricsEnabled"`
 	// If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries.
 	//
 	// If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
-	RequesterPaysEnabled interface{} `json:"requesterPaysEnabled" yaml:"requesterPaysEnabled"`
+	RequesterPaysEnabled interface{} `field:"optional" json:"requesterPaysEnabled" yaml:"requesterPaysEnabled"`
 	// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.
 	//
 	// For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
-	ResultConfiguration interface{} `json:"resultConfiguration" yaml:"resultConfiguration"`
+	ResultConfiguration interface{} `field:"optional" json:"resultConfiguration" yaml:"resultConfiguration"`
 }
 
 // Properties for defining a `CfnWorkGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnWorkGroupProps := &cfnWorkGroupProps{
 //   	name: jsii.String("name"),
 //
@@ -3257,20 +2785,20 @@ type CfnWorkGroup_WorkGroupConfigurationProperty struct {
 //
 type CfnWorkGroupProps struct {
 	// The workgroup name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The workgroup description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The option to delete a workgroup and its contents even if the workgroup contains any named queries.
 	//
 	// The default is false.
-	RecursiveDeleteOption interface{} `json:"recursiveDeleteOption" yaml:"recursiveDeleteOption"`
+	RecursiveDeleteOption interface{} `field:"optional" json:"recursiveDeleteOption" yaml:"recursiveDeleteOption"`
 	// The state of the workgroup: ENABLED or DISABLED.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 	// The tags (key-value pairs) to associate with this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch Metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is specified.
 	//
 	// The `EnforceWorkGroupConfiguration` option determines whether workgroup settings override client-side query settings.
-	WorkGroupConfiguration interface{} `json:"workGroupConfiguration" yaml:"workGroupConfiguration"`
+	WorkGroupConfiguration interface{} `field:"optional" json:"workGroupConfiguration" yaml:"workGroupConfiguration"`
 }
 

@@ -1,26 +1,28 @@
 package awscloudtrail
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudtrail/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudtrail/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Options for adding an event selector.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sourceBucket bucket
+//
 //   sourceOutput := codepipeline.NewArtifact()
 //   key := "some/key.zip"
 //   trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"))
@@ -40,17 +42,13 @@ import (
 //   	trigger: codepipeline_actions.s3Trigger_EVENTS,
 //   })
 //
-// Experimental.
 type AddEventSelectorOptions struct {
 	// An optional list of service event sources from which you do not want management events to be logged on your trail.
-	// Experimental.
-	ExcludeManagementEventSources *[]ManagementEventSources `json:"excludeManagementEventSources" yaml:"excludeManagementEventSources"`
+	ExcludeManagementEventSources *[]ManagementEventSources `field:"optional" json:"excludeManagementEventSources" yaml:"excludeManagementEventSources"`
 	// Specifies whether the event selector includes management events for the trail.
-	// Experimental.
-	IncludeManagementEvents *bool `json:"includeManagementEvents" yaml:"includeManagementEvents"`
+	IncludeManagementEvents *bool `field:"optional" json:"includeManagementEvents" yaml:"includeManagementEvents"`
 	// Specifies whether to log read-only events, write-only events, or all events.
-	// Experimental.
-	ReadWriteType ReadWriteType `json:"readWriteType" yaml:"readWriteType"`
+	ReadWriteType ReadWriteType `field:"optional" json:"readWriteType" yaml:"readWriteType"`
 }
 
 // A CloudFormation `AWS::CloudTrail::Trail`.
@@ -58,8 +56,11 @@ type AddEventSelectorOptions struct {
 // Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudtrail "github.com/aws/aws-cdk-go/awscdk/aws_cloudtrail"
-//   cfnTrail := cloudtrail.NewCfnTrail(this, jsii.String("MyCfnTrail"), &cfnTrailProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTrail := awscdk.Aws_cloudtrail.NewCfnTrail(this, jsii.String("MyCfnTrail"), &cfnTrailProps{
 //   	isLogging: jsii.Boolean(false),
 //   	s3BucketName: jsii.String("s3BucketName"),
 //
@@ -114,11 +115,9 @@ type CfnTrail interface {
 	// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
 	AttrSnsTopicArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs are delivered.
 	//
@@ -131,7 +130,6 @@ type CfnTrail interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Specifies whether log file validation is enabled. The default is false.
 	//
@@ -150,7 +148,7 @@ type CfnTrail interface {
 	// Specifies whether the trail is publishing events from global services such as IAM to the log files.
 	IncludeGlobalServiceEvents() interface{}
 	SetIncludeGlobalServiceEvents(val interface{})
-	// Specifies whether a trail has insight types specified in an `InsightSelector` list.
+	// `AWS::CloudTrail::Trail.InsightSelectors`.
 	InsightSelectors() interface{}
 	SetInsightSelectors(val interface{})
 	// Whether the CloudTrail trail is currently logging AWS API calls.
@@ -161,9 +159,9 @@ type CfnTrail interface {
 	// The default is false. If the trail exists only in the current region and this value is set to true, shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider using trails that log events in all regions.
 	IsMultiRegionTrail() interface{}
 	SetIsMultiRegionTrail(val interface{})
-	// Specifies whether the trail is created for all accounts in an organization in AWS Organizations , or only for the current AWS account .
+	// Specifies whether the trail is applied to all accounts in an organization in AWS Organizations , or only for the current AWS account .
 	//
-	// The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the management account for an organization in AWS Organizations .
+	// The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the management account for an organization in AWS Organizations . If the trail is not an organization trail and this is set to `true` , the trail will be created in all AWS accounts that belong to the organization. If the trail is an organization trail and this is set to `false` , the trail will remain in the current AWS account but be deleted from all member accounts in the organization.
 	IsOrganizationTrail() interface{}
 	SetIsOrganizationTrail(val interface{})
 	// Specifies the AWS KMS key ID to use to encrypt the logs delivered by CloudTrail.
@@ -189,16 +187,13 @@ type CfnTrail interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Specifies the name of the Amazon S3 bucket designated for publishing log files.
 	//
@@ -218,7 +213,6 @@ type CfnTrail interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A custom set of tags (key-value pairs) for this trail.
 	Tags() awscdk.TagManager
@@ -235,16 +229,13 @@ type CfnTrail interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -253,7 +244,6 @@ type CfnTrail interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -298,15 +288,12 @@ type CfnTrail interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -317,13 +304,11 @@ type CfnTrail interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -332,74 +317,21 @@ type CfnTrail interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -579,8 +511,8 @@ func (j *jsiiProxy_CfnTrail) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrail) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnTrail) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -671,13 +603,13 @@ func (j *jsiiProxy_CfnTrail) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::CloudTrail::Trail`.
-func NewCfnTrail(scope awscdk.Construct, id *string, props *CfnTrailProps) CfnTrail {
+func NewCfnTrail(scope constructs.Construct, id *string, props *CfnTrailProps) CfnTrail {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTrail{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudtrail.CfnTrail",
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -686,11 +618,11 @@ func NewCfnTrail(scope awscdk.Construct, id *string, props *CfnTrailProps) CfnTr
 }
 
 // Create a new `AWS::CloudTrail::Trail`.
-func NewCfnTrail_Override(c CfnTrail, scope awscdk.Construct, id *string, props *CfnTrailProps) {
+func NewCfnTrail_Override(c CfnTrail, scope constructs.Construct, id *string, props *CfnTrailProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudtrail.CfnTrail",
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -814,14 +746,13 @@ func (j *jsiiProxy_CfnTrail) SetTrailName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnTrail_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudtrail.CfnTrail",
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -831,14 +762,13 @@ func CfnTrail_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnTrail_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudtrail.CfnTrail",
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -847,15 +777,17 @@ func CfnTrail_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnTrail_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudtrail.CfnTrail",
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -868,7 +800,7 @@ func CfnTrail_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cloudtrail.CfnTrail",
+		"aws-cdk-lib.aws_cloudtrail.CfnTrail",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -965,48 +897,11 @@ func (c *jsiiProxy_CfnTrail) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnTrail) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnTrail) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnTrail) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnTrail) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnTrail) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1036,33 +931,12 @@ func (c *jsiiProxy_CfnTrail) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnTrail) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnTrail) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnTrail) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1078,9 +952,9 @@ func (c *jsiiProxy_CfnTrail) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// The Amazon S3 buckets, AWS Lambda functions, or Amazon DynamoDB tables that you specify in your event selectors for your trail to log data events.
+// The Amazon S3 buckets, AWS Lambda functions, or Amazon DynamoDB tables that you specify in event selectors in your AWS CloudFormation template for your trail to log data events.
 //
-// Data events provide information about the resource operations performed on or within a resource itself. These are also known as data plane operations. You can specify up to 250 data resources for a trail.
+// Data events provide information about the resource operations performed on or within a resource itself. These are also known as data plane operations. You can specify up to 250 data resources for a trail. Currently, advanced event selectors for data events are not supported in AWS CloudFormation templates.
 //
 // > The total number of allowed data resources is 250. This number can be distributed between 1 and 5 event selectors, but the total cannot exceed 250 across all selectors.
 // >
@@ -1100,7 +974,10 @@ func (c *jsiiProxy_CfnTrail) ValidateProperties(_properties interface{}) {
 // - The `Invoke` API operation on *MyOtherLambdaFunction* is an Lambda API. Because the CloudTrail user did not specify logging data events for all Lambda functions, the `Invoke` operation for *MyOtherLambdaFunction* does not match the function specified for the trail. The trail doesn’t log the event.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudtrail "github.com/aws/aws-cdk-go/awscdk/aws_cloudtrail"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataResourceProperty := &dataResourceProperty{
 //   	type: jsii.String("type"),
 //
@@ -1117,20 +994,11 @@ type CfnTrail_DataResourceProperty struct {
 	//
 	// - `AWS::S3::Object`
 	// - `AWS::Lambda::Function`
-	// - `AWS::DynamoDB::Table`
-	//
-	// The following resource types are also availble through *advanced* event selectors. Basic event selector resource types are valid in advanced event selectors, but advanced event selector resource types are not valid in basic event selectors. For more information, see [AdvancedFieldSelector:Field](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html#awscloudtrail-Type-AdvancedFieldSelector-Field) .
-	//
-	// - `AWS::S3Outposts::Object`
-	// - `AWS::ManagedBlockchain::Node`
-	// - `AWS::S3ObjectLambda::AccessPoint`
-	// - `AWS::EC2::Snapshot`
-	// - `AWS::S3::AccessPoint`
-	// - `AWS::DynamoDB::Stream`.
-	Type *string `json:"type" yaml:"type"`
+	// - `AWS::DynamoDB::Table`.
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
 	//
-	// - To log data events for all objects in all S3 buckets in your AWS account , specify the prefix as `arn:aws:s3:::` .
+	// - To log data events for all objects in all S3 buckets in your AWS account , specify the prefix as `arn:aws:s3` .
 	//
 	// > This also enables logging of data event activity performed by any user or role in your AWS account , even if that activity is performed on a bucket that belongs to another AWS account .
 	// - To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as `arn:aws:s3:::bucket-1/` . The trail logs data events for all objects in this S3 bucket.
@@ -1142,7 +1010,7 @@ type CfnTrail_DataResourceProperty struct {
 	//
 	// > Lambda function ARNs are exact. For example, if you specify a function ARN *arn:aws:lambda:us-west-2:111111111111:function:helloworld* , data events will only be logged for *arn:aws:lambda:us-west-2:111111111111:function:helloworld* . They will not be logged for *arn:aws:lambda:us-west-2:111111111111:function:helloworld2* .
 	// - To log data events for all DynamoDB tables in your AWS account , specify the prefix as `arn:aws:dynamodb` .
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // Use event selectors to further specify the management and data event settings for your trail.
@@ -1154,7 +1022,10 @@ type CfnTrail_DataResourceProperty struct {
 // You cannot apply both event selectors and advanced event selectors to a trail.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudtrail "github.com/aws/aws-cdk-go/awscdk/aws_cloudtrail"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventSelectorProperty := &eventSelectorProperty{
 //   	dataResources: []interface{}{
 //   		&dataResourceProperty{
@@ -1174,16 +1045,16 @@ type CfnTrail_DataResourceProperty struct {
 //   }
 //
 type CfnTrail_EventSelectorProperty struct {
-	// CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions.
+	// In AWS CloudFormation , CloudTrail supports data event logging for Amazon S3 objects, Amazon DynamoDB tables, and AWS Lambda functions.
 	//
-	// You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
+	// Currently, advanced event selectors for data events are not supported in AWS CloudFormation templates. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
 	//
 	// For more information, see [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events) and [Limits in AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in the *AWS CloudTrail User Guide* .
-	DataResources interface{} `json:"dataResources" yaml:"dataResources"`
+	DataResources interface{} `field:"optional" json:"dataResources" yaml:"dataResources"`
 	// An optional list of service event sources from which you do not want management events to be logged on your trail.
 	//
 	// In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service or Amazon RDS Data API events by containing `kms.amazonaws.com` or `rdsdata.amazonaws.com` . By default, `ExcludeManagementEventSources` is empty, and AWS KMS and Amazon RDS Data API events are logged to your trail. You can exclude management event sources only in regions that support the event source.
-	ExcludeManagementEventSources *[]*string `json:"excludeManagementEventSources" yaml:"excludeManagementEventSources"`
+	ExcludeManagementEventSources *[]*string `field:"optional" json:"excludeManagementEventSources" yaml:"excludeManagementEventSources"`
 	// Specify if you want your event selector to include management events for your trail.
 	//
 	// For more information, see [Management Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events) in the *AWS CloudTrail User Guide* .
@@ -1191,19 +1062,22 @@ type CfnTrail_EventSelectorProperty struct {
 	// By default, the value is `true` .
 	//
 	// The first copy of management events is free. You are charged for additional copies of management events that you are logging on any subsequent trail in the same region. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://docs.aws.amazon.com/cloudtrail/pricing/) .
-	IncludeManagementEvents interface{} `json:"includeManagementEvents" yaml:"includeManagementEvents"`
+	IncludeManagementEvents interface{} `field:"optional" json:"includeManagementEvents" yaml:"includeManagementEvents"`
 	// Specify if you want your trail to log read-only events, write-only events, or all.
 	//
 	// For example, the EC2 `GetConsoleOutput` is a read-only API operation and `RunInstances` is a write-only API operation.
 	//
 	// By default, the value is `All` .
-	ReadWriteType *string `json:"readWriteType" yaml:"readWriteType"`
+	ReadWriteType *string `field:"optional" json:"readWriteType" yaml:"readWriteType"`
 }
 
 // A JSON string that contains a list of insight types that are logged on a trail.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudtrail "github.com/aws/aws-cdk-go/awscdk/aws_cloudtrail"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   insightSelectorProperty := &insightSelectorProperty{
 //   	insightType: jsii.String("insightType"),
 //   }
@@ -1212,13 +1086,16 @@ type CfnTrail_InsightSelectorProperty struct {
 	// The type of insights to log on a trail.
 	//
 	// `ApiCallRateInsight` and `ApiErrorRateInsight` are valid insight types.
-	InsightType *string `json:"insightType" yaml:"insightType"`
+	InsightType *string `field:"optional" json:"insightType" yaml:"insightType"`
 }
 
 // Properties for defining a `CfnTrail`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudtrail "github.com/aws/aws-cdk-go/awscdk/aws_cloudtrail"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTrailProps := &cfnTrailProps{
 //   	isLogging: jsii.Boolean(false),
 //   	s3BucketName: jsii.String("s3BucketName"),
@@ -1268,21 +1145,21 @@ type CfnTrail_InsightSelectorProperty struct {
 //
 type CfnTrailProps struct {
 	// Whether the CloudTrail trail is currently logging AWS API calls.
-	IsLogging interface{} `json:"isLogging" yaml:"isLogging"`
+	IsLogging interface{} `field:"required" json:"isLogging" yaml:"isLogging"`
 	// Specifies the name of the Amazon S3 bucket designated for publishing log files.
 	//
 	// See [Amazon S3 Bucket Naming Requirements](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html) .
-	S3BucketName *string `json:"s3BucketName" yaml:"s3BucketName"`
+	S3BucketName *string `field:"required" json:"s3BucketName" yaml:"s3BucketName"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs are delivered.
 	//
 	// Not required unless you specify `CloudWatchLogsRoleArn` .
-	CloudWatchLogsLogGroupArn *string `json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
+	CloudWatchLogsLogGroupArn *string `field:"optional" json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
-	CloudWatchLogsRoleArn *string `json:"cloudWatchLogsRoleArn" yaml:"cloudWatchLogsRoleArn"`
+	CloudWatchLogsRoleArn *string `field:"optional" json:"cloudWatchLogsRoleArn" yaml:"cloudWatchLogsRoleArn"`
 	// Specifies whether log file validation is enabled. The default is false.
 	//
 	// > When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail does not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.
-	EnableLogFileValidation interface{} `json:"enableLogFileValidation" yaml:"enableLogFileValidation"`
+	EnableLogFileValidation interface{} `field:"optional" json:"enableLogFileValidation" yaml:"enableLogFileValidation"`
 	// Use event selectors to further specify the management and data event settings for your trail.
 	//
 	// By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.
@@ -1290,19 +1167,19 @@ type CfnTrailProps struct {
 	// You can configure up to five event selectors for a trail.
 	//
 	// You cannot apply both event selectors and advanced event selectors to a trail.
-	EventSelectors interface{} `json:"eventSelectors" yaml:"eventSelectors"`
+	EventSelectors interface{} `field:"optional" json:"eventSelectors" yaml:"eventSelectors"`
 	// Specifies whether the trail is publishing events from global services such as IAM to the log files.
-	IncludeGlobalServiceEvents interface{} `json:"includeGlobalServiceEvents" yaml:"includeGlobalServiceEvents"`
-	// Specifies whether a trail has insight types specified in an `InsightSelector` list.
-	InsightSelectors interface{} `json:"insightSelectors" yaml:"insightSelectors"`
+	IncludeGlobalServiceEvents interface{} `field:"optional" json:"includeGlobalServiceEvents" yaml:"includeGlobalServiceEvents"`
+	// `AWS::CloudTrail::Trail.InsightSelectors`.
+	InsightSelectors interface{} `field:"optional" json:"insightSelectors" yaml:"insightSelectors"`
 	// Specifies whether the trail applies only to the current region or to all regions.
 	//
 	// The default is false. If the trail exists only in the current region and this value is set to true, shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider using trails that log events in all regions.
-	IsMultiRegionTrail interface{} `json:"isMultiRegionTrail" yaml:"isMultiRegionTrail"`
-	// Specifies whether the trail is created for all accounts in an organization in AWS Organizations , or only for the current AWS account .
+	IsMultiRegionTrail interface{} `field:"optional" json:"isMultiRegionTrail" yaml:"isMultiRegionTrail"`
+	// Specifies whether the trail is applied to all accounts in an organization in AWS Organizations , or only for the current AWS account .
 	//
-	// The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the management account for an organization in AWS Organizations .
-	IsOrganizationTrail interface{} `json:"isOrganizationTrail" yaml:"isOrganizationTrail"`
+	// The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the management account for an organization in AWS Organizations . If the trail is not an organization trail and this is set to `true` , the trail will be created in all AWS accounts that belong to the organization. If the trail is an organization trail and this is set to `false` , the trail will remain in the current AWS account but be deleted from all member accounts in the organization.
+	IsOrganizationTrail interface{} `field:"optional" json:"isOrganizationTrail" yaml:"isOrganizationTrail"`
 	// Specifies the AWS KMS key ID to use to encrypt the logs delivered by CloudTrail.
 	//
 	// The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
@@ -1315,17 +1192,17 @@ type CfnTrailProps struct {
 	// - arn:aws:kms:us-east-2:123456789012:alias/MyAliasName
 	// - arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012
 	// - 12345678-1234-1234-1234-123456789012.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery.
 	//
 	// For more information, see [Finding Your CloudTrail Log Files](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html) . The maximum length is 200 characters.
-	S3KeyPrefix *string `json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
+	S3KeyPrefix *string `field:"optional" json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery.
 	//
 	// The maximum length is 256 characters.
-	SnsTopicName *string `json:"snsTopicName" yaml:"snsTopicName"`
+	SnsTopicName *string `field:"optional" json:"snsTopicName" yaml:"snsTopicName"`
 	// A custom set of tags (key-value pairs) for this trail.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Specifies the name of the trail. The name must meet the following requirements:.
 	//
 	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
@@ -1333,32 +1210,26 @@ type CfnTrailProps struct {
 	// - Be between 3 and 128 characters
 	// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
 	// - Not be in IP address format (for example, 192.168.5.4)
-	TrailName *string `json:"trailName" yaml:"trailName"`
+	TrailName *string `field:"optional" json:"trailName" yaml:"trailName"`
 }
 
 // Resource type for a data event.
-// Experimental.
 type DataResourceType string
 
 const (
 	// Data resource type for Lambda function.
-	// Experimental.
 	DataResourceType_LAMBDA_FUNCTION DataResourceType = "LAMBDA_FUNCTION"
 	// Data resource type for S3 objects.
-	// Experimental.
 	DataResourceType_S3_OBJECT DataResourceType = "S3_OBJECT"
 )
 
 // Types of management event sources that can be excluded.
-// Experimental.
 type ManagementEventSources string
 
 const (
 	// AWS Key Management Service (AWS KMS) events.
-	// Experimental.
 	ManagementEventSources_KMS ManagementEventSources = "KMS"
 	// Data API events.
-	// Experimental.
 	ManagementEventSources_RDS_DATA_API ManagementEventSources = "RDS_DATA_API"
 )
 
@@ -1370,7 +1241,6 @@ const (
 //   	managementEvents: cloudtrail.readWriteType_READ_ONLY,
 //   })
 //
-// Experimental.
 type ReadWriteType string
 
 const (
@@ -1378,28 +1248,28 @@ const (
 	//
 	// For example, read-only events include the Amazon EC2 DescribeSecurityGroups
 	// and DescribeSubnets API operations.
-	// Experimental.
 	ReadWriteType_READ_ONLY ReadWriteType = "READ_ONLY"
 	// Write-only events include API operations that modify (or might modify) your resources.
 	//
 	// For example, the Amazon EC2 RunInstances and TerminateInstances API
 	// operations modify your instances.
-	// Experimental.
 	ReadWriteType_WRITE_ONLY ReadWriteType = "WRITE_ONLY"
 	// All events.
-	// Experimental.
 	ReadWriteType_ALL ReadWriteType = "ALL"
 	// No events.
-	// Experimental.
 	ReadWriteType_NONE ReadWriteType = "NONE"
 )
 
 // Selecting an S3 bucket and an optional prefix to be logged for data events.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudtrail "github.com/aws/aws-cdk-go/awscdk/aws_cloudtrail"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
+//
 //   s3EventSelector := &s3EventSelector{
 //   	bucket: bucket,
 //
@@ -1407,14 +1277,11 @@ const (
 //   	objectPrefix: jsii.String("objectPrefix"),
 //   }
 //
-// Experimental.
 type S3EventSelector struct {
 	// S3 bucket.
-	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// Data events for objects whose key matches this prefix will be logged.
-	// Experimental.
-	ObjectPrefix *string `json:"objectPrefix" yaml:"objectPrefix"`
+	ObjectPrefix *string `field:"optional" json:"objectPrefix" yaml:"objectPrefix"`
 }
 
 // Cloud trail allows you to log events that happen in your AWS account For example:.
@@ -1430,13 +1297,13 @@ type S3EventSelector struct {
 // Example:
 //   import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   myKeyAlias := kms.alias.fromAliasName(this, jsii.String("myKey"), jsii.String("alias/aws/s3"))
 //   trail := cloudtrail.NewTrail(this, jsii.String("myCloudTrail"), &trailProps{
 //   	sendToCloudWatchLogs: jsii.Boolean(true),
 //   	kmsKey: myKeyAlias,
 //   })
 //
-// Experimental.
 type Trail interface {
 	awscdk.Resource
 	// The environment this resource belongs to.
@@ -1447,16 +1314,13 @@ type Trail interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The CloudWatch log group to which CloudTrail events are sent.
 	//
 	// `undefined` if `sendToCloudWatchLogs` property is false.
-	// Experimental.
 	LogGroup() awslogs.ILogGroup
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -1464,16 +1328,12 @@ type Trail interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// ARN of the CloudTrail trail i.e. arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail.
-	// Experimental.
 	TrailArn() *string
 	// ARN of the Amazon SNS topic that's associated with the CloudTrail trail, i.e. arn:aws:sns:us-east-2:123456789012:mySNSTopic.
-	// Experimental.
 	TrailSnsTopicArn() *string
 	// When an event occurs in your account, CloudTrail evaluates whether the event matches the settings for your trails.
 	//
@@ -1483,7 +1343,6 @@ type Trail interface {
 	//
 	// Data events: These events provide insight into the resource operations performed on or within a resource.
 	// These are also known as data plane operations.
-	// Experimental.
 	AddEventSelector(dataResourceType DataResourceType, dataResourceValues *[]*string, options *AddEventSelectorOptions)
 	// When an event occurs in your account, CloudTrail evaluates whether the event matches the settings for your trails.
 	//
@@ -1493,7 +1352,6 @@ type Trail interface {
 	//
 	// Data events: These events provide insight into the resource operations performed on or within a resource.
 	// These are also known as data plane operations.
-	// Experimental.
 	AddLambdaEventSelector(handlers *[]awslambda.IFunction, options *AddEventSelectorOptions)
 	// When an event occurs in your account, CloudTrail evaluates whether the event matches the settings for your trails.
 	//
@@ -1503,7 +1361,6 @@ type Trail interface {
 	//
 	// Data events: These events provide insight into the resource operations performed on or within a resource.
 	// These are also known as data plane operations.
-	// Experimental.
 	AddS3EventSelector(s3Selector *[]*S3EventSelector, options *AddEventSelectorOptions)
 	// Apply the given removal policy to this resource.
 	//
@@ -1514,9 +1371,7 @@ type Trail interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -1524,84 +1379,23 @@ type Trail interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Log all Lamda data events for all lambda functions the account.
 	// See: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html
 	//
-	// Experimental.
 	LogAllLambdaDataEvents(options *AddEventSelectorOptions)
 	// Log all S3 data events for all objects for all buckets in the account.
 	// See: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html
 	//
-	// Experimental.
 	LogAllS3DataEvents(options *AddEventSelectorOptions)
-	// Create an event rule for when an event is recorded by any Trail in the account.
-	//
-	// Note that the event doesn't necessarily have to come from this Trail, it can
-	// be captured from any one.
-	//
-	// Be sure to filter the event further down using an event pattern.
-	// Deprecated: - use Trail.onEvent()
-	OnCloudTrailEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Trail
@@ -1629,8 +1423,8 @@ func (j *jsiiProxy_Trail) LogGroup() awslogs.ILogGroup {
 	return returns
 }
 
-func (j *jsiiProxy_Trail) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Trail) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1680,14 +1474,13 @@ func (j *jsiiProxy_Trail) TrailSnsTopicArn() *string {
 }
 
 
-// Experimental.
 func NewTrail(scope constructs.Construct, id *string, props *TrailProps) Trail {
 	_init_.Initialize()
 
 	j := jsiiProxy_Trail{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudtrail.Trail",
+		"aws-cdk-lib.aws_cloudtrail.Trail",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1695,26 +1488,27 @@ func NewTrail(scope constructs.Construct, id *string, props *TrailProps) Trail {
 	return &j
 }
 
-// Experimental.
 func NewTrail_Override(t Trail, scope constructs.Construct, id *string, props *TrailProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudtrail.Trail",
+		"aws-cdk-lib.aws_cloudtrail.Trail",
 		[]interface{}{scope, id, props},
 		t,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func Trail_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudtrail.Trail",
+		"aws-cdk-lib.aws_cloudtrail.Trail",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1724,14 +1518,13 @@ func Trail_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func Trail_IsResource(construct awscdk.IConstruct) *bool {
+func Trail_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudtrail.Trail",
+		"aws-cdk-lib.aws_cloudtrail.Trail",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1746,14 +1539,13 @@ func Trail_IsResource(construct awscdk.IConstruct) *bool {
 // be captured from any one.
 //
 // Be sure to filter the event further down using an event pattern.
-// Experimental.
 func Trail_OnEvent(scope constructs.Construct, id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	_init_.Initialize()
 
 	var returns awsevents.Rule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudtrail.Trail",
+		"aws-cdk-lib.aws_cloudtrail.Trail",
 		"onEvent",
 		[]interface{}{scope, id, options},
 		&returns,
@@ -1849,83 +1641,12 @@ func (t *jsiiProxy_Trail) LogAllS3DataEvents(options *AddEventSelectorOptions) {
 	)
 }
 
-func (t *jsiiProxy_Trail) OnCloudTrailEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
-	var returns awsevents.Rule
-
-	_jsii_.Invoke(
-		t,
-		"onCloudTrailEvent",
-		[]interface{}{id, options},
-		&returns,
-	)
-
-	return returns
-}
-
-func (t *jsiiProxy_Trail) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (t *jsiiProxy_Trail) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (t *jsiiProxy_Trail) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (t *jsiiProxy_Trail) Prepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (t *jsiiProxy_Trail) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (t *jsiiProxy_Trail) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		t,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (t *jsiiProxy_Trail) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1941,43 +1662,32 @@ func (t *jsiiProxy_Trail) Validate() *[]*string {
 //   	managementEvents: cloudtrail.readWriteType_READ_ONLY,
 //   })
 //
-// Experimental.
 type TrailProps struct {
 	// The Amazon S3 bucket.
-	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
 	// Log Group to which CloudTrail to push logs to.
 	//
 	// Ignored if sendToCloudWatchLogs is set to false.
-	// Experimental.
-	CloudWatchLogGroup awslogs.ILogGroup `json:"cloudWatchLogGroup" yaml:"cloudWatchLogGroup"`
+	CloudWatchLogGroup awslogs.ILogGroup `field:"optional" json:"cloudWatchLogGroup" yaml:"cloudWatchLogGroup"`
 	// How long to retain logs in CloudWatchLogs.
 	//
 	// Ignored if sendToCloudWatchLogs is false or if cloudWatchLogGroup is set.
-	// Experimental.
-	CloudWatchLogsRetention awslogs.RetentionDays `json:"cloudWatchLogsRetention" yaml:"cloudWatchLogsRetention"`
+	CloudWatchLogsRetention awslogs.RetentionDays `field:"optional" json:"cloudWatchLogsRetention" yaml:"cloudWatchLogsRetention"`
 	// To determine whether a log file was modified, deleted, or unchanged after CloudTrail delivered it, you can use CloudTrail log file integrity validation.
 	//
 	// This feature is built using industry standard algorithms: SHA-256 for hashing and SHA-256 with RSA for digital signing.
 	// This makes it computationally infeasible to modify, delete or forge CloudTrail log files without detection.
 	// You can use the AWS CLI to validate the files in the location where CloudTrail delivered them.
-	// Experimental.
-	EnableFileValidation *bool `json:"enableFileValidation" yaml:"enableFileValidation"`
+	EnableFileValidation *bool `field:"optional" json:"enableFileValidation" yaml:"enableFileValidation"`
 	// The AWS Key Management Service (AWS KMS) key ID that you want to use to encrypt CloudTrail logs.
-	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// For most services, events are recorded in the region where the action occurred.
 	//
 	// For global services such as AWS Identity and Access Management (IAM), AWS STS, Amazon CloudFront, and Route 53,
 	// events are delivered to any trail that includes global services, and are logged as occurring in US East (N. Virginia) Region.
-	// Experimental.
-	IncludeGlobalServiceEvents *bool `json:"includeGlobalServiceEvents" yaml:"includeGlobalServiceEvents"`
+	IncludeGlobalServiceEvents *bool `field:"optional" json:"includeGlobalServiceEvents" yaml:"includeGlobalServiceEvents"`
 	// Whether or not this trail delivers log files from multiple regions to a single S3 bucket for a single account.
-	// Experimental.
-	IsMultiRegionTrail *bool `json:"isMultiRegionTrail" yaml:"isMultiRegionTrail"`
-	// The AWS Key Management Service (AWS KMS) key ID that you want to use to encrypt CloudTrail logs.
-	// Deprecated: - use encryptionKey instead.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	IsMultiRegionTrail *bool `field:"optional" json:"isMultiRegionTrail" yaml:"isMultiRegionTrail"`
 	// When an event occurs in your account, CloudTrail evaluates whether the event matches the settings for your trails.
 	//
 	// Only events that match your trail settings are delivered to your Amazon S3 bucket and Amazon CloudWatch Logs log group.
@@ -1988,23 +1698,18 @@ type TrailProps struct {
 	// These are also known as control plane operations.
 	// Management events can also include non-API events that occur in your account.
 	// For example, when a user logs in to your account, CloudTrail logs the ConsoleLogin event.
-	// Experimental.
-	ManagementEvents ReadWriteType `json:"managementEvents" yaml:"managementEvents"`
+	ManagementEvents ReadWriteType `field:"optional" json:"managementEvents" yaml:"managementEvents"`
 	// An Amazon S3 object key prefix that precedes the name of all log files.
-	// Experimental.
-	S3KeyPrefix *string `json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
+	S3KeyPrefix *string `field:"optional" json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 	// If CloudTrail pushes logs to CloudWatch Logs in addition to S3.
 	//
 	// Disabled for cost out of the box.
-	// Experimental.
-	SendToCloudWatchLogs *bool `json:"sendToCloudWatchLogs" yaml:"sendToCloudWatchLogs"`
+	SendToCloudWatchLogs *bool `field:"optional" json:"sendToCloudWatchLogs" yaml:"sendToCloudWatchLogs"`
 	// SNS topic that is notified when new log files are published.
-	// Experimental.
-	SnsTopic awssns.ITopic `json:"snsTopic" yaml:"snsTopic"`
+	SnsTopic awssns.ITopic `field:"optional" json:"snsTopic" yaml:"snsTopic"`
 	// The name of the trail.
 	//
 	// We recommend customers do not set an explicit name.
-	// Experimental.
-	TrailName *string `json:"trailName" yaml:"trailName"`
+	TrailName *string `field:"optional" json:"trailName" yaml:"trailName"`
 }
 

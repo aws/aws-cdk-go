@@ -1,12 +1,12 @@
 package awsmediastore
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsmediastore/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsmediastore/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::MediaStore::Container`.
@@ -16,8 +16,11 @@ import (
 // When you create a container using AWS CloudFormation , the template manages data for five API actions: creating a container, setting access logging, updating the default container policy, adding a cross-origin resource sharing (CORS) policy, and adding an object lifecycle policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediastore "github.com/aws/aws-cdk-go/awscdk/aws_mediastore"
-//   cfnContainer := mediastore.NewCfnContainer(this, jsii.String("MyCfnContainer"), &cfnContainerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnContainer := awscdk.Aws_mediastore.NewCfnContainer(this, jsii.String("MyCfnContainer"), &cfnContainerProps{
 //   	containerName: jsii.String("containerName"),
 //
 //   	// the properties below are optional
@@ -73,11 +76,9 @@ type CfnContainer interface {
 	// Use the endpoint to identify the specific container when sending requests to the data plane. The service assigns this value when the container is created. Once the value has been assigned, it does not change.
 	AttrEndpoint() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The name for the container.
 	//
@@ -96,7 +97,6 @@ type CfnContainer interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Writes an object lifecycle policy to a container.
 	//
@@ -114,14 +114,12 @@ type CfnContainer interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// `AWS::MediaStore::Container.MetricPolicy`.
 	MetricPolicy() interface{}
 	SetMetricPolicy(val interface{})
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Creates an access policy for the specified container to restrict the users and clients that can access it.
 	//
 	// For information about the data that is included in an access policy, see the [AWS Identity and Access Management User Guide](https://docs.aws.amazon.com/iam/) .
@@ -133,12 +131,10 @@ type CfnContainer interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::MediaStore::Container.Tags`.
 	Tags() awscdk.TagManager
@@ -146,16 +142,13 @@ type CfnContainer interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -164,7 +157,6 @@ type CfnContainer interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -209,15 +201,12 @@ type CfnContainer interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -228,13 +217,11 @@ type CfnContainer interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -243,74 +230,21 @@ type CfnContainer interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -430,8 +364,8 @@ func (j *jsiiProxy_CfnContainer) MetricPolicy() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainer) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnContainer) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -492,13 +426,13 @@ func (j *jsiiProxy_CfnContainer) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::MediaStore::Container`.
-func NewCfnContainer(scope awscdk.Construct, id *string, props *CfnContainerProps) CfnContainer {
+func NewCfnContainer(scope constructs.Construct, id *string, props *CfnContainerProps) CfnContainer {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnContainer{}
 
 	_jsii_.Create(
-		"monocdk.aws_mediastore.CfnContainer",
+		"aws-cdk-lib.aws_mediastore.CfnContainer",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -507,11 +441,11 @@ func NewCfnContainer(scope awscdk.Construct, id *string, props *CfnContainerProp
 }
 
 // Create a new `AWS::MediaStore::Container`.
-func NewCfnContainer_Override(c CfnContainer, scope awscdk.Construct, id *string, props *CfnContainerProps) {
+func NewCfnContainer_Override(c CfnContainer, scope constructs.Construct, id *string, props *CfnContainerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_mediastore.CfnContainer",
+		"aws-cdk-lib.aws_mediastore.CfnContainer",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -571,14 +505,13 @@ func (j *jsiiProxy_CfnContainer) SetPolicy(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnContainer_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_mediastore.CfnContainer",
+		"aws-cdk-lib.aws_mediastore.CfnContainer",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -588,14 +521,13 @@ func CfnContainer_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnContainer_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_mediastore.CfnContainer",
+		"aws-cdk-lib.aws_mediastore.CfnContainer",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -604,15 +536,17 @@ func CfnContainer_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnContainer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_mediastore.CfnContainer",
+		"aws-cdk-lib.aws_mediastore.CfnContainer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -625,7 +559,7 @@ func CfnContainer_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_mediastore.CfnContainer",
+		"aws-cdk-lib.aws_mediastore.CfnContainer",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -722,48 +656,11 @@ func (c *jsiiProxy_CfnContainer) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnContainer) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnContainer) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnContainer) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnContainer) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnContainer) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -793,33 +690,12 @@ func (c *jsiiProxy_CfnContainer) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnContainer) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnContainer) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnContainer) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -840,7 +716,10 @@ func (c *jsiiProxy_CfnContainer) ValidateProperties(_properties interface{}) {
 // You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediastore "github.com/aws/aws-cdk-go/awscdk/aws_mediastore"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   corsRuleProperty := &corsRuleProperty{
 //   	allowedHeaders: []*string{
 //   		jsii.String("allowedHeaders"),
@@ -863,23 +742,23 @@ type CfnContainer_CorsRuleProperty struct {
 	// Each header name that is specified in `Access-Control-Request-Headers` must have a corresponding entry in the rule. Only the headers that were requested are sent back.
 	//
 	// This element can contain only one wildcard character (*).
-	AllowedHeaders *[]*string `json:"allowedHeaders" yaml:"allowedHeaders"`
+	AllowedHeaders *[]*string `field:"optional" json:"allowedHeaders" yaml:"allowedHeaders"`
 	// Identifies an HTTP method that the origin that is specified in the rule is allowed to execute.
 	//
 	// Each CORS rule must contain at least one `AllowedMethods` and one `AllowedOrigins` element.
-	AllowedMethods *[]*string `json:"allowedMethods" yaml:"allowedMethods"`
+	AllowedMethods *[]*string `field:"optional" json:"allowedMethods" yaml:"allowedMethods"`
 	// One or more response headers that you want users to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
 	//
 	// Each CORS rule must have at least one `AllowedOrigins` element. The string value can include only one wildcard character (*), for example, http://*.example.com. Additionally, you can specify only one wildcard character to allow cross-origin access for all origins.
-	AllowedOrigins *[]*string `json:"allowedOrigins" yaml:"allowedOrigins"`
+	AllowedOrigins *[]*string `field:"optional" json:"allowedOrigins" yaml:"allowedOrigins"`
 	// One or more headers in the response that you want users to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
 	//
 	// This element is optional for each rule.
-	ExposeHeaders *[]*string `json:"exposeHeaders" yaml:"exposeHeaders"`
+	ExposeHeaders *[]*string `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
 	// The time in seconds that your browser caches the preflight response for the specified resource.
 	//
 	// A CORS rule can have only one `MaxAgeSeconds` element.
-	MaxAgeSeconds *float64 `json:"maxAgeSeconds" yaml:"maxAgeSeconds"`
+	MaxAgeSeconds *float64 `field:"optional" json:"maxAgeSeconds" yaml:"maxAgeSeconds"`
 }
 
 // The metric policy that is associated with the container.
@@ -889,7 +768,10 @@ type CfnContainer_CorsRuleProperty struct {
 // To view examples of how to construct a metric policy for your use case, see [Example Metric Policies](https://docs.aws.amazon.com/mediastore/latest/ug/policies-metric-examples.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediastore "github.com/aws/aws-cdk-go/awscdk/aws_mediastore"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricPolicyProperty := &metricPolicyProperty{
 //   	containerLevelMetrics: jsii.String("containerLevelMetrics"),
 //
@@ -904,11 +786,11 @@ type CfnContainer_CorsRuleProperty struct {
 //
 type CfnContainer_MetricPolicyProperty struct {
 	// A setting to enable or disable metrics at the container level.
-	ContainerLevelMetrics *string `json:"containerLevelMetrics" yaml:"containerLevelMetrics"`
+	ContainerLevelMetrics *string `field:"required" json:"containerLevelMetrics" yaml:"containerLevelMetrics"`
 	// A parameter that holds an array of rules that enable metrics at the object level.
 	//
 	// This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also [request a quota increase](https://docs.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas) to allow up to 300 rules per policy.
-	MetricPolicyRules interface{} `json:"metricPolicyRules" yaml:"metricPolicyRules"`
+	MetricPolicyRules interface{} `field:"optional" json:"metricPolicyRules" yaml:"metricPolicyRules"`
 }
 
 // A setting that enables metrics at the object level.
@@ -916,7 +798,10 @@ type CfnContainer_MetricPolicyProperty struct {
 // Each rule contains an object group and an object group name. If the policy includes the MetricPolicyRules parameter, you must include at least one rule. Each metric policy can include up to five rules by default. You can also [request a quota increase](https://docs.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas) to allow up to 300 rules per policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediastore "github.com/aws/aws-cdk-go/awscdk/aws_mediastore"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricPolicyRuleProperty := &metricPolicyRuleProperty{
 //   	objectGroup: jsii.String("objectGroup"),
 //   	objectGroupName: jsii.String("objectGroupName"),
@@ -926,15 +811,18 @@ type CfnContainer_MetricPolicyRuleProperty struct {
 	// A path or file name that defines which objects to include in the group.
 	//
 	// Wildcards (*) are acceptable.
-	ObjectGroup *string `json:"objectGroup" yaml:"objectGroup"`
+	ObjectGroup *string `field:"required" json:"objectGroup" yaml:"objectGroup"`
 	// A name that allows you to refer to the object group.
-	ObjectGroupName *string `json:"objectGroupName" yaml:"objectGroupName"`
+	ObjectGroupName *string `field:"required" json:"objectGroupName" yaml:"objectGroupName"`
 }
 
 // Properties for defining a `CfnContainer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediastore "github.com/aws/aws-cdk-go/awscdk/aws_mediastore"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnContainerProps := &cfnContainerProps{
 //   	containerName: jsii.String("containerName"),
 //
@@ -982,11 +870,11 @@ type CfnContainerProps struct {
 	// The name for the container.
 	//
 	// The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named `movies` in every region, as long as you don’t have an existing container with that name.
-	ContainerName *string `json:"containerName" yaml:"containerName"`
+	ContainerName *string `field:"required" json:"containerName" yaml:"containerName"`
 	// The state of access logging on the container.
 	//
 	// This value is `false` by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to `true` , indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.
-	AccessLoggingEnabled interface{} `json:"accessLoggingEnabled" yaml:"accessLoggingEnabled"`
+	AccessLoggingEnabled interface{} `field:"optional" json:"accessLoggingEnabled" yaml:"accessLoggingEnabled"`
 	// Sets the cross-origin resource sharing (CORS) configuration on a container so that the container can service cross-origin requests.
 	//
 	// For example, you might want to enable a request whose origin is http://www.example.com to access your AWS Elemental MediaStore container at my.example.container.com by using the browser's XMLHttpRequest capability.
@@ -994,22 +882,22 @@ type CfnContainerProps struct {
 	// To enable CORS on a container, you attach a CORS policy to the container. In the CORS policy, you configure rules that identify origins and the HTTP methods that can be executed on your container. The policy can contain up to 398,000 characters. You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.
 	//
 	// To learn more about CORS, see [Cross-Origin Resource Sharing (CORS) in AWS Elemental MediaStore](https://docs.aws.amazon.com/mediastore/latest/ug/cors-policy.html) .
-	CorsPolicy interface{} `json:"corsPolicy" yaml:"corsPolicy"`
+	CorsPolicy interface{} `field:"optional" json:"corsPolicy" yaml:"corsPolicy"`
 	// Writes an object lifecycle policy to a container.
 	//
 	// If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.
 	//
 	// For information about how to construct an object lifecycle policy, see [Components of an Object Lifecycle Policy](https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html) .
-	LifecyclePolicy *string `json:"lifecyclePolicy" yaml:"lifecyclePolicy"`
+	LifecyclePolicy *string `field:"optional" json:"lifecyclePolicy" yaml:"lifecyclePolicy"`
 	// `AWS::MediaStore::Container.MetricPolicy`.
-	MetricPolicy interface{} `json:"metricPolicy" yaml:"metricPolicy"`
+	MetricPolicy interface{} `field:"optional" json:"metricPolicy" yaml:"metricPolicy"`
 	// Creates an access policy for the specified container to restrict the users and clients that can access it.
 	//
 	// For information about the data that is included in an access policy, see the [AWS Identity and Access Management User Guide](https://docs.aws.amazon.com/iam/) .
 	//
 	// For this release of the REST API, you can create only one policy for a container. If you enter `PutContainerPolicy` twice, the second command modifies the existing policy.
-	Policy *string `json:"policy" yaml:"policy"`
+	Policy *string `field:"optional" json:"policy" yaml:"policy"`
 	// `AWS::MediaStore::Container.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

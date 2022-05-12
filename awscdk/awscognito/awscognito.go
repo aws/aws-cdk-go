@@ -1,16 +1,16 @@
 package awscognito
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
-	"github.com/aws/aws-cdk-go/awscdk/awscognito/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // How will a user be able to recover their account?
@@ -27,27 +27,20 @@ import (
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html
 //
-// Experimental.
 type AccountRecovery string
 
 const (
 	// Email if available, otherwise phone, but don’t allow a user to reset their password via phone if they are also using it for MFA.
-	// Experimental.
 	AccountRecovery_EMAIL_AND_PHONE_WITHOUT_MFA AccountRecovery = "EMAIL_AND_PHONE_WITHOUT_MFA"
 	// Phone if available, otherwise email, but don’t allow a user to reset their password via phone if they are also using it for MFA.
-	// Experimental.
 	AccountRecovery_PHONE_WITHOUT_MFA_AND_EMAIL AccountRecovery = "PHONE_WITHOUT_MFA_AND_EMAIL"
 	// Email only.
-	// Experimental.
 	AccountRecovery_EMAIL_ONLY AccountRecovery = "EMAIL_ONLY"
 	// Phone only, but don’t allow a user to reset their password via phone if they are also using it for MFA.
-	// Experimental.
 	AccountRecovery_PHONE_ONLY_WITHOUT_MFA AccountRecovery = "PHONE_ONLY_WITHOUT_MFA"
 	// (Not Recommended) Phone if available, otherwise email, and do allow a user to reset their password via phone if they are also using it for MFA.
-	// Experimental.
 	AccountRecovery_PHONE_AND_EMAIL AccountRecovery = "PHONE_AND_EMAIL"
 	// None – users will have to contact an administrator to reset their passwords.
-	// Experimental.
 	AccountRecovery_NONE AccountRecovery = "NONE"
 )
 
@@ -71,62 +64,43 @@ const (
 //   	},
 //   })
 //
-// Experimental.
 type AttributeMapping struct {
 	// The user's postal address is a required attribute.
-	// Experimental.
-	Address ProviderAttribute `json:"address" yaml:"address"`
+	Address ProviderAttribute `field:"optional" json:"address" yaml:"address"`
 	// The user's birthday.
-	// Experimental.
-	Birthdate ProviderAttribute `json:"birthdate" yaml:"birthdate"`
+	Birthdate ProviderAttribute `field:"optional" json:"birthdate" yaml:"birthdate"`
 	// Specify custom attribute mapping here and mapping for any standard attributes not supported yet.
-	// Experimental.
-	Custom *map[string]ProviderAttribute `json:"custom" yaml:"custom"`
+	Custom *map[string]ProviderAttribute `field:"optional" json:"custom" yaml:"custom"`
 	// The user's e-mail address.
-	// Experimental.
-	Email ProviderAttribute `json:"email" yaml:"email"`
+	Email ProviderAttribute `field:"optional" json:"email" yaml:"email"`
 	// The surname or last name of user.
-	// Experimental.
-	FamilyName ProviderAttribute `json:"familyName" yaml:"familyName"`
+	FamilyName ProviderAttribute `field:"optional" json:"familyName" yaml:"familyName"`
 	// The user's full name in displayable form.
-	// Experimental.
-	Fullname ProviderAttribute `json:"fullname" yaml:"fullname"`
+	Fullname ProviderAttribute `field:"optional" json:"fullname" yaml:"fullname"`
 	// The user's gender.
-	// Experimental.
-	Gender ProviderAttribute `json:"gender" yaml:"gender"`
+	Gender ProviderAttribute `field:"optional" json:"gender" yaml:"gender"`
 	// The user's first name or give name.
-	// Experimental.
-	GivenName ProviderAttribute `json:"givenName" yaml:"givenName"`
+	GivenName ProviderAttribute `field:"optional" json:"givenName" yaml:"givenName"`
 	// Time, the user's information was last updated.
-	// Experimental.
-	LastUpdateTime ProviderAttribute `json:"lastUpdateTime" yaml:"lastUpdateTime"`
+	LastUpdateTime ProviderAttribute `field:"optional" json:"lastUpdateTime" yaml:"lastUpdateTime"`
 	// The user's locale.
-	// Experimental.
-	Locale ProviderAttribute `json:"locale" yaml:"locale"`
+	Locale ProviderAttribute `field:"optional" json:"locale" yaml:"locale"`
 	// The user's middle name.
-	// Experimental.
-	MiddleName ProviderAttribute `json:"middleName" yaml:"middleName"`
+	MiddleName ProviderAttribute `field:"optional" json:"middleName" yaml:"middleName"`
 	// The user's nickname or casual name.
-	// Experimental.
-	Nickname ProviderAttribute `json:"nickname" yaml:"nickname"`
+	Nickname ProviderAttribute `field:"optional" json:"nickname" yaml:"nickname"`
 	// The user's telephone number.
-	// Experimental.
-	PhoneNumber ProviderAttribute `json:"phoneNumber" yaml:"phoneNumber"`
+	PhoneNumber ProviderAttribute `field:"optional" json:"phoneNumber" yaml:"phoneNumber"`
 	// The user's preferred username.
-	// Experimental.
-	PreferredUsername ProviderAttribute `json:"preferredUsername" yaml:"preferredUsername"`
+	PreferredUsername ProviderAttribute `field:"optional" json:"preferredUsername" yaml:"preferredUsername"`
 	// The URL to the user's profile page.
-	// Experimental.
-	ProfilePage ProviderAttribute `json:"profilePage" yaml:"profilePage"`
+	ProfilePage ProviderAttribute `field:"optional" json:"profilePage" yaml:"profilePage"`
 	// The URL to the user's profile picture.
-	// Experimental.
-	ProfilePicture ProviderAttribute `json:"profilePicture" yaml:"profilePicture"`
+	ProfilePicture ProviderAttribute `field:"optional" json:"profilePicture" yaml:"profilePicture"`
 	// The user's time zone.
-	// Experimental.
-	Timezone ProviderAttribute `json:"timezone" yaml:"timezone"`
+	Timezone ProviderAttribute `field:"optional" json:"timezone" yaml:"timezone"`
 	// The URL to the user's web page or blog.
-	// Experimental.
-	Website ProviderAttribute `json:"website" yaml:"website"`
+	Website ProviderAttribute `field:"optional" json:"website" yaml:"website"`
 }
 
 // Types of authentication flow.
@@ -142,20 +116,15 @@ type AttributeMapping struct {
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html
 //
-// Experimental.
 type AuthFlow struct {
 	// Enable admin based user password authentication flow.
-	// Experimental.
-	AdminUserPassword *bool `json:"adminUserPassword" yaml:"adminUserPassword"`
+	AdminUserPassword *bool `field:"optional" json:"adminUserPassword" yaml:"adminUserPassword"`
 	// Enable custom authentication flow.
-	// Experimental.
-	Custom *bool `json:"custom" yaml:"custom"`
+	Custom *bool `field:"optional" json:"custom" yaml:"custom"`
 	// Enable auth using username & password.
-	// Experimental.
-	UserPassword *bool `json:"userPassword" yaml:"userPassword"`
+	UserPassword *bool `field:"optional" json:"userPassword" yaml:"userPassword"`
 	// Enable SRP based authentication.
-	// Experimental.
-	UserSrp *bool `json:"userSrp" yaml:"userSrp"`
+	UserSrp *bool `field:"optional" json:"userSrp" yaml:"userSrp"`
 }
 
 // Attributes that can be automatically verified for users in a user pool.
@@ -174,17 +143,30 @@ type AuthFlow struct {
 //   	},
 //   })
 //
-// Experimental.
 type AutoVerifiedAttrs struct {
 	// Whether the email address of the user should be auto verified at sign up.
 	//
 	// Note: If both `email` and `phone` is set, Cognito only verifies the phone number. To also verify email, see here -
 	// https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html
-	// Experimental.
-	Email *bool `json:"email" yaml:"email"`
+	Email *bool `field:"optional" json:"email" yaml:"email"`
 	// Whether the phone number of the user should be auto verified at sign up.
-	// Experimental.
-	Phone *bool `json:"phone" yaml:"phone"`
+	Phone *bool `field:"optional" json:"phone" yaml:"phone"`
+}
+
+// Options to customize the behaviour of `baseUrl()`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   baseUrlOptions := &baseUrlOptions{
+//   	fips: jsii.Boolean(false),
+//   }
+//
+type BaseUrlOptions struct {
+	// Whether to return the FIPS-compliant endpoint.
+	Fips *bool `field:"optional" json:"fips" yaml:"fips"`
 }
 
 // The Boolean custom attribute type.
@@ -220,11 +202,9 @@ type AutoVerifiedAttrs struct {
 //   	},
 //   })
 //
-// Experimental.
 type BooleanAttribute interface {
 	ICustomAttribute
 	// Bind this custom attribute type to the values as expected by CloudFormation.
-	// Experimental.
 	Bind() *CustomAttributeConfig
 }
 
@@ -233,14 +213,13 @@ type jsiiProxy_BooleanAttribute struct {
 	jsiiProxy_ICustomAttribute
 }
 
-// Experimental.
 func NewBooleanAttribute(props *CustomAttributeProps) BooleanAttribute {
 	_init_.Initialize()
 
 	j := jsiiProxy_BooleanAttribute{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.BooleanAttribute",
+		"aws-cdk-lib.aws_cognito.BooleanAttribute",
 		[]interface{}{props},
 		&j,
 	)
@@ -248,12 +227,11 @@ func NewBooleanAttribute(props *CustomAttributeProps) BooleanAttribute {
 	return &j
 }
 
-// Experimental.
 func NewBooleanAttribute_Override(b BooleanAttribute, props *CustomAttributeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.BooleanAttribute",
+		"aws-cdk-lib.aws_cognito.BooleanAttribute",
 		[]interface{}{props},
 		b,
 	)
@@ -282,6 +260,7 @@ func (b *jsiiProxy_BooleanAttribute) Bind() *CustomAttributeConfig {
 //   import cognito "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myProvider openIdConnectProvider
+//
 //   cognito.NewCfnIdentityPool(this, jsii.String("IdentityPool"), &cfnIdentityPoolProps{
 //   	openIdConnectProviderArns: []*string{
 //   		myProvider.openIdConnectProviderArn,
@@ -302,11 +281,9 @@ type CfnIdentityPool interface {
 	// The name of the Amazon Cognito identity pool, returned as a string.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The events to configure.
 	CognitoEvents() interface{}
@@ -320,7 +297,6 @@ type CfnIdentityPool interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The "domain" Amazon Cognito uses when referencing your users.
 	//
@@ -349,11 +325,9 @@ type CfnIdentityPool interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
 	OpenIdConnectProviderArns() *[]*string
 	SetOpenIdConnectProviderArns(val *[]*string)
@@ -364,7 +338,6 @@ type CfnIdentityPool interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
 	SamlProviderArns() *[]*string
@@ -372,7 +345,6 @@ type CfnIdentityPool interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Key-value pairs that map provider names to provider app IDs.
 	SupportedLoginProviders() interface{}
@@ -381,16 +353,13 @@ type CfnIdentityPool interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -399,7 +368,6 @@ type CfnIdentityPool interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -444,15 +412,12 @@ type CfnIdentityPool interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -463,13 +428,11 @@ type CfnIdentityPool interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -478,74 +441,21 @@ type CfnIdentityPool interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -685,8 +595,8 @@ func (j *jsiiProxy_CfnIdentityPool) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityPool) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnIdentityPool) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -767,13 +677,13 @@ func (j *jsiiProxy_CfnIdentityPool) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::Cognito::IdentityPool`.
-func NewCfnIdentityPool(scope awscdk.Construct, id *string, props *CfnIdentityPoolProps) CfnIdentityPool {
+func NewCfnIdentityPool(scope constructs.Construct, id *string, props *CfnIdentityPoolProps) CfnIdentityPool {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnIdentityPool{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -782,11 +692,11 @@ func NewCfnIdentityPool(scope awscdk.Construct, id *string, props *CfnIdentityPo
 }
 
 // Create a new `AWS::Cognito::IdentityPool`.
-func NewCfnIdentityPool_Override(c CfnIdentityPool, scope awscdk.Construct, id *string, props *CfnIdentityPoolProps) {
+func NewCfnIdentityPool_Override(c CfnIdentityPool, scope constructs.Construct, id *string, props *CfnIdentityPoolProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -886,14 +796,13 @@ func (j *jsiiProxy_CfnIdentityPool) SetSupportedLoginProviders(val interface{}) 
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnIdentityPool_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -903,14 +812,13 @@ func CfnIdentityPool_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnIdentityPool_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -919,15 +827,17 @@ func CfnIdentityPool_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnIdentityPool_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -940,7 +850,7 @@ func CfnIdentityPool_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1037,48 +947,11 @@ func (c *jsiiProxy_CfnIdentityPool) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnIdentityPool) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnIdentityPool) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnIdentityPool) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnIdentityPool) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnIdentityPool) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1108,33 +981,12 @@ func (c *jsiiProxy_CfnIdentityPool) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnIdentityPool) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnIdentityPool) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnIdentityPool) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1153,7 +1005,10 @@ func (c *jsiiProxy_CfnIdentityPool) ValidateProperties(_properties interface{}) 
 // `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cognitoIdentityProviderProperty := &cognitoIdentityProviderProperty{
 //   	clientId: jsii.String("clientId"),
 //   	providerName: jsii.String("providerName"),
@@ -1162,23 +1017,26 @@ func (c *jsiiProxy_CfnIdentityPool) ValidateProperties(_properties interface{}) 
 //
 type CfnIdentityPool_CognitoIdentityProviderProperty struct {
 	// The client ID for the Amazon Cognito user pool.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
 	// The provider name for an Amazon Cognito user pool.
 	//
 	// For example: `cognito-idp.us-east-2.amazonaws.com/us-east-2_123456789` .
-	ProviderName *string `json:"providerName" yaml:"providerName"`
+	ProviderName *string `field:"optional" json:"providerName" yaml:"providerName"`
 	// TRUE if server-side token validation is enabled for the identity provider’s token.
 	//
 	// After you set the `ServerSideTokenCheck` to TRUE for an identity pool, that identity pool checks with the integrated user pools to make sure the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
 	//
 	// If the user is signed out or deleted, the identity pool returns a 400 Not Authorized error.
-	ServerSideTokenCheck interface{} `json:"serverSideTokenCheck" yaml:"serverSideTokenCheck"`
+	ServerSideTokenCheck interface{} `field:"optional" json:"serverSideTokenCheck" yaml:"serverSideTokenCheck"`
 }
 
 // `CognitoStreams` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines configuration options for Amazon Cognito streams.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cognitoStreamsProperty := &cognitoStreamsProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	streamingStatus: jsii.String("streamingStatus"),
@@ -1189,21 +1047,24 @@ type CfnIdentityPool_CognitoStreamsProperty struct {
 	// The Amazon Resource Name (ARN) of the role Amazon Cognito can assume to publish to the stream.
 	//
 	// This role must grant access to Amazon Cognito (cognito-sync) to invoke `PutRecord` on your Amazon Cognito stream.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Status of the Amazon Cognito streams.
 	//
 	// Valid values are: `ENABLED` or `DISABLED` .
-	StreamingStatus *string `json:"streamingStatus" yaml:"streamingStatus"`
+	StreamingStatus *string `field:"optional" json:"streamingStatus" yaml:"streamingStatus"`
 	// The name of the Amazon Cognito stream to receive updates.
 	//
 	// This stream must be in the developer's account and in the same Region as the identity pool.
-	StreamName *string `json:"streamName" yaml:"streamName"`
+	StreamName *string `field:"optional" json:"streamName" yaml:"streamName"`
 }
 
 // `PushSync` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines the configuration options to be applied to an Amazon Cognito identity pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   pushSyncProperty := &pushSyncProperty{
 //   	applicationArns: []*string{
 //   		jsii.String("applicationArns"),
@@ -1213,9 +1074,9 @@ type CfnIdentityPool_CognitoStreamsProperty struct {
 //
 type CfnIdentityPool_PushSyncProperty struct {
 	// The ARNs of the Amazon SNS platform applications that could be used by clients.
-	ApplicationArns *[]*string `json:"applicationArns" yaml:"applicationArns"`
+	ApplicationArns *[]*string `field:"optional" json:"applicationArns" yaml:"applicationArns"`
 	// An IAM role configured to allow Amazon Cognito to call Amazon SNS on behalf of the developer.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 
 // Properties for defining a `CfnIdentityPool`.
@@ -1224,6 +1085,7 @@ type CfnIdentityPool_PushSyncProperty struct {
 //   import cognito "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myProvider openIdConnectProvider
+//
 //   cognito.NewCfnIdentityPool(this, jsii.String("IdentityPool"), &cfnIdentityPoolProps{
 //   	openIdConnectProviderArns: []*string{
 //   		myProvider.openIdConnectProviderArn,
@@ -1234,15 +1096,15 @@ type CfnIdentityPool_PushSyncProperty struct {
 //
 type CfnIdentityPoolProps struct {
 	// Specifies whether the identity pool supports unauthenticated logins.
-	AllowUnauthenticatedIdentities interface{} `json:"allowUnauthenticatedIdentities" yaml:"allowUnauthenticatedIdentities"`
+	AllowUnauthenticatedIdentities interface{} `field:"required" json:"allowUnauthenticatedIdentities" yaml:"allowUnauthenticatedIdentities"`
 	// Enables the Basic (Classic) authentication flow.
-	AllowClassicFlow interface{} `json:"allowClassicFlow" yaml:"allowClassicFlow"`
+	AllowClassicFlow interface{} `field:"optional" json:"allowClassicFlow" yaml:"allowClassicFlow"`
 	// The events to configure.
-	CognitoEvents interface{} `json:"cognitoEvents" yaml:"cognitoEvents"`
+	CognitoEvents interface{} `field:"optional" json:"cognitoEvents" yaml:"cognitoEvents"`
 	// The Amazon Cognito user pools and their client IDs.
-	CognitoIdentityProviders interface{} `json:"cognitoIdentityProviders" yaml:"cognitoIdentityProviders"`
+	CognitoIdentityProviders interface{} `field:"optional" json:"cognitoIdentityProviders" yaml:"cognitoIdentityProviders"`
 	// Configuration options for configuring Amazon Cognito streams.
-	CognitoStreams interface{} `json:"cognitoStreams" yaml:"cognitoStreams"`
+	CognitoStreams interface{} `field:"optional" json:"cognitoStreams" yaml:"cognitoStreams"`
 	// The "domain" Amazon Cognito uses when referencing your users.
 	//
 	// This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
@@ -1250,7 +1112,7 @@ type CfnIdentityPoolProps struct {
 	// *Minimum length* : 1
 	//
 	// *Maximum length* : 100.
-	DeveloperProviderName *string `json:"developerProviderName" yaml:"developerProviderName"`
+	DeveloperProviderName *string `field:"optional" json:"developerProviderName" yaml:"developerProviderName"`
 	// The name of your Amazon Cognito identity pool.
 	//
 	// *Minimum length* : 1
@@ -1258,15 +1120,15 @@ type CfnIdentityPoolProps struct {
 	// *Maximum length* : 128
 	//
 	// *Pattern* : `[\w\s+=,.@-]+`
-	IdentityPoolName *string `json:"identityPoolName" yaml:"identityPoolName"`
+	IdentityPoolName *string `field:"optional" json:"identityPoolName" yaml:"identityPoolName"`
 	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
-	OpenIdConnectProviderArns *[]*string `json:"openIdConnectProviderArns" yaml:"openIdConnectProviderArns"`
+	OpenIdConnectProviderArns *[]*string `field:"optional" json:"openIdConnectProviderArns" yaml:"openIdConnectProviderArns"`
 	// The configuration options to be applied to the identity pool.
-	PushSync interface{} `json:"pushSync" yaml:"pushSync"`
+	PushSync interface{} `field:"optional" json:"pushSync" yaml:"pushSync"`
 	// The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
-	SamlProviderArns *[]*string `json:"samlProviderArns" yaml:"samlProviderArns"`
+	SamlProviderArns *[]*string `field:"optional" json:"samlProviderArns" yaml:"samlProviderArns"`
 	// Key-value pairs that map provider names to provider app IDs.
-	SupportedLoginProviders interface{} `json:"supportedLoginProviders" yaml:"supportedLoginProviders"`
+	SupportedLoginProviders interface{} `field:"optional" json:"supportedLoginProviders" yaml:"supportedLoginProviders"`
 }
 
 // A CloudFormation `AWS::Cognito::IdentityPoolRoleAttachment`.
@@ -1274,10 +1136,13 @@ type CfnIdentityPoolProps struct {
 // The `AWS::Cognito::IdentityPoolRoleAttachment` resource manages the role configuration for an Amazon Cognito identity pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var roles interface{}
-//   cfnIdentityPoolRoleAttachment := cognito.NewCfnIdentityPoolRoleAttachment(this, jsii.String("MyCfnIdentityPoolRoleAttachment"), &cfnIdentityPoolRoleAttachmentProps{
+//
+//   cfnIdentityPoolRoleAttachment := awscdk.Aws_cognito.NewCfnIdentityPoolRoleAttachment(this, jsii.String("MyCfnIdentityPoolRoleAttachment"), &cfnIdentityPoolRoleAttachmentProps{
 //   	identityPoolId: jsii.String("identityPoolId"),
 //
 //   	// the properties below are optional
@@ -1307,16 +1172,13 @@ type CfnIdentityPoolRoleAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// An identity pool ID in the format `REGION:GUID` .
 	IdentityPoolId() *string
@@ -1330,16 +1192,13 @@ type CfnIdentityPoolRoleAttachment interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// How users for a specific identity provider are mapped to roles.
 	//
@@ -1358,22 +1217,18 @@ type CfnIdentityPoolRoleAttachment interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1382,7 +1237,6 @@ type CfnIdentityPoolRoleAttachment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1427,15 +1281,12 @@ type CfnIdentityPoolRoleAttachment interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1446,13 +1297,11 @@ type CfnIdentityPoolRoleAttachment interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1461,74 +1310,21 @@ type CfnIdentityPoolRoleAttachment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1598,8 +1394,8 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1660,13 +1456,13 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) UpdatedProperites() *map[strin
 
 
 // Create a new `AWS::Cognito::IdentityPoolRoleAttachment`.
-func NewCfnIdentityPoolRoleAttachment(scope awscdk.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) CfnIdentityPoolRoleAttachment {
+func NewCfnIdentityPoolRoleAttachment(scope constructs.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) CfnIdentityPoolRoleAttachment {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnIdentityPoolRoleAttachment{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1675,11 +1471,11 @@ func NewCfnIdentityPoolRoleAttachment(scope awscdk.Construct, id *string, props 
 }
 
 // Create a new `AWS::Cognito::IdentityPoolRoleAttachment`.
-func NewCfnIdentityPoolRoleAttachment_Override(c CfnIdentityPoolRoleAttachment, scope awscdk.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) {
+func NewCfnIdentityPoolRoleAttachment_Override(c CfnIdentityPoolRoleAttachment, scope constructs.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1715,14 +1511,13 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) SetRoles(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnIdentityPoolRoleAttachment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1732,14 +1527,13 @@ func CfnIdentityPoolRoleAttachment_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnIdentityPoolRoleAttachment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1748,15 +1542,17 @@ func CfnIdentityPoolRoleAttachment_IsCfnResource(construct constructs.IConstruct
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnIdentityPoolRoleAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1769,7 +1565,7 @@ func CfnIdentityPoolRoleAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1866,48 +1662,11 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) Inspect(inspector awscdk.TreeI
 	)
 }
 
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1937,33 +1696,12 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1982,7 +1720,10 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) ValidateProperties(_properties
 // Defines how to map a claim to a role ARN.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mappingRuleProperty := &mappingRuleProperty{
 //   	claim: jsii.String("claim"),
 //   	matchType: jsii.String("matchType"),
@@ -1994,23 +1735,26 @@ type CfnIdentityPoolRoleAttachment_MappingRuleProperty struct {
 	// The claim name that must be present in the token.
 	//
 	// For example: "isAdmin" or "paid".
-	Claim *string `json:"claim" yaml:"claim"`
+	Claim *string `field:"required" json:"claim" yaml:"claim"`
 	// The match condition that specifies how closely the claim value in the IdP token must match `Value` .
 	//
 	// Valid values are: `Equals` , `Contains` , `StartsWith` , and `NotEqual` .
-	MatchType *string `json:"matchType" yaml:"matchType"`
+	MatchType *string `field:"required" json:"matchType" yaml:"matchType"`
 	// The Amazon Resource Name (ARN) of the role.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// A brief string that the claim must match.
 	//
 	// For example, "paid" or "yes".
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // `RoleMapping` is a property of the [AWS::Cognito::IdentityPoolRoleAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html) resource that defines the role-mapping attributes of an Amazon Cognito identity pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   roleMappingProperty := &roleMappingProperty{
 //   	type: jsii.String("type"),
 //
@@ -2035,29 +1779,32 @@ type CfnIdentityPoolRoleAttachment_RoleMappingProperty struct {
 	// `Token` uses `cognito:roles` and `cognito:preferred_role` claims from the Amazon Cognito identity provider token to map groups to roles. `Rules` attempts to match claims from the token to map to a role.
 	//
 	// Valid values are `Token` or `Rules` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no `cognito:preferred_role` claim and there are multiple `cognito:roles` matches for the Token type.
 	//
 	// If you specify Token or Rules as the Type, AmbiguousRoleResolution is required.
 	//
 	// Valid values are `AuthenticatedRole` or `Deny` .
-	AmbiguousRoleResolution *string `json:"ambiguousRoleResolution" yaml:"ambiguousRoleResolution"`
+	AmbiguousRoleResolution *string `field:"optional" json:"ambiguousRoleResolution" yaml:"ambiguousRoleResolution"`
 	// Identifier for the identity provider for which the role is mapped.
 	//
 	// For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id (http://cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id)` . This is the identity provider that is used by the user for authentication.
 	//
 	// If the identity provider property isn't provided, the key of the entry in the `RoleMappings` map is used as the identity provider.
-	IdentityProvider *string `json:"identityProvider" yaml:"identityProvider"`
+	IdentityProvider *string `field:"optional" json:"identityProvider" yaml:"identityProvider"`
 	// The rules to be used for mapping users to roles.
 	//
 	// If you specify "Rules" as the role-mapping type, RulesConfiguration is required.
-	RulesConfiguration interface{} `json:"rulesConfiguration" yaml:"rulesConfiguration"`
+	RulesConfiguration interface{} `field:"optional" json:"rulesConfiguration" yaml:"rulesConfiguration"`
 }
 
 // `RulesConfigurationType` is a subproperty of the [RoleMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) property that defines the rules to be used for mapping users to roles.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rulesConfigurationTypeProperty := &rulesConfigurationTypeProperty{
 //   	rules: []interface{}{
 //   		&mappingRuleProperty{
@@ -2073,15 +1820,18 @@ type CfnIdentityPoolRoleAttachment_RulesConfigurationTypeProperty struct {
 	// The rules.
 	//
 	// You can specify up to 25 rules per identity provider.
-	Rules interface{} `json:"rules" yaml:"rules"`
+	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 }
 
 // Properties for defining a `CfnIdentityPoolRoleAttachment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var roles interface{}
+//
 //   cfnIdentityPoolRoleAttachmentProps := &cfnIdentityPoolRoleAttachmentProps{
 //   	identityPoolId: jsii.String("identityPoolId"),
 //
@@ -2110,7 +1860,7 @@ type CfnIdentityPoolRoleAttachment_RulesConfigurationTypeProperty struct {
 //
 type CfnIdentityPoolRoleAttachmentProps struct {
 	// An identity pool ID in the format `REGION:GUID` .
-	IdentityPoolId *string `json:"identityPoolId" yaml:"identityPoolId"`
+	IdentityPoolId *string `field:"required" json:"identityPoolId" yaml:"identityPoolId"`
 	// How users for a specific identity provider are mapped to roles.
 	//
 	// This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
@@ -2118,11 +1868,11 @@ type CfnIdentityPoolRoleAttachmentProps struct {
 	// If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
 	//
 	// For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
-	RoleMappings interface{} `json:"roleMappings" yaml:"roleMappings"`
+	RoleMappings interface{} `field:"optional" json:"roleMappings" yaml:"roleMappings"`
 	// The map of the roles associated with this pool.
 	//
 	// For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
-	Roles interface{} `json:"roles" yaml:"roles"`
+	Roles interface{} `field:"optional" json:"roles" yaml:"roles"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPool`.
@@ -2132,10 +1882,13 @@ type CfnIdentityPoolRoleAttachmentProps struct {
 // > If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var userPoolTags interface{}
-//   cfnUserPool := cognito.NewCfnUserPool(this, jsii.String("MyCfnUserPool"), &cfnUserPoolProps{
+//
+//   cfnUserPool := awscdk.Aws_cognito.NewCfnUserPool(this, jsii.String("MyCfnUserPool"), &cfnUserPoolProps{
 //   	accountRecoverySetting: &accountRecoverySettingProperty{
 //   		recoveryMechanisms: []interface{}{
 //   			&recoveryOptionProperty{
@@ -2280,16 +2033,13 @@ type CfnUserPool interface {
 	AutoVerifiedAttributes() *[]*string
 	SetAutoVerifiedAttributes(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The device configuration.
 	DeviceConfiguration() interface{}
@@ -2337,7 +2087,6 @@ type CfnUserPool interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The multi-factor (MFA) configuration. Valid values include:.
 	//
@@ -2346,9 +2095,8 @@ type CfnUserPool interface {
 	// - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
 	MfaConfiguration() *string
 	SetMfaConfiguration(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The policy associated with a user pool.
 	Policies() interface{}
 	SetPolicies(val interface{})
@@ -2356,7 +2104,6 @@ type CfnUserPool interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The schema attributes for the new user pool. These attributes can be standard or custom attributes.
 	//
@@ -2377,7 +2124,6 @@ type CfnUserPool interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The tag keys and values to assign to the user pool.
 	//
@@ -2387,7 +2133,6 @@ type CfnUserPool interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Determines whether email addresses or phone numbers can be specified as user names when a user signs up.
 	//
@@ -2413,13 +2158,11 @@ type CfnUserPool interface {
 	VerificationMessageTemplate() interface{}
 	SetVerificationMessageTemplate(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2428,7 +2171,6 @@ type CfnUserPool interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2473,15 +2215,12 @@ type CfnUserPool interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2492,13 +2231,11 @@ type CfnUserPool interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2507,74 +2244,21 @@ type CfnUserPool interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2774,8 +2458,8 @@ func (j *jsiiProxy_CfnUserPool) MfaConfiguration() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPool) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPool) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2926,13 +2610,13 @@ func (j *jsiiProxy_CfnUserPool) VerificationMessageTemplate() interface{} {
 
 
 // Create a new `AWS::Cognito::UserPool`.
-func NewCfnUserPool(scope awscdk.Construct, id *string, props *CfnUserPoolProps) CfnUserPool {
+func NewCfnUserPool(scope constructs.Construct, id *string, props *CfnUserPoolProps) CfnUserPool {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPool{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2941,11 +2625,11 @@ func NewCfnUserPool(scope awscdk.Construct, id *string, props *CfnUserPoolProps)
 }
 
 // Create a new `AWS::Cognito::UserPool`.
-func NewCfnUserPool_Override(c CfnUserPool, scope awscdk.Construct, id *string, props *CfnUserPoolProps) {
+func NewCfnUserPool_Override(c CfnUserPool, scope constructs.Construct, id *string, props *CfnUserPoolProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3125,14 +2809,13 @@ func (j *jsiiProxy_CfnUserPool) SetVerificationMessageTemplate(val interface{}) 
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUserPool_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3142,14 +2825,13 @@ func CfnUserPool_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUserPool_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3158,15 +2840,17 @@ func CfnUserPool_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnUserPool_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3179,7 +2863,7 @@ func CfnUserPool_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3276,48 +2960,11 @@ func (c *jsiiProxy_CfnUserPool) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnUserPool) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUserPool) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPool) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUserPool) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPool) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3347,33 +2994,12 @@ func (c *jsiiProxy_CfnUserPool) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnUserPool) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUserPool) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUserPool) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3394,7 +3020,10 @@ func (c *jsiiProxy_CfnUserPool) ValidateProperties(_properties interface{}) {
 // It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accountRecoverySettingProperty := &accountRecoverySettingProperty{
 //   	recoveryMechanisms: []interface{}{
 //   		&recoveryOptionProperty{
@@ -3406,13 +3035,16 @@ func (c *jsiiProxy_CfnUserPool) ValidateProperties(_properties interface{}) {
 //
 type CfnUserPool_AccountRecoverySettingProperty struct {
 	// The list of `RecoveryOptionTypes` .
-	RecoveryMechanisms interface{} `json:"recoveryMechanisms" yaml:"recoveryMechanisms"`
+	RecoveryMechanisms interface{} `field:"optional" json:"recoveryMechanisms" yaml:"recoveryMechanisms"`
 }
 
 // The configuration for `AdminCreateUser` requests.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   adminCreateUserConfigProperty := &adminCreateUserConfigProperty{
 //   	allowAdminCreateUserOnly: jsii.Boolean(false),
 //   	inviteMessageTemplate: &inviteMessageTemplateProperty{
@@ -3427,23 +3059,26 @@ type CfnUserPool_AdminCreateUserConfigProperty struct {
 	// Set to `True` if only the administrator is allowed to create user profiles.
 	//
 	// Set to `False` if users can sign themselves up via an app.
-	AllowAdminCreateUserOnly interface{} `json:"allowAdminCreateUserOnly" yaml:"allowAdminCreateUserOnly"`
+	AllowAdminCreateUserOnly interface{} `field:"optional" json:"allowAdminCreateUserOnly" yaml:"allowAdminCreateUserOnly"`
 	// The message template to be used for the welcome message to new users.
 	//
 	// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
-	InviteMessageTemplate interface{} `json:"inviteMessageTemplate" yaml:"inviteMessageTemplate"`
+	InviteMessageTemplate interface{} `field:"optional" json:"inviteMessageTemplate" yaml:"inviteMessageTemplate"`
 	// The user account expiration limit, in days, after which a new account that hasn't signed in is no longer usable.
 	//
 	// To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `"RESEND"` for the `MessageAction` parameter. The default value for this parameter is 7.
 	//
 	// > If you set a value for `TemporaryPasswordValidityDays` in `PasswordPolicy` , that value will be used, and `UnusedAccountValidityDays` will be no longer be an available parameter for that user pool.
-	UnusedAccountValidityDays *float64 `json:"unusedAccountValidityDays" yaml:"unusedAccountValidityDays"`
+	UnusedAccountValidityDays *float64 `field:"optional" json:"unusedAccountValidityDays" yaml:"unusedAccountValidityDays"`
 }
 
 // A custom email sender AWS Lambda trigger.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customEmailSenderProperty := &customEmailSenderProperty{
 //   	lambdaArn: jsii.String("lambdaArn"),
 //   	lambdaVersion: jsii.String("lambdaVersion"),
@@ -3451,17 +3086,20 @@ type CfnUserPool_AdminCreateUserConfigProperty struct {
 //
 type CfnUserPool_CustomEmailSenderProperty struct {
 	// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send email notifications to users.
-	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
+	LambdaArn *string `field:"optional" json:"lambdaArn" yaml:"lambdaArn"`
 	// The Lambda version represents the signature of the "request" attribute in the "event" information that Amazon Cognito passes to your custom email sender AWS Lambda function.
 	//
 	// The only supported value is `V1_0` .
-	LambdaVersion *string `json:"lambdaVersion" yaml:"lambdaVersion"`
+	LambdaVersion *string `field:"optional" json:"lambdaVersion" yaml:"lambdaVersion"`
 }
 
 // A custom SMS sender AWS Lambda trigger.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customSMSSenderProperty := &customSMSSenderProperty{
 //   	lambdaArn: jsii.String("lambdaArn"),
 //   	lambdaVersion: jsii.String("lambdaVersion"),
@@ -3469,11 +3107,11 @@ type CfnUserPool_CustomEmailSenderProperty struct {
 //
 type CfnUserPool_CustomSMSSenderProperty struct {
 	// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send SMS notifications to users.
-	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
+	LambdaArn *string `field:"optional" json:"lambdaArn" yaml:"lambdaArn"`
 	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS sender Lambda function.
 	//
 	// The only supported value is `V1_0` .
-	LambdaVersion *string `json:"lambdaVersion" yaml:"lambdaVersion"`
+	LambdaVersion *string `field:"optional" json:"lambdaVersion" yaml:"lambdaVersion"`
 }
 
 // The device tracking configuration for a user pool. A user pool with device tracking deactivated returns a null value.
@@ -3481,7 +3119,10 @@ type CfnUserPool_CustomSMSSenderProperty struct {
 // > When you provide values for any DeviceConfiguration field, you activate device tracking.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deviceConfigurationProperty := &deviceConfigurationProperty{
 //   	challengeRequiredOnNewDevice: jsii.Boolean(false),
 //   	deviceOnlyRememberedOnUserPrompt: jsii.Boolean(false),
@@ -3491,11 +3132,11 @@ type CfnUserPool_DeviceConfigurationProperty struct {
 	// When true, device authentication can replace SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
 	//
 	// > Users that sign in with devices that have not been confirmed or remembered will still have to provide a second factor, whether or not ChallengeRequiredOnNewDevice is true, when your user pool requires MFA.
-	ChallengeRequiredOnNewDevice interface{} `json:"challengeRequiredOnNewDevice" yaml:"challengeRequiredOnNewDevice"`
+	ChallengeRequiredOnNewDevice interface{} `field:"optional" json:"challengeRequiredOnNewDevice" yaml:"challengeRequiredOnNewDevice"`
 	// When true, users can opt in to remembering their device.
 	//
 	// Your app code must use callback functions to return the user's choice.
-	DeviceOnlyRememberedOnUserPrompt interface{} `json:"deviceOnlyRememberedOnUserPrompt" yaml:"deviceOnlyRememberedOnUserPrompt"`
+	DeviceOnlyRememberedOnUserPrompt interface{} `field:"optional" json:"deviceOnlyRememberedOnUserPrompt" yaml:"deviceOnlyRememberedOnUserPrompt"`
 }
 
 // The email configuration of your user pool.
@@ -3503,7 +3144,10 @@ type CfnUserPool_DeviceConfigurationProperty struct {
 // The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   emailConfigurationProperty := &emailConfigurationProperty{
 //   	configurationSet: jsii.String("configurationSet"),
 //   	emailSendingAccount: jsii.String("emailSendingAccount"),
@@ -3519,7 +3163,7 @@ type CfnUserPool_EmailConfigurationProperty struct {
 	//
 	// - Event publishing – Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.
 	// - IP pool management – When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
-	ConfigurationSet *string `json:"configurationSet" yaml:"configurationSet"`
+	ConfigurationSet *string `field:"optional" json:"configurationSet" yaml:"configurationSet"`
 	// Specifies whether Amazon Cognito uses its built-in functionality to send your users email messages, or uses your Amazon Simple Email Service email configuration.
 	//
 	// Specify one of the following values:
@@ -3534,13 +3178,13 @@ type CfnUserPool_EmailConfigurationProperty struct {
 	// If you use this option, provide the ARN of an Amazon SES verified email address for the `SourceArn` parameter.
 	//
 	// Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of role, in your AWS account . This role contains the permissions that allow to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see [Using Service-Linked Roles for Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html) in the *Amazon Cognito Developer Guide* .
-	EmailSendingAccount *string `json:"emailSendingAccount" yaml:"emailSendingAccount"`
+	EmailSendingAccount *string `field:"optional" json:"emailSendingAccount" yaml:"emailSendingAccount"`
 	// Identifies either the sender's email address or the sender's name with their email address.
 	//
 	// For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
-	From *string `json:"from" yaml:"from"`
+	From *string `field:"optional" json:"from" yaml:"from"`
 	// The destination to which the receiver of the email should reply.
-	ReplyToEmailAddress *string `json:"replyToEmailAddress" yaml:"replyToEmailAddress"`
+	ReplyToEmailAddress *string `field:"optional" json:"replyToEmailAddress" yaml:"replyToEmailAddress"`
 	// The ARN of a verified email address in Amazon SES.
 	//
 	// Amazon Cognito uses this email address in one of the following ways, depending on the value that you specify for the `EmailSendingAccount` parameter:
@@ -3549,7 +3193,7 @@ type CfnUserPool_EmailConfigurationProperty struct {
 	// - If you specify `DEVELOPER` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.
 	//
 	// The Region value of the `SourceArn` parameter must indicate a supported AWS Region of your user pool. Typically, the Region in the `SourceArn` and the user pool Region are the same. For more information, see [Amazon SES email configuration regions](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html#user-pool-email-developer-region-mapping) in the [Amazon Cognito Developer Guide](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) .
-	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
+	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
 }
 
 // The message template to be used for the welcome message to new users.
@@ -3557,7 +3201,10 @@ type CfnUserPool_EmailConfigurationProperty struct {
 // See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inviteMessageTemplateProperty := &inviteMessageTemplateProperty{
 //   	emailMessage: jsii.String("emailMessage"),
 //   	emailSubject: jsii.String("emailSubject"),
@@ -3568,19 +3215,22 @@ type CfnUserPool_InviteMessageTemplateProperty struct {
 	// The message template for email messages.
 	//
 	// EmailMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailMessage *string `json:"emailMessage" yaml:"emailMessage"`
+	EmailMessage *string `field:"optional" json:"emailMessage" yaml:"emailMessage"`
 	// The subject line for email messages.
 	//
 	// EmailSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailSubject *string `json:"emailSubject" yaml:"emailSubject"`
+	EmailSubject *string `field:"optional" json:"emailSubject" yaml:"emailSubject"`
 	// The message template for SMS messages.
-	SmsMessage *string `json:"smsMessage" yaml:"smsMessage"`
+	SmsMessage *string `field:"optional" json:"smsMessage" yaml:"smsMessage"`
 }
 
 // Specifies the configuration for AWS Lambda triggers.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaConfigProperty := &lambdaConfigProperty{
 //   	createAuthChallenge: jsii.String("createAuthChallenge"),
 //   	customEmailSender: &customEmailSenderProperty{
@@ -3605,39 +3255,42 @@ type CfnUserPool_InviteMessageTemplateProperty struct {
 //
 type CfnUserPool_LambdaConfigProperty struct {
 	// Creates an authentication challenge.
-	CreateAuthChallenge *string `json:"createAuthChallenge" yaml:"createAuthChallenge"`
+	CreateAuthChallenge *string `field:"optional" json:"createAuthChallenge" yaml:"createAuthChallenge"`
 	// A custom email sender AWS Lambda trigger.
-	CustomEmailSender interface{} `json:"customEmailSender" yaml:"customEmailSender"`
+	CustomEmailSender interface{} `field:"optional" json:"customEmailSender" yaml:"customEmailSender"`
 	// A custom Message AWS Lambda trigger.
-	CustomMessage *string `json:"customMessage" yaml:"customMessage"`
+	CustomMessage *string `field:"optional" json:"customMessage" yaml:"customMessage"`
 	// A custom SMS sender AWS Lambda trigger.
-	CustomSmsSender interface{} `json:"customSmsSender" yaml:"customSmsSender"`
+	CustomSmsSender interface{} `field:"optional" json:"customSmsSender" yaml:"customSmsSender"`
 	// Defines the authentication challenge.
-	DefineAuthChallenge *string `json:"defineAuthChallenge" yaml:"defineAuthChallenge"`
+	DefineAuthChallenge *string `field:"optional" json:"defineAuthChallenge" yaml:"defineAuthChallenge"`
 	// The Amazon Resource Name of a AWS Key Management Service ( AWS KMS ) key.
 	//
 	// Amazon Cognito uses the key to encrypt codes and temporary passwords sent to `CustomEmailSender` and `CustomSMSSender` .
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// A post-authentication AWS Lambda trigger.
-	PostAuthentication *string `json:"postAuthentication" yaml:"postAuthentication"`
+	PostAuthentication *string `field:"optional" json:"postAuthentication" yaml:"postAuthentication"`
 	// A post-confirmation AWS Lambda trigger.
-	PostConfirmation *string `json:"postConfirmation" yaml:"postConfirmation"`
+	PostConfirmation *string `field:"optional" json:"postConfirmation" yaml:"postConfirmation"`
 	// A pre-authentication AWS Lambda trigger.
-	PreAuthentication *string `json:"preAuthentication" yaml:"preAuthentication"`
+	PreAuthentication *string `field:"optional" json:"preAuthentication" yaml:"preAuthentication"`
 	// A pre-registration AWS Lambda trigger.
-	PreSignUp *string `json:"preSignUp" yaml:"preSignUp"`
+	PreSignUp *string `field:"optional" json:"preSignUp" yaml:"preSignUp"`
 	// A Lambda trigger that is invoked before token generation.
-	PreTokenGeneration *string `json:"preTokenGeneration" yaml:"preTokenGeneration"`
+	PreTokenGeneration *string `field:"optional" json:"preTokenGeneration" yaml:"preTokenGeneration"`
 	// The user migration Lambda config type.
-	UserMigration *string `json:"userMigration" yaml:"userMigration"`
+	UserMigration *string `field:"optional" json:"userMigration" yaml:"userMigration"`
 	// Verifies the authentication challenge response.
-	VerifyAuthChallengeResponse *string `json:"verifyAuthChallengeResponse" yaml:"verifyAuthChallengeResponse"`
+	VerifyAuthChallengeResponse *string `field:"optional" json:"verifyAuthChallengeResponse" yaml:"verifyAuthChallengeResponse"`
 }
 
 // The minimum and maximum values of an attribute that is of the number data type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   numberAttributeConstraintsProperty := &numberAttributeConstraintsProperty{
 //   	maxValue: jsii.String("maxValue"),
 //   	minValue: jsii.String("minValue"),
@@ -3645,15 +3298,18 @@ type CfnUserPool_LambdaConfigProperty struct {
 //
 type CfnUserPool_NumberAttributeConstraintsProperty struct {
 	// The maximum value of an attribute that is of the number data type.
-	MaxValue *string `json:"maxValue" yaml:"maxValue"`
+	MaxValue *string `field:"optional" json:"maxValue" yaml:"maxValue"`
 	// The minimum value of an attribute that is of the number data type.
-	MinValue *string `json:"minValue" yaml:"minValue"`
+	MinValue *string `field:"optional" json:"minValue" yaml:"minValue"`
 }
 
 // The password policy type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   passwordPolicyProperty := &passwordPolicyProperty{
 //   	minimumLength: jsii.Number(123),
 //   	requireLowercase: jsii.Boolean(false),
@@ -3667,27 +3323,30 @@ type CfnUserPool_PasswordPolicyProperty struct {
 	// The minimum length of the password in the policy that you have set.
 	//
 	// This value can't be less than 6.
-	MinimumLength *float64 `json:"minimumLength" yaml:"minimumLength"`
+	MinimumLength *float64 `field:"optional" json:"minimumLength" yaml:"minimumLength"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
-	RequireLowercase interface{} `json:"requireLowercase" yaml:"requireLowercase"`
+	RequireLowercase interface{} `field:"optional" json:"requireLowercase" yaml:"requireLowercase"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
-	RequireNumbers interface{} `json:"requireNumbers" yaml:"requireNumbers"`
+	RequireNumbers interface{} `field:"optional" json:"requireNumbers" yaml:"requireNumbers"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
-	RequireSymbols interface{} `json:"requireSymbols" yaml:"requireSymbols"`
+	RequireSymbols interface{} `field:"optional" json:"requireSymbols" yaml:"requireSymbols"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
-	RequireUppercase interface{} `json:"requireUppercase" yaml:"requireUppercase"`
+	RequireUppercase interface{} `field:"optional" json:"requireUppercase" yaml:"requireUppercase"`
 	// The number of days a temporary password is valid in the password policy.
 	//
 	// If the user doesn't sign in during this time, an administrator must reset their password.
 	//
 	// > When you set `TemporaryPasswordValidityDays` for a user pool, you can no longer set a value for the legacy `UnusedAccountValidityDays` parameter in that user pool.
-	TemporaryPasswordValidityDays *float64 `json:"temporaryPasswordValidityDays" yaml:"temporaryPasswordValidityDays"`
+	TemporaryPasswordValidityDays *float64 `field:"optional" json:"temporaryPasswordValidityDays" yaml:"temporaryPasswordValidityDays"`
 }
 
 // The policy associated with a user pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   policiesProperty := &policiesProperty{
 //   	passwordPolicy: &passwordPolicyProperty{
 //   		minimumLength: jsii.Number(123),
@@ -3701,13 +3360,16 @@ type CfnUserPool_PasswordPolicyProperty struct {
 //
 type CfnUserPool_PoliciesProperty struct {
 	// The password policy.
-	PasswordPolicy interface{} `json:"passwordPolicy" yaml:"passwordPolicy"`
+	PasswordPolicy interface{} `field:"optional" json:"passwordPolicy" yaml:"passwordPolicy"`
 }
 
 // A map containing a priority as a key, and recovery method name as a value.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   recoveryOptionProperty := &recoveryOptionProperty{
 //   	name: jsii.String("name"),
 //   	priority: jsii.Number(123),
@@ -3715,15 +3377,18 @@ type CfnUserPool_PoliciesProperty struct {
 //
 type CfnUserPool_RecoveryOptionProperty struct {
 	// Specifies the recovery method for a user.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A positive integer specifying priority of a method with 1 being the highest priority.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 
 // Contains information about the schema attribute.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   schemaAttributeProperty := &schemaAttributeProperty{
 //   	attributeDataType: jsii.String("attributeDataType"),
 //   	developerOnlyAttribute: jsii.Boolean(false),
@@ -3742,25 +3407,25 @@ type CfnUserPool_RecoveryOptionProperty struct {
 //
 type CfnUserPool_SchemaAttributeProperty struct {
 	// The attribute data type.
-	AttributeDataType *string `json:"attributeDataType" yaml:"attributeDataType"`
+	AttributeDataType *string `field:"optional" json:"attributeDataType" yaml:"attributeDataType"`
 	// > We recommend that you use [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes) in the user pool client to control how attributes can be mutated for new use cases instead of using `DeveloperOnlyAttribute` .
 	//
 	// Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token.
-	DeveloperOnlyAttribute interface{} `json:"developerOnlyAttribute" yaml:"developerOnlyAttribute"`
+	DeveloperOnlyAttribute interface{} `field:"optional" json:"developerOnlyAttribute" yaml:"developerOnlyAttribute"`
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that is mapped to an IdP attribute, you must set this parameter to `true` . Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
-	Mutable interface{} `json:"mutable" yaml:"mutable"`
+	Mutable interface{} `field:"optional" json:"mutable" yaml:"mutable"`
 	// A schema attribute of the name type.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specifies the constraints for an attribute of the number type.
-	NumberAttributeConstraints interface{} `json:"numberAttributeConstraints" yaml:"numberAttributeConstraints"`
+	NumberAttributeConstraints interface{} `field:"optional" json:"numberAttributeConstraints" yaml:"numberAttributeConstraints"`
 	// Specifies whether a user pool attribute is required.
 	//
 	// If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.
-	Required interface{} `json:"required" yaml:"required"`
+	Required interface{} `field:"optional" json:"required" yaml:"required"`
 	// Specifies the constraints for an attribute of the string type.
-	StringAttributeConstraints interface{} `json:"stringAttributeConstraints" yaml:"stringAttributeConstraints"`
+	StringAttributeConstraints interface{} `field:"optional" json:"stringAttributeConstraints" yaml:"stringAttributeConstraints"`
 }
 
 // The SMS configuration type that includes the settings the Cognito User Pool needs to call for the Amazon SNS service to send an SMS message from your AWS account .
@@ -3768,7 +3433,10 @@ type CfnUserPool_SchemaAttributeProperty struct {
 // The Cognito User Pool makes the request to the Amazon SNS Service by using an IAM role that you provide for your AWS account .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   smsConfigurationProperty := &smsConfigurationProperty{
 //   	externalId: jsii.String("externalId"),
 //   	snsCallerArn: jsii.String("snsCallerArn"),
@@ -3779,17 +3447,17 @@ type CfnUserPool_SmsConfigurationProperty struct {
 	// The external ID is a value.
 	//
 	// We recommend you use `ExternalId` to add security to your IAM role, which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , the Cognito User Pool uses it when attempting to assume your IAM role. You can also set your roles trust policy to require the `ExternalID` . If you use the Cognito Management Console to create a role for SMS MFA, Cognito creates a role with the required permissions and a trust policy that uses `ExternalId` .
-	ExternalId *string `json:"externalId" yaml:"externalId"`
+	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS caller.
 	//
 	// This is the ARN of the IAM role in your AWS account that Amazon Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
-	SnsCallerArn *string `json:"snsCallerArn" yaml:"snsCallerArn"`
+	SnsCallerArn *string `field:"optional" json:"snsCallerArn" yaml:"snsCallerArn"`
 	// The AWS Region to use with Amazon SNS integration.
 	//
 	// You can choose the same Region as your user pool, or a supported *Legacy Amazon SNS alternate Region* .
 	//
 	// Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
-	SnsRegion *string `json:"snsRegion" yaml:"snsRegion"`
+	SnsRegion *string `field:"optional" json:"snsRegion" yaml:"snsRegion"`
 }
 
 // The `StringAttributeConstraints` property type defines the string attribute constraints of an Amazon Cognito user pool.
@@ -3797,7 +3465,10 @@ type CfnUserPool_SmsConfigurationProperty struct {
 // `StringAttributeConstraints` is a subproperty of the [SchemaAttribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stringAttributeConstraintsProperty := &stringAttributeConstraintsProperty{
 //   	maxLength: jsii.String("maxLength"),
 //   	minLength: jsii.String("minLength"),
@@ -3805,28 +3476,34 @@ type CfnUserPool_SmsConfigurationProperty struct {
 //
 type CfnUserPool_StringAttributeConstraintsProperty struct {
 	// The maximum length.
-	MaxLength *string `json:"maxLength" yaml:"maxLength"`
+	MaxLength *string `field:"optional" json:"maxLength" yaml:"maxLength"`
 	// The minimum length.
-	MinLength *string `json:"minLength" yaml:"minLength"`
+	MinLength *string `field:"optional" json:"minLength" yaml:"minLength"`
 }
 
 // The user pool add-ons type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   userPoolAddOnsProperty := &userPoolAddOnsProperty{
 //   	advancedSecurityMode: jsii.String("advancedSecurityMode"),
 //   }
 //
 type CfnUserPool_UserPoolAddOnsProperty struct {
 	// The advanced security mode.
-	AdvancedSecurityMode *string `json:"advancedSecurityMode" yaml:"advancedSecurityMode"`
+	AdvancedSecurityMode *string `field:"optional" json:"advancedSecurityMode" yaml:"advancedSecurityMode"`
 }
 
 // The `UsernameConfiguration` property type specifies case sensitivity on the username input for the selected sign-in option.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   usernameConfigurationProperty := &usernameConfigurationProperty{
 //   	caseSensitive: jsii.Boolean(false),
 //   }
@@ -3838,13 +3515,16 @@ type CfnUserPool_UsernameConfigurationProperty struct {
 	//
 	// - **True** - Enables case sensitivity for all username input. When this option is set to `True` , users must sign in using the exact capitalization of their given username, such as “UserName”. This is the default value.
 	// - **False** - Enables case insensitivity for all username input. For example, when this option is set to `False` , users can sign in using either "username" or "Username". This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
-	CaseSensitive interface{} `json:"caseSensitive" yaml:"caseSensitive"`
+	CaseSensitive interface{} `field:"optional" json:"caseSensitive" yaml:"caseSensitive"`
 }
 
 // The template for verification messages.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   verificationMessageTemplateProperty := &verificationMessageTemplateProperty{
 //   	defaultEmailOption: jsii.String("defaultEmailOption"),
 //   	emailMessage: jsii.String("emailMessage"),
@@ -3856,25 +3536,25 @@ type CfnUserPool_UsernameConfigurationProperty struct {
 //
 type CfnUserPool_VerificationMessageTemplateProperty struct {
 	// The default email option.
-	DefaultEmailOption *string `json:"defaultEmailOption" yaml:"defaultEmailOption"`
+	DefaultEmailOption *string `field:"optional" json:"defaultEmailOption" yaml:"defaultEmailOption"`
 	// The email message template.
 	//
 	// EmailMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailMessage *string `json:"emailMessage" yaml:"emailMessage"`
+	EmailMessage *string `field:"optional" json:"emailMessage" yaml:"emailMessage"`
 	// The email message template for sending a confirmation link to the user.
 	//
 	// EmailMessageByLink is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailMessageByLink *string `json:"emailMessageByLink" yaml:"emailMessageByLink"`
+	EmailMessageByLink *string `field:"optional" json:"emailMessageByLink" yaml:"emailMessageByLink"`
 	// The subject line for the email message template.
 	//
 	// EmailSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailSubject *string `json:"emailSubject" yaml:"emailSubject"`
+	EmailSubject *string `field:"optional" json:"emailSubject" yaml:"emailSubject"`
 	// The subject line for the email message template for sending a confirmation link to the user.
 	//
 	// EmailSubjectByLink is allowed only [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailSubjectByLink *string `json:"emailSubjectByLink" yaml:"emailSubjectByLink"`
+	EmailSubjectByLink *string `field:"optional" json:"emailSubjectByLink" yaml:"emailSubjectByLink"`
 	// The SMS message template.
-	SmsMessage *string `json:"smsMessage" yaml:"smsMessage"`
+	SmsMessage *string `field:"optional" json:"smsMessage" yaml:"smsMessage"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolClient`.
@@ -3884,9 +3564,12 @@ type CfnUserPool_VerificationMessageTemplateProperty struct {
 // > If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
 //
 // Example:
-//   import cognito "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk"import elbv2 "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type App awscdk.App
-//   type CfnOutput awscdk.CfnOutput
-//   type Stack awscdk.Stackimport constructs "github.com/aws/constructs-go/constructs"type Construct constructs.Constructimport actions "github.com/aws/aws-cdk-go/awscdk"
+//   import cognito "github.com/aws/aws-cdk-go/awscdk"
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws-samples/dummy/constructs"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cognitoStack struct {
 //   stack
@@ -3947,11 +3630,11 @@ type CfnUserPool_VerificationMessageTemplateProperty struct {
 //   	}),
 //   })
 //
-//   NewCfnOutput(this, jsii.String("DNS"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("DNS"), &cfnOutputProps{
 //   	value: lb.loadBalancerDnsName,
 //   })
 //
-//   app := NewApp()
+//   app := awscdk.NewApp()
 //   NewCognitoStack(app, jsii.String("integ-cognito"))
 //   app.synth()
 //
@@ -4005,11 +3688,9 @@ type CfnUserPoolClient interface {
 	CallbackUrLs() *[]*string
 	SetCallbackUrLs(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The client name for the user pool client you would like to create.
 	ClientName() *string
@@ -4017,7 +3698,6 @@ type CfnUserPoolClient interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The default redirect URI. Must be in the `CallbackURLs` list.
 	//
@@ -4077,14 +3757,12 @@ type CfnUserPoolClient interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// A list of allowed logout URLs for the IdPs.
 	LogoutUrLs() *[]*string
 	SetLogoutUrLs(val *[]*string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool.
 	//
 	// When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
@@ -4097,7 +3775,6 @@ type CfnUserPoolClient interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The refresh token time limit.
 	//
@@ -4111,7 +3788,6 @@ type CfnUserPoolClient interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A list of provider names for the IdPs that this client supports.
 	//
@@ -4127,7 +3803,6 @@ type CfnUserPoolClient interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The user pool ID for the user pool where you want to create a user pool client.
 	UserPoolId() *string
@@ -4138,13 +3813,11 @@ type CfnUserPoolClient interface {
 	WriteAttributes() *[]*string
 	SetWriteAttributes(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4153,7 +3826,6 @@ type CfnUserPoolClient interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -4198,15 +3870,12 @@ type CfnUserPoolClient interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -4217,13 +3886,11 @@ type CfnUserPoolClient interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4232,74 +3899,21 @@ type CfnUserPoolClient interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4509,8 +4123,8 @@ func (j *jsiiProxy_CfnUserPoolClient) LogoutUrLs() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolClient) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolClient) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4621,13 +4235,13 @@ func (j *jsiiProxy_CfnUserPoolClient) WriteAttributes() *[]*string {
 
 
 // Create a new `AWS::Cognito::UserPoolClient`.
-func NewCfnUserPoolClient(scope awscdk.Construct, id *string, props *CfnUserPoolClientProps) CfnUserPoolClient {
+func NewCfnUserPoolClient(scope constructs.Construct, id *string, props *CfnUserPoolClientProps) CfnUserPoolClient {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolClient{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4636,11 +4250,11 @@ func NewCfnUserPoolClient(scope awscdk.Construct, id *string, props *CfnUserPool
 }
 
 // Create a new `AWS::Cognito::UserPoolClient`.
-func NewCfnUserPoolClient_Override(c CfnUserPoolClient, scope awscdk.Construct, id *string, props *CfnUserPoolClientProps) {
+func NewCfnUserPoolClient_Override(c CfnUserPoolClient, scope constructs.Construct, id *string, props *CfnUserPoolClientProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4812,14 +4426,13 @@ func (j *jsiiProxy_CfnUserPoolClient) SetWriteAttributes(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUserPoolClient_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4829,14 +4442,13 @@ func CfnUserPoolClient_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUserPoolClient_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4845,15 +4457,17 @@ func CfnUserPoolClient_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnUserPoolClient_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4866,7 +4480,7 @@ func CfnUserPoolClient_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4963,48 +4577,11 @@ func (c *jsiiProxy_CfnUserPoolClient) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnUserPoolClient) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolClient) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolClient) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUserPoolClient) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolClient) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5034,33 +4611,12 @@ func (c *jsiiProxy_CfnUserPoolClient) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnUserPoolClient) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUserPoolClient) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUserPoolClient) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5081,7 +4637,10 @@ func (c *jsiiProxy_CfnUserPoolClient) ValidateProperties(_properties interface{}
 // > In Regions where Amazon Pinpointisn't available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   analyticsConfigurationProperty := &analyticsConfigurationProperty{
 //   	applicationArn: jsii.String("applicationArn"),
 //   	applicationId: jsii.String("applicationId"),
@@ -5094,15 +4653,15 @@ type CfnUserPoolClient_AnalyticsConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of an Amazon Pinpoint project.
 	//
 	// You can use the Amazon Pinpoint project for integration with the chosen user pool client. Amazon Cognito publishes events to the Amazon Pinpoint project that the app ARN declares.
-	ApplicationArn *string `json:"applicationArn" yaml:"applicationArn"`
+	ApplicationArn *string `field:"optional" json:"applicationArn" yaml:"applicationArn"`
 	// The application ID for an Amazon Pinpoint application.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"optional" json:"applicationId" yaml:"applicationId"`
 	// The external ID.
-	ExternalId *string `json:"externalId" yaml:"externalId"`
+	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
 	// The ARN of an AWS Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// If `UserDataShared` is `true` , Amazon Cognito includes user data in the events that it publishes to Amazon Pinpoint analytics.
-	UserDataShared interface{} `json:"userDataShared" yaml:"userDataShared"`
+	UserDataShared interface{} `field:"optional" json:"userDataShared" yaml:"userDataShared"`
 }
 
 // The units in which the validity times are represented.
@@ -5110,7 +4669,10 @@ type CfnUserPoolClient_AnalyticsConfigurationProperty struct {
 // The default unit for RefreshToken is days, and the default for ID and access tokens is hours.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tokenValidityUnitsProperty := &tokenValidityUnitsProperty{
 //   	accessToken: jsii.String("accessToken"),
 //   	idToken: jsii.String("idToken"),
@@ -5119,17 +4681,20 @@ type CfnUserPoolClient_AnalyticsConfigurationProperty struct {
 //
 type CfnUserPoolClient_TokenValidityUnitsProperty struct {
 	// A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in AccessTokenValidity, defaulting to hours.
-	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in IdTokenValidity, defaulting to hours.
-	IdToken *string `json:"idToken" yaml:"idToken"`
+	IdToken *string `field:"optional" json:"idToken" yaml:"idToken"`
 	// A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in RefreshTokenValidity, defaulting to days.
-	RefreshToken *string `json:"refreshToken" yaml:"refreshToken"`
+	RefreshToken *string `field:"optional" json:"refreshToken" yaml:"refreshToken"`
 }
 
 // Properties for defining a `CfnUserPoolClient`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserPoolClientProps := &cfnUserPoolClientProps{
 //   	userPoolId: jsii.String("userPoolId"),
 //
@@ -5183,7 +4748,7 @@ type CfnUserPoolClient_TokenValidityUnitsProperty struct {
 //
 type CfnUserPoolClientProps struct {
 	// The user pool ID for the user pool where you want to create a user pool client.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// The access token time limit.
 	//
 	// After this limit expires, your user can't use their access token. To specify the time unit for `AccessTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
@@ -5191,23 +4756,23 @@ type CfnUserPoolClientProps struct {
 	// For example, when you set `AccessTokenValidity` to `10` and `TokenValidityUnits` to `hours` , your user can authorize access with their access token for 10 hours.
 	//
 	// The default time unit for `AccessTokenValidity` in an API request is hours.
-	AccessTokenValidity *float64 `json:"accessTokenValidity" yaml:"accessTokenValidity"`
+	AccessTokenValidity *float64 `field:"optional" json:"accessTokenValidity" yaml:"accessTokenValidity"`
 	// The allowed OAuth flows.
 	//
 	// - **code** - Use a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the `/oauth2/token` endpoint.
 	// - **implicit** - Issue the access token (and, optionally, ID token, based on scopes) directly to your user.
 	// - **client_credentials** - Issue the access token from the `/oauth2/token` endpoint directly to a non-person user using a combination of the client ID and client secret.
-	AllowedOAuthFlows *[]*string `json:"allowedOAuthFlows" yaml:"allowedOAuthFlows"`
+	AllowedOAuthFlows *[]*string `field:"optional" json:"allowedOAuthFlows" yaml:"allowedOAuthFlows"`
 	// Set to true if the client is allowed to follow the OAuth protocol when interacting with Amazon Cognito user pools.
-	AllowedOAuthFlowsUserPoolClient interface{} `json:"allowedOAuthFlowsUserPoolClient" yaml:"allowedOAuthFlowsUserPoolClient"`
+	AllowedOAuthFlowsUserPoolClient interface{} `field:"optional" json:"allowedOAuthFlowsUserPoolClient" yaml:"allowedOAuthFlowsUserPoolClient"`
 	// The allowed OAuth scopes.
 	//
 	// Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
-	AllowedOAuthScopes *[]*string `json:"allowedOAuthScopes" yaml:"allowedOAuthScopes"`
+	AllowedOAuthScopes *[]*string `field:"optional" json:"allowedOAuthScopes" yaml:"allowedOAuthScopes"`
 	// The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
 	//
 	// > In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
-	AnalyticsConfiguration interface{} `json:"analyticsConfiguration" yaml:"analyticsConfiguration"`
+	AnalyticsConfiguration interface{} `field:"optional" json:"analyticsConfiguration" yaml:"analyticsConfiguration"`
 	// A list of allowed redirect (callback) URLs for the IdPs.
 	//
 	// A redirect URI must:
@@ -5221,9 +4786,9 @@ type CfnUserPoolClientProps struct {
 	// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
 	//
 	// App callback URLs such as myapp://example are also supported.
-	CallbackUrLs *[]*string `json:"callbackUrLs" yaml:"callbackUrLs"`
+	CallbackUrLs *[]*string `field:"optional" json:"callbackUrLs" yaml:"callbackUrLs"`
 	// The client name for the user pool client you would like to create.
-	ClientName *string `json:"clientName" yaml:"clientName"`
+	ClientName *string `field:"optional" json:"clientName" yaml:"clientName"`
 	// The default redirect URI. Must be in the `CallbackURLs` list.
 	//
 	// A redirect URI must:
@@ -5237,11 +4802,11 @@ type CfnUserPoolClientProps struct {
 	// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
 	//
 	// App callback URLs such as myapp://example are also supported.
-	DefaultRedirectUri *string `json:"defaultRedirectUri" yaml:"defaultRedirectUri"`
+	DefaultRedirectUri *string `field:"optional" json:"defaultRedirectUri" yaml:"defaultRedirectUri"`
 	// Activates or deactivates token revocation. For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
 	//
 	// If you don't include this parameter, token revocation is automatically activated for the new user pool client.
-	EnableTokenRevocation interface{} `json:"enableTokenRevocation" yaml:"enableTokenRevocation"`
+	EnableTokenRevocation interface{} `field:"optional" json:"enableTokenRevocation" yaml:"enableTokenRevocation"`
 	// The authentication flows that are supported by the user pool clients.
 	//
 	// Flow names without the `ALLOW_` prefix are no longer supported, in favor of new names with the `ALLOW_` prefix.
@@ -5257,9 +4822,9 @@ type CfnUserPoolClientProps struct {
 	// - `ALLOW_REFRESH_TOKEN_AUTH` : Enable authflow to refresh tokens.
 	//
 	// If you don't specify a value for `ExplicitAuthFlows` , your app client activates the `ALLOW_USER_SRP_AUTH` and `ALLOW_CUSTOM_AUTH` authentication flows.
-	ExplicitAuthFlows *[]*string `json:"explicitAuthFlows" yaml:"explicitAuthFlows"`
+	ExplicitAuthFlows *[]*string `field:"optional" json:"explicitAuthFlows" yaml:"explicitAuthFlows"`
 	// Boolean to specify whether you want to generate a secret for the user pool client being created.
-	GenerateSecret interface{} `json:"generateSecret" yaml:"generateSecret"`
+	GenerateSecret interface{} `field:"optional" json:"generateSecret" yaml:"generateSecret"`
 	// The ID token time limit.
 	//
 	// After this limit expires, your user can't use their ID token. To specify the time unit for `IdTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
@@ -5267,15 +4832,15 @@ type CfnUserPoolClientProps struct {
 	// For example, when you set `IdTokenValidity` as `10` and `TokenValidityUnits` as `hours` , your user can authenticate their session with their ID token for 10 hours.
 	//
 	// The default time unit for `AccessTokenValidity` in an API request is hours.
-	IdTokenValidity *float64 `json:"idTokenValidity" yaml:"idTokenValidity"`
+	IdTokenValidity *float64 `field:"optional" json:"idTokenValidity" yaml:"idTokenValidity"`
 	// A list of allowed logout URLs for the IdPs.
-	LogoutUrLs *[]*string `json:"logoutUrLs" yaml:"logoutUrLs"`
+	LogoutUrLs *[]*string `field:"optional" json:"logoutUrLs" yaml:"logoutUrLs"`
 	// Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool.
 	//
 	// When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-	PreventUserExistenceErrors *string `json:"preventUserExistenceErrors" yaml:"preventUserExistenceErrors"`
+	PreventUserExistenceErrors *string `field:"optional" json:"preventUserExistenceErrors" yaml:"preventUserExistenceErrors"`
 	// The read attributes.
-	ReadAttributes *[]*string `json:"readAttributes" yaml:"readAttributes"`
+	ReadAttributes *[]*string `field:"optional" json:"readAttributes" yaml:"readAttributes"`
 	// The refresh token time limit.
 	//
 	// After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
@@ -5283,19 +4848,19 @@ type CfnUserPoolClientProps struct {
 	// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session and retrieve new access and ID tokens for 10 days.
 	//
 	// The default time unit for `RefreshTokenValidity` in an API request is days. You can't set `RefreshTokenValidity` to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days.
-	RefreshTokenValidity *float64 `json:"refreshTokenValidity" yaml:"refreshTokenValidity"`
+	RefreshTokenValidity *float64 `field:"optional" json:"refreshTokenValidity" yaml:"refreshTokenValidity"`
 	// A list of provider names for the IdPs that this client supports.
 	//
 	// The following are supported: `COGNITO` , `Facebook` , `Google` `LoginWithAmazon` , and the names of your own SAML and OIDC providers.
-	SupportedIdentityProviders *[]*string `json:"supportedIdentityProviders" yaml:"supportedIdentityProviders"`
+	SupportedIdentityProviders *[]*string `field:"optional" json:"supportedIdentityProviders" yaml:"supportedIdentityProviders"`
 	// The units in which the validity times are represented.
 	//
 	// The default unit for RefreshToken is days, and default for ID and access tokens are hours.
-	TokenValidityUnits interface{} `json:"tokenValidityUnits" yaml:"tokenValidityUnits"`
+	TokenValidityUnits interface{} `field:"optional" json:"tokenValidityUnits" yaml:"tokenValidityUnits"`
 	// The user pool attributes that the app client can write to.
 	//
 	// If your app client allows users to sign in through an IdP, this array must include all attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If your app client does not have write access to a mapped attribute, Amazon Cognito throws an error when it tries to update the attribute. For more information, see [Specifying IdP Attribute Mappings for Your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
-	WriteAttributes *[]*string `json:"writeAttributes" yaml:"writeAttributes"`
+	WriteAttributes *[]*string `field:"optional" json:"writeAttributes" yaml:"writeAttributes"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolDomain`.
@@ -5303,8 +4868,11 @@ type CfnUserPoolClientProps struct {
 // The AWS::Cognito::UserPoolDomain resource creates a new domain for a user pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
-//   cfnUserPoolDomain := cognito.NewCfnUserPoolDomain(this, jsii.String("MyCfnUserPoolDomain"), &cfnUserPoolDomainProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUserPoolDomain := awscdk.Aws_cognito.NewCfnUserPoolDomain(this, jsii.String("MyCfnUserPoolDomain"), &cfnUserPoolDomainProps{
 //   	domain: jsii.String("domain"),
 //   	userPoolId: jsii.String("userPoolId"),
 //
@@ -5318,16 +4886,13 @@ type CfnUserPoolDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application.
 	//
@@ -5350,39 +4915,32 @@ type CfnUserPoolDomain interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The user pool ID for the user pool where you want to associate a user pool domain.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -5391,7 +4949,6 @@ type CfnUserPoolDomain interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -5436,15 +4993,12 @@ type CfnUserPoolDomain interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -5455,13 +5009,11 @@ type CfnUserPoolDomain interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -5470,74 +5022,21 @@ type CfnUserPoolDomain interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5617,8 +5116,8 @@ func (j *jsiiProxy_CfnUserPoolDomain) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolDomain) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolDomain) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5669,13 +5168,13 @@ func (j *jsiiProxy_CfnUserPoolDomain) UserPoolId() *string {
 
 
 // Create a new `AWS::Cognito::UserPoolDomain`.
-func NewCfnUserPoolDomain(scope awscdk.Construct, id *string, props *CfnUserPoolDomainProps) CfnUserPoolDomain {
+func NewCfnUserPoolDomain(scope constructs.Construct, id *string, props *CfnUserPoolDomainProps) CfnUserPoolDomain {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolDomain{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5684,11 +5183,11 @@ func NewCfnUserPoolDomain(scope awscdk.Construct, id *string, props *CfnUserPool
 }
 
 // Create a new `AWS::Cognito::UserPoolDomain`.
-func NewCfnUserPoolDomain_Override(c CfnUserPoolDomain, scope awscdk.Construct, id *string, props *CfnUserPoolDomainProps) {
+func NewCfnUserPoolDomain_Override(c CfnUserPoolDomain, scope constructs.Construct, id *string, props *CfnUserPoolDomainProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5724,14 +5223,13 @@ func (j *jsiiProxy_CfnUserPoolDomain) SetUserPoolId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUserPoolDomain_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5741,14 +5239,13 @@ func CfnUserPoolDomain_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUserPoolDomain_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5757,15 +5254,17 @@ func CfnUserPoolDomain_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnUserPoolDomain_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5778,7 +5277,7 @@ func CfnUserPoolDomain_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5875,48 +5374,11 @@ func (c *jsiiProxy_CfnUserPoolDomain) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnUserPoolDomain) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolDomain) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolDomain) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUserPoolDomain) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolDomain) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5946,33 +5408,12 @@ func (c *jsiiProxy_CfnUserPoolDomain) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnUserPoolDomain) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUserPoolDomain) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUserPoolDomain) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5991,7 +5432,10 @@ func (c *jsiiProxy_CfnUserPoolDomain) ValidateProperties(_properties interface{}
 // The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customDomainConfigTypeProperty := &customDomainConfigTypeProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   }
@@ -6000,13 +5444,16 @@ type CfnUserPoolDomain_CustomDomainConfigTypeProperty struct {
 	// The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate.
 	//
 	// You use this certificate for the subdomain of your custom domain.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
 }
 
 // Properties for defining a `CfnUserPoolDomain`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserPoolDomainProps := &cfnUserPoolDomainProps{
 //   	domain: jsii.String("domain"),
 //   	userPoolId: jsii.String("userPoolId"),
@@ -6023,13 +5470,13 @@ type CfnUserPoolDomainProps struct {
 	// For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
 	//
 	// This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
-	Domain *string `json:"domain" yaml:"domain"`
+	Domain *string `field:"required" json:"domain" yaml:"domain"`
 	// The user pool ID for the user pool where you want to associate a user pool domain.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application.
 	//
 	// Use this object to specify an SSL certificate that is managed by ACM.
-	CustomDomainConfig interface{} `json:"customDomainConfig" yaml:"customDomainConfig"`
+	CustomDomainConfig interface{} `field:"optional" json:"customDomainConfig" yaml:"customDomainConfig"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolGroup`.
@@ -6041,8 +5488,11 @@ type CfnUserPoolDomainProps struct {
 // > If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
-//   cfnUserPoolGroup := cognito.NewCfnUserPoolGroup(this, jsii.String("MyCfnUserPoolGroup"), &cfnUserPoolGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUserPoolGroup := awscdk.Aws_cognito.NewCfnUserPoolGroup(this, jsii.String("MyCfnUserPoolGroup"), &cfnUserPoolGroupProps{
 //   	userPoolId: jsii.String("userPoolId"),
 //
 //   	// the properties below are optional
@@ -6056,16 +5506,13 @@ type CfnUserPoolGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A string containing the description of the group.
 	Description() *string
@@ -6084,11 +5531,9 @@ type CfnUserPoolGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool.
 	//
 	// Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
@@ -6102,7 +5547,6 @@ type CfnUserPoolGroup interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The role Amazon Resource Name (ARN) for the group.
 	RoleArn() *string
@@ -6110,25 +5554,21 @@ type CfnUserPoolGroup interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The user pool ID for the user pool.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6137,7 +5577,6 @@ type CfnUserPoolGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -6182,15 +5621,12 @@ type CfnUserPoolGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -6201,13 +5637,11 @@ type CfnUserPoolGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6216,74 +5650,21 @@ type CfnUserPoolGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -6363,8 +5744,8 @@ func (j *jsiiProxy_CfnUserPoolGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6435,13 +5816,13 @@ func (j *jsiiProxy_CfnUserPoolGroup) UserPoolId() *string {
 
 
 // Create a new `AWS::Cognito::UserPoolGroup`.
-func NewCfnUserPoolGroup(scope awscdk.Construct, id *string, props *CfnUserPoolGroupProps) CfnUserPoolGroup {
+func NewCfnUserPoolGroup(scope constructs.Construct, id *string, props *CfnUserPoolGroupProps) CfnUserPoolGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6450,11 +5831,11 @@ func NewCfnUserPoolGroup(scope awscdk.Construct, id *string, props *CfnUserPoolG
 }
 
 // Create a new `AWS::Cognito::UserPoolGroup`.
-func NewCfnUserPoolGroup_Override(c CfnUserPoolGroup, scope awscdk.Construct, id *string, props *CfnUserPoolGroupProps) {
+func NewCfnUserPoolGroup_Override(c CfnUserPoolGroup, scope constructs.Construct, id *string, props *CfnUserPoolGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6506,14 +5887,13 @@ func (j *jsiiProxy_CfnUserPoolGroup) SetUserPoolId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUserPoolGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6523,14 +5903,13 @@ func CfnUserPoolGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUserPoolGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6539,15 +5918,17 @@ func CfnUserPoolGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnUserPoolGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6560,7 +5941,7 @@ func CfnUserPoolGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6657,48 +6038,11 @@ func (c *jsiiProxy_CfnUserPoolGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnUserPoolGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUserPoolGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -6728,33 +6072,12 @@ func (c *jsiiProxy_CfnUserPoolGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnUserPoolGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUserPoolGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUserPoolGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6773,7 +6096,10 @@ func (c *jsiiProxy_CfnUserPoolGroup) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnUserPoolGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserPoolGroupProps := &cfnUserPoolGroupProps{
 //   	userPoolId: jsii.String("userPoolId"),
 //
@@ -6786,13 +6112,13 @@ func (c *jsiiProxy_CfnUserPoolGroup) ValidateProperties(_properties interface{})
 //
 type CfnUserPoolGroupProps struct {
 	// The user pool ID for the user pool.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// A string containing the description of the group.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the group.
 	//
 	// Must be unique.
-	GroupName *string `json:"groupName" yaml:"groupName"`
+	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool.
 	//
 	// Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
@@ -6800,9 +6126,9 @@ type CfnUserPoolGroupProps struct {
 	// Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
 	//
 	// The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
-	Precedence *float64 `json:"precedence" yaml:"precedence"`
+	Precedence *float64 `field:"optional" json:"precedence" yaml:"precedence"`
 	// The role Amazon Resource Name (ARN) for the group.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolIdentityProvider`.
@@ -6810,11 +6136,14 @@ type CfnUserPoolGroupProps struct {
 // The `AWS::Cognito::UserPoolIdentityProvider` resource creates an identity provider for a user pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributeMapping interface{}
 //   var providerDetails interface{}
-//   cfnUserPoolIdentityProvider := cognito.NewCfnUserPoolIdentityProvider(this, jsii.String("MyCfnUserPoolIdentityProvider"), &cfnUserPoolIdentityProviderProps{
+//
+//   cfnUserPoolIdentityProvider := awscdk.Aws_cognito.NewCfnUserPoolIdentityProvider(this, jsii.String("MyCfnUserPoolIdentityProvider"), &cfnUserPoolIdentityProviderProps{
 //   	providerName: jsii.String("providerName"),
 //   	providerType: jsii.String("providerType"),
 //   	userPoolId: jsii.String("userPoolId"),
@@ -6834,16 +6163,13 @@ type CfnUserPoolIdentityProvider interface {
 	AttributeMapping() interface{}
 	SetAttributeMapping(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A list of IdP identifiers.
 	IdpIdentifiers() *[]*string
@@ -6857,11 +6183,9 @@ type CfnUserPoolIdentityProvider interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The IdP details. The following list describes the provider detail keys for each IdP type.
 	//
 	// - For Google and Login with Amazon:
@@ -6914,30 +6238,25 @@ type CfnUserPoolIdentityProvider interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The user pool ID.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6946,7 +6265,6 @@ type CfnUserPoolIdentityProvider interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -6991,15 +6309,12 @@ type CfnUserPoolIdentityProvider interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -7010,13 +6325,11 @@ type CfnUserPoolIdentityProvider interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7025,74 +6338,21 @@ type CfnUserPoolIdentityProvider interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -7172,8 +6432,8 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolIdentityProvider) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolIdentityProvider) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7254,13 +6514,13 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider) UserPoolId() *string {
 
 
 // Create a new `AWS::Cognito::UserPoolIdentityProvider`.
-func NewCfnUserPoolIdentityProvider(scope awscdk.Construct, id *string, props *CfnUserPoolIdentityProviderProps) CfnUserPoolIdentityProvider {
+func NewCfnUserPoolIdentityProvider(scope constructs.Construct, id *string, props *CfnUserPoolIdentityProviderProps) CfnUserPoolIdentityProvider {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolIdentityProvider{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7269,11 +6529,11 @@ func NewCfnUserPoolIdentityProvider(scope awscdk.Construct, id *string, props *C
 }
 
 // Create a new `AWS::Cognito::UserPoolIdentityProvider`.
-func NewCfnUserPoolIdentityProvider_Override(c CfnUserPoolIdentityProvider, scope awscdk.Construct, id *string, props *CfnUserPoolIdentityProviderProps) {
+func NewCfnUserPoolIdentityProvider_Override(c CfnUserPoolIdentityProvider, scope constructs.Construct, id *string, props *CfnUserPoolIdentityProviderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7333,14 +6593,13 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider) SetUserPoolId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUserPoolIdentityProvider_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7350,14 +6609,13 @@ func CfnUserPoolIdentityProvider_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUserPoolIdentityProvider_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7366,15 +6624,17 @@ func CfnUserPoolIdentityProvider_IsCfnResource(construct constructs.IConstruct) 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnUserPoolIdentityProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7387,7 +6647,7 @@ func CfnUserPoolIdentityProvider_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7484,48 +6744,11 @@ func (c *jsiiProxy_CfnUserPoolIdentityProvider) Inspect(inspector awscdk.TreeIns
 	)
 }
 
-func (c *jsiiProxy_CfnUserPoolIdentityProvider) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolIdentityProvider) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolIdentityProvider) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUserPoolIdentityProvider) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolIdentityProvider) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -7555,33 +6778,12 @@ func (c *jsiiProxy_CfnUserPoolIdentityProvider) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnUserPoolIdentityProvider) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUserPoolIdentityProvider) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUserPoolIdentityProvider) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7600,10 +6802,13 @@ func (c *jsiiProxy_CfnUserPoolIdentityProvider) ValidateProperties(_properties i
 // Properties for defining a `CfnUserPoolIdentityProvider`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributeMapping interface{}
 //   var providerDetails interface{}
+//
 //   cfnUserPoolIdentityProviderProps := &cfnUserPoolIdentityProviderProps{
 //   	providerName: jsii.String("providerName"),
 //   	providerType: jsii.String("providerType"),
@@ -7619,15 +6824,15 @@ func (c *jsiiProxy_CfnUserPoolIdentityProvider) ValidateProperties(_properties i
 //
 type CfnUserPoolIdentityProviderProps struct {
 	// The IdP name.
-	ProviderName *string `json:"providerName" yaml:"providerName"`
+	ProviderName *string `field:"required" json:"providerName" yaml:"providerName"`
 	// The IdP type.
-	ProviderType *string `json:"providerType" yaml:"providerType"`
+	ProviderType *string `field:"required" json:"providerType" yaml:"providerType"`
 	// The user pool ID.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// A mapping of IdP attributes to standard and custom user pool attributes.
-	AttributeMapping interface{} `json:"attributeMapping" yaml:"attributeMapping"`
+	AttributeMapping interface{} `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 	// A list of IdP identifiers.
-	IdpIdentifiers *[]*string `json:"idpIdentifiers" yaml:"idpIdentifiers"`
+	IdpIdentifiers *[]*string `field:"optional" json:"idpIdentifiers" yaml:"idpIdentifiers"`
 	// The IdP details. The following list describes the provider detail keys for each IdP type.
 	//
 	// - For Google and Login with Amazon:
@@ -7668,15 +6873,18 @@ type CfnUserPoolIdentityProviderProps struct {
 	//
 	// - MetadataFile or MetadataURL
 	// - IDPSignout *optional*.
-	ProviderDetails interface{} `json:"providerDetails" yaml:"providerDetails"`
+	ProviderDetails interface{} `field:"optional" json:"providerDetails" yaml:"providerDetails"`
 }
 
 // Properties for defining a `CfnUserPool`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var userPoolTags interface{}
+//
 //   cfnUserPoolProps := &cfnUserPoolProps{
 //   	accountRecoverySetting: &accountRecoverySettingProperty{
 //   		recoveryMechanisms: []interface{}{
@@ -7798,31 +7006,31 @@ type CfnUserPoolProps struct {
 	// Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` .
 	//
 	// It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
-	AccountRecoverySetting interface{} `json:"accountRecoverySetting" yaml:"accountRecoverySetting"`
+	AccountRecoverySetting interface{} `field:"optional" json:"accountRecoverySetting" yaml:"accountRecoverySetting"`
 	// The configuration for creating a new user profile.
-	AdminCreateUserConfig interface{} `json:"adminCreateUserConfig" yaml:"adminCreateUserConfig"`
+	AdminCreateUserConfig interface{} `field:"optional" json:"adminCreateUserConfig" yaml:"adminCreateUserConfig"`
 	// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
 	//
 	// > This user pool property cannot be updated.
-	AliasAttributes *[]*string `json:"aliasAttributes" yaml:"aliasAttributes"`
+	AliasAttributes *[]*string `field:"optional" json:"aliasAttributes" yaml:"aliasAttributes"`
 	// The attributes to be auto-verified.
 	//
 	// Possible values: *email* , *phone_number* .
-	AutoVerifiedAttributes *[]*string `json:"autoVerifiedAttributes" yaml:"autoVerifiedAttributes"`
+	AutoVerifiedAttributes *[]*string `field:"optional" json:"autoVerifiedAttributes" yaml:"autoVerifiedAttributes"`
 	// The device configuration.
-	DeviceConfiguration interface{} `json:"deviceConfiguration" yaml:"deviceConfiguration"`
+	DeviceConfiguration interface{} `field:"optional" json:"deviceConfiguration" yaml:"deviceConfiguration"`
 	// The email configuration of your user pool.
 	//
 	// The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
-	EmailConfiguration interface{} `json:"emailConfiguration" yaml:"emailConfiguration"`
+	EmailConfiguration interface{} `field:"optional" json:"emailConfiguration" yaml:"emailConfiguration"`
 	// A string representing the email verification message.
 	//
 	// EmailVerificationMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailVerificationMessage *string `json:"emailVerificationMessage" yaml:"emailVerificationMessage"`
+	EmailVerificationMessage *string `field:"optional" json:"emailVerificationMessage" yaml:"emailVerificationMessage"`
 	// A string representing the email verification subject.
 	//
 	// EmailVerificationSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-	EmailVerificationSubject *string `json:"emailVerificationSubject" yaml:"emailVerificationSubject"`
+	EmailVerificationSubject *string `field:"optional" json:"emailVerificationSubject" yaml:"emailVerificationSubject"`
 	// Enables MFA on a specified user pool.
 	//
 	// To disable all MFAs after it has been enabled, set MfaConfiguration to “OFF” and remove EnabledMfas. MFAs can only be all disabled if MfaConfiguration is OFF. Once SMS_MFA is enabled, SMS_MFA can only be disabled by setting MfaConfiguration to “OFF”. Can be one of the following values:
@@ -7831,7 +7039,7 @@ type CfnUserPoolProps struct {
 	// - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
 	//
 	// Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`.
-	EnabledMfas *[]*string `json:"enabledMfas" yaml:"enabledMfas"`
+	EnabledMfas *[]*string `field:"optional" json:"enabledMfas" yaml:"enabledMfas"`
 	// The Lambda trigger configuration information for the new user pool.
 	//
 	// > In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
@@ -7839,49 +7047,49 @@ type CfnUserPoolProps struct {
 	// > For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
 	// >
 	// > For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
-	LambdaConfig interface{} `json:"lambdaConfig" yaml:"lambdaConfig"`
+	LambdaConfig interface{} `field:"optional" json:"lambdaConfig" yaml:"lambdaConfig"`
 	// The multi-factor (MFA) configuration. Valid values include:.
 	//
 	// - `OFF` MFA won't be used for any users.
 	// - `ON` MFA is required for all users to sign in.
 	// - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
-	MfaConfiguration *string `json:"mfaConfiguration" yaml:"mfaConfiguration"`
+	MfaConfiguration *string `field:"optional" json:"mfaConfiguration" yaml:"mfaConfiguration"`
 	// The policy associated with a user pool.
-	Policies interface{} `json:"policies" yaml:"policies"`
+	Policies interface{} `field:"optional" json:"policies" yaml:"policies"`
 	// The schema attributes for the new user pool. These attributes can be standard or custom attributes.
 	//
 	// > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
-	Schema interface{} `json:"schema" yaml:"schema"`
+	Schema interface{} `field:"optional" json:"schema" yaml:"schema"`
 	// A string representing the SMS authentication message.
-	SmsAuthenticationMessage *string `json:"smsAuthenticationMessage" yaml:"smsAuthenticationMessage"`
+	SmsAuthenticationMessage *string `field:"optional" json:"smsAuthenticationMessage" yaml:"smsAuthenticationMessage"`
 	// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service.
 	//
 	// To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
-	SmsConfiguration interface{} `json:"smsConfiguration" yaml:"smsConfiguration"`
+	SmsConfiguration interface{} `field:"optional" json:"smsConfiguration" yaml:"smsConfiguration"`
 	// A string representing the SMS verification message.
-	SmsVerificationMessage *string `json:"smsVerificationMessage" yaml:"smsVerificationMessage"`
+	SmsVerificationMessage *string `field:"optional" json:"smsVerificationMessage" yaml:"smsVerificationMessage"`
 	// Determines whether email addresses or phone numbers can be specified as user names when a user signs up.
 	//
 	// Possible values: `phone_number` or `email` .
 	//
 	// This user pool property cannot be updated.
-	UsernameAttributes *[]*string `json:"usernameAttributes" yaml:"usernameAttributes"`
+	UsernameAttributes *[]*string `field:"optional" json:"usernameAttributes" yaml:"usernameAttributes"`
 	// You can choose to set case sensitivity on the username input for the selected sign-in option.
 	//
 	// For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
-	UsernameConfiguration interface{} `json:"usernameConfiguration" yaml:"usernameConfiguration"`
+	UsernameConfiguration interface{} `field:"optional" json:"usernameConfiguration" yaml:"usernameConfiguration"`
 	// Enables advanced security risk detection.
 	//
 	// Set the key `AdvancedSecurityMode` to the value "AUDIT".
-	UserPoolAddOns interface{} `json:"userPoolAddOns" yaml:"userPoolAddOns"`
+	UserPoolAddOns interface{} `field:"optional" json:"userPoolAddOns" yaml:"userPoolAddOns"`
 	// A string used to name the user pool.
-	UserPoolName *string `json:"userPoolName" yaml:"userPoolName"`
+	UserPoolName *string `field:"optional" json:"userPoolName" yaml:"userPoolName"`
 	// The tag keys and values to assign to the user pool.
 	//
 	// A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
-	UserPoolTags interface{} `json:"userPoolTags" yaml:"userPoolTags"`
+	UserPoolTags interface{} `field:"optional" json:"userPoolTags" yaml:"userPoolTags"`
 	// The template for the verification message that the user sees when the app requests permission to access the user's information.
-	VerificationMessageTemplate interface{} `json:"verificationMessageTemplate" yaml:"verificationMessageTemplate"`
+	VerificationMessageTemplate interface{} `field:"optional" json:"verificationMessageTemplate" yaml:"verificationMessageTemplate"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolResourceServer`.
@@ -7891,8 +7099,11 @@ type CfnUserPoolProps struct {
 // > If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
-//   cfnUserPoolResourceServer := cognito.NewCfnUserPoolResourceServer(this, jsii.String("MyCfnUserPoolResourceServer"), &cfnUserPoolResourceServerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUserPoolResourceServer := awscdk.Aws_cognito.NewCfnUserPoolResourceServer(this, jsii.String("MyCfnUserPoolResourceServer"), &cfnUserPoolResourceServerProps{
 //   	identifier: jsii.String("identifier"),
 //   	name: jsii.String("name"),
 //   	userPoolId: jsii.String("userPoolId"),
@@ -7910,16 +7121,13 @@ type CfnUserPoolResourceServer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A unique resource server identifier for the resource server.
 	//
@@ -7935,19 +7143,16 @@ type CfnUserPoolResourceServer interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// A friendly name for the resource server.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// A list of scopes.
 	//
@@ -7957,25 +7162,21 @@ type CfnUserPoolResourceServer interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The user pool ID for the user pool.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7984,7 +7185,6 @@ type CfnUserPoolResourceServer interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -8029,15 +7229,12 @@ type CfnUserPoolResourceServer interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -8048,13 +7245,11 @@ type CfnUserPoolResourceServer interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8063,74 +7258,21 @@ type CfnUserPoolResourceServer interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -8210,8 +7352,8 @@ func (j *jsiiProxy_CfnUserPoolResourceServer) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolResourceServer) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolResourceServer) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8272,13 +7414,13 @@ func (j *jsiiProxy_CfnUserPoolResourceServer) UserPoolId() *string {
 
 
 // Create a new `AWS::Cognito::UserPoolResourceServer`.
-func NewCfnUserPoolResourceServer(scope awscdk.Construct, id *string, props *CfnUserPoolResourceServerProps) CfnUserPoolResourceServer {
+func NewCfnUserPoolResourceServer(scope constructs.Construct, id *string, props *CfnUserPoolResourceServerProps) CfnUserPoolResourceServer {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolResourceServer{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8287,11 +7429,11 @@ func NewCfnUserPoolResourceServer(scope awscdk.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::Cognito::UserPoolResourceServer`.
-func NewCfnUserPoolResourceServer_Override(c CfnUserPoolResourceServer, scope awscdk.Construct, id *string, props *CfnUserPoolResourceServerProps) {
+func NewCfnUserPoolResourceServer_Override(c CfnUserPoolResourceServer, scope constructs.Construct, id *string, props *CfnUserPoolResourceServerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8335,14 +7477,13 @@ func (j *jsiiProxy_CfnUserPoolResourceServer) SetUserPoolId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUserPoolResourceServer_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8352,14 +7493,13 @@ func CfnUserPoolResourceServer_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUserPoolResourceServer_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8368,15 +7508,17 @@ func CfnUserPoolResourceServer_IsCfnResource(construct constructs.IConstruct) *b
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnUserPoolResourceServer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8389,7 +7531,7 @@ func CfnUserPoolResourceServer_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8486,48 +7628,11 @@ func (c *jsiiProxy_CfnUserPoolResourceServer) Inspect(inspector awscdk.TreeInspe
 	)
 }
 
-func (c *jsiiProxy_CfnUserPoolResourceServer) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolResourceServer) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolResourceServer) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUserPoolResourceServer) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolResourceServer) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -8557,33 +7662,12 @@ func (c *jsiiProxy_CfnUserPoolResourceServer) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnUserPoolResourceServer) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUserPoolResourceServer) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUserPoolResourceServer) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8602,7 +7686,10 @@ func (c *jsiiProxy_CfnUserPoolResourceServer) ValidateProperties(_properties int
 // A resource server scope.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceServerScopeTypeProperty := &resourceServerScopeTypeProperty{
 //   	scopeDescription: jsii.String("scopeDescription"),
 //   	scopeName: jsii.String("scopeName"),
@@ -8610,15 +7697,18 @@ func (c *jsiiProxy_CfnUserPoolResourceServer) ValidateProperties(_properties int
 //
 type CfnUserPoolResourceServer_ResourceServerScopeTypeProperty struct {
 	// A description of the scope.
-	ScopeDescription *string `json:"scopeDescription" yaml:"scopeDescription"`
+	ScopeDescription *string `field:"required" json:"scopeDescription" yaml:"scopeDescription"`
 	// The name of the scope.
-	ScopeName *string `json:"scopeName" yaml:"scopeName"`
+	ScopeName *string `field:"required" json:"scopeName" yaml:"scopeName"`
 }
 
 // Properties for defining a `CfnUserPoolResourceServer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserPoolResourceServerProps := &cfnUserPoolResourceServerProps{
 //   	identifier: jsii.String("identifier"),
 //   	name: jsii.String("name"),
@@ -8637,15 +7727,15 @@ type CfnUserPoolResourceServerProps struct {
 	// A unique resource server identifier for the resource server.
 	//
 	// This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 	// A friendly name for the resource server.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The user pool ID for the user pool.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// A list of scopes.
 	//
 	// Each scope is a map with keys `ScopeName` and `ScopeDescription` .
-	Scopes interface{} `json:"scopes" yaml:"scopes"`
+	Scopes interface{} `field:"optional" json:"scopes" yaml:"scopes"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
@@ -8655,8 +7745,11 @@ type CfnUserPoolResourceServerProps struct {
 // You can specify risk configuration for a single client (with a specific `clientId` ) or for all clients (by setting the `clientId` to `ALL` ). If you specify `ALL` , the default configuration is used for every client that has had no risk configuration set previously. If you specify risk configuration for a particular client, it no longer falls back to the `ALL` configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
-//   cfnUserPoolRiskConfigurationAttachment := cognito.NewCfnUserPoolRiskConfigurationAttachment(this, jsii.String("MyCfnUserPoolRiskConfigurationAttachment"), &cfnUserPoolRiskConfigurationAttachmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUserPoolRiskConfigurationAttachment := awscdk.Aws_cognito.NewCfnUserPoolRiskConfigurationAttachment(this, jsii.String("MyCfnUserPoolRiskConfigurationAttachment"), &cfnUserPoolRiskConfigurationAttachmentProps{
 //   	clientId: jsii.String("clientId"),
 //   	userPoolId: jsii.String("userPoolId"),
 //
@@ -8734,11 +7827,9 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	AccountTakeoverRiskConfiguration() interface{}
 	SetAccountTakeoverRiskConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The app client ID.
 	//
@@ -8751,7 +7842,6 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -8762,16 +7852,13 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The configuration to override the risk decision.
 	RiskExceptionConfiguration() interface{}
@@ -8779,25 +7866,21 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The user pool ID.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8806,7 +7889,6 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -8851,15 +7933,12 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -8870,13 +7949,11 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8885,74 +7962,21 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -9042,8 +8066,8 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -9104,13 +8128,13 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) UserPoolId() *string 
 
 
 // Create a new `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
-func NewCfnUserPoolRiskConfigurationAttachment(scope awscdk.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) CfnUserPoolRiskConfigurationAttachment {
+func NewCfnUserPoolRiskConfigurationAttachment(scope constructs.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) CfnUserPoolRiskConfigurationAttachment {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolRiskConfigurationAttachment{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9119,11 +8143,11 @@ func NewCfnUserPoolRiskConfigurationAttachment(scope awscdk.Construct, id *strin
 }
 
 // Create a new `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
-func NewCfnUserPoolRiskConfigurationAttachment_Override(c CfnUserPoolRiskConfigurationAttachment, scope awscdk.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) {
+func NewCfnUserPoolRiskConfigurationAttachment_Override(c CfnUserPoolRiskConfigurationAttachment, scope constructs.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -9175,14 +8199,13 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) SetUserPoolId(val *st
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUserPoolRiskConfigurationAttachment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -9192,14 +8215,13 @@ func CfnUserPoolRiskConfigurationAttachment_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUserPoolRiskConfigurationAttachment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -9208,15 +8230,17 @@ func CfnUserPoolRiskConfigurationAttachment_IsCfnResource(construct constructs.I
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnUserPoolRiskConfigurationAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9229,7 +8253,7 @@ func CfnUserPoolRiskConfigurationAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -9326,48 +8350,11 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Inspect(inspector aws
 	)
 }
 
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -9397,33 +8384,12 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) ShouldSynthesize() *b
 	return returns
 }
 
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9442,7 +8408,10 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) ValidateProperties(_p
 // Account takeover action type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accountTakeoverActionTypeProperty := &accountTakeoverActionTypeProperty{
 //   	eventAction: jsii.String("eventAction"),
 //   	notify: jsii.Boolean(false),
@@ -9455,15 +8424,18 @@ type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionTypeProperty st
 	// - `MFA_IF_CONFIGURED` Present an MFA challenge if user has configured it, else allow the request.
 	// - `MFA_REQUIRED` Present an MFA challenge if user has configured it, else block the request.
 	// - `NO_ACTION` Allow the user to sign in.
-	EventAction *string `json:"eventAction" yaml:"eventAction"`
+	EventAction *string `field:"required" json:"eventAction" yaml:"eventAction"`
 	// Flag specifying whether to send a notification.
-	Notify interface{} `json:"notify" yaml:"notify"`
+	Notify interface{} `field:"required" json:"notify" yaml:"notify"`
 }
 
 // Account takeover actions type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accountTakeoverActionsTypeProperty := &accountTakeoverActionsTypeProperty{
 //   	highAction: &accountTakeoverActionTypeProperty{
 //   		eventAction: jsii.String("eventAction"),
@@ -9481,17 +8453,20 @@ type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionTypeProperty st
 //
 type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionsTypeProperty struct {
 	// Action to take for a high risk.
-	HighAction interface{} `json:"highAction" yaml:"highAction"`
+	HighAction interface{} `field:"optional" json:"highAction" yaml:"highAction"`
 	// Action to take for a low risk.
-	LowAction interface{} `json:"lowAction" yaml:"lowAction"`
+	LowAction interface{} `field:"optional" json:"lowAction" yaml:"lowAction"`
 	// Action to take for a medium risk.
-	MediumAction interface{} `json:"mediumAction" yaml:"mediumAction"`
+	MediumAction interface{} `field:"optional" json:"mediumAction" yaml:"mediumAction"`
 }
 
 // Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accountTakeoverRiskConfigurationTypeProperty := &accountTakeoverRiskConfigurationTypeProperty{
 //   	actions: &accountTakeoverActionsTypeProperty{
 //   		highAction: &accountTakeoverActionTypeProperty{
@@ -9541,28 +8516,34 @@ type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionsTypeProperty s
 //
 type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverRiskConfigurationTypeProperty struct {
 	// Account takeover risk configuration actions.
-	Actions interface{} `json:"actions" yaml:"actions"`
+	Actions interface{} `field:"required" json:"actions" yaml:"actions"`
 	// The notify configuration used to construct email notifications.
-	NotifyConfiguration interface{} `json:"notifyConfiguration" yaml:"notifyConfiguration"`
+	NotifyConfiguration interface{} `field:"optional" json:"notifyConfiguration" yaml:"notifyConfiguration"`
 }
 
 // The compromised credentials actions type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   compromisedCredentialsActionsTypeProperty := &compromisedCredentialsActionsTypeProperty{
 //   	eventAction: jsii.String("eventAction"),
 //   }
 //
 type CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsActionsTypeProperty struct {
 	// The event action.
-	EventAction *string `json:"eventAction" yaml:"eventAction"`
+	EventAction *string `field:"required" json:"eventAction" yaml:"eventAction"`
 }
 
 // The compromised credentials risk configuration type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   compromisedCredentialsRiskConfigurationTypeProperty := &compromisedCredentialsRiskConfigurationTypeProperty{
 //   	actions: &compromisedCredentialsActionsTypeProperty{
 //   		eventAction: jsii.String("eventAction"),
@@ -9576,17 +8557,20 @@ type CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsActionsTypePro
 //
 type CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsRiskConfigurationTypeProperty struct {
 	// The compromised credentials risk configuration actions.
-	Actions interface{} `json:"actions" yaml:"actions"`
+	Actions interface{} `field:"required" json:"actions" yaml:"actions"`
 	// Perform the action for these events.
 	//
 	// The default is to perform all events if no event filter is specified.
-	EventFilter *[]*string `json:"eventFilter" yaml:"eventFilter"`
+	EventFilter *[]*string `field:"optional" json:"eventFilter" yaml:"eventFilter"`
 }
 
 // The notify configuration type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notifyConfigurationTypeProperty := &notifyConfigurationTypeProperty{
 //   	sourceArn: jsii.String("sourceArn"),
 //
@@ -9620,25 +8604,28 @@ type CfnUserPoolRiskConfigurationAttachment_NotifyConfigurationTypeProperty stru
 	// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy.
 	//
 	// This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
-	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
+	SourceArn *string `field:"required" json:"sourceArn" yaml:"sourceArn"`
 	// Email template used when a detected risk event is blocked.
-	BlockEmail interface{} `json:"blockEmail" yaml:"blockEmail"`
+	BlockEmail interface{} `field:"optional" json:"blockEmail" yaml:"blockEmail"`
 	// The email address that is sending the email.
 	//
 	// The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-	From *string `json:"from" yaml:"from"`
+	From *string `field:"optional" json:"from" yaml:"from"`
 	// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
-	MfaEmail interface{} `json:"mfaEmail" yaml:"mfaEmail"`
+	MfaEmail interface{} `field:"optional" json:"mfaEmail" yaml:"mfaEmail"`
 	// The email template used when a detected risk event is allowed.
-	NoActionEmail interface{} `json:"noActionEmail" yaml:"noActionEmail"`
+	NoActionEmail interface{} `field:"optional" json:"noActionEmail" yaml:"noActionEmail"`
 	// The destination to which the receiver of an email should reply to.
-	ReplyTo *string `json:"replyTo" yaml:"replyTo"`
+	ReplyTo *string `field:"optional" json:"replyTo" yaml:"replyTo"`
 }
 
 // The notify email type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notifyEmailTypeProperty := &notifyEmailTypeProperty{
 //   	subject: jsii.String("subject"),
 //
@@ -9649,17 +8636,20 @@ type CfnUserPoolRiskConfigurationAttachment_NotifyConfigurationTypeProperty stru
 //
 type CfnUserPoolRiskConfigurationAttachment_NotifyEmailTypeProperty struct {
 	// The email subject.
-	Subject *string `json:"subject" yaml:"subject"`
+	Subject *string `field:"required" json:"subject" yaml:"subject"`
 	// The email HTML body.
-	HtmlBody *string `json:"htmlBody" yaml:"htmlBody"`
+	HtmlBody *string `field:"optional" json:"htmlBody" yaml:"htmlBody"`
 	// The email text body.
-	TextBody *string `json:"textBody" yaml:"textBody"`
+	TextBody *string `field:"optional" json:"textBody" yaml:"textBody"`
 }
 
 // The type of the configuration to override the risk decision.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   riskExceptionConfigurationTypeProperty := &riskExceptionConfigurationTypeProperty{
 //   	blockedIpRangeList: []*string{
 //   		jsii.String("blockedIpRangeList"),
@@ -9673,17 +8663,20 @@ type CfnUserPoolRiskConfigurationAttachment_RiskExceptionConfigurationTypeProper
 	// Overrides the risk decision to always block the pre-authentication requests.
 	//
 	// The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
-	BlockedIpRangeList *[]*string `json:"blockedIpRangeList" yaml:"blockedIpRangeList"`
+	BlockedIpRangeList *[]*string `field:"optional" json:"blockedIpRangeList" yaml:"blockedIpRangeList"`
 	// Risk detection isn't performed on the IP addresses in this range list.
 	//
 	// The IP range is in CIDR notation.
-	SkippedIpRangeList *[]*string `json:"skippedIpRangeList" yaml:"skippedIpRangeList"`
+	SkippedIpRangeList *[]*string `field:"optional" json:"skippedIpRangeList" yaml:"skippedIpRangeList"`
 }
 
 // Properties for defining a `CfnUserPoolRiskConfigurationAttachment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserPoolRiskConfigurationAttachmentProps := &cfnUserPoolRiskConfigurationAttachmentProps{
 //   	clientId: jsii.String("clientId"),
 //   	userPoolId: jsii.String("userPoolId"),
@@ -9759,15 +8752,15 @@ type CfnUserPoolRiskConfigurationAttachmentProps struct {
 	// The app client ID.
 	//
 	// You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The user pool ID.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
-	AccountTakeoverRiskConfiguration interface{} `json:"accountTakeoverRiskConfiguration" yaml:"accountTakeoverRiskConfiguration"`
+	AccountTakeoverRiskConfiguration interface{} `field:"optional" json:"accountTakeoverRiskConfiguration" yaml:"accountTakeoverRiskConfiguration"`
 	// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
-	CompromisedCredentialsRiskConfiguration interface{} `json:"compromisedCredentialsRiskConfiguration" yaml:"compromisedCredentialsRiskConfiguration"`
+	CompromisedCredentialsRiskConfiguration interface{} `field:"optional" json:"compromisedCredentialsRiskConfiguration" yaml:"compromisedCredentialsRiskConfiguration"`
 	// The configuration to override the risk decision.
-	RiskExceptionConfiguration interface{} `json:"riskExceptionConfiguration" yaml:"riskExceptionConfiguration"`
+	RiskExceptionConfiguration interface{} `field:"optional" json:"riskExceptionConfiguration" yaml:"riskExceptionConfiguration"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolUICustomizationAttachment`.
@@ -9781,8 +8774,11 @@ type CfnUserPoolRiskConfigurationAttachmentProps struct {
 // Setting a logo image isn't supported from AWS CloudFormation . Use the Amazon Cognito [SetUICustomization](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUICustomization.html#API_SetUICustomization_RequestSyntax) API operation to set the image.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
-//   cfnUserPoolUICustomizationAttachment := cognito.NewCfnUserPoolUICustomizationAttachment(this, jsii.String("MyCfnUserPoolUICustomizationAttachment"), &cfnUserPoolUICustomizationAttachmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUserPoolUICustomizationAttachment := awscdk.Aws_cognito.NewCfnUserPoolUICustomizationAttachment(this, jsii.String("MyCfnUserPoolUICustomizationAttachment"), &cfnUserPoolUICustomizationAttachmentProps{
 //   	clientId: jsii.String("clientId"),
 //   	userPoolId: jsii.String("userPoolId"),
 //
@@ -9794,11 +8790,9 @@ type CfnUserPoolUICustomizationAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The client ID for the client app.
 	//
@@ -9808,7 +8802,6 @@ type CfnUserPoolUICustomizationAttachment interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The CSS values in the UI customization.
 	Css() *string
@@ -9822,39 +8815,32 @@ type CfnUserPoolUICustomizationAttachment interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The user pool ID for the user pool.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -9863,7 +8849,6 @@ type CfnUserPoolUICustomizationAttachment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -9908,15 +8893,12 @@ type CfnUserPoolUICustomizationAttachment interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -9927,13 +8909,11 @@ type CfnUserPoolUICustomizationAttachment interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -9942,74 +8922,21 @@ type CfnUserPoolUICustomizationAttachment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -10089,8 +9016,8 @@ func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -10141,13 +9068,13 @@ func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) UserPoolId() *string {
 
 
 // Create a new `AWS::Cognito::UserPoolUICustomizationAttachment`.
-func NewCfnUserPoolUICustomizationAttachment(scope awscdk.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) CfnUserPoolUICustomizationAttachment {
+func NewCfnUserPoolUICustomizationAttachment(scope constructs.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) CfnUserPoolUICustomizationAttachment {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolUICustomizationAttachment{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10156,11 +9083,11 @@ func NewCfnUserPoolUICustomizationAttachment(scope awscdk.Construct, id *string,
 }
 
 // Create a new `AWS::Cognito::UserPoolUICustomizationAttachment`.
-func NewCfnUserPoolUICustomizationAttachment_Override(c CfnUserPoolUICustomizationAttachment, scope awscdk.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) {
+func NewCfnUserPoolUICustomizationAttachment_Override(c CfnUserPoolUICustomizationAttachment, scope constructs.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -10196,14 +9123,13 @@ func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) SetUserPoolId(val *stri
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUserPoolUICustomizationAttachment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -10213,14 +9139,13 @@ func CfnUserPoolUICustomizationAttachment_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUserPoolUICustomizationAttachment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -10229,15 +9154,17 @@ func CfnUserPoolUICustomizationAttachment_IsCfnResource(construct constructs.ICo
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnUserPoolUICustomizationAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10250,7 +9177,7 @@ func CfnUserPoolUICustomizationAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -10347,48 +9274,11 @@ func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) Inspect(inspector awscd
 	)
 }
 
-func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -10418,33 +9308,12 @@ func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) ShouldSynthesize() *boo
 	return returns
 }
 
-func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -10463,7 +9332,10 @@ func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) ValidateProperties(_pro
 // Properties for defining a `CfnUserPoolUICustomizationAttachment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserPoolUICustomizationAttachmentProps := &cfnUserPoolUICustomizationAttachmentProps{
 //   	clientId: jsii.String("clientId"),
 //   	userPoolId: jsii.String("userPoolId"),
@@ -10476,11 +9348,11 @@ type CfnUserPoolUICustomizationAttachmentProps struct {
 	// The client ID for the client app.
 	//
 	// You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The user pool ID for the user pool.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// The CSS values in the UI customization.
-	Css *string `json:"css" yaml:"css"`
+	Css *string `field:"optional" json:"css" yaml:"css"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolUser`.
@@ -10488,10 +9360,13 @@ type CfnUserPoolUICustomizationAttachmentProps struct {
 // The `AWS::Cognito::UserPoolUser` resource creates an Amazon Cognito user pool user.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var clientMetadata interface{}
-//   cfnUserPoolUser := cognito.NewCfnUserPoolUser(this, jsii.String("MyCfnUserPoolUser"), &cfnUserPoolUserProps{
+//
+//   cfnUserPoolUser := awscdk.Aws_cognito.NewCfnUserPoolUser(this, jsii.String("MyCfnUserPoolUser"), &cfnUserPoolUserProps{
 //   	userPoolId: jsii.String("userPoolId"),
 //
 //   	// the properties below are optional
@@ -10520,11 +9395,9 @@ type CfnUserPoolUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// A map of custom key-value pairs that you can provide as input for the custom workflow that is invoked by the *pre sign-up* trigger.
 	//
@@ -10542,7 +9415,6 @@ type CfnUserPoolUser interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Specify `"EMAIL"` if email will be used to send the welcome message.
 	//
@@ -10567,32 +9439,27 @@ type CfnUserPoolUser interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account.
 	//
 	// Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
 	MessageAction() *string
 	SetMessageAction(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The user attributes and attribute values to be set for the user to be created.
 	//
@@ -10626,13 +9493,11 @@ type CfnUserPoolUser interface {
 	ValidationData() interface{}
 	SetValidationData(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -10641,7 +9506,6 @@ type CfnUserPoolUser interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -10686,15 +9550,12 @@ type CfnUserPoolUser interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -10705,13 +9566,11 @@ type CfnUserPoolUser interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -10720,74 +9579,21 @@ type CfnUserPoolUser interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -10887,8 +9693,8 @@ func (j *jsiiProxy_CfnUserPoolUser) MessageAction() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolUser) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolUser) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -10969,13 +9775,13 @@ func (j *jsiiProxy_CfnUserPoolUser) ValidationData() interface{} {
 
 
 // Create a new `AWS::Cognito::UserPoolUser`.
-func NewCfnUserPoolUser(scope awscdk.Construct, id *string, props *CfnUserPoolUserProps) CfnUserPoolUser {
+func NewCfnUserPoolUser(scope constructs.Construct, id *string, props *CfnUserPoolUserProps) CfnUserPoolUser {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolUser{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10984,11 +9790,11 @@ func NewCfnUserPoolUser(scope awscdk.Construct, id *string, props *CfnUserPoolUs
 }
 
 // Create a new `AWS::Cognito::UserPoolUser`.
-func NewCfnUserPoolUser_Override(c CfnUserPoolUser, scope awscdk.Construct, id *string, props *CfnUserPoolUserProps) {
+func NewCfnUserPoolUser_Override(c CfnUserPoolUser, scope constructs.Construct, id *string, props *CfnUserPoolUserProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -11064,14 +9870,13 @@ func (j *jsiiProxy_CfnUserPoolUser) SetValidationData(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUserPoolUser_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -11081,14 +9886,13 @@ func CfnUserPoolUser_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUserPoolUser_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -11097,15 +9901,17 @@ func CfnUserPoolUser_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnUserPoolUser_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -11118,7 +9924,7 @@ func CfnUserPoolUser_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -11215,48 +10021,11 @@ func (c *jsiiProxy_CfnUserPoolUser) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnUserPoolUser) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolUser) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolUser) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUserPoolUser) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolUser) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -11286,33 +10055,12 @@ func (c *jsiiProxy_CfnUserPoolUser) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnUserPoolUser) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUserPoolUser) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUserPoolUser) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -11331,7 +10079,10 @@ func (c *jsiiProxy_CfnUserPoolUser) ValidateProperties(_properties interface{}) 
 // Specifies whether the attribute is standard or custom.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   attributeTypeProperty := &attributeTypeProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -11339,17 +10090,20 @@ func (c *jsiiProxy_CfnUserPoolUser) ValidateProperties(_properties interface{}) 
 //
 type CfnUserPoolUser_AttributeTypeProperty struct {
 	// The name of the attribute.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The value of the attribute.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnUserPoolUser`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var clientMetadata interface{}
+//
 //   cfnUserPoolUserProps := &cfnUserPoolUserProps{
 //   	userPoolId: jsii.String("userPoolId"),
 //
@@ -11377,7 +10131,7 @@ type CfnUserPoolUser_AttributeTypeProperty struct {
 //
 type CfnUserPoolUserProps struct {
 	// The user pool ID for the user pool where the user will be created.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// A map of custom key-value pairs that you can provide as input for the custom workflow that is invoked by the *pre sign-up* trigger.
 	//
 	// You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you create a `UserPoolUser` resource and include the `ClientMetadata` property, Amazon Cognito invokes the function that is assigned to the *pre sign-up* trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a `clientMetadata` attribute, which provides the data that you assigned to the ClientMetadata property. In your function code in AWS Lambda , you can process the `clientMetadata` value to enhance your workflow for your specific needs.
@@ -11389,11 +10143,11 @@ type CfnUserPoolUserProps struct {
 	// > - Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.
 	// > - Amazon Cognito does not validate the ClientMetadata value.
 	// > - Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.
-	ClientMetadata interface{} `json:"clientMetadata" yaml:"clientMetadata"`
+	ClientMetadata interface{} `field:"optional" json:"clientMetadata" yaml:"clientMetadata"`
 	// Specify `"EMAIL"` if email will be used to send the welcome message.
 	//
 	// Specify `"SMS"` if the phone number will be used. The default value is `"SMS"` . You can specify more than one value.
-	DesiredDeliveryMediums *[]*string `json:"desiredDeliveryMediums" yaml:"desiredDeliveryMediums"`
+	DesiredDeliveryMediums *[]*string `field:"optional" json:"desiredDeliveryMediums" yaml:"desiredDeliveryMediums"`
 	// This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` .
 	//
 	// Otherwise, it is ignored.
@@ -11401,11 +10155,11 @@ type CfnUserPoolUserProps struct {
 	// If this parameter is set to `True` and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.
 	//
 	// If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
-	ForceAliasCreation interface{} `json:"forceAliasCreation" yaml:"forceAliasCreation"`
+	ForceAliasCreation interface{} `field:"optional" json:"forceAliasCreation" yaml:"forceAliasCreation"`
 	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account.
 	//
 	// Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
-	MessageAction *string `json:"messageAction" yaml:"messageAction"`
+	MessageAction *string `field:"optional" json:"messageAction" yaml:"messageAction"`
 	// The user attributes and attribute values to be set for the user to be created.
 	//
 	// These are name-value pairs You can create a user without specifying any attributes other than `Username` . However, any attributes that you specify as required (in [](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or in the *Attributes* tab of the console) must be supplied either by you (in your call to `AdminCreateUser` ) or by the user (when they sign up in response to your welcome message).
@@ -11418,11 +10172,11 @@ type CfnUserPoolUserProps struct {
 	//
 	// - *email* : The email address of the user to whom the message that contains the code and user name will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
 	// - *phone_number* : The phone number of the user to whom the message that contains the code and user name will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
-	UserAttributes interface{} `json:"userAttributes" yaml:"userAttributes"`
+	UserAttributes interface{} `field:"optional" json:"userAttributes" yaml:"userAttributes"`
 	// The username for the user.
 	//
 	// Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username can't be changed.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"optional" json:"username" yaml:"username"`
 	// The user's validation data.
 	//
 	// This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user's domain.
@@ -11430,7 +10184,7 @@ type CfnUserPoolUserProps struct {
 	// To configure custom validation, you must create a Pre Sign-up AWS Lambda trigger for the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the validation data and uses it in the validation process.
 	//
 	// The user's validation data isn't persisted.
-	ValidationData interface{} `json:"validationData" yaml:"validationData"`
+	ValidationData interface{} `field:"optional" json:"validationData" yaml:"validationData"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolUserToGroupAttachment`.
@@ -11440,8 +10194,11 @@ type CfnUserPoolUserProps struct {
 // Calling this action requires developer credentials.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
-//   cfnUserPoolUserToGroupAttachment := cognito.NewCfnUserPoolUserToGroupAttachment(this, jsii.String("MyCfnUserPoolUserToGroupAttachment"), &cfnUserPoolUserToGroupAttachmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUserPoolUserToGroupAttachment := awscdk.Aws_cognito.NewCfnUserPoolUserToGroupAttachment(this, jsii.String("MyCfnUserPoolUserToGroupAttachment"), &cfnUserPoolUserToGroupAttachmentProps{
 //   	groupName: jsii.String("groupName"),
 //   	username: jsii.String("username"),
 //   	userPoolId: jsii.String("userPoolId"),
@@ -11451,16 +10208,13 @@ type CfnUserPoolUserToGroupAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The group name.
 	GroupName() *string
@@ -11474,27 +10228,22 @@ type CfnUserPoolUserToGroupAttachment interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The username for the user.
 	Username() *string
@@ -11503,13 +10252,11 @@ type CfnUserPoolUserToGroupAttachment interface {
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -11518,7 +10265,6 @@ type CfnUserPoolUserToGroupAttachment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -11563,15 +10309,12 @@ type CfnUserPoolUserToGroupAttachment interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -11582,13 +10325,11 @@ type CfnUserPoolUserToGroupAttachment interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -11597,74 +10338,21 @@ type CfnUserPoolUserToGroupAttachment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -11734,8 +10422,8 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -11796,13 +10484,13 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) UserPoolId() *string {
 
 
 // Create a new `AWS::Cognito::UserPoolUserToGroupAttachment`.
-func NewCfnUserPoolUserToGroupAttachment(scope awscdk.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) CfnUserPoolUserToGroupAttachment {
+func NewCfnUserPoolUserToGroupAttachment(scope constructs.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) CfnUserPoolUserToGroupAttachment {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolUserToGroupAttachment{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -11811,11 +10499,11 @@ func NewCfnUserPoolUserToGroupAttachment(scope awscdk.Construct, id *string, pro
 }
 
 // Create a new `AWS::Cognito::UserPoolUserToGroupAttachment`.
-func NewCfnUserPoolUserToGroupAttachment_Override(c CfnUserPoolUserToGroupAttachment, scope awscdk.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) {
+func NewCfnUserPoolUserToGroupAttachment_Override(c CfnUserPoolUserToGroupAttachment, scope constructs.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -11851,14 +10539,13 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) SetUserPoolId(val *string) 
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUserPoolUserToGroupAttachment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -11868,14 +10555,13 @@ func CfnUserPoolUserToGroupAttachment_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUserPoolUserToGroupAttachment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -11884,15 +10570,17 @@ func CfnUserPoolUserToGroupAttachment_IsCfnResource(construct constructs.IConstr
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnUserPoolUserToGroupAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -11905,7 +10593,7 @@ func CfnUserPoolUserToGroupAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -12002,48 +10690,11 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) Inspect(inspector awscdk.Tr
 	)
 }
 
-func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -12073,33 +10724,12 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -12118,7 +10748,10 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) ValidateProperties(_propert
 // Properties for defining a `CfnUserPoolUserToGroupAttachment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserPoolUserToGroupAttachmentProps := &cfnUserPoolUserToGroupAttachmentProps{
 //   	groupName: jsii.String("groupName"),
 //   	username: jsii.String("username"),
@@ -12127,11 +10760,11 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) ValidateProperties(_propert
 //
 type CfnUserPoolUserToGroupAttachmentProps struct {
 	// The group name.
-	GroupName *string `json:"groupName" yaml:"groupName"`
+	GroupName *string `field:"required" json:"groupName" yaml:"groupName"`
 	// The username for the user.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 	// The user pool ID for the user pool.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 }
 
 // A set of attributes, useful to set Read and Write attributes.
@@ -12154,16 +10787,12 @@ type CfnUserPoolUserToGroupAttachmentProps struct {
 //   	writeAttributes: clientWriteAttributes,
 //   })
 //
-// Experimental.
 type ClientAttributes interface {
 	// The list of attributes represented by this ClientAttributes.
-	// Experimental.
 	Attributes() *[]*string
 	// Creates a custom ClientAttributes with the specified attributes.
-	// Experimental.
 	WithCustomAttributes(attributes ...*string) ClientAttributes
 	// Creates a custom ClientAttributes with the specified attributes.
-	// Experimental.
 	WithStandardAttributes(attributes *StandardAttributesMask) ClientAttributes
 }
 
@@ -12173,14 +10802,13 @@ type jsiiProxy_ClientAttributes struct {
 }
 
 // Creates a ClientAttributes with the specified attributes.
-// Experimental.
 func NewClientAttributes() ClientAttributes {
 	_init_.Initialize()
 
 	j := jsiiProxy_ClientAttributes{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.ClientAttributes",
+		"aws-cdk-lib.aws_cognito.ClientAttributes",
 		nil, // no parameters
 		&j,
 	)
@@ -12189,12 +10817,11 @@ func NewClientAttributes() ClientAttributes {
 }
 
 // Creates a ClientAttributes with the specified attributes.
-// Experimental.
 func NewClientAttributes_Override(c ClientAttributes) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.ClientAttributes",
+		"aws-cdk-lib.aws_cognito.ClientAttributes",
 		nil, // no parameters
 		c,
 	)
@@ -12267,17 +10894,18 @@ func (c *jsiiProxy_ClientAttributes) WithStandardAttributes(attributes *Standard
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html
 //
-// Experimental.
 type CognitoDomainOptions struct {
 	// The prefix to the Cognito hosted domain name that will be associated with the user pool.
-	// Experimental.
-	DomainPrefix *string `json:"domainPrefix" yaml:"domainPrefix"`
+	DomainPrefix *string `field:"required" json:"domainPrefix" yaml:"domainPrefix"`
 }
 
 // Configuration that will be fed into CloudFormation for any custom attribute type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customAttributeConfig := &customAttributeConfig{
 //   	dataType: jsii.String("dataType"),
 //
@@ -12293,26 +10921,21 @@ type CognitoDomainOptions struct {
 //   	},
 //   }
 //
-// Experimental.
 type CustomAttributeConfig struct {
 	// The data type of the custom attribute.
 	// See: https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SchemaAttributeType.html#CognitoUserPools-Type-SchemaAttributeType-AttributeDataType
 	//
-	// Experimental.
-	DataType *string `json:"dataType" yaml:"dataType"`
+	DataType *string `field:"required" json:"dataType" yaml:"dataType"`
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to true.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
-	// Experimental.
-	Mutable *bool `json:"mutable" yaml:"mutable"`
+	Mutable *bool `field:"optional" json:"mutable" yaml:"mutable"`
 	// The constraints for a custom attribute of the 'Number' data type.
-	// Experimental.
-	NumberConstraints *NumberAttributeConstraints `json:"numberConstraints" yaml:"numberConstraints"`
+	NumberConstraints *NumberAttributeConstraints `field:"optional" json:"numberConstraints" yaml:"numberConstraints"`
 	// The constraints for a custom attribute of 'String' data type.
-	// Experimental.
-	StringConstraints *StringAttributeConstraints `json:"stringConstraints" yaml:"stringConstraints"`
+	StringConstraints *StringAttributeConstraints `field:"optional" json:"stringConstraints" yaml:"stringConstraints"`
 }
 
 // Constraints that can be applied to a custom attribute of any type.
@@ -12348,15 +10971,13 @@ type CustomAttributeConfig struct {
 //   	},
 //   })
 //
-// Experimental.
 type CustomAttributeProps struct {
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to true.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
-	// Experimental.
-	Mutable *bool `json:"mutable" yaml:"mutable"`
+	Mutable *bool `field:"optional" json:"mutable" yaml:"mutable"`
 }
 
 // Options while specifying custom domain.
@@ -12382,14 +11003,11 @@ type CustomAttributeProps struct {
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html
 //
-// Experimental.
 type CustomDomainOptions struct {
 	// The certificate to associate with this domain.
-	// Experimental.
-	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
+	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
 	// The custom domain name that you would like to associate with this User Pool.
-	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 }
 
 // The DateTime custom attribute type.
@@ -12425,11 +11043,9 @@ type CustomDomainOptions struct {
 //   	},
 //   })
 //
-// Experimental.
 type DateTimeAttribute interface {
 	ICustomAttribute
 	// Bind this custom attribute type to the values as expected by CloudFormation.
-	// Experimental.
 	Bind() *CustomAttributeConfig
 }
 
@@ -12438,14 +11054,13 @@ type jsiiProxy_DateTimeAttribute struct {
 	jsiiProxy_ICustomAttribute
 }
 
-// Experimental.
 func NewDateTimeAttribute(props *CustomAttributeProps) DateTimeAttribute {
 	_init_.Initialize()
 
 	j := jsiiProxy_DateTimeAttribute{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.DateTimeAttribute",
+		"aws-cdk-lib.aws_cognito.DateTimeAttribute",
 		[]interface{}{props},
 		&j,
 	)
@@ -12453,12 +11068,11 @@ func NewDateTimeAttribute(props *CustomAttributeProps) DateTimeAttribute {
 	return &j
 }
 
-// Experimental.
 func NewDateTimeAttribute_Override(d DateTimeAttribute, props *CustomAttributeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.DateTimeAttribute",
+		"aws-cdk-lib.aws_cognito.DateTimeAttribute",
 		[]interface{}{props},
 		d,
 	)
@@ -12490,48 +11104,43 @@ func (d *jsiiProxy_DateTimeAttribute) Bind() *CustomAttributeConfig {
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html
 //
-// Experimental.
 type DeviceTracking struct {
 	// Indicates whether a challenge is required on a new device.
 	//
 	// Only applicable to a new device.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html
 	//
-	// Experimental.
-	ChallengeRequiredOnNewDevice *bool `json:"challengeRequiredOnNewDevice" yaml:"challengeRequiredOnNewDevice"`
+	ChallengeRequiredOnNewDevice *bool `field:"required" json:"challengeRequiredOnNewDevice" yaml:"challengeRequiredOnNewDevice"`
 	// If true, a device is only remembered on user prompt.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html
 	//
-	// Experimental.
-	DeviceOnlyRememberedOnUserPrompt *bool `json:"deviceOnlyRememberedOnUserPrompt" yaml:"deviceOnlyRememberedOnUserPrompt"`
+	DeviceOnlyRememberedOnUserPrompt *bool `field:"required" json:"deviceOnlyRememberedOnUserPrompt" yaml:"deviceOnlyRememberedOnUserPrompt"`
 }
 
 // Email settings for the user pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   emailSettings := &emailSettings{
 //   	from: jsii.String("from"),
 //   	replyTo: jsii.String("replyTo"),
 //   }
 //
-// Experimental.
 type EmailSettings struct {
 	// The 'from' address on the emails received by the user.
-	// Experimental.
-	From *string `json:"from" yaml:"from"`
+	From *string `field:"optional" json:"from" yaml:"from"`
 	// The 'replyTo' address on the emails received by the user as defined by IETF RFC-5322.
 	//
 	// When set, most email clients recognize to change 'to' line to this address when a reply is drafted.
-	// Experimental.
-	ReplyTo *string `json:"replyTo" yaml:"replyTo"`
+	ReplyTo *string `field:"optional" json:"replyTo" yaml:"replyTo"`
 }
 
 // Represents a custom attribute type.
-// Experimental.
 type ICustomAttribute interface {
 	// Bind this custom attribute type to the values as expected by CloudFormation.
-	// Experimental.
 	Bind() *CustomAttributeConfig
 }
 
@@ -12554,35 +11163,27 @@ func (i *jsiiProxy_ICustomAttribute) Bind() *CustomAttributeConfig {
 }
 
 // Represents a Cognito UserPool.
-// Experimental.
 type IUserPool interface {
 	awscdk.IResource
 	// Add a new app client to this user pool.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html
 	//
-	// Experimental.
 	AddClient(id *string, options *UserPoolClientOptions) UserPoolClient
 	// Associate a domain to this user pool.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html
 	//
-	// Experimental.
 	AddDomain(id *string, options *UserPoolDomainOptions) UserPoolDomain
 	// Add a new resource server to this user pool.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-resource-servers.html
 	//
-	// Experimental.
 	AddResourceServer(id *string, options *UserPoolResourceServerOptions) UserPoolResourceServer
 	// Register an identity provider with this user pool.
-	// Experimental.
 	RegisterIdentityProvider(provider IUserPoolIdentityProvider)
 	// Get all identity providers registered with this user pool.
-	// Experimental.
 	IdentityProviders() *[]IUserPoolIdentityProvider
 	// The ARN of this user pool resource.
-	// Experimental.
 	UserPoolArn() *string
 	// The physical ID of this user pool resource.
-	// Experimental.
 	UserPoolId() *string
 }
 
@@ -12669,11 +11270,9 @@ func (j *jsiiProxy_IUserPool) UserPoolId() *string {
 }
 
 // Represents a Cognito user pool client.
-// Experimental.
 type IUserPoolClient interface {
 	awscdk.IResource
 	// Name of the application client.
-	// Experimental.
 	UserPoolClientId() *string
 }
 
@@ -12693,14 +11292,12 @@ func (j *jsiiProxy_IUserPoolClient) UserPoolClientId() *string {
 }
 
 // Represents a user pool domain.
-// Experimental.
 type IUserPoolDomain interface {
 	awscdk.IResource
 	// The domain that was specified to be created.
 	//
 	// If `customDomain` was selected, this holds the full domain name that was specified.
 	// If the `cognitoDomain` was used, it contains the prefix to the Cognito hosted domain.
-	// Experimental.
 	DomainName() *string
 }
 
@@ -12720,11 +11317,9 @@ func (j *jsiiProxy_IUserPoolDomain) DomainName() *string {
 }
 
 // Represents a UserPoolIdentityProvider.
-// Experimental.
 type IUserPoolIdentityProvider interface {
 	awscdk.IResource
 	// The primary identifier of this identity provider.
-	// Experimental.
 	ProviderName() *string
 }
 
@@ -12744,11 +11339,9 @@ func (j *jsiiProxy_IUserPoolIdentityProvider) ProviderName() *string {
 }
 
 // Represents a Cognito user pool resource server.
-// Experimental.
 type IUserPoolResourceServer interface {
 	awscdk.IResource
 	// Resource server id.
-	// Experimental.
 	UserPoolResourceServerId() *string
 }
 
@@ -12781,18 +11374,14 @@ func (j *jsiiProxy_IUserPoolResourceServer) UserPoolResourceServerId() *string {
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html
 //
-// Experimental.
 type Mfa string
 
 const (
 	// Users are not required to use MFA for sign in, and cannot configure one.
-	// Experimental.
 	Mfa_OFF Mfa = "OFF"
 	// Users are not required to use MFA for sign in, but can configure one if they so choose to.
-	// Experimental.
 	Mfa_OPTIONAL Mfa = "OPTIONAL"
 	// Users are required to configure an MFA, and have to use it to sign in.
-	// Experimental.
 	Mfa_REQUIRED Mfa = "REQUIRED"
 )
 
@@ -12810,18 +11399,15 @@ const (
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html
 //
-// Experimental.
 type MfaSecondFactor struct {
 	// The MFA token is a time-based one time password that is generated by a hardware or software token.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-totp.html
 	//
-	// Experimental.
-	Otp *bool `json:"otp" yaml:"otp"`
+	Otp *bool `field:"required" json:"otp" yaml:"otp"`
 	// The MFA token is sent to the user via SMS to their verified phone numbers.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-sms-text-message.html
 	//
-	// Experimental.
-	Sms *bool `json:"sms" yaml:"sms"`
+	Sms *bool `field:"required" json:"sms" yaml:"sms"`
 }
 
 // The Number custom attribute type.
@@ -12857,11 +11443,9 @@ type MfaSecondFactor struct {
 //   	},
 //   })
 //
-// Experimental.
 type NumberAttribute interface {
 	ICustomAttribute
 	// Bind this custom attribute type to the values as expected by CloudFormation.
-	// Experimental.
 	Bind() *CustomAttributeConfig
 }
 
@@ -12870,14 +11454,13 @@ type jsiiProxy_NumberAttribute struct {
 	jsiiProxy_ICustomAttribute
 }
 
-// Experimental.
 func NewNumberAttribute(props *NumberAttributeProps) NumberAttribute {
 	_init_.Initialize()
 
 	j := jsiiProxy_NumberAttribute{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.NumberAttribute",
+		"aws-cdk-lib.aws_cognito.NumberAttribute",
 		[]interface{}{props},
 		&j,
 	)
@@ -12885,12 +11468,11 @@ func NewNumberAttribute(props *NumberAttributeProps) NumberAttribute {
 	return &j
 }
 
-// Experimental.
 func NewNumberAttribute_Override(n NumberAttribute, props *NumberAttributeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.NumberAttribute",
+		"aws-cdk-lib.aws_cognito.NumberAttribute",
 		[]interface{}{props},
 		n,
 	)
@@ -12912,20 +11494,20 @@ func (n *jsiiProxy_NumberAttribute) Bind() *CustomAttributeConfig {
 // Constraints that can be applied to a custom attribute of number type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   numberAttributeConstraints := &numberAttributeConstraints{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
 //   }
 //
-// Experimental.
 type NumberAttributeConstraints struct {
 	// Maximum value of this attribute.
-	// Experimental.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// Minimum value of this attribute.
-	// Experimental.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // Props for NumberAttr.
@@ -12961,21 +11543,17 @@ type NumberAttributeConstraints struct {
 //   	},
 //   })
 //
-// Experimental.
 type NumberAttributeProps struct {
 	// Maximum value of this attribute.
-	// Experimental.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// Minimum value of this attribute.
-	// Experimental.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to true.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
-	// Experimental.
-	Mutable *bool `json:"mutable" yaml:"mutable"`
+	Mutable *bool `field:"optional" json:"mutable" yaml:"mutable"`
 }
 
 // Types of OAuth grant flows.
@@ -13003,17 +11581,13 @@ type NumberAttributeProps struct {
 //
 // See: - the 'Allowed OAuth Flows' section at https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html
 //
-// Experimental.
 type OAuthFlows struct {
 	// Initiate an authorization code grant flow, which provides an authorization code as the response.
-	// Experimental.
-	AuthorizationCodeGrant *bool `json:"authorizationCodeGrant" yaml:"authorizationCodeGrant"`
+	AuthorizationCodeGrant *bool `field:"optional" json:"authorizationCodeGrant" yaml:"authorizationCodeGrant"`
 	// Client should get the access token and ID token from the token endpoint using a combination of client and client_secret.
-	// Experimental.
-	ClientCredentials *bool `json:"clientCredentials" yaml:"clientCredentials"`
+	ClientCredentials *bool `field:"optional" json:"clientCredentials" yaml:"clientCredentials"`
 	// The client should get the access token and ID token directly.
-	// Experimental.
-	ImplicitCodeGrant *bool `json:"implicitCodeGrant" yaml:"implicitCodeGrant"`
+	ImplicitCodeGrant *bool `field:"optional" json:"implicitCodeGrant" yaml:"implicitCodeGrant"`
 }
 
 // OAuth scopes that are allowed with this client.
@@ -13060,12 +11634,10 @@ type OAuthFlows struct {
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html
 //
-// Experimental.
 type OAuthScope interface {
 	// The name of this scope as recognized by CloudFormation.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-allowedoauthscopes
 	//
-	// Experimental.
 	ScopeName() *string
 }
 
@@ -13090,14 +11662,13 @@ func (j *jsiiProxy_OAuthScope) ScopeName() *string {
 // The format is 'resource-server-identifier/scope'.
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html
 //
-// Experimental.
 func OAuthScope_Custom(name *string) OAuthScope {
 	_init_.Initialize()
 
 	var returns OAuthScope
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"custom",
 		[]interface{}{name},
 		&returns,
@@ -13107,14 +11678,13 @@ func OAuthScope_Custom(name *string) OAuthScope {
 }
 
 // Adds a custom scope that's tied to a resource server in your stack.
-// Experimental.
 func OAuthScope_ResourceServer(server IUserPoolResourceServer, scope ResourceServerScope) OAuthScope {
 	_init_.Initialize()
 
 	var returns OAuthScope
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"resourceServer",
 		[]interface{}{server, scope},
 		&returns,
@@ -13127,7 +11697,7 @@ func OAuthScope_COGNITO_ADMIN() OAuthScope {
 	_init_.Initialize()
 	var returns OAuthScope
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"COGNITO_ADMIN",
 		&returns,
 	)
@@ -13138,7 +11708,7 @@ func OAuthScope_EMAIL() OAuthScope {
 	_init_.Initialize()
 	var returns OAuthScope
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"EMAIL",
 		&returns,
 	)
@@ -13149,7 +11719,7 @@ func OAuthScope_OPENID() OAuthScope {
 	_init_.Initialize()
 	var returns OAuthScope
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"OPENID",
 		&returns,
 	)
@@ -13160,7 +11730,7 @@ func OAuthScope_PHONE() OAuthScope {
 	_init_.Initialize()
 	var returns OAuthScope
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"PHONE",
 		&returns,
 	)
@@ -13171,7 +11741,7 @@ func OAuthScope_PROFILE() OAuthScope {
 	_init_.Initialize()
 	var returns OAuthScope
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"PROFILE",
 		&returns,
 	)
@@ -13220,24 +11790,19 @@ func OAuthScope_PROFILE() OAuthScope {
 //   	},
 //   })
 //
-// Experimental.
 type OAuthSettings struct {
 	// List of allowed redirect URLs for the identity providers.
-	// Experimental.
-	CallbackUrls *[]*string `json:"callbackUrls" yaml:"callbackUrls"`
+	CallbackUrls *[]*string `field:"optional" json:"callbackUrls" yaml:"callbackUrls"`
 	// OAuth flows that are allowed with this client.
 	// See: - the 'Allowed OAuth Flows' section at https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html
 	//
-	// Experimental.
-	Flows *OAuthFlows `json:"flows" yaml:"flows"`
+	Flows *OAuthFlows `field:"optional" json:"flows" yaml:"flows"`
 	// List of allowed logout URLs for the identity providers.
-	// Experimental.
-	LogoutUrls *[]*string `json:"logoutUrls" yaml:"logoutUrls"`
+	LogoutUrls *[]*string `field:"optional" json:"logoutUrls" yaml:"logoutUrls"`
 	// OAuth scopes that are allowed with this client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html
 	//
-	// Experimental.
-	Scopes *[]OAuthScope `json:"scopes" yaml:"scopes"`
+	Scopes *[]OAuthScope `field:"optional" json:"scopes" yaml:"scopes"`
 }
 
 // Password policy for User Pools.
@@ -13251,33 +11816,26 @@ type OAuthSettings struct {
 //   		requireUppercase: jsii.Boolean(true),
 //   		requireDigits: jsii.Boolean(true),
 //   		requireSymbols: jsii.Boolean(true),
-//   		tempPasswordValidity: duration.days(jsii.Number(3)),
+//   		tempPasswordValidity: awscdk.Duration.days(jsii.Number(3)),
 //   	},
 //   })
 //
-// Experimental.
 type PasswordPolicy struct {
 	// Minimum length required for a user's password.
-	// Experimental.
-	MinLength *float64 `json:"minLength" yaml:"minLength"`
+	MinLength *float64 `field:"optional" json:"minLength" yaml:"minLength"`
 	// Whether the user is required to have digits in their password.
-	// Experimental.
-	RequireDigits *bool `json:"requireDigits" yaml:"requireDigits"`
+	RequireDigits *bool `field:"optional" json:"requireDigits" yaml:"requireDigits"`
 	// Whether the user is required to have lowercase characters in their password.
-	// Experimental.
-	RequireLowercase *bool `json:"requireLowercase" yaml:"requireLowercase"`
+	RequireLowercase *bool `field:"optional" json:"requireLowercase" yaml:"requireLowercase"`
 	// Whether the user is required to have symbols in their password.
-	// Experimental.
-	RequireSymbols *bool `json:"requireSymbols" yaml:"requireSymbols"`
+	RequireSymbols *bool `field:"optional" json:"requireSymbols" yaml:"requireSymbols"`
 	// Whether the user is required to have uppercase characters in their password.
-	// Experimental.
-	RequireUppercase *bool `json:"requireUppercase" yaml:"requireUppercase"`
+	RequireUppercase *bool `field:"optional" json:"requireUppercase" yaml:"requireUppercase"`
 	// The length of time the temporary password generated by an admin is valid.
 	//
 	// This must be provided as whole days, like Duration.days(3) or Duration.hours(48).
 	// Fractional days, such as Duration.hours(20), will generate an error.
-	// Experimental.
-	TempPasswordValidity awscdk.Duration `json:"tempPasswordValidity" yaml:"tempPasswordValidity"`
+	TempPasswordValidity awscdk.Duration `field:"optional" json:"tempPasswordValidity" yaml:"tempPasswordValidity"`
 }
 
 // An attribute available from a third party identity provider.
@@ -13300,10 +11858,8 @@ type PasswordPolicy struct {
 //   	},
 //   })
 //
-// Experimental.
 type ProviderAttribute interface {
 	// The attribute value string as recognized by the provider.
-	// Experimental.
 	AttributeName() *string
 }
 
@@ -13324,14 +11880,13 @@ func (j *jsiiProxy_ProviderAttribute) AttributeName() *string {
 
 
 // Use this to specify an attribute from the identity provider that is not pre-defined in the CDK.
-// Experimental.
 func ProviderAttribute_Other(attributeName *string) ProviderAttribute {
 	_init_.Initialize()
 
 	var returns ProviderAttribute
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"other",
 		[]interface{}{attributeName},
 		&returns,
@@ -13344,7 +11899,7 @@ func ProviderAttribute_AMAZON_EMAIL() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"AMAZON_EMAIL",
 		&returns,
 	)
@@ -13355,7 +11910,7 @@ func ProviderAttribute_AMAZON_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"AMAZON_NAME",
 		&returns,
 	)
@@ -13366,7 +11921,7 @@ func ProviderAttribute_AMAZON_POSTAL_CODE() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"AMAZON_POSTAL_CODE",
 		&returns,
 	)
@@ -13377,7 +11932,7 @@ func ProviderAttribute_AMAZON_USER_ID() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"AMAZON_USER_ID",
 		&returns,
 	)
@@ -13388,7 +11943,7 @@ func ProviderAttribute_APPLE_EMAIL() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"APPLE_EMAIL",
 		&returns,
 	)
@@ -13399,7 +11954,7 @@ func ProviderAttribute_APPLE_FIRST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"APPLE_FIRST_NAME",
 		&returns,
 	)
@@ -13410,7 +11965,7 @@ func ProviderAttribute_APPLE_LAST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"APPLE_LAST_NAME",
 		&returns,
 	)
@@ -13421,7 +11976,7 @@ func ProviderAttribute_APPLE_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"APPLE_NAME",
 		&returns,
 	)
@@ -13432,7 +11987,7 @@ func ProviderAttribute_FACEBOOK_BIRTHDAY() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_BIRTHDAY",
 		&returns,
 	)
@@ -13443,7 +11998,7 @@ func ProviderAttribute_FACEBOOK_EMAIL() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_EMAIL",
 		&returns,
 	)
@@ -13454,7 +12009,7 @@ func ProviderAttribute_FACEBOOK_FIRST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_FIRST_NAME",
 		&returns,
 	)
@@ -13465,7 +12020,7 @@ func ProviderAttribute_FACEBOOK_GENDER() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_GENDER",
 		&returns,
 	)
@@ -13476,7 +12031,7 @@ func ProviderAttribute_FACEBOOK_ID() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_ID",
 		&returns,
 	)
@@ -13487,7 +12042,7 @@ func ProviderAttribute_FACEBOOK_LAST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_LAST_NAME",
 		&returns,
 	)
@@ -13498,7 +12053,7 @@ func ProviderAttribute_FACEBOOK_LOCALE() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_LOCALE",
 		&returns,
 	)
@@ -13509,7 +12064,7 @@ func ProviderAttribute_FACEBOOK_MIDDLE_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_MIDDLE_NAME",
 		&returns,
 	)
@@ -13520,7 +12075,7 @@ func ProviderAttribute_FACEBOOK_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_NAME",
 		&returns,
 	)
@@ -13531,7 +12086,7 @@ func ProviderAttribute_GOOGLE_BIRTHDAYS() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_BIRTHDAYS",
 		&returns,
 	)
@@ -13542,7 +12097,7 @@ func ProviderAttribute_GOOGLE_EMAIL() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_EMAIL",
 		&returns,
 	)
@@ -13553,7 +12108,7 @@ func ProviderAttribute_GOOGLE_FAMILY_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_FAMILY_NAME",
 		&returns,
 	)
@@ -13564,7 +12119,7 @@ func ProviderAttribute_GOOGLE_GENDER() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_GENDER",
 		&returns,
 	)
@@ -13575,7 +12130,7 @@ func ProviderAttribute_GOOGLE_GIVEN_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_GIVEN_NAME",
 		&returns,
 	)
@@ -13586,7 +12141,7 @@ func ProviderAttribute_GOOGLE_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_NAME",
 		&returns,
 	)
@@ -13597,7 +12152,7 @@ func ProviderAttribute_GOOGLE_NAMES() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_NAMES",
 		&returns,
 	)
@@ -13608,7 +12163,7 @@ func ProviderAttribute_GOOGLE_PHONE_NUMBERS() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_PHONE_NUMBERS",
 		&returns,
 	)
@@ -13619,7 +12174,7 @@ func ProviderAttribute_GOOGLE_PICTURE() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_PICTURE",
 		&returns,
 	)
@@ -13668,13 +12223,10 @@ func ProviderAttribute_GOOGLE_PICTURE() ProviderAttribute {
 //   	},
 //   })
 //
-// Experimental.
 type ResourceServerScope interface {
 	// A description of the scope.
-	// Experimental.
 	ScopeDescription() *string
 	// The name of the scope.
-	// Experimental.
 	ScopeName() *string
 }
 
@@ -13704,14 +12256,13 @@ func (j *jsiiProxy_ResourceServerScope) ScopeName() *string {
 }
 
 
-// Experimental.
 func NewResourceServerScope(props *ResourceServerScopeProps) ResourceServerScope {
 	_init_.Initialize()
 
 	j := jsiiProxy_ResourceServerScope{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.ResourceServerScope",
+		"aws-cdk-lib.aws_cognito.ResourceServerScope",
 		[]interface{}{props},
 		&j,
 	)
@@ -13719,12 +12270,11 @@ func NewResourceServerScope(props *ResourceServerScopeProps) ResourceServerScope
 	return &j
 }
 
-// Experimental.
 func NewResourceServerScope_Override(r ResourceServerScope, props *ResourceServerScopeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.ResourceServerScope",
+		"aws-cdk-lib.aws_cognito.ResourceServerScope",
 		[]interface{}{props},
 		r,
 	)
@@ -13772,14 +12322,11 @@ func NewResourceServerScope_Override(r ResourceServerScope, props *ResourceServe
 //   	},
 //   })
 //
-// Experimental.
 type ResourceServerScopeProps struct {
 	// A description of the scope.
-	// Experimental.
-	ScopeDescription *string `json:"scopeDescription" yaml:"scopeDescription"`
+	ScopeDescription *string `field:"required" json:"scopeDescription" yaml:"scopeDescription"`
 	// The name of the scope.
-	// Experimental.
-	ScopeName *string `json:"scopeName" yaml:"scopeName"`
+	ScopeName *string `field:"required" json:"scopeName" yaml:"scopeName"`
 }
 
 // The different ways in which users of this pool can sign up or sign in.
@@ -13794,22 +12341,17 @@ type ResourceServerScopeProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type SignInAliases struct {
 	// Whether a user is allowed to sign up or sign in with an email address.
-	// Experimental.
-	Email *bool `json:"email" yaml:"email"`
+	Email *bool `field:"optional" json:"email" yaml:"email"`
 	// Whether a user is allowed to sign up or sign in with a phone number.
-	// Experimental.
-	Phone *bool `json:"phone" yaml:"phone"`
+	Phone *bool `field:"optional" json:"phone" yaml:"phone"`
 	// Whether a user is allowed to sign in with a secondary username, that can be set and modified after sign up.
 	//
 	// Can only be used in conjunction with `USERNAME`.
-	// Experimental.
-	PreferredUsername *bool `json:"preferredUsername" yaml:"preferredUsername"`
+	PreferredUsername *bool `field:"optional" json:"preferredUsername" yaml:"preferredUsername"`
 	// Whether user is allowed to sign up or sign in with a username.
-	// Experimental.
-	Username *bool `json:"username" yaml:"username"`
+	Username *bool `field:"optional" json:"username" yaml:"username"`
 }
 
 // Options to customize the behaviour of `signInUrl()`.
@@ -13835,14 +12377,13 @@ type SignInAliases struct {
 //   	redirectUri: jsii.String("https://myapp.com/home"),
 //   })
 //
-// Experimental.
 type SignInUrlOptions struct {
+	// Whether to return the FIPS-compliant endpoint.
+	Fips *bool `field:"optional" json:"fips" yaml:"fips"`
 	// Where to redirect to after sign in.
-	// Experimental.
-	RedirectUri *string `json:"redirectUri" yaml:"redirectUri"`
+	RedirectUri *string `field:"required" json:"redirectUri" yaml:"redirectUri"`
 	// The path in the URI where the sign-in page is located.
-	// Experimental.
-	SignInPath *string `json:"signInPath" yaml:"signInPath"`
+	SignInPath *string `field:"optional" json:"signInPath" yaml:"signInPath"`
 }
 
 // Standard attribute that can be marked as required or mutable.
@@ -13880,20 +12421,17 @@ type SignInUrlOptions struct {
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes
 //
-// Experimental.
 type StandardAttribute struct {
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that's mapped to an identity provider attribute, this must be set to `true`.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
-	// Experimental.
-	Mutable *bool `json:"mutable" yaml:"mutable"`
+	Mutable *bool `field:"optional" json:"mutable" yaml:"mutable"`
 	// Specifies whether the attribute is required upon user registration.
 	//
 	// If the attribute is required and the user does not provide a value, registration or sign-in will fail.
-	// Experimental.
-	Required *bool `json:"required" yaml:"required"`
+	Required *bool `field:"optional" json:"required" yaml:"required"`
 }
 
 // The set of standard attributes that can be marked as required or mutable.
@@ -13931,67 +12469,41 @@ type StandardAttribute struct {
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes
 //
-// Experimental.
 type StandardAttributes struct {
 	// The user's postal address.
-	// Experimental.
-	Address *StandardAttribute `json:"address" yaml:"address"`
+	Address *StandardAttribute `field:"optional" json:"address" yaml:"address"`
 	// The user's birthday, represented as an ISO 8601:2004 format.
-	// Experimental.
-	Birthdate *StandardAttribute `json:"birthdate" yaml:"birthdate"`
+	Birthdate *StandardAttribute `field:"optional" json:"birthdate" yaml:"birthdate"`
 	// The user's e-mail address, represented as an RFC 5322 [RFC5322] addr-spec.
-	// Experimental.
-	Email *StandardAttribute `json:"email" yaml:"email"`
-	// DEPRECATED.
-	// Deprecated: this is not a standard attribute and was incorrectly added to the CDK.
-	// It is a Cognito built-in attribute and cannot be controlled as part of user pool creation.
-	EmailVerified *StandardAttribute `json:"emailVerified" yaml:"emailVerified"`
+	Email *StandardAttribute `field:"optional" json:"email" yaml:"email"`
 	// The surname or last name of the user.
-	// Experimental.
-	FamilyName *StandardAttribute `json:"familyName" yaml:"familyName"`
+	FamilyName *StandardAttribute `field:"optional" json:"familyName" yaml:"familyName"`
 	// The user's full name in displayable form, including all name parts, titles and suffixes.
-	// Experimental.
-	Fullname *StandardAttribute `json:"fullname" yaml:"fullname"`
+	Fullname *StandardAttribute `field:"optional" json:"fullname" yaml:"fullname"`
 	// The user's gender.
-	// Experimental.
-	Gender *StandardAttribute `json:"gender" yaml:"gender"`
+	Gender *StandardAttribute `field:"optional" json:"gender" yaml:"gender"`
 	// The user's first name or give name.
-	// Experimental.
-	GivenName *StandardAttribute `json:"givenName" yaml:"givenName"`
+	GivenName *StandardAttribute `field:"optional" json:"givenName" yaml:"givenName"`
 	// The time, the user's information was last updated.
-	// Experimental.
-	LastUpdateTime *StandardAttribute `json:"lastUpdateTime" yaml:"lastUpdateTime"`
+	LastUpdateTime *StandardAttribute `field:"optional" json:"lastUpdateTime" yaml:"lastUpdateTime"`
 	// The user's locale, represented as a BCP47 [RFC5646] language tag.
-	// Experimental.
-	Locale *StandardAttribute `json:"locale" yaml:"locale"`
+	Locale *StandardAttribute `field:"optional" json:"locale" yaml:"locale"`
 	// The user's middle name.
-	// Experimental.
-	MiddleName *StandardAttribute `json:"middleName" yaml:"middleName"`
+	MiddleName *StandardAttribute `field:"optional" json:"middleName" yaml:"middleName"`
 	// The user's nickname or casual name.
-	// Experimental.
-	Nickname *StandardAttribute `json:"nickname" yaml:"nickname"`
+	Nickname *StandardAttribute `field:"optional" json:"nickname" yaml:"nickname"`
 	// The user's telephone number.
-	// Experimental.
-	PhoneNumber *StandardAttribute `json:"phoneNumber" yaml:"phoneNumber"`
-	// DEPRECATED.
-	// Deprecated: this is not a standard attribute and was incorrectly added to the CDK.
-	// It is a Cognito built-in attribute and cannot be controlled as part of user pool creation.
-	PhoneNumberVerified *StandardAttribute `json:"phoneNumberVerified" yaml:"phoneNumberVerified"`
+	PhoneNumber *StandardAttribute `field:"optional" json:"phoneNumber" yaml:"phoneNumber"`
 	// The user's preffered username, different from the immutable user name.
-	// Experimental.
-	PreferredUsername *StandardAttribute `json:"preferredUsername" yaml:"preferredUsername"`
+	PreferredUsername *StandardAttribute `field:"optional" json:"preferredUsername" yaml:"preferredUsername"`
 	// The URL to the user's profile page.
-	// Experimental.
-	ProfilePage *StandardAttribute `json:"profilePage" yaml:"profilePage"`
+	ProfilePage *StandardAttribute `field:"optional" json:"profilePage" yaml:"profilePage"`
 	// The URL to the user's profile picture.
-	// Experimental.
-	ProfilePicture *StandardAttribute `json:"profilePicture" yaml:"profilePicture"`
+	ProfilePicture *StandardAttribute `field:"optional" json:"profilePicture" yaml:"profilePicture"`
 	// The user's time zone.
-	// Experimental.
-	Timezone *StandardAttribute `json:"timezone" yaml:"timezone"`
+	Timezone *StandardAttribute `field:"optional" json:"timezone" yaml:"timezone"`
 	// The URL to the user's web page or blog.
-	// Experimental.
-	Website *StandardAttribute `json:"website" yaml:"website"`
+	Website *StandardAttribute `field:"optional" json:"website" yaml:"website"`
 }
 
 // This interface contains standard attributes recognized by Cognito from https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html including built-in attributes `email_verified` and `phone_number_verified`.
@@ -14014,65 +12526,45 @@ type StandardAttributes struct {
 //   	writeAttributes: clientWriteAttributes,
 //   })
 //
-// Experimental.
 type StandardAttributesMask struct {
 	// The user's postal address.
-	// Experimental.
-	Address *bool `json:"address" yaml:"address"`
+	Address *bool `field:"optional" json:"address" yaml:"address"`
 	// The user's birthday, represented as an ISO 8601:2004 format.
-	// Experimental.
-	Birthdate *bool `json:"birthdate" yaml:"birthdate"`
+	Birthdate *bool `field:"optional" json:"birthdate" yaml:"birthdate"`
 	// The user's e-mail address, represented as an RFC 5322 [RFC5322] addr-spec.
-	// Experimental.
-	Email *bool `json:"email" yaml:"email"`
+	Email *bool `field:"optional" json:"email" yaml:"email"`
 	// Whether the email address has been verified.
-	// Experimental.
-	EmailVerified *bool `json:"emailVerified" yaml:"emailVerified"`
+	EmailVerified *bool `field:"optional" json:"emailVerified" yaml:"emailVerified"`
 	// The surname or last name of the user.
-	// Experimental.
-	FamilyName *bool `json:"familyName" yaml:"familyName"`
+	FamilyName *bool `field:"optional" json:"familyName" yaml:"familyName"`
 	// The user's full name in displayable form, including all name parts, titles and suffixes.
-	// Experimental.
-	Fullname *bool `json:"fullname" yaml:"fullname"`
+	Fullname *bool `field:"optional" json:"fullname" yaml:"fullname"`
 	// The user's gender.
-	// Experimental.
-	Gender *bool `json:"gender" yaml:"gender"`
+	Gender *bool `field:"optional" json:"gender" yaml:"gender"`
 	// The user's first name or give name.
-	// Experimental.
-	GivenName *bool `json:"givenName" yaml:"givenName"`
+	GivenName *bool `field:"optional" json:"givenName" yaml:"givenName"`
 	// The time, the user's information was last updated.
-	// Experimental.
-	LastUpdateTime *bool `json:"lastUpdateTime" yaml:"lastUpdateTime"`
+	LastUpdateTime *bool `field:"optional" json:"lastUpdateTime" yaml:"lastUpdateTime"`
 	// The user's locale, represented as a BCP47 [RFC5646] language tag.
-	// Experimental.
-	Locale *bool `json:"locale" yaml:"locale"`
+	Locale *bool `field:"optional" json:"locale" yaml:"locale"`
 	// The user's middle name.
-	// Experimental.
-	MiddleName *bool `json:"middleName" yaml:"middleName"`
+	MiddleName *bool `field:"optional" json:"middleName" yaml:"middleName"`
 	// The user's nickname or casual name.
-	// Experimental.
-	Nickname *bool `json:"nickname" yaml:"nickname"`
+	Nickname *bool `field:"optional" json:"nickname" yaml:"nickname"`
 	// The user's telephone number.
-	// Experimental.
-	PhoneNumber *bool `json:"phoneNumber" yaml:"phoneNumber"`
+	PhoneNumber *bool `field:"optional" json:"phoneNumber" yaml:"phoneNumber"`
 	// Whether the phone number has been verified.
-	// Experimental.
-	PhoneNumberVerified *bool `json:"phoneNumberVerified" yaml:"phoneNumberVerified"`
+	PhoneNumberVerified *bool `field:"optional" json:"phoneNumberVerified" yaml:"phoneNumberVerified"`
 	// The user's preffered username, different from the immutable user name.
-	// Experimental.
-	PreferredUsername *bool `json:"preferredUsername" yaml:"preferredUsername"`
+	PreferredUsername *bool `field:"optional" json:"preferredUsername" yaml:"preferredUsername"`
 	// The URL to the user's profile page.
-	// Experimental.
-	ProfilePage *bool `json:"profilePage" yaml:"profilePage"`
+	ProfilePage *bool `field:"optional" json:"profilePage" yaml:"profilePage"`
 	// The URL to the user's profile picture.
-	// Experimental.
-	ProfilePicture *bool `json:"profilePicture" yaml:"profilePicture"`
+	ProfilePicture *bool `field:"optional" json:"profilePicture" yaml:"profilePicture"`
 	// The user's time zone.
-	// Experimental.
-	Timezone *bool `json:"timezone" yaml:"timezone"`
+	Timezone *bool `field:"optional" json:"timezone" yaml:"timezone"`
 	// The URL to the user's web page or blog.
-	// Experimental.
-	Website *bool `json:"website" yaml:"website"`
+	Website *bool `field:"optional" json:"website" yaml:"website"`
 }
 
 // The String custom attribute type.
@@ -14108,11 +12600,9 @@ type StandardAttributesMask struct {
 //   	},
 //   })
 //
-// Experimental.
 type StringAttribute interface {
 	ICustomAttribute
 	// Bind this custom attribute type to the values as expected by CloudFormation.
-	// Experimental.
 	Bind() *CustomAttributeConfig
 }
 
@@ -14121,14 +12611,13 @@ type jsiiProxy_StringAttribute struct {
 	jsiiProxy_ICustomAttribute
 }
 
-// Experimental.
 func NewStringAttribute(props *StringAttributeProps) StringAttribute {
 	_init_.Initialize()
 
 	j := jsiiProxy_StringAttribute{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.StringAttribute",
+		"aws-cdk-lib.aws_cognito.StringAttribute",
 		[]interface{}{props},
 		&j,
 	)
@@ -14136,12 +12625,11 @@ func NewStringAttribute(props *StringAttributeProps) StringAttribute {
 	return &j
 }
 
-// Experimental.
 func NewStringAttribute_Override(s StringAttribute, props *StringAttributeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.StringAttribute",
+		"aws-cdk-lib.aws_cognito.StringAttribute",
 		[]interface{}{props},
 		s,
 	)
@@ -14163,20 +12651,20 @@ func (s *jsiiProxy_StringAttribute) Bind() *CustomAttributeConfig {
 // Constraints that can be applied to a custom attribute of string type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stringAttributeConstraints := &stringAttributeConstraints{
 //   	maxLen: jsii.Number(123),
 //   	minLen: jsii.Number(123),
 //   }
 //
-// Experimental.
 type StringAttributeConstraints struct {
 	// Maximum length of this attribute.
-	// Experimental.
-	MaxLen *float64 `json:"maxLen" yaml:"maxLen"`
+	MaxLen *float64 `field:"optional" json:"maxLen" yaml:"maxLen"`
 	// Minimum length of this attribute.
-	// Experimental.
-	MinLen *float64 `json:"minLen" yaml:"minLen"`
+	MinLen *float64 `field:"optional" json:"minLen" yaml:"minLen"`
 }
 
 // Props for constructing a StringAttr.
@@ -14212,21 +12700,17 @@ type StringAttributeConstraints struct {
 //   	},
 //   })
 //
-// Experimental.
 type StringAttributeProps struct {
 	// Maximum length of this attribute.
-	// Experimental.
-	MaxLen *float64 `json:"maxLen" yaml:"maxLen"`
+	MaxLen *float64 `field:"optional" json:"maxLen" yaml:"maxLen"`
 	// Minimum length of this attribute.
-	// Experimental.
-	MinLen *float64 `json:"minLen" yaml:"minLen"`
+	MinLen *float64 `field:"optional" json:"minLen" yaml:"minLen"`
 	// Specifies whether the value of the attribute can be changed.
 	//
 	// For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to true.
 	// Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider.
 	// If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute.
-	// Experimental.
-	Mutable *bool `json:"mutable" yaml:"mutable"`
+	Mutable *bool `field:"optional" json:"mutable" yaml:"mutable"`
 }
 
 // User pool configuration when administrators sign users up.
@@ -14241,17 +12725,13 @@ type StringAttributeProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type UserInvitationConfig struct {
 	// The template to the email body that is sent to the user when an administrator signs them up to the user pool.
-	// Experimental.
-	EmailBody *string `json:"emailBody" yaml:"emailBody"`
+	EmailBody *string `field:"optional" json:"emailBody" yaml:"emailBody"`
 	// The template to the email subject that is sent to the user when an administrator signs them up to the user pool.
-	// Experimental.
-	EmailSubject *string `json:"emailSubject" yaml:"emailSubject"`
+	EmailSubject *string `field:"optional" json:"emailSubject" yaml:"emailSubject"`
 	// The template to the SMS message that is sent to the user when an administrator signs them up to the user pool.
-	// Experimental.
-	SmsMessage *string `json:"smsMessage" yaml:"smsMessage"`
+	SmsMessage *string `field:"optional" json:"smsMessage" yaml:"smsMessage"`
 }
 
 // Define a Cognito User Pool.
@@ -14275,7 +12755,6 @@ type UserInvitationConfig struct {
 //   	},
 //   })
 //
-// Experimental.
 type UserPool interface {
 	awscdk.Resource
 	IUserPool
@@ -14287,14 +12766,11 @@ type UserPool interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// Get all identity providers registered with this user pool.
-	// Experimental.
 	IdentityProviders() *[]IUserPoolIdentityProvider
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -14302,36 +12778,26 @@ type UserPool interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// The ARN of the user pool.
-	// Experimental.
 	UserPoolArn() *string
 	// The physical ID of this user pool resource.
-	// Experimental.
 	UserPoolId() *string
 	// User pool provider name.
-	// Experimental.
 	UserPoolProviderName() *string
 	// User pool provider URL.
-	// Experimental.
 	UserPoolProviderUrl() *string
 	// Add a new app client to this user pool.
-	// Experimental.
 	AddClient(id *string, options *UserPoolClientOptions) UserPoolClient
 	// Associate a domain to this user pool.
-	// Experimental.
 	AddDomain(id *string, options *UserPoolDomainOptions) UserPoolDomain
 	// Add a new resource server to this user pool.
-	// Experimental.
 	AddResourceServer(id *string, options *UserPoolResourceServerOptions) UserPoolResourceServer
 	// Add a lambda trigger to a user pool operation.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html
 	//
-	// Experimental.
 	AddTrigger(operation UserPoolOperation, fn awslambda.IFunction)
 	// Apply the given removal policy to this resource.
 	//
@@ -14342,9 +12808,7 @@ type UserPool interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -14352,69 +12816,17 @@ type UserPool interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Register an identity provider with this user pool.
-	// Experimental.
 	RegisterIdentityProvider(provider IUserPoolIdentityProvider)
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPool
@@ -14443,8 +12855,8 @@ func (j *jsiiProxy_UserPool) IdentityProviders() *[]IUserPoolIdentityProvider {
 	return returns
 }
 
-func (j *jsiiProxy_UserPool) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPool) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -14514,14 +12926,13 @@ func (j *jsiiProxy_UserPool) UserPoolProviderUrl() *string {
 }
 
 
-// Experimental.
 func NewUserPool(scope constructs.Construct, id *string, props *UserPoolProps) UserPool {
 	_init_.Initialize()
 
 	j := jsiiProxy_UserPool{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -14529,26 +12940,24 @@ func NewUserPool(scope constructs.Construct, id *string, props *UserPoolProps) U
 	return &j
 }
 
-// Experimental.
 func NewUserPool_Override(u UserPool, scope constructs.Construct, id *string, props *UserPoolProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
 // Import an existing user pool based on its ARN.
-// Experimental.
 func UserPool_FromUserPoolArn(scope constructs.Construct, id *string, userPoolArn *string) IUserPool {
 	_init_.Initialize()
 
 	var returns IUserPool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		"fromUserPoolArn",
 		[]interface{}{scope, id, userPoolArn},
 		&returns,
@@ -14558,14 +12967,13 @@ func UserPool_FromUserPoolArn(scope constructs.Construct, id *string, userPoolAr
 }
 
 // Import an existing user pool based on its id.
-// Experimental.
 func UserPool_FromUserPoolId(scope constructs.Construct, id *string, userPoolId *string) IUserPool {
 	_init_.Initialize()
 
 	var returns IUserPool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		"fromUserPoolId",
 		[]interface{}{scope, id, userPoolId},
 		&returns,
@@ -14574,15 +12982,17 @@ func UserPool_FromUserPoolId(scope constructs.Construct, id *string, userPoolId 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func UserPool_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -14592,14 +13002,13 @@ func UserPool_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func UserPool_IsResource(construct awscdk.IConstruct) *bool {
+func UserPool_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -14702,56 +13111,11 @@ func (u *jsiiProxy_UserPool) GetResourceNameAttribute(nameAttr *string) *string 
 	return returns
 }
 
-func (u *jsiiProxy_UserPool) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPool) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (u *jsiiProxy_UserPool) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPool) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (u *jsiiProxy_UserPool) RegisterIdentityProvider(provider IUserPoolIdentityProvider) {
 	_jsii_.InvokeVoid(
 		u,
 		"registerIdentityProvider",
 		[]interface{}{provider},
-	)
-}
-
-func (u *jsiiProxy_UserPool) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
 	)
 }
 
@@ -14761,19 +13125,6 @@ func (u *jsiiProxy_UserPool) ToString() *string {
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPool) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -14800,7 +13151,6 @@ func (u *jsiiProxy_UserPool) Validate() *[]*string {
 //
 //   client.node.addDependency(provider)
 //
-// Experimental.
 type UserPoolClient interface {
 	awscdk.Resource
 	IUserPoolClient
@@ -14812,13 +13162,10 @@ type UserPoolClient interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The OAuth flows enabled for this client.
-	// Experimental.
 	OAuthFlows() *OAuthFlows
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
@@ -14827,16 +13174,12 @@ type UserPoolClient interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Name of the application client.
-	// Experimental.
 	UserPoolClientId() *string
 	// The client name that was specified via the `userPoolClientName` property during initialization, throws an error otherwise.
-	// Experimental.
 	UserPoolClientName() *string
 	// Apply the given removal policy to this resource.
 	//
@@ -14847,9 +13190,7 @@ type UserPoolClient interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -14857,66 +13198,15 @@ type UserPoolClient interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolClient
@@ -14935,8 +13225,8 @@ func (j *jsiiProxy_UserPoolClient) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolClient) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolClient) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -14996,14 +13286,13 @@ func (j *jsiiProxy_UserPoolClient) UserPoolClientName() *string {
 }
 
 
-// Experimental.
 func NewUserPoolClient(scope constructs.Construct, id *string, props *UserPoolClientProps) UserPoolClient {
 	_init_.Initialize()
 
 	j := jsiiProxy_UserPoolClient{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolClient",
+		"aws-cdk-lib.aws_cognito.UserPoolClient",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -15011,26 +13300,24 @@ func NewUserPoolClient(scope constructs.Construct, id *string, props *UserPoolCl
 	return &j
 }
 
-// Experimental.
 func NewUserPoolClient_Override(u UserPoolClient, scope constructs.Construct, id *string, props *UserPoolClientProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolClient",
+		"aws-cdk-lib.aws_cognito.UserPoolClient",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
 // Import a user pool client given its id.
-// Experimental.
 func UserPoolClient_FromUserPoolClientId(scope constructs.Construct, id *string, userPoolClientId *string) IUserPoolClient {
 	_init_.Initialize()
 
 	var returns IUserPoolClient
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolClient",
+		"aws-cdk-lib.aws_cognito.UserPoolClient",
 		"fromUserPoolClientId",
 		[]interface{}{scope, id, userPoolClientId},
 		&returns,
@@ -15039,15 +13326,17 @@ func UserPoolClient_FromUserPoolClientId(scope constructs.Construct, id *string,
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func UserPoolClient_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolClient",
+		"aws-cdk-lib.aws_cognito.UserPoolClient",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -15057,14 +13346,13 @@ func UserPoolClient_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func UserPoolClient_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolClient_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolClient",
+		"aws-cdk-lib.aws_cognito.UserPoolClient",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -15120,70 +13408,12 @@ func (u *jsiiProxy_UserPoolClient) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
-func (u *jsiiProxy_UserPoolClient) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolClient) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (u *jsiiProxy_UserPoolClient) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPoolClient) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolClient) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (u *jsiiProxy_UserPoolClient) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPoolClient) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -15203,10 +13433,8 @@ func (u *jsiiProxy_UserPoolClient) Validate() *[]*string {
 //   	},
 //   })
 //
-// Experimental.
 type UserPoolClientIdentityProvider interface {
 	// The name of the identity provider as recognized by CloudFormation property `SupportedIdentityProviders`.
-	// Experimental.
 	Name() *string
 }
 
@@ -15227,14 +13455,13 @@ func (j *jsiiProxy_UserPoolClientIdentityProvider) Name() *string {
 
 
 // Specify a provider not yet supported by the CDK.
-// Experimental.
 func UserPoolClientIdentityProvider_Custom(name *string) UserPoolClientIdentityProvider {
 	_init_.Initialize()
 
 	var returns UserPoolClientIdentityProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"custom",
 		[]interface{}{name},
 		&returns,
@@ -15247,7 +13474,7 @@ func UserPoolClientIdentityProvider_AMAZON() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"AMAZON",
 		&returns,
 	)
@@ -15258,7 +13485,7 @@ func UserPoolClientIdentityProvider_APPLE() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"APPLE",
 		&returns,
 	)
@@ -15269,7 +13496,7 @@ func UserPoolClientIdentityProvider_COGNITO() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"COGNITO",
 		&returns,
 	)
@@ -15280,7 +13507,7 @@ func UserPoolClientIdentityProvider_FACEBOOK() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"FACEBOOK",
 		&returns,
 	)
@@ -15291,7 +13518,7 @@ func UserPoolClientIdentityProvider_GOOGLE() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"GOOGLE",
 		&returns,
 	)
@@ -15319,71 +13546,57 @@ func UserPoolClientIdentityProvider_GOOGLE() UserPoolClientIdentityProvider {
 //   	},
 //   })
 //
-// Experimental.
 type UserPoolClientOptions struct {
 	// Validity of the access token.
 	//
 	// Values between 5 minutes and 1 day are valid. The duration can not be longer than the refresh token validity.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-access-token
 	//
-	// Experimental.
-	AccessTokenValidity awscdk.Duration `json:"accessTokenValidity" yaml:"accessTokenValidity"`
+	AccessTokenValidity awscdk.Duration `field:"optional" json:"accessTokenValidity" yaml:"accessTokenValidity"`
 	// The set of OAuth authentication flows to enable on the client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html
 	//
-	// Experimental.
-	AuthFlows *AuthFlow `json:"authFlows" yaml:"authFlows"`
+	AuthFlows *AuthFlow `field:"optional" json:"authFlows" yaml:"authFlows"`
 	// Turns off all OAuth interactions for this client.
-	// Experimental.
-	DisableOAuth *bool `json:"disableOAuth" yaml:"disableOAuth"`
+	DisableOAuth *bool `field:"optional" json:"disableOAuth" yaml:"disableOAuth"`
 	// Enable token revocation for this client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html#enable-token-revocation
 	//
-	// Experimental.
-	EnableTokenRevocation *bool `json:"enableTokenRevocation" yaml:"enableTokenRevocation"`
+	EnableTokenRevocation *bool `field:"optional" json:"enableTokenRevocation" yaml:"enableTokenRevocation"`
 	// Whether to generate a client secret.
-	// Experimental.
-	GenerateSecret *bool `json:"generateSecret" yaml:"generateSecret"`
+	GenerateSecret *bool `field:"optional" json:"generateSecret" yaml:"generateSecret"`
 	// Validity of the ID token.
 	//
 	// Values between 5 minutes and 1 day are valid. The duration can not be longer than the refresh token validity.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-id-token
 	//
-	// Experimental.
-	IdTokenValidity awscdk.Duration `json:"idTokenValidity" yaml:"idTokenValidity"`
+	IdTokenValidity awscdk.Duration `field:"optional" json:"idTokenValidity" yaml:"idTokenValidity"`
 	// OAuth settings for this client to interact with the app.
 	//
 	// An error is thrown when this is specified and `disableOAuth` is set.
-	// Experimental.
-	OAuth *OAuthSettings `json:"oAuth" yaml:"oAuth"`
+	OAuth *OAuthSettings `field:"optional" json:"oAuth" yaml:"oAuth"`
 	// Whether Cognito returns a UserNotFoundException exception when the user does not exist in the user pool (false), or whether it returns another type of error that doesn't reveal the user's absence.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-managing-errors.html
 	//
-	// Experimental.
-	PreventUserExistenceErrors *bool `json:"preventUserExistenceErrors" yaml:"preventUserExistenceErrors"`
+	PreventUserExistenceErrors *bool `field:"optional" json:"preventUserExistenceErrors" yaml:"preventUserExistenceErrors"`
 	// The set of attributes this client will be able to read.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-attribute-permissions-and-scopes
 	//
-	// Experimental.
-	ReadAttributes ClientAttributes `json:"readAttributes" yaml:"readAttributes"`
+	ReadAttributes ClientAttributes `field:"optional" json:"readAttributes" yaml:"readAttributes"`
 	// Validity of the refresh token.
 	//
 	// Values between 60 minutes and 10 years are valid.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-refresh-token
 	//
-	// Experimental.
-	RefreshTokenValidity awscdk.Duration `json:"refreshTokenValidity" yaml:"refreshTokenValidity"`
+	RefreshTokenValidity awscdk.Duration `field:"optional" json:"refreshTokenValidity" yaml:"refreshTokenValidity"`
 	// The list of identity providers that users should be able to use to sign in using this client.
-	// Experimental.
-	SupportedIdentityProviders *[]UserPoolClientIdentityProvider `json:"supportedIdentityProviders" yaml:"supportedIdentityProviders"`
+	SupportedIdentityProviders *[]UserPoolClientIdentityProvider `field:"optional" json:"supportedIdentityProviders" yaml:"supportedIdentityProviders"`
 	// Name of the application client.
-	// Experimental.
-	UserPoolClientName *string `json:"userPoolClientName" yaml:"userPoolClientName"`
+	UserPoolClientName *string `field:"optional" json:"userPoolClientName" yaml:"userPoolClientName"`
 	// The set of attributes this client will be able to write.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-attribute-permissions-and-scopes
 	//
-	// Experimental.
-	WriteAttributes ClientAttributes `json:"writeAttributes" yaml:"writeAttributes"`
+	WriteAttributes ClientAttributes `field:"optional" json:"writeAttributes" yaml:"writeAttributes"`
 }
 
 // Properties for the UserPoolClient construct.
@@ -15394,74 +13607,59 @@ type UserPoolClientOptions struct {
 //   	userPool: importedPool,
 //   })
 //
-// Experimental.
 type UserPoolClientProps struct {
 	// Validity of the access token.
 	//
 	// Values between 5 minutes and 1 day are valid. The duration can not be longer than the refresh token validity.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-access-token
 	//
-	// Experimental.
-	AccessTokenValidity awscdk.Duration `json:"accessTokenValidity" yaml:"accessTokenValidity"`
+	AccessTokenValidity awscdk.Duration `field:"optional" json:"accessTokenValidity" yaml:"accessTokenValidity"`
 	// The set of OAuth authentication flows to enable on the client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html
 	//
-	// Experimental.
-	AuthFlows *AuthFlow `json:"authFlows" yaml:"authFlows"`
+	AuthFlows *AuthFlow `field:"optional" json:"authFlows" yaml:"authFlows"`
 	// Turns off all OAuth interactions for this client.
-	// Experimental.
-	DisableOAuth *bool `json:"disableOAuth" yaml:"disableOAuth"`
+	DisableOAuth *bool `field:"optional" json:"disableOAuth" yaml:"disableOAuth"`
 	// Enable token revocation for this client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html#enable-token-revocation
 	//
-	// Experimental.
-	EnableTokenRevocation *bool `json:"enableTokenRevocation" yaml:"enableTokenRevocation"`
+	EnableTokenRevocation *bool `field:"optional" json:"enableTokenRevocation" yaml:"enableTokenRevocation"`
 	// Whether to generate a client secret.
-	// Experimental.
-	GenerateSecret *bool `json:"generateSecret" yaml:"generateSecret"`
+	GenerateSecret *bool `field:"optional" json:"generateSecret" yaml:"generateSecret"`
 	// Validity of the ID token.
 	//
 	// Values between 5 minutes and 1 day are valid. The duration can not be longer than the refresh token validity.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-id-token
 	//
-	// Experimental.
-	IdTokenValidity awscdk.Duration `json:"idTokenValidity" yaml:"idTokenValidity"`
+	IdTokenValidity awscdk.Duration `field:"optional" json:"idTokenValidity" yaml:"idTokenValidity"`
 	// OAuth settings for this client to interact with the app.
 	//
 	// An error is thrown when this is specified and `disableOAuth` is set.
-	// Experimental.
-	OAuth *OAuthSettings `json:"oAuth" yaml:"oAuth"`
+	OAuth *OAuthSettings `field:"optional" json:"oAuth" yaml:"oAuth"`
 	// Whether Cognito returns a UserNotFoundException exception when the user does not exist in the user pool (false), or whether it returns another type of error that doesn't reveal the user's absence.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-managing-errors.html
 	//
-	// Experimental.
-	PreventUserExistenceErrors *bool `json:"preventUserExistenceErrors" yaml:"preventUserExistenceErrors"`
+	PreventUserExistenceErrors *bool `field:"optional" json:"preventUserExistenceErrors" yaml:"preventUserExistenceErrors"`
 	// The set of attributes this client will be able to read.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-attribute-permissions-and-scopes
 	//
-	// Experimental.
-	ReadAttributes ClientAttributes `json:"readAttributes" yaml:"readAttributes"`
+	ReadAttributes ClientAttributes `field:"optional" json:"readAttributes" yaml:"readAttributes"`
 	// Validity of the refresh token.
 	//
 	// Values between 60 minutes and 10 years are valid.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-refresh-token
 	//
-	// Experimental.
-	RefreshTokenValidity awscdk.Duration `json:"refreshTokenValidity" yaml:"refreshTokenValidity"`
+	RefreshTokenValidity awscdk.Duration `field:"optional" json:"refreshTokenValidity" yaml:"refreshTokenValidity"`
 	// The list of identity providers that users should be able to use to sign in using this client.
-	// Experimental.
-	SupportedIdentityProviders *[]UserPoolClientIdentityProvider `json:"supportedIdentityProviders" yaml:"supportedIdentityProviders"`
+	SupportedIdentityProviders *[]UserPoolClientIdentityProvider `field:"optional" json:"supportedIdentityProviders" yaml:"supportedIdentityProviders"`
 	// Name of the application client.
-	// Experimental.
-	UserPoolClientName *string `json:"userPoolClientName" yaml:"userPoolClientName"`
+	UserPoolClientName *string `field:"optional" json:"userPoolClientName" yaml:"userPoolClientName"`
 	// The set of attributes this client will be able to write.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-attribute-permissions-and-scopes
 	//
-	// Experimental.
-	WriteAttributes ClientAttributes `json:"writeAttributes" yaml:"writeAttributes"`
+	WriteAttributes ClientAttributes `field:"optional" json:"writeAttributes" yaml:"writeAttributes"`
 	// The UserPool resource this client will have access to.
-	// Experimental.
-	UserPool IUserPool `json:"userPool" yaml:"userPool"`
+	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 }
 
 // Define a user pool domain.
@@ -15487,18 +13685,15 @@ type UserPoolClientProps struct {
 //   	redirectUri: jsii.String("https://myapp.com/home"),
 //   })
 //
-// Experimental.
 type UserPoolDomain interface {
 	awscdk.Resource
 	IUserPoolDomain
 	// The domain name of the CloudFront distribution associated with the user pool domain.
-	// Experimental.
 	CloudFrontDomainName() *string
 	// The domain that was specified to be created.
 	//
 	// If `customDomain` was selected, this holds the full domain name that was specified.
 	// If the `cognitoDomain` was used, it contains the prefix to the Cognito hosted domain.
-	// Experimental.
 	DomainName() *string
 	// The environment this resource belongs to.
 	//
@@ -15508,11 +13703,9 @@ type UserPoolDomain interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -15520,10 +13713,8 @@ type UserPoolDomain interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -15534,12 +13725,9 @@ type UserPoolDomain interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// The URL to the hosted UI associated with this domain.
-	// Experimental.
-	BaseUrl() *string
-	// Experimental.
+	BaseUrl(options *BaseUrlOptions) *string
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -15547,69 +13735,17 @@ type UserPoolDomain interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// The URL to the sign in page in this domain using a specific UserPoolClient.
-	// Experimental.
 	SignInUrl(client UserPoolClient, options *SignInUrlOptions) *string
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolDomain
@@ -15648,8 +13784,8 @@ func (j *jsiiProxy_UserPoolDomain) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolDomain) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolDomain) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -15679,14 +13815,13 @@ func (j *jsiiProxy_UserPoolDomain) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewUserPoolDomain(scope constructs.Construct, id *string, props *UserPoolDomainProps) UserPoolDomain {
 	_init_.Initialize()
 
 	j := jsiiProxy_UserPoolDomain{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolDomain",
+		"aws-cdk-lib.aws_cognito.UserPoolDomain",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -15694,26 +13829,24 @@ func NewUserPoolDomain(scope constructs.Construct, id *string, props *UserPoolDo
 	return &j
 }
 
-// Experimental.
 func NewUserPoolDomain_Override(u UserPoolDomain, scope constructs.Construct, id *string, props *UserPoolDomainProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolDomain",
+		"aws-cdk-lib.aws_cognito.UserPoolDomain",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
 // Import a UserPoolDomain given its domain name.
-// Experimental.
 func UserPoolDomain_FromDomainName(scope constructs.Construct, id *string, userPoolDomainName *string) IUserPoolDomain {
 	_init_.Initialize()
 
 	var returns IUserPoolDomain
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolDomain",
+		"aws-cdk-lib.aws_cognito.UserPoolDomain",
 		"fromDomainName",
 		[]interface{}{scope, id, userPoolDomainName},
 		&returns,
@@ -15722,15 +13855,17 @@ func UserPoolDomain_FromDomainName(scope constructs.Construct, id *string, userP
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func UserPoolDomain_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolDomain",
+		"aws-cdk-lib.aws_cognito.UserPoolDomain",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -15740,14 +13875,13 @@ func UserPoolDomain_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func UserPoolDomain_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolDomain_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolDomain",
+		"aws-cdk-lib.aws_cognito.UserPoolDomain",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -15764,13 +13898,13 @@ func (u *jsiiProxy_UserPoolDomain) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-func (u *jsiiProxy_UserPoolDomain) BaseUrl() *string {
+func (u *jsiiProxy_UserPoolDomain) BaseUrl(options *BaseUrlOptions) *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		u,
 		"baseUrl",
-		nil, // no parameters
+		[]interface{}{options},
 		&returns,
 	)
 
@@ -15816,43 +13950,6 @@ func (u *jsiiProxy_UserPoolDomain) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
-func (u *jsiiProxy_UserPoolDomain) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolDomain) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (u *jsiiProxy_UserPoolDomain) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPoolDomain) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (u *jsiiProxy_UserPoolDomain) SignInUrl(client UserPoolClient, options *SignInUrlOptions) *string {
 	var returns *string
 
@@ -15866,33 +13963,12 @@ func (u *jsiiProxy_UserPoolDomain) SignInUrl(client UserPoolClient, options *Sig
 	return returns
 }
 
-func (u *jsiiProxy_UserPoolDomain) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (u *jsiiProxy_UserPoolDomain) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPoolDomain) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -15921,26 +13997,26 @@ func (u *jsiiProxy_UserPoolDomain) Validate() *[]*string {
 //   	},
 //   })
 //
-// Experimental.
 type UserPoolDomainOptions struct {
 	// Associate a cognito prefix domain with your user pool Either `customDomain` or `cognitoDomain` must be specified.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html
 	//
-	// Experimental.
-	CognitoDomain *CognitoDomainOptions `json:"cognitoDomain" yaml:"cognitoDomain"`
+	CognitoDomain *CognitoDomainOptions `field:"optional" json:"cognitoDomain" yaml:"cognitoDomain"`
 	// Associate a custom domain with your user pool Either `customDomain` or `cognitoDomain` must be specified.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html
 	//
-	// Experimental.
-	CustomDomain *CustomDomainOptions `json:"customDomain" yaml:"customDomain"`
+	CustomDomain *CustomDomainOptions `field:"optional" json:"customDomain" yaml:"customDomain"`
 }
 
 // Props for UserPoolDomain construct.
 //
 // Example:
-//   import cognito "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk"import elbv2 "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type App awscdk.App
-//   type CfnOutput awscdk.CfnOutput
-//   type Stack awscdk.Stackimport constructs "github.com/aws/constructs-go/constructs"type Construct constructs.Constructimport actions "github.com/aws/aws-cdk-go/awscdk"
+//   import cognito "github.com/aws/aws-cdk-go/awscdk"
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws-samples/dummy/constructs"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cognitoStack struct {
 //   stack
@@ -16001,29 +14077,25 @@ type UserPoolDomainOptions struct {
 //   	}),
 //   })
 //
-//   NewCfnOutput(this, jsii.String("DNS"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("DNS"), &cfnOutputProps{
 //   	value: lb.loadBalancerDnsName,
 //   })
 //
-//   app := NewApp()
+//   app := awscdk.NewApp()
 //   NewCognitoStack(app, jsii.String("integ-cognito"))
 //   app.synth()
 //
-// Experimental.
 type UserPoolDomainProps struct {
 	// Associate a cognito prefix domain with your user pool Either `customDomain` or `cognitoDomain` must be specified.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html
 	//
-	// Experimental.
-	CognitoDomain *CognitoDomainOptions `json:"cognitoDomain" yaml:"cognitoDomain"`
+	CognitoDomain *CognitoDomainOptions `field:"optional" json:"cognitoDomain" yaml:"cognitoDomain"`
 	// Associate a custom domain with your user pool Either `customDomain` or `cognitoDomain` must be specified.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html
 	//
-	// Experimental.
-	CustomDomain *CustomDomainOptions `json:"customDomain" yaml:"customDomain"`
+	CustomDomain *CustomDomainOptions `field:"optional" json:"customDomain" yaml:"customDomain"`
 	// The user pool to which this domain should be associated.
-	// Experimental.
-	UserPool IUserPool `json:"userPool" yaml:"userPool"`
+	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 }
 
 // Configure how Cognito sends emails.
@@ -16037,7 +14109,6 @@ type UserPoolDomainProps struct {
 //   	}),
 //   })
 //
-// Experimental.
 type UserPoolEmail interface {
 }
 
@@ -16046,26 +14117,24 @@ type jsiiProxy_UserPoolEmail struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewUserPoolEmail_Override(u UserPoolEmail) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolEmail",
+		"aws-cdk-lib.aws_cognito.UserPoolEmail",
 		nil, // no parameters
 		u,
 	)
 }
 
 // Send email using Cognito.
-// Experimental.
 func UserPoolEmail_WithCognito(replyTo *string) UserPoolEmail {
 	_init_.Initialize()
 
 	var returns UserPoolEmail
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolEmail",
+		"aws-cdk-lib.aws_cognito.UserPoolEmail",
 		"withCognito",
 		[]interface{}{replyTo},
 		&returns,
@@ -16075,14 +14144,13 @@ func UserPoolEmail_WithCognito(replyTo *string) UserPoolEmail {
 }
 
 // Send email using SES.
-// Experimental.
 func UserPoolEmail_WithSES(options *UserPoolSESOptions) UserPoolEmail {
 	_init_.Initialize()
 
 	var returns UserPoolEmail
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolEmail",
+		"aws-cdk-lib.aws_cognito.UserPoolEmail",
 		"withSES",
 		[]interface{}{options},
 		&returns,
@@ -16092,7 +14160,6 @@ func UserPoolEmail_WithSES(options *UserPoolSESOptions) UserPoolEmail {
 }
 
 // User pool third-party identity providers.
-// Experimental.
 type UserPoolIdentityProvider interface {
 }
 
@@ -16102,14 +14169,13 @@ type jsiiProxy_UserPoolIdentityProvider struct {
 }
 
 // Import an existing UserPoolIdentityProvider.
-// Experimental.
 func UserPoolIdentityProvider_FromProviderName(scope constructs.Construct, id *string, providerName *string) IUserPoolIdentityProvider {
 	_init_.Initialize()
 
 	var returns IUserPoolIdentityProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProvider",
 		"fromProviderName",
 		[]interface{}{scope, id, providerName},
 		&returns,
@@ -16137,7 +14203,6 @@ func UserPoolIdentityProvider_FromProviderName(scope constructs.Construct, id *s
 //
 //   client.node.addDependency(provider)
 //
-// Experimental.
 type UserPoolIdentityProviderAmazon interface {
 	awscdk.Resource
 	IUserPoolIdentityProvider
@@ -16149,11 +14214,9 @@ type UserPoolIdentityProviderAmazon interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -16161,13 +14224,10 @@ type UserPoolIdentityProviderAmazon interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The primary identifier of this identity provider.
-	// Experimental.
 	ProviderName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -16178,11 +14238,8 @@ type UserPoolIdentityProviderAmazon interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	ConfigureAttributeMapping() interface{}
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -16190,66 +14247,15 @@ type UserPoolIdentityProviderAmazon interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolIdentityProviderAmazon
@@ -16268,8 +14274,8 @@ func (j *jsiiProxy_UserPoolIdentityProviderAmazon) Env() *awscdk.ResourceEnviron
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolIdentityProviderAmazon) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolIdentityProviderAmazon) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -16309,14 +14315,13 @@ func (j *jsiiProxy_UserPoolIdentityProviderAmazon) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewUserPoolIdentityProviderAmazon(scope constructs.Construct, id *string, props *UserPoolIdentityProviderAmazonProps) UserPoolIdentityProviderAmazon {
 	_init_.Initialize()
 
 	j := jsiiProxy_UserPoolIdentityProviderAmazon{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderAmazon",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderAmazon",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -16324,26 +14329,27 @@ func NewUserPoolIdentityProviderAmazon(scope constructs.Construct, id *string, p
 	return &j
 }
 
-// Experimental.
 func NewUserPoolIdentityProviderAmazon_Override(u UserPoolIdentityProviderAmazon, scope constructs.Construct, id *string, props *UserPoolIdentityProviderAmazonProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderAmazon",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderAmazon",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func UserPoolIdentityProviderAmazon_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderAmazon",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderAmazon",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -16353,14 +14359,13 @@ func UserPoolIdentityProviderAmazon_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func UserPoolIdentityProviderAmazon_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolIdentityProviderAmazon_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderAmazon",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderAmazon",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -16429,70 +14434,12 @@ func (u *jsiiProxy_UserPoolIdentityProviderAmazon) GetResourceNameAttribute(name
 	return returns
 }
 
-func (u *jsiiProxy_UserPoolIdentityProviderAmazon) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderAmazon) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderAmazon) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderAmazon) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderAmazon) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (u *jsiiProxy_UserPoolIdentityProviderAmazon) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderAmazon) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -16519,39 +14466,36 @@ func (u *jsiiProxy_UserPoolIdentityProviderAmazon) Validate() *[]*string {
 //
 //   client.node.addDependency(provider)
 //
-// Experimental.
 type UserPoolIdentityProviderAmazonProps struct {
 	// The user pool to which this construct provides identities.
-	// Experimental.
-	UserPool IUserPool `json:"userPool" yaml:"userPool"`
+	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
-	// Experimental.
-	AttributeMapping *AttributeMapping `json:"attributeMapping" yaml:"attributeMapping"`
+	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id recognized by 'Login with Amazon' APIs.
 	// See: https://developer.amazon.com/docs/login-with-amazon/security-profile.html#client-identifier
 	//
-	// Experimental.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The client secret to be accompanied with clientId for 'Login with Amazon' APIs to authenticate the client.
 	// See: https://developer.amazon.com/docs/login-with-amazon/security-profile.html#client-identifier
 	//
-	// Experimental.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The types of user profile data to obtain for the Amazon profile.
 	// See: https://developer.amazon.com/docs/login-with-amazon/customer-profile.html
 	//
-	// Experimental.
-	Scopes *[]*string `json:"scopes" yaml:"scopes"`
+	Scopes *[]*string `field:"optional" json:"scopes" yaml:"scopes"`
 }
 
 // Represents a identity provider that integrates with 'Apple'.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var providerAttribute providerAttribute
 //   var userPool userPool
-//   userPoolIdentityProviderApple := cognito.NewUserPoolIdentityProviderApple(this, jsii.String("MyUserPoolIdentityProviderApple"), &userPoolIdentityProviderAppleProps{
+//
+//   userPoolIdentityProviderApple := awscdk.Aws_cognito.NewUserPoolIdentityProviderApple(this, jsii.String("MyUserPoolIdentityProviderApple"), &userPoolIdentityProviderAppleProps{
 //   	clientId: jsii.String("clientId"),
 //   	keyId: jsii.String("keyId"),
 //   	privateKey: jsii.String("privateKey"),
@@ -16586,7 +14530,6 @@ type UserPoolIdentityProviderAmazonProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type UserPoolIdentityProviderApple interface {
 	awscdk.Resource
 	IUserPoolIdentityProvider
@@ -16598,11 +14541,9 @@ type UserPoolIdentityProviderApple interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -16610,13 +14551,10 @@ type UserPoolIdentityProviderApple interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The primary identifier of this identity provider.
-	// Experimental.
 	ProviderName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -16627,11 +14565,8 @@ type UserPoolIdentityProviderApple interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	ConfigureAttributeMapping() interface{}
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -16639,66 +14574,15 @@ type UserPoolIdentityProviderApple interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolIdentityProviderApple
@@ -16717,8 +14601,8 @@ func (j *jsiiProxy_UserPoolIdentityProviderApple) Env() *awscdk.ResourceEnvironm
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolIdentityProviderApple) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolIdentityProviderApple) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -16758,14 +14642,13 @@ func (j *jsiiProxy_UserPoolIdentityProviderApple) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewUserPoolIdentityProviderApple(scope constructs.Construct, id *string, props *UserPoolIdentityProviderAppleProps) UserPoolIdentityProviderApple {
 	_init_.Initialize()
 
 	j := jsiiProxy_UserPoolIdentityProviderApple{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderApple",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderApple",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -16773,26 +14656,27 @@ func NewUserPoolIdentityProviderApple(scope constructs.Construct, id *string, pr
 	return &j
 }
 
-// Experimental.
 func NewUserPoolIdentityProviderApple_Override(u UserPoolIdentityProviderApple, scope constructs.Construct, id *string, props *UserPoolIdentityProviderAppleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderApple",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderApple",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func UserPoolIdentityProviderApple_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderApple",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderApple",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -16802,14 +14686,13 @@ func UserPoolIdentityProviderApple_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func UserPoolIdentityProviderApple_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolIdentityProviderApple_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderApple",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderApple",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -16878,51 +14761,6 @@ func (u *jsiiProxy_UserPoolIdentityProviderApple) GetResourceNameAttribute(nameA
 	return returns
 }
 
-func (u *jsiiProxy_UserPoolIdentityProviderApple) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderApple) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderApple) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderApple) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderApple) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (u *jsiiProxy_UserPoolIdentityProviderApple) ToString() *string {
 	var returns *string
 
@@ -16936,26 +14774,16 @@ func (u *jsiiProxy_UserPoolIdentityProviderApple) ToString() *string {
 	return returns
 }
 
-func (u *jsiiProxy_UserPoolIdentityProviderApple) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Properties to initialize UserPoolAppleIdentityProvider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var providerAttribute providerAttribute
 //   var userPool userPool
+//
 //   userPoolIdentityProviderAppleProps := &userPoolIdentityProviderAppleProps{
 //   	clientId: jsii.String("clientId"),
 //   	keyId: jsii.String("keyId"),
@@ -16991,43 +14819,38 @@ func (u *jsiiProxy_UserPoolIdentityProviderApple) Validate() *[]*string {
 //   	},
 //   }
 //
-// Experimental.
 type UserPoolIdentityProviderAppleProps struct {
 	// The user pool to which this construct provides identities.
-	// Experimental.
-	UserPool IUserPool `json:"userPool" yaml:"userPool"`
+	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
-	// Experimental.
-	AttributeMapping *AttributeMapping `json:"attributeMapping" yaml:"attributeMapping"`
+	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id recognized by Apple APIs.
 	// See: https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230948-clientid
 	//
-	// Experimental.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The keyId (of the same key, which content has to be later supplied as `privateKey`) for Apple APIs to authenticate the client.
-	// Experimental.
-	KeyId *string `json:"keyId" yaml:"keyId"`
+	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 	// The privateKey content for Apple APIs to authenticate the client.
-	// Experimental.
-	PrivateKey *string `json:"privateKey" yaml:"privateKey"`
+	PrivateKey *string `field:"required" json:"privateKey" yaml:"privateKey"`
 	// The teamId for Apple APIs to authenticate the client.
-	// Experimental.
-	TeamId *string `json:"teamId" yaml:"teamId"`
+	TeamId *string `field:"required" json:"teamId" yaml:"teamId"`
 	// The list of apple permissions to obtain for getting access to the apple profile.
 	// See: https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230955-scope
 	//
-	// Experimental.
-	Scopes *[]*string `json:"scopes" yaml:"scopes"`
+	Scopes *[]*string `field:"optional" json:"scopes" yaml:"scopes"`
 }
 
 // Represents a identity provider that integrates with 'Facebook Login'.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var providerAttribute providerAttribute
 //   var userPool userPool
-//   userPoolIdentityProviderFacebook := cognito.NewUserPoolIdentityProviderFacebook(this, jsii.String("MyUserPoolIdentityProviderFacebook"), &userPoolIdentityProviderFacebookProps{
+//
+//   userPoolIdentityProviderFacebook := awscdk.Aws_cognito.NewUserPoolIdentityProviderFacebook(this, jsii.String("MyUserPoolIdentityProviderFacebook"), &userPoolIdentityProviderFacebookProps{
 //   	clientId: jsii.String("clientId"),
 //   	clientSecret: jsii.String("clientSecret"),
 //   	userPool: userPool,
@@ -17061,7 +14884,6 @@ type UserPoolIdentityProviderAppleProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type UserPoolIdentityProviderFacebook interface {
 	awscdk.Resource
 	IUserPoolIdentityProvider
@@ -17073,11 +14895,9 @@ type UserPoolIdentityProviderFacebook interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -17085,13 +14905,10 @@ type UserPoolIdentityProviderFacebook interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The primary identifier of this identity provider.
-	// Experimental.
 	ProviderName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -17102,11 +14919,8 @@ type UserPoolIdentityProviderFacebook interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	ConfigureAttributeMapping() interface{}
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -17114,66 +14928,15 @@ type UserPoolIdentityProviderFacebook interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolIdentityProviderFacebook
@@ -17192,8 +14955,8 @@ func (j *jsiiProxy_UserPoolIdentityProviderFacebook) Env() *awscdk.ResourceEnvir
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolIdentityProviderFacebook) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolIdentityProviderFacebook) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -17233,14 +14996,13 @@ func (j *jsiiProxy_UserPoolIdentityProviderFacebook) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewUserPoolIdentityProviderFacebook(scope constructs.Construct, id *string, props *UserPoolIdentityProviderFacebookProps) UserPoolIdentityProviderFacebook {
 	_init_.Initialize()
 
 	j := jsiiProxy_UserPoolIdentityProviderFacebook{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderFacebook",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderFacebook",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -17248,26 +15010,27 @@ func NewUserPoolIdentityProviderFacebook(scope constructs.Construct, id *string,
 	return &j
 }
 
-// Experimental.
 func NewUserPoolIdentityProviderFacebook_Override(u UserPoolIdentityProviderFacebook, scope constructs.Construct, id *string, props *UserPoolIdentityProviderFacebookProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderFacebook",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderFacebook",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func UserPoolIdentityProviderFacebook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderFacebook",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderFacebook",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -17277,14 +15040,13 @@ func UserPoolIdentityProviderFacebook_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func UserPoolIdentityProviderFacebook_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolIdentityProviderFacebook_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderFacebook",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderFacebook",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -17353,51 +15115,6 @@ func (u *jsiiProxy_UserPoolIdentityProviderFacebook) GetResourceNameAttribute(na
 	return returns
 }
 
-func (u *jsiiProxy_UserPoolIdentityProviderFacebook) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderFacebook) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderFacebook) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderFacebook) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderFacebook) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (u *jsiiProxy_UserPoolIdentityProviderFacebook) ToString() *string {
 	var returns *string
 
@@ -17411,26 +15128,16 @@ func (u *jsiiProxy_UserPoolIdentityProviderFacebook) ToString() *string {
 	return returns
 }
 
-func (u *jsiiProxy_UserPoolIdentityProviderFacebook) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Properties to initialize UserPoolFacebookIdentityProvider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var providerAttribute providerAttribute
 //   var userPool userPool
+//
 //   userPoolIdentityProviderFacebookProps := &userPoolIdentityProviderFacebookProps{
 //   	clientId: jsii.String("clientId"),
 //   	clientSecret: jsii.String("clientSecret"),
@@ -17465,40 +15172,36 @@ func (u *jsiiProxy_UserPoolIdentityProviderFacebook) Validate() *[]*string {
 //   	},
 //   }
 //
-// Experimental.
 type UserPoolIdentityProviderFacebookProps struct {
 	// The user pool to which this construct provides identities.
-	// Experimental.
-	UserPool IUserPool `json:"userPool" yaml:"userPool"`
+	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
-	// Experimental.
-	AttributeMapping *AttributeMapping `json:"attributeMapping" yaml:"attributeMapping"`
+	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id recognized by Facebook APIs.
-	// Experimental.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The client secret to be accompanied with clientUd for Facebook to authenticate the client.
 	// See: https://developers.facebook.com/docs/facebook-login/security#appsecret
 	//
-	// Experimental.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The Facebook API version to use.
-	// Experimental.
-	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
+	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// The list of facebook permissions to obtain for getting access to the Facebook profile.
 	// See: https://developers.facebook.com/docs/facebook-login/permissions
 	//
-	// Experimental.
-	Scopes *[]*string `json:"scopes" yaml:"scopes"`
+	Scopes *[]*string `field:"optional" json:"scopes" yaml:"scopes"`
 }
 
 // Represents a identity provider that integrates with 'Google'.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var providerAttribute providerAttribute
 //   var userPool userPool
-//   userPoolIdentityProviderGoogle := cognito.NewUserPoolIdentityProviderGoogle(this, jsii.String("MyUserPoolIdentityProviderGoogle"), &userPoolIdentityProviderGoogleProps{
+//
+//   userPoolIdentityProviderGoogle := awscdk.Aws_cognito.NewUserPoolIdentityProviderGoogle(this, jsii.String("MyUserPoolIdentityProviderGoogle"), &userPoolIdentityProviderGoogleProps{
 //   	clientId: jsii.String("clientId"),
 //   	clientSecret: jsii.String("clientSecret"),
 //   	userPool: userPool,
@@ -17531,7 +15234,6 @@ type UserPoolIdentityProviderFacebookProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type UserPoolIdentityProviderGoogle interface {
 	awscdk.Resource
 	IUserPoolIdentityProvider
@@ -17543,11 +15245,9 @@ type UserPoolIdentityProviderGoogle interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -17555,13 +15255,10 @@ type UserPoolIdentityProviderGoogle interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The primary identifier of this identity provider.
-	// Experimental.
 	ProviderName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -17572,11 +15269,8 @@ type UserPoolIdentityProviderGoogle interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	ConfigureAttributeMapping() interface{}
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -17584,66 +15278,15 @@ type UserPoolIdentityProviderGoogle interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolIdentityProviderGoogle
@@ -17662,8 +15305,8 @@ func (j *jsiiProxy_UserPoolIdentityProviderGoogle) Env() *awscdk.ResourceEnviron
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolIdentityProviderGoogle) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolIdentityProviderGoogle) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -17703,14 +15346,13 @@ func (j *jsiiProxy_UserPoolIdentityProviderGoogle) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewUserPoolIdentityProviderGoogle(scope constructs.Construct, id *string, props *UserPoolIdentityProviderGoogleProps) UserPoolIdentityProviderGoogle {
 	_init_.Initialize()
 
 	j := jsiiProxy_UserPoolIdentityProviderGoogle{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderGoogle",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderGoogle",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -17718,26 +15360,27 @@ func NewUserPoolIdentityProviderGoogle(scope constructs.Construct, id *string, p
 	return &j
 }
 
-// Experimental.
 func NewUserPoolIdentityProviderGoogle_Override(u UserPoolIdentityProviderGoogle, scope constructs.Construct, id *string, props *UserPoolIdentityProviderGoogleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderGoogle",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderGoogle",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func UserPoolIdentityProviderGoogle_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderGoogle",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderGoogle",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -17747,14 +15390,13 @@ func UserPoolIdentityProviderGoogle_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func UserPoolIdentityProviderGoogle_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolIdentityProviderGoogle_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderGoogle",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderGoogle",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -17823,51 +15465,6 @@ func (u *jsiiProxy_UserPoolIdentityProviderGoogle) GetResourceNameAttribute(name
 	return returns
 }
 
-func (u *jsiiProxy_UserPoolIdentityProviderGoogle) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderGoogle) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderGoogle) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderGoogle) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolIdentityProviderGoogle) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (u *jsiiProxy_UserPoolIdentityProviderGoogle) ToString() *string {
 	var returns *string
 
@@ -17881,26 +15478,16 @@ func (u *jsiiProxy_UserPoolIdentityProviderGoogle) ToString() *string {
 	return returns
 }
 
-func (u *jsiiProxy_UserPoolIdentityProviderGoogle) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Properties to initialize UserPoolGoogleIdentityProvider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var providerAttribute providerAttribute
 //   var userPool userPool
+//
 //   userPoolIdentityProviderGoogleProps := &userPoolIdentityProviderGoogleProps{
 //   	clientId: jsii.String("clientId"),
 //   	clientSecret: jsii.String("clientSecret"),
@@ -17934,38 +15521,35 @@ func (u *jsiiProxy_UserPoolIdentityProviderGoogle) Validate() *[]*string {
 //   	},
 //   }
 //
-// Experimental.
 type UserPoolIdentityProviderGoogleProps struct {
 	// The user pool to which this construct provides identities.
-	// Experimental.
-	UserPool IUserPool `json:"userPool" yaml:"userPool"`
+	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
-	// Experimental.
-	AttributeMapping *AttributeMapping `json:"attributeMapping" yaml:"attributeMapping"`
+	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id recognized by Google APIs.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in#specify_your_apps_client_id
 	//
-	// Experimental.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The client secret to be accompanied with clientId for Google APIs to authenticate the client.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in
 	//
-	// Experimental.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The list of google permissions to obtain for getting access to the google profile.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in
 	//
-	// Experimental.
-	Scopes *[]*string `json:"scopes" yaml:"scopes"`
+	Scopes *[]*string `field:"optional" json:"scopes" yaml:"scopes"`
 }
 
 // Properties to create a new instance of UserPoolIdentityProvider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var providerAttribute providerAttribute
 //   var userPool userPool
+//
 //   userPoolIdentityProviderProps := &userPoolIdentityProviderProps{
 //   	userPool: userPool,
 //
@@ -17994,14 +15578,11 @@ type UserPoolIdentityProviderGoogleProps struct {
 //   	},
 //   }
 //
-// Experimental.
 type UserPoolIdentityProviderProps struct {
 	// The user pool to which this construct provides identities.
-	// Experimental.
-	UserPool IUserPool `json:"userPool" yaml:"userPool"`
+	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
-	// Experimental.
-	AttributeMapping *AttributeMapping `json:"attributeMapping" yaml:"attributeMapping"`
+	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 }
 
 // User pool operations to which lambda triggers can be attached.
@@ -18026,10 +15607,8 @@ type UserPoolIdentityProviderProps struct {
 //   	code: lambda.*code.fromAsset(path.join(__dirname, jsii.String("path/to/asset"))),
 //   }))
 //
-// Experimental.
 type UserPoolOperation interface {
 	// The key to use in `CfnUserPool.LambdaConfigProperty`.
-	// Experimental.
 	OperationName() *string
 }
 
@@ -18050,14 +15629,13 @@ func (j *jsiiProxy_UserPoolOperation) OperationName() *string {
 
 
 // A custom user pool operation.
-// Experimental.
 func UserPoolOperation_Of(name *string) UserPoolOperation {
 	_init_.Initialize()
 
 	var returns UserPoolOperation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"of",
 		[]interface{}{name},
 		&returns,
@@ -18070,7 +15648,7 @@ func UserPoolOperation_CREATE_AUTH_CHALLENGE() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"CREATE_AUTH_CHALLENGE",
 		&returns,
 	)
@@ -18081,7 +15659,7 @@ func UserPoolOperation_CUSTOM_EMAIL_SENDER() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"CUSTOM_EMAIL_SENDER",
 		&returns,
 	)
@@ -18092,7 +15670,7 @@ func UserPoolOperation_CUSTOM_MESSAGE() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"CUSTOM_MESSAGE",
 		&returns,
 	)
@@ -18103,7 +15681,7 @@ func UserPoolOperation_CUSTOM_SMS_SENDER() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"CUSTOM_SMS_SENDER",
 		&returns,
 	)
@@ -18114,7 +15692,7 @@ func UserPoolOperation_DEFINE_AUTH_CHALLENGE() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"DEFINE_AUTH_CHALLENGE",
 		&returns,
 	)
@@ -18125,7 +15703,7 @@ func UserPoolOperation_POST_AUTHENTICATION() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"POST_AUTHENTICATION",
 		&returns,
 	)
@@ -18136,7 +15714,7 @@ func UserPoolOperation_POST_CONFIRMATION() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"POST_CONFIRMATION",
 		&returns,
 	)
@@ -18147,7 +15725,7 @@ func UserPoolOperation_PRE_AUTHENTICATION() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"PRE_AUTHENTICATION",
 		&returns,
 	)
@@ -18158,7 +15736,7 @@ func UserPoolOperation_PRE_SIGN_UP() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"PRE_SIGN_UP",
 		&returns,
 	)
@@ -18169,7 +15747,7 @@ func UserPoolOperation_PRE_TOKEN_GENERATION() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"PRE_TOKEN_GENERATION",
 		&returns,
 	)
@@ -18180,7 +15758,7 @@ func UserPoolOperation_USER_MIGRATION() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"USER_MIGRATION",
 		&returns,
 	)
@@ -18191,7 +15769,7 @@ func UserPoolOperation_VERIFY_AUTH_CHALLENGE_RESPONSE() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"VERIFY_AUTH_CHALLENGE_RESPONSE",
 		&returns,
 	)
@@ -18212,67 +15790,49 @@ func UserPoolOperation_VERIFY_AUTH_CHALLENGE_RESPONSE() UserPoolOperation {
 //   	},
 //   })
 //
-// Experimental.
 type UserPoolProps struct {
 	// How will a user be able to recover their account?
-	// Experimental.
-	AccountRecovery AccountRecovery `json:"accountRecovery" yaml:"accountRecovery"`
+	AccountRecovery AccountRecovery `field:"optional" json:"accountRecovery" yaml:"accountRecovery"`
 	// Attributes which Cognito will look to verify automatically upon user sign up.
 	//
 	// EMAIL and PHONE are the only available options.
-	// Experimental.
-	AutoVerify *AutoVerifiedAttrs `json:"autoVerify" yaml:"autoVerify"`
+	AutoVerify *AutoVerifiedAttrs `field:"optional" json:"autoVerify" yaml:"autoVerify"`
 	// Define a set of custom attributes that can be configured for each user in the user pool.
-	// Experimental.
-	CustomAttributes *map[string]ICustomAttribute `json:"customAttributes" yaml:"customAttributes"`
+	CustomAttributes *map[string]ICustomAttribute `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// This key will be used to encrypt temporary passwords and authorization codes that Amazon Cognito generates.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-sender-triggers.html
 	//
-	// Experimental.
-	CustomSenderKmsKey awskms.IKey `json:"customSenderKmsKey" yaml:"customSenderKmsKey"`
+	CustomSenderKmsKey awskms.IKey `field:"optional" json:"customSenderKmsKey" yaml:"customSenderKmsKey"`
 	// Device tracking settings.
-	// Experimental.
-	DeviceTracking *DeviceTracking `json:"deviceTracking" yaml:"deviceTracking"`
+	DeviceTracking *DeviceTracking `field:"optional" json:"deviceTracking" yaml:"deviceTracking"`
 	// Email settings for a user pool.
-	// Experimental.
-	Email UserPoolEmail `json:"email" yaml:"email"`
-	// Email settings for a user pool.
-	// Deprecated: Use 'email' instead.
-	EmailSettings *EmailSettings `json:"emailSettings" yaml:"emailSettings"`
+	Email UserPoolEmail `field:"optional" json:"email" yaml:"email"`
 	// Setting this would explicitly enable or disable SMS role creation.
 	//
 	// When left unspecified, CDK will determine based on other properties if a role is needed or not.
-	// Experimental.
-	EnableSmsRole *bool `json:"enableSmsRole" yaml:"enableSmsRole"`
+	EnableSmsRole *bool `field:"optional" json:"enableSmsRole" yaml:"enableSmsRole"`
 	// Lambda functions to use for supported Cognito triggers.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html
 	//
-	// Experimental.
-	LambdaTriggers *UserPoolTriggers `json:"lambdaTriggers" yaml:"lambdaTriggers"`
+	LambdaTriggers *UserPoolTriggers `field:"optional" json:"lambdaTriggers" yaml:"lambdaTriggers"`
 	// Configure whether users of this user pool can or are required use MFA to sign in.
-	// Experimental.
-	Mfa Mfa `json:"mfa" yaml:"mfa"`
+	Mfa Mfa `field:"optional" json:"mfa" yaml:"mfa"`
 	// The SMS message template sent during MFA verification.
 	//
 	// Use '{####}' in the template where Cognito should insert the verification code.
-	// Experimental.
-	MfaMessage *string `json:"mfaMessage" yaml:"mfaMessage"`
+	MfaMessage *string `field:"optional" json:"mfaMessage" yaml:"mfaMessage"`
 	// Configure the MFA types that users can use in this user pool.
 	//
 	// Ignored if `mfa` is set to `OFF`.
-	// Experimental.
-	MfaSecondFactor *MfaSecondFactor `json:"mfaSecondFactor" yaml:"mfaSecondFactor"`
+	MfaSecondFactor *MfaSecondFactor `field:"optional" json:"mfaSecondFactor" yaml:"mfaSecondFactor"`
 	// Password policy for this user pool.
-	// Experimental.
-	PasswordPolicy *PasswordPolicy `json:"passwordPolicy" yaml:"passwordPolicy"`
+	PasswordPolicy *PasswordPolicy `field:"optional" json:"passwordPolicy" yaml:"passwordPolicy"`
 	// Policy to apply when the user pool is removed from the stack.
-	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Whether self sign up should be enabled.
 	//
 	// This can be further configured via the `selfSignUp` property.
-	// Experimental.
-	SelfSignUpEnabled *bool `json:"selfSignUpEnabled" yaml:"selfSignUpEnabled"`
+	SelfSignUpEnabled *bool `field:"optional" json:"selfSignUpEnabled" yaml:"selfSignUpEnabled"`
 	// Methods in which a user registers or signs in to a user pool.
 	//
 	// Allows either username with aliases OR sign in with email, phone, or both.
@@ -18283,44 +15843,35 @@ type UserPoolProps struct {
 	// To match with 'Option 1' in the above link, with a verified email, this property should be set to
 	// `{ username: true, email: true }`. To match with 'Option 2' in the above link with both a verified email and phone
 	// number, this property should be set to `{ email: true, phone: true }`.
-	// Experimental.
-	SignInAliases *SignInAliases `json:"signInAliases" yaml:"signInAliases"`
+	SignInAliases *SignInAliases `field:"optional" json:"signInAliases" yaml:"signInAliases"`
 	// Whether sign-in aliases should be evaluated with case sensitivity.
 	//
 	// For example, when this option is set to false, users will be able to sign in using either `MyUsername` or `myusername`.
-	// Experimental.
-	SignInCaseSensitive *bool `json:"signInCaseSensitive" yaml:"signInCaseSensitive"`
+	SignInCaseSensitive *bool `field:"optional" json:"signInCaseSensitive" yaml:"signInCaseSensitive"`
 	// The IAM role that Cognito will assume while sending SMS messages.
-	// Experimental.
-	SmsRole awsiam.IRole `json:"smsRole" yaml:"smsRole"`
+	SmsRole awsiam.IRole `field:"optional" json:"smsRole" yaml:"smsRole"`
 	// The 'ExternalId' that Cognito service must using when assuming the `smsRole`, if the role is restricted with an 'sts:ExternalId' conditional.
 	//
 	// Learn more about ExternalId here - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
 	//
 	// This property will be ignored if `smsRole` is not specified.
-	// Experimental.
-	SmsRoleExternalId *string `json:"smsRoleExternalId" yaml:"smsRoleExternalId"`
+	SmsRoleExternalId *string `field:"optional" json:"smsRoleExternalId" yaml:"smsRoleExternalId"`
 	// The region to integrate with SNS to send SMS messages.
 	//
 	// This property will do nothing if SMS configuration is not configured.
-	// Experimental.
-	SnsRegion *string `json:"snsRegion" yaml:"snsRegion"`
+	SnsRegion *string `field:"optional" json:"snsRegion" yaml:"snsRegion"`
 	// The set of attributes that are required for every user in the user pool.
 	//
 	// Read more on attributes here - https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html
-	// Experimental.
-	StandardAttributes *StandardAttributes `json:"standardAttributes" yaml:"standardAttributes"`
+	StandardAttributes *StandardAttributes `field:"optional" json:"standardAttributes" yaml:"standardAttributes"`
 	// Configuration around admins signing up users into a user pool.
-	// Experimental.
-	UserInvitation *UserInvitationConfig `json:"userInvitation" yaml:"userInvitation"`
+	UserInvitation *UserInvitationConfig `field:"optional" json:"userInvitation" yaml:"userInvitation"`
 	// Name of the user pool.
-	// Experimental.
-	UserPoolName *string `json:"userPoolName" yaml:"userPoolName"`
+	UserPoolName *string `field:"optional" json:"userPoolName" yaml:"userPoolName"`
 	// Configuration around users signing themselves up to the user pool.
 	//
 	// Enable or disable self sign-up via the `selfSignUpEnabled` property.
-	// Experimental.
-	UserVerification *UserVerificationConfig `json:"userVerification" yaml:"userVerification"`
+	UserVerification *UserVerificationConfig `field:"optional" json:"userVerification" yaml:"userVerification"`
 }
 
 // Defines a User Pool OAuth2.0 Resource Server.
@@ -18365,7 +15916,6 @@ type UserPoolProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type UserPoolResourceServer interface {
 	awscdk.Resource
 	IUserPoolResourceServer
@@ -18377,11 +15927,9 @@ type UserPoolResourceServer interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -18389,13 +15937,10 @@ type UserPoolResourceServer interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Resource server id.
-	// Experimental.
 	UserPoolResourceServerId() *string
 	// Apply the given removal policy to this resource.
 	//
@@ -18406,9 +15951,7 @@ type UserPoolResourceServer interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -18416,66 +15959,15 @@ type UserPoolResourceServer interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolResourceServer
@@ -18494,8 +15986,8 @@ func (j *jsiiProxy_UserPoolResourceServer) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolResourceServer) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolResourceServer) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -18535,14 +16027,13 @@ func (j *jsiiProxy_UserPoolResourceServer) UserPoolResourceServerId() *string {
 }
 
 
-// Experimental.
 func NewUserPoolResourceServer(scope constructs.Construct, id *string, props *UserPoolResourceServerProps) UserPoolResourceServer {
 	_init_.Initialize()
 
 	j := jsiiProxy_UserPoolResourceServer{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServer",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -18550,26 +16041,24 @@ func NewUserPoolResourceServer(scope constructs.Construct, id *string, props *Us
 	return &j
 }
 
-// Experimental.
 func NewUserPoolResourceServer_Override(u UserPoolResourceServer, scope constructs.Construct, id *string, props *UserPoolResourceServerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServer",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
 // Import a user pool resource client given its id.
-// Experimental.
 func UserPoolResourceServer_FromUserPoolResourceServerId(scope constructs.Construct, id *string, userPoolResourceServerId *string) IUserPoolResourceServer {
 	_init_.Initialize()
 
 	var returns IUserPoolResourceServer
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServer",
 		"fromUserPoolResourceServerId",
 		[]interface{}{scope, id, userPoolResourceServerId},
 		&returns,
@@ -18578,15 +16067,17 @@ func UserPoolResourceServer_FromUserPoolResourceServerId(scope constructs.Constr
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func UserPoolResourceServer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -18596,14 +16087,13 @@ func UserPoolResourceServer_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func UserPoolResourceServer_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolResourceServer_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServer",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -18659,70 +16149,12 @@ func (u *jsiiProxy_UserPoolResourceServer) GetResourceNameAttribute(nameAttr *st
 	return returns
 }
 
-func (u *jsiiProxy_UserPoolResourceServer) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolResourceServer) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (u *jsiiProxy_UserPoolResourceServer) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPoolResourceServer) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (u *jsiiProxy_UserPoolResourceServer) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (u *jsiiProxy_UserPoolResourceServer) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (u *jsiiProxy_UserPoolResourceServer) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -18772,26 +16204,25 @@ func (u *jsiiProxy_UserPoolResourceServer) Validate() *[]*string {
 //   	},
 //   })
 //
-// Experimental.
 type UserPoolResourceServerOptions struct {
 	// A unique resource server identifier for the resource server.
-	// Experimental.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 	// Oauth scopes.
-	// Experimental.
-	Scopes *[]ResourceServerScope `json:"scopes" yaml:"scopes"`
+	Scopes *[]ResourceServerScope `field:"optional" json:"scopes" yaml:"scopes"`
 	// A friendly name for the resource server.
-	// Experimental.
-	UserPoolResourceServerName *string `json:"userPoolResourceServerName" yaml:"userPoolResourceServerName"`
+	UserPoolResourceServerName *string `field:"optional" json:"userPoolResourceServerName" yaml:"userPoolResourceServerName"`
 }
 
 // Properties for the UserPoolResourceServer construct.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var resourceServerScope resourceServerScope
 //   var userPool userPool
+//
 //   userPoolResourceServerProps := &userPoolResourceServerProps{
 //   	identifier: jsii.String("identifier"),
 //   	userPool: userPool,
@@ -18803,20 +16234,15 @@ type UserPoolResourceServerOptions struct {
 //   	userPoolResourceServerName: jsii.String("userPoolResourceServerName"),
 //   }
 //
-// Experimental.
 type UserPoolResourceServerProps struct {
 	// A unique resource server identifier for the resource server.
-	// Experimental.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 	// Oauth scopes.
-	// Experimental.
-	Scopes *[]ResourceServerScope `json:"scopes" yaml:"scopes"`
+	Scopes *[]ResourceServerScope `field:"optional" json:"scopes" yaml:"scopes"`
 	// A friendly name for the resource server.
-	// Experimental.
-	UserPoolResourceServerName *string `json:"userPoolResourceServerName" yaml:"userPoolResourceServerName"`
+	UserPoolResourceServerName *string `field:"optional" json:"userPoolResourceServerName" yaml:"userPoolResourceServerName"`
 	// The user pool to add this resource server to.
-	// Experimental.
-	UserPool IUserPool `json:"userPool" yaml:"userPool"`
+	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 }
 
 // Configuration for Cognito sending emails via Amazon SES.
@@ -18831,7 +16257,6 @@ type UserPoolResourceServerProps struct {
 //   	}),
 //   })
 //
-// Experimental.
 type UserPoolSESOptions struct {
 	// The verified Amazon SES email address that Cognito should use to send emails.
 	//
@@ -18840,19 +16265,15 @@ type UserPoolSESOptions struct {
 	// send emails.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html
 	//
-	// Experimental.
-	FromEmail *string `json:"fromEmail" yaml:"fromEmail"`
+	FromEmail *string `field:"required" json:"fromEmail" yaml:"fromEmail"`
 	// The name of a configuration set in Amazon SES that should be applied to emails sent via Cognito.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-configurationset
 	//
-	// Experimental.
-	ConfigurationSetName *string `json:"configurationSetName" yaml:"configurationSetName"`
+	ConfigurationSetName *string `field:"optional" json:"configurationSetName" yaml:"configurationSetName"`
 	// An optional name that should be used as the sender's name along with the email.
-	// Experimental.
-	FromName *string `json:"fromName" yaml:"fromName"`
+	FromName *string `field:"optional" json:"fromName" yaml:"fromName"`
 	// The destination to which the receiver of the email should reploy to.
-	// Experimental.
-	ReplyTo *string `json:"replyTo" yaml:"replyTo"`
+	ReplyTo *string `field:"optional" json:"replyTo" yaml:"replyTo"`
 	// Required if the UserPool region is different than the SES region.
 	//
 	// If sending emails with a Amazon SES verified email address,
@@ -18861,11 +16282,9 @@ type UserPoolSESOptions struct {
 	// region here.
 	//
 	// Must be 'us-east-1', 'us-west-2', or 'eu-west-1'.
-	// Experimental.
-	SesRegion *string `json:"sesRegion" yaml:"sesRegion"`
+	SesRegion *string `field:"optional" json:"sesRegion" yaml:"sesRegion"`
 	// SES Verified custom domain to be used to verify the identity.
-	// Experimental.
-	SesVerifiedDomain *string `json:"sesVerifiedDomain" yaml:"sesVerifiedDomain"`
+	SesVerifiedDomain *string `field:"optional" json:"sesVerifiedDomain" yaml:"sesVerifiedDomain"`
 }
 
 // Triggers for a user pool.
@@ -18892,68 +16311,55 @@ type UserPoolSESOptions struct {
 //
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html
 //
-// Experimental.
 type UserPoolTriggers struct {
 	// Creates an authentication challenge.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-create-auth-challenge.html
 	//
-	// Experimental.
-	CreateAuthChallenge awslambda.IFunction `json:"createAuthChallenge" yaml:"createAuthChallenge"`
+	CreateAuthChallenge awslambda.IFunction `field:"optional" json:"createAuthChallenge" yaml:"createAuthChallenge"`
 	// Amazon Cognito invokes this trigger to send email notifications to users.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-email-sender.html
 	//
-	// Experimental.
-	CustomEmailSender awslambda.IFunction `json:"customEmailSender" yaml:"customEmailSender"`
+	CustomEmailSender awslambda.IFunction `field:"optional" json:"customEmailSender" yaml:"customEmailSender"`
 	// A custom Message AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
 	//
-	// Experimental.
-	CustomMessage awslambda.IFunction `json:"customMessage" yaml:"customMessage"`
+	CustomMessage awslambda.IFunction `field:"optional" json:"customMessage" yaml:"customMessage"`
 	// Amazon Cognito invokes this trigger to send SMS notifications to users.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-sms-sender.html
 	//
-	// Experimental.
-	CustomSmsSender awslambda.IFunction `json:"customSmsSender" yaml:"customSmsSender"`
+	CustomSmsSender awslambda.IFunction `field:"optional" json:"customSmsSender" yaml:"customSmsSender"`
 	// Defines the authentication challenge.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-define-auth-challenge.html
 	//
-	// Experimental.
-	DefineAuthChallenge awslambda.IFunction `json:"defineAuthChallenge" yaml:"defineAuthChallenge"`
+	DefineAuthChallenge awslambda.IFunction `field:"optional" json:"defineAuthChallenge" yaml:"defineAuthChallenge"`
 	// A post-authentication AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html
 	//
-	// Experimental.
-	PostAuthentication awslambda.IFunction `json:"postAuthentication" yaml:"postAuthentication"`
+	PostAuthentication awslambda.IFunction `field:"optional" json:"postAuthentication" yaml:"postAuthentication"`
 	// A post-confirmation AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html
 	//
-	// Experimental.
-	PostConfirmation awslambda.IFunction `json:"postConfirmation" yaml:"postConfirmation"`
+	PostConfirmation awslambda.IFunction `field:"optional" json:"postConfirmation" yaml:"postConfirmation"`
 	// A pre-authentication AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html
 	//
-	// Experimental.
-	PreAuthentication awslambda.IFunction `json:"preAuthentication" yaml:"preAuthentication"`
+	PreAuthentication awslambda.IFunction `field:"optional" json:"preAuthentication" yaml:"preAuthentication"`
 	// A pre-registration AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html
 	//
-	// Experimental.
-	PreSignUp awslambda.IFunction `json:"preSignUp" yaml:"preSignUp"`
+	PreSignUp awslambda.IFunction `field:"optional" json:"preSignUp" yaml:"preSignUp"`
 	// A pre-token-generation AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html
 	//
-	// Experimental.
-	PreTokenGeneration awslambda.IFunction `json:"preTokenGeneration" yaml:"preTokenGeneration"`
+	PreTokenGeneration awslambda.IFunction `field:"optional" json:"preTokenGeneration" yaml:"preTokenGeneration"`
 	// A user-migration AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html
 	//
-	// Experimental.
-	UserMigration awslambda.IFunction `json:"userMigration" yaml:"userMigration"`
+	UserMigration awslambda.IFunction `field:"optional" json:"userMigration" yaml:"userMigration"`
 	// Verifies the authentication challenge response.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-verify-auth-challenge-response.html
 	//
-	// Experimental.
-	VerifyAuthChallengeResponse awslambda.IFunction `json:"verifyAuthChallengeResponse" yaml:"verifyAuthChallengeResponse"`
+	VerifyAuthChallengeResponse awslambda.IFunction `field:"optional" json:"verifyAuthChallengeResponse" yaml:"verifyAuthChallengeResponse"`
 }
 
 // User pool configuration for user self sign up.
@@ -18970,31 +16376,26 @@ type UserPoolTriggers struct {
 //   	},
 //   })
 //
-// Experimental.
 type UserVerificationConfig struct {
 	// The email body template for the verification email sent to the user upon sign up.
 	//
 	// See https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-templates.html to
 	// learn more about message templates.
-	// Experimental.
-	EmailBody *string `json:"emailBody" yaml:"emailBody"`
+	EmailBody *string `field:"optional" json:"emailBody" yaml:"emailBody"`
 	// Emails can be verified either using a code or a link.
 	//
 	// Learn more at https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-email-verification-message-customization.html
-	// Experimental.
-	EmailStyle VerificationEmailStyle `json:"emailStyle" yaml:"emailStyle"`
+	EmailStyle VerificationEmailStyle `field:"optional" json:"emailStyle" yaml:"emailStyle"`
 	// The email subject template for the verification email sent to the user upon sign up.
 	//
 	// See https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-templates.html to
 	// learn more about message templates.
-	// Experimental.
-	EmailSubject *string `json:"emailSubject" yaml:"emailSubject"`
+	EmailSubject *string `field:"optional" json:"emailSubject" yaml:"emailSubject"`
 	// The message template for the verification SMS sent to the user upon sign up.
 	//
 	// See https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-templates.html to
 	// learn more about message templates.
-	// Experimental.
-	SmsMessage *string `json:"smsMessage" yaml:"smsMessage"`
+	SmsMessage *string `field:"optional" json:"smsMessage" yaml:"smsMessage"`
 }
 
 // The email verification style.
@@ -19011,15 +16412,12 @@ type UserVerificationConfig struct {
 //   	},
 //   })
 //
-// Experimental.
 type VerificationEmailStyle string
 
 const (
 	// Verify email via code.
-	// Experimental.
 	VerificationEmailStyle_CODE VerificationEmailStyle = "CODE"
 	// Verify email via link.
-	// Experimental.
 	VerificationEmailStyle_LINK VerificationEmailStyle = "LINK"
 )
 

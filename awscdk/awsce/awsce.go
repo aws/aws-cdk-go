@@ -1,12 +1,12 @@
 package awsce
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsce/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsce/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::CE::AnomalyMonitor`.
@@ -14,8 +14,11 @@ import (
 // The `AWS::CE::AnomalyMonitor` resource is a Cost Explorer resource type that continuously inspects your account's cost data for anomalies, based on `MonitorType` and `MonitorSpecification` . The content consists of detailed metadata and the current status of the monitor object.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
-//   cfnAnomalyMonitor := ce.NewCfnAnomalyMonitor(this, jsii.String("MyCfnAnomalyMonitor"), &cfnAnomalyMonitorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAnomalyMonitor := awscdk.Aws_ce.NewCfnAnomalyMonitor(this, jsii.String("MyCfnAnomalyMonitor"), &cfnAnomalyMonitorProps{
 //   	monitorName: jsii.String("monitorName"),
 //   	monitorType: jsii.String("monitorType"),
 //
@@ -44,16 +47,13 @@ type CfnAnomalyMonitor interface {
 	// The Amazon Resource Name (ARN) value for the monitor.
 	AttrMonitorArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -64,7 +64,6 @@ type CfnAnomalyMonitor interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The dimensions to evaluate.
 	MonitorDimension() *string
@@ -80,14 +79,12 @@ type CfnAnomalyMonitor interface {
 	// The possible type values.
 	MonitorType() *string
 	SetMonitorType(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::CE::AnomalyMonitor.ResourceTags`.
 	ResourceTags() interface{}
@@ -95,22 +92,18 @@ type CfnAnomalyMonitor interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -119,7 +112,6 @@ type CfnAnomalyMonitor interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -164,15 +156,12 @@ type CfnAnomalyMonitor interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -183,13 +172,11 @@ type CfnAnomalyMonitor interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -198,74 +185,21 @@ type CfnAnomalyMonitor interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -415,8 +349,8 @@ func (j *jsiiProxy_CfnAnomalyMonitor) MonitorType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnomalyMonitor) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnAnomalyMonitor) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -467,13 +401,13 @@ func (j *jsiiProxy_CfnAnomalyMonitor) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::CE::AnomalyMonitor`.
-func NewCfnAnomalyMonitor(scope awscdk.Construct, id *string, props *CfnAnomalyMonitorProps) CfnAnomalyMonitor {
+func NewCfnAnomalyMonitor(scope constructs.Construct, id *string, props *CfnAnomalyMonitorProps) CfnAnomalyMonitor {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAnomalyMonitor{}
 
 	_jsii_.Create(
-		"monocdk.aws_ce.CfnAnomalyMonitor",
+		"aws-cdk-lib.aws_ce.CfnAnomalyMonitor",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -482,11 +416,11 @@ func NewCfnAnomalyMonitor(scope awscdk.Construct, id *string, props *CfnAnomalyM
 }
 
 // Create a new `AWS::CE::AnomalyMonitor`.
-func NewCfnAnomalyMonitor_Override(c CfnAnomalyMonitor, scope awscdk.Construct, id *string, props *CfnAnomalyMonitorProps) {
+func NewCfnAnomalyMonitor_Override(c CfnAnomalyMonitor, scope constructs.Construct, id *string, props *CfnAnomalyMonitorProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ce.CfnAnomalyMonitor",
+		"aws-cdk-lib.aws_ce.CfnAnomalyMonitor",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -538,14 +472,13 @@ func (j *jsiiProxy_CfnAnomalyMonitor) SetResourceTags(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAnomalyMonitor_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ce.CfnAnomalyMonitor",
+		"aws-cdk-lib.aws_ce.CfnAnomalyMonitor",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -555,14 +488,13 @@ func CfnAnomalyMonitor_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAnomalyMonitor_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ce.CfnAnomalyMonitor",
+		"aws-cdk-lib.aws_ce.CfnAnomalyMonitor",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -571,15 +503,17 @@ func CfnAnomalyMonitor_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnAnomalyMonitor_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ce.CfnAnomalyMonitor",
+		"aws-cdk-lib.aws_ce.CfnAnomalyMonitor",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -592,7 +526,7 @@ func CfnAnomalyMonitor_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ce.CfnAnomalyMonitor",
+		"aws-cdk-lib.aws_ce.CfnAnomalyMonitor",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -689,48 +623,11 @@ func (c *jsiiProxy_CfnAnomalyMonitor) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnAnomalyMonitor) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnAnomalyMonitor) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnAnomalyMonitor) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnAnomalyMonitor) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnAnomalyMonitor) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -760,33 +657,12 @@ func (c *jsiiProxy_CfnAnomalyMonitor) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnAnomalyMonitor) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnAnomalyMonitor) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnAnomalyMonitor) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -807,7 +683,10 @@ func (c *jsiiProxy_CfnAnomalyMonitor) ValidateProperties(_properties interface{}
 // > Tagging is supported only for the following Cost Explorer resource types: [`AnomalyMonitor`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html) , [`AnomalySubscription`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html) , [`CostCategory`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceTagProperty := &resourceTagProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -815,15 +694,18 @@ func (c *jsiiProxy_CfnAnomalyMonitor) ValidateProperties(_properties interface{}
 //
 type CfnAnomalyMonitor_ResourceTagProperty struct {
 	// The key that is associated with the tag.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value that is associated with the tag.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnAnomalyMonitor`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAnomalyMonitorProps := &cfnAnomalyMonitorProps{
 //   	monitorName: jsii.String("monitorName"),
 //   	monitorType: jsii.String("monitorType"),
@@ -841,17 +723,17 @@ type CfnAnomalyMonitor_ResourceTagProperty struct {
 //
 type CfnAnomalyMonitorProps struct {
 	// The name of the monitor.
-	MonitorName *string `json:"monitorName" yaml:"monitorName"`
+	MonitorName *string `field:"required" json:"monitorName" yaml:"monitorName"`
 	// The possible type values.
-	MonitorType *string `json:"monitorType" yaml:"monitorType"`
+	MonitorType *string `field:"required" json:"monitorType" yaml:"monitorType"`
 	// The dimensions to evaluate.
-	MonitorDimension *string `json:"monitorDimension" yaml:"monitorDimension"`
+	MonitorDimension *string `field:"optional" json:"monitorDimension" yaml:"monitorDimension"`
 	// The array of `MonitorSpecification` in JSON array format.
 	//
 	// For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
-	MonitorSpecification *string `json:"monitorSpecification" yaml:"monitorSpecification"`
+	MonitorSpecification *string `field:"optional" json:"monitorSpecification" yaml:"monitorSpecification"`
 	// `AWS::CE::AnomalyMonitor.ResourceTags`.
-	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
+	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 }
 
 // A CloudFormation `AWS::CE::AnomalySubscription`.
@@ -859,8 +741,11 @@ type CfnAnomalyMonitorProps struct {
 // The `AWS::CE::AnomalySubscription` resource is a Cost Explorer resource type that associates a monitor, threshold, and list of subscribers. It delivers notifications about anomalies detected by a monitor that exceeds a threshold. The content consists of the detailed metadata and the current status of the `AnomalySubscription` object.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
-//   cfnAnomalySubscription := ce.NewCfnAnomalySubscription(this, jsii.String("MyCfnAnomalySubscription"), &cfnAnomalySubscriptionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAnomalySubscription := awscdk.Aws_ce.NewCfnAnomalySubscription(this, jsii.String("MyCfnAnomalySubscription"), &cfnAnomalySubscriptionProps{
 //   	frequency: jsii.String("frequency"),
 //   	monitorArnList: []*string{
 //   		jsii.String("monitorArnList"),
@@ -894,16 +779,13 @@ type CfnAnomalySubscription interface {
 	// The `AnomalySubscription` Amazon Resource Name (ARN).
 	AttrSubscriptionArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The frequency that anomaly reports are sent over email.
 	Frequency() *string
@@ -917,19 +799,16 @@ type CfnAnomalySubscription interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// A list of cost anomaly monitors.
 	MonitorArnList() *[]*string
 	SetMonitorArnList(val *[]*string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::CE::AnomalySubscription.ResourceTags`.
 	ResourceTags() interface{}
@@ -937,7 +816,6 @@ type CfnAnomalySubscription interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A list of subscribers to notify.
 	Subscribers() interface{}
@@ -952,16 +830,13 @@ type CfnAnomalySubscription interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -970,7 +845,6 @@ type CfnAnomalySubscription interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1015,15 +889,12 @@ type CfnAnomalySubscription interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1034,13 +905,11 @@ type CfnAnomalySubscription interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1049,74 +918,21 @@ type CfnAnomalySubscription interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1216,8 +1032,8 @@ func (j *jsiiProxy_CfnAnomalySubscription) MonitorArnList() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnomalySubscription) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnAnomalySubscription) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1298,13 +1114,13 @@ func (j *jsiiProxy_CfnAnomalySubscription) UpdatedProperites() *map[string]inter
 
 
 // Create a new `AWS::CE::AnomalySubscription`.
-func NewCfnAnomalySubscription(scope awscdk.Construct, id *string, props *CfnAnomalySubscriptionProps) CfnAnomalySubscription {
+func NewCfnAnomalySubscription(scope constructs.Construct, id *string, props *CfnAnomalySubscriptionProps) CfnAnomalySubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAnomalySubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_ce.CfnAnomalySubscription",
+		"aws-cdk-lib.aws_ce.CfnAnomalySubscription",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1313,11 +1129,11 @@ func NewCfnAnomalySubscription(scope awscdk.Construct, id *string, props *CfnAno
 }
 
 // Create a new `AWS::CE::AnomalySubscription`.
-func NewCfnAnomalySubscription_Override(c CfnAnomalySubscription, scope awscdk.Construct, id *string, props *CfnAnomalySubscriptionProps) {
+func NewCfnAnomalySubscription_Override(c CfnAnomalySubscription, scope constructs.Construct, id *string, props *CfnAnomalySubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ce.CfnAnomalySubscription",
+		"aws-cdk-lib.aws_ce.CfnAnomalySubscription",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1377,14 +1193,13 @@ func (j *jsiiProxy_CfnAnomalySubscription) SetThreshold(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAnomalySubscription_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ce.CfnAnomalySubscription",
+		"aws-cdk-lib.aws_ce.CfnAnomalySubscription",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1394,14 +1209,13 @@ func CfnAnomalySubscription_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAnomalySubscription_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ce.CfnAnomalySubscription",
+		"aws-cdk-lib.aws_ce.CfnAnomalySubscription",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1410,15 +1224,17 @@ func CfnAnomalySubscription_IsCfnResource(construct constructs.IConstruct) *bool
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnAnomalySubscription_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ce.CfnAnomalySubscription",
+		"aws-cdk-lib.aws_ce.CfnAnomalySubscription",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1431,7 +1247,7 @@ func CfnAnomalySubscription_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ce.CfnAnomalySubscription",
+		"aws-cdk-lib.aws_ce.CfnAnomalySubscription",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1528,48 +1344,11 @@ func (c *jsiiProxy_CfnAnomalySubscription) Inspect(inspector awscdk.TreeInspecto
 	)
 }
 
-func (c *jsiiProxy_CfnAnomalySubscription) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnAnomalySubscription) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnAnomalySubscription) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnAnomalySubscription) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnAnomalySubscription) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1599,33 +1378,12 @@ func (c *jsiiProxy_CfnAnomalySubscription) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnAnomalySubscription) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnAnomalySubscription) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnAnomalySubscription) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1646,7 +1404,10 @@ func (c *jsiiProxy_CfnAnomalySubscription) ValidateProperties(_properties interf
 // > Tagging is supported only for the following Cost Explorer resource types: [`AnomalyMonitor`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html) , [`AnomalySubscription`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html) , [`CostCategory`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceTagProperty := &resourceTagProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -1654,15 +1415,18 @@ func (c *jsiiProxy_CfnAnomalySubscription) ValidateProperties(_properties interf
 //
 type CfnAnomalySubscription_ResourceTagProperty struct {
 	// The key that is associated with the tag.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value that is associated with the tag.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // The recipient of `AnomalySubscription` notifications.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subscriberProperty := &subscriberProperty{
 //   	address: jsii.String("address"),
 //   	type: jsii.String("type"),
@@ -1673,17 +1437,20 @@ type CfnAnomalySubscription_ResourceTagProperty struct {
 //
 type CfnAnomalySubscription_SubscriberProperty struct {
 	// The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
-	Address *string `json:"address" yaml:"address"`
+	Address *string `field:"required" json:"address" yaml:"address"`
 	// The notification delivery channel.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Indicates if the subscriber accepts the notifications.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 
 // Properties for defining a `CfnAnomalySubscription`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAnomalySubscriptionProps := &cfnAnomalySubscriptionProps{
 //   	frequency: jsii.String("frequency"),
 //   	monitorArnList: []*string{
@@ -1712,17 +1479,17 @@ type CfnAnomalySubscription_SubscriberProperty struct {
 //
 type CfnAnomalySubscriptionProps struct {
 	// The frequency that anomaly reports are sent over email.
-	Frequency *string `json:"frequency" yaml:"frequency"`
+	Frequency *string `field:"required" json:"frequency" yaml:"frequency"`
 	// A list of cost anomaly monitors.
-	MonitorArnList *[]*string `json:"monitorArnList" yaml:"monitorArnList"`
+	MonitorArnList *[]*string `field:"required" json:"monitorArnList" yaml:"monitorArnList"`
 	// A list of subscribers to notify.
-	Subscribers interface{} `json:"subscribers" yaml:"subscribers"`
+	Subscribers interface{} `field:"required" json:"subscribers" yaml:"subscribers"`
 	// The name for the subscription.
-	SubscriptionName *string `json:"subscriptionName" yaml:"subscriptionName"`
+	SubscriptionName *string `field:"required" json:"subscriptionName" yaml:"subscriptionName"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold *float64 `json:"threshold" yaml:"threshold"`
+	Threshold *float64 `field:"required" json:"threshold" yaml:"threshold"`
 	// `AWS::CE::AnomalySubscription.ResourceTags`.
-	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
+	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 }
 
 // A CloudFormation `AWS::CE::CostCategory`.
@@ -1730,8 +1497,11 @@ type CfnAnomalySubscriptionProps struct {
 // The `AWS::CE::CostCategory` resource creates groupings of cost that you can use across products in the AWS Billing and Cost Management console, such as Cost Explorer and AWS Budgets. For more information, see [Managing Your Costs with Cost Categories](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html) in the *AWS Billing and Cost Management User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
-//   cfnCostCategory := ce.NewCfnCostCategory(this, jsii.String("MyCfnCostCategory"), &cfnCostCategoryProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCostCategory := awscdk.Aws_ce.NewCfnCostCategory(this, jsii.String("MyCfnCostCategory"), &cfnCostCategoryProps{
 //   	name: jsii.String("name"),
 //   	rules: jsii.String("rules"),
 //   	ruleVersion: jsii.String("ruleVersion"),
@@ -1749,16 +1519,13 @@ type CfnCostCategory interface {
 	// The Cost Category's effective start date.
 	AttrEffectiveStart() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The default value for the cost category.
 	DefaultValue() *string
@@ -1772,19 +1539,16 @@ type CfnCostCategory interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The unique name of the Cost Category.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The array of CostCategoryRule in JSON array format.
 	//
@@ -1800,22 +1564,18 @@ type CfnCostCategory interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1824,7 +1584,6 @@ type CfnCostCategory interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1869,15 +1628,12 @@ type CfnCostCategory interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1888,13 +1644,11 @@ type CfnCostCategory interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1903,74 +1657,21 @@ type CfnCostCategory interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2070,8 +1771,8 @@ func (j *jsiiProxy_CfnCostCategory) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCostCategory) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnCostCategory) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2142,13 +1843,13 @@ func (j *jsiiProxy_CfnCostCategory) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::CE::CostCategory`.
-func NewCfnCostCategory(scope awscdk.Construct, id *string, props *CfnCostCategoryProps) CfnCostCategory {
+func NewCfnCostCategory(scope constructs.Construct, id *string, props *CfnCostCategoryProps) CfnCostCategory {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCostCategory{}
 
 	_jsii_.Create(
-		"monocdk.aws_ce.CfnCostCategory",
+		"aws-cdk-lib.aws_ce.CfnCostCategory",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2157,11 +1858,11 @@ func NewCfnCostCategory(scope awscdk.Construct, id *string, props *CfnCostCatego
 }
 
 // Create a new `AWS::CE::CostCategory`.
-func NewCfnCostCategory_Override(c CfnCostCategory, scope awscdk.Construct, id *string, props *CfnCostCategoryProps) {
+func NewCfnCostCategory_Override(c CfnCostCategory, scope constructs.Construct, id *string, props *CfnCostCategoryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ce.CfnCostCategory",
+		"aws-cdk-lib.aws_ce.CfnCostCategory",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2213,14 +1914,13 @@ func (j *jsiiProxy_CfnCostCategory) SetSplitChargeRules(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnCostCategory_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ce.CfnCostCategory",
+		"aws-cdk-lib.aws_ce.CfnCostCategory",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2230,14 +1930,13 @@ func CfnCostCategory_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnCostCategory_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ce.CfnCostCategory",
+		"aws-cdk-lib.aws_ce.CfnCostCategory",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2246,15 +1945,17 @@ func CfnCostCategory_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnCostCategory_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ce.CfnCostCategory",
+		"aws-cdk-lib.aws_ce.CfnCostCategory",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2267,7 +1968,7 @@ func CfnCostCategory_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ce.CfnCostCategory",
+		"aws-cdk-lib.aws_ce.CfnCostCategory",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2364,48 +2065,11 @@ func (c *jsiiProxy_CfnCostCategory) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnCostCategory) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnCostCategory) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnCostCategory) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnCostCategory) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnCostCategory) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2435,33 +2099,12 @@ func (c *jsiiProxy_CfnCostCategory) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnCostCategory) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnCostCategory) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnCostCategory) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2480,7 +2123,10 @@ func (c *jsiiProxy_CfnCostCategory) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnCostCategory`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCostCategoryProps := &cfnCostCategoryProps{
 //   	name: jsii.String("name"),
 //   	rules: jsii.String("rules"),
@@ -2493,16 +2139,16 @@ func (c *jsiiProxy_CfnCostCategory) ValidateProperties(_properties interface{}) 
 //
 type CfnCostCategoryProps struct {
 	// The unique name of the Cost Category.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The array of CostCategoryRule in JSON array format.
 	//
 	// > Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
-	Rules *string `json:"rules" yaml:"rules"`
+	Rules *string `field:"required" json:"rules" yaml:"rules"`
 	// The rule schema version in this particular Cost Category.
-	RuleVersion *string `json:"ruleVersion" yaml:"ruleVersion"`
+	RuleVersion *string `field:"required" json:"ruleVersion" yaml:"ruleVersion"`
 	// The default value for the cost category.
-	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The split charge rules that are used to allocate your charges between your Cost Category values.
-	SplitChargeRules *string `json:"splitChargeRules" yaml:"splitChargeRules"`
+	SplitChargeRules *string `field:"optional" json:"splitChargeRules" yaml:"splitChargeRules"`
 }
 

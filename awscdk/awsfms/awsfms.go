@@ -1,12 +1,12 @@
 package awsfms
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsfms/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsfms/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::FMS::NotificationChannel`.
@@ -16,8 +16,11 @@ import (
 // To perform this action outside of the console, you must configure the SNS topic to allow the role `AWSServiceRoleForFMS` to publish SNS logs. For more information, see [Firewall Manager required permissions for API actions](https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html) in the *AWS Firewall Manager Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
-//   cfnNotificationChannel := fms.NewCfnNotificationChannel(this, jsii.String("MyCfnNotificationChannel"), &cfnNotificationChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNotificationChannel := awscdk.Aws_fms.NewCfnNotificationChannel(this, jsii.String("MyCfnNotificationChannel"), &cfnNotificationChannelProps{
 //   	snsRoleName: jsii.String("snsRoleName"),
 //   	snsTopicArn: jsii.String("snsTopicArn"),
 //   })
@@ -26,16 +29,13 @@ type CfnNotificationChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -46,16 +46,13 @@ type CfnNotificationChannel interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
 	SnsRoleName() *string
@@ -66,22 +63,18 @@ type CfnNotificationChannel interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -90,7 +83,6 @@ type CfnNotificationChannel interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -135,15 +127,12 @@ type CfnNotificationChannel interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -154,13 +143,11 @@ type CfnNotificationChannel interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -169,74 +156,21 @@ type CfnNotificationChannel interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -296,8 +230,8 @@ func (j *jsiiProxy_CfnNotificationChannel) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotificationChannel) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnNotificationChannel) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -358,13 +292,13 @@ func (j *jsiiProxy_CfnNotificationChannel) UpdatedProperites() *map[string]inter
 
 
 // Create a new `AWS::FMS::NotificationChannel`.
-func NewCfnNotificationChannel(scope awscdk.Construct, id *string, props *CfnNotificationChannelProps) CfnNotificationChannel {
+func NewCfnNotificationChannel(scope constructs.Construct, id *string, props *CfnNotificationChannelProps) CfnNotificationChannel {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnNotificationChannel{}
 
 	_jsii_.Create(
-		"monocdk.aws_fms.CfnNotificationChannel",
+		"aws-cdk-lib.aws_fms.CfnNotificationChannel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -373,11 +307,11 @@ func NewCfnNotificationChannel(scope awscdk.Construct, id *string, props *CfnNot
 }
 
 // Create a new `AWS::FMS::NotificationChannel`.
-func NewCfnNotificationChannel_Override(c CfnNotificationChannel, scope awscdk.Construct, id *string, props *CfnNotificationChannelProps) {
+func NewCfnNotificationChannel_Override(c CfnNotificationChannel, scope constructs.Construct, id *string, props *CfnNotificationChannelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_fms.CfnNotificationChannel",
+		"aws-cdk-lib.aws_fms.CfnNotificationChannel",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -405,14 +339,13 @@ func (j *jsiiProxy_CfnNotificationChannel) SetSnsTopicArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnNotificationChannel_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_fms.CfnNotificationChannel",
+		"aws-cdk-lib.aws_fms.CfnNotificationChannel",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -422,14 +355,13 @@ func CfnNotificationChannel_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnNotificationChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_fms.CfnNotificationChannel",
+		"aws-cdk-lib.aws_fms.CfnNotificationChannel",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -438,15 +370,17 @@ func CfnNotificationChannel_IsCfnResource(construct constructs.IConstruct) *bool
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnNotificationChannel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_fms.CfnNotificationChannel",
+		"aws-cdk-lib.aws_fms.CfnNotificationChannel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -459,7 +393,7 @@ func CfnNotificationChannel_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_fms.CfnNotificationChannel",
+		"aws-cdk-lib.aws_fms.CfnNotificationChannel",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -556,48 +490,11 @@ func (c *jsiiProxy_CfnNotificationChannel) Inspect(inspector awscdk.TreeInspecto
 	)
 }
 
-func (c *jsiiProxy_CfnNotificationChannel) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnNotificationChannel) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnNotificationChannel) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnNotificationChannel) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnNotificationChannel) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -627,33 +524,12 @@ func (c *jsiiProxy_CfnNotificationChannel) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnNotificationChannel) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnNotificationChannel) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnNotificationChannel) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -672,7 +548,10 @@ func (c *jsiiProxy_CfnNotificationChannel) ValidateProperties(_properties interf
 // Properties for defining a `CfnNotificationChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNotificationChannelProps := &cfnNotificationChannelProps{
 //   	snsRoleName: jsii.String("snsRoleName"),
 //   	snsTopicArn: jsii.String("snsTopicArn"),
@@ -680,9 +559,9 @@ func (c *jsiiProxy_CfnNotificationChannel) ValidateProperties(_properties interf
 //
 type CfnNotificationChannelProps struct {
 	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
-	SnsRoleName *string `json:"snsRoleName" yaml:"snsRoleName"`
+	SnsRoleName *string `field:"required" json:"snsRoleName" yaml:"snsRoleName"`
 	// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
-	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
+	SnsTopicArn *string `field:"required" json:"snsTopicArn" yaml:"snsTopicArn"`
 }
 
 // A CloudFormation `AWS::FMS::Policy`.
@@ -703,10 +582,13 @@ type CfnNotificationChannelProps struct {
 // These policies require some setup to use. For more information, see the sections on prerequisites and getting started under [AWS Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-prereq.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var securityServicePolicyData interface{}
-//   cfnPolicy := fms.NewCfnPolicy(this, jsii.String("MyCfnPolicy"), &cfnPolicyProps{
+//
+//   cfnPolicy := awscdk.Aws_fms.NewCfnPolicy(this, jsii.String("MyCfnPolicy"), &cfnPolicyProps{
 //   	excludeResourceTags: jsii.Boolean(false),
 //   	policyName: jsii.String("policyName"),
 //   	remediationEnabled: jsii.Boolean(false),
@@ -759,16 +641,13 @@ type CfnPolicy interface {
 	// The ID of the policy.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Used when deleting a policy. If `true` , Firewall Manager performs cleanup according to the policy type.
 	//
@@ -826,11 +705,9 @@ type CfnPolicy interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The name of the AWS Firewall Manager policy.
 	PolicyName() *string
 	SetPolicyName(val *string)
@@ -838,7 +715,6 @@ type CfnPolicy interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Indicates if the policy should be automatically applied to new resources.
 	RemediationEnabled() interface{}
@@ -919,7 +795,6 @@ type CfnPolicy interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A collection of key:value pairs associated with an AWS resource.
 	//
@@ -930,16 +805,13 @@ type CfnPolicy interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -948,7 +820,6 @@ type CfnPolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -993,15 +864,12 @@ type CfnPolicy interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1012,13 +880,11 @@ type CfnPolicy interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1027,74 +893,21 @@ type CfnPolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1214,8 +1027,8 @@ func (j *jsiiProxy_CfnPolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnPolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1336,13 +1149,13 @@ func (j *jsiiProxy_CfnPolicy) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::FMS::Policy`.
-func NewCfnPolicy(scope awscdk.Construct, id *string, props *CfnPolicyProps) CfnPolicy {
+func NewCfnPolicy(scope constructs.Construct, id *string, props *CfnPolicyProps) CfnPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_fms.CfnPolicy",
+		"aws-cdk-lib.aws_fms.CfnPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1351,11 +1164,11 @@ func NewCfnPolicy(scope awscdk.Construct, id *string, props *CfnPolicyProps) Cfn
 }
 
 // Create a new `AWS::FMS::Policy`.
-func NewCfnPolicy_Override(c CfnPolicy, scope awscdk.Construct, id *string, props *CfnPolicyProps) {
+func NewCfnPolicy_Override(c CfnPolicy, scope constructs.Construct, id *string, props *CfnPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_fms.CfnPolicy",
+		"aws-cdk-lib.aws_fms.CfnPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1463,14 +1276,13 @@ func (j *jsiiProxy_CfnPolicy) SetTags(val *[]*CfnPolicy_PolicyTagProperty) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_fms.CfnPolicy",
+		"aws-cdk-lib.aws_fms.CfnPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1480,14 +1292,13 @@ func CfnPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_fms.CfnPolicy",
+		"aws-cdk-lib.aws_fms.CfnPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1496,15 +1307,17 @@ func CfnPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_fms.CfnPolicy",
+		"aws-cdk-lib.aws_fms.CfnPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1517,7 +1330,7 @@ func CfnPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_fms.CfnPolicy",
+		"aws-cdk-lib.aws_fms.CfnPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1614,48 +1427,11 @@ func (c *jsiiProxy_CfnPolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnPolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1685,33 +1461,12 @@ func (c *jsiiProxy_CfnPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnPolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnPolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnPolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1740,7 +1495,10 @@ func (c *jsiiProxy_CfnPolicy) ValidateProperties(_properties interface{}) {
 // - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”], “ORGUNIT” : [“ouid111”, “ouid112”]}` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iEMapProperty := map[string][]*string{
 //   	"account": []*string{
 //   		jsii.String("account"),
@@ -1752,9 +1510,9 @@ func (c *jsiiProxy_CfnPolicy) ValidateProperties(_properties interface{}) {
 //
 type CfnPolicy_IEMapProperty struct {
 	// The account list for the map.
-	Account *[]*string `json:"account" yaml:"account"`
+	Account *[]*string `field:"optional" json:"account" yaml:"account"`
 	// The organizational unit list for the map.
-	Orgunit *[]*string `json:"orgunit" yaml:"orgunit"`
+	Orgunit *[]*string `field:"optional" json:"orgunit" yaml:"orgunit"`
 }
 
 // A collection of key:value pairs associated with an AWS resource.
@@ -1762,7 +1520,10 @@ type CfnPolicy_IEMapProperty struct {
 // The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   policyTagProperty := &policyTagProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -1772,11 +1533,11 @@ type CfnPolicy_PolicyTagProperty struct {
 	// Part of the key:value pair that defines a tag.
 	//
 	// You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// Part of the key:value pair that defines a tag.
 	//
 	// You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from the AWS Firewall Manager policy.
@@ -1784,7 +1545,10 @@ type CfnPolicy_PolicyTagProperty struct {
 // Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value. Firewall Manager combines the tags with "AND" so that, if you add more than one tag to a policy scope, a resource must have all the specified tags to be included or excluded. For more information, see [Working with Tag Editor](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceTagProperty := &resourceTagProperty{
 //   	key: jsii.String("key"),
 //
@@ -1794,17 +1558,20 @@ type CfnPolicy_PolicyTagProperty struct {
 //
 type CfnPolicy_ResourceTagProperty struct {
 	// The resource tag key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The resource tag value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var securityServicePolicyData interface{}
+//
 //   cfnPolicyProps := &cfnPolicyProps{
 //   	excludeResourceTags: jsii.Boolean(false),
 //   	policyName: jsii.String("policyName"),
@@ -1854,17 +1621,17 @@ type CfnPolicyProps struct {
 	// Used only when tags are specified in the `ResourceTags` property.
 	//
 	// If this property is `True` , resources with the specified tags are not in scope of the policy. If it's `False` , only resources with the specified tags are in scope of the policy.
-	ExcludeResourceTags interface{} `json:"excludeResourceTags" yaml:"excludeResourceTags"`
+	ExcludeResourceTags interface{} `field:"required" json:"excludeResourceTags" yaml:"excludeResourceTags"`
 	// The name of the AWS Firewall Manager policy.
-	PolicyName *string `json:"policyName" yaml:"policyName"`
+	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 	// Indicates if the policy should be automatically applied to new resources.
-	RemediationEnabled interface{} `json:"remediationEnabled" yaml:"remediationEnabled"`
+	RemediationEnabled interface{} `field:"required" json:"remediationEnabled" yaml:"remediationEnabled"`
 	// The type of resource protected by or in scope of the policy.
 	//
 	// This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
 	//
 	// For AWS WAF and Shield Advanced, example resource types include `AWS::ElasticLoadBalancingV2::LoadBalancer` and `AWS::CloudFront::Distribution` . For a security group common policy, valid values are `AWS::EC2::NetworkInterface` and `AWS::EC2::Instance` . For a security group content audit policy, valid values are `AWS::EC2::SecurityGroup` , `AWS::EC2::NetworkInterface` , and `AWS::EC2::Instance` . For a security group usage audit policy, the value is `AWS::EC2::SecurityGroup` . For an AWS Network Firewall policy or DNS Firewall policy, the value is `AWS::EC2::VPC` .
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 	// Details about the security service that is being used to protect the resources.
 	//
 	// This contains the following settings:
@@ -1910,7 +1677,7 @@ type CfnPolicyProps struct {
 	// `"ManagedServiceData": "{\"type\": \"WAF\", \"ruleGroups\": [{\"id\":\"12345678-1bcd-9012-efga-0987654321ab\", \"overrideAction\" : {\"type\": \"COUNT\"}}],\"defaultAction\": {\"type\": \"BLOCK\"}}`
 	//
 	// AWS WAF Classic doesn't support rule groups in CloudFront . To create a WAF Classic policy through CloudFormation, create your rule groups outside of CloudFront , then provide the rule group IDs in the WAF managed service data specification.
-	SecurityServicePolicyData interface{} `json:"securityServicePolicyData" yaml:"securityServicePolicyData"`
+	SecurityServicePolicyData interface{} `field:"required" json:"securityServicePolicyData" yaml:"securityServicePolicyData"`
 	// Used when deleting a policy. If `true` , Firewall Manager performs cleanup according to the policy type.
 	//
 	// For AWS WAF and Shield Advanced policies, Firewall Manager does the following:
@@ -1925,7 +1692,7 @@ type CfnPolicyProps struct {
 	// - Deletes the security group if it was created through Firewall Manager and if it's no longer associated with any resources through another policy
 	//
 	// After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
-	DeleteAllPolicyResources interface{} `json:"deleteAllPolicyResources" yaml:"deleteAllPolicyResources"`
+	DeleteAllPolicyResources interface{} `field:"optional" json:"deleteAllPolicyResources" yaml:"deleteAllPolicyResources"`
 	// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to exclude from the policy.
 	//
 	// Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
@@ -1937,7 +1704,7 @@ type CfnPolicyProps struct {
 	// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”]}` .
 	// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{“ORGUNIT” : [“ouid111”, “ouid112”]}` .
 	// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”], “ORGUNIT” : [“ouid111”, “ouid112”]}` .
-	ExcludeMap interface{} `json:"excludeMap" yaml:"excludeMap"`
+	ExcludeMap interface{} `field:"optional" json:"excludeMap" yaml:"excludeMap"`
 	// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in the policy.
 	//
 	// Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
@@ -1949,7 +1716,7 @@ type CfnPolicyProps struct {
 	// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”]}` .
 	// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{“ORGUNIT” : [“ouid111”, “ouid112”]}` .
 	// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”], “ORGUNIT” : [“ouid111”, “ouid112”]}` .
-	IncludeMap interface{} `json:"includeMap" yaml:"includeMap"`
+	IncludeMap interface{} `field:"optional" json:"includeMap" yaml:"includeMap"`
 	// Indicates whether AWS Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope.
 	//
 	// For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope.
@@ -1957,18 +1724,18 @@ type CfnPolicyProps struct {
 	// By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources.
 	//
 	// This option is not available for Shield Advanced or AWS WAF Classic policies.
-	ResourcesCleanUp interface{} `json:"resourcesCleanUp" yaml:"resourcesCleanUp"`
+	ResourcesCleanUp interface{} `field:"optional" json:"resourcesCleanUp" yaml:"resourcesCleanUp"`
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them.
 	//
 	// If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
-	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
+	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 	// An array of `ResourceType` objects.
 	//
 	// Use this only to specify multiple resource types. To specify a single resource type, use `ResourceType` .
-	ResourceTypeList *[]*string `json:"resourceTypeList" yaml:"resourceTypeList"`
+	ResourceTypeList *[]*string `field:"optional" json:"resourceTypeList" yaml:"resourceTypeList"`
 	// A collection of key:value pairs associated with an AWS resource.
 	//
 	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-	Tags *[]*CfnPolicy_PolicyTagProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnPolicy_PolicyTagProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 

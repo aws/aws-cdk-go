@@ -1,12 +1,12 @@
 package awsfrauddetector
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsfrauddetector/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsfrauddetector/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::FraudDetector::Detector`.
@@ -14,8 +14,11 @@ import (
 // Manages a detector and associated detector versions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
-//   cfnDetector := frauddetector.NewCfnDetector(this, jsii.String("MyCfnDetector"), &cfnDetectorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDetector := awscdk.Aws_frauddetector.NewCfnDetector(this, jsii.String("MyCfnDetector"), &cfnDetectorProps{
 //   	detectorId: jsii.String("detectorId"),
 //   	eventType: &eventTypeProperty{
 //   		arn: jsii.String("arn"),
@@ -156,16 +159,13 @@ type CfnDetector interface {
 	// Timestamp of when detector was last updated.
 	AttrLastUpdatedTime() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The detector description.
 	Description() *string
@@ -192,16 +192,13 @@ type CfnDetector interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The rule execution mode for the rules included in the detector version.
 	//
@@ -220,7 +217,6 @@ type CfnDetector interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -230,16 +226,13 @@ type CfnDetector interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -248,7 +241,6 @@ type CfnDetector interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -293,15 +285,12 @@ type CfnDetector interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -312,13 +301,11 @@ type CfnDetector interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -327,74 +314,21 @@ type CfnDetector interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -574,8 +508,8 @@ func (j *jsiiProxy_CfnDetector) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDetector) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnDetector) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -646,13 +580,13 @@ func (j *jsiiProxy_CfnDetector) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::FraudDetector::Detector`.
-func NewCfnDetector(scope awscdk.Construct, id *string, props *CfnDetectorProps) CfnDetector {
+func NewCfnDetector(scope constructs.Construct, id *string, props *CfnDetectorProps) CfnDetector {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDetector{}
 
 	_jsii_.Create(
-		"monocdk.aws_frauddetector.CfnDetector",
+		"aws-cdk-lib.aws_frauddetector.CfnDetector",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -661,11 +595,11 @@ func NewCfnDetector(scope awscdk.Construct, id *string, props *CfnDetectorProps)
 }
 
 // Create a new `AWS::FraudDetector::Detector`.
-func NewCfnDetector_Override(c CfnDetector, scope awscdk.Construct, id *string, props *CfnDetectorProps) {
+func NewCfnDetector_Override(c CfnDetector, scope constructs.Construct, id *string, props *CfnDetectorProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_frauddetector.CfnDetector",
+		"aws-cdk-lib.aws_frauddetector.CfnDetector",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -733,14 +667,13 @@ func (j *jsiiProxy_CfnDetector) SetRules(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDetector_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnDetector",
+		"aws-cdk-lib.aws_frauddetector.CfnDetector",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -750,14 +683,13 @@ func CfnDetector_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDetector_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnDetector",
+		"aws-cdk-lib.aws_frauddetector.CfnDetector",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -766,15 +698,17 @@ func CfnDetector_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnDetector_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnDetector",
+		"aws-cdk-lib.aws_frauddetector.CfnDetector",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -787,7 +721,7 @@ func CfnDetector_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_frauddetector.CfnDetector",
+		"aws-cdk-lib.aws_frauddetector.CfnDetector",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -884,48 +818,11 @@ func (c *jsiiProxy_CfnDetector) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnDetector) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnDetector) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnDetector) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnDetector) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnDetector) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -955,33 +852,12 @@ func (c *jsiiProxy_CfnDetector) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnDetector) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnDetector) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnDetector) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1000,7 +876,10 @@ func (c *jsiiProxy_CfnDetector) ValidateProperties(_properties interface{}) {
 // The entity type details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   entityTypeProperty := &entityTypeProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -1018,31 +897,34 @@ func (c *jsiiProxy_CfnDetector) ValidateProperties(_properties interface{}) {
 //
 type CfnDetector_EntityTypeProperty struct {
 	// The entity type ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp of when the entity type was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The entity type description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these Variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// Timestamp of when the entity type was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The entity type name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // The event type details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventTypeProperty := &eventTypeProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -1112,37 +994,40 @@ type CfnDetector_EntityTypeProperty struct {
 //
 type CfnDetector_EventTypeProperty struct {
 	// The entity type ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp of when the event type was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The event type description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The event type entity types.
-	EntityTypes interface{} `json:"entityTypes" yaml:"entityTypes"`
+	EntityTypes interface{} `field:"optional" json:"entityTypes" yaml:"entityTypes"`
 	// The event type event variables.
-	EventVariables interface{} `json:"eventVariables" yaml:"eventVariables"`
+	EventVariables interface{} `field:"optional" json:"eventVariables" yaml:"eventVariables"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// The event type labels.
-	Labels interface{} `json:"labels" yaml:"labels"`
+	Labels interface{} `field:"optional" json:"labels" yaml:"labels"`
 	// Timestamp of when the event type was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The event type name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // The event type variable for the detector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventVariableProperty := &eventVariableProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -1164,49 +1049,52 @@ type CfnDetector_EventTypeProperty struct {
 //
 type CfnDetector_EventVariableProperty struct {
 	// The event variable ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp for when the event variable was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The data source of the event variable.
 	//
 	// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
 	//
 	// When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
-	DataSource *string `json:"dataSource" yaml:"dataSource"`
+	DataSource *string `field:"optional" json:"dataSource" yaml:"dataSource"`
 	// The data type of the event variable.
 	//
 	// Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`.
-	DataType *string `json:"dataType" yaml:"dataType"`
+	DataType *string `field:"optional" json:"dataType" yaml:"dataType"`
 	// The default value of the event variable.
 	//
 	// This is required if you are providing the details of your variables instead of the ARN.
-	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The description of the event variable.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// Timestamp for when the event variable was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The name of the event variable.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of event variable.
 	//
 	// For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
-	VariableType *string `json:"variableType" yaml:"variableType"`
+	VariableType *string `field:"optional" json:"variableType" yaml:"variableType"`
 }
 
 // The label details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   labelProperty := &labelProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -1224,44 +1112,50 @@ type CfnDetector_EventVariableProperty struct {
 //
 type CfnDetector_LabelProperty struct {
 	// The label ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp of when the event type was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The label description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// Timestamp of when the label was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The label name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // The model.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   modelProperty := &modelProperty{
 //   	arn: jsii.String("arn"),
 //   }
 //
 type CfnDetector_ModelProperty struct {
 	// The ARN of the model.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 }
 
 // The outcome.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   outcomeProperty := &outcomeProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -1279,25 +1173,25 @@ type CfnDetector_ModelProperty struct {
 //
 type CfnDetector_OutcomeProperty struct {
 	// The outcome ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The timestamp when the outcome was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The outcome description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// The timestamp when the outcome was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The outcome name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A rule.
@@ -1305,7 +1199,10 @@ type CfnDetector_OutcomeProperty struct {
 // Rule is a condition that tells Amazon Fraud Detector how to interpret variables values during a fraud prediction.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleProperty := &ruleProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -1342,37 +1239,40 @@ type CfnDetector_OutcomeProperty struct {
 //
 type CfnDetector_RuleProperty struct {
 	// The rule ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp for when the rule was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The rule description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The detector for which the rule is associated.
-	DetectorId *string `json:"detectorId" yaml:"detectorId"`
+	DetectorId *string `field:"optional" json:"detectorId" yaml:"detectorId"`
 	// The rule expression.
 	//
 	// A rule expression captures the business logic. For more information, see [Rule language reference](https://docs.aws.amazon.com/frauddetector/latest/ug/rule-language-reference.html) .
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"optional" json:"expression" yaml:"expression"`
 	// The rule language.
-	Language *string `json:"language" yaml:"language"`
+	Language *string `field:"optional" json:"language" yaml:"language"`
 	// Timestamp for when the rule was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The rule outcome.
-	Outcomes interface{} `json:"outcomes" yaml:"outcomes"`
+	Outcomes interface{} `field:"optional" json:"outcomes" yaml:"outcomes"`
 	// The rule ID.
-	RuleId *string `json:"ruleId" yaml:"ruleId"`
+	RuleId *string `field:"optional" json:"ruleId" yaml:"ruleId"`
 	// The rule version.
-	RuleVersion *string `json:"ruleVersion" yaml:"ruleVersion"`
+	RuleVersion *string `field:"optional" json:"ruleVersion" yaml:"ruleVersion"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnDetector`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDetectorProps := &cfnDetectorProps{
 //   	detectorId: jsii.String("detectorId"),
 //   	eventType: &eventTypeProperty{
@@ -1496,23 +1396,23 @@ type CfnDetector_RuleProperty struct {
 //
 type CfnDetectorProps struct {
 	// The name of the detector.
-	DetectorId *string `json:"detectorId" yaml:"detectorId"`
+	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
 	// The event type associated with this detector.
-	EventType interface{} `json:"eventType" yaml:"eventType"`
+	EventType interface{} `field:"required" json:"eventType" yaml:"eventType"`
 	// The rules to include in the detector version.
-	Rules interface{} `json:"rules" yaml:"rules"`
+	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 	// The models to associate with this detector.
 	//
 	// You must provide the ARNs of all the models you want to associate.
-	AssociatedModels interface{} `json:"associatedModels" yaml:"associatedModels"`
+	AssociatedModels interface{} `field:"optional" json:"associatedModels" yaml:"associatedModels"`
 	// The detector description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The status of the detector version.
 	//
 	// If a value is not provided for this property, AWS CloudFormation assumes `DRAFT` status.
 	//
 	// Valid values: `ACTIVE | DRAFT`.
-	DetectorVersionStatus *string `json:"detectorVersionStatus" yaml:"detectorVersionStatus"`
+	DetectorVersionStatus *string `field:"optional" json:"detectorVersionStatus" yaml:"detectorVersionStatus"`
 	// The rule execution mode for the rules included in the detector version.
 	//
 	// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
@@ -1522,11 +1422,11 @@ type CfnDetectorProps struct {
 	// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
 	//
 	// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
-	RuleExecutionMode *string `json:"ruleExecutionMode" yaml:"ruleExecutionMode"`
+	RuleExecutionMode *string `field:"optional" json:"ruleExecutionMode" yaml:"ruleExecutionMode"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::EntityType`.
@@ -1534,8 +1434,11 @@ type CfnDetectorProps struct {
 // Manages an entity type. An entity represents who is performing the event. As part of a fraud prediction, you pass the entity ID to indicate the specific entity who performed the event. An entity type classifies the entity. Example classifications include customer, merchant, or account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
-//   cfnEntityType := frauddetector.NewCfnEntityType(this, jsii.String("MyCfnEntityType"), &cfnEntityTypeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEntityType := awscdk.Aws_frauddetector.NewCfnEntityType(this, jsii.String("MyCfnEntityType"), &cfnEntityTypeProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -1558,16 +1461,13 @@ type CfnEntityType interface {
 	// Timestamp of when entity type was last updated.
 	AttrLastUpdatedTime() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The entity type description.
 	Description() *string
@@ -1581,26 +1481,22 @@ type CfnEntityType interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The entity type name.
 	//
 	// Pattern: `^[0-9a-z_-]+$`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A key and value pair.
 	Tags() awscdk.TagManager
@@ -1608,16 +1504,13 @@ type CfnEntityType interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1626,7 +1519,6 @@ type CfnEntityType interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1671,15 +1563,12 @@ type CfnEntityType interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1690,13 +1579,11 @@ type CfnEntityType interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1705,74 +1592,21 @@ type CfnEntityType interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1882,8 +1716,8 @@ func (j *jsiiProxy_CfnEntityType) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEntityType) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnEntityType) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1934,13 +1768,13 @@ func (j *jsiiProxy_CfnEntityType) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::FraudDetector::EntityType`.
-func NewCfnEntityType(scope awscdk.Construct, id *string, props *CfnEntityTypeProps) CfnEntityType {
+func NewCfnEntityType(scope constructs.Construct, id *string, props *CfnEntityTypeProps) CfnEntityType {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEntityType{}
 
 	_jsii_.Create(
-		"monocdk.aws_frauddetector.CfnEntityType",
+		"aws-cdk-lib.aws_frauddetector.CfnEntityType",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1949,11 +1783,11 @@ func NewCfnEntityType(scope awscdk.Construct, id *string, props *CfnEntityTypePr
 }
 
 // Create a new `AWS::FraudDetector::EntityType`.
-func NewCfnEntityType_Override(c CfnEntityType, scope awscdk.Construct, id *string, props *CfnEntityTypeProps) {
+func NewCfnEntityType_Override(c CfnEntityType, scope constructs.Construct, id *string, props *CfnEntityTypeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_frauddetector.CfnEntityType",
+		"aws-cdk-lib.aws_frauddetector.CfnEntityType",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1981,14 +1815,13 @@ func (j *jsiiProxy_CfnEntityType) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnEntityType_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnEntityType",
+		"aws-cdk-lib.aws_frauddetector.CfnEntityType",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1998,14 +1831,13 @@ func CfnEntityType_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnEntityType_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnEntityType",
+		"aws-cdk-lib.aws_frauddetector.CfnEntityType",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2014,15 +1846,17 @@ func CfnEntityType_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnEntityType_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnEntityType",
+		"aws-cdk-lib.aws_frauddetector.CfnEntityType",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2035,7 +1869,7 @@ func CfnEntityType_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_frauddetector.CfnEntityType",
+		"aws-cdk-lib.aws_frauddetector.CfnEntityType",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2132,48 +1966,11 @@ func (c *jsiiProxy_CfnEntityType) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnEntityType) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnEntityType) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnEntityType) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnEntityType) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnEntityType) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2203,33 +2000,12 @@ func (c *jsiiProxy_CfnEntityType) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnEntityType) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnEntityType) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnEntityType) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2248,7 +2024,10 @@ func (c *jsiiProxy_CfnEntityType) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnEntityType`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEntityTypeProps := &cfnEntityTypeProps{
 //   	name: jsii.String("name"),
 //
@@ -2266,11 +2045,11 @@ type CfnEntityTypeProps struct {
 	// The entity type name.
 	//
 	// Pattern: `^[0-9a-z_-]+$`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The entity type description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A key and value pair.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::EventType`.
@@ -2278,8 +2057,11 @@ type CfnEntityTypeProps struct {
 // Manages an event type. An event is a business activity that is evaluated for fraud risk. With Amazon Fraud Detector, you generate fraud predictions for events. An event type defines the structure for an event sent to Amazon Fraud Detector. This includes the variables sent as part of the event, the entity performing the event (such as a customer), and the labels that classify the event. Example event types include online payment transactions, account registrations, and authentications.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
-//   cfnEventType := frauddetector.NewCfnEventType(this, jsii.String("MyCfnEventType"), &cfnEventTypeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEventType := awscdk.Aws_frauddetector.NewCfnEventType(this, jsii.String("MyCfnEventType"), &cfnEventTypeProps{
 //   	entityTypes: []interface{}{
 //   		&entityTypeProperty{
 //   			arn: jsii.String("arn"),
@@ -2354,16 +2136,13 @@ type CfnEventType interface {
 	// Timestamp of when event type was last updated.
 	AttrLastUpdatedTime() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The event type description.
 	Description() *string
@@ -2386,26 +2165,22 @@ type CfnEventType interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The event type name.
 	//
 	// Pattern : `^[0-9a-z_-]+$`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -2415,16 +2190,13 @@ type CfnEventType interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2433,7 +2205,6 @@ type CfnEventType interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2478,15 +2249,12 @@ type CfnEventType interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2497,13 +2265,11 @@ type CfnEventType interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2512,74 +2278,21 @@ type CfnEventType interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2719,8 +2432,8 @@ func (j *jsiiProxy_CfnEventType) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventType) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnEventType) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2771,13 +2484,13 @@ func (j *jsiiProxy_CfnEventType) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::FraudDetector::EventType`.
-func NewCfnEventType(scope awscdk.Construct, id *string, props *CfnEventTypeProps) CfnEventType {
+func NewCfnEventType(scope constructs.Construct, id *string, props *CfnEventTypeProps) CfnEventType {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEventType{}
 
 	_jsii_.Create(
-		"monocdk.aws_frauddetector.CfnEventType",
+		"aws-cdk-lib.aws_frauddetector.CfnEventType",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2786,11 +2499,11 @@ func NewCfnEventType(scope awscdk.Construct, id *string, props *CfnEventTypeProp
 }
 
 // Create a new `AWS::FraudDetector::EventType`.
-func NewCfnEventType_Override(c CfnEventType, scope awscdk.Construct, id *string, props *CfnEventTypeProps) {
+func NewCfnEventType_Override(c CfnEventType, scope constructs.Construct, id *string, props *CfnEventTypeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_frauddetector.CfnEventType",
+		"aws-cdk-lib.aws_frauddetector.CfnEventType",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2842,14 +2555,13 @@ func (j *jsiiProxy_CfnEventType) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnEventType_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnEventType",
+		"aws-cdk-lib.aws_frauddetector.CfnEventType",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2859,14 +2571,13 @@ func CfnEventType_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnEventType_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnEventType",
+		"aws-cdk-lib.aws_frauddetector.CfnEventType",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2875,15 +2586,17 @@ func CfnEventType_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnEventType_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnEventType",
+		"aws-cdk-lib.aws_frauddetector.CfnEventType",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2896,7 +2609,7 @@ func CfnEventType_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_frauddetector.CfnEventType",
+		"aws-cdk-lib.aws_frauddetector.CfnEventType",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2993,48 +2706,11 @@ func (c *jsiiProxy_CfnEventType) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnEventType) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnEventType) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnEventType) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnEventType) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnEventType) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3064,33 +2740,12 @@ func (c *jsiiProxy_CfnEventType) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnEventType) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnEventType) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnEventType) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3109,7 +2764,10 @@ func (c *jsiiProxy_CfnEventType) ValidateProperties(_properties interface{}) {
 // The entity type details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   entityTypeProperty := &entityTypeProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -3127,33 +2785,36 @@ func (c *jsiiProxy_CfnEventType) ValidateProperties(_properties interface{}) {
 //
 type CfnEventType_EntityTypeProperty struct {
 	// The entity type ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp of when the entity type was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The entity type description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// Timestamp of when the entity type was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The entity type name.
 	//
 	// `^[0-9a-z_-]+$`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // The variables associated with this event type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventVariableProperty := &eventVariableProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -3175,45 +2836,48 @@ type CfnEventType_EntityTypeProperty struct {
 //
 type CfnEventType_EventVariableProperty struct {
 	// The event variable ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp for when event variable was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The source of the event variable.
 	//
 	// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
 	//
 	// When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
-	DataSource *string `json:"dataSource" yaml:"dataSource"`
+	DataSource *string `field:"optional" json:"dataSource" yaml:"dataSource"`
 	// The data type of the event variable.
-	DataType *string `json:"dataType" yaml:"dataType"`
+	DataType *string `field:"optional" json:"dataType" yaml:"dataType"`
 	// The default value of the event variable.
-	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The event variable description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// Timestamp for when the event variable was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The name of the event variable.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of event variable.
 	//
 	// For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
-	VariableType *string `json:"variableType" yaml:"variableType"`
+	VariableType *string `field:"optional" json:"variableType" yaml:"variableType"`
 }
 
 // The label associated with the event type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   labelProperty := &labelProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -3231,31 +2895,34 @@ type CfnEventType_EventVariableProperty struct {
 //
 type CfnEventType_LabelProperty struct {
 	// The label ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp of when the event type was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The label description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your EventType but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// Timestamp of when the label was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The label name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnEventType`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEventTypeProps := &cfnEventTypeProps{
 //   	entityTypes: []interface{}{
 //   		&entityTypeProperty{
@@ -3323,21 +2990,21 @@ type CfnEventType_LabelProperty struct {
 //
 type CfnEventTypeProps struct {
 	// The event type entity types.
-	EntityTypes interface{} `json:"entityTypes" yaml:"entityTypes"`
+	EntityTypes interface{} `field:"required" json:"entityTypes" yaml:"entityTypes"`
 	// The event type event variables.
-	EventVariables interface{} `json:"eventVariables" yaml:"eventVariables"`
+	EventVariables interface{} `field:"required" json:"eventVariables" yaml:"eventVariables"`
 	// The event type labels.
-	Labels interface{} `json:"labels" yaml:"labels"`
+	Labels interface{} `field:"required" json:"labels" yaml:"labels"`
 	// The event type name.
 	//
 	// Pattern : `^[0-9a-z_-]+$`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The event type description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::Label`.
@@ -3345,8 +3012,11 @@ type CfnEventTypeProps struct {
 // Creates or updates label. A label classifies an event as fraudulent or legitimate. Labels are associated with event types and used to train supervised machine learning models in Amazon Fraud Detector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
-//   cfnLabel := frauddetector.NewCfnLabel(this, jsii.String("MyCfnLabel"), &cfnLabelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLabel := awscdk.Aws_frauddetector.NewCfnLabel(this, jsii.String("MyCfnLabel"), &cfnLabelProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -3369,16 +3039,13 @@ type CfnLabel interface {
 	// Timestamp of when label was last updated.
 	AttrLastUpdatedTime() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The label description.
 	Description() *string
@@ -3392,26 +3059,22 @@ type CfnLabel interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The label name.
 	//
 	// Pattern: `^[0-9a-z_-]+$`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -3421,16 +3084,13 @@ type CfnLabel interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3439,7 +3099,6 @@ type CfnLabel interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -3484,15 +3143,12 @@ type CfnLabel interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -3503,13 +3159,11 @@ type CfnLabel interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3518,74 +3172,21 @@ type CfnLabel interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3695,8 +3296,8 @@ func (j *jsiiProxy_CfnLabel) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLabel) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLabel) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3747,13 +3348,13 @@ func (j *jsiiProxy_CfnLabel) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::FraudDetector::Label`.
-func NewCfnLabel(scope awscdk.Construct, id *string, props *CfnLabelProps) CfnLabel {
+func NewCfnLabel(scope constructs.Construct, id *string, props *CfnLabelProps) CfnLabel {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLabel{}
 
 	_jsii_.Create(
-		"monocdk.aws_frauddetector.CfnLabel",
+		"aws-cdk-lib.aws_frauddetector.CfnLabel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3762,11 +3363,11 @@ func NewCfnLabel(scope awscdk.Construct, id *string, props *CfnLabelProps) CfnLa
 }
 
 // Create a new `AWS::FraudDetector::Label`.
-func NewCfnLabel_Override(c CfnLabel, scope awscdk.Construct, id *string, props *CfnLabelProps) {
+func NewCfnLabel_Override(c CfnLabel, scope constructs.Construct, id *string, props *CfnLabelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_frauddetector.CfnLabel",
+		"aws-cdk-lib.aws_frauddetector.CfnLabel",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3794,14 +3395,13 @@ func (j *jsiiProxy_CfnLabel) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLabel_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnLabel",
+		"aws-cdk-lib.aws_frauddetector.CfnLabel",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3811,14 +3411,13 @@ func CfnLabel_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLabel_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnLabel",
+		"aws-cdk-lib.aws_frauddetector.CfnLabel",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3827,15 +3426,17 @@ func CfnLabel_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLabel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnLabel",
+		"aws-cdk-lib.aws_frauddetector.CfnLabel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3848,7 +3449,7 @@ func CfnLabel_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_frauddetector.CfnLabel",
+		"aws-cdk-lib.aws_frauddetector.CfnLabel",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3945,48 +3546,11 @@ func (c *jsiiProxy_CfnLabel) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnLabel) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLabel) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLabel) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLabel) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLabel) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -4016,33 +3580,12 @@ func (c *jsiiProxy_CfnLabel) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLabel) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLabel) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLabel) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4061,7 +3604,10 @@ func (c *jsiiProxy_CfnLabel) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnLabel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLabelProps := &cfnLabelProps{
 //   	name: jsii.String("name"),
 //
@@ -4079,13 +3625,13 @@ type CfnLabelProps struct {
 	// The label name.
 	//
 	// Pattern: `^[0-9a-z_-]+$`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The label description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::Outcome`.
@@ -4093,8 +3639,11 @@ type CfnLabelProps struct {
 // Creates or updates an outcome.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
-//   cfnOutcome := frauddetector.NewCfnOutcome(this, jsii.String("MyCfnOutcome"), &cfnOutcomeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnOutcome := awscdk.Aws_frauddetector.NewCfnOutcome(this, jsii.String("MyCfnOutcome"), &cfnOutcomeProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -4117,16 +3666,13 @@ type CfnOutcome interface {
 	// Timestamp of when outcome was last updated.
 	AttrLastUpdatedTime() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The outcome description.
 	Description() *string
@@ -4140,24 +3686,20 @@ type CfnOutcome interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The outcome name.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -4167,16 +3709,13 @@ type CfnOutcome interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4185,7 +3724,6 @@ type CfnOutcome interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -4230,15 +3768,12 @@ type CfnOutcome interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -4249,13 +3784,11 @@ type CfnOutcome interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4264,74 +3797,21 @@ type CfnOutcome interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4441,8 +3921,8 @@ func (j *jsiiProxy_CfnOutcome) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOutcome) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnOutcome) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4493,13 +3973,13 @@ func (j *jsiiProxy_CfnOutcome) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::FraudDetector::Outcome`.
-func NewCfnOutcome(scope awscdk.Construct, id *string, props *CfnOutcomeProps) CfnOutcome {
+func NewCfnOutcome(scope constructs.Construct, id *string, props *CfnOutcomeProps) CfnOutcome {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnOutcome{}
 
 	_jsii_.Create(
-		"monocdk.aws_frauddetector.CfnOutcome",
+		"aws-cdk-lib.aws_frauddetector.CfnOutcome",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4508,11 +3988,11 @@ func NewCfnOutcome(scope awscdk.Construct, id *string, props *CfnOutcomeProps) C
 }
 
 // Create a new `AWS::FraudDetector::Outcome`.
-func NewCfnOutcome_Override(c CfnOutcome, scope awscdk.Construct, id *string, props *CfnOutcomeProps) {
+func NewCfnOutcome_Override(c CfnOutcome, scope constructs.Construct, id *string, props *CfnOutcomeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_frauddetector.CfnOutcome",
+		"aws-cdk-lib.aws_frauddetector.CfnOutcome",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4540,14 +4020,13 @@ func (j *jsiiProxy_CfnOutcome) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnOutcome_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnOutcome",
+		"aws-cdk-lib.aws_frauddetector.CfnOutcome",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4557,14 +4036,13 @@ func CfnOutcome_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnOutcome_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnOutcome",
+		"aws-cdk-lib.aws_frauddetector.CfnOutcome",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4573,15 +4051,17 @@ func CfnOutcome_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnOutcome_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnOutcome",
+		"aws-cdk-lib.aws_frauddetector.CfnOutcome",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4594,7 +4074,7 @@ func CfnOutcome_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_frauddetector.CfnOutcome",
+		"aws-cdk-lib.aws_frauddetector.CfnOutcome",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4691,48 +4171,11 @@ func (c *jsiiProxy_CfnOutcome) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnOutcome) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnOutcome) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnOutcome) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnOutcome) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnOutcome) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -4762,33 +4205,12 @@ func (c *jsiiProxy_CfnOutcome) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnOutcome) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnOutcome) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnOutcome) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4807,7 +4229,10 @@ func (c *jsiiProxy_CfnOutcome) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnOutcome`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnOutcomeProps := &cfnOutcomeProps{
 //   	name: jsii.String("name"),
 //
@@ -4823,13 +4248,13 @@ func (c *jsiiProxy_CfnOutcome) ValidateProperties(_properties interface{}) {
 //
 type CfnOutcomeProps struct {
 	// The outcome name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The outcome description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::Variable`.
@@ -4837,8 +4262,11 @@ type CfnOutcomeProps struct {
 // Manages a variable.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
-//   cfnVariable := frauddetector.NewCfnVariable(this, jsii.String("MyCfnVariable"), &cfnVariableProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVariable := awscdk.Aws_frauddetector.NewCfnVariable(this, jsii.String("MyCfnVariable"), &cfnVariableProps{
 //   	dataSource: jsii.String("dataSource"),
 //   	dataType: jsii.String("dataType"),
 //   	defaultValue: jsii.String("defaultValue"),
@@ -4865,16 +4293,13 @@ type CfnVariable interface {
 	// Timestamp of when variable was last updated.
 	AttrLastUpdatedTime() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The data source of the variable.
 	//
@@ -4903,26 +4328,22 @@ type CfnVariable interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the variable.
 	//
 	// Pattern: `^[0-9a-z_-]+$`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -4932,7 +4353,6 @@ type CfnVariable interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The type of the variable. For more information see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
 	//
@@ -4940,13 +4360,11 @@ type CfnVariable interface {
 	VariableType() *string
 	SetVariableType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4955,7 +4373,6 @@ type CfnVariable interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -5000,15 +4417,12 @@ type CfnVariable interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -5019,13 +4433,11 @@ type CfnVariable interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -5034,74 +4446,21 @@ type CfnVariable interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5241,8 +4600,8 @@ func (j *jsiiProxy_CfnVariable) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVariable) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnVariable) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5303,13 +4662,13 @@ func (j *jsiiProxy_CfnVariable) VariableType() *string {
 
 
 // Create a new `AWS::FraudDetector::Variable`.
-func NewCfnVariable(scope awscdk.Construct, id *string, props *CfnVariableProps) CfnVariable {
+func NewCfnVariable(scope constructs.Construct, id *string, props *CfnVariableProps) CfnVariable {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnVariable{}
 
 	_jsii_.Create(
-		"monocdk.aws_frauddetector.CfnVariable",
+		"aws-cdk-lib.aws_frauddetector.CfnVariable",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5318,11 +4677,11 @@ func NewCfnVariable(scope awscdk.Construct, id *string, props *CfnVariableProps)
 }
 
 // Create a new `AWS::FraudDetector::Variable`.
-func NewCfnVariable_Override(c CfnVariable, scope awscdk.Construct, id *string, props *CfnVariableProps) {
+func NewCfnVariable_Override(c CfnVariable, scope constructs.Construct, id *string, props *CfnVariableProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_frauddetector.CfnVariable",
+		"aws-cdk-lib.aws_frauddetector.CfnVariable",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5382,14 +4741,13 @@ func (j *jsiiProxy_CfnVariable) SetVariableType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnVariable_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnVariable",
+		"aws-cdk-lib.aws_frauddetector.CfnVariable",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5399,14 +4757,13 @@ func CfnVariable_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnVariable_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnVariable",
+		"aws-cdk-lib.aws_frauddetector.CfnVariable",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5415,15 +4772,17 @@ func CfnVariable_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnVariable_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_frauddetector.CfnVariable",
+		"aws-cdk-lib.aws_frauddetector.CfnVariable",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5436,7 +4795,7 @@ func CfnVariable_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_frauddetector.CfnVariable",
+		"aws-cdk-lib.aws_frauddetector.CfnVariable",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5533,48 +4892,11 @@ func (c *jsiiProxy_CfnVariable) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnVariable) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnVariable) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnVariable) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnVariable) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnVariable) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5604,33 +4926,12 @@ func (c *jsiiProxy_CfnVariable) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnVariable) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnVariable) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnVariable) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5649,7 +4950,10 @@ func (c *jsiiProxy_CfnVariable) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnVariable`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVariableProps := &cfnVariableProps{
 //   	dataSource: jsii.String("dataSource"),
 //   	dataType: jsii.String("dataType"),
@@ -5673,26 +4977,26 @@ type CfnVariableProps struct {
 	// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
 	//
 	// When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
-	DataSource *string `json:"dataSource" yaml:"dataSource"`
+	DataSource *string `field:"required" json:"dataSource" yaml:"dataSource"`
 	// The data type of the variable.
 	//
 	// Valid data types: `STRING | INTEGER | BOOLEAN | FLOAT`.
-	DataType *string `json:"dataType" yaml:"dataType"`
+	DataType *string `field:"required" json:"dataType" yaml:"dataType"`
 	// The default value of the variable.
-	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *string `field:"required" json:"defaultValue" yaml:"defaultValue"`
 	// The name of the variable.
 	//
 	// Pattern: `^[0-9a-z_-]+$`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the variable.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of the variable. For more information see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
 	//
 	// Valid Values: `AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT`.
-	VariableType *string `json:"variableType" yaml:"variableType"`
+	VariableType *string `field:"optional" json:"variableType" yaml:"variableType"`
 }
 

@@ -1,12 +1,12 @@
 package awselasticbeanstalk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticbeanstalk/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticbeanstalk/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::ElasticBeanstalk::Application`.
@@ -16,8 +16,11 @@ import (
 // The AWS::ElasticBeanstalk::Application resource is an AWS Elastic Beanstalk Beanstalk resource type that specifies an Elastic Beanstalk application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
-//   cfnApplication := elasticbeanstalk.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplication := awscdk.Aws_elasticbeanstalk.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	description: jsii.String("description"),
 //   	resourceLifecycleConfig: &applicationResourceLifecycleConfigProperty{
@@ -48,16 +51,13 @@ type CfnApplication interface {
 	ApplicationName() *string
 	SetApplicationName(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Your description of the application.
 	Description() *string
@@ -71,16 +71,13 @@ type CfnApplication interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
 	ResourceLifecycleConfig() interface{}
@@ -88,22 +85,18 @@ type CfnApplication interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -112,7 +105,6 @@ type CfnApplication interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -157,15 +149,12 @@ type CfnApplication interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -176,13 +165,11 @@ type CfnApplication interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -191,74 +178,21 @@ type CfnApplication interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -338,8 +272,8 @@ func (j *jsiiProxy_CfnApplication) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplication) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnApplication) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -390,13 +324,13 @@ func (j *jsiiProxy_CfnApplication) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ElasticBeanstalk::Application`.
-func NewCfnApplication(scope awscdk.Construct, id *string, props *CfnApplicationProps) CfnApplication {
+func NewCfnApplication(scope constructs.Construct, id *string, props *CfnApplicationProps) CfnApplication {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnApplication{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticbeanstalk.CfnApplication",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplication",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -405,11 +339,11 @@ func NewCfnApplication(scope awscdk.Construct, id *string, props *CfnApplication
 }
 
 // Create a new `AWS::ElasticBeanstalk::Application`.
-func NewCfnApplication_Override(c CfnApplication, scope awscdk.Construct, id *string, props *CfnApplicationProps) {
+func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id *string, props *CfnApplicationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticbeanstalk.CfnApplication",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplication",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -445,14 +379,13 @@ func (j *jsiiProxy_CfnApplication) SetResourceLifecycleConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnApplication_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticbeanstalk.CfnApplication",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplication",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -462,14 +395,13 @@ func CfnApplication_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnApplication_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticbeanstalk.CfnApplication",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplication",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -478,15 +410,17 @@ func CfnApplication_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnApplication_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticbeanstalk.CfnApplication",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplication",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -499,7 +433,7 @@ func CfnApplication_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticbeanstalk.CfnApplication",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplication",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -596,48 +530,11 @@ func (c *jsiiProxy_CfnApplication) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnApplication) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnApplication) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnApplication) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnApplication) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnApplication) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -667,33 +564,12 @@ func (c *jsiiProxy_CfnApplication) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnApplication) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnApplication) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnApplication) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -716,7 +592,10 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 // `ApplicationResourceLifecycleConfig` is a property of the [AWS::ElasticBeanstalk::Application](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   applicationResourceLifecycleConfigProperty := &applicationResourceLifecycleConfigProperty{
 //   	serviceRole: jsii.String("serviceRole"),
 //   	versionLifecycleConfig: &applicationVersionLifecycleConfigProperty{
@@ -737,9 +616,9 @@ type CfnApplication_ApplicationResourceLifecycleConfigProperty struct {
 	// The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
 	//
 	// The `ServiceRole` property is required the first time that you provide a `ResourceLifecycleConfig` for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
-	ServiceRole *string `json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole *string `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// Defines lifecycle settings for application versions.
-	VersionLifecycleConfig interface{} `json:"versionLifecycleConfig" yaml:"versionLifecycleConfig"`
+	VersionLifecycleConfig interface{} `field:"optional" json:"versionLifecycleConfig" yaml:"versionLifecycleConfig"`
 }
 
 // Use the `ApplicationVersionLifecycleConfig` property type to specify application version lifecycle settings for an AWS Elastic Beanstalk application when defining an AWS::ElasticBeanstalk::Application resource in an AWS CloudFormation template.
@@ -751,7 +630,10 @@ type CfnApplication_ApplicationResourceLifecycleConfigProperty struct {
 // `ApplicationVersionLifecycleConfig` is a property of the [ApplicationResourceLifecycleConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationresourcelifecycleconfig.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   applicationVersionLifecycleConfigProperty := &applicationVersionLifecycleConfigProperty{
 //   	maxAgeRule: &maxAgeRuleProperty{
 //   		deleteSourceFromS3: jsii.Boolean(false),
@@ -767,9 +649,9 @@ type CfnApplication_ApplicationResourceLifecycleConfigProperty struct {
 //
 type CfnApplication_ApplicationVersionLifecycleConfigProperty struct {
 	// Specify a max age rule to restrict the length of time that application versions are retained for an application.
-	MaxAgeRule interface{} `json:"maxAgeRule" yaml:"maxAgeRule"`
+	MaxAgeRule interface{} `field:"optional" json:"maxAgeRule" yaml:"maxAgeRule"`
 	// Specify a max count rule to restrict the number of application versions that are retained for an application.
-	MaxCountRule interface{} `json:"maxCountRule" yaml:"maxCountRule"`
+	MaxCountRule interface{} `field:"optional" json:"maxCountRule" yaml:"maxCountRule"`
 }
 
 // Use the `MaxAgeRule` property type to specify a max age rule to restrict the length of time that application versions are retained for an AWS Elastic Beanstalk application when defining an AWS::ElasticBeanstalk::Application resource in an AWS CloudFormation template.
@@ -779,7 +661,10 @@ type CfnApplication_ApplicationVersionLifecycleConfigProperty struct {
 // `MaxAgeRule` is a property of the [ApplicationVersionLifecycleConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   maxAgeRuleProperty := &maxAgeRuleProperty{
 //   	deleteSourceFromS3: jsii.Boolean(false),
 //   	enabled: jsii.Boolean(false),
@@ -788,11 +673,11 @@ type CfnApplication_ApplicationVersionLifecycleConfigProperty struct {
 //
 type CfnApplication_MaxAgeRuleProperty struct {
 	// Set to `true` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
-	DeleteSourceFromS3 interface{} `json:"deleteSourceFromS3" yaml:"deleteSourceFromS3"`
+	DeleteSourceFromS3 interface{} `field:"optional" json:"deleteSourceFromS3" yaml:"deleteSourceFromS3"`
 	// Specify `true` to apply the rule, or `false` to disable it.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specify the number of days to retain an application versions.
-	MaxAgeInDays *float64 `json:"maxAgeInDays" yaml:"maxAgeInDays"`
+	MaxAgeInDays *float64 `field:"optional" json:"maxAgeInDays" yaml:"maxAgeInDays"`
 }
 
 // Use the `MaxAgeRule` property type to specify a max count rule to restrict the number of application versions that are retained for an AWS Elastic Beanstalk application when defining an AWS::ElasticBeanstalk::Application resource in an AWS CloudFormation template.
@@ -802,7 +687,10 @@ type CfnApplication_MaxAgeRuleProperty struct {
 // `MaxCountRule` is a property of the [ApplicationVersionLifecycleConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   maxCountRuleProperty := &maxCountRuleProperty{
 //   	deleteSourceFromS3: jsii.Boolean(false),
 //   	enabled: jsii.Boolean(false),
@@ -811,17 +699,20 @@ type CfnApplication_MaxAgeRuleProperty struct {
 //
 type CfnApplication_MaxCountRuleProperty struct {
 	// Set to `true` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
-	DeleteSourceFromS3 interface{} `json:"deleteSourceFromS3" yaml:"deleteSourceFromS3"`
+	DeleteSourceFromS3 interface{} `field:"optional" json:"deleteSourceFromS3" yaml:"deleteSourceFromS3"`
 	// Specify `true` to apply the rule, or `false` to disable it.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specify the maximum number of application versions to retain.
-	MaxCount *float64 `json:"maxCount" yaml:"maxCount"`
+	MaxCount *float64 `field:"optional" json:"maxCount" yaml:"maxCount"`
 }
 
 // Properties for defining a `CfnApplication`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationProps := &cfnApplicationProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	description: jsii.String("description"),
@@ -848,11 +739,11 @@ type CfnApplicationProps struct {
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 	// Your description of the application.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
-	ResourceLifecycleConfig interface{} `json:"resourceLifecycleConfig" yaml:"resourceLifecycleConfig"`
+	ResourceLifecycleConfig interface{} `field:"optional" json:"resourceLifecycleConfig" yaml:"resourceLifecycleConfig"`
 }
 
 // A CloudFormation `AWS::ElasticBeanstalk::ApplicationVersion`.
@@ -864,8 +755,11 @@ type CfnApplicationProps struct {
 // > After you create an application version with a specified Amazon S3 bucket and key location, you can't change that Amazon S3 location. If you change the Amazon S3 location, an attempt to launch an environment from the application version will fail.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
-//   cfnApplicationVersion := elasticbeanstalk.NewCfnApplicationVersion(this, jsii.String("MyCfnApplicationVersion"), &cfnApplicationVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplicationVersion := awscdk.Aws_elasticbeanstalk.NewCfnApplicationVersion(this, jsii.String("MyCfnApplicationVersion"), &cfnApplicationVersionProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	sourceBundle: &sourceBundleProperty{
 //   		s3Bucket: jsii.String("s3Bucket"),
@@ -883,16 +777,13 @@ type CfnApplicationVersion interface {
 	ApplicationName() *string
 	SetApplicationName(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A description of this application version.
 	Description() *string
@@ -906,16 +797,13 @@ type CfnApplicationVersion interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
 	//
@@ -925,22 +813,18 @@ type CfnApplicationVersion interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -949,7 +833,6 @@ type CfnApplicationVersion interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -994,15 +877,12 @@ type CfnApplicationVersion interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1013,13 +893,11 @@ type CfnApplicationVersion interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1028,74 +906,21 @@ type CfnApplicationVersion interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1175,8 +1000,8 @@ func (j *jsiiProxy_CfnApplicationVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnApplicationVersion) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnApplicationVersion) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1227,13 +1052,13 @@ func (j *jsiiProxy_CfnApplicationVersion) UpdatedProperites() *map[string]interf
 
 
 // Create a new `AWS::ElasticBeanstalk::ApplicationVersion`.
-func NewCfnApplicationVersion(scope awscdk.Construct, id *string, props *CfnApplicationVersionProps) CfnApplicationVersion {
+func NewCfnApplicationVersion(scope constructs.Construct, id *string, props *CfnApplicationVersionProps) CfnApplicationVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnApplicationVersion{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticbeanstalk.CfnApplicationVersion",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplicationVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1242,11 +1067,11 @@ func NewCfnApplicationVersion(scope awscdk.Construct, id *string, props *CfnAppl
 }
 
 // Create a new `AWS::ElasticBeanstalk::ApplicationVersion`.
-func NewCfnApplicationVersion_Override(c CfnApplicationVersion, scope awscdk.Construct, id *string, props *CfnApplicationVersionProps) {
+func NewCfnApplicationVersion_Override(c CfnApplicationVersion, scope constructs.Construct, id *string, props *CfnApplicationVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticbeanstalk.CfnApplicationVersion",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplicationVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1282,14 +1107,13 @@ func (j *jsiiProxy_CfnApplicationVersion) SetSourceBundle(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnApplicationVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticbeanstalk.CfnApplicationVersion",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplicationVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1299,14 +1123,13 @@ func CfnApplicationVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnApplicationVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticbeanstalk.CfnApplicationVersion",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplicationVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1315,15 +1138,17 @@ func CfnApplicationVersion_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnApplicationVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticbeanstalk.CfnApplicationVersion",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplicationVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1336,7 +1161,7 @@ func CfnApplicationVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticbeanstalk.CfnApplicationVersion",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnApplicationVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1433,48 +1258,11 @@ func (c *jsiiProxy_CfnApplicationVersion) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
-func (c *jsiiProxy_CfnApplicationVersion) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnApplicationVersion) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnApplicationVersion) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnApplicationVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnApplicationVersion) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1504,33 +1292,12 @@ func (c *jsiiProxy_CfnApplicationVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnApplicationVersion) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnApplicationVersion) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnApplicationVersion) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1551,7 +1318,10 @@ func (c *jsiiProxy_CfnApplicationVersion) ValidateProperties(_properties interfa
 // The `SourceBundle` property is an embedded property of the [AWS::ElasticBeanstalk::ApplicationVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-sourcebundle.html) resource. It specifies the Amazon S3 location of the source bundle for an AWS Elastic Beanstalk application version.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceBundleProperty := &sourceBundleProperty{
 //   	s3Bucket: jsii.String("s3Bucket"),
 //   	s3Key: jsii.String("s3Key"),
@@ -1559,15 +1329,18 @@ func (c *jsiiProxy_CfnApplicationVersion) ValidateProperties(_properties interfa
 //
 type CfnApplicationVersion_SourceBundleProperty struct {
 	// The Amazon S3 bucket where the data is located.
-	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 	// The Amazon S3 key where the data is located.
-	S3Key *string `json:"s3Key" yaml:"s3Key"`
+	S3Key *string `field:"required" json:"s3Key" yaml:"s3Key"`
 }
 
 // Properties for defining a `CfnApplicationVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationVersionProps := &cfnApplicationVersionProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	sourceBundle: &sourceBundleProperty{
@@ -1581,13 +1354,13 @@ type CfnApplicationVersion_SourceBundleProperty struct {
 //
 type CfnApplicationVersionProps struct {
 	// The name of the Elastic Beanstalk application that is associated with this application version.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
 	//
 	// > The Amazon S3 bucket must be in the same region as the environment.
-	SourceBundle interface{} `json:"sourceBundle" yaml:"sourceBundle"`
+	SourceBundle interface{} `field:"required" json:"sourceBundle" yaml:"sourceBundle"`
 	// A description of this application version.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ElasticBeanstalk::ConfigurationTemplate`.
@@ -1599,8 +1372,11 @@ type CfnApplicationVersionProps struct {
 // > The Elastic Beanstalk console and documentation often refer to configuration templates as *saved configurations* . When you set configuration options in a saved configuration (configuration template), Elastic Beanstalk applies them with a particular precedence as part of applying options from multiple sources. For more information, see [Configuration Options](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the *AWS Elastic Beanstalk Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
-//   cfnConfigurationTemplate := elasticbeanstalk.NewCfnConfigurationTemplate(this, jsii.String("MyCfnConfigurationTemplate"), &cfnConfigurationTemplateProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnConfigurationTemplate := awscdk.Aws_elasticbeanstalk.NewCfnConfigurationTemplate(this, jsii.String("MyCfnConfigurationTemplate"), &cfnConfigurationTemplateProps{
 //   	applicationName: jsii.String("applicationName"),
 //
 //   	// the properties below are optional
@@ -1631,16 +1407,13 @@ type CfnConfigurationTemplate interface {
 	ApplicationName() *string
 	SetApplicationName(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// An optional description for this configuration.
 	Description() *string
@@ -1659,11 +1432,9 @@ type CfnConfigurationTemplate interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Option values for the Elastic Beanstalk configuration, such as the instance type.
 	//
 	// If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the *AWS Elastic Beanstalk Developer Guide* .
@@ -1680,7 +1451,6 @@ type CfnConfigurationTemplate interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses.
 	//
@@ -1705,22 +1475,18 @@ type CfnConfigurationTemplate interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1729,7 +1495,6 @@ type CfnConfigurationTemplate interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1774,15 +1539,12 @@ type CfnConfigurationTemplate interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1793,13 +1555,11 @@ type CfnConfigurationTemplate interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1808,74 +1568,21 @@ type CfnConfigurationTemplate interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1965,8 +1672,8 @@ func (j *jsiiProxy_CfnConfigurationTemplate) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationTemplate) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnConfigurationTemplate) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2047,13 +1754,13 @@ func (j *jsiiProxy_CfnConfigurationTemplate) UpdatedProperites() *map[string]int
 
 
 // Create a new `AWS::ElasticBeanstalk::ConfigurationTemplate`.
-func NewCfnConfigurationTemplate(scope awscdk.Construct, id *string, props *CfnConfigurationTemplateProps) CfnConfigurationTemplate {
+func NewCfnConfigurationTemplate(scope constructs.Construct, id *string, props *CfnConfigurationTemplateProps) CfnConfigurationTemplate {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConfigurationTemplate{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticbeanstalk.CfnConfigurationTemplate",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnConfigurationTemplate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2062,11 +1769,11 @@ func NewCfnConfigurationTemplate(scope awscdk.Construct, id *string, props *CfnC
 }
 
 // Create a new `AWS::ElasticBeanstalk::ConfigurationTemplate`.
-func NewCfnConfigurationTemplate_Override(c CfnConfigurationTemplate, scope awscdk.Construct, id *string, props *CfnConfigurationTemplateProps) {
+func NewCfnConfigurationTemplate_Override(c CfnConfigurationTemplate, scope constructs.Construct, id *string, props *CfnConfigurationTemplateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticbeanstalk.CfnConfigurationTemplate",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnConfigurationTemplate",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2134,14 +1841,13 @@ func (j *jsiiProxy_CfnConfigurationTemplate) SetSourceConfiguration(val interfac
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnConfigurationTemplate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticbeanstalk.CfnConfigurationTemplate",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnConfigurationTemplate",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2151,14 +1857,13 @@ func CfnConfigurationTemplate_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnConfigurationTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticbeanstalk.CfnConfigurationTemplate",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnConfigurationTemplate",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2167,15 +1872,17 @@ func CfnConfigurationTemplate_IsCfnResource(construct constructs.IConstruct) *bo
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnConfigurationTemplate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticbeanstalk.CfnConfigurationTemplate",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnConfigurationTemplate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2188,7 +1895,7 @@ func CfnConfigurationTemplate_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticbeanstalk.CfnConfigurationTemplate",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnConfigurationTemplate",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2285,48 +1992,11 @@ func (c *jsiiProxy_CfnConfigurationTemplate) Inspect(inspector awscdk.TreeInspec
 	)
 }
 
-func (c *jsiiProxy_CfnConfigurationTemplate) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnConfigurationTemplate) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnConfigurationTemplate) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnConfigurationTemplate) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnConfigurationTemplate) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2356,33 +2026,12 @@ func (c *jsiiProxy_CfnConfigurationTemplate) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnConfigurationTemplate) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnConfigurationTemplate) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnConfigurationTemplate) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2407,7 +2056,10 @@ func (c *jsiiProxy_CfnConfigurationTemplate) ValidateProperties(_properties inte
 // For a list of possible namespaces and option values, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the *AWS Elastic Beanstalk Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   configurationOptionSettingProperty := &configurationOptionSettingProperty{
 //   	namespace: jsii.String("namespace"),
 //   	optionName: jsii.String("optionName"),
@@ -2419,15 +2071,15 @@ func (c *jsiiProxy_CfnConfigurationTemplate) ValidateProperties(_properties inte
 //
 type CfnConfigurationTemplate_ConfigurationOptionSettingProperty struct {
 	// A unique namespace that identifies the option's associated AWS resource.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// The name of the configuration option.
-	OptionName *string `json:"optionName" yaml:"optionName"`
+	OptionName *string `field:"required" json:"optionName" yaml:"optionName"`
 	// A unique resource name for the option setting.
 	//
 	// Use it for a time–based scaling configuration option.
-	ResourceName *string `json:"resourceName" yaml:"resourceName"`
+	ResourceName *string `field:"optional" json:"resourceName" yaml:"resourceName"`
 	// The current value for the configuration option.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Use the `SourceConfiguration` property type to specify another AWS Elastic Beanstalk configuration template as the base to creating a new AWS::ElasticBeanstalk::ConfigurationTemplate resource in an AWS CloudFormation template.
@@ -2435,7 +2087,10 @@ type CfnConfigurationTemplate_ConfigurationOptionSettingProperty struct {
 // An AWS Elastic Beanstalk configuration template to base a new one on. You can use it to define a [AWS::ElasticBeanstalk::ConfigurationTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceConfigurationProperty := &sourceConfigurationProperty{
 //   	applicationName: jsii.String("applicationName"),
 //   	templateName: jsii.String("templateName"),
@@ -2443,15 +2098,18 @@ type CfnConfigurationTemplate_ConfigurationOptionSettingProperty struct {
 //
 type CfnConfigurationTemplate_SourceConfigurationProperty struct {
 	// The name of the application associated with the configuration.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// The name of the configuration template.
-	TemplateName *string `json:"templateName" yaml:"templateName"`
+	TemplateName *string `field:"required" json:"templateName" yaml:"templateName"`
 }
 
 // Properties for defining a `CfnConfigurationTemplate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnConfigurationTemplateProps := &cfnConfigurationTemplateProps{
 //   	applicationName: jsii.String("applicationName"),
 //
@@ -2478,23 +2136,23 @@ type CfnConfigurationTemplate_SourceConfigurationProperty struct {
 //
 type CfnConfigurationTemplateProps struct {
 	// The name of the Elastic Beanstalk application to associate with this configuration template.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// An optional description for this configuration.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The ID of an environment whose settings you want to use to create the configuration template.
 	//
 	// You must specify `EnvironmentId` if you don't specify `PlatformArn` , `SolutionStackName` , or `SourceConfiguration` .
-	EnvironmentId *string `json:"environmentId" yaml:"environmentId"`
+	EnvironmentId *string `field:"optional" json:"environmentId" yaml:"environmentId"`
 	// Option values for the Elastic Beanstalk configuration, such as the instance type.
 	//
 	// If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the *AWS Elastic Beanstalk Developer Guide* .
-	OptionSettings interface{} `json:"optionSettings" yaml:"optionSettings"`
+	OptionSettings interface{} `field:"optional" json:"optionSettings" yaml:"optionSettings"`
 	// The Amazon Resource Name (ARN) of the custom platform.
 	//
 	// For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the *AWS Elastic Beanstalk Developer Guide* .
 	//
 	// > If you specify `PlatformArn` , then don't specify `SolutionStackName` .
-	PlatformArn *string `json:"platformArn" yaml:"platformArn"`
+	PlatformArn *string `field:"optional" json:"platformArn" yaml:"platformArn"`
 	// The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses.
 	//
 	// For example, `64bit Amazon Linux 2013.09 running Tomcat 7 Java 7` . A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) in the *AWS Elastic Beanstalk Developer Guide* .
@@ -2502,7 +2160,7 @@ type CfnConfigurationTemplateProps struct {
 	// You must specify `SolutionStackName` if you don't specify `PlatformArn` , `EnvironmentId` , or `SourceConfiguration` .
 	//
 	// Use the [`ListAvailableSolutionStacks`](https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html) API to obtain a list of available solution stacks.
-	SolutionStackName *string `json:"solutionStackName" yaml:"solutionStackName"`
+	SolutionStackName *string `field:"optional" json:"solutionStackName" yaml:"solutionStackName"`
 	// An Elastic Beanstalk configuration template to base this one on.
 	//
 	// If specified, Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.
@@ -2512,7 +2170,7 @@ type CfnConfigurationTemplateProps struct {
 	// You must specify `SourceConfiguration` if you don't specify `PlatformArn` , `EnvironmentId` , or `SolutionStackName` .
 	//
 	// Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name.
-	SourceConfiguration interface{} `json:"sourceConfiguration" yaml:"sourceConfiguration"`
+	SourceConfiguration interface{} `field:"optional" json:"sourceConfiguration" yaml:"sourceConfiguration"`
 }
 
 // A CloudFormation `AWS::ElasticBeanstalk::Environment`.
@@ -2522,8 +2180,11 @@ type CfnConfigurationTemplateProps struct {
 // The AWS::ElasticBeanstalk::Environment resource is an AWS Elastic Beanstalk resource type that specifies an Elastic Beanstalk environment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
-//   cfnEnvironment := elasticbeanstalk.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &cfnEnvironmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEnvironment := awscdk.Aws_elasticbeanstalk.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &cfnEnvironmentProps{
 //   	applicationName: jsii.String("applicationName"),
 //
 //   	// the properties below are optional
@@ -2573,11 +2234,9 @@ type CfnEnvironment interface {
 	// `192.0.2.0`
 	AttrEndpointUrl() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL.
 	//
@@ -2587,7 +2246,6 @@ type CfnEnvironment interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Your description for this environment.
 	Description() *string
@@ -2612,11 +2270,9 @@ type CfnEnvironment interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// > The operations role feature of AWS Elastic Beanstalk is in beta release and is subject to change.
 	//
 	// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role. If specified, Elastic Beanstalk uses the operations role for permissions to downstream services during this call and during subsequent calls acting on this environment. To specify an operations role, you must have the `iam:PassRole` permission for the role.
@@ -2638,7 +2294,6 @@ type CfnEnvironment interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
 	//
@@ -2650,7 +2305,6 @@ type CfnEnvironment interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Specifies the tags applied to resources in the environment.
 	Tags() awscdk.TagManager
@@ -2668,7 +2322,6 @@ type CfnEnvironment interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The name of the application version to deploy.
 	//
@@ -2676,13 +2329,11 @@ type CfnEnvironment interface {
 	VersionLabel() *string
 	SetVersionLabel(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2691,7 +2342,6 @@ type CfnEnvironment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2736,15 +2386,12 @@ type CfnEnvironment interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2755,13 +2402,11 @@ type CfnEnvironment interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2770,74 +2415,21 @@ type CfnEnvironment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2947,8 +2539,8 @@ func (j *jsiiProxy_CfnEnvironment) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnEnvironment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3069,13 +2661,13 @@ func (j *jsiiProxy_CfnEnvironment) VersionLabel() *string {
 
 
 // Create a new `AWS::ElasticBeanstalk::Environment`.
-func NewCfnEnvironment(scope awscdk.Construct, id *string, props *CfnEnvironmentProps) CfnEnvironment {
+func NewCfnEnvironment(scope constructs.Construct, id *string, props *CfnEnvironmentProps) CfnEnvironment {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEnvironment{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticbeanstalk.CfnEnvironment",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnEnvironment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3084,11 +2676,11 @@ func NewCfnEnvironment(scope awscdk.Construct, id *string, props *CfnEnvironment
 }
 
 // Create a new `AWS::ElasticBeanstalk::Environment`.
-func NewCfnEnvironment_Override(c CfnEnvironment, scope awscdk.Construct, id *string, props *CfnEnvironmentProps) {
+func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id *string, props *CfnEnvironmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticbeanstalk.CfnEnvironment",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnEnvironment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3188,14 +2780,13 @@ func (j *jsiiProxy_CfnEnvironment) SetVersionLabel(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnEnvironment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticbeanstalk.CfnEnvironment",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnEnvironment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3205,14 +2796,13 @@ func CfnEnvironment_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnEnvironment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticbeanstalk.CfnEnvironment",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnEnvironment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3221,15 +2811,17 @@ func CfnEnvironment_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnEnvironment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticbeanstalk.CfnEnvironment",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnEnvironment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3242,7 +2834,7 @@ func CfnEnvironment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticbeanstalk.CfnEnvironment",
+		"aws-cdk-lib.aws_elasticbeanstalk.CfnEnvironment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3339,48 +2931,11 @@ func (c *jsiiProxy_CfnEnvironment) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnEnvironment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnEnvironment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnEnvironment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnEnvironment) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnEnvironment) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3410,33 +2965,12 @@ func (c *jsiiProxy_CfnEnvironment) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnEnvironment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnEnvironment) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnEnvironment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3461,7 +2995,10 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 // For a list of possible namespaces and option values, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the *AWS Elastic Beanstalk Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   optionSettingProperty := &optionSettingProperty{
 //   	namespace: jsii.String("namespace"),
 //   	optionName: jsii.String("optionName"),
@@ -3473,15 +3010,15 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 //
 type CfnEnvironment_OptionSettingProperty struct {
 	// A unique namespace that identifies the option's associated AWS resource.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// The name of the configuration option.
-	OptionName *string `json:"optionName" yaml:"optionName"`
+	OptionName *string `field:"required" json:"optionName" yaml:"optionName"`
 	// A unique resource name for the option setting.
 	//
 	// Use it for a time–based scaling configuration option.
-	ResourceName *string `json:"resourceName" yaml:"resourceName"`
+	ResourceName *string `field:"optional" json:"resourceName" yaml:"resourceName"`
 	// The current value for the configuration option.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Use the `Tier` property type to specify the environment tier for an AWS Elastic Beanstalk environment when defining an AWS::ElasticBeanstalk::Environment resource in an AWS CloudFormation template.
@@ -3489,7 +3026,10 @@ type CfnEnvironment_OptionSettingProperty struct {
 // Describes the environment tier for an [AWS::ElasticBeanstalk::Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html) resource. For more information, see [Environment Tiers](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features-managing-env-tiers.html) in the *AWS Elastic Beanstalk Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tierProperty := &tierProperty{
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
@@ -3503,26 +3043,29 @@ type CfnEnvironment_TierProperty struct {
 	//
 	// - For *Web server tier* – `WebServer`
 	// - For *Worker tier* – `Worker`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The type of this environment tier.
 	//
 	// Valid values:
 	//
 	// - For *Web server tier* – `Standard`
 	// - For *Worker tier* – `SQS/HTTP`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The version of this environment tier.
 	//
 	// When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
 	//
 	// > This member is deprecated. Any specific version that you set may become out of date. We recommend leaving it unspecified.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnEnvironment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticbeanstalk "github.com/aws/aws-cdk-go/awscdk/aws_elasticbeanstalk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEnvironmentProps := &cfnEnvironmentProps{
 //   	applicationName: jsii.String("applicationName"),
 //
@@ -3560,13 +3103,13 @@ type CfnEnvironment_TierProperty struct {
 //
 type CfnEnvironmentProps struct {
 	// The name of the application that is associated with this environment.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL.
 	//
 	// If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
-	CnamePrefix *string `json:"cnamePrefix" yaml:"cnamePrefix"`
+	CnamePrefix *string `field:"optional" json:"cnamePrefix" yaml:"cnamePrefix"`
 	// Your description for this environment.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A unique name for the environment.
 	//
 	// Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It can't start or end with a hyphen. This name must be unique within a region in your account.
@@ -3576,40 +3119,40 @@ type CfnEnvironmentProps struct {
 	// If you don't specify an environment name, AWS CloudFormation generates a unique physical ID and uses that ID for the environment name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	EnvironmentName *string `json:"environmentName" yaml:"environmentName"`
+	EnvironmentName *string `field:"optional" json:"environmentName" yaml:"environmentName"`
 	// > The operations role feature of AWS Elastic Beanstalk is in beta release and is subject to change.
 	//
 	// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role. If specified, Elastic Beanstalk uses the operations role for permissions to downstream services during this call and during subsequent calls acting on this environment. To specify an operations role, you must have the `iam:PassRole` permission for the role.
-	OperationsRole *string `json:"operationsRole" yaml:"operationsRole"`
+	OperationsRole *string `field:"optional" json:"operationsRole" yaml:"operationsRole"`
 	// Key-value pairs defining configuration options for this environment, such as the instance type.
 	//
 	// These options override the values that are defined in the solution stack or the [configuration template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html) . If you remove any options during a stack update, the removed options retain their current values.
-	OptionSettings interface{} `json:"optionSettings" yaml:"optionSettings"`
+	OptionSettings interface{} `field:"optional" json:"optionSettings" yaml:"optionSettings"`
 	// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
 	//
 	// For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the *AWS Elastic Beanstalk Developer Guide* .
 	//
 	// > If you specify `PlatformArn` , don't specify `SolutionStackName` .
-	PlatformArn *string `json:"platformArn" yaml:"platformArn"`
+	PlatformArn *string `field:"optional" json:"platformArn" yaml:"platformArn"`
 	// The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
 	//
 	// If specified, Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack. For a list of current solution stacks, see [Elastic Beanstalk Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html) in the *AWS Elastic Beanstalk Platforms* guide.
 	//
 	// > If you specify `SolutionStackName` , don't specify `PlatformArn` or `TemplateName` .
-	SolutionStackName *string `json:"solutionStackName" yaml:"solutionStackName"`
+	SolutionStackName *string `field:"optional" json:"solutionStackName" yaml:"solutionStackName"`
 	// Specifies the tags applied to resources in the environment.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the Elastic Beanstalk configuration template to use with the environment.
 	//
 	// > If you specify `TemplateName` , then don't specify `SolutionStackName` .
-	TemplateName *string `json:"templateName" yaml:"templateName"`
+	TemplateName *string `field:"optional" json:"templateName" yaml:"templateName"`
 	// Specifies the tier to use in creating this environment.
 	//
 	// The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
-	Tier interface{} `json:"tier" yaml:"tier"`
+	Tier interface{} `field:"optional" json:"tier" yaml:"tier"`
 	// The name of the application version to deploy.
 	//
 	// Default: If not specified, Elastic Beanstalk attempts to deploy the sample application.
-	VersionLabel *string `json:"versionLabel" yaml:"versionLabel"`
+	VersionLabel *string `field:"optional" json:"versionLabel" yaml:"versionLabel"`
 }
 

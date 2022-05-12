@@ -1,12 +1,12 @@
 package awsqldb
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsqldb/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsqldb/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::QLDB::Ledger`.
@@ -16,8 +16,11 @@ import (
 // For more information, see [CreateLedger](https://docs.aws.amazon.com/qldb/latest/developerguide/API_CreateLedger.html) in the *Amazon QLDB API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import qldb "github.com/aws/aws-cdk-go/awscdk/aws_qldb"
-//   cfnLedger := qldb.NewCfnLedger(this, jsii.String("MyCfnLedger"), &cfnLedgerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLedger := awscdk.Aws_qldb.NewCfnLedger(this, jsii.String("MyCfnLedger"), &cfnLedgerProps{
 //   	permissionsMode: jsii.String("permissionsMode"),
 //
 //   	// the properties below are optional
@@ -36,16 +39,13 @@ type CfnLedger interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The flag that prevents a ledger from being deleted by any user.
 	//
@@ -87,7 +87,6 @@ type CfnLedger interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the ledger that you want to create.
 	//
@@ -96,9 +95,8 @@ type CfnLedger interface {
 	// Naming constraints for ledger names are defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The permissions mode to assign to the ledger that you want to create.
 	//
 	// This parameter can have one of the following values:
@@ -117,12 +115,10 @@ type CfnLedger interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -132,16 +128,13 @@ type CfnLedger interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -150,7 +143,6 @@ type CfnLedger interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -195,15 +187,12 @@ type CfnLedger interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -214,13 +203,11 @@ type CfnLedger interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -229,74 +216,21 @@ type CfnLedger interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -386,8 +320,8 @@ func (j *jsiiProxy_CfnLedger) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLedger) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLedger) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -448,13 +382,13 @@ func (j *jsiiProxy_CfnLedger) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::QLDB::Ledger`.
-func NewCfnLedger(scope awscdk.Construct, id *string, props *CfnLedgerProps) CfnLedger {
+func NewCfnLedger(scope constructs.Construct, id *string, props *CfnLedgerProps) CfnLedger {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLedger{}
 
 	_jsii_.Create(
-		"monocdk.aws_qldb.CfnLedger",
+		"aws-cdk-lib.aws_qldb.CfnLedger",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -463,11 +397,11 @@ func NewCfnLedger(scope awscdk.Construct, id *string, props *CfnLedgerProps) Cfn
 }
 
 // Create a new `AWS::QLDB::Ledger`.
-func NewCfnLedger_Override(c CfnLedger, scope awscdk.Construct, id *string, props *CfnLedgerProps) {
+func NewCfnLedger_Override(c CfnLedger, scope constructs.Construct, id *string, props *CfnLedgerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_qldb.CfnLedger",
+		"aws-cdk-lib.aws_qldb.CfnLedger",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -511,14 +445,13 @@ func (j *jsiiProxy_CfnLedger) SetPermissionsMode(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLedger_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_qldb.CfnLedger",
+		"aws-cdk-lib.aws_qldb.CfnLedger",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -528,14 +461,13 @@ func CfnLedger_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLedger_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_qldb.CfnLedger",
+		"aws-cdk-lib.aws_qldb.CfnLedger",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -544,15 +476,17 @@ func CfnLedger_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLedger_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_qldb.CfnLedger",
+		"aws-cdk-lib.aws_qldb.CfnLedger",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -565,7 +499,7 @@ func CfnLedger_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_qldb.CfnLedger",
+		"aws-cdk-lib.aws_qldb.CfnLedger",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -662,48 +596,11 @@ func (c *jsiiProxy_CfnLedger) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnLedger) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLedger) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLedger) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLedger) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLedger) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -733,33 +630,12 @@ func (c *jsiiProxy_CfnLedger) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLedger) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLedger) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLedger) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -778,7 +654,10 @@ func (c *jsiiProxy_CfnLedger) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnLedger`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import qldb "github.com/aws/aws-cdk-go/awscdk/aws_qldb"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLedgerProps := &cfnLedgerProps{
 //   	permissionsMode: jsii.String("permissionsMode"),
 //
@@ -807,13 +686,13 @@ type CfnLedgerProps struct {
 	// By default, this mode denies all user requests to run any PartiQL commands on any tables in this ledger. To allow PartiQL commands to run, you must create IAM permissions policies for specific table resources and PartiQL actions, in addition to the `SendCommand` API permission for the ledger. For information, see [Getting started with the standard permissions mode](https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-standard-mode.html) in the *Amazon QLDB Developer Guide* .
 	//
 	// > We strongly recommend using the `STANDARD` permissions mode to maximize the security of your ledger data.
-	PermissionsMode *string `json:"permissionsMode" yaml:"permissionsMode"`
+	PermissionsMode *string `field:"required" json:"permissionsMode" yaml:"permissionsMode"`
 	// The flag that prevents a ledger from being deleted by any user.
 	//
 	// If not provided on ledger creation, this feature is enabled ( `true` ) by default.
 	//
 	// If deletion protection is enabled, you must first disable it before you can delete the ledger. You can disable it by calling the `UpdateLedger` operation to set the flag to `false` .
-	DeletionProtection interface{} `json:"deletionProtection" yaml:"deletionProtection"`
+	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// The key in AWS Key Management Service ( AWS KMS ) to use for encryption of data at rest in the ledger.
 	//
 	// For more information, see [Encryption at rest](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html) in the *Amazon QLDB Developer Guide* .
@@ -836,17 +715,17 @@ type CfnLedgerProps struct {
 	// - Alias ARN: `arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias`
 	//
 	// For more information, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
-	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey *string `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The name of the ledger that you want to create.
 	//
 	// The name must be unique among all of the ledgers in your AWS account in the current Region.
 	//
 	// Naming constraints for ledger names are defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::QLDB::Stream`.
@@ -856,8 +735,11 @@ type CfnLedgerProps struct {
 // For more information, see [StreamJournalToKinesis](https://docs.aws.amazon.com/qldb/latest/developerguide/API_StreamJournalToKinesis.html) in the *Amazon QLDB API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import qldb "github.com/aws/aws-cdk-go/awscdk/aws_qldb"
-//   cfnStream := qldb.NewCfnStream(this, jsii.String("MyCfnStream"), &cfnStreamProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStream := awscdk.Aws_qldb.NewCfnStream(this, jsii.String("MyCfnStream"), &cfnStreamProps{
 //   	inclusiveStartTime: jsii.String("inclusiveStartTime"),
 //   	kinesisConfiguration: &kinesisConfigurationProperty{
 //   		aggregationEnabled: jsii.Boolean(false),
@@ -889,16 +771,13 @@ type CfnStream interface {
 	// For example: `IiPT4brpZCqCq3f4MTHbYy` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The exclusive date and time that specifies when the stream ends.
 	//
@@ -931,16 +810,13 @@ type CfnStream interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
 	//
@@ -950,7 +826,6 @@ type CfnStream interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The name that you want to assign to the QLDB journal stream.
 	//
@@ -967,16 +842,13 @@ type CfnStream interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -985,7 +857,6 @@ type CfnStream interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1030,15 +901,12 @@ type CfnStream interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1049,13 +917,11 @@ type CfnStream interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1064,74 +930,21 @@ type CfnStream interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1251,8 +1064,8 @@ func (j *jsiiProxy_CfnStream) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStream) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnStream) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1323,13 +1136,13 @@ func (j *jsiiProxy_CfnStream) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::QLDB::Stream`.
-func NewCfnStream(scope awscdk.Construct, id *string, props *CfnStreamProps) CfnStream {
+func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps) CfnStream {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStream{}
 
 	_jsii_.Create(
-		"monocdk.aws_qldb.CfnStream",
+		"aws-cdk-lib.aws_qldb.CfnStream",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1338,11 +1151,11 @@ func NewCfnStream(scope awscdk.Construct, id *string, props *CfnStreamProps) Cfn
 }
 
 // Create a new `AWS::QLDB::Stream`.
-func NewCfnStream_Override(c CfnStream, scope awscdk.Construct, id *string, props *CfnStreamProps) {
+func NewCfnStream_Override(c CfnStream, scope constructs.Construct, id *string, props *CfnStreamProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_qldb.CfnStream",
+		"aws-cdk-lib.aws_qldb.CfnStream",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1402,14 +1215,13 @@ func (j *jsiiProxy_CfnStream) SetStreamName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnStream_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_qldb.CfnStream",
+		"aws-cdk-lib.aws_qldb.CfnStream",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1419,14 +1231,13 @@ func CfnStream_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnStream_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_qldb.CfnStream",
+		"aws-cdk-lib.aws_qldb.CfnStream",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1435,15 +1246,17 @@ func CfnStream_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnStream_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_qldb.CfnStream",
+		"aws-cdk-lib.aws_qldb.CfnStream",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1456,7 +1269,7 @@ func CfnStream_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_qldb.CfnStream",
+		"aws-cdk-lib.aws_qldb.CfnStream",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1553,48 +1366,11 @@ func (c *jsiiProxy_CfnStream) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnStream) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnStream) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnStream) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnStream) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnStream) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1624,33 +1400,12 @@ func (c *jsiiProxy_CfnStream) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnStream) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnStream) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnStream) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1669,7 +1424,10 @@ func (c *jsiiProxy_CfnStream) ValidateProperties(_properties interface{}) {
 // The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import qldb "github.com/aws/aws-cdk-go/awscdk/aws_qldb"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kinesisConfigurationProperty := &kinesisConfigurationProperty{
 //   	aggregationEnabled: jsii.Boolean(false),
 //   	streamArn: jsii.String("streamArn"),
@@ -1679,15 +1437,18 @@ type CfnStream_KinesisConfigurationProperty struct {
 	// Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call.
 	//
 	// *This option is enabled by default.* Record aggregation has important implications for processing records and requires de-aggregation in your stream consumer. To learn more, see [KPL Key Concepts](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html) and [Consumer De-aggregation](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html) in the *Amazon Kinesis Data Streams Developer Guide* .
-	AggregationEnabled interface{} `json:"aggregationEnabled" yaml:"aggregationEnabled"`
+	AggregationEnabled interface{} `field:"optional" json:"aggregationEnabled" yaml:"aggregationEnabled"`
 	// The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
-	StreamArn *string `json:"streamArn" yaml:"streamArn"`
+	StreamArn *string `field:"optional" json:"streamArn" yaml:"streamArn"`
 }
 
 // Properties for defining a `CfnStream`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import qldb "github.com/aws/aws-cdk-go/awscdk/aws_qldb"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStreamProps := &cfnStreamProps{
 //   	inclusiveStartTime: jsii.String("inclusiveStartTime"),
 //   	kinesisConfiguration: &kinesisConfigurationProperty{
@@ -1716,30 +1477,30 @@ type CfnStreamProps struct {
 	// The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
 	//
 	// If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
-	InclusiveStartTime *string `json:"inclusiveStartTime" yaml:"inclusiveStartTime"`
+	InclusiveStartTime *string `field:"required" json:"inclusiveStartTime" yaml:"inclusiveStartTime"`
 	// The configuration settings of the Kinesis Data Streams destination for your stream request.
-	KinesisConfiguration interface{} `json:"kinesisConfiguration" yaml:"kinesisConfiguration"`
+	KinesisConfiguration interface{} `field:"required" json:"kinesisConfiguration" yaml:"kinesisConfiguration"`
 	// The name of the ledger.
-	LedgerName *string `json:"ledgerName" yaml:"ledgerName"`
+	LedgerName *string `field:"required" json:"ledgerName" yaml:"ledgerName"`
 	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
 	//
 	// To pass a role to QLDB when requesting a journal stream, you must have permissions to perform the `iam:PassRole` action on the IAM role resource. This is required for all journal stream requests.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name that you want to assign to the QLDB journal stream.
 	//
 	// User-defined names can help identify and indicate the purpose of a stream.
 	//
 	// Your stream name must be unique among other *active* streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
-	StreamName *string `json:"streamName" yaml:"streamName"`
+	StreamName *string `field:"required" json:"streamName" yaml:"streamName"`
 	// The exclusive date and time that specifies when the stream ends.
 	//
 	// If you don't define this parameter, the stream runs indefinitely until you cancel it.
 	//
 	// The `ExclusiveEndTime` must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
-	ExclusiveEndTime *string `json:"exclusiveEndTime" yaml:"exclusiveEndTime"`
+	ExclusiveEndTime *string `field:"optional" json:"exclusiveEndTime" yaml:"exclusiveEndTime"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -1,12 +1,12 @@
 package awsrum
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsrum/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsrum/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::RUM::AppMonitor`.
@@ -16,8 +16,11 @@ import (
 // After you create an app monitor, sign in to the CloudWatch RUM console to get the JavaScript code snippet to add to your web application. For more information, see [How do I find a code snippet that I've already generated?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-find-code-snippet.html)
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rum "github.com/aws/aws-cdk-go/awscdk/aws_rum"
-//   cfnAppMonitor := rum.NewCfnAppMonitor(this, jsii.String("MyCfnAppMonitor"), &cfnAppMonitorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAppMonitor := awscdk.Aws_rum.NewCfnAppMonitor(this, jsii.String("MyCfnAppMonitor"), &cfnAppMonitorProps{
 //   	domain: jsii.String("domain"),
 //   	name: jsii.String("name"),
 //
@@ -61,16 +64,13 @@ type CfnAppMonitor interface {
 	AppMonitorConfiguration() interface{}
 	SetAppMonitorConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Data collected by CloudWatch RUM is kept by RUM for 30 days and then deleted.
 	//
@@ -93,26 +93,22 @@ type CfnAppMonitor interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// A name for the app monitor.
 	//
 	// This parameter is required.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
@@ -128,16 +124,13 @@ type CfnAppMonitor interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -146,7 +139,6 @@ type CfnAppMonitor interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -191,15 +183,12 @@ type CfnAppMonitor interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -210,13 +199,11 @@ type CfnAppMonitor interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -225,74 +212,21 @@ type CfnAppMonitor interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -392,8 +326,8 @@ func (j *jsiiProxy_CfnAppMonitor) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAppMonitor) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnAppMonitor) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -444,13 +378,13 @@ func (j *jsiiProxy_CfnAppMonitor) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::RUM::AppMonitor`.
-func NewCfnAppMonitor(scope awscdk.Construct, id *string, props *CfnAppMonitorProps) CfnAppMonitor {
+func NewCfnAppMonitor(scope constructs.Construct, id *string, props *CfnAppMonitorProps) CfnAppMonitor {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAppMonitor{}
 
 	_jsii_.Create(
-		"monocdk.aws_rum.CfnAppMonitor",
+		"aws-cdk-lib.aws_rum.CfnAppMonitor",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -459,11 +393,11 @@ func NewCfnAppMonitor(scope awscdk.Construct, id *string, props *CfnAppMonitorPr
 }
 
 // Create a new `AWS::RUM::AppMonitor`.
-func NewCfnAppMonitor_Override(c CfnAppMonitor, scope awscdk.Construct, id *string, props *CfnAppMonitorProps) {
+func NewCfnAppMonitor_Override(c CfnAppMonitor, scope constructs.Construct, id *string, props *CfnAppMonitorProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_rum.CfnAppMonitor",
+		"aws-cdk-lib.aws_rum.CfnAppMonitor",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -507,14 +441,13 @@ func (j *jsiiProxy_CfnAppMonitor) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAppMonitor_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rum.CfnAppMonitor",
+		"aws-cdk-lib.aws_rum.CfnAppMonitor",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -524,14 +457,13 @@ func CfnAppMonitor_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAppMonitor_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rum.CfnAppMonitor",
+		"aws-cdk-lib.aws_rum.CfnAppMonitor",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -540,15 +472,17 @@ func CfnAppMonitor_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnAppMonitor_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rum.CfnAppMonitor",
+		"aws-cdk-lib.aws_rum.CfnAppMonitor",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -561,7 +495,7 @@ func CfnAppMonitor_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_rum.CfnAppMonitor",
+		"aws-cdk-lib.aws_rum.CfnAppMonitor",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -658,48 +592,11 @@ func (c *jsiiProxy_CfnAppMonitor) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnAppMonitor) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnAppMonitor) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnAppMonitor) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnAppMonitor) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnAppMonitor) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -729,33 +626,12 @@ func (c *jsiiProxy_CfnAppMonitor) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnAppMonitor) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnAppMonitor) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnAppMonitor) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -774,7 +650,10 @@ func (c *jsiiProxy_CfnAppMonitor) ValidateProperties(_properties interface{}) {
 // This structure contains much of the configuration data for the app monitor.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rum "github.com/aws/aws-cdk-go/awscdk/aws_rum"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   appMonitorConfigurationProperty := &appMonitorConfigurationProperty{
 //   	allowCookies: jsii.Boolean(false),
 //   	enableXRay: jsii.Boolean(false),
@@ -799,25 +678,25 @@ type CfnAppMonitor_AppMonitorConfigurationProperty struct {
 	// If you set this to `true` , the CloudWatch RUM web client sets two cookies, a session cookie and a user cookie.
 	//
 	// The cookies allow the CloudWatch RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
-	AllowCookies interface{} `json:"allowCookies" yaml:"allowCookies"`
+	AllowCookies interface{} `field:"optional" json:"allowCookies" yaml:"allowCookies"`
 	// If you set this to `true` , CloudWatch RUM sends client-side traces to X-Ray for each sampled session.
 	//
 	// You can then see traces and segments from these user sessions in the RUM dashboard and the CloudWatch ServiceLens console. For more information, see [What is AWS X-Ray ?](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)
-	EnableXRay interface{} `json:"enableXRay" yaml:"enableXRay"`
+	EnableXRay interface{} `field:"optional" json:"enableXRay" yaml:"enableXRay"`
 	// A list of URLs in your website or application to exclude from RUM data collection.
 	//
 	// You can't include both `ExcludedPages` and `IncludedPages` in the same app monitor.
-	ExcludedPages *[]*string `json:"excludedPages" yaml:"excludedPages"`
+	ExcludedPages *[]*string `field:"optional" json:"excludedPages" yaml:"excludedPages"`
 	// A list of pages in your application that are to be displayed with a "favorite" icon in the CloudWatch RUM console.
-	FavoritePages *[]*string `json:"favoritePages" yaml:"favoritePages"`
+	FavoritePages *[]*string `field:"optional" json:"favoritePages" yaml:"favoritePages"`
 	// The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to CloudWatch RUM.
-	GuestRoleArn *string `json:"guestRoleArn" yaml:"guestRoleArn"`
+	GuestRoleArn *string `field:"optional" json:"guestRoleArn" yaml:"guestRoleArn"`
 	// The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to CloudWatch RUM.
-	IdentityPoolId *string `json:"identityPoolId" yaml:"identityPoolId"`
+	IdentityPoolId *string `field:"optional" json:"identityPoolId" yaml:"identityPoolId"`
 	// If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.
 	//
 	// You can't include both `ExcludedPages` and `IncludedPages` in the same app monitor.
-	IncludedPages *[]*string `json:"includedPages" yaml:"includedPages"`
+	IncludedPages *[]*string `field:"optional" json:"includedPages" yaml:"includedPages"`
 	// Specifies the portion of user sessions to use for CloudWatch RUM data collection.
 	//
 	// Choosing a higher portion gives you more data but also incurs more costs.
@@ -825,19 +704,22 @@ type CfnAppMonitor_AppMonitorConfigurationProperty struct {
 	// The range for this value is 0 to 1 inclusive. Setting this to 1 means that 100% of user sessions are sampled, and setting it to 0.1 means that 10% of user sessions are sampled.
 	//
 	// If you omit this parameter, the default of 0.1 is used, and 10% of sessions will be sampled.
-	SessionSampleRate *float64 `json:"sessionSampleRate" yaml:"sessionSampleRate"`
+	SessionSampleRate *float64 `field:"optional" json:"sessionSampleRate" yaml:"sessionSampleRate"`
 	// An array that lists the types of telemetry data that this app monitor is to collect.
 	//
 	// - `errors` indicates that RUM collects data about unhandled JavaScript errors raised by your application.
 	// - `performance` indicates that RUM collects performance data about how your application and its resources are loaded and rendered. This includes Core Web Vitals.
 	// - `http` indicates that RUM collects data about HTTP errors thrown by your application.
-	Telemetries *[]*string `json:"telemetries" yaml:"telemetries"`
+	Telemetries *[]*string `field:"optional" json:"telemetries" yaml:"telemetries"`
 }
 
 // Properties for defining a `CfnAppMonitor`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rum "github.com/aws/aws-cdk-go/awscdk/aws_rum"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAppMonitorProps := &cfnAppMonitorProps{
 //   	domain: jsii.String("domain"),
 //   	name: jsii.String("name"),
@@ -875,23 +757,23 @@ type CfnAppMonitorProps struct {
 	// The top-level internet domain name for which your application has administrative authority.
 	//
 	// This parameter is required.
-	Domain *string `json:"domain" yaml:"domain"`
+	Domain *string `field:"required" json:"domain" yaml:"domain"`
 	// A name for the app monitor.
 	//
 	// This parameter is required.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A structure that contains much of the configuration data for the app monitor.
 	//
 	// If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
 	//
 	// If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
-	AppMonitorConfiguration interface{} `json:"appMonitorConfiguration" yaml:"appMonitorConfiguration"`
+	AppMonitorConfiguration interface{} `field:"optional" json:"appMonitorConfiguration" yaml:"appMonitorConfiguration"`
 	// Data collected by CloudWatch RUM is kept by RUM for 30 days and then deleted.
 	//
 	// This parameter specifies whether CloudWatch RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges.
 	//
 	// If you omit this parameter, the default is `false` .
-	CwLogEnabled interface{} `json:"cwLogEnabled" yaml:"cwLogEnabled"`
+	CwLogEnabled interface{} `field:"optional" json:"cwLogEnabled" yaml:"cwLogEnabled"`
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -901,6 +783,6 @@ type CfnAppMonitorProps struct {
 	// You can associate as many as 50 tags with an app monitor.
 	//
 	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

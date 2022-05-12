@@ -1,12 +1,12 @@
 package awsautoscalingplans
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsautoscalingplans/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscalingplans/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::AutoScalingPlans::ScalingPlan`.
@@ -22,8 +22,11 @@ import (
 // For more information, see the [AWS Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscalingplans "github.com/aws/aws-cdk-go/awscdk/aws_autoscalingplans"
-//   cfnScalingPlan := autoscalingplans.NewCfnScalingPlan(this, jsii.String("MyCfnScalingPlan"), &cfnScalingPlanProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnScalingPlan := awscdk.Aws_autoscalingplans.NewCfnScalingPlan(this, jsii.String("MyCfnScalingPlan"), &cfnScalingPlanProps{
 //   	applicationSource: &applicationSourceProperty{
 //   		cloudFormationStackArn: jsii.String("cloudFormationStackArn"),
 //   		tagFilters: []interface{}{
@@ -118,16 +121,13 @@ type CfnScalingPlan interface {
 	AttrScalingPlanName() *string
 	AttrScalingPlanVersion() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -138,16 +138,13 @@ type CfnScalingPlan interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The scaling instructions.
 	ScalingInstructions() interface{}
@@ -155,22 +152,18 @@ type CfnScalingPlan interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -179,7 +172,6 @@ type CfnScalingPlan interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -224,15 +216,12 @@ type CfnScalingPlan interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -243,13 +232,11 @@ type CfnScalingPlan interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -258,74 +245,21 @@ type CfnScalingPlan interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -415,8 +349,8 @@ func (j *jsiiProxy_CfnScalingPlan) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScalingPlan) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnScalingPlan) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -467,13 +401,13 @@ func (j *jsiiProxy_CfnScalingPlan) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::AutoScalingPlans::ScalingPlan`.
-func NewCfnScalingPlan(scope awscdk.Construct, id *string, props *CfnScalingPlanProps) CfnScalingPlan {
+func NewCfnScalingPlan(scope constructs.Construct, id *string, props *CfnScalingPlanProps) CfnScalingPlan {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnScalingPlan{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -482,11 +416,11 @@ func NewCfnScalingPlan(scope awscdk.Construct, id *string, props *CfnScalingPlan
 }
 
 // Create a new `AWS::AutoScalingPlans::ScalingPlan`.
-func NewCfnScalingPlan_Override(c CfnScalingPlan, scope awscdk.Construct, id *string, props *CfnScalingPlanProps) {
+func NewCfnScalingPlan_Override(c CfnScalingPlan, scope constructs.Construct, id *string, props *CfnScalingPlanProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -514,14 +448,13 @@ func (j *jsiiProxy_CfnScalingPlan) SetScalingInstructions(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnScalingPlan_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -531,14 +464,13 @@ func CfnScalingPlan_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnScalingPlan_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -547,15 +479,17 @@ func CfnScalingPlan_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnScalingPlan_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -568,7 +502,7 @@ func CfnScalingPlan_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -665,48 +599,11 @@ func (c *jsiiProxy_CfnScalingPlan) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnScalingPlan) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnScalingPlan) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnScalingPlan) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnScalingPlan) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnScalingPlan) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -736,33 +633,12 @@ func (c *jsiiProxy_CfnScalingPlan) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnScalingPlan) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnScalingPlan) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnScalingPlan) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -781,7 +657,10 @@ func (c *jsiiProxy_CfnScalingPlan) ValidateProperties(_properties interface{}) {
 // `ApplicationSource` is a property of [ScalingPlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html) that specifies the application source to use with AWS Auto Scaling ( Auto Scaling Plans ). You can create one scaling plan per application source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscalingplans "github.com/aws/aws-cdk-go/awscdk/aws_autoscalingplans"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   applicationSourceProperty := &applicationSourceProperty{
 //   	cloudFormationStackArn: jsii.String("cloudFormationStackArn"),
 //   	tagFilters: []interface{}{
@@ -800,7 +679,7 @@ type CfnScalingPlan_ApplicationSourceProperty struct {
 	// The Amazon Resource Name (ARN) of a CloudFormation stack.
 	//
 	// You must specify either a `CloudFormationStackARN` or `TagFilters` .
-	CloudFormationStackArn *string `json:"cloudFormationStackArn" yaml:"cloudFormationStackArn"`
+	CloudFormationStackArn *string `field:"optional" json:"cloudFormationStackArn" yaml:"cloudFormationStackArn"`
 	// A set of tag filters (keys and values).
 	//
 	// Each tag filter specified must contain a key with values as optional. Each scaling plan can include up to 50 keys, and each key can include up to 20 values.
@@ -808,7 +687,7 @@ type CfnScalingPlan_ApplicationSourceProperty struct {
 	// Tags are part of the syntax that you use to specify the resources you want returned when configuring a scaling plan from the AWS Auto Scaling console. You do not need to specify valid tag filter values when you create a scaling plan with CloudFormation. The `Key` and `Values` properties can accept any value as long as the combination of values is unique across scaling plans. However, if you also want to use the AWS Auto Scaling console to edit the scaling plan, then you must specify valid values.
 	//
 	// You must specify either a `CloudFormationStackARN` or `TagFilters` .
-	TagFilters interface{} `json:"tagFilters" yaml:"tagFilters"`
+	TagFilters interface{} `field:"optional" json:"tagFilters" yaml:"tagFilters"`
 }
 
 // `CustomizedLoadMetricSpecification` is a subproperty of [ScalingInstruction](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html) that specifies a customized load metric for predictive scaling to use with AWS Auto Scaling ( Auto Scaling Plans ).
@@ -824,7 +703,10 @@ type CfnScalingPlan_ApplicationSourceProperty struct {
 // After creating your scaling plan, you can use the AWS Auto Scaling console to visualize forecasts for the specified metric. For more information, see [View Scaling Information for a Resource](https://docs.aws.amazon.com/autoscaling/plans/userguide/gs-create-scaling-plan.html#gs-view-resource) in the *AWS Auto Scaling User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscalingplans "github.com/aws/aws-cdk-go/awscdk/aws_autoscalingplans"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customizedLoadMetricSpecificationProperty := &customizedLoadMetricSpecificationProperty{
 //   	metricName: jsii.String("metricName"),
 //   	namespace: jsii.String("namespace"),
@@ -842,19 +724,19 @@ type CfnScalingPlan_ApplicationSourceProperty struct {
 //
 type CfnScalingPlan_CustomizedLoadMetricSpecificationProperty struct {
 	// The name of the metric.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// The statistic of the metric.
 	//
 	// *Allowed Values* : `Sum`.
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"required" json:"statistic" yaml:"statistic"`
 	// The dimensions of the metric.
 	//
 	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your customized load metric specification.
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The unit of the metric.
-	Unit *string `json:"unit" yaml:"unit"`
+	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 
 // `CustomizedScalingMetricSpecification` is a subproperty of [TargetTrackingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html) that specifies a customized scaling metric for a target tracking configuration to use with AWS Auto Scaling ( Auto Scaling Plans ).
@@ -867,7 +749,10 @@ type CfnScalingPlan_CustomizedLoadMetricSpecificationProperty struct {
 // For information about terminology, available metrics, or how to publish new metrics, see [Amazon CloudWatch Concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscalingplans "github.com/aws/aws-cdk-go/awscdk/aws_autoscalingplans"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customizedScalingMetricSpecificationProperty := &customizedScalingMetricSpecificationProperty{
 //   	metricName: jsii.String("metricName"),
 //   	namespace: jsii.String("namespace"),
@@ -885,23 +770,26 @@ type CfnScalingPlan_CustomizedLoadMetricSpecificationProperty struct {
 //
 type CfnScalingPlan_CustomizedScalingMetricSpecificationProperty struct {
 	// The name of the metric.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// The statistic of the metric.
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"required" json:"statistic" yaml:"statistic"`
 	// The dimensions of the metric.
 	//
 	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your customized scaling metric specification.
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The unit of the metric.
-	Unit *string `json:"unit" yaml:"unit"`
+	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 
 // `MetricDimension` is a subproperty of [CustomizedScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html) that specifies a dimension for a customized metric to use with AWS Auto Scaling ( Auto Scaling Plans ). Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric. Duplicate dimensions are not allowed.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscalingplans "github.com/aws/aws-cdk-go/awscdk/aws_autoscalingplans"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricDimensionProperty := &metricDimensionProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -909,9 +797,9 @@ type CfnScalingPlan_CustomizedScalingMetricSpecificationProperty struct {
 //
 type CfnScalingPlan_MetricDimensionProperty struct {
 	// The name of the dimension.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value of the dimension.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // `PredefinedLoadMetricSpecification` is a subproperty of [ScalingInstruction](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html) that specifies a predefined load metric for predictive scaling to use with AWS Auto Scaling ( Auto Scaling Plans ).
@@ -919,7 +807,10 @@ type CfnScalingPlan_MetricDimensionProperty struct {
 // After creating your scaling plan, you can use the AWS Auto Scaling console to visualize forecasts for the specified metric. For more information, see [View Scaling Information for a Resource](https://docs.aws.amazon.com/autoscaling/plans/userguide/gs-create-scaling-plan.html#gs-view-resource) in the *AWS Auto Scaling User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscalingplans "github.com/aws/aws-cdk-go/awscdk/aws_autoscalingplans"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   predefinedLoadMetricSpecificationProperty := &predefinedLoadMetricSpecificationProperty{
 //   	predefinedLoadMetricType: jsii.String("predefinedLoadMetricType"),
 //
@@ -929,7 +820,7 @@ type CfnScalingPlan_MetricDimensionProperty struct {
 //
 type CfnScalingPlan_PredefinedLoadMetricSpecificationProperty struct {
 	// The metric type.
-	PredefinedLoadMetricType *string `json:"predefinedLoadMetricType" yaml:"predefinedLoadMetricType"`
+	PredefinedLoadMetricType *string `field:"required" json:"predefinedLoadMetricType" yaml:"predefinedLoadMetricType"`
 	// Identifies the resource associated with the metric type.
 	//
 	// You can't specify a resource label unless the metric type is `ALBTargetGroupRequestCount` and there is a target group for an Application Load Balancer attached to the Auto Scaling group.
@@ -942,13 +833,16 @@ type CfnScalingPlan_PredefinedLoadMetricSpecificationProperty struct {
 	// This is an example: app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d.
 	//
 	// To find the ARN for an Application Load Balancer, use the [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operation. To find the ARN for the target group, use the [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) API operation.
-	ResourceLabel *string `json:"resourceLabel" yaml:"resourceLabel"`
+	ResourceLabel *string `field:"optional" json:"resourceLabel" yaml:"resourceLabel"`
 }
 
 // `PredefinedScalingMetricSpecification` is a subproperty of [TargetTrackingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html) that specifies a customized scaling metric for a target tracking configuration to use with AWS Auto Scaling ( Auto Scaling Plans ).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscalingplans "github.com/aws/aws-cdk-go/awscdk/aws_autoscalingplans"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   predefinedScalingMetricSpecificationProperty := &predefinedScalingMetricSpecificationProperty{
 //   	predefinedScalingMetricType: jsii.String("predefinedScalingMetricType"),
 //
@@ -960,7 +854,7 @@ type CfnScalingPlan_PredefinedScalingMetricSpecificationProperty struct {
 	// The metric type.
 	//
 	// The `ALBRequestCountPerTarget` metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
-	PredefinedScalingMetricType *string `json:"predefinedScalingMetricType" yaml:"predefinedScalingMetricType"`
+	PredefinedScalingMetricType *string `field:"required" json:"predefinedScalingMetricType" yaml:"predefinedScalingMetricType"`
 	// Identifies the resource associated with the metric type.
 	//
 	// You can't specify a resource label unless the metric type is `ALBRequestCountPerTarget` and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
@@ -973,7 +867,7 @@ type CfnScalingPlan_PredefinedScalingMetricSpecificationProperty struct {
 	// This is an example: app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d.
 	//
 	// To find the ARN for an Application Load Balancer, use the [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operation. To find the ARN for the target group, use the [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) API operation.
-	ResourceLabel *string `json:"resourceLabel" yaml:"resourceLabel"`
+	ResourceLabel *string `field:"optional" json:"resourceLabel" yaml:"resourceLabel"`
 }
 
 // `ScalingInstruction` is a property of [ScalingPlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html) that specifies the scaling instruction for a scalable resource in a scaling plan. Each scaling instruction applies to one resource.
@@ -985,7 +879,10 @@ type CfnScalingPlan_PredefinedScalingMetricSpecificationProperty struct {
 // > We recommend waiting a minimum of 24 hours after creating an Auto Scaling group to configure predictive scaling. At minimum, there must be 24 hours of historical data to generate a forecast. For more information, see [Best Practices for AWS Auto Scaling](https://docs.aws.amazon.com/autoscaling/plans/userguide/gs-best-practices.html) in the *AWS Auto Scaling User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscalingplans "github.com/aws/aws-cdk-go/awscdk/aws_autoscalingplans"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scalingInstructionProperty := &scalingInstructionProperty{
 //   	maxCapacity: jsii.Number(123),
 //   	minCapacity: jsii.Number(123),
@@ -1057,9 +954,9 @@ type CfnScalingPlan_ScalingInstructionProperty struct {
 	// The maximum capacity of the resource.
 	//
 	// The exception to this upper limit is if you specify a non-default setting for *PredictiveScalingMaxCapacityBehavior* .
-	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
+	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
 	// The minimum capacity of the resource.
-	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
+	MinCapacity *float64 `field:"required" json:"minCapacity" yaml:"minCapacity"`
 	// The ID of the resource. This string consists of the resource type and unique identifier.
 	//
 	// - Auto Scaling group - The resource type is `autoScalingGroup` and the unique identifier is the name of the Auto Scaling group. Example: `autoScalingGroup/my-asg` .
@@ -1068,7 +965,7 @@ type CfnScalingPlan_ScalingInstructionProperty struct {
 	// - DynamoDB table - The resource type is `table` and the unique identifier is the resource ID. Example: `table/my-table` .
 	// - DynamoDB global secondary index - The resource type is `index` and the unique identifier is the resource ID. Example: `table/my-table/index/my-table-index` .
 	// - Aurora DB cluster - The resource type is `cluster` and the unique identifier is the cluster name. Example: `cluster:my-db-cluster` .
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The scalable dimension associated with the resource.
 	//
 	// - `autoscaling:autoScalingGroup:DesiredCapacity` - The desired capacity of an Auto Scaling group.
@@ -1079,27 +976,27 @@ type CfnScalingPlan_ScalingInstructionProperty struct {
 	// - `dynamodb:index:ReadCapacityUnits` - The provisioned read capacity for a DynamoDB global secondary index.
 	// - `dynamodb:index:WriteCapacityUnits` - The provisioned write capacity for a DynamoDB global secondary index.
 	// - `rds:cluster:ReadReplicaCount` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
-	ScalableDimension *string `json:"scalableDimension" yaml:"scalableDimension"`
+	ScalableDimension *string `field:"required" json:"scalableDimension" yaml:"scalableDimension"`
 	// The namespace of the AWS service.
-	ServiceNamespace *string `json:"serviceNamespace" yaml:"serviceNamespace"`
+	ServiceNamespace *string `field:"required" json:"serviceNamespace" yaml:"serviceNamespace"`
 	// The target tracking configurations (up to 10).
 	//
 	// Each of these structures must specify a unique scaling metric and a target value for the metric.
-	TargetTrackingConfigurations interface{} `json:"targetTrackingConfigurations" yaml:"targetTrackingConfigurations"`
+	TargetTrackingConfigurations interface{} `field:"required" json:"targetTrackingConfigurations" yaml:"targetTrackingConfigurations"`
 	// The customized load metric to use for predictive scaling.
 	//
 	// This property or a *PredefinedLoadMetricSpecification* is required when configuring predictive scaling, and cannot be used otherwise.
-	CustomizedLoadMetricSpecification interface{} `json:"customizedLoadMetricSpecification" yaml:"customizedLoadMetricSpecification"`
+	CustomizedLoadMetricSpecification interface{} `field:"optional" json:"customizedLoadMetricSpecification" yaml:"customizedLoadMetricSpecification"`
 	// Controls whether dynamic scaling by AWS Auto Scaling is disabled.
 	//
 	// When dynamic scaling is enabled, AWS Auto Scaling creates target tracking scaling policies based on the specified target tracking configurations.
 	//
 	// The default is enabled ( `false` ).
-	DisableDynamicScaling interface{} `json:"disableDynamicScaling" yaml:"disableDynamicScaling"`
+	DisableDynamicScaling interface{} `field:"optional" json:"disableDynamicScaling" yaml:"disableDynamicScaling"`
 	// The predefined load metric to use for predictive scaling.
 	//
 	// This property or a *CustomizedLoadMetricSpecification* is required when configuring predictive scaling, and cannot be used otherwise.
-	PredefinedLoadMetricSpecification interface{} `json:"predefinedLoadMetricSpecification" yaml:"predefinedLoadMetricSpecification"`
+	PredefinedLoadMetricSpecification interface{} `field:"optional" json:"predefinedLoadMetricSpecification" yaml:"predefinedLoadMetricSpecification"`
 	// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource.
 	//
 	// The default value is `SetForecastCapacityToMaxCapacity` .
@@ -1111,7 +1008,7 @@ type CfnScalingPlan_ScalingInstructionProperty struct {
 	// - `SetMaxCapacityAboveForecastCapacity` - AWS Auto Scaling can scale resource capacity higher than the maximum capacity by a specified buffer value. The intention is to give the target tracking scaling policy extra capacity if unexpected traffic occurs.
 	//
 	// Valid only when configuring predictive scaling.
-	PredictiveScalingMaxCapacityBehavior *string `json:"predictiveScalingMaxCapacityBehavior" yaml:"predictiveScalingMaxCapacityBehavior"`
+	PredictiveScalingMaxCapacityBehavior *string `field:"optional" json:"predictiveScalingMaxCapacityBehavior" yaml:"predictiveScalingMaxCapacityBehavior"`
 	// The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
 	//
 	// The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer. With a 10 percent buffer, if the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum capacity is 55.
@@ -1119,17 +1016,17 @@ type CfnScalingPlan_ScalingInstructionProperty struct {
 	// Valid only when configuring predictive scaling. Required if *PredictiveScalingMaxCapacityBehavior* is set to `SetMaxCapacityAboveForecastCapacity` , and cannot be used otherwise.
 	//
 	// The range is 1-100.
-	PredictiveScalingMaxCapacityBuffer *float64 `json:"predictiveScalingMaxCapacityBuffer" yaml:"predictiveScalingMaxCapacityBuffer"`
+	PredictiveScalingMaxCapacityBuffer *float64 `field:"optional" json:"predictiveScalingMaxCapacityBuffer" yaml:"predictiveScalingMaxCapacityBuffer"`
 	// The predictive scaling mode.
 	//
 	// The default value is `ForecastAndScale` . Otherwise, AWS Auto Scaling forecasts capacity but does not apply any scheduled scaling actions based on the capacity forecast.
-	PredictiveScalingMode *string `json:"predictiveScalingMode" yaml:"predictiveScalingMode"`
+	PredictiveScalingMode *string `field:"optional" json:"predictiveScalingMode" yaml:"predictiveScalingMode"`
 	// Controls whether your scaling policies that are external to AWS Auto Scaling are deleted and new target tracking scaling policies created.
 	//
 	// The default value is `KeepExternalPolicies` .
 	//
 	// Valid only when configuring dynamic scaling.
-	ScalingPolicyUpdateBehavior *string `json:"scalingPolicyUpdateBehavior" yaml:"scalingPolicyUpdateBehavior"`
+	ScalingPolicyUpdateBehavior *string `field:"optional" json:"scalingPolicyUpdateBehavior" yaml:"scalingPolicyUpdateBehavior"`
 	// The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
 	//
 	// For example, if the forecast says to add capacity at 10:00 AM, and the buffer time is 5 minutes, then the run time of the corresponding scheduled scaling action will be 9:55 AM. The intention is to give resources time to be provisioned. For example, it can take a few minutes to launch an EC2 instance. The actual amount of time required depends on several factors, such as the size of the instance and whether there are startup scripts to complete.
@@ -1137,13 +1034,16 @@ type CfnScalingPlan_ScalingInstructionProperty struct {
 	// The value must be less than the forecast interval duration of 3600 seconds (60 minutes). The default is 300 seconds.
 	//
 	// Valid only when configuring predictive scaling.
-	ScheduledActionBufferTime *float64 `json:"scheduledActionBufferTime" yaml:"scheduledActionBufferTime"`
+	ScheduledActionBufferTime *float64 `field:"optional" json:"scheduledActionBufferTime" yaml:"scheduledActionBufferTime"`
 }
 
 // `TagFilter` is a subproperty of [ApplicationSource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html) that specifies a tag for an application source to use with AWS Auto Scaling ( Auto Scaling Plans ).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscalingplans "github.com/aws/aws-cdk-go/awscdk/aws_autoscalingplans"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagFilterProperty := &tagFilterProperty{
 //   	key: jsii.String("key"),
 //
@@ -1155,15 +1055,18 @@ type CfnScalingPlan_ScalingInstructionProperty struct {
 //
 type CfnScalingPlan_TagFilterProperty struct {
 	// The tag key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The tag values (0 to 20).
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // `TargetTrackingConfiguration` is a subproperty of [ScalingInstruction](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html) that specifies a target tracking configuration to use with AWS Auto Scaling ( Auto Scaling Plans ).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscalingplans "github.com/aws/aws-cdk-go/awscdk/aws_autoscalingplans"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetTrackingConfigurationProperty := &targetTrackingConfigurationProperty{
 //   	targetValue: jsii.Number(123),
 //
@@ -1198,39 +1101,42 @@ type CfnScalingPlan_TargetTrackingConfigurationProperty struct {
 	// The target value for the metric.
 	//
 	// Although this property accepts numbers of type Double, it won't accept values that are either too small or too large. Values must be in the range of -2^360 to 2^360.
-	TargetValue *float64 `json:"targetValue" yaml:"targetValue"`
+	TargetValue *float64 `field:"required" json:"targetValue" yaml:"targetValue"`
 	// A customized metric.
 	//
 	// You can specify either a predefined metric or a customized metric.
-	CustomizedScalingMetricSpecification interface{} `json:"customizedScalingMetricSpecification" yaml:"customizedScalingMetricSpecification"`
+	CustomizedScalingMetricSpecification interface{} `field:"optional" json:"customizedScalingMetricSpecification" yaml:"customizedScalingMetricSpecification"`
 	// Indicates whether scale in by the target tracking scaling policy is disabled.
 	//
 	// If the value is `true` , scale in is disabled and the target tracking scaling policy doesn't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable resource.
 	//
 	// The default value is `false` .
-	DisableScaleIn interface{} `json:"disableScaleIn" yaml:"disableScaleIn"`
+	DisableScaleIn interface{} `field:"optional" json:"disableScaleIn" yaml:"disableScaleIn"`
 	// The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
 	//
 	// This value is used only if the resource is an Auto Scaling group.
-	EstimatedInstanceWarmup *float64 `json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
+	EstimatedInstanceWarmup *float64 `field:"optional" json:"estimatedInstanceWarmup" yaml:"estimatedInstanceWarmup"`
 	// A predefined metric.
 	//
 	// You can specify either a predefined metric or a customized metric.
-	PredefinedScalingMetricSpecification interface{} `json:"predefinedScalingMetricSpecification" yaml:"predefinedScalingMetricSpecification"`
+	PredefinedScalingMetricSpecification interface{} `field:"optional" json:"predefinedScalingMetricSpecification" yaml:"predefinedScalingMetricSpecification"`
 	// The amount of time, in seconds, after a scale-in activity completes before another scale in activity can start.
 	//
 	// This value is not used if the scalable resource is an Auto Scaling group.
-	ScaleInCooldown *float64 `json:"scaleInCooldown" yaml:"scaleInCooldown"`
+	ScaleInCooldown *float64 `field:"optional" json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
 	//
 	// This value is not used if the scalable resource is an Auto Scaling group.
-	ScaleOutCooldown *float64 `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
+	ScaleOutCooldown *float64 `field:"optional" json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 }
 
 // Properties for defining a `CfnScalingPlan`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscalingplans "github.com/aws/aws-cdk-go/awscdk/aws_autoscalingplans"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnScalingPlanProps := &cfnScalingPlanProps{
 //   	applicationSource: &applicationSourceProperty{
 //   		cloudFormationStackArn: jsii.String("cloudFormationStackArn"),
@@ -1319,8 +1225,8 @@ type CfnScalingPlanProps struct {
 	// A CloudFormation stack or a set of tags.
 	//
 	// You can create one scaling plan per application source. The `ApplicationSource` property must be present to ensure interoperability with the AWS Auto Scaling console.
-	ApplicationSource interface{} `json:"applicationSource" yaml:"applicationSource"`
+	ApplicationSource interface{} `field:"required" json:"applicationSource" yaml:"applicationSource"`
 	// The scaling instructions.
-	ScalingInstructions interface{} `json:"scalingInstructions" yaml:"scalingInstructions"`
+	ScalingInstructions interface{} `field:"required" json:"scalingInstructions" yaml:"scalingInstructions"`
 }
 

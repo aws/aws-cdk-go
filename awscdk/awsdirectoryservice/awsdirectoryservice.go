@@ -1,12 +1,12 @@
 package awsdirectoryservice
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsdirectoryservice/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdirectoryservice/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::DirectoryService::MicrosoftAD`.
@@ -14,8 +14,11 @@ import (
 // The `AWS::DirectoryService::MicrosoftAD` resource specifies a Microsoft Active Directory in AWS so that your directory users and groups can access the AWS Management Console and AWS applications using their existing credentials. For more information, see [AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) in the *AWS Directory Service Admin Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import directoryservice "github.com/aws/aws-cdk-go/awscdk/aws_directoryservice"
-//   cfnMicrosoftAD := directoryservice.NewCfnMicrosoftAD(this, jsii.String("MyCfnMicrosoftAD"), &cfnMicrosoftADProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMicrosoftAD := awscdk.Aws_directoryservice.NewCfnMicrosoftAD(this, jsii.String("MyCfnMicrosoftAD"), &cfnMicrosoftADProps{
 //   	name: jsii.String("name"),
 //   	password: jsii.String("password"),
 //   	vpcSettings: &vpcSettingsProperty{
@@ -42,11 +45,9 @@ type CfnMicrosoftAD interface {
 	// The IP addresses of the DNS servers for the directory, such as `[ "192.0.2.1", "192.0.2.2" ]` .
 	AttrDnsIpAddresses() *[]*string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Specifies an alias for a directory and assigns the alias to the directory.
 	//
@@ -58,7 +59,6 @@ type CfnMicrosoftAD interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// AWS Managed Microsoft AD is available in two editions: `Standard` and `Enterprise` .
 	//
@@ -79,14 +79,12 @@ type CfnMicrosoftAD interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The fully qualified domain name for the AWS Managed Microsoft AD directory, such as `corp.example.com` . This name will resolve inside your VPC only. It does not need to be publicly resolvable.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The password for the default administrative user named `Admin` .
 	//
 	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
@@ -96,7 +94,6 @@ type CfnMicrosoftAD interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The NetBIOS name for your domain, such as `CORP` .
 	//
@@ -106,25 +103,21 @@ type CfnMicrosoftAD interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Specifies the VPC settings of the Microsoft AD directory server in AWS .
 	VpcSettings() interface{}
 	SetVpcSettings(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -133,7 +126,6 @@ type CfnMicrosoftAD interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -178,15 +170,12 @@ type CfnMicrosoftAD interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -197,13 +186,11 @@ type CfnMicrosoftAD interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -212,74 +199,21 @@ type CfnMicrosoftAD interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -399,8 +333,8 @@ func (j *jsiiProxy_CfnMicrosoftAD) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMicrosoftAD) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnMicrosoftAD) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -471,13 +405,13 @@ func (j *jsiiProxy_CfnMicrosoftAD) VpcSettings() interface{} {
 
 
 // Create a new `AWS::DirectoryService::MicrosoftAD`.
-func NewCfnMicrosoftAD(scope awscdk.Construct, id *string, props *CfnMicrosoftADProps) CfnMicrosoftAD {
+func NewCfnMicrosoftAD(scope constructs.Construct, id *string, props *CfnMicrosoftADProps) CfnMicrosoftAD {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnMicrosoftAD{}
 
 	_jsii_.Create(
-		"monocdk.aws_directoryservice.CfnMicrosoftAD",
+		"aws-cdk-lib.aws_directoryservice.CfnMicrosoftAD",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -486,11 +420,11 @@ func NewCfnMicrosoftAD(scope awscdk.Construct, id *string, props *CfnMicrosoftAD
 }
 
 // Create a new `AWS::DirectoryService::MicrosoftAD`.
-func NewCfnMicrosoftAD_Override(c CfnMicrosoftAD, scope awscdk.Construct, id *string, props *CfnMicrosoftADProps) {
+func NewCfnMicrosoftAD_Override(c CfnMicrosoftAD, scope constructs.Construct, id *string, props *CfnMicrosoftADProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_directoryservice.CfnMicrosoftAD",
+		"aws-cdk-lib.aws_directoryservice.CfnMicrosoftAD",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -558,14 +492,13 @@ func (j *jsiiProxy_CfnMicrosoftAD) SetVpcSettings(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnMicrosoftAD_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_directoryservice.CfnMicrosoftAD",
+		"aws-cdk-lib.aws_directoryservice.CfnMicrosoftAD",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -575,14 +508,13 @@ func CfnMicrosoftAD_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnMicrosoftAD_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_directoryservice.CfnMicrosoftAD",
+		"aws-cdk-lib.aws_directoryservice.CfnMicrosoftAD",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -591,15 +523,17 @@ func CfnMicrosoftAD_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnMicrosoftAD_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_directoryservice.CfnMicrosoftAD",
+		"aws-cdk-lib.aws_directoryservice.CfnMicrosoftAD",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -612,7 +546,7 @@ func CfnMicrosoftAD_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_directoryservice.CfnMicrosoftAD",
+		"aws-cdk-lib.aws_directoryservice.CfnMicrosoftAD",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -709,48 +643,11 @@ func (c *jsiiProxy_CfnMicrosoftAD) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnMicrosoftAD) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnMicrosoftAD) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnMicrosoftAD) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnMicrosoftAD) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnMicrosoftAD) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -780,33 +677,12 @@ func (c *jsiiProxy_CfnMicrosoftAD) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnMicrosoftAD) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnMicrosoftAD) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnMicrosoftAD) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -825,7 +701,10 @@ func (c *jsiiProxy_CfnMicrosoftAD) ValidateProperties(_properties interface{}) {
 // Contains VPC information for the [CreateDirectory](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html) or [CreateMicrosoftAD](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateMicrosoftAD.html) operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import directoryservice "github.com/aws/aws-cdk-go/awscdk/aws_directoryservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcSettingsProperty := &vpcSettingsProperty{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -837,15 +716,18 @@ type CfnMicrosoftAD_VpcSettingsProperty struct {
 	// The identifiers of the subnets for the directory servers.
 	//
 	// The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The identifier of the VPC in which to create the directory.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 }
 
 // Properties for defining a `CfnMicrosoftAD`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import directoryservice "github.com/aws/aws-cdk-go/awscdk/aws_directoryservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMicrosoftADProps := &cfnMicrosoftADProps{
 //   	name: jsii.String("name"),
 //   	password: jsii.String("password"),
@@ -865,31 +747,31 @@ type CfnMicrosoftAD_VpcSettingsProperty struct {
 //
 type CfnMicrosoftADProps struct {
 	// The fully qualified domain name for the AWS Managed Microsoft AD directory, such as `corp.example.com` . This name will resolve inside your VPC only. It does not need to be publicly resolvable.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The password for the default administrative user named `Admin` .
 	//
 	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// Specifies the VPC settings of the Microsoft AD directory server in AWS .
-	VpcSettings interface{} `json:"vpcSettings" yaml:"vpcSettings"`
+	VpcSettings interface{} `field:"required" json:"vpcSettings" yaml:"vpcSettings"`
 	// Specifies an alias for a directory and assigns the alias to the directory.
 	//
 	// The alias is used to construct the access URL for the directory, such as `http://<alias>.awsapps.com` . By default, AWS CloudFormation does not create an alias.
 	//
 	// > After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
-	CreateAlias interface{} `json:"createAlias" yaml:"createAlias"`
+	CreateAlias interface{} `field:"optional" json:"createAlias" yaml:"createAlias"`
 	// AWS Managed Microsoft AD is available in two editions: `Standard` and `Enterprise` .
 	//
 	// `Enterprise` is the default.
-	Edition *string `json:"edition" yaml:"edition"`
+	Edition *string `field:"optional" json:"edition" yaml:"edition"`
 	// Whether to enable single sign-on for a Microsoft Active Directory in AWS .
 	//
 	// Single sign-on allows users in your directory to access certain AWS services from a computer joined to the directory without having to enter their credentials separately. If you don't specify a value, AWS CloudFormation disables single sign-on by default.
-	EnableSso interface{} `json:"enableSso" yaml:"enableSso"`
+	EnableSso interface{} `field:"optional" json:"enableSso" yaml:"enableSso"`
 	// The NetBIOS name for your domain, such as `CORP` .
 	//
 	// If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, `CORP` for the directory DNS `corp.example.com` .
-	ShortName *string `json:"shortName" yaml:"shortName"`
+	ShortName *string `field:"optional" json:"shortName" yaml:"shortName"`
 }
 
 // A CloudFormation `AWS::DirectoryService::SimpleAD`.
@@ -897,8 +779,11 @@ type CfnMicrosoftADProps struct {
 // The `AWS::DirectoryService::SimpleAD` resource specifies an AWS Directory Service Simple Active Directory ( Simple AD ) in AWS so that your directory users and groups can access the AWS Management Console and AWS applications using their existing credentials. Simple AD is a Microsoft Active Directory–compatible directory. For more information, see [Simple Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html) in the *AWS Directory Service Admin Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import directoryservice "github.com/aws/aws-cdk-go/awscdk/aws_directoryservice"
-//   cfnSimpleAD := directoryservice.NewCfnSimpleAD(this, jsii.String("MyCfnSimpleAD"), &cfnSimpleADProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSimpleAD := awscdk.Aws_directoryservice.NewCfnSimpleAD(this, jsii.String("MyCfnSimpleAD"), &cfnSimpleADProps{
 //   	name: jsii.String("name"),
 //   	password: jsii.String("password"),
 //   	size: jsii.String("size"),
@@ -926,11 +811,9 @@ type CfnSimpleAD interface {
 	// The IP addresses of the DNS servers for the directory, such as `[ "172.31.3.154", "172.31.63.203" ]` .
 	AttrDnsIpAddresses() *[]*string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// If set to `true` , specifies an alias for a directory and assigns the alias to the directory.
 	//
@@ -942,7 +825,6 @@ type CfnSimpleAD interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A description for the directory.
 	Description() *string
@@ -961,14 +843,12 @@ type CfnSimpleAD interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The fully qualified name for the directory, such as `corp.example.com` .
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The password for the directory administrator.
 	//
 	// The directory creation process creates a directory administrator account with the user name `Administrator` and this password.
@@ -980,7 +860,6 @@ type CfnSimpleAD interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The NetBIOS name of the directory, such as `CORP` .
 	ShortName() *string
@@ -993,25 +872,21 @@ type CfnSimpleAD interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// A [DirectoryVpcSettings](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DirectoryVpcSettings.html) object that contains additional information for the operation.
 	VpcSettings() interface{}
 	SetVpcSettings(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1020,7 +895,6 @@ type CfnSimpleAD interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1065,15 +939,12 @@ type CfnSimpleAD interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1084,13 +955,11 @@ type CfnSimpleAD interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1099,74 +968,21 @@ type CfnSimpleAD interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1286,8 +1102,8 @@ func (j *jsiiProxy_CfnSimpleAD) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSimpleAD) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnSimpleAD) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1368,13 +1184,13 @@ func (j *jsiiProxy_CfnSimpleAD) VpcSettings() interface{} {
 
 
 // Create a new `AWS::DirectoryService::SimpleAD`.
-func NewCfnSimpleAD(scope awscdk.Construct, id *string, props *CfnSimpleADProps) CfnSimpleAD {
+func NewCfnSimpleAD(scope constructs.Construct, id *string, props *CfnSimpleADProps) CfnSimpleAD {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSimpleAD{}
 
 	_jsii_.Create(
-		"monocdk.aws_directoryservice.CfnSimpleAD",
+		"aws-cdk-lib.aws_directoryservice.CfnSimpleAD",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1383,11 +1199,11 @@ func NewCfnSimpleAD(scope awscdk.Construct, id *string, props *CfnSimpleADProps)
 }
 
 // Create a new `AWS::DirectoryService::SimpleAD`.
-func NewCfnSimpleAD_Override(c CfnSimpleAD, scope awscdk.Construct, id *string, props *CfnSimpleADProps) {
+func NewCfnSimpleAD_Override(c CfnSimpleAD, scope constructs.Construct, id *string, props *CfnSimpleADProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_directoryservice.CfnSimpleAD",
+		"aws-cdk-lib.aws_directoryservice.CfnSimpleAD",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1463,14 +1279,13 @@ func (j *jsiiProxy_CfnSimpleAD) SetVpcSettings(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSimpleAD_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_directoryservice.CfnSimpleAD",
+		"aws-cdk-lib.aws_directoryservice.CfnSimpleAD",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1480,14 +1295,13 @@ func CfnSimpleAD_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSimpleAD_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_directoryservice.CfnSimpleAD",
+		"aws-cdk-lib.aws_directoryservice.CfnSimpleAD",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1496,15 +1310,17 @@ func CfnSimpleAD_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnSimpleAD_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_directoryservice.CfnSimpleAD",
+		"aws-cdk-lib.aws_directoryservice.CfnSimpleAD",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1517,7 +1333,7 @@ func CfnSimpleAD_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_directoryservice.CfnSimpleAD",
+		"aws-cdk-lib.aws_directoryservice.CfnSimpleAD",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1614,48 +1430,11 @@ func (c *jsiiProxy_CfnSimpleAD) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnSimpleAD) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnSimpleAD) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnSimpleAD) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnSimpleAD) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnSimpleAD) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1685,33 +1464,12 @@ func (c *jsiiProxy_CfnSimpleAD) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnSimpleAD) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnSimpleAD) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnSimpleAD) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1730,7 +1488,10 @@ func (c *jsiiProxy_CfnSimpleAD) ValidateProperties(_properties interface{}) {
 // Contains VPC information for the [CreateDirectory](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html) or [CreateMicrosoftAD](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateMicrosoftAD.html) operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import directoryservice "github.com/aws/aws-cdk-go/awscdk/aws_directoryservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcSettingsProperty := &vpcSettingsProperty{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -1742,15 +1503,18 @@ type CfnSimpleAD_VpcSettingsProperty struct {
 	// The identifiers of the subnets for the directory servers.
 	//
 	// The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The identifier of the VPC in which to create the directory.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 }
 
 // Properties for defining a `CfnSimpleAD`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import directoryservice "github.com/aws/aws-cdk-go/awscdk/aws_directoryservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSimpleADProps := &cfnSimpleADProps{
 //   	name: jsii.String("name"),
 //   	password: jsii.String("password"),
@@ -1771,32 +1535,32 @@ type CfnSimpleAD_VpcSettingsProperty struct {
 //
 type CfnSimpleADProps struct {
 	// The fully qualified name for the directory, such as `corp.example.com` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The password for the directory administrator.
 	//
 	// The directory creation process creates a directory administrator account with the user name `Administrator` and this password.
 	//
 	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// The size of the directory.
 	//
 	// For valid values, see [CreateDirectory](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html) in the *AWS Directory Service API Reference* .
-	Size *string `json:"size" yaml:"size"`
+	Size *string `field:"required" json:"size" yaml:"size"`
 	// A [DirectoryVpcSettings](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DirectoryVpcSettings.html) object that contains additional information for the operation.
-	VpcSettings interface{} `json:"vpcSettings" yaml:"vpcSettings"`
+	VpcSettings interface{} `field:"required" json:"vpcSettings" yaml:"vpcSettings"`
 	// If set to `true` , specifies an alias for a directory and assigns the alias to the directory.
 	//
 	// The alias is used to construct the access URL for the directory, such as `http://<alias>.awsapps.com` . By default, this property is set to `false` .
 	//
 	// > After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
-	CreateAlias interface{} `json:"createAlias" yaml:"createAlias"`
+	CreateAlias interface{} `field:"optional" json:"createAlias" yaml:"createAlias"`
 	// A description for the directory.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Whether to enable single sign-on for a directory.
 	//
 	// If you don't specify a value, AWS CloudFormation disables single sign-on by default.
-	EnableSso interface{} `json:"enableSso" yaml:"enableSso"`
+	EnableSso interface{} `field:"optional" json:"enableSso" yaml:"enableSso"`
 	// The NetBIOS name of the directory, such as `CORP` .
-	ShortName *string `json:"shortName" yaml:"shortName"`
+	ShortName *string `field:"optional" json:"shortName" yaml:"shortName"`
 }
 

@@ -1,19 +1,19 @@
 package awsopensearchservice
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/awsopensearchservice/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Specifies options for fine-grained access control.
@@ -37,25 +37,21 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type AdvancedSecurityOptions struct {
 	// ARN for the master user.
 	//
 	// Only specify this or masterUserName, but not both.
-	// Experimental.
-	MasterUserArn *string `json:"masterUserArn" yaml:"masterUserArn"`
+	MasterUserArn *string `field:"optional" json:"masterUserArn" yaml:"masterUserArn"`
 	// Username for the master user.
 	//
 	// Only specify this or masterUserArn, but not both.
-	// Experimental.
-	MasterUserName *string `json:"masterUserName" yaml:"masterUserName"`
+	MasterUserName *string `field:"optional" json:"masterUserName" yaml:"masterUserName"`
 	// Password for the master user.
 	//
 	// You can use `SecretValue.unsafePlainText` to specify a password in plain text or
 	// use `secretsmanager.Secret.fromSecretAttributes` to reference a secret in
 	// Secrets Manager.
-	// Experimental.
-	MasterUserPassword awscdk.SecretValue `json:"masterUserPassword" yaml:"masterUserPassword"`
+	MasterUserPassword awscdk.SecretValue `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
 }
 
 // Configures the capacity of the cluster such as the instance type and the number of instances.
@@ -70,26 +66,19 @@ type AdvancedSecurityOptions struct {
 //   	},
 //   })
 //
-// Experimental.
 type CapacityConfig struct {
 	// The instance type for your data nodes, such as `m3.medium.search`. For valid values, see [Supported Instance Types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) in the Amazon OpenSearch Service Developer Guide.
-	// Experimental.
-	DataNodeInstanceType *string `json:"dataNodeInstanceType" yaml:"dataNodeInstanceType"`
+	DataNodeInstanceType *string `field:"optional" json:"dataNodeInstanceType" yaml:"dataNodeInstanceType"`
 	// The number of data nodes (instances) to use in the Amazon OpenSearch Service domain.
-	// Experimental.
-	DataNodes *float64 `json:"dataNodes" yaml:"dataNodes"`
+	DataNodes *float64 `field:"optional" json:"dataNodes" yaml:"dataNodes"`
 	// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search`. For valid values, see [Supported Instance Types] (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) in the Amazon OpenSearch Service Developer Guide.
-	// Experimental.
-	MasterNodeInstanceType *string `json:"masterNodeInstanceType" yaml:"masterNodeInstanceType"`
+	MasterNodeInstanceType *string `field:"optional" json:"masterNodeInstanceType" yaml:"masterNodeInstanceType"`
 	// The number of instances to use for the master node.
-	// Experimental.
-	MasterNodes *float64 `json:"masterNodes" yaml:"masterNodes"`
+	MasterNodes *float64 `field:"optional" json:"masterNodes" yaml:"masterNodes"`
 	// The instance type for your UltraWarm node, such as `ultrawarm1.medium.search`. For valid values, see [UltraWarm Storage Limits] (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#limits-ultrawarm) in the Amazon OpenSearch Service Developer Guide.
-	// Experimental.
-	WarmInstanceType *string `json:"warmInstanceType" yaml:"warmInstanceType"`
+	WarmInstanceType *string `field:"optional" json:"warmInstanceType" yaml:"warmInstanceType"`
 	// The number of UltraWarm nodes (instances) to use in the Amazon OpenSearch Service domain.
-	// Experimental.
-	WarmNodes *float64 `json:"warmNodes" yaml:"warmNodes"`
+	WarmNodes *float64 `field:"optional" json:"warmNodes" yaml:"warmNodes"`
 }
 
 // A CloudFormation `AWS::OpenSearchService::Domain`.
@@ -99,10 +88,13 @@ type CapacityConfig struct {
 // > The `AWS::OpenSearchService::Domain` resource replaces the legacy [AWS::Elasticsearch::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html) resource. While the Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and legacy Elasticsearch engines. For instructions to upgrade domains defined within CloudFormation from Elasticsearch to OpenSearch, see [Remarks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--remarks) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var accessPolicies interface{}
-//   cfnDomain := opensearchservice.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
+//
+//   cfnDomain := awscdk.Aws_opensearchservice.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
 //   	accessPolicies: accessPolicies,
 //   	advancedOptions: map[string]*string{
 //   		"advancedOptionsKey": jsii.String("advancedOptions"),
@@ -208,11 +200,9 @@ type CfnDomain interface {
 	// For example, `123456789012/my-domain` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// `ClusterConfig` is a property of the AWS::OpenSearchService::Domain resource that configures an Amazon OpenSearch Service cluster.
 	ClusterConfig() interface{}
@@ -223,7 +213,6 @@ type CfnDomain interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
 	DomainEndpointOptions() interface{}
@@ -263,16 +252,14 @@ type CfnDomain interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish.
 	//
 	// Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
 	LogPublishingOptions() interface{}
 	SetLogPublishingOptions(val interface{})
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Specifies whether node-to-node encryption is enabled.
 	//
 	// See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
@@ -282,7 +269,6 @@ type CfnDomain interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// *DEPRECATED* .
 	//
@@ -292,7 +278,6 @@ type CfnDomain interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Service domain.
 	Tags() awscdk.TagManager
@@ -300,7 +285,6 @@ type CfnDomain interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain.
 	//
@@ -308,13 +292,11 @@ type CfnDomain interface {
 	VpcOptions() interface{}
 	SetVpcOptions(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -323,7 +305,6 @@ type CfnDomain interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -368,15 +349,12 @@ type CfnDomain interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -387,13 +365,11 @@ type CfnDomain interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -402,74 +378,21 @@ type CfnDomain interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -669,8 +592,8 @@ func (j *jsiiProxy_CfnDomain) LogPublishingOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnDomain) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -751,13 +674,13 @@ func (j *jsiiProxy_CfnDomain) VpcOptions() interface{} {
 
 
 // Create a new `AWS::OpenSearchService::Domain`.
-func NewCfnDomain(scope awscdk.Construct, id *string, props *CfnDomainProps) CfnDomain {
+func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDomain{}
 
 	_jsii_.Create(
-		"monocdk.aws_opensearchservice.CfnDomain",
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -766,11 +689,11 @@ func NewCfnDomain(scope awscdk.Construct, id *string, props *CfnDomainProps) Cfn
 }
 
 // Create a new `AWS::OpenSearchService::Domain`.
-func NewCfnDomain_Override(c CfnDomain, scope awscdk.Construct, id *string, props *CfnDomainProps) {
+func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_opensearchservice.CfnDomain",
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -894,14 +817,13 @@ func (j *jsiiProxy_CfnDomain) SetVpcOptions(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDomain_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_opensearchservice.CfnDomain",
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -911,14 +833,13 @@ func CfnDomain_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDomain_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_opensearchservice.CfnDomain",
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -927,15 +848,17 @@ func CfnDomain_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnDomain_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_opensearchservice.CfnDomain",
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -948,7 +871,7 @@ func CfnDomain_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.CfnDomain",
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1045,48 +968,11 @@ func (c *jsiiProxy_CfnDomain) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnDomain) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnDomain) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnDomain) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnDomain) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnDomain) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1116,33 +1002,12 @@ func (c *jsiiProxy_CfnDomain) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnDomain) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnDomain) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnDomain) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1161,7 +1026,10 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 // Specifies options for fine-grained access control.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   advancedSecurityOptionsInputProperty := &advancedSecurityOptionsInputProperty{
 //   	enabled: jsii.Boolean(false),
 //   	internalUserDatabaseEnabled: jsii.Boolean(false),
@@ -1176,11 +1044,11 @@ type CfnDomain_AdvancedSecurityOptionsInputProperty struct {
 	// True to enable fine-grained access control.
 	//
 	// You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// True to enable the internal user database.
-	InternalUserDatabaseEnabled interface{} `json:"internalUserDatabaseEnabled" yaml:"internalUserDatabaseEnabled"`
+	InternalUserDatabaseEnabled interface{} `field:"optional" json:"internalUserDatabaseEnabled" yaml:"internalUserDatabaseEnabled"`
 	// Specifies information about the master user.
-	MasterUserOptions interface{} `json:"masterUserOptions" yaml:"masterUserOptions"`
+	MasterUserOptions interface{} `field:"optional" json:"masterUserOptions" yaml:"masterUserOptions"`
 }
 
 // The cluster configuration for the OpenSearch Service domain.
@@ -1188,7 +1056,10 @@ type CfnDomain_AdvancedSecurityOptionsInputProperty struct {
 // You can specify options such as the instance type and the number of instances. For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clusterConfigProperty := &clusterConfigProperty{
 //   	dedicatedMasterCount: jsii.Number(123),
 //   	dedicatedMasterEnabled: jsii.Boolean(false),
@@ -1208,39 +1079,42 @@ type CfnDomain_ClusterConfigProperty struct {
 	// The number of instances to use for the master node.
 	//
 	// If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
-	DedicatedMasterCount *float64 `json:"dedicatedMasterCount" yaml:"dedicatedMasterCount"`
+	DedicatedMasterCount *float64 `field:"optional" json:"dedicatedMasterCount" yaml:"dedicatedMasterCount"`
 	// Indicates whether to use a dedicated master node for the OpenSearch Service domain.
 	//
 	// A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
-	DedicatedMasterEnabled interface{} `json:"dedicatedMasterEnabled" yaml:"dedicatedMasterEnabled"`
+	DedicatedMasterEnabled interface{} `field:"optional" json:"dedicatedMasterEnabled" yaml:"dedicatedMasterEnabled"`
 	// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search` . If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
-	DedicatedMasterType *string `json:"dedicatedMasterType" yaml:"dedicatedMasterType"`
+	DedicatedMasterType *string `field:"optional" json:"dedicatedMasterType" yaml:"dedicatedMasterType"`
 	// The number of data nodes (instances) to use in the OpenSearch Service domain.
-	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
+	InstanceCount *float64 `field:"optional" json:"instanceCount" yaml:"instanceCount"`
 	// The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The number of warm nodes in the cluster.
-	WarmCount *float64 `json:"warmCount" yaml:"warmCount"`
+	WarmCount *float64 `field:"optional" json:"warmCount" yaml:"warmCount"`
 	// Whether to enable UltraWarm storage for the cluster.
 	//
 	// See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
-	WarmEnabled interface{} `json:"warmEnabled" yaml:"warmEnabled"`
+	WarmEnabled interface{} `field:"optional" json:"warmEnabled" yaml:"warmEnabled"`
 	// The instance type for the cluster's warm nodes.
-	WarmType *string `json:"warmType" yaml:"warmType"`
+	WarmType *string `field:"optional" json:"warmType" yaml:"warmType"`
 	// Specifies zone awareness configuration options.
 	//
 	// Only use if `ZoneAwarenessEnabled` is `true` .
-	ZoneAwarenessConfig interface{} `json:"zoneAwarenessConfig" yaml:"zoneAwarenessConfig"`
+	ZoneAwarenessConfig interface{} `field:"optional" json:"zoneAwarenessConfig" yaml:"zoneAwarenessConfig"`
 	// Indicates whether to enable zone awareness for the OpenSearch Service domain.
 	//
 	// When you enable zone awareness, OpenSearch Service allocates the nodes and replica index shards that belong to a cluster across two Availability Zones (AZs) in the same region to prevent data loss and minimize downtime in the event of node or data center failure. Don't enable zone awareness if your cluster has no replica index shards or is a single-node cluster. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html) .
-	ZoneAwarenessEnabled interface{} `json:"zoneAwarenessEnabled" yaml:"zoneAwarenessEnabled"`
+	ZoneAwarenessEnabled interface{} `field:"optional" json:"zoneAwarenessEnabled" yaml:"zoneAwarenessEnabled"`
 }
 
 // Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cognitoOptionsProperty := &cognitoOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //   	identityPoolId: jsii.String("identityPoolId"),
@@ -1252,25 +1126,28 @@ type CfnDomain_CognitoOptionsProperty struct {
 	// Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards.
 	//
 	// See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
 	//
 	// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
-	IdentityPoolId *string `json:"identityPoolId" yaml:"identityPoolId"`
+	IdentityPoolId *string `field:"optional" json:"identityPoolId" yaml:"identityPoolId"`
 	// The `AmazonOpenSearchServiceCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
 	//
 	// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
 	//
 	// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 }
 
 // Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainEndpointOptionsProperty := &domainEndpointOptionsProperty{
 //   	customEndpoint: jsii.String("customEndpoint"),
 //   	customEndpointCertificateArn: jsii.String("customEndpointCertificateArn"),
@@ -1283,22 +1160,22 @@ type CfnDomain_DomainEndpointOptionsProperty struct {
 	// The fully qualified URL for your custom endpoint.
 	//
 	// Required if you enabled a custom endpoint for the domain.
-	CustomEndpoint *string `json:"customEndpoint" yaml:"customEndpoint"`
+	CustomEndpoint *string `field:"optional" json:"customEndpoint" yaml:"customEndpoint"`
 	// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate.
 	//
 	// Required if you enabled a custom endpoint for the domain.
-	CustomEndpointCertificateArn *string `json:"customEndpointCertificateArn" yaml:"customEndpointCertificateArn"`
+	CustomEndpointCertificateArn *string `field:"optional" json:"customEndpointCertificateArn" yaml:"customEndpointCertificateArn"`
 	// True to enable a custom endpoint for the domain.
 	//
 	// If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
-	CustomEndpointEnabled interface{} `json:"customEndpointEnabled" yaml:"customEndpointEnabled"`
+	CustomEndpointEnabled interface{} `field:"optional" json:"customEndpointEnabled" yaml:"customEndpointEnabled"`
 	// True to require that all traffic to the domain arrive over HTTPS.
-	EnforceHttps interface{} `json:"enforceHttps" yaml:"enforceHttps"`
+	EnforceHttps interface{} `field:"optional" json:"enforceHttps" yaml:"enforceHttps"`
 	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.0 (default) or 1.2:.
 	//
 	// - `Policy-Min-TLS-1-0-2019-07`
 	// - `Policy-Min-TLS-1-2-2019-07`.
-	TlsSecurityPolicy *string `json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
+	TlsSecurityPolicy *string `field:"optional" json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
 }
 
 // The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain.
@@ -1306,7 +1183,10 @@ type CfnDomain_DomainEndpointOptionsProperty struct {
 // For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eBSOptionsProperty := &eBSOptionsProperty{
 //   	ebsEnabled: jsii.Boolean(false),
 //   	iops: jsii.Number(123),
@@ -1316,25 +1196,28 @@ type CfnDomain_DomainEndpointOptionsProperty struct {
 //
 type CfnDomain_EBSOptionsProperty struct {
 	// Specifies whether Amazon EBS volumes are attached to data nodes in the OpenSearch Service domain.
-	EbsEnabled interface{} `json:"ebsEnabled" yaml:"ebsEnabled"`
+	EbsEnabled interface{} `field:"optional" json:"ebsEnabled" yaml:"ebsEnabled"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// This property applies only to the Provisioned IOPS (SSD) EBS volume type.
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The size (in GiB) of the EBS volume for each data node.
 	//
 	// The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
-	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
+	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// The EBS volume type to use with the OpenSearch Service domain, such as standard, gp2, or io1.
 	//
 	// For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
-	VolumeType *string `json:"volumeType" yaml:"volumeType"`
+	VolumeType *string `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 
 // Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionAtRestOptionsProperty := &encryptionAtRestOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //   	kmsKeyId: jsii.String("kmsKeyId"),
@@ -1342,11 +1225,11 @@ type CfnDomain_EBSOptionsProperty struct {
 //
 type CfnDomain_EncryptionAtRestOptionsProperty struct {
 	// Specify `true` to enable encryption at rest.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The KMS key ID.
 	//
 	// Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // Specifies whether the OpenSearch Service domain publishes application, search slow logs, or index slow logs to Amazon CloudWatch.
@@ -1356,7 +1239,10 @@ type CfnDomain_EncryptionAtRestOptionsProperty struct {
 // Before you enable log publishing, you need to create a CloudWatch log group and provide OpenSearch Service the correct permissions to write to it. To learn more, see [Enabling log publishing ( AWS CloudFormation)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createdomain-configure-slow-logs.html#createdomain-configure-slow-logs-cfn) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logPublishingOptionProperty := &logPublishingOptionProperty{
 //   	cloudWatchLogsLogGroupArn: jsii.String("cloudWatchLogsLogGroupArn"),
 //   	enabled: jsii.Boolean(false),
@@ -1366,11 +1252,11 @@ type CfnDomain_LogPublishingOptionProperty struct {
 	// Specifies the CloudWatch log group to publish to.
 	//
 	// Required if you enable log publishing.
-	CloudWatchLogsLogGroupArn *string `json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
+	CloudWatchLogsLogGroupArn *string `field:"optional" json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
 	// If `true` , enables the publishing of logs to CloudWatch.
 	//
 	// Default: `false` .
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Specifies information about the master user.
@@ -1378,7 +1264,10 @@ type CfnDomain_LogPublishingOptionProperty struct {
 // Required if if `InternalUserDatabaseEnabled` is true in `AdvancedSecurityOptions` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   masterUserOptionsProperty := &masterUserOptionsProperty{
 //   	masterUserArn: jsii.String("masterUserArn"),
 //   	masterUserName: jsii.String("masterUserName"),
@@ -1389,28 +1278,31 @@ type CfnDomain_MasterUserOptionsProperty struct {
 	// ARN for the master user.
 	//
 	// Only specify if `InternalUserDatabaseEnabled` is false in `AdvancedSecurityOptions` .
-	MasterUserArn *string `json:"masterUserArn" yaml:"masterUserArn"`
+	MasterUserArn *string `field:"optional" json:"masterUserArn" yaml:"masterUserArn"`
 	// Username for the master user.
 	//
 	// Only specify if `InternalUserDatabaseEnabled` is true in `AdvancedSecurityOptions` . If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
-	MasterUserName *string `json:"masterUserName" yaml:"masterUserName"`
+	MasterUserName *string `field:"optional" json:"masterUserName" yaml:"masterUserName"`
 	// Password for the master user.
 	//
 	// Only specify if `InternalUserDatabaseEnabled` is true in `AdvancedSecurityOptions` . If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
-	MasterUserPassword *string `json:"masterUserPassword" yaml:"masterUserPassword"`
+	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
 }
 
 // Specifies options for node-to-node encryption.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   nodeToNodeEncryptionOptionsProperty := &nodeToNodeEncryptionOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
 //
 type CfnDomain_NodeToNodeEncryptionOptionsProperty struct {
 	// Specifies to enable or disable node-to-node encryption on the domain.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // *DEPRECATED* .
@@ -1420,7 +1312,10 @@ type CfnDomain_NodeToNodeEncryptionOptionsProperty struct {
 // The automated snapshot configuration for the OpenSearch Service domain indices.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   snapshotOptionsProperty := &snapshotOptionsProperty{
 //   	automatedSnapshotStartHour: jsii.Number(123),
 //   }
@@ -1429,7 +1324,7 @@ type CfnDomain_SnapshotOptionsProperty struct {
 	// The hour in UTC during which the service takes an automated daily snapshot of the indices in the OpenSearch Service domain.
 	//
 	// For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
-	AutomatedSnapshotStartHour *float64 `json:"automatedSnapshotStartHour" yaml:"automatedSnapshotStartHour"`
+	AutomatedSnapshotStartHour *float64 `field:"optional" json:"automatedSnapshotStartHour" yaml:"automatedSnapshotStartHour"`
 }
 
 // The virtual private cloud (VPC) configuration for the OpenSearch Service domain.
@@ -1437,7 +1332,10 @@ type CfnDomain_SnapshotOptionsProperty struct {
 // For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vPCOptionsProperty := &vPCOptionsProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -1451,11 +1349,11 @@ type CfnDomain_VPCOptionsProperty struct {
 	// The list of security group IDs that are associated with the VPC endpoints for the domain.
 	//
 	// If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Provide one subnet ID for each Availability Zone that your domain uses.
 	//
 	// For example, you must specify three subnet IDs for a three Availability Zone domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 }
 
 // Specifies zone awareness configuration options.
@@ -1463,7 +1361,10 @@ type CfnDomain_VPCOptionsProperty struct {
 // Only use if `ZoneAwarenessEnabled` is `true` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   zoneAwarenessConfigProperty := &zoneAwarenessConfigProperty{
 //   	availabilityZoneCount: jsii.Number(123),
 //   }
@@ -1472,15 +1373,18 @@ type CfnDomain_ZoneAwarenessConfigProperty struct {
 	// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
 	//
 	// Valid values are `2` and `3` . Default is 2.
-	AvailabilityZoneCount *float64 `json:"availabilityZoneCount" yaml:"availabilityZoneCount"`
+	AvailabilityZoneCount *float64 `field:"optional" json:"availabilityZoneCount" yaml:"availabilityZoneCount"`
 }
 
 // Properties for defining a `CfnDomain`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var accessPolicies interface{}
+//
 //   cfnDomainProps := &cfnDomainProps{
 //   	accessPolicies: accessPolicies,
 //   	advancedOptions: map[string]*string{
@@ -1566,19 +1470,19 @@ type CfnDomainProps struct {
 	// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions.
 	//
 	// For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .
-	AccessPolicies interface{} `json:"accessPolicies" yaml:"accessPolicies"`
+	AccessPolicies interface{} `field:"optional" json:"accessPolicies" yaml:"accessPolicies"`
 	// Additional options to specify for the OpenSearch Service domain.
 	//
 	// For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-datatypes-advancedoptions) in the OpenSearch Service configuration API reference.
-	AdvancedOptions interface{} `json:"advancedOptions" yaml:"advancedOptions"`
+	AdvancedOptions interface{} `field:"optional" json:"advancedOptions" yaml:"advancedOptions"`
 	// Specifies options for fine-grained access control.
-	AdvancedSecurityOptions interface{} `json:"advancedSecurityOptions" yaml:"advancedSecurityOptions"`
+	AdvancedSecurityOptions interface{} `field:"optional" json:"advancedSecurityOptions" yaml:"advancedSecurityOptions"`
 	// `ClusterConfig` is a property of the AWS::OpenSearchService::Domain resource that configures an Amazon OpenSearch Service cluster.
-	ClusterConfig interface{} `json:"clusterConfig" yaml:"clusterConfig"`
+	ClusterConfig interface{} `field:"optional" json:"clusterConfig" yaml:"clusterConfig"`
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
-	CognitoOptions interface{} `json:"cognitoOptions" yaml:"cognitoOptions"`
+	CognitoOptions interface{} `field:"optional" json:"cognitoOptions" yaml:"cognitoOptions"`
 	// Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
-	DomainEndpointOptions interface{} `json:"domainEndpointOptions" yaml:"domainEndpointOptions"`
+	DomainEndpointOptions interface{} `field:"optional" json:"domainEndpointOptions" yaml:"domainEndpointOptions"`
 	// A name for the OpenSearch Service domain.
 	//
 	// For valid values, see the [DomainName](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-datatypes-domainname) data type in the *Amazon OpenSearch Service Developer Guide* . If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
@@ -1586,44 +1490,45 @@ type CfnDomainProps struct {
 	// Required when creating a new domain.
 	//
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain.
 	//
 	// For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
-	EbsOptions interface{} `json:"ebsOptions" yaml:"ebsOptions"`
+	EbsOptions interface{} `field:"optional" json:"ebsOptions" yaml:"ebsOptions"`
 	// Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use.
 	//
 	// See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
-	EncryptionAtRestOptions interface{} `json:"encryptionAtRestOptions" yaml:"encryptionAtRestOptions"`
+	EncryptionAtRestOptions interface{} `field:"optional" json:"encryptionAtRestOptions" yaml:"encryptionAtRestOptions"`
 	// The version of OpenSearch to use.
 	//
 	// The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
 	//
 	// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
+	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish.
 	//
 	// Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
-	LogPublishingOptions interface{} `json:"logPublishingOptions" yaml:"logPublishingOptions"`
+	LogPublishingOptions interface{} `field:"optional" json:"logPublishingOptions" yaml:"logPublishingOptions"`
 	// Specifies whether node-to-node encryption is enabled.
 	//
 	// See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
-	NodeToNodeEncryptionOptions interface{} `json:"nodeToNodeEncryptionOptions" yaml:"nodeToNodeEncryptionOptions"`
+	NodeToNodeEncryptionOptions interface{} `field:"optional" json:"nodeToNodeEncryptionOptions" yaml:"nodeToNodeEncryptionOptions"`
 	// *DEPRECATED* .
 	//
 	// The automated snapshot configuration for the OpenSearch Service domain indices.
-	SnapshotOptions interface{} `json:"snapshotOptions" yaml:"snapshotOptions"`
+	SnapshotOptions interface{} `field:"optional" json:"snapshotOptions" yaml:"snapshotOptions"`
 	// An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Service domain.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain.
 	//
 	// For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
-	VpcOptions interface{} `json:"vpcOptions" yaml:"vpcOptions"`
+	VpcOptions interface{} `field:"optional" json:"vpcOptions" yaml:"vpcOptions"`
 }
 
 // Configures Amazon OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
 //   	cognitoDashboardsAuth: &cognitoOptions{
 //   		identityPoolId: jsii.String("test-identity-pool-id"),
@@ -1635,21 +1540,17 @@ type CfnDomainProps struct {
 //
 // See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html
 //
-// Experimental.
 type CognitoOptions struct {
 	// The Amazon Cognito identity pool ID that you want Amazon OpenSearch Service to use for OpenSearch Dashboards authentication.
-	// Experimental.
-	IdentityPoolId *string `json:"identityPoolId" yaml:"identityPoolId"`
+	IdentityPoolId *string `field:"required" json:"identityPoolId" yaml:"identityPoolId"`
 	// A role that allows Amazon OpenSearch Service to configure your user pool and identity pool.
 	//
 	// It must have the `AmazonESCognitoAccess` policy attached to it.
 	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html#cognito-auth-prereq
 	//
-	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
 	// The Amazon Cognito user pool ID that you want Amazon OpenSearch Service to use for OpenSearch Dashboards authentication.
-	// Experimental.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 }
 
 // Configures a custom domain endpoint for the Amazon OpenSearch Service domain.
@@ -1662,17 +1563,13 @@ type CognitoOptions struct {
 //   	},
 //   })
 //
-// Experimental.
 type CustomEndpointOptions struct {
 	// The custom domain name to assign.
-	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The certificate to use.
-	// Experimental.
-	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
+	Certificate awscertificatemanager.ICertificate `field:"optional" json:"certificate" yaml:"certificate"`
 	// The hosted zone in Route53 to create the CNAME record in.
-	// Experimental.
-	HostedZone awsroute53.IHostedZone `json:"hostedZone" yaml:"hostedZone"`
+	HostedZone awsroute53.IHostedZone `field:"optional" json:"hostedZone" yaml:"hostedZone"`
 }
 
 // Provides an Amazon OpenSearch Service domain.
@@ -1690,34 +1587,26 @@ type CustomEndpointOptions struct {
 //   	},
 //   })
 //
-// Experimental.
 type Domain interface {
 	awscdk.Resource
 	awsec2.IConnectable
 	IDomain
 	// Log group that application logs are logged to.
-	// Experimental.
 	AppLogGroup() awslogs.ILogGroup
 	// Log group that audit logs are logged to.
-	// Experimental.
 	AuditLogGroup() awslogs.ILogGroup
 	// Manages network connections to the domain.
 	//
 	// This will throw an error in case the domain
 	// is not placed inside a VPC.
-	// Experimental.
 	Connections() awsec2.Connections
 	// Arn of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainArn() *string
 	// Endpoint of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainEndpoint() *string
 	// Identifier of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainId() *string
 	// Domain name of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainName() *string
 	// The environment this resource belongs to.
 	//
@@ -1727,14 +1616,11 @@ type Domain interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// Master user password if fine grained access control is configured.
-	// Experimental.
 	MasterUserPassword() awscdk.SecretValue
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -1742,19 +1628,14 @@ type Domain interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// Log group that slow indices are logged to.
-	// Experimental.
 	SlowIndexLogGroup() awslogs.ILogGroup
 	// Log group that slow searches are logged to.
-	// Experimental.
 	SlowSearchLogGroup() awslogs.ILogGroup
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Add policy statements to the domain access policy.
-	// Experimental.
 	AddAccessPolicies(accessPolicyStatements ...awsiam.PolicyStatement)
 	// Apply the given removal policy to this resource.
 	//
@@ -1765,9 +1646,7 @@ type Domain interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -1775,141 +1654,65 @@ type Domain interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant read permissions for an index in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantIndexRead(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for an index in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantIndexReadWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for an index in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantIndexWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for a specific path in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantPathRead(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantPathReadWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantPathWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for this domain and its contents to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for this domain and its contents to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantReadWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for this domain and its contents to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this domain.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for automated snapshot failures.
-	// Experimental.
 	MetricAutomatedSnapshotFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the cluster blocking index writes.
-	// Experimental.
 	MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is red.
-	// Experimental.
 	MetricClusterStatusRed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is yellow.
-	// Experimental.
 	MetricClusterStatusYellow(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for CPU utilization.
-	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the storage space of nodes in the cluster.
-	// Experimental.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for indexing latency.
-	// Experimental.
 	MetricIndexingLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for JVM memory pressure.
-	// Experimental.
 	MetricJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key errors.
-	// Experimental.
 	MetricKMSKeyError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key being inaccessible.
-	// Experimental.
 	MetricKMSKeyInaccessible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master CPU utilization.
-	// Experimental.
 	MetricMasterCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master JVM memory pressure.
-	// Experimental.
 	MetricMasterJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of nodes.
-	// Experimental.
 	MetricNodes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for number of searchable documents.
-	// Experimental.
 	MetricSearchableDocuments(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for search latency.
-	// Experimental.
 	MetricSearchLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Domain
@@ -2009,8 +1812,8 @@ func (j *jsiiProxy_Domain) MasterUserPassword() awscdk.SecretValue {
 	return returns
 }
 
-func (j *jsiiProxy_Domain) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Domain) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2060,14 +1863,13 @@ func (j *jsiiProxy_Domain) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewDomain(scope constructs.Construct, id *string, props *DomainProps) Domain {
 	_init_.Initialize()
 
 	j := jsiiProxy_Domain{}
 
 	_jsii_.Create(
-		"monocdk.aws_opensearchservice.Domain",
+		"aws-cdk-lib.aws_opensearchservice.Domain",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2075,26 +1877,24 @@ func NewDomain(scope constructs.Construct, id *string, props *DomainProps) Domai
 	return &j
 }
 
-// Experimental.
 func NewDomain_Override(d Domain, scope constructs.Construct, id *string, props *DomainProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_opensearchservice.Domain",
+		"aws-cdk-lib.aws_opensearchservice.Domain",
 		[]interface{}{scope, id, props},
 		d,
 	)
 }
 
 // Creates a domain construct that represents an external domain.
-// Experimental.
 func Domain_FromDomainAttributes(scope constructs.Construct, id *string, attrs *DomainAttributes) IDomain {
 	_init_.Initialize()
 
 	var returns IDomain
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_opensearchservice.Domain",
+		"aws-cdk-lib.aws_opensearchservice.Domain",
 		"fromDomainAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -2104,14 +1904,13 @@ func Domain_FromDomainAttributes(scope constructs.Construct, id *string, attrs *
 }
 
 // Creates a domain construct that represents an external domain via domain endpoint.
-// Experimental.
 func Domain_FromDomainEndpoint(scope constructs.Construct, id *string, domainEndpoint *string) IDomain {
 	_init_.Initialize()
 
 	var returns IDomain
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_opensearchservice.Domain",
+		"aws-cdk-lib.aws_opensearchservice.Domain",
 		"fromDomainEndpoint",
 		[]interface{}{scope, id, domainEndpoint},
 		&returns,
@@ -2120,15 +1919,17 @@ func Domain_FromDomainEndpoint(scope constructs.Construct, id *string, domainEnd
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func Domain_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_opensearchservice.Domain",
+		"aws-cdk-lib.aws_opensearchservice.Domain",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2138,14 +1939,13 @@ func Domain_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func Domain_IsResource(construct awscdk.IConstruct) *bool {
+func Domain_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_opensearchservice.Domain",
+		"aws-cdk-lib.aws_opensearchservice.Domain",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2539,51 +2339,6 @@ func (d *jsiiProxy_Domain) MetricSearchLatency(props *awscloudwatch.MetricOption
 	return returns
 }
 
-func (d *jsiiProxy_Domain) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (d *jsiiProxy_Domain) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (d *jsiiProxy_Domain) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_Domain) Prepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (d *jsiiProxy_Domain) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (d *jsiiProxy_Domain) ToString() *string {
 	var returns *string
 
@@ -2597,36 +2352,23 @@ func (d *jsiiProxy_Domain) ToString() *string {
 	return returns
 }
 
-func (d *jsiiProxy_Domain) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Reference to an Amazon OpenSearch Service domain.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainAttributes := &domainAttributes{
 //   	domainArn: jsii.String("domainArn"),
 //   	domainEndpoint: jsii.String("domainEndpoint"),
 //   }
 //
-// Experimental.
 type DomainAttributes struct {
 	// The ARN of the Amazon OpenSearch Service domain.
-	// Experimental.
-	DomainArn *string `json:"domainArn" yaml:"domainArn"`
+	DomainArn *string `field:"required" json:"domainArn" yaml:"domainArn"`
 	// The domain endpoint of the Amazon OpenSearch Service domain.
-	// Experimental.
-	DomainEndpoint *string `json:"domainEndpoint" yaml:"domainEndpoint"`
+	DomainEndpoint *string `field:"required" json:"domainEndpoint" yaml:"domainEndpoint"`
 }
 
 // Properties for an Amazon OpenSearch Service domain.
@@ -2644,81 +2386,62 @@ type DomainAttributes struct {
 //   	},
 //   })
 //
-// Experimental.
 type DomainProps struct {
 	// The Elasticsearch/OpenSearch version that your domain will leverage.
-	// Experimental.
-	Version EngineVersion `json:"version" yaml:"version"`
+	Version EngineVersion `field:"required" json:"version" yaml:"version"`
 	// Domain access policies.
-	// Experimental.
-	AccessPolicies *[]awsiam.PolicyStatement `json:"accessPolicies" yaml:"accessPolicies"`
+	AccessPolicies *[]awsiam.PolicyStatement `field:"optional" json:"accessPolicies" yaml:"accessPolicies"`
 	// Additional options to specify for the Amazon OpenSearch Service domain.
 	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options
 	//
-	// Experimental.
-	AdvancedOptions *map[string]*string `json:"advancedOptions" yaml:"advancedOptions"`
+	AdvancedOptions *map[string]*string `field:"optional" json:"advancedOptions" yaml:"advancedOptions"`
 	// The hour in UTC during which the service takes an automated daily snapshot of the indices in the Amazon OpenSearch Service domain.
 	//
 	// Only applies for Elasticsearch versions
 	// below 5.3.
-	// Experimental.
-	AutomatedSnapshotStartHour *float64 `json:"automatedSnapshotStartHour" yaml:"automatedSnapshotStartHour"`
+	AutomatedSnapshotStartHour *float64 `field:"optional" json:"automatedSnapshotStartHour" yaml:"automatedSnapshotStartHour"`
 	// The cluster capacity configuration for the Amazon OpenSearch Service domain.
-	// Experimental.
-	Capacity *CapacityConfig `json:"capacity" yaml:"capacity"`
+	Capacity *CapacityConfig `field:"optional" json:"capacity" yaml:"capacity"`
 	// Configures Amazon OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
-	// Experimental.
-	CognitoDashboardsAuth *CognitoOptions `json:"cognitoDashboardsAuth" yaml:"cognitoDashboardsAuth"`
+	CognitoDashboardsAuth *CognitoOptions `field:"optional" json:"cognitoDashboardsAuth" yaml:"cognitoDashboardsAuth"`
 	// To configure a custom domain configure these options.
 	//
 	// If you specify a Route53 hosted zone it will create a CNAME record and use DNS validation for the certificate.
-	// Experimental.
-	CustomEndpoint *CustomEndpointOptions `json:"customEndpoint" yaml:"customEndpoint"`
+	CustomEndpoint *CustomEndpointOptions `field:"optional" json:"customEndpoint" yaml:"customEndpoint"`
 	// Enforces a particular physical domain name.
-	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the Amazon OpenSearch Service domain.
-	// Experimental.
-	Ebs *EbsOptions `json:"ebs" yaml:"ebs"`
+	Ebs *EbsOptions `field:"optional" json:"ebs" yaml:"ebs"`
 	// To upgrade an Amazon OpenSearch Service domain to a new version, rather than replacing the entire domain resource, use the EnableVersionUpgrade update policy.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain
 	//
-	// Experimental.
-	EnableVersionUpgrade *bool `json:"enableVersionUpgrade" yaml:"enableVersionUpgrade"`
+	EnableVersionUpgrade *bool `field:"optional" json:"enableVersionUpgrade" yaml:"enableVersionUpgrade"`
 	// Encryption at rest options for the cluster.
-	// Experimental.
-	EncryptionAtRest *EncryptionAtRestOptions `json:"encryptionAtRest" yaml:"encryptionAtRest"`
+	EncryptionAtRest *EncryptionAtRestOptions `field:"optional" json:"encryptionAtRest" yaml:"encryptionAtRest"`
 	// True to require that all traffic to the domain arrive over HTTPS.
-	// Experimental.
-	EnforceHttps *bool `json:"enforceHttps" yaml:"enforceHttps"`
+	EnforceHttps *bool `field:"optional" json:"enforceHttps" yaml:"enforceHttps"`
 	// Specifies options for fine-grained access control.
 	//
 	// Requires Elasticsearch version 6.7 or later or OpenSearch version 1.0 or later. Enabling fine-grained access control
 	// also requires encryption of data at rest and node-to-node encryption, along with
 	// enforced HTTPS.
-	// Experimental.
-	FineGrainedAccessControl *AdvancedSecurityOptions `json:"fineGrainedAccessControl" yaml:"fineGrainedAccessControl"`
+	FineGrainedAccessControl *AdvancedSecurityOptions `field:"optional" json:"fineGrainedAccessControl" yaml:"fineGrainedAccessControl"`
 	// Configuration log publishing configuration options.
-	// Experimental.
-	Logging *LoggingOptions `json:"logging" yaml:"logging"`
+	Logging *LoggingOptions `field:"optional" json:"logging" yaml:"logging"`
 	// Specify true to enable node to node encryption.
 	//
 	// Requires Elasticsearch version 6.0 or later or OpenSearch version 1.0 or later.
-	// Experimental.
-	NodeToNodeEncryption *bool `json:"nodeToNodeEncryption" yaml:"nodeToNodeEncryption"`
+	NodeToNodeEncryption *bool `field:"optional" json:"nodeToNodeEncryption" yaml:"nodeToNodeEncryption"`
 	// Policy to apply when the domain is removed from the stack.
-	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The list of security groups that are associated with the VPC endpoints for the domain.
 	//
 	// Only used if `vpc` is specified.
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html
 	//
-	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The minimum TLS version required for traffic to the domain.
-	// Experimental.
-	TlsSecurityPolicy TLSSecurityPolicy `json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
+	TlsSecurityPolicy TLSSecurityPolicy `field:"optional" json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
 	// Configures the domain so that unsigned basic auth is enabled.
 	//
 	// If no master user is provided a default master user
@@ -2729,13 +2452,11 @@ type DomainProps struct {
 	// access, enable node to node encryption, encryption at rest. If conflicting
 	// settings are encountered (like disabling encryption at rest) enabling this
 	// setting will cause a failure.
-	// Experimental.
-	UseUnsignedBasicAuth *bool `json:"useUnsignedBasicAuth" yaml:"useUnsignedBasicAuth"`
+	UseUnsignedBasicAuth *bool `field:"optional" json:"useUnsignedBasicAuth" yaml:"useUnsignedBasicAuth"`
 	// Place the domain inside this VPC.
 	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html
 	//
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// The specific vpc subnets the domain will be placed in.
 	//
 	// You must provide one subnet for each Availability Zone
@@ -2745,11 +2466,9 @@ type DomainProps struct {
 	// Only used if `vpc` is specified.
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
 	//
-	// Experimental.
-	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *[]*awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The cluster zone awareness configuration for the Amazon OpenSearch Service domain.
-	// Experimental.
-	ZoneAwareness *ZoneAwarenessConfig `json:"zoneAwareness" yaml:"zoneAwareness"`
+	ZoneAwareness *ZoneAwarenessConfig `field:"optional" json:"zoneAwareness" yaml:"zoneAwareness"`
 }
 
 // The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the Amazon OpenSearch Service domain.
@@ -2779,17 +2498,14 @@ type DomainProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type EbsOptions struct {
 	// Specifies whether Amazon EBS volumes are attached to data nodes in the Amazon OpenSearch Service domain.
-	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// This property applies only to the Provisioned IOPS (SSD) EBS
 	// volume type.
-	// Experimental.
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The size (in GiB) of the EBS volume for each data node.
 	//
 	// The minimum and
@@ -2798,11 +2514,9 @@ type EbsOptions struct {
 	// [EBS volume size limits]
 	// (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource)
 	// in the Amazon OpenSearch Service Developer Guide.
-	// Experimental.
-	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
+	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// The EBS volume type to use with the Amazon OpenSearch Service domain, such as standard, gp2, io1.
-	// Experimental.
-	VolumeType awsec2.EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
+	VolumeType awsec2.EbsDeviceVolumeType `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 
 // Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service (KMS) key to use.
@@ -2829,14 +2543,11 @@ type EbsOptions struct {
 //   	},
 //   })
 //
-// Experimental.
 type EncryptionAtRestOptions struct {
 	// Specify true to enable encryption at rest.
-	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Supply if using KMS key for encryption at rest.
-	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 
 // OpenSearch version.
@@ -2854,10 +2565,8 @@ type EncryptionAtRestOptions struct {
 //   	},
 //   })
 //
-// Experimental.
 type EngineVersion interface {
 	// engine version identifier.
-	// Experimental.
 	Version() *string
 }
 
@@ -2878,14 +2587,13 @@ func (j *jsiiProxy_EngineVersion) Version() *string {
 
 
 // Custom ElasticSearch version.
-// Experimental.
 func EngineVersion_Elasticsearch(version *string) EngineVersion {
 	_init_.Initialize()
 
 	var returns EngineVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"elasticsearch",
 		[]interface{}{version},
 		&returns,
@@ -2895,14 +2603,13 @@ func EngineVersion_Elasticsearch(version *string) EngineVersion {
 }
 
 // Custom OpenSearch version.
-// Experimental.
 func EngineVersion_OpenSearch(version *string) EngineVersion {
 	_init_.Initialize()
 
 	var returns EngineVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"openSearch",
 		[]interface{}{version},
 		&returns,
@@ -2915,7 +2622,7 @@ func EngineVersion_ELASTICSEARCH_1_5() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_1_5",
 		&returns,
 	)
@@ -2926,7 +2633,7 @@ func EngineVersion_ELASTICSEARCH_2_3() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_2_3",
 		&returns,
 	)
@@ -2937,7 +2644,7 @@ func EngineVersion_ELASTICSEARCH_5_1() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_5_1",
 		&returns,
 	)
@@ -2948,7 +2655,7 @@ func EngineVersion_ELASTICSEARCH_5_3() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_5_3",
 		&returns,
 	)
@@ -2959,7 +2666,7 @@ func EngineVersion_ELASTICSEARCH_5_5() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_5_5",
 		&returns,
 	)
@@ -2970,7 +2677,7 @@ func EngineVersion_ELASTICSEARCH_5_6() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_5_6",
 		&returns,
 	)
@@ -2981,7 +2688,7 @@ func EngineVersion_ELASTICSEARCH_6_0() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_6_0",
 		&returns,
 	)
@@ -2992,7 +2699,7 @@ func EngineVersion_ELASTICSEARCH_6_2() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_6_2",
 		&returns,
 	)
@@ -3003,7 +2710,7 @@ func EngineVersion_ELASTICSEARCH_6_3() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_6_3",
 		&returns,
 	)
@@ -3014,7 +2721,7 @@ func EngineVersion_ELASTICSEARCH_6_4() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_6_4",
 		&returns,
 	)
@@ -3025,7 +2732,7 @@ func EngineVersion_ELASTICSEARCH_6_5() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_6_5",
 		&returns,
 	)
@@ -3036,7 +2743,7 @@ func EngineVersion_ELASTICSEARCH_6_7() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_6_7",
 		&returns,
 	)
@@ -3047,7 +2754,7 @@ func EngineVersion_ELASTICSEARCH_6_8() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_6_8",
 		&returns,
 	)
@@ -3058,7 +2765,7 @@ func EngineVersion_ELASTICSEARCH_7_1() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_7_1",
 		&returns,
 	)
@@ -3069,7 +2776,7 @@ func EngineVersion_ELASTICSEARCH_7_10() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_7_10",
 		&returns,
 	)
@@ -3080,7 +2787,7 @@ func EngineVersion_ELASTICSEARCH_7_4() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_7_4",
 		&returns,
 	)
@@ -3091,7 +2798,7 @@ func EngineVersion_ELASTICSEARCH_7_7() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_7_7",
 		&returns,
 	)
@@ -3102,7 +2809,7 @@ func EngineVersion_ELASTICSEARCH_7_8() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_7_8",
 		&returns,
 	)
@@ -3113,7 +2820,7 @@ func EngineVersion_ELASTICSEARCH_7_9() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"ELASTICSEARCH_7_9",
 		&returns,
 	)
@@ -3124,7 +2831,7 @@ func EngineVersion_OPENSEARCH_1_0() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"OPENSEARCH_1_0",
 		&returns,
 	)
@@ -3135,7 +2842,7 @@ func EngineVersion_OPENSEARCH_1_1() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"OPENSEARCH_1_1",
 		&returns,
 	)
@@ -3146,7 +2853,7 @@ func EngineVersion_OPENSEARCH_1_2() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_opensearchservice.EngineVersion",
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
 		"OPENSEARCH_1_2",
 		&returns,
 	)
@@ -3154,95 +2861,65 @@ func EngineVersion_OPENSEARCH_1_2() EngineVersion {
 }
 
 // An interface that represents an Amazon OpenSearch Service domain - either created with the CDK, or an existing one.
-// Experimental.
 type IDomain interface {
 	awscdk.IResource
 	// Grant read permissions for an index in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantIndexRead(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for an index in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantIndexReadWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for an index in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantIndexWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for a specific path in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantPathRead(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantPathReadWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantPathWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for this domain and its contents to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for this domain and its contents to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantReadWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for this domain and its contents to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this domain.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for automated snapshot failures.
-	// Experimental.
 	MetricAutomatedSnapshotFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the cluster blocking index writes.
-	// Experimental.
 	MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is red.
-	// Experimental.
 	MetricClusterStatusRed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is yellow.
-	// Experimental.
 	MetricClusterStatusYellow(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for CPU utilization.
-	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the storage space of nodes in the cluster.
-	// Experimental.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for indexing latency.
-	// Experimental.
 	MetricIndexingLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for JVM memory pressure.
-	// Experimental.
 	MetricJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key errors.
-	// Experimental.
 	MetricKMSKeyError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key being inaccessible.
-	// Experimental.
 	MetricKMSKeyInaccessible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master CPU utilization.
-	// Experimental.
 	MetricMasterCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master JVM memory pressure.
-	// Experimental.
 	MetricMasterJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of nodes.
-	// Experimental.
 	MetricNodes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for number of searchable documents.
-	// Experimental.
 	MetricSearchableDocuments(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for search latency.
-	// Experimental.
 	MetricSearchLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Arn of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainArn() *string
 	// Endpoint of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainEndpoint() *string
 	// Identifier of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainId() *string
 	// Domain name of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainName() *string
 }
 
@@ -3638,52 +3315,40 @@ func (j *jsiiProxy_IDomain) DomainName() *string {
 //   	},
 //   })
 //
-// Experimental.
 type LoggingOptions struct {
 	// Specify if Amazon OpenSearch Service application logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
-	// Experimental.
-	AppLogEnabled *bool `json:"appLogEnabled" yaml:"appLogEnabled"`
+	AppLogEnabled *bool `field:"optional" json:"appLogEnabled" yaml:"appLogEnabled"`
 	// Log Amazon OpenSearch Service application logs to this log group.
-	// Experimental.
-	AppLogGroup awslogs.ILogGroup `json:"appLogGroup" yaml:"appLogGroup"`
+	AppLogGroup awslogs.ILogGroup `field:"optional" json:"appLogGroup" yaml:"appLogGroup"`
 	// Specify if Amazon OpenSearch Service audit logging should be set up.
 	//
 	// Requires Elasticsearch version 6.7 or later or OpenSearch version 1.0 or later and fine grained access control to be enabled.
-	// Experimental.
-	AuditLogEnabled *bool `json:"auditLogEnabled" yaml:"auditLogEnabled"`
+	AuditLogEnabled *bool `field:"optional" json:"auditLogEnabled" yaml:"auditLogEnabled"`
 	// Log Amazon OpenSearch Service audit logs to this log group.
-	// Experimental.
-	AuditLogGroup awslogs.ILogGroup `json:"auditLogGroup" yaml:"auditLogGroup"`
+	AuditLogGroup awslogs.ILogGroup `field:"optional" json:"auditLogGroup" yaml:"auditLogGroup"`
 	// Specify if slow index logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
-	// Experimental.
-	SlowIndexLogEnabled *bool `json:"slowIndexLogEnabled" yaml:"slowIndexLogEnabled"`
+	SlowIndexLogEnabled *bool `field:"optional" json:"slowIndexLogEnabled" yaml:"slowIndexLogEnabled"`
 	// Log slow indices to this log group.
-	// Experimental.
-	SlowIndexLogGroup awslogs.ILogGroup `json:"slowIndexLogGroup" yaml:"slowIndexLogGroup"`
+	SlowIndexLogGroup awslogs.ILogGroup `field:"optional" json:"slowIndexLogGroup" yaml:"slowIndexLogGroup"`
 	// Specify if slow search logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
-	// Experimental.
-	SlowSearchLogEnabled *bool `json:"slowSearchLogEnabled" yaml:"slowSearchLogEnabled"`
+	SlowSearchLogEnabled *bool `field:"optional" json:"slowSearchLogEnabled" yaml:"slowSearchLogEnabled"`
 	// Log slow searches to this log group.
-	// Experimental.
-	SlowSearchLogGroup awslogs.ILogGroup `json:"slowSearchLogGroup" yaml:"slowSearchLogGroup"`
+	SlowSearchLogGroup awslogs.ILogGroup `field:"optional" json:"slowSearchLogGroup" yaml:"slowSearchLogGroup"`
 }
 
 // The minimum TLS version required for traffic to the domain.
-// Experimental.
 type TLSSecurityPolicy string
 
 const (
 	// Cipher suite TLS 1.0.
-	// Experimental.
 	TLSSecurityPolicy_TLS_1_0 TLSSecurityPolicy = "TLS_1_0"
 	// Cipher suite TLS 1.2.
-	// Experimental.
 	TLSSecurityPolicy_TLS_1_2 TLSSecurityPolicy = "TLS_1_2"
 )
 
@@ -3709,13 +3374,11 @@ const (
 //   	},
 //   })
 //
-// Experimental.
 type ZoneAwarenessConfig struct {
 	// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
 	//
 	// Valid values are 2 and 3.
-	// Experimental.
-	AvailabilityZoneCount *float64 `json:"availabilityZoneCount" yaml:"availabilityZoneCount"`
+	AvailabilityZoneCount *float64 `field:"optional" json:"availabilityZoneCount" yaml:"availabilityZoneCount"`
 	// Indicates whether to enable zone awareness for the Amazon OpenSearch Service domain.
 	//
 	// When you enable zone awareness, Amazon OpenSearch Service allocates the nodes and replica
@@ -3726,7 +3389,6 @@ type ZoneAwarenessConfig struct {
 	// see [Configuring a Multi-AZ Domain]
 	// (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html)
 	// in the Amazon OpenSearch Service Developer Guide.
-	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

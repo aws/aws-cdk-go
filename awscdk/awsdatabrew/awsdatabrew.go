@@ -1,19 +1,22 @@
 package awsdatabrew
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsdatabrew/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatabrew/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::DataBrew::Dataset`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
-//   cfnDataset := databrew.NewCfnDataset(this, jsii.String("MyCfnDataset"), &cfnDatasetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDataset := awscdk.Aws_databrew.NewCfnDataset(this, jsii.String("MyCfnDataset"), &cfnDatasetProps{
 //   	input: &inputProperty{
 //   		databaseInputDefinition: &databaseInputDefinitionProperty{
 //   			glueConnectionName: jsii.String("glueConnectionName"),
@@ -129,16 +132,13 @@ type CfnDataset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::DataBrew::Dataset.Format`.
 	Format() *string
@@ -158,14 +158,12 @@ type CfnDataset interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// `AWS::DataBrew::Dataset.Name`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// `AWS::DataBrew::Dataset.PathOptions`.
 	PathOptions() interface{}
 	SetPathOptions(val interface{})
@@ -173,12 +171,10 @@ type CfnDataset interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::DataBrew::Dataset.Tags`.
 	Tags() awscdk.TagManager
@@ -186,16 +182,13 @@ type CfnDataset interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -204,7 +197,6 @@ type CfnDataset interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -249,15 +241,12 @@ type CfnDataset interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -268,13 +257,11 @@ type CfnDataset interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -283,74 +270,21 @@ type CfnDataset interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -450,8 +384,8 @@ func (j *jsiiProxy_CfnDataset) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataset) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnDataset) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -512,13 +446,13 @@ func (j *jsiiProxy_CfnDataset) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DataBrew::Dataset`.
-func NewCfnDataset(scope awscdk.Construct, id *string, props *CfnDatasetProps) CfnDataset {
+func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProps) CfnDataset {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDataset{}
 
 	_jsii_.Create(
-		"monocdk.aws_databrew.CfnDataset",
+		"aws-cdk-lib.aws_databrew.CfnDataset",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -527,11 +461,11 @@ func NewCfnDataset(scope awscdk.Construct, id *string, props *CfnDatasetProps) C
 }
 
 // Create a new `AWS::DataBrew::Dataset`.
-func NewCfnDataset_Override(c CfnDataset, scope awscdk.Construct, id *string, props *CfnDatasetProps) {
+func NewCfnDataset_Override(c CfnDataset, scope constructs.Construct, id *string, props *CfnDatasetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_databrew.CfnDataset",
+		"aws-cdk-lib.aws_databrew.CfnDataset",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -583,14 +517,13 @@ func (j *jsiiProxy_CfnDataset) SetPathOptions(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDataset_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnDataset",
+		"aws-cdk-lib.aws_databrew.CfnDataset",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -600,14 +533,13 @@ func CfnDataset_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDataset_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnDataset",
+		"aws-cdk-lib.aws_databrew.CfnDataset",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -616,15 +548,17 @@ func CfnDataset_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnDataset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnDataset",
+		"aws-cdk-lib.aws_databrew.CfnDataset",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -637,7 +571,7 @@ func CfnDataset_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_databrew.CfnDataset",
+		"aws-cdk-lib.aws_databrew.CfnDataset",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -734,48 +668,11 @@ func (c *jsiiProxy_CfnDataset) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnDataset) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnDataset) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnDataset) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnDataset) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnDataset) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -805,33 +702,12 @@ func (c *jsiiProxy_CfnDataset) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnDataset) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnDataset) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnDataset) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -848,7 +724,10 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   csvOptionsProperty := &csvOptionsProperty{
 //   	delimiter: jsii.String("delimiter"),
 //   	headerRow: jsii.Boolean(false),
@@ -856,13 +735,16 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 //
 type CfnDataset_CsvOptionsProperty struct {
 	// `CfnDataset.CsvOptionsProperty.Delimiter`.
-	Delimiter *string `json:"delimiter" yaml:"delimiter"`
+	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 	// `CfnDataset.CsvOptionsProperty.HeaderRow`.
-	HeaderRow interface{} `json:"headerRow" yaml:"headerRow"`
+	HeaderRow interface{} `field:"optional" json:"headerRow" yaml:"headerRow"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataCatalogInputDefinitionProperty := &dataCatalogInputDefinitionProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseName: jsii.String("databaseName"),
@@ -877,17 +759,20 @@ type CfnDataset_CsvOptionsProperty struct {
 //
 type CfnDataset_DataCatalogInputDefinitionProperty struct {
 	// `CfnDataset.DataCatalogInputDefinitionProperty.CatalogId`.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// `CfnDataset.DataCatalogInputDefinitionProperty.DatabaseName`.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// `CfnDataset.DataCatalogInputDefinitionProperty.TableName`.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 	// `CfnDataset.DataCatalogInputDefinitionProperty.TempDirectory`.
-	TempDirectory interface{} `json:"tempDirectory" yaml:"tempDirectory"`
+	TempDirectory interface{} `field:"optional" json:"tempDirectory" yaml:"tempDirectory"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   databaseInputDefinitionProperty := &databaseInputDefinitionProperty{
 //   	glueConnectionName: jsii.String("glueConnectionName"),
 //
@@ -904,17 +789,20 @@ type CfnDataset_DataCatalogInputDefinitionProperty struct {
 //
 type CfnDataset_DatabaseInputDefinitionProperty struct {
 	// `CfnDataset.DatabaseInputDefinitionProperty.GlueConnectionName`.
-	GlueConnectionName *string `json:"glueConnectionName" yaml:"glueConnectionName"`
+	GlueConnectionName *string `field:"required" json:"glueConnectionName" yaml:"glueConnectionName"`
 	// `CfnDataset.DatabaseInputDefinitionProperty.DatabaseTableName`.
-	DatabaseTableName *string `json:"databaseTableName" yaml:"databaseTableName"`
+	DatabaseTableName *string `field:"optional" json:"databaseTableName" yaml:"databaseTableName"`
 	// `CfnDataset.DatabaseInputDefinitionProperty.QueryString`.
-	QueryString *string `json:"queryString" yaml:"queryString"`
+	QueryString *string `field:"optional" json:"queryString" yaml:"queryString"`
 	// `CfnDataset.DatabaseInputDefinitionProperty.TempDirectory`.
-	TempDirectory interface{} `json:"tempDirectory" yaml:"tempDirectory"`
+	TempDirectory interface{} `field:"optional" json:"tempDirectory" yaml:"tempDirectory"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   datasetParameterProperty := &datasetParameterProperty{
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
@@ -941,19 +829,22 @@ type CfnDataset_DatabaseInputDefinitionProperty struct {
 //
 type CfnDataset_DatasetParameterProperty struct {
 	// `CfnDataset.DatasetParameterProperty.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `CfnDataset.DatasetParameterProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `CfnDataset.DatasetParameterProperty.CreateColumn`.
-	CreateColumn interface{} `json:"createColumn" yaml:"createColumn"`
+	CreateColumn interface{} `field:"optional" json:"createColumn" yaml:"createColumn"`
 	// `CfnDataset.DatasetParameterProperty.DatetimeOptions`.
-	DatetimeOptions interface{} `json:"datetimeOptions" yaml:"datetimeOptions"`
+	DatetimeOptions interface{} `field:"optional" json:"datetimeOptions" yaml:"datetimeOptions"`
 	// `CfnDataset.DatasetParameterProperty.Filter`.
-	Filter interface{} `json:"filter" yaml:"filter"`
+	Filter interface{} `field:"optional" json:"filter" yaml:"filter"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   datetimeOptionsProperty := &datetimeOptionsProperty{
 //   	format: jsii.String("format"),
 //
@@ -964,15 +855,18 @@ type CfnDataset_DatasetParameterProperty struct {
 //
 type CfnDataset_DatetimeOptionsProperty struct {
 	// `CfnDataset.DatetimeOptionsProperty.Format`.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"required" json:"format" yaml:"format"`
 	// `CfnDataset.DatetimeOptionsProperty.LocaleCode`.
-	LocaleCode *string `json:"localeCode" yaml:"localeCode"`
+	LocaleCode *string `field:"optional" json:"localeCode" yaml:"localeCode"`
 	// `CfnDataset.DatetimeOptionsProperty.TimezoneOffset`.
-	TimezoneOffset *string `json:"timezoneOffset" yaml:"timezoneOffset"`
+	TimezoneOffset *string `field:"optional" json:"timezoneOffset" yaml:"timezoneOffset"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   excelOptionsProperty := &excelOptionsProperty{
 //   	headerRow: jsii.Boolean(false),
 //   	sheetIndexes: []interface{}{
@@ -985,15 +879,18 @@ type CfnDataset_DatetimeOptionsProperty struct {
 //
 type CfnDataset_ExcelOptionsProperty struct {
 	// `CfnDataset.ExcelOptionsProperty.HeaderRow`.
-	HeaderRow interface{} `json:"headerRow" yaml:"headerRow"`
+	HeaderRow interface{} `field:"optional" json:"headerRow" yaml:"headerRow"`
 	// `CfnDataset.ExcelOptionsProperty.SheetIndexes`.
-	SheetIndexes interface{} `json:"sheetIndexes" yaml:"sheetIndexes"`
+	SheetIndexes interface{} `field:"optional" json:"sheetIndexes" yaml:"sheetIndexes"`
 	// `CfnDataset.ExcelOptionsProperty.SheetNames`.
-	SheetNames *[]*string `json:"sheetNames" yaml:"sheetNames"`
+	SheetNames *[]*string `field:"optional" json:"sheetNames" yaml:"sheetNames"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   filesLimitProperty := &filesLimitProperty{
 //   	maxFiles: jsii.Number(123),
 //
@@ -1004,15 +901,18 @@ type CfnDataset_ExcelOptionsProperty struct {
 //
 type CfnDataset_FilesLimitProperty struct {
 	// `CfnDataset.FilesLimitProperty.MaxFiles`.
-	MaxFiles *float64 `json:"maxFiles" yaml:"maxFiles"`
+	MaxFiles *float64 `field:"required" json:"maxFiles" yaml:"maxFiles"`
 	// `CfnDataset.FilesLimitProperty.Order`.
-	Order *string `json:"order" yaml:"order"`
+	Order *string `field:"optional" json:"order" yaml:"order"`
 	// `CfnDataset.FilesLimitProperty.OrderedBy`.
-	OrderedBy *string `json:"orderedBy" yaml:"orderedBy"`
+	OrderedBy *string `field:"optional" json:"orderedBy" yaml:"orderedBy"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   filterExpressionProperty := &filterExpressionProperty{
 //   	expression: jsii.String("expression"),
 //   	valuesMap: []interface{}{
@@ -1025,13 +925,16 @@ type CfnDataset_FilesLimitProperty struct {
 //
 type CfnDataset_FilterExpressionProperty struct {
 	// `CfnDataset.FilterExpressionProperty.Expression`.
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// `CfnDataset.FilterExpressionProperty.ValuesMap`.
-	ValuesMap interface{} `json:"valuesMap" yaml:"valuesMap"`
+	ValuesMap interface{} `field:"required" json:"valuesMap" yaml:"valuesMap"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   filterValueProperty := &filterValueProperty{
 //   	value: jsii.String("value"),
 //   	valueReference: jsii.String("valueReference"),
@@ -1039,13 +942,16 @@ type CfnDataset_FilterExpressionProperty struct {
 //
 type CfnDataset_FilterValueProperty struct {
 	// `CfnDataset.FilterValueProperty.Value`.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 	// `CfnDataset.FilterValueProperty.ValueReference`.
-	ValueReference *string `json:"valueReference" yaml:"valueReference"`
+	ValueReference *string `field:"required" json:"valueReference" yaml:"valueReference"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   formatOptionsProperty := &formatOptionsProperty{
 //   	csv: &csvOptionsProperty{
 //   		delimiter: jsii.String("delimiter"),
@@ -1067,15 +973,18 @@ type CfnDataset_FilterValueProperty struct {
 //
 type CfnDataset_FormatOptionsProperty struct {
 	// `CfnDataset.FormatOptionsProperty.Csv`.
-	Csv interface{} `json:"csv" yaml:"csv"`
+	Csv interface{} `field:"optional" json:"csv" yaml:"csv"`
 	// `CfnDataset.FormatOptionsProperty.Excel`.
-	Excel interface{} `json:"excel" yaml:"excel"`
+	Excel interface{} `field:"optional" json:"excel" yaml:"excel"`
 	// `CfnDataset.FormatOptionsProperty.Json`.
-	Json interface{} `json:"json" yaml:"json"`
+	Json interface{} `field:"optional" json:"json" yaml:"json"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inputProperty := &inputProperty{
 //   	databaseInputDefinition: &databaseInputDefinitionProperty{
 //   		glueConnectionName: jsii.String("glueConnectionName"),
@@ -1114,39 +1023,48 @@ type CfnDataset_FormatOptionsProperty struct {
 //
 type CfnDataset_InputProperty struct {
 	// `CfnDataset.InputProperty.DatabaseInputDefinition`.
-	DatabaseInputDefinition interface{} `json:"databaseInputDefinition" yaml:"databaseInputDefinition"`
+	DatabaseInputDefinition interface{} `field:"optional" json:"databaseInputDefinition" yaml:"databaseInputDefinition"`
 	// `CfnDataset.InputProperty.DataCatalogInputDefinition`.
-	DataCatalogInputDefinition interface{} `json:"dataCatalogInputDefinition" yaml:"dataCatalogInputDefinition"`
+	DataCatalogInputDefinition interface{} `field:"optional" json:"dataCatalogInputDefinition" yaml:"dataCatalogInputDefinition"`
 	// `CfnDataset.InputProperty.Metadata`.
-	Metadata interface{} `json:"metadata" yaml:"metadata"`
+	Metadata interface{} `field:"optional" json:"metadata" yaml:"metadata"`
 	// `CfnDataset.InputProperty.S3InputDefinition`.
-	S3InputDefinition interface{} `json:"s3InputDefinition" yaml:"s3InputDefinition"`
+	S3InputDefinition interface{} `field:"optional" json:"s3InputDefinition" yaml:"s3InputDefinition"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jsonOptionsProperty := &jsonOptionsProperty{
 //   	multiLine: jsii.Boolean(false),
 //   }
 //
 type CfnDataset_JsonOptionsProperty struct {
 	// `CfnDataset.JsonOptionsProperty.MultiLine`.
-	MultiLine interface{} `json:"multiLine" yaml:"multiLine"`
+	MultiLine interface{} `field:"optional" json:"multiLine" yaml:"multiLine"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metadataProperty := &metadataProperty{
 //   	sourceArn: jsii.String("sourceArn"),
 //   }
 //
 type CfnDataset_MetadataProperty struct {
 	// `CfnDataset.MetadataProperty.SourceArn`.
-	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
+	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   pathOptionsProperty := &pathOptionsProperty{
 //   	filesLimit: &filesLimitProperty{
 //   		maxFiles: jsii.Number(123),
@@ -1196,15 +1114,18 @@ type CfnDataset_MetadataProperty struct {
 //
 type CfnDataset_PathOptionsProperty struct {
 	// `CfnDataset.PathOptionsProperty.FilesLimit`.
-	FilesLimit interface{} `json:"filesLimit" yaml:"filesLimit"`
+	FilesLimit interface{} `field:"optional" json:"filesLimit" yaml:"filesLimit"`
 	// `CfnDataset.PathOptionsProperty.LastModifiedDateCondition`.
-	LastModifiedDateCondition interface{} `json:"lastModifiedDateCondition" yaml:"lastModifiedDateCondition"`
+	LastModifiedDateCondition interface{} `field:"optional" json:"lastModifiedDateCondition" yaml:"lastModifiedDateCondition"`
 	// `CfnDataset.PathOptionsProperty.Parameters`.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   pathParameterProperty := &pathParameterProperty{
 //   	datasetParameter: &datasetParameterProperty{
 //   		name: jsii.String("name"),
@@ -1234,13 +1155,16 @@ type CfnDataset_PathOptionsProperty struct {
 //
 type CfnDataset_PathParameterProperty struct {
 	// `CfnDataset.PathParameterProperty.DatasetParameter`.
-	DatasetParameter interface{} `json:"datasetParameter" yaml:"datasetParameter"`
+	DatasetParameter interface{} `field:"required" json:"datasetParameter" yaml:"datasetParameter"`
 	// `CfnDataset.PathParameterProperty.PathParameterName`.
-	PathParameterName *string `json:"pathParameterName" yaml:"pathParameterName"`
+	PathParameterName *string `field:"required" json:"pathParameterName" yaml:"pathParameterName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LocationProperty := &s3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //
@@ -1250,15 +1174,18 @@ type CfnDataset_PathParameterProperty struct {
 //
 type CfnDataset_S3LocationProperty struct {
 	// `CfnDataset.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// `CfnDataset.S3LocationProperty.Key`.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 
 // Properties for defining a `CfnDataset`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDatasetProps := &cfnDatasetProps{
 //   	input: &inputProperty{
 //   		databaseInputDefinition: &databaseInputDefinitionProperty{
@@ -1373,26 +1300,29 @@ type CfnDataset_S3LocationProperty struct {
 //
 type CfnDatasetProps struct {
 	// `AWS::DataBrew::Dataset.Input`.
-	Input interface{} `json:"input" yaml:"input"`
+	Input interface{} `field:"required" json:"input" yaml:"input"`
 	// `AWS::DataBrew::Dataset.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::DataBrew::Dataset.Format`.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 	// `AWS::DataBrew::Dataset.FormatOptions`.
-	FormatOptions interface{} `json:"formatOptions" yaml:"formatOptions"`
+	FormatOptions interface{} `field:"optional" json:"formatOptions" yaml:"formatOptions"`
 	// `AWS::DataBrew::Dataset.PathOptions`.
-	PathOptions interface{} `json:"pathOptions" yaml:"pathOptions"`
+	PathOptions interface{} `field:"optional" json:"pathOptions" yaml:"pathOptions"`
 	// `AWS::DataBrew::Dataset.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataBrew::Job`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
-//   cfnJob := databrew.NewCfnJob(this, jsii.String("MyCfnJob"), &cfnJobProps{
+//
+//   cfnJob := awscdk.Aws_databrew.NewCfnJob(this, jsii.String("MyCfnJob"), &cfnJobProps{
 //   	name: jsii.String("name"),
 //   	roleArn: jsii.String("roleArn"),
 //   	type: jsii.String("type"),
@@ -1573,16 +1503,13 @@ type CfnJob interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::DataBrew::Job.DatabaseOutputs`.
 	DatabaseOutputs() interface{}
@@ -1611,7 +1538,6 @@ type CfnJob interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// `AWS::DataBrew::Job.LogSubscription`.
 	LogSubscription() *string
@@ -1625,9 +1551,8 @@ type CfnJob interface {
 	// `AWS::DataBrew::Job.Name`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// `AWS::DataBrew::Job.OutputLocation`.
 	OutputLocation() interface{}
 	SetOutputLocation(val interface{})
@@ -1647,7 +1572,6 @@ type CfnJob interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::DataBrew::Job.RoleArn`.
 	RoleArn() *string
@@ -1655,7 +1579,6 @@ type CfnJob interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::DataBrew::Job.Tags`.
 	Tags() awscdk.TagManager
@@ -1669,19 +1592,16 @@ type CfnJob interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// `AWS::DataBrew::Job.ValidationConfigurations`.
 	ValidationConfigurations() interface{}
 	SetValidationConfigurations(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1690,7 +1610,6 @@ type CfnJob interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1735,15 +1654,12 @@ type CfnJob interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1754,13 +1670,11 @@ type CfnJob interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1769,74 +1683,21 @@ type CfnJob interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1996,8 +1857,8 @@ func (j *jsiiProxy_CfnJob) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJob) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnJob) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2138,13 +1999,13 @@ func (j *jsiiProxy_CfnJob) ValidationConfigurations() interface{} {
 
 
 // Create a new `AWS::DataBrew::Job`.
-func NewCfnJob(scope awscdk.Construct, id *string, props *CfnJobProps) CfnJob {
+func NewCfnJob(scope constructs.Construct, id *string, props *CfnJobProps) CfnJob {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnJob{}
 
 	_jsii_.Create(
-		"monocdk.aws_databrew.CfnJob",
+		"aws-cdk-lib.aws_databrew.CfnJob",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2153,11 +2014,11 @@ func NewCfnJob(scope awscdk.Construct, id *string, props *CfnJobProps) CfnJob {
 }
 
 // Create a new `AWS::DataBrew::Job`.
-func NewCfnJob_Override(c CfnJob, scope awscdk.Construct, id *string, props *CfnJobProps) {
+func NewCfnJob_Override(c CfnJob, scope constructs.Construct, id *string, props *CfnJobProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_databrew.CfnJob",
+		"aws-cdk-lib.aws_databrew.CfnJob",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2321,14 +2182,13 @@ func (j *jsiiProxy_CfnJob) SetValidationConfigurations(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnJob_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnJob",
+		"aws-cdk-lib.aws_databrew.CfnJob",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2338,14 +2198,13 @@ func CfnJob_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnJob_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnJob",
+		"aws-cdk-lib.aws_databrew.CfnJob",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2354,15 +2213,17 @@ func CfnJob_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnJob_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnJob",
+		"aws-cdk-lib.aws_databrew.CfnJob",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2375,7 +2236,7 @@ func CfnJob_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_databrew.CfnJob",
+		"aws-cdk-lib.aws_databrew.CfnJob",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2472,48 +2333,11 @@ func (c *jsiiProxy_CfnJob) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnJob) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnJob) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnJob) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnJob) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnJob) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2543,33 +2367,12 @@ func (c *jsiiProxy_CfnJob) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnJob) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnJob) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnJob) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2586,7 +2389,10 @@ func (c *jsiiProxy_CfnJob) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   allowedStatisticsProperty := &allowedStatisticsProperty{
 //   	statistics: []*string{
 //   		jsii.String("statistics"),
@@ -2595,11 +2401,14 @@ func (c *jsiiProxy_CfnJob) ValidateProperties(_properties interface{}) {
 //
 type CfnJob_AllowedStatisticsProperty struct {
 	// `CfnJob.AllowedStatisticsProperty.Statistics`.
-	Statistics *[]*string `json:"statistics" yaml:"statistics"`
+	Statistics *[]*string `field:"required" json:"statistics" yaml:"statistics"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   columnSelectorProperty := &columnSelectorProperty{
 //   	name: jsii.String("name"),
 //   	regex: jsii.String("regex"),
@@ -2607,15 +2416,18 @@ type CfnJob_AllowedStatisticsProperty struct {
 //
 type CfnJob_ColumnSelectorProperty struct {
 	// `CfnJob.ColumnSelectorProperty.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// `CfnJob.ColumnSelectorProperty.Regex`.
-	Regex *string `json:"regex" yaml:"regex"`
+	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   columnStatisticsConfigurationProperty := &columnStatisticsConfigurationProperty{
 //   	statistics: &statisticsConfigurationProperty{
 //   		includedStatistics: []*string{
@@ -2640,24 +2452,30 @@ type CfnJob_ColumnSelectorProperty struct {
 //
 type CfnJob_ColumnStatisticsConfigurationProperty struct {
 	// `CfnJob.ColumnStatisticsConfigurationProperty.Statistics`.
-	Statistics interface{} `json:"statistics" yaml:"statistics"`
+	Statistics interface{} `field:"required" json:"statistics" yaml:"statistics"`
 	// `CfnJob.ColumnStatisticsConfigurationProperty.Selectors`.
-	Selectors interface{} `json:"selectors" yaml:"selectors"`
+	Selectors interface{} `field:"optional" json:"selectors" yaml:"selectors"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   csvOutputOptionsProperty := &csvOutputOptionsProperty{
 //   	delimiter: jsii.String("delimiter"),
 //   }
 //
 type CfnJob_CsvOutputOptionsProperty struct {
 	// `CfnJob.CsvOutputOptionsProperty.Delimiter`.
-	Delimiter *string `json:"delimiter" yaml:"delimiter"`
+	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataCatalogOutputProperty := &dataCatalogOutputProperty{
 //   	databaseName: jsii.String("databaseName"),
 //   	tableName: jsii.String("tableName"),
@@ -2690,21 +2508,24 @@ type CfnJob_CsvOutputOptionsProperty struct {
 //
 type CfnJob_DataCatalogOutputProperty struct {
 	// `CfnJob.DataCatalogOutputProperty.DatabaseName`.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// `CfnJob.DataCatalogOutputProperty.TableName`.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// `CfnJob.DataCatalogOutputProperty.CatalogId`.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// `CfnJob.DataCatalogOutputProperty.DatabaseOptions`.
-	DatabaseOptions interface{} `json:"databaseOptions" yaml:"databaseOptions"`
+	DatabaseOptions interface{} `field:"optional" json:"databaseOptions" yaml:"databaseOptions"`
 	// `CfnJob.DataCatalogOutputProperty.Overwrite`.
-	Overwrite interface{} `json:"overwrite" yaml:"overwrite"`
+	Overwrite interface{} `field:"optional" json:"overwrite" yaml:"overwrite"`
 	// `CfnJob.DataCatalogOutputProperty.S3Options`.
-	S3Options interface{} `json:"s3Options" yaml:"s3Options"`
+	S3Options interface{} `field:"optional" json:"s3Options" yaml:"s3Options"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   databaseOutputProperty := &databaseOutputProperty{
 //   	databaseOptions: &databaseTableOutputOptionsProperty{
 //   		tableName: jsii.String("tableName"),
@@ -2726,15 +2547,18 @@ type CfnJob_DataCatalogOutputProperty struct {
 //
 type CfnJob_DatabaseOutputProperty struct {
 	// `CfnJob.DatabaseOutputProperty.DatabaseOptions`.
-	DatabaseOptions interface{} `json:"databaseOptions" yaml:"databaseOptions"`
+	DatabaseOptions interface{} `field:"required" json:"databaseOptions" yaml:"databaseOptions"`
 	// `CfnJob.DatabaseOutputProperty.GlueConnectionName`.
-	GlueConnectionName *string `json:"glueConnectionName" yaml:"glueConnectionName"`
+	GlueConnectionName *string `field:"required" json:"glueConnectionName" yaml:"glueConnectionName"`
 	// `CfnJob.DatabaseOutputProperty.DatabaseOutputMode`.
-	DatabaseOutputMode *string `json:"databaseOutputMode" yaml:"databaseOutputMode"`
+	DatabaseOutputMode *string `field:"optional" json:"databaseOutputMode" yaml:"databaseOutputMode"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   databaseTableOutputOptionsProperty := &databaseTableOutputOptionsProperty{
 //   	tableName: jsii.String("tableName"),
 //
@@ -2750,13 +2574,16 @@ type CfnJob_DatabaseOutputProperty struct {
 //
 type CfnJob_DatabaseTableOutputOptionsProperty struct {
 	// `CfnJob.DatabaseTableOutputOptionsProperty.TableName`.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// `CfnJob.DatabaseTableOutputOptionsProperty.TempDirectory`.
-	TempDirectory interface{} `json:"tempDirectory" yaml:"tempDirectory"`
+	TempDirectory interface{} `field:"optional" json:"tempDirectory" yaml:"tempDirectory"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   entityDetectorConfigurationProperty := &entityDetectorConfigurationProperty{
 //   	entityTypes: []*string{
 //   		jsii.String("entityTypes"),
@@ -2772,13 +2599,16 @@ type CfnJob_DatabaseTableOutputOptionsProperty struct {
 //
 type CfnJob_EntityDetectorConfigurationProperty struct {
 	// `CfnJob.EntityDetectorConfigurationProperty.EntityTypes`.
-	EntityTypes *[]*string `json:"entityTypes" yaml:"entityTypes"`
+	EntityTypes *[]*string `field:"required" json:"entityTypes" yaml:"entityTypes"`
 	// `CfnJob.EntityDetectorConfigurationProperty.AllowedStatistics`.
-	AllowedStatistics interface{} `json:"allowedStatistics" yaml:"allowedStatistics"`
+	AllowedStatistics interface{} `field:"optional" json:"allowedStatistics" yaml:"allowedStatistics"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jobSampleProperty := &jobSampleProperty{
 //   	mode: jsii.String("mode"),
 //   	size: jsii.Number(123),
@@ -2786,13 +2616,16 @@ type CfnJob_EntityDetectorConfigurationProperty struct {
 //
 type CfnJob_JobSampleProperty struct {
 	// `CfnJob.JobSampleProperty.Mode`.
-	Mode *string `json:"mode" yaml:"mode"`
+	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 	// `CfnJob.JobSampleProperty.Size`.
-	Size *float64 `json:"size" yaml:"size"`
+	Size *float64 `field:"optional" json:"size" yaml:"size"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   outputFormatOptionsProperty := &outputFormatOptionsProperty{
 //   	csv: &csvOutputOptionsProperty{
 //   		delimiter: jsii.String("delimiter"),
@@ -2801,11 +2634,14 @@ type CfnJob_JobSampleProperty struct {
 //
 type CfnJob_OutputFormatOptionsProperty struct {
 	// `CfnJob.OutputFormatOptionsProperty.Csv`.
-	Csv interface{} `json:"csv" yaml:"csv"`
+	Csv interface{} `field:"optional" json:"csv" yaml:"csv"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   outputLocationProperty := &outputLocationProperty{
 //   	bucket: jsii.String("bucket"),
 //
@@ -2816,15 +2652,18 @@ type CfnJob_OutputFormatOptionsProperty struct {
 //
 type CfnJob_OutputLocationProperty struct {
 	// `CfnJob.OutputLocationProperty.Bucket`.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// `CfnJob.OutputLocationProperty.BucketOwner`.
-	BucketOwner *string `json:"bucketOwner" yaml:"bucketOwner"`
+	BucketOwner *string `field:"optional" json:"bucketOwner" yaml:"bucketOwner"`
 	// `CfnJob.OutputLocationProperty.Key`.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   outputProperty := &outputProperty{
 //   	location: &s3LocationProperty{
 //   		bucket: jsii.String("bucket"),
@@ -2851,25 +2690,28 @@ type CfnJob_OutputLocationProperty struct {
 //
 type CfnJob_OutputProperty struct {
 	// `CfnJob.OutputProperty.Location`.
-	Location interface{} `json:"location" yaml:"location"`
+	Location interface{} `field:"required" json:"location" yaml:"location"`
 	// `CfnJob.OutputProperty.CompressionFormat`.
-	CompressionFormat *string `json:"compressionFormat" yaml:"compressionFormat"`
+	CompressionFormat *string `field:"optional" json:"compressionFormat" yaml:"compressionFormat"`
 	// `CfnJob.OutputProperty.Format`.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 	// `CfnJob.OutputProperty.FormatOptions`.
-	FormatOptions interface{} `json:"formatOptions" yaml:"formatOptions"`
+	FormatOptions interface{} `field:"optional" json:"formatOptions" yaml:"formatOptions"`
 	// `CfnJob.OutputProperty.MaxOutputFiles`.
-	MaxOutputFiles *float64 `json:"maxOutputFiles" yaml:"maxOutputFiles"`
+	MaxOutputFiles *float64 `field:"optional" json:"maxOutputFiles" yaml:"maxOutputFiles"`
 	// `CfnJob.OutputProperty.Overwrite`.
-	Overwrite interface{} `json:"overwrite" yaml:"overwrite"`
+	Overwrite interface{} `field:"optional" json:"overwrite" yaml:"overwrite"`
 	// `CfnJob.OutputProperty.PartitionColumns`.
-	PartitionColumns *[]*string `json:"partitionColumns" yaml:"partitionColumns"`
+	PartitionColumns *[]*string `field:"optional" json:"partitionColumns" yaml:"partitionColumns"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   profileConfigurationProperty := &profileConfigurationProperty{
 //   	columnStatisticsConfigurations: []interface{}{
 //   		&columnStatisticsConfigurationProperty{
@@ -2927,17 +2769,20 @@ type CfnJob_OutputProperty struct {
 //
 type CfnJob_ProfileConfigurationProperty struct {
 	// `CfnJob.ProfileConfigurationProperty.ColumnStatisticsConfigurations`.
-	ColumnStatisticsConfigurations interface{} `json:"columnStatisticsConfigurations" yaml:"columnStatisticsConfigurations"`
+	ColumnStatisticsConfigurations interface{} `field:"optional" json:"columnStatisticsConfigurations" yaml:"columnStatisticsConfigurations"`
 	// `CfnJob.ProfileConfigurationProperty.DatasetStatisticsConfiguration`.
-	DatasetStatisticsConfiguration interface{} `json:"datasetStatisticsConfiguration" yaml:"datasetStatisticsConfiguration"`
+	DatasetStatisticsConfiguration interface{} `field:"optional" json:"datasetStatisticsConfiguration" yaml:"datasetStatisticsConfiguration"`
 	// `CfnJob.ProfileConfigurationProperty.EntityDetectorConfiguration`.
-	EntityDetectorConfiguration interface{} `json:"entityDetectorConfiguration" yaml:"entityDetectorConfiguration"`
+	EntityDetectorConfiguration interface{} `field:"optional" json:"entityDetectorConfiguration" yaml:"entityDetectorConfiguration"`
 	// `CfnJob.ProfileConfigurationProperty.ProfileColumns`.
-	ProfileColumns interface{} `json:"profileColumns" yaml:"profileColumns"`
+	ProfileColumns interface{} `field:"optional" json:"profileColumns" yaml:"profileColumns"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   recipeProperty := &recipeProperty{
 //   	name: jsii.String("name"),
 //
@@ -2947,13 +2792,16 @@ type CfnJob_ProfileConfigurationProperty struct {
 //
 type CfnJob_RecipeProperty struct {
 	// `CfnJob.RecipeProperty.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `CfnJob.RecipeProperty.Version`.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LocationProperty := &s3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //
@@ -2964,15 +2812,18 @@ type CfnJob_RecipeProperty struct {
 //
 type CfnJob_S3LocationProperty struct {
 	// `CfnJob.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// `CfnJob.S3LocationProperty.BucketOwner`.
-	BucketOwner *string `json:"bucketOwner" yaml:"bucketOwner"`
+	BucketOwner *string `field:"optional" json:"bucketOwner" yaml:"bucketOwner"`
 	// `CfnJob.S3LocationProperty.Key`.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3TableOutputOptionsProperty := &s3TableOutputOptionsProperty{
 //   	location: &s3LocationProperty{
 //   		bucket: jsii.String("bucket"),
@@ -2985,13 +2836,16 @@ type CfnJob_S3LocationProperty struct {
 //
 type CfnJob_S3TableOutputOptionsProperty struct {
 	// `CfnJob.S3TableOutputOptionsProperty.Location`.
-	Location interface{} `json:"location" yaml:"location"`
+	Location interface{} `field:"required" json:"location" yaml:"location"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   statisticOverrideProperty := &statisticOverrideProperty{
 //   	parameters: parameters,
 //   	statistic: jsii.String("statistic"),
@@ -2999,15 +2853,18 @@ type CfnJob_S3TableOutputOptionsProperty struct {
 //
 type CfnJob_StatisticOverrideProperty struct {
 	// `CfnJob.StatisticOverrideProperty.Parameters`.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"required" json:"parameters" yaml:"parameters"`
 	// `CfnJob.StatisticOverrideProperty.Statistic`.
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"required" json:"statistic" yaml:"statistic"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   statisticsConfigurationProperty := &statisticsConfigurationProperty{
 //   	includedStatistics: []*string{
 //   		jsii.String("includedStatistics"),
@@ -3022,13 +2879,16 @@ type CfnJob_StatisticOverrideProperty struct {
 //
 type CfnJob_StatisticsConfigurationProperty struct {
 	// `CfnJob.StatisticsConfigurationProperty.IncludedStatistics`.
-	IncludedStatistics *[]*string `json:"includedStatistics" yaml:"includedStatistics"`
+	IncludedStatistics *[]*string `field:"optional" json:"includedStatistics" yaml:"includedStatistics"`
 	// `CfnJob.StatisticsConfigurationProperty.Overrides`.
-	Overrides interface{} `json:"overrides" yaml:"overrides"`
+	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   validationConfigurationProperty := &validationConfigurationProperty{
 //   	rulesetArn: jsii.String("rulesetArn"),
 //
@@ -3038,17 +2898,20 @@ type CfnJob_StatisticsConfigurationProperty struct {
 //
 type CfnJob_ValidationConfigurationProperty struct {
 	// `CfnJob.ValidationConfigurationProperty.RulesetArn`.
-	RulesetArn *string `json:"rulesetArn" yaml:"rulesetArn"`
+	RulesetArn *string `field:"required" json:"rulesetArn" yaml:"rulesetArn"`
 	// `CfnJob.ValidationConfigurationProperty.ValidationMode`.
-	ValidationMode *string `json:"validationMode" yaml:"validationMode"`
+	ValidationMode *string `field:"optional" json:"validationMode" yaml:"validationMode"`
 }
 
 // Properties for defining a `CfnJob`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   cfnJobProps := &cfnJobProps{
 //   	name: jsii.String("name"),
 //   	roleArn: jsii.String("roleArn"),
@@ -3228,52 +3091,55 @@ type CfnJob_ValidationConfigurationProperty struct {
 //
 type CfnJobProps struct {
 	// `AWS::DataBrew::Job.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::DataBrew::Job.RoleArn`.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// `AWS::DataBrew::Job.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `AWS::DataBrew::Job.DatabaseOutputs`.
-	DatabaseOutputs interface{} `json:"databaseOutputs" yaml:"databaseOutputs"`
+	DatabaseOutputs interface{} `field:"optional" json:"databaseOutputs" yaml:"databaseOutputs"`
 	// `AWS::DataBrew::Job.DataCatalogOutputs`.
-	DataCatalogOutputs interface{} `json:"dataCatalogOutputs" yaml:"dataCatalogOutputs"`
+	DataCatalogOutputs interface{} `field:"optional" json:"dataCatalogOutputs" yaml:"dataCatalogOutputs"`
 	// `AWS::DataBrew::Job.DatasetName`.
-	DatasetName *string `json:"datasetName" yaml:"datasetName"`
+	DatasetName *string `field:"optional" json:"datasetName" yaml:"datasetName"`
 	// `AWS::DataBrew::Job.EncryptionKeyArn`.
-	EncryptionKeyArn *string `json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
+	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
 	// `AWS::DataBrew::Job.EncryptionMode`.
-	EncryptionMode *string `json:"encryptionMode" yaml:"encryptionMode"`
+	EncryptionMode *string `field:"optional" json:"encryptionMode" yaml:"encryptionMode"`
 	// `AWS::DataBrew::Job.JobSample`.
-	JobSample interface{} `json:"jobSample" yaml:"jobSample"`
+	JobSample interface{} `field:"optional" json:"jobSample" yaml:"jobSample"`
 	// `AWS::DataBrew::Job.LogSubscription`.
-	LogSubscription *string `json:"logSubscription" yaml:"logSubscription"`
+	LogSubscription *string `field:"optional" json:"logSubscription" yaml:"logSubscription"`
 	// `AWS::DataBrew::Job.MaxCapacity`.
-	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
+	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
 	// `AWS::DataBrew::Job.MaxRetries`.
-	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// `AWS::DataBrew::Job.OutputLocation`.
-	OutputLocation interface{} `json:"outputLocation" yaml:"outputLocation"`
+	OutputLocation interface{} `field:"optional" json:"outputLocation" yaml:"outputLocation"`
 	// `AWS::DataBrew::Job.Outputs`.
-	Outputs interface{} `json:"outputs" yaml:"outputs"`
+	Outputs interface{} `field:"optional" json:"outputs" yaml:"outputs"`
 	// `AWS::DataBrew::Job.ProfileConfiguration`.
-	ProfileConfiguration interface{} `json:"profileConfiguration" yaml:"profileConfiguration"`
+	ProfileConfiguration interface{} `field:"optional" json:"profileConfiguration" yaml:"profileConfiguration"`
 	// `AWS::DataBrew::Job.ProjectName`.
-	ProjectName *string `json:"projectName" yaml:"projectName"`
+	ProjectName *string `field:"optional" json:"projectName" yaml:"projectName"`
 	// `AWS::DataBrew::Job.Recipe`.
-	Recipe interface{} `json:"recipe" yaml:"recipe"`
+	Recipe interface{} `field:"optional" json:"recipe" yaml:"recipe"`
 	// `AWS::DataBrew::Job.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// `AWS::DataBrew::Job.Timeout`.
-	Timeout *float64 `json:"timeout" yaml:"timeout"`
+	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
 	// `AWS::DataBrew::Job.ValidationConfigurations`.
-	ValidationConfigurations interface{} `json:"validationConfigurations" yaml:"validationConfigurations"`
+	ValidationConfigurations interface{} `field:"optional" json:"validationConfigurations" yaml:"validationConfigurations"`
 }
 
 // A CloudFormation `AWS::DataBrew::Project`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
-//   cfnProject := databrew.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnProject := awscdk.Aws_databrew.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
 //   	datasetName: jsii.String("datasetName"),
 //   	name: jsii.String("name"),
 //   	recipeName: jsii.String("recipeName"),
@@ -3298,16 +3164,13 @@ type CfnProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::DataBrew::Project.DatasetName`.
 	DatasetName() *string
@@ -3321,14 +3184,12 @@ type CfnProject interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// `AWS::DataBrew::Project.Name`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// `AWS::DataBrew::Project.RecipeName`.
 	RecipeName() *string
 	SetRecipeName(val *string)
@@ -3336,7 +3197,6 @@ type CfnProject interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::DataBrew::Project.RoleArn`.
 	RoleArn() *string
@@ -3347,7 +3207,6 @@ type CfnProject interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::DataBrew::Project.Tags`.
 	Tags() awscdk.TagManager
@@ -3355,16 +3214,13 @@ type CfnProject interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3373,7 +3229,6 @@ type CfnProject interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -3418,15 +3273,12 @@ type CfnProject interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -3437,13 +3289,11 @@ type CfnProject interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3452,74 +3302,21 @@ type CfnProject interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3599,8 +3396,8 @@ func (j *jsiiProxy_CfnProject) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProject) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnProject) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3681,13 +3478,13 @@ func (j *jsiiProxy_CfnProject) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DataBrew::Project`.
-func NewCfnProject(scope awscdk.Construct, id *string, props *CfnProjectProps) CfnProject {
+func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProps) CfnProject {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnProject{}
 
 	_jsii_.Create(
-		"monocdk.aws_databrew.CfnProject",
+		"aws-cdk-lib.aws_databrew.CfnProject",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3696,11 +3493,11 @@ func NewCfnProject(scope awscdk.Construct, id *string, props *CfnProjectProps) C
 }
 
 // Create a new `AWS::DataBrew::Project`.
-func NewCfnProject_Override(c CfnProject, scope awscdk.Construct, id *string, props *CfnProjectProps) {
+func NewCfnProject_Override(c CfnProject, scope constructs.Construct, id *string, props *CfnProjectProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_databrew.CfnProject",
+		"aws-cdk-lib.aws_databrew.CfnProject",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3752,14 +3549,13 @@ func (j *jsiiProxy_CfnProject) SetSample(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnProject_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnProject",
+		"aws-cdk-lib.aws_databrew.CfnProject",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3769,14 +3565,13 @@ func CfnProject_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnProject_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnProject",
+		"aws-cdk-lib.aws_databrew.CfnProject",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3785,15 +3580,17 @@ func CfnProject_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnProject_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnProject",
+		"aws-cdk-lib.aws_databrew.CfnProject",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3806,7 +3603,7 @@ func CfnProject_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_databrew.CfnProject",
+		"aws-cdk-lib.aws_databrew.CfnProject",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3903,48 +3700,11 @@ func (c *jsiiProxy_CfnProject) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnProject) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnProject) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnProject) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnProject) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnProject) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3974,33 +3734,12 @@ func (c *jsiiProxy_CfnProject) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnProject) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnProject) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnProject) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4017,7 +3756,10 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sampleProperty := &sampleProperty{
 //   	type: jsii.String("type"),
 //
@@ -4027,15 +3769,18 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 //
 type CfnProject_SampleProperty struct {
 	// `CfnProject.SampleProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `CfnProject.SampleProperty.Size`.
-	Size *float64 `json:"size" yaml:"size"`
+	Size *float64 `field:"optional" json:"size" yaml:"size"`
 }
 
 // Properties for defining a `CfnProject`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnProjectProps := &cfnProjectProps{
 //   	datasetName: jsii.String("datasetName"),
 //   	name: jsii.String("name"),
@@ -4059,24 +3804,27 @@ type CfnProject_SampleProperty struct {
 //
 type CfnProjectProps struct {
 	// `AWS::DataBrew::Project.DatasetName`.
-	DatasetName *string `json:"datasetName" yaml:"datasetName"`
+	DatasetName *string `field:"required" json:"datasetName" yaml:"datasetName"`
 	// `AWS::DataBrew::Project.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::DataBrew::Project.RecipeName`.
-	RecipeName *string `json:"recipeName" yaml:"recipeName"`
+	RecipeName *string `field:"required" json:"recipeName" yaml:"recipeName"`
 	// `AWS::DataBrew::Project.RoleArn`.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// `AWS::DataBrew::Project.Sample`.
-	Sample interface{} `json:"sample" yaml:"sample"`
+	Sample interface{} `field:"optional" json:"sample" yaml:"sample"`
 	// `AWS::DataBrew::Project.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataBrew::Recipe`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
-//   cfnRecipe := databrew.NewCfnRecipe(this, jsii.String("MyCfnRecipe"), &cfnRecipeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRecipe := awscdk.Aws_databrew.NewCfnRecipe(this, jsii.String("MyCfnRecipe"), &cfnRecipeProps{
 //   	name: jsii.String("name"),
 //   	steps: []interface{}{
 //   		&recipeStepProperty{
@@ -4116,16 +3864,13 @@ type CfnRecipe interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::DataBrew::Recipe.Description`.
 	Description() *string
@@ -4139,24 +3884,20 @@ type CfnRecipe interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// `AWS::DataBrew::Recipe.Name`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::DataBrew::Recipe.Steps`.
 	Steps() interface{}
@@ -4167,16 +3908,13 @@ type CfnRecipe interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4185,7 +3923,6 @@ type CfnRecipe interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -4230,15 +3967,12 @@ type CfnRecipe interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -4249,13 +3983,11 @@ type CfnRecipe interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4264,74 +3996,21 @@ type CfnRecipe interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4411,8 +4090,8 @@ func (j *jsiiProxy_CfnRecipe) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecipe) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnRecipe) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4473,13 +4152,13 @@ func (j *jsiiProxy_CfnRecipe) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DataBrew::Recipe`.
-func NewCfnRecipe(scope awscdk.Construct, id *string, props *CfnRecipeProps) CfnRecipe {
+func NewCfnRecipe(scope constructs.Construct, id *string, props *CfnRecipeProps) CfnRecipe {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRecipe{}
 
 	_jsii_.Create(
-		"monocdk.aws_databrew.CfnRecipe",
+		"aws-cdk-lib.aws_databrew.CfnRecipe",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4488,11 +4167,11 @@ func NewCfnRecipe(scope awscdk.Construct, id *string, props *CfnRecipeProps) Cfn
 }
 
 // Create a new `AWS::DataBrew::Recipe`.
-func NewCfnRecipe_Override(c CfnRecipe, scope awscdk.Construct, id *string, props *CfnRecipeProps) {
+func NewCfnRecipe_Override(c CfnRecipe, scope constructs.Construct, id *string, props *CfnRecipeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_databrew.CfnRecipe",
+		"aws-cdk-lib.aws_databrew.CfnRecipe",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4528,14 +4207,13 @@ func (j *jsiiProxy_CfnRecipe) SetSteps(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRecipe_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnRecipe",
+		"aws-cdk-lib.aws_databrew.CfnRecipe",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4545,14 +4223,13 @@ func CfnRecipe_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRecipe_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnRecipe",
+		"aws-cdk-lib.aws_databrew.CfnRecipe",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4561,15 +4238,17 @@ func CfnRecipe_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnRecipe_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnRecipe",
+		"aws-cdk-lib.aws_databrew.CfnRecipe",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4582,7 +4261,7 @@ func CfnRecipe_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_databrew.CfnRecipe",
+		"aws-cdk-lib.aws_databrew.CfnRecipe",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4679,48 +4358,11 @@ func (c *jsiiProxy_CfnRecipe) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnRecipe) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnRecipe) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnRecipe) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnRecipe) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnRecipe) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -4750,33 +4392,12 @@ func (c *jsiiProxy_CfnRecipe) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnRecipe) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnRecipe) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnRecipe) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4793,7 +4414,10 @@ func (c *jsiiProxy_CfnRecipe) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionProperty := &actionProperty{
 //   	operation: jsii.String("operation"),
 //
@@ -4805,13 +4429,16 @@ func (c *jsiiProxy_CfnRecipe) ValidateProperties(_properties interface{}) {
 //
 type CfnRecipe_ActionProperty struct {
 	// `CfnRecipe.ActionProperty.Operation`.
-	Operation *string `json:"operation" yaml:"operation"`
+	Operation *string `field:"required" json:"operation" yaml:"operation"`
 	// `CfnRecipe.ActionProperty.Parameters`.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   conditionExpressionProperty := &conditionExpressionProperty{
 //   	condition: jsii.String("condition"),
 //   	targetColumn: jsii.String("targetColumn"),
@@ -4822,15 +4449,18 @@ type CfnRecipe_ActionProperty struct {
 //
 type CfnRecipe_ConditionExpressionProperty struct {
 	// `CfnRecipe.ConditionExpressionProperty.Condition`.
-	Condition *string `json:"condition" yaml:"condition"`
+	Condition *string `field:"required" json:"condition" yaml:"condition"`
 	// `CfnRecipe.ConditionExpressionProperty.TargetColumn`.
-	TargetColumn *string `json:"targetColumn" yaml:"targetColumn"`
+	TargetColumn *string `field:"required" json:"targetColumn" yaml:"targetColumn"`
 	// `CfnRecipe.ConditionExpressionProperty.Value`.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataCatalogInputDefinitionProperty := &dataCatalogInputDefinitionProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseName: jsii.String("databaseName"),
@@ -4845,19 +4475,22 @@ type CfnRecipe_ConditionExpressionProperty struct {
 //
 type CfnRecipe_DataCatalogInputDefinitionProperty struct {
 	// `CfnRecipe.DataCatalogInputDefinitionProperty.CatalogId`.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// `CfnRecipe.DataCatalogInputDefinitionProperty.DatabaseName`.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// `CfnRecipe.DataCatalogInputDefinitionProperty.TableName`.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 	// `CfnRecipe.DataCatalogInputDefinitionProperty.TempDirectory`.
-	TempDirectory interface{} `json:"tempDirectory" yaml:"tempDirectory"`
+	TempDirectory interface{} `field:"optional" json:"tempDirectory" yaml:"tempDirectory"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var input interface{}
+//
 //   recipeParametersProperty := &recipeParametersProperty{
 //   	aggregateFunction: jsii.String("aggregateFunction"),
 //   	base: jsii.String("base"),
@@ -4988,211 +4621,214 @@ type CfnRecipe_DataCatalogInputDefinitionProperty struct {
 //
 type CfnRecipe_RecipeParametersProperty struct {
 	// `CfnRecipe.RecipeParametersProperty.AggregateFunction`.
-	AggregateFunction *string `json:"aggregateFunction" yaml:"aggregateFunction"`
+	AggregateFunction *string `field:"optional" json:"aggregateFunction" yaml:"aggregateFunction"`
 	// `CfnRecipe.RecipeParametersProperty.Base`.
-	Base *string `json:"base" yaml:"base"`
+	Base *string `field:"optional" json:"base" yaml:"base"`
 	// `CfnRecipe.RecipeParametersProperty.CaseStatement`.
-	CaseStatement *string `json:"caseStatement" yaml:"caseStatement"`
+	CaseStatement *string `field:"optional" json:"caseStatement" yaml:"caseStatement"`
 	// `CfnRecipe.RecipeParametersProperty.CategoryMap`.
-	CategoryMap *string `json:"categoryMap" yaml:"categoryMap"`
+	CategoryMap *string `field:"optional" json:"categoryMap" yaml:"categoryMap"`
 	// `CfnRecipe.RecipeParametersProperty.CharsToRemove`.
-	CharsToRemove *string `json:"charsToRemove" yaml:"charsToRemove"`
+	CharsToRemove *string `field:"optional" json:"charsToRemove" yaml:"charsToRemove"`
 	// `CfnRecipe.RecipeParametersProperty.CollapseConsecutiveWhitespace`.
-	CollapseConsecutiveWhitespace *string `json:"collapseConsecutiveWhitespace" yaml:"collapseConsecutiveWhitespace"`
+	CollapseConsecutiveWhitespace *string `field:"optional" json:"collapseConsecutiveWhitespace" yaml:"collapseConsecutiveWhitespace"`
 	// `CfnRecipe.RecipeParametersProperty.ColumnDataType`.
-	ColumnDataType *string `json:"columnDataType" yaml:"columnDataType"`
+	ColumnDataType *string `field:"optional" json:"columnDataType" yaml:"columnDataType"`
 	// `CfnRecipe.RecipeParametersProperty.ColumnRange`.
-	ColumnRange *string `json:"columnRange" yaml:"columnRange"`
+	ColumnRange *string `field:"optional" json:"columnRange" yaml:"columnRange"`
 	// `CfnRecipe.RecipeParametersProperty.Count`.
-	Count *string `json:"count" yaml:"count"`
+	Count *string `field:"optional" json:"count" yaml:"count"`
 	// `CfnRecipe.RecipeParametersProperty.CustomCharacters`.
-	CustomCharacters *string `json:"customCharacters" yaml:"customCharacters"`
+	CustomCharacters *string `field:"optional" json:"customCharacters" yaml:"customCharacters"`
 	// `CfnRecipe.RecipeParametersProperty.CustomStopWords`.
-	CustomStopWords *string `json:"customStopWords" yaml:"customStopWords"`
+	CustomStopWords *string `field:"optional" json:"customStopWords" yaml:"customStopWords"`
 	// `CfnRecipe.RecipeParametersProperty.CustomValue`.
-	CustomValue *string `json:"customValue" yaml:"customValue"`
+	CustomValue *string `field:"optional" json:"customValue" yaml:"customValue"`
 	// `CfnRecipe.RecipeParametersProperty.DatasetsColumns`.
-	DatasetsColumns *string `json:"datasetsColumns" yaml:"datasetsColumns"`
+	DatasetsColumns *string `field:"optional" json:"datasetsColumns" yaml:"datasetsColumns"`
 	// `CfnRecipe.RecipeParametersProperty.DateAddValue`.
-	DateAddValue *string `json:"dateAddValue" yaml:"dateAddValue"`
+	DateAddValue *string `field:"optional" json:"dateAddValue" yaml:"dateAddValue"`
 	// `CfnRecipe.RecipeParametersProperty.DateTimeFormat`.
-	DateTimeFormat *string `json:"dateTimeFormat" yaml:"dateTimeFormat"`
+	DateTimeFormat *string `field:"optional" json:"dateTimeFormat" yaml:"dateTimeFormat"`
 	// `CfnRecipe.RecipeParametersProperty.DateTimeParameters`.
-	DateTimeParameters *string `json:"dateTimeParameters" yaml:"dateTimeParameters"`
+	DateTimeParameters *string `field:"optional" json:"dateTimeParameters" yaml:"dateTimeParameters"`
 	// `CfnRecipe.RecipeParametersProperty.DeleteOtherRows`.
-	DeleteOtherRows *string `json:"deleteOtherRows" yaml:"deleteOtherRows"`
+	DeleteOtherRows *string `field:"optional" json:"deleteOtherRows" yaml:"deleteOtherRows"`
 	// `CfnRecipe.RecipeParametersProperty.Delimiter`.
-	Delimiter *string `json:"delimiter" yaml:"delimiter"`
+	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 	// `CfnRecipe.RecipeParametersProperty.EndPattern`.
-	EndPattern *string `json:"endPattern" yaml:"endPattern"`
+	EndPattern *string `field:"optional" json:"endPattern" yaml:"endPattern"`
 	// `CfnRecipe.RecipeParametersProperty.EndPosition`.
-	EndPosition *string `json:"endPosition" yaml:"endPosition"`
+	EndPosition *string `field:"optional" json:"endPosition" yaml:"endPosition"`
 	// `CfnRecipe.RecipeParametersProperty.EndValue`.
-	EndValue *string `json:"endValue" yaml:"endValue"`
+	EndValue *string `field:"optional" json:"endValue" yaml:"endValue"`
 	// `CfnRecipe.RecipeParametersProperty.ExpandContractions`.
-	ExpandContractions *string `json:"expandContractions" yaml:"expandContractions"`
+	ExpandContractions *string `field:"optional" json:"expandContractions" yaml:"expandContractions"`
 	// `CfnRecipe.RecipeParametersProperty.Exponent`.
-	Exponent *string `json:"exponent" yaml:"exponent"`
+	Exponent *string `field:"optional" json:"exponent" yaml:"exponent"`
 	// `CfnRecipe.RecipeParametersProperty.FalseString`.
-	FalseString *string `json:"falseString" yaml:"falseString"`
+	FalseString *string `field:"optional" json:"falseString" yaml:"falseString"`
 	// `CfnRecipe.RecipeParametersProperty.GroupByAggFunctionOptions`.
-	GroupByAggFunctionOptions *string `json:"groupByAggFunctionOptions" yaml:"groupByAggFunctionOptions"`
+	GroupByAggFunctionOptions *string `field:"optional" json:"groupByAggFunctionOptions" yaml:"groupByAggFunctionOptions"`
 	// `CfnRecipe.RecipeParametersProperty.GroupByColumns`.
-	GroupByColumns *string `json:"groupByColumns" yaml:"groupByColumns"`
+	GroupByColumns *string `field:"optional" json:"groupByColumns" yaml:"groupByColumns"`
 	// `CfnRecipe.RecipeParametersProperty.HiddenColumns`.
-	HiddenColumns *string `json:"hiddenColumns" yaml:"hiddenColumns"`
+	HiddenColumns *string `field:"optional" json:"hiddenColumns" yaml:"hiddenColumns"`
 	// `CfnRecipe.RecipeParametersProperty.IgnoreCase`.
-	IgnoreCase *string `json:"ignoreCase" yaml:"ignoreCase"`
+	IgnoreCase *string `field:"optional" json:"ignoreCase" yaml:"ignoreCase"`
 	// `CfnRecipe.RecipeParametersProperty.IncludeInSplit`.
-	IncludeInSplit *string `json:"includeInSplit" yaml:"includeInSplit"`
+	IncludeInSplit *string `field:"optional" json:"includeInSplit" yaml:"includeInSplit"`
 	// `CfnRecipe.RecipeParametersProperty.Input`.
-	Input interface{} `json:"input" yaml:"input"`
+	Input interface{} `field:"optional" json:"input" yaml:"input"`
 	// `CfnRecipe.RecipeParametersProperty.Interval`.
-	Interval *string `json:"interval" yaml:"interval"`
+	Interval *string `field:"optional" json:"interval" yaml:"interval"`
 	// `CfnRecipe.RecipeParametersProperty.IsText`.
-	IsText *string `json:"isText" yaml:"isText"`
+	IsText *string `field:"optional" json:"isText" yaml:"isText"`
 	// `CfnRecipe.RecipeParametersProperty.JoinKeys`.
-	JoinKeys *string `json:"joinKeys" yaml:"joinKeys"`
+	JoinKeys *string `field:"optional" json:"joinKeys" yaml:"joinKeys"`
 	// `CfnRecipe.RecipeParametersProperty.JoinType`.
-	JoinType *string `json:"joinType" yaml:"joinType"`
+	JoinType *string `field:"optional" json:"joinType" yaml:"joinType"`
 	// `CfnRecipe.RecipeParametersProperty.LeftColumns`.
-	LeftColumns *string `json:"leftColumns" yaml:"leftColumns"`
+	LeftColumns *string `field:"optional" json:"leftColumns" yaml:"leftColumns"`
 	// `CfnRecipe.RecipeParametersProperty.Limit`.
-	Limit *string `json:"limit" yaml:"limit"`
+	Limit *string `field:"optional" json:"limit" yaml:"limit"`
 	// `CfnRecipe.RecipeParametersProperty.LowerBound`.
-	LowerBound *string `json:"lowerBound" yaml:"lowerBound"`
+	LowerBound *string `field:"optional" json:"lowerBound" yaml:"lowerBound"`
 	// `CfnRecipe.RecipeParametersProperty.MapType`.
-	MapType *string `json:"mapType" yaml:"mapType"`
+	MapType *string `field:"optional" json:"mapType" yaml:"mapType"`
 	// `CfnRecipe.RecipeParametersProperty.ModeType`.
-	ModeType *string `json:"modeType" yaml:"modeType"`
+	ModeType *string `field:"optional" json:"modeType" yaml:"modeType"`
 	// `CfnRecipe.RecipeParametersProperty.MultiLine`.
-	MultiLine interface{} `json:"multiLine" yaml:"multiLine"`
+	MultiLine interface{} `field:"optional" json:"multiLine" yaml:"multiLine"`
 	// `CfnRecipe.RecipeParametersProperty.NumRows`.
-	NumRows *string `json:"numRows" yaml:"numRows"`
+	NumRows *string `field:"optional" json:"numRows" yaml:"numRows"`
 	// `CfnRecipe.RecipeParametersProperty.NumRowsAfter`.
-	NumRowsAfter *string `json:"numRowsAfter" yaml:"numRowsAfter"`
+	NumRowsAfter *string `field:"optional" json:"numRowsAfter" yaml:"numRowsAfter"`
 	// `CfnRecipe.RecipeParametersProperty.NumRowsBefore`.
-	NumRowsBefore *string `json:"numRowsBefore" yaml:"numRowsBefore"`
+	NumRowsBefore *string `field:"optional" json:"numRowsBefore" yaml:"numRowsBefore"`
 	// `CfnRecipe.RecipeParametersProperty.OrderByColumn`.
-	OrderByColumn *string `json:"orderByColumn" yaml:"orderByColumn"`
+	OrderByColumn *string `field:"optional" json:"orderByColumn" yaml:"orderByColumn"`
 	// `CfnRecipe.RecipeParametersProperty.OrderByColumns`.
-	OrderByColumns *string `json:"orderByColumns" yaml:"orderByColumns"`
+	OrderByColumns *string `field:"optional" json:"orderByColumns" yaml:"orderByColumns"`
 	// `CfnRecipe.RecipeParametersProperty.Other`.
-	Other *string `json:"other" yaml:"other"`
+	Other *string `field:"optional" json:"other" yaml:"other"`
 	// `CfnRecipe.RecipeParametersProperty.Pattern`.
-	Pattern *string `json:"pattern" yaml:"pattern"`
+	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`
 	// `CfnRecipe.RecipeParametersProperty.PatternOption1`.
-	PatternOption1 *string `json:"patternOption1" yaml:"patternOption1"`
+	PatternOption1 *string `field:"optional" json:"patternOption1" yaml:"patternOption1"`
 	// `CfnRecipe.RecipeParametersProperty.PatternOption2`.
-	PatternOption2 *string `json:"patternOption2" yaml:"patternOption2"`
+	PatternOption2 *string `field:"optional" json:"patternOption2" yaml:"patternOption2"`
 	// `CfnRecipe.RecipeParametersProperty.PatternOptions`.
-	PatternOptions *string `json:"patternOptions" yaml:"patternOptions"`
+	PatternOptions *string `field:"optional" json:"patternOptions" yaml:"patternOptions"`
 	// `CfnRecipe.RecipeParametersProperty.Period`.
-	Period *string `json:"period" yaml:"period"`
+	Period *string `field:"optional" json:"period" yaml:"period"`
 	// `CfnRecipe.RecipeParametersProperty.Position`.
-	Position *string `json:"position" yaml:"position"`
+	Position *string `field:"optional" json:"position" yaml:"position"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveAllPunctuation`.
-	RemoveAllPunctuation *string `json:"removeAllPunctuation" yaml:"removeAllPunctuation"`
+	RemoveAllPunctuation *string `field:"optional" json:"removeAllPunctuation" yaml:"removeAllPunctuation"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveAllQuotes`.
-	RemoveAllQuotes *string `json:"removeAllQuotes" yaml:"removeAllQuotes"`
+	RemoveAllQuotes *string `field:"optional" json:"removeAllQuotes" yaml:"removeAllQuotes"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveAllWhitespace`.
-	RemoveAllWhitespace *string `json:"removeAllWhitespace" yaml:"removeAllWhitespace"`
+	RemoveAllWhitespace *string `field:"optional" json:"removeAllWhitespace" yaml:"removeAllWhitespace"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveCustomCharacters`.
-	RemoveCustomCharacters *string `json:"removeCustomCharacters" yaml:"removeCustomCharacters"`
+	RemoveCustomCharacters *string `field:"optional" json:"removeCustomCharacters" yaml:"removeCustomCharacters"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveCustomValue`.
-	RemoveCustomValue *string `json:"removeCustomValue" yaml:"removeCustomValue"`
+	RemoveCustomValue *string `field:"optional" json:"removeCustomValue" yaml:"removeCustomValue"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveLeadingAndTrailingPunctuation`.
-	RemoveLeadingAndTrailingPunctuation *string `json:"removeLeadingAndTrailingPunctuation" yaml:"removeLeadingAndTrailingPunctuation"`
+	RemoveLeadingAndTrailingPunctuation *string `field:"optional" json:"removeLeadingAndTrailingPunctuation" yaml:"removeLeadingAndTrailingPunctuation"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveLeadingAndTrailingQuotes`.
-	RemoveLeadingAndTrailingQuotes *string `json:"removeLeadingAndTrailingQuotes" yaml:"removeLeadingAndTrailingQuotes"`
+	RemoveLeadingAndTrailingQuotes *string `field:"optional" json:"removeLeadingAndTrailingQuotes" yaml:"removeLeadingAndTrailingQuotes"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveLeadingAndTrailingWhitespace`.
-	RemoveLeadingAndTrailingWhitespace *string `json:"removeLeadingAndTrailingWhitespace" yaml:"removeLeadingAndTrailingWhitespace"`
+	RemoveLeadingAndTrailingWhitespace *string `field:"optional" json:"removeLeadingAndTrailingWhitespace" yaml:"removeLeadingAndTrailingWhitespace"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveLetters`.
-	RemoveLetters *string `json:"removeLetters" yaml:"removeLetters"`
+	RemoveLetters *string `field:"optional" json:"removeLetters" yaml:"removeLetters"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveNumbers`.
-	RemoveNumbers *string `json:"removeNumbers" yaml:"removeNumbers"`
+	RemoveNumbers *string `field:"optional" json:"removeNumbers" yaml:"removeNumbers"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveSourceColumn`.
-	RemoveSourceColumn *string `json:"removeSourceColumn" yaml:"removeSourceColumn"`
+	RemoveSourceColumn *string `field:"optional" json:"removeSourceColumn" yaml:"removeSourceColumn"`
 	// `CfnRecipe.RecipeParametersProperty.RemoveSpecialCharacters`.
-	RemoveSpecialCharacters *string `json:"removeSpecialCharacters" yaml:"removeSpecialCharacters"`
+	RemoveSpecialCharacters *string `field:"optional" json:"removeSpecialCharacters" yaml:"removeSpecialCharacters"`
 	// `CfnRecipe.RecipeParametersProperty.RightColumns`.
-	RightColumns *string `json:"rightColumns" yaml:"rightColumns"`
+	RightColumns *string `field:"optional" json:"rightColumns" yaml:"rightColumns"`
 	// `CfnRecipe.RecipeParametersProperty.SampleSize`.
-	SampleSize *string `json:"sampleSize" yaml:"sampleSize"`
+	SampleSize *string `field:"optional" json:"sampleSize" yaml:"sampleSize"`
 	// `CfnRecipe.RecipeParametersProperty.SampleType`.
-	SampleType *string `json:"sampleType" yaml:"sampleType"`
+	SampleType *string `field:"optional" json:"sampleType" yaml:"sampleType"`
 	// `CfnRecipe.RecipeParametersProperty.SecondaryInputs`.
-	SecondaryInputs interface{} `json:"secondaryInputs" yaml:"secondaryInputs"`
+	SecondaryInputs interface{} `field:"optional" json:"secondaryInputs" yaml:"secondaryInputs"`
 	// `CfnRecipe.RecipeParametersProperty.SecondInput`.
-	SecondInput *string `json:"secondInput" yaml:"secondInput"`
+	SecondInput *string `field:"optional" json:"secondInput" yaml:"secondInput"`
 	// `CfnRecipe.RecipeParametersProperty.SheetIndexes`.
-	SheetIndexes interface{} `json:"sheetIndexes" yaml:"sheetIndexes"`
+	SheetIndexes interface{} `field:"optional" json:"sheetIndexes" yaml:"sheetIndexes"`
 	// `CfnRecipe.RecipeParametersProperty.SheetNames`.
-	SheetNames *[]*string `json:"sheetNames" yaml:"sheetNames"`
+	SheetNames *[]*string `field:"optional" json:"sheetNames" yaml:"sheetNames"`
 	// `CfnRecipe.RecipeParametersProperty.SourceColumn`.
-	SourceColumn *string `json:"sourceColumn" yaml:"sourceColumn"`
+	SourceColumn *string `field:"optional" json:"sourceColumn" yaml:"sourceColumn"`
 	// `CfnRecipe.RecipeParametersProperty.SourceColumn1`.
-	SourceColumn1 *string `json:"sourceColumn1" yaml:"sourceColumn1"`
+	SourceColumn1 *string `field:"optional" json:"sourceColumn1" yaml:"sourceColumn1"`
 	// `CfnRecipe.RecipeParametersProperty.SourceColumn2`.
-	SourceColumn2 *string `json:"sourceColumn2" yaml:"sourceColumn2"`
+	SourceColumn2 *string `field:"optional" json:"sourceColumn2" yaml:"sourceColumn2"`
 	// `CfnRecipe.RecipeParametersProperty.SourceColumns`.
-	SourceColumns *string `json:"sourceColumns" yaml:"sourceColumns"`
+	SourceColumns *string `field:"optional" json:"sourceColumns" yaml:"sourceColumns"`
 	// `CfnRecipe.RecipeParametersProperty.StartColumnIndex`.
-	StartColumnIndex *string `json:"startColumnIndex" yaml:"startColumnIndex"`
+	StartColumnIndex *string `field:"optional" json:"startColumnIndex" yaml:"startColumnIndex"`
 	// `CfnRecipe.RecipeParametersProperty.StartPattern`.
-	StartPattern *string `json:"startPattern" yaml:"startPattern"`
+	StartPattern *string `field:"optional" json:"startPattern" yaml:"startPattern"`
 	// `CfnRecipe.RecipeParametersProperty.StartPosition`.
-	StartPosition *string `json:"startPosition" yaml:"startPosition"`
+	StartPosition *string `field:"optional" json:"startPosition" yaml:"startPosition"`
 	// `CfnRecipe.RecipeParametersProperty.StartValue`.
-	StartValue *string `json:"startValue" yaml:"startValue"`
+	StartValue *string `field:"optional" json:"startValue" yaml:"startValue"`
 	// `CfnRecipe.RecipeParametersProperty.StemmingMode`.
-	StemmingMode *string `json:"stemmingMode" yaml:"stemmingMode"`
+	StemmingMode *string `field:"optional" json:"stemmingMode" yaml:"stemmingMode"`
 	// `CfnRecipe.RecipeParametersProperty.StepCount`.
-	StepCount *string `json:"stepCount" yaml:"stepCount"`
+	StepCount *string `field:"optional" json:"stepCount" yaml:"stepCount"`
 	// `CfnRecipe.RecipeParametersProperty.StepIndex`.
-	StepIndex *string `json:"stepIndex" yaml:"stepIndex"`
+	StepIndex *string `field:"optional" json:"stepIndex" yaml:"stepIndex"`
 	// `CfnRecipe.RecipeParametersProperty.StopWordsMode`.
-	StopWordsMode *string `json:"stopWordsMode" yaml:"stopWordsMode"`
+	StopWordsMode *string `field:"optional" json:"stopWordsMode" yaml:"stopWordsMode"`
 	// `CfnRecipe.RecipeParametersProperty.Strategy`.
-	Strategy *string `json:"strategy" yaml:"strategy"`
+	Strategy *string `field:"optional" json:"strategy" yaml:"strategy"`
 	// `CfnRecipe.RecipeParametersProperty.TargetColumn`.
-	TargetColumn *string `json:"targetColumn" yaml:"targetColumn"`
+	TargetColumn *string `field:"optional" json:"targetColumn" yaml:"targetColumn"`
 	// `CfnRecipe.RecipeParametersProperty.TargetColumnNames`.
-	TargetColumnNames *string `json:"targetColumnNames" yaml:"targetColumnNames"`
+	TargetColumnNames *string `field:"optional" json:"targetColumnNames" yaml:"targetColumnNames"`
 	// `CfnRecipe.RecipeParametersProperty.TargetDateFormat`.
-	TargetDateFormat *string `json:"targetDateFormat" yaml:"targetDateFormat"`
+	TargetDateFormat *string `field:"optional" json:"targetDateFormat" yaml:"targetDateFormat"`
 	// `CfnRecipe.RecipeParametersProperty.TargetIndex`.
-	TargetIndex *string `json:"targetIndex" yaml:"targetIndex"`
+	TargetIndex *string `field:"optional" json:"targetIndex" yaml:"targetIndex"`
 	// `CfnRecipe.RecipeParametersProperty.TimeZone`.
-	TimeZone *string `json:"timeZone" yaml:"timeZone"`
+	TimeZone *string `field:"optional" json:"timeZone" yaml:"timeZone"`
 	// `CfnRecipe.RecipeParametersProperty.TokenizerPattern`.
-	TokenizerPattern *string `json:"tokenizerPattern" yaml:"tokenizerPattern"`
+	TokenizerPattern *string `field:"optional" json:"tokenizerPattern" yaml:"tokenizerPattern"`
 	// `CfnRecipe.RecipeParametersProperty.TrueString`.
-	TrueString *string `json:"trueString" yaml:"trueString"`
+	TrueString *string `field:"optional" json:"trueString" yaml:"trueString"`
 	// `CfnRecipe.RecipeParametersProperty.UdfLang`.
-	UdfLang *string `json:"udfLang" yaml:"udfLang"`
+	UdfLang *string `field:"optional" json:"udfLang" yaml:"udfLang"`
 	// `CfnRecipe.RecipeParametersProperty.Units`.
-	Units *string `json:"units" yaml:"units"`
+	Units *string `field:"optional" json:"units" yaml:"units"`
 	// `CfnRecipe.RecipeParametersProperty.UnpivotColumn`.
-	UnpivotColumn *string `json:"unpivotColumn" yaml:"unpivotColumn"`
+	UnpivotColumn *string `field:"optional" json:"unpivotColumn" yaml:"unpivotColumn"`
 	// `CfnRecipe.RecipeParametersProperty.UpperBound`.
-	UpperBound *string `json:"upperBound" yaml:"upperBound"`
+	UpperBound *string `field:"optional" json:"upperBound" yaml:"upperBound"`
 	// `CfnRecipe.RecipeParametersProperty.UseNewDataFrame`.
-	UseNewDataFrame *string `json:"useNewDataFrame" yaml:"useNewDataFrame"`
+	UseNewDataFrame *string `field:"optional" json:"useNewDataFrame" yaml:"useNewDataFrame"`
 	// `CfnRecipe.RecipeParametersProperty.Value`.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 	// `CfnRecipe.RecipeParametersProperty.Value1`.
-	Value1 *string `json:"value1" yaml:"value1"`
+	Value1 *string `field:"optional" json:"value1" yaml:"value1"`
 	// `CfnRecipe.RecipeParametersProperty.Value2`.
-	Value2 *string `json:"value2" yaml:"value2"`
+	Value2 *string `field:"optional" json:"value2" yaml:"value2"`
 	// `CfnRecipe.RecipeParametersProperty.ValueColumn`.
-	ValueColumn *string `json:"valueColumn" yaml:"valueColumn"`
+	ValueColumn *string `field:"optional" json:"valueColumn" yaml:"valueColumn"`
 	// `CfnRecipe.RecipeParametersProperty.ViewFrame`.
-	ViewFrame *string `json:"viewFrame" yaml:"viewFrame"`
+	ViewFrame *string `field:"optional" json:"viewFrame" yaml:"viewFrame"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   recipeStepProperty := &recipeStepProperty{
 //   	action: &actionProperty{
 //   		operation: jsii.String("operation"),
@@ -5217,13 +4853,16 @@ type CfnRecipe_RecipeParametersProperty struct {
 //
 type CfnRecipe_RecipeStepProperty struct {
 	// `CfnRecipe.RecipeStepProperty.Action`.
-	Action interface{} `json:"action" yaml:"action"`
+	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// `CfnRecipe.RecipeStepProperty.ConditionExpressions`.
-	ConditionExpressions interface{} `json:"conditionExpressions" yaml:"conditionExpressions"`
+	ConditionExpressions interface{} `field:"optional" json:"conditionExpressions" yaml:"conditionExpressions"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LocationProperty := &s3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //
@@ -5233,13 +4872,16 @@ type CfnRecipe_RecipeStepProperty struct {
 //
 type CfnRecipe_S3LocationProperty struct {
 	// `CfnRecipe.S3LocationProperty.Bucket`.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// `CfnRecipe.S3LocationProperty.Key`.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   secondaryInputProperty := &secondaryInputProperty{
 //   	dataCatalogInputDefinition: &dataCatalogInputDefinitionProperty{
 //   		catalogId: jsii.String("catalogId"),
@@ -5262,15 +4904,18 @@ type CfnRecipe_S3LocationProperty struct {
 //
 type CfnRecipe_SecondaryInputProperty struct {
 	// `CfnRecipe.SecondaryInputProperty.DataCatalogInputDefinition`.
-	DataCatalogInputDefinition interface{} `json:"dataCatalogInputDefinition" yaml:"dataCatalogInputDefinition"`
+	DataCatalogInputDefinition interface{} `field:"optional" json:"dataCatalogInputDefinition" yaml:"dataCatalogInputDefinition"`
 	// `CfnRecipe.SecondaryInputProperty.S3InputDefinition`.
-	S3InputDefinition interface{} `json:"s3InputDefinition" yaml:"s3InputDefinition"`
+	S3InputDefinition interface{} `field:"optional" json:"s3InputDefinition" yaml:"s3InputDefinition"`
 }
 
 // Properties for defining a `CfnRecipe`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRecipeProps := &cfnRecipeProps{
 //   	name: jsii.String("name"),
 //   	steps: []interface{}{
@@ -5309,20 +4954,23 @@ type CfnRecipe_SecondaryInputProperty struct {
 //
 type CfnRecipeProps struct {
 	// `AWS::DataBrew::Recipe.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::DataBrew::Recipe.Steps`.
-	Steps interface{} `json:"steps" yaml:"steps"`
+	Steps interface{} `field:"required" json:"steps" yaml:"steps"`
 	// `AWS::DataBrew::Recipe.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::DataBrew::Recipe.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataBrew::Ruleset`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
-//   cfnRuleset := databrew.NewCfnRuleset(this, jsii.String("MyCfnRuleset"), &cfnRulesetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRuleset := awscdk.Aws_databrew.NewCfnRuleset(this, jsii.String("MyCfnRuleset"), &cfnRulesetProps{
 //   	name: jsii.String("name"),
 //   	rules: []interface{}{
 //   		&ruleProperty{
@@ -5368,16 +5016,13 @@ type CfnRuleset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::DataBrew::Ruleset.Description`.
 	Description() *string
@@ -5391,19 +5036,16 @@ type CfnRuleset interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// `AWS::DataBrew::Ruleset.Name`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::DataBrew::Ruleset.Rules`.
 	Rules() interface{}
@@ -5411,7 +5053,6 @@ type CfnRuleset interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::DataBrew::Ruleset.Tags`.
 	Tags() awscdk.TagManager
@@ -5422,16 +5063,13 @@ type CfnRuleset interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -5440,7 +5078,6 @@ type CfnRuleset interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -5485,15 +5122,12 @@ type CfnRuleset interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -5504,13 +5138,11 @@ type CfnRuleset interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -5519,74 +5151,21 @@ type CfnRuleset interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5666,8 +5245,8 @@ func (j *jsiiProxy_CfnRuleset) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleset) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnRuleset) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5738,13 +5317,13 @@ func (j *jsiiProxy_CfnRuleset) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DataBrew::Ruleset`.
-func NewCfnRuleset(scope awscdk.Construct, id *string, props *CfnRulesetProps) CfnRuleset {
+func NewCfnRuleset(scope constructs.Construct, id *string, props *CfnRulesetProps) CfnRuleset {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRuleset{}
 
 	_jsii_.Create(
-		"monocdk.aws_databrew.CfnRuleset",
+		"aws-cdk-lib.aws_databrew.CfnRuleset",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5753,11 +5332,11 @@ func NewCfnRuleset(scope awscdk.Construct, id *string, props *CfnRulesetProps) C
 }
 
 // Create a new `AWS::DataBrew::Ruleset`.
-func NewCfnRuleset_Override(c CfnRuleset, scope awscdk.Construct, id *string, props *CfnRulesetProps) {
+func NewCfnRuleset_Override(c CfnRuleset, scope constructs.Construct, id *string, props *CfnRulesetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_databrew.CfnRuleset",
+		"aws-cdk-lib.aws_databrew.CfnRuleset",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5801,14 +5380,13 @@ func (j *jsiiProxy_CfnRuleset) SetTargetArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRuleset_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnRuleset",
+		"aws-cdk-lib.aws_databrew.CfnRuleset",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5818,14 +5396,13 @@ func CfnRuleset_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRuleset_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnRuleset",
+		"aws-cdk-lib.aws_databrew.CfnRuleset",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5834,15 +5411,17 @@ func CfnRuleset_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnRuleset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnRuleset",
+		"aws-cdk-lib.aws_databrew.CfnRuleset",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5855,7 +5434,7 @@ func CfnRuleset_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_databrew.CfnRuleset",
+		"aws-cdk-lib.aws_databrew.CfnRuleset",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5952,48 +5531,11 @@ func (c *jsiiProxy_CfnRuleset) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnRuleset) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnRuleset) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnRuleset) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnRuleset) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnRuleset) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -6023,33 +5565,12 @@ func (c *jsiiProxy_CfnRuleset) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnRuleset) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnRuleset) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnRuleset) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6066,7 +5587,10 @@ func (c *jsiiProxy_CfnRuleset) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   columnSelectorProperty := &columnSelectorProperty{
 //   	name: jsii.String("name"),
 //   	regex: jsii.String("regex"),
@@ -6074,13 +5598,16 @@ func (c *jsiiProxy_CfnRuleset) ValidateProperties(_properties interface{}) {
 //
 type CfnRuleset_ColumnSelectorProperty struct {
 	// `CfnRuleset.ColumnSelectorProperty.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// `CfnRuleset.ColumnSelectorProperty.Regex`.
-	Regex *string `json:"regex" yaml:"regex"`
+	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleProperty := &ruleProperty{
 //   	checkExpression: jsii.String("checkExpression"),
 //   	name: jsii.String("name"),
@@ -6110,21 +5637,24 @@ type CfnRuleset_ColumnSelectorProperty struct {
 //
 type CfnRuleset_RuleProperty struct {
 	// `CfnRuleset.RuleProperty.CheckExpression`.
-	CheckExpression *string `json:"checkExpression" yaml:"checkExpression"`
+	CheckExpression *string `field:"required" json:"checkExpression" yaml:"checkExpression"`
 	// `CfnRuleset.RuleProperty.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `CfnRuleset.RuleProperty.ColumnSelectors`.
-	ColumnSelectors interface{} `json:"columnSelectors" yaml:"columnSelectors"`
+	ColumnSelectors interface{} `field:"optional" json:"columnSelectors" yaml:"columnSelectors"`
 	// `CfnRuleset.RuleProperty.Disabled`.
-	Disabled interface{} `json:"disabled" yaml:"disabled"`
+	Disabled interface{} `field:"optional" json:"disabled" yaml:"disabled"`
 	// `CfnRuleset.RuleProperty.SubstitutionMap`.
-	SubstitutionMap interface{} `json:"substitutionMap" yaml:"substitutionMap"`
+	SubstitutionMap interface{} `field:"optional" json:"substitutionMap" yaml:"substitutionMap"`
 	// `CfnRuleset.RuleProperty.Threshold`.
-	Threshold interface{} `json:"threshold" yaml:"threshold"`
+	Threshold interface{} `field:"optional" json:"threshold" yaml:"threshold"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   substitutionValueProperty := &substitutionValueProperty{
 //   	value: jsii.String("value"),
 //   	valueReference: jsii.String("valueReference"),
@@ -6132,13 +5662,16 @@ type CfnRuleset_RuleProperty struct {
 //
 type CfnRuleset_SubstitutionValueProperty struct {
 	// `CfnRuleset.SubstitutionValueProperty.Value`.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 	// `CfnRuleset.SubstitutionValueProperty.ValueReference`.
-	ValueReference *string `json:"valueReference" yaml:"valueReference"`
+	ValueReference *string `field:"required" json:"valueReference" yaml:"valueReference"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   thresholdProperty := &thresholdProperty{
 //   	value: jsii.Number(123),
 //
@@ -6149,17 +5682,20 @@ type CfnRuleset_SubstitutionValueProperty struct {
 //
 type CfnRuleset_ThresholdProperty struct {
 	// `CfnRuleset.ThresholdProperty.Value`.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"required" json:"value" yaml:"value"`
 	// `CfnRuleset.ThresholdProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// `CfnRuleset.ThresholdProperty.Unit`.
-	Unit *string `json:"unit" yaml:"unit"`
+	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 
 // Properties for defining a `CfnRuleset`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRulesetProps := &cfnRulesetProps{
 //   	name: jsii.String("name"),
 //   	rules: []interface{}{
@@ -6204,22 +5740,25 @@ type CfnRuleset_ThresholdProperty struct {
 //
 type CfnRulesetProps struct {
 	// `AWS::DataBrew::Ruleset.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::DataBrew::Ruleset.Rules`.
-	Rules interface{} `json:"rules" yaml:"rules"`
+	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 	// `AWS::DataBrew::Ruleset.TargetArn`.
-	TargetArn *string `json:"targetArn" yaml:"targetArn"`
+	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// `AWS::DataBrew::Ruleset.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::DataBrew::Ruleset.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataBrew::Schedule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
-//   cfnSchedule := databrew.NewCfnSchedule(this, jsii.String("MyCfnSchedule"), &cfnScheduleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSchedule := awscdk.Aws_databrew.NewCfnSchedule(this, jsii.String("MyCfnSchedule"), &cfnScheduleProps{
 //   	cronExpression: jsii.String("cronExpression"),
 //   	name: jsii.String("name"),
 //
@@ -6239,16 +5778,13 @@ type CfnSchedule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::DataBrew::Schedule.CronExpression`.
 	CronExpression() *string
@@ -6265,24 +5801,20 @@ type CfnSchedule interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// `AWS::DataBrew::Schedule.Name`.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::DataBrew::Schedule.Tags`.
 	Tags() awscdk.TagManager
@@ -6290,16 +5822,13 @@ type CfnSchedule interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6308,7 +5837,6 @@ type CfnSchedule interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -6353,15 +5881,12 @@ type CfnSchedule interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -6372,13 +5897,11 @@ type CfnSchedule interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6387,74 +5910,21 @@ type CfnSchedule interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -6544,8 +6014,8 @@ func (j *jsiiProxy_CfnSchedule) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSchedule) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnSchedule) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6596,13 +6066,13 @@ func (j *jsiiProxy_CfnSchedule) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DataBrew::Schedule`.
-func NewCfnSchedule(scope awscdk.Construct, id *string, props *CfnScheduleProps) CfnSchedule {
+func NewCfnSchedule(scope constructs.Construct, id *string, props *CfnScheduleProps) CfnSchedule {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSchedule{}
 
 	_jsii_.Create(
-		"monocdk.aws_databrew.CfnSchedule",
+		"aws-cdk-lib.aws_databrew.CfnSchedule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6611,11 +6081,11 @@ func NewCfnSchedule(scope awscdk.Construct, id *string, props *CfnScheduleProps)
 }
 
 // Create a new `AWS::DataBrew::Schedule`.
-func NewCfnSchedule_Override(c CfnSchedule, scope awscdk.Construct, id *string, props *CfnScheduleProps) {
+func NewCfnSchedule_Override(c CfnSchedule, scope constructs.Construct, id *string, props *CfnScheduleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_databrew.CfnSchedule",
+		"aws-cdk-lib.aws_databrew.CfnSchedule",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6651,14 +6121,13 @@ func (j *jsiiProxy_CfnSchedule) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSchedule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnSchedule",
+		"aws-cdk-lib.aws_databrew.CfnSchedule",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6668,14 +6137,13 @@ func CfnSchedule_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSchedule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnSchedule",
+		"aws-cdk-lib.aws_databrew.CfnSchedule",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6684,15 +6152,17 @@ func CfnSchedule_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnSchedule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_databrew.CfnSchedule",
+		"aws-cdk-lib.aws_databrew.CfnSchedule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6705,7 +6175,7 @@ func CfnSchedule_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_databrew.CfnSchedule",
+		"aws-cdk-lib.aws_databrew.CfnSchedule",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6802,48 +6272,11 @@ func (c *jsiiProxy_CfnSchedule) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnSchedule) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnSchedule) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnSchedule) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnSchedule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnSchedule) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -6873,33 +6306,12 @@ func (c *jsiiProxy_CfnSchedule) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnSchedule) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnSchedule) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnSchedule) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6918,7 +6330,10 @@ func (c *jsiiProxy_CfnSchedule) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnSchedule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import databrew "github.com/aws/aws-cdk-go/awscdk/aws_databrew"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnScheduleProps := &cfnScheduleProps{
 //   	cronExpression: jsii.String("cronExpression"),
 //   	name: jsii.String("name"),
@@ -6937,12 +6352,12 @@ func (c *jsiiProxy_CfnSchedule) ValidateProperties(_properties interface{}) {
 //
 type CfnScheduleProps struct {
 	// `AWS::DataBrew::Schedule.CronExpression`.
-	CronExpression *string `json:"cronExpression" yaml:"cronExpression"`
+	CronExpression *string `field:"required" json:"cronExpression" yaml:"cronExpression"`
 	// `AWS::DataBrew::Schedule.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::DataBrew::Schedule.JobNames`.
-	JobNames *[]*string `json:"jobNames" yaml:"jobNames"`
+	JobNames *[]*string `field:"optional" json:"jobNames" yaml:"jobNames"`
 	// `AWS::DataBrew::Schedule.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

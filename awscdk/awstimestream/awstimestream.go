@@ -1,12 +1,12 @@
 package awstimestream
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awstimestream/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awstimestream/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::Timestream::Database`.
@@ -14,8 +14,11 @@ import (
 // Creates a new Timestream database. If the AWS KMS key is not specified, the database will be encrypted with a Timestream managed AWS KMS key located in your account. Refer to [AWS managed AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info. [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html) . See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html) for details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
-//   cfnDatabase := timestream.NewCfnDatabase(this, jsii.String("MyCfnDatabase"), &cfnDatabaseProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDatabase := awscdk.Aws_timestream.NewCfnDatabase(this, jsii.String("MyCfnDatabase"), &cfnDatabaseProps{
 //   	databaseName: jsii.String("databaseName"),
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	tags: []cfnTag{
@@ -32,16 +35,13 @@ type CfnDatabase interface {
 	// The `arn` of the database.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The name of the Timestream database.
 	//
@@ -60,21 +60,17 @@ type CfnDatabase interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The tags to add to the database.
 	Tags() awscdk.TagManager
@@ -82,16 +78,13 @@ type CfnDatabase interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -100,7 +93,6 @@ type CfnDatabase interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -145,15 +137,12 @@ type CfnDatabase interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -164,13 +153,11 @@ type CfnDatabase interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -179,74 +166,21 @@ type CfnDatabase interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -336,8 +270,8 @@ func (j *jsiiProxy_CfnDatabase) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDatabase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnDatabase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -388,13 +322,13 @@ func (j *jsiiProxy_CfnDatabase) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Timestream::Database`.
-func NewCfnDatabase(scope awscdk.Construct, id *string, props *CfnDatabaseProps) CfnDatabase {
+func NewCfnDatabase(scope constructs.Construct, id *string, props *CfnDatabaseProps) CfnDatabase {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDatabase{}
 
 	_jsii_.Create(
-		"monocdk.aws_timestream.CfnDatabase",
+		"aws-cdk-lib.aws_timestream.CfnDatabase",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -403,11 +337,11 @@ func NewCfnDatabase(scope awscdk.Construct, id *string, props *CfnDatabaseProps)
 }
 
 // Create a new `AWS::Timestream::Database`.
-func NewCfnDatabase_Override(c CfnDatabase, scope awscdk.Construct, id *string, props *CfnDatabaseProps) {
+func NewCfnDatabase_Override(c CfnDatabase, scope constructs.Construct, id *string, props *CfnDatabaseProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_timestream.CfnDatabase",
+		"aws-cdk-lib.aws_timestream.CfnDatabase",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -435,14 +369,13 @@ func (j *jsiiProxy_CfnDatabase) SetKmsKeyId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDatabase_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_timestream.CfnDatabase",
+		"aws-cdk-lib.aws_timestream.CfnDatabase",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -452,14 +385,13 @@ func CfnDatabase_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDatabase_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_timestream.CfnDatabase",
+		"aws-cdk-lib.aws_timestream.CfnDatabase",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -468,15 +400,17 @@ func CfnDatabase_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnDatabase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_timestream.CfnDatabase",
+		"aws-cdk-lib.aws_timestream.CfnDatabase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -489,7 +423,7 @@ func CfnDatabase_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_timestream.CfnDatabase",
+		"aws-cdk-lib.aws_timestream.CfnDatabase",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -586,48 +520,11 @@ func (c *jsiiProxy_CfnDatabase) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnDatabase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnDatabase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnDatabase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnDatabase) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnDatabase) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -657,33 +554,12 @@ func (c *jsiiProxy_CfnDatabase) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnDatabase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnDatabase) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnDatabase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -702,7 +578,10 @@ func (c *jsiiProxy_CfnDatabase) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDatabase`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDatabaseProps := &cfnDatabaseProps{
 //   	databaseName: jsii.String("databaseName"),
 //   	kmsKeyId: jsii.String("kmsKeyId"),
@@ -718,11 +597,11 @@ type CfnDatabaseProps struct {
 	// The name of the Timestream database.
 	//
 	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// The identifier of the AWS KMS key used to encrypt the data stored in the database.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The tags to add to the database.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Timestream::ScheduledQuery`.
@@ -730,8 +609,11 @@ type CfnDatabaseProps struct {
 // Create a scheduled query that will be run on your behalf at the configured schedule. Timestream assumes the execution role provided as part of the `ScheduledQueryExecutionRoleArn` parameter to run the query. You can use the `NotificationConfiguration` parameter to configure notification for your scheduled query operations.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
-//   cfnScheduledQuery := timestream.NewCfnScheduledQuery(this, jsii.String("MyCfnScheduledQuery"), &cfnScheduledQueryProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnScheduledQuery := awscdk.Aws_timestream.NewCfnScheduledQuery(this, jsii.String("MyCfnScheduledQuery"), &cfnScheduledQueryProps{
 //   	errorReportConfiguration: &errorReportConfigurationProperty{
 //   		s3Configuration: &s3ConfigurationProperty{
 //   			bucketName: jsii.String("bucketName"),
@@ -835,11 +717,9 @@ type CfnScheduledQuery interface {
 	// The configuration for query output.
 	AttrSqTargetConfiguration() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result.
 	//
@@ -852,7 +732,6 @@ type CfnScheduledQuery interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Configuration for error reporting.
 	//
@@ -875,11 +754,9 @@ type CfnScheduledQuery interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Notification configuration for the scheduled query.
 	//
 	// A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
@@ -896,7 +773,6 @@ type CfnScheduledQuery interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Schedule configuration.
 	ScheduleConfiguration() interface{}
@@ -912,7 +788,6 @@ type CfnScheduledQuery interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A list of key-value pairs to label the scheduled query.
 	Tags() awscdk.TagManager
@@ -923,16 +798,13 @@ type CfnScheduledQuery interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -941,7 +813,6 @@ type CfnScheduledQuery interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -986,15 +857,12 @@ type CfnScheduledQuery interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1005,13 +873,11 @@ type CfnScheduledQuery interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1020,74 +886,21 @@ type CfnScheduledQuery interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1267,8 +1080,8 @@ func (j *jsiiProxy_CfnScheduledQuery) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScheduledQuery) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnScheduledQuery) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1379,13 +1192,13 @@ func (j *jsiiProxy_CfnScheduledQuery) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::Timestream::ScheduledQuery`.
-func NewCfnScheduledQuery(scope awscdk.Construct, id *string, props *CfnScheduledQueryProps) CfnScheduledQuery {
+func NewCfnScheduledQuery(scope constructs.Construct, id *string, props *CfnScheduledQueryProps) CfnScheduledQuery {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnScheduledQuery{}
 
 	_jsii_.Create(
-		"monocdk.aws_timestream.CfnScheduledQuery",
+		"aws-cdk-lib.aws_timestream.CfnScheduledQuery",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1394,11 +1207,11 @@ func NewCfnScheduledQuery(scope awscdk.Construct, id *string, props *CfnSchedule
 }
 
 // Create a new `AWS::Timestream::ScheduledQuery`.
-func NewCfnScheduledQuery_Override(c CfnScheduledQuery, scope awscdk.Construct, id *string, props *CfnScheduledQueryProps) {
+func NewCfnScheduledQuery_Override(c CfnScheduledQuery, scope constructs.Construct, id *string, props *CfnScheduledQueryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_timestream.CfnScheduledQuery",
+		"aws-cdk-lib.aws_timestream.CfnScheduledQuery",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1482,14 +1295,13 @@ func (j *jsiiProxy_CfnScheduledQuery) SetTargetConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnScheduledQuery_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_timestream.CfnScheduledQuery",
+		"aws-cdk-lib.aws_timestream.CfnScheduledQuery",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1499,14 +1311,13 @@ func CfnScheduledQuery_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnScheduledQuery_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_timestream.CfnScheduledQuery",
+		"aws-cdk-lib.aws_timestream.CfnScheduledQuery",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1515,15 +1326,17 @@ func CfnScheduledQuery_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnScheduledQuery_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_timestream.CfnScheduledQuery",
+		"aws-cdk-lib.aws_timestream.CfnScheduledQuery",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1536,7 +1349,7 @@ func CfnScheduledQuery_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_timestream.CfnScheduledQuery",
+		"aws-cdk-lib.aws_timestream.CfnScheduledQuery",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1633,48 +1446,11 @@ func (c *jsiiProxy_CfnScheduledQuery) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnScheduledQuery) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnScheduledQuery) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnScheduledQuery) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnScheduledQuery) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnScheduledQuery) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1704,33 +1480,12 @@ func (c *jsiiProxy_CfnScheduledQuery) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnScheduledQuery) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnScheduledQuery) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnScheduledQuery) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1749,7 +1504,10 @@ func (c *jsiiProxy_CfnScheduledQuery) ValidateProperties(_properties interface{}
 // This type is used to map column(s) from the query result to a dimension in the destination table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dimensionMappingProperty := &dimensionMappingProperty{
 //   	dimensionValueType: jsii.String("dimensionValueType"),
 //   	name: jsii.String("name"),
@@ -1757,15 +1515,18 @@ func (c *jsiiProxy_CfnScheduledQuery) ValidateProperties(_properties interface{}
 //
 type CfnScheduledQuery_DimensionMappingProperty struct {
 	// Type for the dimension.
-	DimensionValueType *string `json:"dimensionValueType" yaml:"dimensionValueType"`
+	DimensionValueType *string `field:"required" json:"dimensionValueType" yaml:"dimensionValueType"`
 	// Column name from query result.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // Configuration required for error reporting.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   errorReportConfigurationProperty := &errorReportConfigurationProperty{
 //   	s3Configuration: &s3ConfigurationProperty{
 //   		bucketName: jsii.String("bucketName"),
@@ -1778,13 +1539,16 @@ type CfnScheduledQuery_DimensionMappingProperty struct {
 //
 type CfnScheduledQuery_ErrorReportConfigurationProperty struct {
 	// The S3 configuration for the error reports.
-	S3Configuration interface{} `json:"s3Configuration" yaml:"s3Configuration"`
+	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
 }
 
 // MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mixedMeasureMappingProperty := &mixedMeasureMappingProperty{
 //   	measureValueType: jsii.String("measureValueType"),
 //
@@ -1807,27 +1571,30 @@ type CfnScheduledQuery_MixedMeasureMappingProperty struct {
 	// Type of the value that is to be read from sourceColumn.
 	//
 	// If the mapping is for MULTI, use MeasureValueType.MULTI.
-	MeasureValueType *string `json:"measureValueType" yaml:"measureValueType"`
+	MeasureValueType *string `field:"required" json:"measureValueType" yaml:"measureValueType"`
 	// Refers to the value of measure_name in a result row.
 	//
 	// This field is required if MeasureNameColumn is provided.
-	MeasureName *string `json:"measureName" yaml:"measureName"`
+	MeasureName *string `field:"optional" json:"measureName" yaml:"measureName"`
 	// Required when measureValueType is MULTI.
 	//
 	// Attribute mappings for MULTI value measures.
-	MultiMeasureAttributeMappings interface{} `json:"multiMeasureAttributeMappings" yaml:"multiMeasureAttributeMappings"`
+	MultiMeasureAttributeMappings interface{} `field:"optional" json:"multiMeasureAttributeMappings" yaml:"multiMeasureAttributeMappings"`
 	// This field refers to the source column from which measure-value is to be read for result materialization.
-	SourceColumn *string `json:"sourceColumn" yaml:"sourceColumn"`
+	SourceColumn *string `field:"optional" json:"sourceColumn" yaml:"sourceColumn"`
 	// Target measure name to be used.
 	//
 	// If not provided, the target measure name by default would be measure-name if provided, or sourceColumn otherwise.
-	TargetMeasureName *string `json:"targetMeasureName" yaml:"targetMeasureName"`
+	TargetMeasureName *string `field:"optional" json:"targetMeasureName" yaml:"targetMeasureName"`
 }
 
 // Attribute mapping for MULTI value measures.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   multiMeasureAttributeMappingProperty := &multiMeasureAttributeMappingProperty{
 //   	measureValueType: jsii.String("measureValueType"),
 //   	sourceColumn: jsii.String("sourceColumn"),
@@ -1838,13 +1605,13 @@ type CfnScheduledQuery_MixedMeasureMappingProperty struct {
 //
 type CfnScheduledQuery_MultiMeasureAttributeMappingProperty struct {
 	// Type of the attribute to be read from the source column.
-	MeasureValueType *string `json:"measureValueType" yaml:"measureValueType"`
+	MeasureValueType *string `field:"required" json:"measureValueType" yaml:"measureValueType"`
 	// Source column from where the attribute value is to be read.
-	SourceColumn *string `json:"sourceColumn" yaml:"sourceColumn"`
+	SourceColumn *string `field:"required" json:"sourceColumn" yaml:"sourceColumn"`
 	// Custom name to be used for attribute name in derived table.
 	//
 	// If not provided, source column name would be used.
-	TargetMultiMeasureAttributeName *string `json:"targetMultiMeasureAttributeName" yaml:"targetMultiMeasureAttributeName"`
+	TargetMultiMeasureAttributeName *string `field:"optional" json:"targetMultiMeasureAttributeName" yaml:"targetMultiMeasureAttributeName"`
 }
 
 // Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided.
@@ -1852,7 +1619,10 @@ type CfnScheduledQuery_MultiMeasureAttributeMappingProperty struct {
 // MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   multiMeasureMappingsProperty := &multiMeasureMappingsProperty{
 //   	multiMeasureAttributeMappings: []interface{}{
 //   		&multiMeasureAttributeMappingProperty{
@@ -1872,11 +1642,11 @@ type CfnScheduledQuery_MultiMeasureMappingsProperty struct {
 	// Required.
 	//
 	// Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
-	MultiMeasureAttributeMappings interface{} `json:"multiMeasureAttributeMappings" yaml:"multiMeasureAttributeMappings"`
+	MultiMeasureAttributeMappings interface{} `field:"required" json:"multiMeasureAttributeMappings" yaml:"multiMeasureAttributeMappings"`
 	// The name of the target multi-measure name in the derived table.
 	//
 	// This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
-	TargetMultiMeasureName *string `json:"targetMultiMeasureName" yaml:"targetMultiMeasureName"`
+	TargetMultiMeasureName *string `field:"optional" json:"targetMultiMeasureName" yaml:"targetMultiMeasureName"`
 }
 
 // Notification configuration for a scheduled query.
@@ -1884,7 +1654,10 @@ type CfnScheduledQuery_MultiMeasureMappingsProperty struct {
 // A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notificationConfigurationProperty := &notificationConfigurationProperty{
 //   	snsConfiguration: &snsConfigurationProperty{
 //   		topicArn: jsii.String("topicArn"),
@@ -1893,13 +1666,16 @@ type CfnScheduledQuery_MultiMeasureMappingsProperty struct {
 //
 type CfnScheduledQuery_NotificationConfigurationProperty struct {
 	// Details on SNS configuration.
-	SnsConfiguration interface{} `json:"snsConfiguration" yaml:"snsConfiguration"`
+	SnsConfiguration interface{} `field:"required" json:"snsConfiguration" yaml:"snsConfiguration"`
 }
 
 // Details on S3 location for error reports that result from running a query.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3ConfigurationProperty := &s3ConfigurationProperty{
 //   	bucketName: jsii.String("bucketName"),
 //
@@ -1910,21 +1686,24 @@ type CfnScheduledQuery_NotificationConfigurationProperty struct {
 //
 type CfnScheduledQuery_S3ConfigurationProperty struct {
 	// Name of the S3 bucket under which error reports will be created.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// Encryption at rest options for the error reports.
 	//
 	// If no encryption option is specified, Timestream will choose SSE_S3 as default.
-	EncryptionOption *string `json:"encryptionOption" yaml:"encryptionOption"`
+	EncryptionOption *string `field:"optional" json:"encryptionOption" yaml:"encryptionOption"`
 	// Prefix for the error report key.
 	//
 	// Timestream by default adds the following prefix to the error report path.
-	ObjectKeyPrefix *string `json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
+	ObjectKeyPrefix *string `field:"optional" json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
 }
 
 // Configuration of the schedule of the query.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scheduleConfigurationProperty := &scheduleConfigurationProperty{
 //   	scheduleExpression: jsii.String("scheduleExpression"),
 //   }
@@ -1933,26 +1712,32 @@ type CfnScheduledQuery_ScheduleConfigurationProperty struct {
 	// An expression that denotes when to trigger the scheduled query run.
 	//
 	// This can be a cron expression or a rate expression.
-	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
+	ScheduleExpression *string `field:"required" json:"scheduleExpression" yaml:"scheduleExpression"`
 }
 
 // Details on SNS that are required to send the notification.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   snsConfigurationProperty := &snsConfigurationProperty{
 //   	topicArn: jsii.String("topicArn"),
 //   }
 //
 type CfnScheduledQuery_SnsConfigurationProperty struct {
 	// SNS topic ARN that the scheduled query status notifications will be sent to.
-	TopicArn *string `json:"topicArn" yaml:"topicArn"`
+	TopicArn *string `field:"required" json:"topicArn" yaml:"topicArn"`
 }
 
 // Configuration used for writing the output of a query.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetConfigurationProperty := &targetConfigurationProperty{
 //   	timestreamConfiguration: &timestreamConfigurationProperty{
 //   		databaseName: jsii.String("databaseName"),
@@ -2005,7 +1790,7 @@ type CfnScheduledQuery_SnsConfigurationProperty struct {
 //
 type CfnScheduledQuery_TargetConfigurationProperty struct {
 	// Configuration needed to write data into the Timestream database and table.
-	TimestreamConfiguration interface{} `json:"timestreamConfiguration" yaml:"timestreamConfiguration"`
+	TimestreamConfiguration interface{} `field:"required" json:"timestreamConfiguration" yaml:"timestreamConfiguration"`
 }
 
 // Configuration to write data into Timestream database and table.
@@ -2013,7 +1798,10 @@ type CfnScheduledQuery_TargetConfigurationProperty struct {
 // This configuration allows the user to map the query result select columns into the destination table columns.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   timestreamConfigurationProperty := &timestreamConfigurationProperty{
 //   	databaseName: jsii.String("databaseName"),
 //   	dimensionMappings: []interface{}{
@@ -2064,29 +1852,32 @@ type CfnScheduledQuery_TargetConfigurationProperty struct {
 //
 type CfnScheduledQuery_TimestreamConfigurationProperty struct {
 	// Name of Timestream database to which the query result will be written.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// This is to allow mapping column(s) from the query result to the dimension in the destination table.
-	DimensionMappings interface{} `json:"dimensionMappings" yaml:"dimensionMappings"`
+	DimensionMappings interface{} `field:"required" json:"dimensionMappings" yaml:"dimensionMappings"`
 	// Name of Timestream table that the query result will be written to.
 	//
 	// The table should be within the same database that is provided in Timestream configuration.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// Column from query result that should be used as the time column in destination table.
 	//
 	// Column type for this should be TIMESTAMP.
-	TimeColumn *string `json:"timeColumn" yaml:"timeColumn"`
+	TimeColumn *string `field:"required" json:"timeColumn" yaml:"timeColumn"`
 	// Name of the measure column.
-	MeasureNameColumn *string `json:"measureNameColumn" yaml:"measureNameColumn"`
+	MeasureNameColumn *string `field:"optional" json:"measureNameColumn" yaml:"measureNameColumn"`
 	// Specifies how to map measures to multi-measure records.
-	MixedMeasureMappings interface{} `json:"mixedMeasureMappings" yaml:"mixedMeasureMappings"`
+	MixedMeasureMappings interface{} `field:"optional" json:"mixedMeasureMappings" yaml:"mixedMeasureMappings"`
 	// Multi-measure mappings.
-	MultiMeasureMappings interface{} `json:"multiMeasureMappings" yaml:"multiMeasureMappings"`
+	MultiMeasureMappings interface{} `field:"optional" json:"multiMeasureMappings" yaml:"multiMeasureMappings"`
 }
 
 // Properties for defining a `CfnScheduledQuery`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnScheduledQueryProps := &cfnScheduledQueryProps{
 //   	errorReportConfiguration: &errorReportConfigurationProperty{
 //   		s3Configuration: &s3ConfigurationProperty{
@@ -2173,42 +1964,42 @@ type CfnScheduledQueryProps struct {
 	// Configuration for error reporting.
 	//
 	// Error reports will be generated when a problem is encountered when writing the query results.
-	ErrorReportConfiguration interface{} `json:"errorReportConfiguration" yaml:"errorReportConfiguration"`
+	ErrorReportConfiguration interface{} `field:"required" json:"errorReportConfiguration" yaml:"errorReportConfiguration"`
 	// Notification configuration for the scheduled query.
 	//
 	// A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
-	NotificationConfiguration interface{} `json:"notificationConfiguration" yaml:"notificationConfiguration"`
+	NotificationConfiguration interface{} `field:"required" json:"notificationConfiguration" yaml:"notificationConfiguration"`
 	// The query string to run.
 	//
 	// Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
 	//
 	// The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-	QueryString *string `json:"queryString" yaml:"queryString"`
+	QueryString *string `field:"required" json:"queryString" yaml:"queryString"`
 	// Schedule configuration.
-	ScheduleConfiguration interface{} `json:"scheduleConfiguration" yaml:"scheduleConfiguration"`
+	ScheduleConfiguration interface{} `field:"required" json:"scheduleConfiguration" yaml:"scheduleConfiguration"`
 	// The ARN for the IAM role that Timestream will assume when running the scheduled query.
-	ScheduledQueryExecutionRoleArn *string `json:"scheduledQueryExecutionRoleArn" yaml:"scheduledQueryExecutionRoleArn"`
+	ScheduledQueryExecutionRoleArn *string `field:"required" json:"scheduledQueryExecutionRoleArn" yaml:"scheduledQueryExecutionRoleArn"`
 	// Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result.
 	//
 	// Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
 	//
 	// - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
 	// - After 8 hours, any request with the same `ClientToken` is treated as a new request.
-	ClientToken *string `json:"clientToken" yaml:"clientToken"`
+	ClientToken *string `field:"optional" json:"clientToken" yaml:"clientToken"`
 	// The Amazon KMS key used to encrypt the scheduled query resource, at-rest.
 	//
 	// If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
 	//
 	// If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// A name for the query.
 	//
 	// Scheduled query names must be unique within each Region.
-	ScheduledQueryName *string `json:"scheduledQueryName" yaml:"scheduledQueryName"`
+	ScheduledQueryName *string `field:"optional" json:"scheduledQueryName" yaml:"scheduledQueryName"`
 	// A list of key-value pairs to label the scheduled query.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Scheduled query target store configuration.
-	TargetConfiguration interface{} `json:"targetConfiguration" yaml:"targetConfiguration"`
+	TargetConfiguration interface{} `field:"optional" json:"targetConfiguration" yaml:"targetConfiguration"`
 }
 
 // A CloudFormation `AWS::Timestream::Table`.
@@ -2216,11 +2007,14 @@ type CfnScheduledQueryProps struct {
 // The CreateTable operation adds a new table to an existing database in your account. In an AWS account, table names must be at least unique within each Region if they are in the same database. You may have identical table names in the same Region if the tables are in separate databases. While creating the table, you must specify the table name, database name, and the retention properties. [Service quotas apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html) . See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html) for details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var magneticStoreWriteProperties interface{}
 //   var retentionProperties interface{}
-//   cfnTable := timestream.NewCfnTable(this, jsii.String("MyCfnTable"), &cfnTableProps{
+//
+//   cfnTable := awscdk.Aws_timestream.NewCfnTable(this, jsii.String("MyCfnTable"), &cfnTableProps{
 //   	databaseName: jsii.String("databaseName"),
 //
 //   	// the properties below are optional
@@ -2243,16 +2037,13 @@ type CfnTable interface {
 	// The name of the table.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The name of the Timestream database that contains this table.
 	//
@@ -2268,7 +2059,6 @@ type CfnTable interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// Contains properties to set on the table when enabling magnetic store writes.
 	//
@@ -2304,14 +2094,12 @@ type CfnTable interface {
 	// ```.
 	MagneticStoreWriteProperties() interface{}
 	SetMagneticStoreWriteProperties(val interface{})
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The retention duration for the memory store and magnetic store. This object has the following attributes:.
 	//
@@ -2338,7 +2126,6 @@ type CfnTable interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The name of the Timestream table.
 	//
@@ -2351,16 +2138,13 @@ type CfnTable interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2369,7 +2153,6 @@ type CfnTable interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2414,15 +2197,12 @@ type CfnTable interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2433,13 +2213,11 @@ type CfnTable interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2448,74 +2226,21 @@ type CfnTable interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2615,8 +2340,8 @@ func (j *jsiiProxy_CfnTable) MagneticStoreWriteProperties() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTable) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnTable) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2687,13 +2412,13 @@ func (j *jsiiProxy_CfnTable) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Timestream::Table`.
-func NewCfnTable(scope awscdk.Construct, id *string, props *CfnTableProps) CfnTable {
+func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTable{}
 
 	_jsii_.Create(
-		"monocdk.aws_timestream.CfnTable",
+		"aws-cdk-lib.aws_timestream.CfnTable",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2702,11 +2427,11 @@ func NewCfnTable(scope awscdk.Construct, id *string, props *CfnTableProps) CfnTa
 }
 
 // Create a new `AWS::Timestream::Table`.
-func NewCfnTable_Override(c CfnTable, scope awscdk.Construct, id *string, props *CfnTableProps) {
+func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, props *CfnTableProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_timestream.CfnTable",
+		"aws-cdk-lib.aws_timestream.CfnTable",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2750,14 +2475,13 @@ func (j *jsiiProxy_CfnTable) SetTableName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnTable_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_timestream.CfnTable",
+		"aws-cdk-lib.aws_timestream.CfnTable",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2767,14 +2491,13 @@ func CfnTable_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_timestream.CfnTable",
+		"aws-cdk-lib.aws_timestream.CfnTable",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2783,15 +2506,17 @@ func CfnTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnTable_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_timestream.CfnTable",
+		"aws-cdk-lib.aws_timestream.CfnTable",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2804,7 +2529,7 @@ func CfnTable_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_timestream.CfnTable",
+		"aws-cdk-lib.aws_timestream.CfnTable",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2901,48 +2626,11 @@ func (c *jsiiProxy_CfnTable) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnTable) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnTable) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnTable) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnTable) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnTable) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2972,33 +2660,12 @@ func (c *jsiiProxy_CfnTable) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnTable) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnTable) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnTable) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3017,10 +2684,13 @@ func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnTable`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import timestream "github.com/aws/aws-cdk-go/awscdk/aws_timestream"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var magneticStoreWriteProperties interface{}
 //   var retentionProperties interface{}
+//
 //   cfnTableProps := &cfnTableProps{
 //   	databaseName: jsii.String("databaseName"),
 //
@@ -3040,7 +2710,7 @@ type CfnTableProps struct {
 	// The name of the Timestream database that contains this table.
 	//
 	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// Contains properties to set on the table when enabling magnetic store writes.
 	//
 	// This object has the following attributes:
@@ -3073,7 +2743,7 @@ type CfnTableProps struct {
 	// DependsOn: TestDatabase
 	// Properties: TableName: "TestTable" DatabaseName: "TestDatabase" MagneticStoreWriteProperties: EnableMagneticStoreWrites: true MagneticStoreRejectedDataLocation: S3Configuration: BucketName: "testbucket" EncryptionOption: "SSE_KMS" BucketName: "1234abcd-12ab-34cd-56ef-1234567890ab" EncryptionOption: "prefix"
 	// ```.
-	MagneticStoreWriteProperties interface{} `json:"magneticStoreWriteProperties" yaml:"magneticStoreWriteProperties"`
+	MagneticStoreWriteProperties interface{} `field:"optional" json:"magneticStoreWriteProperties" yaml:"magneticStoreWriteProperties"`
 	// The retention duration for the memory store and magnetic store. This object has the following attributes:.
 	//
 	// - *MemoryStoreRetentionPeriodInHours* : Retention duration for memory store, in hours.
@@ -3094,12 +2764,12 @@ type CfnTableProps struct {
 	// DependsOn: TestDatabase
 	// Properties: TableName: "TestTable" DatabaseName: "TestDatabase" RetentionProperties: MemoryStoreRetentionPeriodInHours: "24" MagneticStoreRetentionPeriodInDays: "7"
 	// ```.
-	RetentionProperties interface{} `json:"retentionProperties" yaml:"retentionProperties"`
+	RetentionProperties interface{} `field:"optional" json:"retentionProperties" yaml:"retentionProperties"`
 	// The name of the Timestream table.
 	//
 	// *Length Constraints* : Minimum length of 3 bytes. Maximum length of 256 bytes.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 	// The tags to add to the table.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

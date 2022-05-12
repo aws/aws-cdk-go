@@ -1,12 +1,12 @@
 package awsiot1click
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiot1click/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiot1click/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::IoT1Click::Device`.
@@ -14,8 +14,11 @@ import (
 // The `AWS::IoT1Click::Device` resource controls the enabled state of an AWS IoT 1-Click compatible device. For more information, see [Device](https://docs.aws.amazon.com/iot-1-click/1.0/devices-apireference/devices-deviceid.html) in the *AWS IoT 1-Click Devices API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
-//   cfnDevice := iot1click.NewCfnDevice(this, jsii.String("MyCfnDevice"), &cfnDeviceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDevice := awscdk.Aws_iot1click.NewCfnDevice(this, jsii.String("MyCfnDevice"), &cfnDeviceProps{
 //   	deviceId: jsii.String("deviceId"),
 //   	enabled: jsii.Boolean(false),
 //   })
@@ -30,16 +33,13 @@ type CfnDevice interface {
 	// A Boolean value indicating whether the device is enabled ( `true` ) or not ( `false` ).
 	AttrEnabled() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The ID of the device, such as `G030PX0312744DWM` .
 	DeviceId() *string
@@ -56,36 +56,29 @@ type CfnDevice interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -94,7 +87,6 @@ type CfnDevice interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -139,15 +131,12 @@ type CfnDevice interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -158,13 +147,11 @@ type CfnDevice interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -173,74 +160,21 @@ type CfnDevice interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -350,8 +284,8 @@ func (j *jsiiProxy_CfnDevice) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDevice) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnDevice) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -392,13 +326,13 @@ func (j *jsiiProxy_CfnDevice) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IoT1Click::Device`.
-func NewCfnDevice(scope awscdk.Construct, id *string, props *CfnDeviceProps) CfnDevice {
+func NewCfnDevice(scope constructs.Construct, id *string, props *CfnDeviceProps) CfnDevice {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDevice{}
 
 	_jsii_.Create(
-		"monocdk.aws_iot1click.CfnDevice",
+		"aws-cdk-lib.aws_iot1click.CfnDevice",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -407,11 +341,11 @@ func NewCfnDevice(scope awscdk.Construct, id *string, props *CfnDeviceProps) Cfn
 }
 
 // Create a new `AWS::IoT1Click::Device`.
-func NewCfnDevice_Override(c CfnDevice, scope awscdk.Construct, id *string, props *CfnDeviceProps) {
+func NewCfnDevice_Override(c CfnDevice, scope constructs.Construct, id *string, props *CfnDeviceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_iot1click.CfnDevice",
+		"aws-cdk-lib.aws_iot1click.CfnDevice",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -439,14 +373,13 @@ func (j *jsiiProxy_CfnDevice) SetEnabled(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDevice_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iot1click.CfnDevice",
+		"aws-cdk-lib.aws_iot1click.CfnDevice",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -456,14 +389,13 @@ func CfnDevice_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDevice_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iot1click.CfnDevice",
+		"aws-cdk-lib.aws_iot1click.CfnDevice",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -472,15 +404,17 @@ func CfnDevice_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnDevice_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iot1click.CfnDevice",
+		"aws-cdk-lib.aws_iot1click.CfnDevice",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -493,7 +427,7 @@ func CfnDevice_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_iot1click.CfnDevice",
+		"aws-cdk-lib.aws_iot1click.CfnDevice",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -590,48 +524,11 @@ func (c *jsiiProxy_CfnDevice) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnDevice) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnDevice) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnDevice) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnDevice) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnDevice) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -661,33 +558,12 @@ func (c *jsiiProxy_CfnDevice) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnDevice) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnDevice) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnDevice) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -706,7 +582,10 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDevice`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeviceProps := &cfnDeviceProps{
 //   	deviceId: jsii.String("deviceId"),
 //   	enabled: jsii.Boolean(false),
@@ -714,9 +593,9 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 //
 type CfnDeviceProps struct {
 	// The ID of the device, such as `G030PX0312744DWM` .
-	DeviceId *string `json:"deviceId" yaml:"deviceId"`
+	DeviceId *string `field:"required" json:"deviceId" yaml:"deviceId"`
 	// A Boolean value indicating whether the device is enabled ( `true` ) or not ( `false` ).
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 
 // A CloudFormation `AWS::IoT1Click::Placement`.
@@ -724,11 +603,14 @@ type CfnDeviceProps struct {
 // The `AWS::IoT1Click::Placement` resource creates a placement to be associated with an AWS IoT 1-Click project. A placement is an instance of a device in a location. For more information, see [Projects, Templates, and Placements](https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-PTP.html) in the *AWS IoT 1-Click Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var associatedDevices interface{}
 //   var attributes interface{}
-//   cfnPlacement := iot1click.NewCfnPlacement(this, jsii.String("MyCfnPlacement"), &cfnPlacementProps{
+//
+//   cfnPlacement := awscdk.Aws_iot1click.NewCfnPlacement(this, jsii.String("MyCfnPlacement"), &cfnPlacementProps{
 //   	projectName: jsii.String("projectName"),
 //
 //   	// the properties below are optional
@@ -751,16 +633,13 @@ type CfnPlacement interface {
 	// The name of the project containing the placement, such as `conference-rooms` .
 	AttrProjectName() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -771,11 +650,9 @@ type CfnPlacement interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The name of the placement.
 	PlacementName() *string
 	SetPlacementName(val *string)
@@ -786,27 +663,22 @@ type CfnPlacement interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -815,7 +687,6 @@ type CfnPlacement interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -860,15 +731,12 @@ type CfnPlacement interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -879,13 +747,11 @@ type CfnPlacement interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -894,74 +760,21 @@ type CfnPlacement interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1061,8 +874,8 @@ func (j *jsiiProxy_CfnPlacement) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlacement) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnPlacement) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1123,13 +936,13 @@ func (j *jsiiProxy_CfnPlacement) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IoT1Click::Placement`.
-func NewCfnPlacement(scope awscdk.Construct, id *string, props *CfnPlacementProps) CfnPlacement {
+func NewCfnPlacement(scope constructs.Construct, id *string, props *CfnPlacementProps) CfnPlacement {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPlacement{}
 
 	_jsii_.Create(
-		"monocdk.aws_iot1click.CfnPlacement",
+		"aws-cdk-lib.aws_iot1click.CfnPlacement",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1138,11 +951,11 @@ func NewCfnPlacement(scope awscdk.Construct, id *string, props *CfnPlacementProp
 }
 
 // Create a new `AWS::IoT1Click::Placement`.
-func NewCfnPlacement_Override(c CfnPlacement, scope awscdk.Construct, id *string, props *CfnPlacementProps) {
+func NewCfnPlacement_Override(c CfnPlacement, scope constructs.Construct, id *string, props *CfnPlacementProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_iot1click.CfnPlacement",
+		"aws-cdk-lib.aws_iot1click.CfnPlacement",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1186,14 +999,13 @@ func (j *jsiiProxy_CfnPlacement) SetProjectName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnPlacement_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iot1click.CfnPlacement",
+		"aws-cdk-lib.aws_iot1click.CfnPlacement",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1203,14 +1015,13 @@ func CfnPlacement_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnPlacement_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iot1click.CfnPlacement",
+		"aws-cdk-lib.aws_iot1click.CfnPlacement",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1219,15 +1030,17 @@ func CfnPlacement_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnPlacement_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iot1click.CfnPlacement",
+		"aws-cdk-lib.aws_iot1click.CfnPlacement",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1240,7 +1053,7 @@ func CfnPlacement_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_iot1click.CfnPlacement",
+		"aws-cdk-lib.aws_iot1click.CfnPlacement",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1337,48 +1150,11 @@ func (c *jsiiProxy_CfnPlacement) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnPlacement) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnPlacement) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnPlacement) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnPlacement) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnPlacement) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1408,33 +1184,12 @@ func (c *jsiiProxy_CfnPlacement) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnPlacement) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnPlacement) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnPlacement) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1453,10 +1208,13 @@ func (c *jsiiProxy_CfnPlacement) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnPlacement`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var associatedDevices interface{}
 //   var attributes interface{}
+//
 //   cfnPlacementProps := &cfnPlacementProps{
 //   	projectName: jsii.String("projectName"),
 //
@@ -1468,13 +1226,13 @@ func (c *jsiiProxy_CfnPlacement) ValidateProperties(_properties interface{}) {
 //
 type CfnPlacementProps struct {
 	// The name of the project containing the placement.
-	ProjectName *string `json:"projectName" yaml:"projectName"`
+	ProjectName *string `field:"required" json:"projectName" yaml:"projectName"`
 	// The devices to associate with the placement, as defined by a mapping of zero or more key-value pairs wherein the key is a template name and the value is a device ID.
-	AssociatedDevices interface{} `json:"associatedDevices" yaml:"associatedDevices"`
+	AssociatedDevices interface{} `field:"optional" json:"associatedDevices" yaml:"associatedDevices"`
 	// The user-defined attributes associated with the placement.
-	Attributes interface{} `json:"attributes" yaml:"attributes"`
+	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// The name of the placement.
-	PlacementName *string `json:"placementName" yaml:"placementName"`
+	PlacementName *string `field:"optional" json:"placementName" yaml:"placementName"`
 }
 
 // A CloudFormation `AWS::IoT1Click::Project`.
@@ -1482,11 +1240,14 @@ type CfnPlacementProps struct {
 // The `AWS::IoT1Click::Project` resource creates an empty project with a placement template. A project contains zero or more placements that adhere to the placement template defined in the project. For more information, see [CreateProject](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/API_CreateProject.html) in the *AWS IoT 1-Click Projects API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var callbackOverrides interface{}
 //   var defaultAttributes interface{}
-//   cfnProject := iot1click.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
+//
+//   cfnProject := awscdk.Aws_iot1click.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
 //   	placementTemplate: &placementTemplateProperty{
 //   		defaultAttributes: defaultAttributes,
 //   		deviceTemplates: map[string]interface{}{
@@ -1510,16 +1271,13 @@ type CfnProject interface {
 	// The name of the project, such as `project-a1bzhi` .
 	AttrProjectName() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The description of the project.
 	Description() *string
@@ -1533,11 +1291,9 @@ type CfnProject interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// An object describing the project's placement specifications.
 	PlacementTemplate() interface{}
 	SetPlacementTemplate(val interface{})
@@ -1548,27 +1304,22 @@ type CfnProject interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1577,7 +1328,6 @@ type CfnProject interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1622,15 +1372,12 @@ type CfnProject interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1641,13 +1388,11 @@ type CfnProject interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1656,74 +1401,21 @@ type CfnProject interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1813,8 +1505,8 @@ func (j *jsiiProxy_CfnProject) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProject) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnProject) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1875,13 +1567,13 @@ func (j *jsiiProxy_CfnProject) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IoT1Click::Project`.
-func NewCfnProject(scope awscdk.Construct, id *string, props *CfnProjectProps) CfnProject {
+func NewCfnProject(scope constructs.Construct, id *string, props *CfnProjectProps) CfnProject {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnProject{}
 
 	_jsii_.Create(
-		"monocdk.aws_iot1click.CfnProject",
+		"aws-cdk-lib.aws_iot1click.CfnProject",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1890,11 +1582,11 @@ func NewCfnProject(scope awscdk.Construct, id *string, props *CfnProjectProps) C
 }
 
 // Create a new `AWS::IoT1Click::Project`.
-func NewCfnProject_Override(c CfnProject, scope awscdk.Construct, id *string, props *CfnProjectProps) {
+func NewCfnProject_Override(c CfnProject, scope constructs.Construct, id *string, props *CfnProjectProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_iot1click.CfnProject",
+		"aws-cdk-lib.aws_iot1click.CfnProject",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1930,14 +1622,13 @@ func (j *jsiiProxy_CfnProject) SetProjectName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnProject_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iot1click.CfnProject",
+		"aws-cdk-lib.aws_iot1click.CfnProject",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1947,14 +1638,13 @@ func CfnProject_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnProject_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iot1click.CfnProject",
+		"aws-cdk-lib.aws_iot1click.CfnProject",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1963,15 +1653,17 @@ func CfnProject_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnProject_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iot1click.CfnProject",
+		"aws-cdk-lib.aws_iot1click.CfnProject",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1984,7 +1676,7 @@ func CfnProject_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_iot1click.CfnProject",
+		"aws-cdk-lib.aws_iot1click.CfnProject",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2081,48 +1773,11 @@ func (c *jsiiProxy_CfnProject) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnProject) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnProject) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnProject) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnProject) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnProject) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2152,33 +1807,12 @@ func (c *jsiiProxy_CfnProject) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnProject) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnProject) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnProject) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2199,9 +1833,12 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 // `DeviceTemplate` is a property of the `AWS::IoT1Click::Project` resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var callbackOverrides interface{}
+//
 //   deviceTemplateProperty := &deviceTemplateProperty{
 //   	callbackOverrides: callbackOverrides,
 //   	deviceType: jsii.String("deviceType"),
@@ -2209,9 +1846,9 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 //
 type CfnProject_DeviceTemplateProperty struct {
 	// An optional AWS Lambda function to invoke instead of the default AWS Lambda function provided by the placement template.
-	CallbackOverrides interface{} `json:"callbackOverrides" yaml:"callbackOverrides"`
+	CallbackOverrides interface{} `field:"optional" json:"callbackOverrides" yaml:"callbackOverrides"`
 	// The device type, which currently must be `"button"` .
-	DeviceType *string `json:"deviceType" yaml:"deviceType"`
+	DeviceType *string `field:"optional" json:"deviceType" yaml:"deviceType"`
 }
 
 // In AWS CloudFormation , use the `PlacementTemplate` property type to define the template for an AWS IoT 1-Click project.
@@ -2219,10 +1856,13 @@ type CfnProject_DeviceTemplateProperty struct {
 // `PlacementTemplate` is a property of the `AWS::IoT1Click::Project` resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var callbackOverrides interface{}
 //   var defaultAttributes interface{}
+//
 //   placementTemplateProperty := &placementTemplateProperty{
 //   	defaultAttributes: defaultAttributes,
 //   	deviceTemplates: map[string]interface{}{
@@ -2235,18 +1875,21 @@ type CfnProject_DeviceTemplateProperty struct {
 //
 type CfnProject_PlacementTemplateProperty struct {
 	// The default attributes (key-value pairs) to be applied to all placements using this template.
-	DefaultAttributes interface{} `json:"defaultAttributes" yaml:"defaultAttributes"`
+	DefaultAttributes interface{} `field:"optional" json:"defaultAttributes" yaml:"defaultAttributes"`
 	// An object specifying the [DeviceTemplate](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/API_DeviceTemplate.html) for all placements using this ( [PlacementTemplate](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/API_PlacementTemplate.html) ) template.
-	DeviceTemplates interface{} `json:"deviceTemplates" yaml:"deviceTemplates"`
+	DeviceTemplates interface{} `field:"optional" json:"deviceTemplates" yaml:"deviceTemplates"`
 }
 
 // Properties for defining a `CfnProject`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var callbackOverrides interface{}
 //   var defaultAttributes interface{}
+//
 //   cfnProjectProps := &cfnProjectProps{
 //   	placementTemplate: &placementTemplateProperty{
 //   		defaultAttributes: defaultAttributes,
@@ -2265,10 +1908,10 @@ type CfnProject_PlacementTemplateProperty struct {
 //
 type CfnProjectProps struct {
 	// An object describing the project's placement specifications.
-	PlacementTemplate interface{} `json:"placementTemplate" yaml:"placementTemplate"`
+	PlacementTemplate interface{} `field:"required" json:"placementTemplate" yaml:"placementTemplate"`
 	// The description of the project.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the project from which to obtain information.
-	ProjectName *string `json:"projectName" yaml:"projectName"`
+	ProjectName *string `field:"optional" json:"projectName" yaml:"projectName"`
 }
 

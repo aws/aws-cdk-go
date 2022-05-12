@@ -1,19 +1,22 @@
 package awskafkaconnect
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awskafkaconnect/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskafkaconnect/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::KafkaConnect::Connector`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
-//   cfnConnector := kafkaconnect.NewCfnConnector(this, jsii.String("MyCfnConnector"), &cfnConnectorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnConnector := awscdk.Aws_kafkaconnect.NewCfnConnector(this, jsii.String("MyCfnConnector"), &cfnConnectorProps{
 //   	capacity: &capacityProperty{
 //   		autoScaling: &autoScalingProperty{
 //   			maxWorkerCount: jsii.Number(123),
@@ -106,11 +109,9 @@ type CfnConnector interface {
 	Capacity() interface{}
 	SetCapacity(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// `AWS::KafkaConnect::Connector.ConnectorConfiguration`.
 	ConnectorConfiguration() interface{}
@@ -124,7 +125,6 @@ type CfnConnector interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::KafkaConnect::Connector.KafkaCluster`.
 	KafkaCluster() interface{}
@@ -150,11 +150,9 @@ type CfnConnector interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// `AWS::KafkaConnect::Connector.Plugins`.
 	Plugins() interface{}
 	SetPlugins(val interface{})
@@ -162,7 +160,6 @@ type CfnConnector interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// `AWS::KafkaConnect::Connector.ServiceExecutionRoleArn`.
 	ServiceExecutionRoleArn() *string
@@ -170,25 +167,21 @@ type CfnConnector interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// `AWS::KafkaConnect::Connector.WorkerConfiguration`.
 	WorkerConfiguration() interface{}
 	SetWorkerConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -197,7 +190,6 @@ type CfnConnector interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -242,15 +234,12 @@ type CfnConnector interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -261,13 +250,11 @@ type CfnConnector interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -276,74 +263,21 @@ type CfnConnector interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -503,8 +437,8 @@ func (j *jsiiProxy_CfnConnector) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnector) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnConnector) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -575,13 +509,13 @@ func (j *jsiiProxy_CfnConnector) WorkerConfiguration() interface{} {
 
 
 // Create a new `AWS::KafkaConnect::Connector`.
-func NewCfnConnector(scope awscdk.Construct, id *string, props *CfnConnectorProps) CfnConnector {
+func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnectorProps) CfnConnector {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConnector{}
 
 	_jsii_.Create(
-		"monocdk.aws_kafkaconnect.CfnConnector",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -590,11 +524,11 @@ func NewCfnConnector(scope awscdk.Construct, id *string, props *CfnConnectorProp
 }
 
 // Create a new `AWS::KafkaConnect::Connector`.
-func NewCfnConnector_Override(c CfnConnector, scope awscdk.Construct, id *string, props *CfnConnectorProps) {
+func NewCfnConnector_Override(c CfnConnector, scope constructs.Construct, id *string, props *CfnConnectorProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_kafkaconnect.CfnConnector",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -702,14 +636,13 @@ func (j *jsiiProxy_CfnConnector) SetWorkerConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnConnector_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kafkaconnect.CfnConnector",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -719,14 +652,13 @@ func CfnConnector_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnConnector_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kafkaconnect.CfnConnector",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -735,15 +667,17 @@ func CfnConnector_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnConnector_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kafkaconnect.CfnConnector",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -756,7 +690,7 @@ func CfnConnector_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_kafkaconnect.CfnConnector",
+		"aws-cdk-lib.aws_kafkaconnect.CfnConnector",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -853,48 +787,11 @@ func (c *jsiiProxy_CfnConnector) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnConnector) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnConnector) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnConnector) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnConnector) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnConnector) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -924,33 +821,12 @@ func (c *jsiiProxy_CfnConnector) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnConnector) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnConnector) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnConnector) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -967,7 +843,10 @@ func (c *jsiiProxy_CfnConnector) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   apacheKafkaClusterProperty := &apacheKafkaClusterProperty{
 //   	bootstrapServers: jsii.String("bootstrapServers"),
 //   	vpc: &vpcProperty{
@@ -982,13 +861,16 @@ func (c *jsiiProxy_CfnConnector) ValidateProperties(_properties interface{}) {
 //
 type CfnConnector_ApacheKafkaClusterProperty struct {
 	// `CfnConnector.ApacheKafkaClusterProperty.BootstrapServers`.
-	BootstrapServers *string `json:"bootstrapServers" yaml:"bootstrapServers"`
+	BootstrapServers *string `field:"required" json:"bootstrapServers" yaml:"bootstrapServers"`
 	// `CfnConnector.ApacheKafkaClusterProperty.Vpc`.
-	Vpc interface{} `json:"vpc" yaml:"vpc"`
+	Vpc interface{} `field:"required" json:"vpc" yaml:"vpc"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   autoScalingProperty := &autoScalingProperty{
 //   	maxWorkerCount: jsii.Number(123),
 //   	mcuCount: jsii.Number(123),
@@ -1003,19 +885,22 @@ type CfnConnector_ApacheKafkaClusterProperty struct {
 //
 type CfnConnector_AutoScalingProperty struct {
 	// `CfnConnector.AutoScalingProperty.MaxWorkerCount`.
-	MaxWorkerCount *float64 `json:"maxWorkerCount" yaml:"maxWorkerCount"`
+	MaxWorkerCount *float64 `field:"required" json:"maxWorkerCount" yaml:"maxWorkerCount"`
 	// `CfnConnector.AutoScalingProperty.McuCount`.
-	McuCount *float64 `json:"mcuCount" yaml:"mcuCount"`
+	McuCount *float64 `field:"required" json:"mcuCount" yaml:"mcuCount"`
 	// `CfnConnector.AutoScalingProperty.MinWorkerCount`.
-	MinWorkerCount *float64 `json:"minWorkerCount" yaml:"minWorkerCount"`
+	MinWorkerCount *float64 `field:"required" json:"minWorkerCount" yaml:"minWorkerCount"`
 	// `CfnConnector.AutoScalingProperty.ScaleInPolicy`.
-	ScaleInPolicy interface{} `json:"scaleInPolicy" yaml:"scaleInPolicy"`
+	ScaleInPolicy interface{} `field:"required" json:"scaleInPolicy" yaml:"scaleInPolicy"`
 	// `CfnConnector.AutoScalingProperty.ScaleOutPolicy`.
-	ScaleOutPolicy interface{} `json:"scaleOutPolicy" yaml:"scaleOutPolicy"`
+	ScaleOutPolicy interface{} `field:"required" json:"scaleOutPolicy" yaml:"scaleOutPolicy"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   capacityProperty := &capacityProperty{
 //   	autoScaling: &autoScalingProperty{
 //   		maxWorkerCount: jsii.Number(123),
@@ -1038,13 +923,16 @@ type CfnConnector_AutoScalingProperty struct {
 //
 type CfnConnector_CapacityProperty struct {
 	// `CfnConnector.CapacityProperty.AutoScaling`.
-	AutoScaling interface{} `json:"autoScaling" yaml:"autoScaling"`
+	AutoScaling interface{} `field:"optional" json:"autoScaling" yaml:"autoScaling"`
 	// `CfnConnector.CapacityProperty.ProvisionedCapacity`.
-	ProvisionedCapacity interface{} `json:"provisionedCapacity" yaml:"provisionedCapacity"`
+	ProvisionedCapacity interface{} `field:"optional" json:"provisionedCapacity" yaml:"provisionedCapacity"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchLogsLogDeliveryProperty := &cloudWatchLogsLogDeliveryProperty{
 //   	enabled: jsii.Boolean(false),
 //
@@ -1054,13 +942,16 @@ type CfnConnector_CapacityProperty struct {
 //
 type CfnConnector_CloudWatchLogsLogDeliveryProperty struct {
 	// `CfnConnector.CloudWatchLogsLogDeliveryProperty.Enabled`.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// `CfnConnector.CloudWatchLogsLogDeliveryProperty.LogGroup`.
-	LogGroup *string `json:"logGroup" yaml:"logGroup"`
+	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customPluginProperty := &customPluginProperty{
 //   	customPluginArn: jsii.String("customPluginArn"),
 //   	revision: jsii.Number(123),
@@ -1068,13 +959,16 @@ type CfnConnector_CloudWatchLogsLogDeliveryProperty struct {
 //
 type CfnConnector_CustomPluginProperty struct {
 	// `CfnConnector.CustomPluginProperty.CustomPluginArn`.
-	CustomPluginArn *string `json:"customPluginArn" yaml:"customPluginArn"`
+	CustomPluginArn *string `field:"required" json:"customPluginArn" yaml:"customPluginArn"`
 	// `CfnConnector.CustomPluginProperty.Revision`.
-	Revision *float64 `json:"revision" yaml:"revision"`
+	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   firehoseLogDeliveryProperty := &firehoseLogDeliveryProperty{
 //   	enabled: jsii.Boolean(false),
 //
@@ -1084,35 +978,44 @@ type CfnConnector_CustomPluginProperty struct {
 //
 type CfnConnector_FirehoseLogDeliveryProperty struct {
 	// `CfnConnector.FirehoseLogDeliveryProperty.Enabled`.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// `CfnConnector.FirehoseLogDeliveryProperty.DeliveryStream`.
-	DeliveryStream *string `json:"deliveryStream" yaml:"deliveryStream"`
+	DeliveryStream *string `field:"optional" json:"deliveryStream" yaml:"deliveryStream"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kafkaClusterClientAuthenticationProperty := &kafkaClusterClientAuthenticationProperty{
 //   	authenticationType: jsii.String("authenticationType"),
 //   }
 //
 type CfnConnector_KafkaClusterClientAuthenticationProperty struct {
 	// `CfnConnector.KafkaClusterClientAuthenticationProperty.AuthenticationType`.
-	AuthenticationType *string `json:"authenticationType" yaml:"authenticationType"`
+	AuthenticationType *string `field:"required" json:"authenticationType" yaml:"authenticationType"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kafkaClusterEncryptionInTransitProperty := &kafkaClusterEncryptionInTransitProperty{
 //   	encryptionType: jsii.String("encryptionType"),
 //   }
 //
 type CfnConnector_KafkaClusterEncryptionInTransitProperty struct {
 	// `CfnConnector.KafkaClusterEncryptionInTransitProperty.EncryptionType`.
-	EncryptionType *string `json:"encryptionType" yaml:"encryptionType"`
+	EncryptionType *string `field:"required" json:"encryptionType" yaml:"encryptionType"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kafkaClusterProperty := &kafkaClusterProperty{
 //   	apacheKafkaCluster: &apacheKafkaClusterProperty{
 //   		bootstrapServers: jsii.String("bootstrapServers"),
@@ -1129,11 +1032,14 @@ type CfnConnector_KafkaClusterEncryptionInTransitProperty struct {
 //
 type CfnConnector_KafkaClusterProperty struct {
 	// `CfnConnector.KafkaClusterProperty.ApacheKafkaCluster`.
-	ApacheKafkaCluster interface{} `json:"apacheKafkaCluster" yaml:"apacheKafkaCluster"`
+	ApacheKafkaCluster interface{} `field:"required" json:"apacheKafkaCluster" yaml:"apacheKafkaCluster"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logDeliveryProperty := &logDeliveryProperty{
 //   	workerLogDelivery: &workerLogDeliveryProperty{
 //   		cloudWatchLogs: &cloudWatchLogsLogDeliveryProperty{
@@ -1160,11 +1066,14 @@ type CfnConnector_KafkaClusterProperty struct {
 //
 type CfnConnector_LogDeliveryProperty struct {
 	// `CfnConnector.LogDeliveryProperty.WorkerLogDelivery`.
-	WorkerLogDelivery interface{} `json:"workerLogDelivery" yaml:"workerLogDelivery"`
+	WorkerLogDelivery interface{} `field:"required" json:"workerLogDelivery" yaml:"workerLogDelivery"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   pluginProperty := &pluginProperty{
 //   	customPlugin: &customPluginProperty{
 //   		customPluginArn: jsii.String("customPluginArn"),
@@ -1174,11 +1083,14 @@ type CfnConnector_LogDeliveryProperty struct {
 //
 type CfnConnector_PluginProperty struct {
 	// `CfnConnector.PluginProperty.CustomPlugin`.
-	CustomPlugin interface{} `json:"customPlugin" yaml:"customPlugin"`
+	CustomPlugin interface{} `field:"required" json:"customPlugin" yaml:"customPlugin"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   provisionedCapacityProperty := &provisionedCapacityProperty{
 //   	workerCount: jsii.Number(123),
 //
@@ -1188,13 +1100,16 @@ type CfnConnector_PluginProperty struct {
 //
 type CfnConnector_ProvisionedCapacityProperty struct {
 	// `CfnConnector.ProvisionedCapacityProperty.WorkerCount`.
-	WorkerCount *float64 `json:"workerCount" yaml:"workerCount"`
+	WorkerCount *float64 `field:"required" json:"workerCount" yaml:"workerCount"`
 	// `CfnConnector.ProvisionedCapacityProperty.McuCount`.
-	McuCount *float64 `json:"mcuCount" yaml:"mcuCount"`
+	McuCount *float64 `field:"optional" json:"mcuCount" yaml:"mcuCount"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LogDeliveryProperty := &s3LogDeliveryProperty{
 //   	enabled: jsii.Boolean(false),
 //
@@ -1205,37 +1120,46 @@ type CfnConnector_ProvisionedCapacityProperty struct {
 //
 type CfnConnector_S3LogDeliveryProperty struct {
 	// `CfnConnector.S3LogDeliveryProperty.Enabled`.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// `CfnConnector.S3LogDeliveryProperty.Bucket`.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
 	// `CfnConnector.S3LogDeliveryProperty.Prefix`.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scaleInPolicyProperty := &scaleInPolicyProperty{
 //   	cpuUtilizationPercentage: jsii.Number(123),
 //   }
 //
 type CfnConnector_ScaleInPolicyProperty struct {
 	// `CfnConnector.ScaleInPolicyProperty.CpuUtilizationPercentage`.
-	CpuUtilizationPercentage *float64 `json:"cpuUtilizationPercentage" yaml:"cpuUtilizationPercentage"`
+	CpuUtilizationPercentage *float64 `field:"required" json:"cpuUtilizationPercentage" yaml:"cpuUtilizationPercentage"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scaleOutPolicyProperty := &scaleOutPolicyProperty{
 //   	cpuUtilizationPercentage: jsii.Number(123),
 //   }
 //
 type CfnConnector_ScaleOutPolicyProperty struct {
 	// `CfnConnector.ScaleOutPolicyProperty.CpuUtilizationPercentage`.
-	CpuUtilizationPercentage *float64 `json:"cpuUtilizationPercentage" yaml:"cpuUtilizationPercentage"`
+	CpuUtilizationPercentage *float64 `field:"required" json:"cpuUtilizationPercentage" yaml:"cpuUtilizationPercentage"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcProperty := &vpcProperty{
 //   	securityGroups: []*string{
 //   		jsii.String("securityGroups"),
@@ -1247,13 +1171,16 @@ type CfnConnector_ScaleOutPolicyProperty struct {
 //
 type CfnConnector_VpcProperty struct {
 	// `CfnConnector.VpcProperty.SecurityGroups`.
-	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]*string `field:"required" json:"securityGroups" yaml:"securityGroups"`
 	// `CfnConnector.VpcProperty.Subnets`.
-	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   workerConfigurationProperty := &workerConfigurationProperty{
 //   	revision: jsii.Number(123),
 //   	workerConfigurationArn: jsii.String("workerConfigurationArn"),
@@ -1261,13 +1188,16 @@ type CfnConnector_VpcProperty struct {
 //
 type CfnConnector_WorkerConfigurationProperty struct {
 	// `CfnConnector.WorkerConfigurationProperty.Revision`.
-	Revision *float64 `json:"revision" yaml:"revision"`
+	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
 	// `CfnConnector.WorkerConfigurationProperty.WorkerConfigurationArn`.
-	WorkerConfigurationArn *string `json:"workerConfigurationArn" yaml:"workerConfigurationArn"`
+	WorkerConfigurationArn *string `field:"required" json:"workerConfigurationArn" yaml:"workerConfigurationArn"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   workerLogDeliveryProperty := &workerLogDeliveryProperty{
 //   	cloudWatchLogs: &cloudWatchLogsLogDeliveryProperty{
 //   		enabled: jsii.Boolean(false),
@@ -1292,17 +1222,20 @@ type CfnConnector_WorkerConfigurationProperty struct {
 //
 type CfnConnector_WorkerLogDeliveryProperty struct {
 	// `CfnConnector.WorkerLogDeliveryProperty.CloudWatchLogs`.
-	CloudWatchLogs interface{} `json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
+	CloudWatchLogs interface{} `field:"optional" json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
 	// `CfnConnector.WorkerLogDeliveryProperty.Firehose`.
-	Firehose interface{} `json:"firehose" yaml:"firehose"`
+	Firehose interface{} `field:"optional" json:"firehose" yaml:"firehose"`
 	// `CfnConnector.WorkerLogDeliveryProperty.S3`.
-	S3 interface{} `json:"s3" yaml:"s3"`
+	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
 }
 
 // Properties for defining a `CfnConnector`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kafkaconnect "github.com/aws/aws-cdk-go/awscdk/aws_kafkaconnect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnConnectorProps := &cfnConnectorProps{
 //   	capacity: &capacityProperty{
 //   		autoScaling: &autoScalingProperty{
@@ -1390,28 +1323,28 @@ type CfnConnector_WorkerLogDeliveryProperty struct {
 //
 type CfnConnectorProps struct {
 	// `AWS::KafkaConnect::Connector.Capacity`.
-	Capacity interface{} `json:"capacity" yaml:"capacity"`
+	Capacity interface{} `field:"required" json:"capacity" yaml:"capacity"`
 	// `AWS::KafkaConnect::Connector.ConnectorConfiguration`.
-	ConnectorConfiguration interface{} `json:"connectorConfiguration" yaml:"connectorConfiguration"`
+	ConnectorConfiguration interface{} `field:"required" json:"connectorConfiguration" yaml:"connectorConfiguration"`
 	// `AWS::KafkaConnect::Connector.ConnectorName`.
-	ConnectorName *string `json:"connectorName" yaml:"connectorName"`
+	ConnectorName *string `field:"required" json:"connectorName" yaml:"connectorName"`
 	// `AWS::KafkaConnect::Connector.KafkaCluster`.
-	KafkaCluster interface{} `json:"kafkaCluster" yaml:"kafkaCluster"`
+	KafkaCluster interface{} `field:"required" json:"kafkaCluster" yaml:"kafkaCluster"`
 	// `AWS::KafkaConnect::Connector.KafkaClusterClientAuthentication`.
-	KafkaClusterClientAuthentication interface{} `json:"kafkaClusterClientAuthentication" yaml:"kafkaClusterClientAuthentication"`
+	KafkaClusterClientAuthentication interface{} `field:"required" json:"kafkaClusterClientAuthentication" yaml:"kafkaClusterClientAuthentication"`
 	// `AWS::KafkaConnect::Connector.KafkaClusterEncryptionInTransit`.
-	KafkaClusterEncryptionInTransit interface{} `json:"kafkaClusterEncryptionInTransit" yaml:"kafkaClusterEncryptionInTransit"`
+	KafkaClusterEncryptionInTransit interface{} `field:"required" json:"kafkaClusterEncryptionInTransit" yaml:"kafkaClusterEncryptionInTransit"`
 	// `AWS::KafkaConnect::Connector.KafkaConnectVersion`.
-	KafkaConnectVersion *string `json:"kafkaConnectVersion" yaml:"kafkaConnectVersion"`
+	KafkaConnectVersion *string `field:"required" json:"kafkaConnectVersion" yaml:"kafkaConnectVersion"`
 	// `AWS::KafkaConnect::Connector.Plugins`.
-	Plugins interface{} `json:"plugins" yaml:"plugins"`
+	Plugins interface{} `field:"required" json:"plugins" yaml:"plugins"`
 	// `AWS::KafkaConnect::Connector.ServiceExecutionRoleArn`.
-	ServiceExecutionRoleArn *string `json:"serviceExecutionRoleArn" yaml:"serviceExecutionRoleArn"`
+	ServiceExecutionRoleArn *string `field:"required" json:"serviceExecutionRoleArn" yaml:"serviceExecutionRoleArn"`
 	// `AWS::KafkaConnect::Connector.ConnectorDescription`.
-	ConnectorDescription *string `json:"connectorDescription" yaml:"connectorDescription"`
+	ConnectorDescription *string `field:"optional" json:"connectorDescription" yaml:"connectorDescription"`
 	// `AWS::KafkaConnect::Connector.LogDelivery`.
-	LogDelivery interface{} `json:"logDelivery" yaml:"logDelivery"`
+	LogDelivery interface{} `field:"optional" json:"logDelivery" yaml:"logDelivery"`
 	// `AWS::KafkaConnect::Connector.WorkerConfiguration`.
-	WorkerConfiguration interface{} `json:"workerConfiguration" yaml:"workerConfiguration"`
+	WorkerConfiguration interface{} `field:"optional" json:"workerConfiguration" yaml:"workerConfiguration"`
 }
 

@@ -1,12 +1,12 @@
 package awsamplifyuibuilder
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsamplifyuibuilder/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsamplifyuibuilder/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::AmplifyUIBuilder::Component`.
@@ -14,7 +14,9 @@ import (
 // The AWS::AmplifyUIBuilder::Component resource specifies a component within an Amplify app. A component is a user interface (UI) element that you can customize. Use `ComponentChild` to configure an instance of a `Component` . A `ComponentChild` instance inherits the configuration of the main `Component` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bindings interface{}
 //   var componentChildProperty_ componentChildProperty
@@ -25,7 +27,8 @@ import (
 //   var predicateProperty_ predicateProperty
 //   var properties interface{}
 //   var variantValues interface{}
-//   cfnComponent := amplifyuibuilder.NewCfnComponent(this, jsii.String("MyCfnComponent"), &cfnComponentProps{
+//
+//   cfnComponent := awscdk.Aws_amplifyuibuilder.NewCfnComponent(this, jsii.String("MyCfnComponent"), &cfnComponentProps{
 //   	bindingProperties: map[string]interface{}{
 //   		"bindingPropertiesKey": &ComponentBindingPropertiesValueProperty{
 //   			"bindingProperties": &ComponentBindingPropertiesValuePropertiesProperty{
@@ -439,11 +442,9 @@ type CfnComponent interface {
 	BindingProperties() interface{}
 	SetBindingProperties(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// A list of the component's `ComponentChild` instances.
 	Children() interface{}
@@ -461,7 +462,6 @@ type CfnComponent interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Describes the events that can be raised on the component.
 	//
@@ -477,14 +477,12 @@ type CfnComponent interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the component.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Describes the component's properties that can be overriden in a customized instance of the component.
 	//
 	// You can't specify `tags` as a valid property for `overrides` .
@@ -499,7 +497,6 @@ type CfnComponent interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The schema version of the component when it was imported.
 	SchemaVersion() *string
@@ -510,7 +507,6 @@ type CfnComponent interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// One or more key-value pairs to use when tagging the component.
 	Tags() awscdk.TagManager
@@ -518,7 +514,6 @@ type CfnComponent interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// A list of the component's variants.
 	//
@@ -526,13 +521,11 @@ type CfnComponent interface {
 	Variants() interface{}
 	SetVariants(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -541,7 +534,6 @@ type CfnComponent interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -586,15 +578,12 @@ type CfnComponent interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -605,13 +594,11 @@ type CfnComponent interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -620,74 +607,21 @@ type CfnComponent interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -837,8 +771,8 @@ func (j *jsiiProxy_CfnComponent) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnComponent) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnComponent) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -939,13 +873,13 @@ func (j *jsiiProxy_CfnComponent) Variants() interface{} {
 
 
 // Create a new `AWS::AmplifyUIBuilder::Component`.
-func NewCfnComponent(scope awscdk.Construct, id *string, props *CfnComponentProps) CfnComponent {
+func NewCfnComponent(scope constructs.Construct, id *string, props *CfnComponentProps) CfnComponent {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnComponent{}
 
 	_jsii_.Create(
-		"monocdk.aws_amplifyuibuilder.CfnComponent",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -954,11 +888,11 @@ func NewCfnComponent(scope awscdk.Construct, id *string, props *CfnComponentProp
 }
 
 // Create a new `AWS::AmplifyUIBuilder::Component`.
-func NewCfnComponent_Override(c CfnComponent, scope awscdk.Construct, id *string, props *CfnComponentProps) {
+func NewCfnComponent_Override(c CfnComponent, scope constructs.Construct, id *string, props *CfnComponentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_amplifyuibuilder.CfnComponent",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1058,14 +992,13 @@ func (j *jsiiProxy_CfnComponent) SetVariants(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnComponent_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_amplifyuibuilder.CfnComponent",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1075,14 +1008,13 @@ func CfnComponent_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnComponent_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_amplifyuibuilder.CfnComponent",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1091,15 +1023,17 @@ func CfnComponent_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnComponent_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_amplifyuibuilder.CfnComponent",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1112,7 +1046,7 @@ func CfnComponent_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_amplifyuibuilder.CfnComponent",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnComponent",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1209,48 +1143,11 @@ func (c *jsiiProxy_CfnComponent) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnComponent) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnComponent) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnComponent) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnComponent) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnComponent) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1280,33 +1177,12 @@ func (c *jsiiProxy_CfnComponent) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnComponent) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnComponent) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnComponent) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1327,11 +1203,14 @@ func (c *jsiiProxy_CfnComponent) ValidateProperties(_properties interface{}) {
 // Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components. `ActionParameters` defines the action that is performed when an event occurs on the component.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bindings interface{}
 //   var componentPropertyProperty_ componentPropertyProperty
 //   var fields interface{}
+//
 //   actionParametersProperty := &actionParametersProperty{
 //   	anchor: &componentPropertyProperty{
 //   		bindingProperties: &componentPropertyBindingPropertiesProperty{
@@ -1604,33 +1483,33 @@ type CfnComponent_ActionParametersProperty struct {
 	// The HTML anchor link to the location to open.
 	//
 	// Specify this value for a navigation action.
-	Anchor interface{} `json:"anchor" yaml:"anchor"`
+	Anchor interface{} `field:"optional" json:"anchor" yaml:"anchor"`
 	// A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model.
 	//
 	// Use when the action performs an operation on an Amplify DataStore model.
-	Fields interface{} `json:"fields" yaml:"fields"`
+	Fields interface{} `field:"optional" json:"fields" yaml:"fields"`
 	// Specifies whether the user should be signed out globally.
 	//
 	// Specify this value for an auth sign out action.
-	Global interface{} `json:"global" yaml:"global"`
+	Global interface{} `field:"optional" json:"global" yaml:"global"`
 	// The unique ID of the component that the `ActionParameters` apply to.
-	Id interface{} `json:"id" yaml:"id"`
+	Id interface{} `field:"optional" json:"id" yaml:"id"`
 	// The name of the data model.
 	//
 	// Use when the action performs an operation on an Amplify DataStore model.
-	Model *string `json:"model" yaml:"model"`
+	Model *string `field:"optional" json:"model" yaml:"model"`
 	// A key-value pair that specifies the state property name and its initial value.
-	State interface{} `json:"state" yaml:"state"`
+	State interface{} `field:"optional" json:"state" yaml:"state"`
 	// The element within the same component to modify when the action occurs.
-	Target interface{} `json:"target" yaml:"target"`
+	Target interface{} `field:"optional" json:"target" yaml:"target"`
 	// The type of navigation action.
 	//
 	// Valid values are `url` and `anchor` . This value is required for a navigation action.
-	Type interface{} `json:"type" yaml:"type"`
+	Type interface{} `field:"optional" json:"type" yaml:"type"`
 	// The URL to the location to open.
 	//
 	// Specify this value for a navigation action.
-	Url interface{} `json:"url" yaml:"url"`
+	Url interface{} `field:"optional" json:"url" yaml:"url"`
 }
 
 // The `ComponentBindingPropertiesValueProperties` property specifies the data binding configuration for a specific property using data stored in AWS .
@@ -1638,9 +1517,12 @@ type CfnComponent_ActionParametersProperty struct {
 // For AWS connected properties, you can bind a property to data stored in an Amazon S3 bucket, an Amplify DataStore model or an authenticated user attribute.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var predicateProperty_ predicateProperty
+//
 //   componentBindingPropertiesValuePropertiesProperty := &componentBindingPropertiesValuePropertiesProperty{
 //   	bucket: jsii.String("bucket"),
 //   	defaultValue: jsii.String("defaultValue"),
@@ -1665,19 +1547,19 @@ type CfnComponent_ActionParametersProperty struct {
 //
 type CfnComponent_ComponentBindingPropertiesValuePropertiesProperty struct {
 	// An Amazon S3 bucket.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
 	// The default value to assign to the property.
-	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The field to bind the data to.
-	Field *string `json:"field" yaml:"field"`
+	Field *string `field:"optional" json:"field" yaml:"field"`
 	// The storage key for an Amazon S3 bucket.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// An Amplify DataStore model.
-	Model *string `json:"model" yaml:"model"`
+	Model *string `field:"optional" json:"model" yaml:"model"`
 	// A list of predicates for binding a component's properties to data.
-	Predicates interface{} `json:"predicates" yaml:"predicates"`
+	Predicates interface{} `field:"optional" json:"predicates" yaml:"predicates"`
 	// An authenticated user attribute.
-	UserAttribute *string `json:"userAttribute" yaml:"userAttribute"`
+	UserAttribute *string `field:"optional" json:"userAttribute" yaml:"userAttribute"`
 }
 
 // The `ComponentBindingPropertiesValue` property specifies the data binding configuration for a component at runtime.
@@ -1685,9 +1567,12 @@ type CfnComponent_ComponentBindingPropertiesValuePropertiesProperty struct {
 // You can use `ComponentBindingPropertiesValue` to add exposed properties to a component to allow different values to be entered when a component is reused in different places in an app.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var predicateProperty_ predicateProperty
+//
 //   componentBindingPropertiesValueProperty := &componentBindingPropertiesValueProperty{
 //   	bindingProperties: &componentBindingPropertiesValuePropertiesProperty{
 //   		bucket: jsii.String("bucket"),
@@ -1716,21 +1601,24 @@ type CfnComponent_ComponentBindingPropertiesValuePropertiesProperty struct {
 //
 type CfnComponent_ComponentBindingPropertiesValueProperty struct {
 	// Describes the properties to customize with data at runtime.
-	BindingProperties interface{} `json:"bindingProperties" yaml:"bindingProperties"`
+	BindingProperties interface{} `field:"optional" json:"bindingProperties" yaml:"bindingProperties"`
 	// The default value of the property.
-	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The property type.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var componentChildProperty_ componentChildProperty
 //   var events interface{}
 //   var properties interface{}
+//
 //   componentChildProperty := &componentChildProperty{
 //   	componentType: jsii.String("componentType"),
 //   	name: jsii.String("name"),
@@ -1755,19 +1643,19 @@ type CfnComponent_ComponentBindingPropertiesValueProperty struct {
 //
 type CfnComponent_ComponentChildProperty struct {
 	// The type of the child component.
-	ComponentType *string `json:"componentType" yaml:"componentType"`
+	ComponentType *string `field:"required" json:"componentType" yaml:"componentType"`
 	// The name of the child component.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Describes the properties of the child component.
 	//
 	// You can't specify `tags` as a valid property for `properties` .
-	Properties interface{} `json:"properties" yaml:"properties"`
+	Properties interface{} `field:"required" json:"properties" yaml:"properties"`
 	// The list of `ComponentChild` instances for this component.
-	Children interface{} `json:"children" yaml:"children"`
+	Children interface{} `field:"optional" json:"children" yaml:"children"`
 	// Describes the events that can be raised on the child component.
 	//
 	// Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
-	Events interface{} `json:"events" yaml:"events"`
+	Events interface{} `field:"optional" json:"events" yaml:"events"`
 }
 
 // The `ComponentConditionProperty` property specifies a conditional expression for setting a component property.
@@ -1775,10 +1663,13 @@ type CfnComponent_ComponentChildProperty struct {
 // Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bindings interface{}
 //   var componentPropertyProperty_ componentPropertyProperty
+//
 //   componentConditionPropertyProperty := &componentConditionPropertyProperty{
 //   	else: &componentPropertyProperty{
 //   		bindingProperties: &componentPropertyBindingPropertiesProperty{
@@ -1863,29 +1754,32 @@ type CfnComponent_ComponentChildProperty struct {
 //
 type CfnComponent_ComponentConditionPropertyProperty struct {
 	// The value to assign to the property if the condition is not met.
-	Else interface{} `json:"else" yaml:"else"`
+	Else interface{} `field:"optional" json:"else" yaml:"else"`
 	// The name of a field.
 	//
 	// Specify this when the property is a data model.
-	Field *string `json:"field" yaml:"field"`
+	Field *string `field:"optional" json:"field" yaml:"field"`
 	// The value of the property to evaluate.
-	Operand *string `json:"operand" yaml:"operand"`
+	Operand *string `field:"optional" json:"operand" yaml:"operand"`
 	// The type of the property to evaluate.
-	OperandType *string `json:"operandType" yaml:"operandType"`
+	OperandType *string `field:"optional" json:"operandType" yaml:"operandType"`
 	// The operator to use to perform the evaluation, such as `eq` to represent equals.
-	Operator *string `json:"operator" yaml:"operator"`
+	Operator *string `field:"optional" json:"operator" yaml:"operator"`
 	// The name of the conditional property.
-	Property *string `json:"property" yaml:"property"`
+	Property *string `field:"optional" json:"property" yaml:"property"`
 	// The value to assign to the property if the condition is met.
-	Then interface{} `json:"then" yaml:"then"`
+	Then interface{} `field:"optional" json:"then" yaml:"then"`
 }
 
 // The `ComponentDataConfiguration` property specifies the configuration for binding a component's properties to data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var predicateProperty_ predicateProperty
+//
 //   componentDataConfigurationProperty := &componentDataConfigurationProperty{
 //   	model: jsii.String("model"),
 //
@@ -1914,17 +1808,17 @@ type CfnComponent_ComponentConditionPropertyProperty struct {
 //
 type CfnComponent_ComponentDataConfigurationProperty struct {
 	// The name of the data model to use to bind data to a component.
-	Model *string `json:"model" yaml:"model"`
+	Model *string `field:"required" json:"model" yaml:"model"`
 	// A list of IDs to use to bind data to a component.
 	//
 	// Use this property to bind specifically chosen data, rather than data retrieved from a query.
-	Identifiers *[]*string `json:"identifiers" yaml:"identifiers"`
+	Identifiers *[]*string `field:"optional" json:"identifiers" yaml:"identifiers"`
 	// Represents the conditional logic to use when binding data to a component.
 	//
 	// Use this property to retrieve only a subset of the data in a collection.
-	Predicate interface{} `json:"predicate" yaml:"predicate"`
+	Predicate interface{} `field:"optional" json:"predicate" yaml:"predicate"`
 	// Describes how to sort the component's properties.
-	Sort interface{} `json:"sort" yaml:"sort"`
+	Sort interface{} `field:"optional" json:"sort" yaml:"sort"`
 }
 
 // The `ComponentEvent` property specifies the configuration of an event.
@@ -1932,11 +1826,14 @@ type CfnComponent_ComponentDataConfigurationProperty struct {
 // You can bind an event and a corresponding action to a `Component` or a `ComponentChild` . A button click is an example of an event.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bindings interface{}
 //   var componentPropertyProperty_ componentPropertyProperty
 //   var fields interface{}
+//
 //   componentEventProperty := &componentEventProperty{
 //   	action: jsii.String("action"),
 //   	parameters: &actionParametersProperty{
@@ -2210,9 +2107,9 @@ type CfnComponent_ComponentDataConfigurationProperty struct {
 //
 type CfnComponent_ComponentEventProperty struct {
 	// The action to perform when a specific event is raised.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// Describes information about the action.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 
 // The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property.
@@ -2220,7 +2117,10 @@ type CfnComponent_ComponentEventProperty struct {
 // This enables exposed properties on the top level component to propagate data to the component's property values.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   componentPropertyBindingPropertiesProperty := &componentPropertyBindingPropertiesProperty{
 //   	property: jsii.String("property"),
 //
@@ -2230,9 +2130,9 @@ type CfnComponent_ComponentEventProperty struct {
 //
 type CfnComponent_ComponentPropertyBindingPropertiesProperty struct {
 	// The component property to bind to the data field.
-	Property *string `json:"property" yaml:"property"`
+	Property *string `field:"required" json:"property" yaml:"property"`
 	// The data field to bind the property to.
-	Field *string `json:"field" yaml:"field"`
+	Field *string `field:"optional" json:"field" yaml:"field"`
 }
 
 // The `ComponentProperty` property specifies the configuration for all of a component's properties.
@@ -2240,11 +2140,14 @@ type CfnComponent_ComponentPropertyBindingPropertiesProperty struct {
 // Use `ComponentProperty` to specify the values to render or bind by default.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bindings interface{}
 //   var componentConditionPropertyProperty_ componentConditionPropertyProperty
 //   var componentPropertyProperty_ componentPropertyProperty
+//
 //   componentPropertyProperty := &componentPropertyProperty{
 //   	bindingProperties: &componentPropertyBindingPropertiesProperty{
 //   		property: jsii.String("property"),
@@ -2377,48 +2280,51 @@ type CfnComponent_ComponentPropertyBindingPropertiesProperty struct {
 //
 type CfnComponent_ComponentPropertyProperty struct {
 	// The information to bind the component property to data at runtime.
-	BindingProperties interface{} `json:"bindingProperties" yaml:"bindingProperties"`
+	BindingProperties interface{} `field:"optional" json:"bindingProperties" yaml:"bindingProperties"`
 	// The information to bind the component property to form data.
-	Bindings interface{} `json:"bindings" yaml:"bindings"`
+	Bindings interface{} `field:"optional" json:"bindings" yaml:"bindings"`
 	// The information to bind the component property to data at runtime.
 	//
 	// Use this for collection components.
-	CollectionBindingProperties interface{} `json:"collectionBindingProperties" yaml:"collectionBindingProperties"`
+	CollectionBindingProperties interface{} `field:"optional" json:"collectionBindingProperties" yaml:"collectionBindingProperties"`
 	// The name of the component that is affected by an event.
-	ComponentName *string `json:"componentName" yaml:"componentName"`
+	ComponentName *string `field:"optional" json:"componentName" yaml:"componentName"`
 	// A list of component properties to concatenate to create the value to assign to this component property.
-	Concat interface{} `json:"concat" yaml:"concat"`
+	Concat interface{} `field:"optional" json:"concat" yaml:"concat"`
 	// The conditional expression to use to assign a value to the component property.
-	Condition interface{} `json:"condition" yaml:"condition"`
+	Condition interface{} `field:"optional" json:"condition" yaml:"condition"`
 	// Specifies whether the user configured the property in Amplify Studio after importing it.
-	Configured interface{} `json:"configured" yaml:"configured"`
+	Configured interface{} `field:"optional" json:"configured" yaml:"configured"`
 	// The default value to assign to the component property.
-	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// An event that occurs in your app.
 	//
 	// Use this for workflow data binding.
-	Event *string `json:"event" yaml:"event"`
+	Event *string `field:"optional" json:"event" yaml:"event"`
 	// The default value assigned to the property when the component is imported into an app.
-	ImportedValue *string `json:"importedValue" yaml:"importedValue"`
+	ImportedValue *string `field:"optional" json:"importedValue" yaml:"importedValue"`
 	// The data model to use to assign a value to the component property.
-	Model *string `json:"model" yaml:"model"`
+	Model *string `field:"optional" json:"model" yaml:"model"`
 	// The name of the component's property that is affected by an event.
-	Property *string `json:"property" yaml:"property"`
+	Property *string `field:"optional" json:"property" yaml:"property"`
 	// The component type.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// An authenticated user attribute to use to assign a value to the component property.
-	UserAttribute *string `json:"userAttribute" yaml:"userAttribute"`
+	UserAttribute *string `field:"optional" json:"userAttribute" yaml:"userAttribute"`
 	// The value to assign to the component property.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var overrides interface{}
 //   var variantValues interface{}
+//
 //   componentVariantProperty := &componentVariantProperty{
 //   	overrides: overrides,
 //   	variantValues: variantValues,
@@ -2428,18 +2334,21 @@ type CfnComponent_ComponentVariantProperty struct {
 	// The properties of the component variant that can be overriden when customizing an instance of the component.
 	//
 	// You can't specify `tags` as a valid property for `overrides` .
-	Overrides interface{} `json:"overrides" yaml:"overrides"`
+	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
 	// The combination of variants that comprise this variant.
-	VariantValues interface{} `json:"variantValues" yaml:"variantValues"`
+	VariantValues interface{} `field:"optional" json:"variantValues" yaml:"variantValues"`
 }
 
 // The `MutationActionSetStateParameter` property specifies the state configuration when an action modifies a property of another element within the same component.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bindings interface{}
 //   var componentPropertyProperty_ componentPropertyProperty
+//
 //   mutationActionSetStateParameterProperty := &mutationActionSetStateParameterProperty{
 //   	componentName: jsii.String("componentName"),
 //   	property: jsii.String("property"),
@@ -2484,11 +2393,11 @@ type CfnComponent_ComponentVariantProperty struct {
 //
 type CfnComponent_MutationActionSetStateParameterProperty struct {
 	// The name of the component that is being modified.
-	ComponentName *string `json:"componentName" yaml:"componentName"`
+	ComponentName *string `field:"required" json:"componentName" yaml:"componentName"`
 	// The name of the component property to apply the state configuration to.
-	Property *string `json:"property" yaml:"property"`
+	Property *string `field:"required" json:"property" yaml:"property"`
 	// The state configuration to assign to the property.
-	Set interface{} `json:"set" yaml:"set"`
+	Set interface{} `field:"required" json:"set" yaml:"set"`
 }
 
 // The `Predicate` property specifies information for generating Amplify DataStore queries.
@@ -2496,9 +2405,12 @@ type CfnComponent_MutationActionSetStateParameterProperty struct {
 // Use `Predicate` to retrieve a subset of the data in a collection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var predicateProperty_ predicateProperty
+//
 //   predicateProperty := &predicateProperty{
 //   	and: []interface{}{
 //   		&predicateProperty{
@@ -2533,21 +2445,24 @@ type CfnComponent_MutationActionSetStateParameterProperty struct {
 //
 type CfnComponent_PredicateProperty struct {
 	// A list of predicates to combine logically.
-	And interface{} `json:"and" yaml:"and"`
+	And interface{} `field:"optional" json:"and" yaml:"and"`
 	// The field to query.
-	Field *string `json:"field" yaml:"field"`
+	Field *string `field:"optional" json:"field" yaml:"field"`
 	// The value to use when performing the evaluation.
-	Operand *string `json:"operand" yaml:"operand"`
+	Operand *string `field:"optional" json:"operand" yaml:"operand"`
 	// The operator to use to perform the evaluation.
-	Operator *string `json:"operator" yaml:"operator"`
+	Operator *string `field:"optional" json:"operator" yaml:"operator"`
 	// A list of predicates to combine logically.
-	Or interface{} `json:"or" yaml:"or"`
+	Or interface{} `field:"optional" json:"or" yaml:"or"`
 }
 
 // The `SortProperty` property specifies how to sort the data that you bind to a component.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sortPropertyProperty := &sortPropertyProperty{
 //   	direction: jsii.String("direction"),
 //   	field: jsii.String("field"),
@@ -2555,15 +2470,17 @@ type CfnComponent_PredicateProperty struct {
 //
 type CfnComponent_SortPropertyProperty struct {
 	// The direction of the sort, either ascending or descending.
-	Direction *string `json:"direction" yaml:"direction"`
+	Direction *string `field:"required" json:"direction" yaml:"direction"`
 	// The field to perform the sort on.
-	Field *string `json:"field" yaml:"field"`
+	Field *string `field:"required" json:"field" yaml:"field"`
 }
 
 // Properties for defining a `CfnComponent`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bindings interface{}
 //   var componentChildProperty_ componentChildProperty
@@ -2574,6 +2491,7 @@ type CfnComponent_SortPropertyProperty struct {
 //   var predicateProperty_ predicateProperty
 //   var properties interface{}
 //   var variantValues interface{}
+//
 //   cfnComponentProps := &cfnComponentProps{
 //   	bindingProperties: map[string]interface{}{
 //   		"bindingPropertiesKey": &ComponentBindingPropertiesValueProperty{
@@ -2977,41 +2895,41 @@ type CfnComponentProps struct {
 	// The information to connect a component's properties to data at runtime.
 	//
 	// You can't specify `tags` as a valid property for `bindingProperties` .
-	BindingProperties interface{} `json:"bindingProperties" yaml:"bindingProperties"`
+	BindingProperties interface{} `field:"required" json:"bindingProperties" yaml:"bindingProperties"`
 	// The type of the component.
 	//
 	// This can be an Amplify custom UI component or another custom component.
-	ComponentType *string `json:"componentType" yaml:"componentType"`
+	ComponentType *string `field:"required" json:"componentType" yaml:"componentType"`
 	// The name of the component.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Describes the component's properties that can be overriden in a customized instance of the component.
 	//
 	// You can't specify `tags` as a valid property for `overrides` .
-	Overrides interface{} `json:"overrides" yaml:"overrides"`
+	Overrides interface{} `field:"required" json:"overrides" yaml:"overrides"`
 	// Describes the component's properties.
 	//
 	// You can't specify `tags` as a valid property for `properties` .
-	Properties interface{} `json:"properties" yaml:"properties"`
+	Properties interface{} `field:"required" json:"properties" yaml:"properties"`
 	// A list of the component's variants.
 	//
 	// A variant is a unique style configuration of a main component.
-	Variants interface{} `json:"variants" yaml:"variants"`
+	Variants interface{} `field:"required" json:"variants" yaml:"variants"`
 	// A list of the component's `ComponentChild` instances.
-	Children interface{} `json:"children" yaml:"children"`
+	Children interface{} `field:"optional" json:"children" yaml:"children"`
 	// The data binding configuration for the component's properties.
 	//
 	// Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
-	CollectionProperties interface{} `json:"collectionProperties" yaml:"collectionProperties"`
+	CollectionProperties interface{} `field:"optional" json:"collectionProperties" yaml:"collectionProperties"`
 	// Describes the events that can be raised on the component.
 	//
 	// Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
-	Events interface{} `json:"events" yaml:"events"`
+	Events interface{} `field:"optional" json:"events" yaml:"events"`
 	// The schema version of the component when it was imported.
-	SchemaVersion *string `json:"schemaVersion" yaml:"schemaVersion"`
+	SchemaVersion *string `field:"optional" json:"schemaVersion" yaml:"schemaVersion"`
 	// The unique ID of the component in its original source system, such as Figma.
-	SourceId *string `json:"sourceId" yaml:"sourceId"`
+	SourceId *string `field:"optional" json:"sourceId" yaml:"sourceId"`
 	// One or more key-value pairs to use when tagging the component.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::AmplifyUIBuilder::Theme`.
@@ -3019,10 +2937,13 @@ type CfnComponentProps struct {
 // The AWS::AmplifyUIBuilder::Theme resource specifies a theme within an Amplify app. A theme is a collection of style settings that apply globally to the components associated with the app.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var themeValuesProperty_ themeValuesProperty
-//   cfnTheme := amplifyuibuilder.NewCfnTheme(this, jsii.String("MyCfnTheme"), &cfnThemeProps{
+//
+//   cfnTheme := awscdk.Aws_amplifyuibuilder.NewCfnTheme(this, jsii.String("MyCfnTheme"), &cfnThemeProps{
 //   	name: jsii.String("name"),
 //   	values: []interface{}{
 //   		&themeValuesProperty{
@@ -3067,16 +2988,13 @@ type CfnTheme interface {
 	// The time that the theme was modified.
 	AttrModifiedAt() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -3087,14 +3005,12 @@ type CfnTheme interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the theme.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Describes the properties that can be overriden to customize a theme.
 	Overrides() interface{}
 	SetOverrides(val interface{})
@@ -3102,12 +3018,10 @@ type CfnTheme interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// One or more key-value pairs to use when tagging the theme.
 	Tags() awscdk.TagManager
@@ -3115,19 +3029,16 @@ type CfnTheme interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// A list of key-value pairs that defines the properties of the theme.
 	Values() interface{}
 	SetValues(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3136,7 +3047,6 @@ type CfnTheme interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -3181,15 +3091,12 @@ type CfnTheme interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -3200,13 +3107,11 @@ type CfnTheme interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3215,74 +3120,21 @@ type CfnTheme interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3402,8 +3254,8 @@ func (j *jsiiProxy_CfnTheme) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTheme) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnTheme) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3474,13 +3326,13 @@ func (j *jsiiProxy_CfnTheme) Values() interface{} {
 
 
 // Create a new `AWS::AmplifyUIBuilder::Theme`.
-func NewCfnTheme(scope awscdk.Construct, id *string, props *CfnThemeProps) CfnTheme {
+func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) CfnTheme {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTheme{}
 
 	_jsii_.Create(
-		"monocdk.aws_amplifyuibuilder.CfnTheme",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3489,11 +3341,11 @@ func NewCfnTheme(scope awscdk.Construct, id *string, props *CfnThemeProps) CfnTh
 }
 
 // Create a new `AWS::AmplifyUIBuilder::Theme`.
-func NewCfnTheme_Override(c CfnTheme, scope awscdk.Construct, id *string, props *CfnThemeProps) {
+func NewCfnTheme_Override(c CfnTheme, scope constructs.Construct, id *string, props *CfnThemeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_amplifyuibuilder.CfnTheme",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3529,14 +3381,13 @@ func (j *jsiiProxy_CfnTheme) SetValues(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnTheme_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_amplifyuibuilder.CfnTheme",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3546,14 +3397,13 @@ func CfnTheme_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnTheme_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_amplifyuibuilder.CfnTheme",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3562,15 +3412,17 @@ func CfnTheme_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnTheme_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_amplifyuibuilder.CfnTheme",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3583,7 +3435,7 @@ func CfnTheme_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_amplifyuibuilder.CfnTheme",
+		"aws-cdk-lib.aws_amplifyuibuilder.CfnTheme",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3680,48 +3532,11 @@ func (c *jsiiProxy_CfnTheme) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnTheme) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnTheme) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnTheme) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnTheme) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnTheme) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3751,33 +3566,12 @@ func (c *jsiiProxy_CfnTheme) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnTheme) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnTheme) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnTheme) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3796,9 +3590,12 @@ func (c *jsiiProxy_CfnTheme) ValidateProperties(_properties interface{}) {
 // The `ThemeValue` property specifies the configuration of a theme's properties.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var themeValuesProperty_ themeValuesProperty
+//
 //   themeValueProperty := &themeValueProperty{
 //   	children: []interface{}{
 //   		&themeValuesProperty{
@@ -3816,17 +3613,20 @@ func (c *jsiiProxy_CfnTheme) ValidateProperties(_properties interface{}) {
 //
 type CfnTheme_ThemeValueProperty struct {
 	// A list of key-value pairs that define the theme's properties.
-	Children interface{} `json:"children" yaml:"children"`
+	Children interface{} `field:"optional" json:"children" yaml:"children"`
 	// The value of a theme property.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // The `ThemeValues` property specifies key-value pair that defines a property of a theme.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var themeValueProperty_ themeValueProperty
+//
 //   themeValuesProperty := &themeValuesProperty{
 //   	key: jsii.String("key"),
 //   	value: &themeValueProperty{
@@ -3842,17 +3642,20 @@ type CfnTheme_ThemeValueProperty struct {
 //
 type CfnTheme_ThemeValuesProperty struct {
 	// The name of the property.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The value of the property.
-	Value interface{} `json:"value" yaml:"value"`
+	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnTheme`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplifyuibuilder "github.com/aws/aws-cdk-go/awscdk/aws_amplifyuibuilder"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var themeValuesProperty_ themeValuesProperty
+//
 //   cfnThemeProps := &cfnThemeProps{
 //   	name: jsii.String("name"),
 //   	values: []interface{}{
@@ -3886,12 +3689,12 @@ type CfnTheme_ThemeValuesProperty struct {
 //
 type CfnThemeProps struct {
 	// The name of the theme.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A list of key-value pairs that defines the properties of the theme.
-	Values interface{} `json:"values" yaml:"values"`
+	Values interface{} `field:"required" json:"values" yaml:"values"`
 	// Describes the properties that can be overriden to customize a theme.
-	Overrides interface{} `json:"overrides" yaml:"overrides"`
+	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
 	// One or more key-value pairs to use when tagging the theme.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

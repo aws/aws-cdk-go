@@ -1,12 +1,12 @@
 package awselasticache
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticache/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticache/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::ElastiCache::CacheCluster`.
@@ -14,8 +14,11 @@ import (
 // The AWS::ElastiCache::CacheCluster type creates an Amazon ElastiCache cache cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
-//   cfnCacheCluster := elasticache.NewCfnCacheCluster(this, jsii.String("MyCfnCacheCluster"), &cfnCacheClusterProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCacheCluster := awscdk.Aws_elasticache.NewCfnCacheCluster(this, jsii.String("MyCfnCacheCluster"), &cfnCacheClusterProps{
 //   	cacheNodeType: jsii.String("cacheNodeType"),
 //   	engine: jsii.String("engine"),
 //   	numCacheNodes: jsii.Number(123),
@@ -172,11 +175,9 @@ type CfnCacheCluster interface {
 	CacheSubnetGroupName() *string
 	SetCacheSubnetGroupName(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// A name for the cache cluster.
 	//
@@ -188,7 +189,6 @@ type CfnCacheCluster interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The name of the cache engine to be used for this cluster.
 	//
@@ -214,11 +214,9 @@ type CfnCacheCluster interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
 	//
 	// > The Amazon SNS topic owner must be the same as the cluster owner.
@@ -277,7 +275,6 @@ type CfnCacheCluster interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
 	//
@@ -316,7 +313,6 @@ type CfnCacheCluster interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A list of tags to be added to this resource.
 	Tags() awscdk.TagManager
@@ -324,7 +320,6 @@ type CfnCacheCluster interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// One or more VPC security groups associated with the cluster.
 	//
@@ -332,13 +327,11 @@ type CfnCacheCluster interface {
 	VpcSecurityGroupIds() *[]*string
 	SetVpcSecurityGroupIds(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -347,7 +340,6 @@ type CfnCacheCluster interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -392,15 +384,12 @@ type CfnCacheCluster interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -411,13 +400,11 @@ type CfnCacheCluster interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -426,74 +413,21 @@ type CfnCacheCluster interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -693,8 +627,8 @@ func (j *jsiiProxy_CfnCacheCluster) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCacheCluster) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnCacheCluster) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -855,13 +789,13 @@ func (j *jsiiProxy_CfnCacheCluster) VpcSecurityGroupIds() *[]*string {
 
 
 // Create a new `AWS::ElastiCache::CacheCluster`.
-func NewCfnCacheCluster(scope awscdk.Construct, id *string, props *CfnCacheClusterProps) CfnCacheCluster {
+func NewCfnCacheCluster(scope constructs.Construct, id *string, props *CfnCacheClusterProps) CfnCacheCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCacheCluster{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnCacheCluster",
+		"aws-cdk-lib.aws_elasticache.CfnCacheCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -870,11 +804,11 @@ func NewCfnCacheCluster(scope awscdk.Construct, id *string, props *CfnCacheClust
 }
 
 // Create a new `AWS::ElastiCache::CacheCluster`.
-func NewCfnCacheCluster_Override(c CfnCacheCluster, scope awscdk.Construct, id *string, props *CfnCacheClusterProps) {
+func NewCfnCacheCluster_Override(c CfnCacheCluster, scope constructs.Construct, id *string, props *CfnCacheClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnCacheCluster",
+		"aws-cdk-lib.aws_elasticache.CfnCacheCluster",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1054,14 +988,13 @@ func (j *jsiiProxy_CfnCacheCluster) SetVpcSecurityGroupIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnCacheCluster_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnCacheCluster",
+		"aws-cdk-lib.aws_elasticache.CfnCacheCluster",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1071,14 +1004,13 @@ func CfnCacheCluster_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnCacheCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnCacheCluster",
+		"aws-cdk-lib.aws_elasticache.CfnCacheCluster",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1087,15 +1019,17 @@ func CfnCacheCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnCacheCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnCacheCluster",
+		"aws-cdk-lib.aws_elasticache.CfnCacheCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1108,7 +1042,7 @@ func CfnCacheCluster_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticache.CfnCacheCluster",
+		"aws-cdk-lib.aws_elasticache.CfnCacheCluster",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1205,48 +1139,11 @@ func (c *jsiiProxy_CfnCacheCluster) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnCacheCluster) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnCacheCluster) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnCacheCluster) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnCacheCluster) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnCacheCluster) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1276,33 +1173,12 @@ func (c *jsiiProxy_CfnCacheCluster) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnCacheCluster) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnCacheCluster) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnCacheCluster) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1323,20 +1199,26 @@ func (c *jsiiProxy_CfnCacheCluster) ValidateProperties(_properties interface{}) 
 // Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchLogsDestinationDetailsProperty := &cloudWatchLogsDestinationDetailsProperty{
 //   	logGroup: jsii.String("logGroup"),
 //   }
 //
 type CfnCacheCluster_CloudWatchLogsDestinationDetailsProperty struct {
 	// The name of the CloudWatch Logs log group.
-	LogGroup *string `json:"logGroup" yaml:"logGroup"`
+	LogGroup *string `field:"required" json:"logGroup" yaml:"logGroup"`
 }
 
 // Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationDetailsProperty := &destinationDetailsProperty{
 //   	cloudWatchLogsDetails: &cloudWatchLogsDestinationDetailsProperty{
 //   		logGroup: jsii.String("logGroup"),
@@ -1350,11 +1232,11 @@ type CfnCacheCluster_DestinationDetailsProperty struct {
 	// The configuration details of the CloudWatch Logs destination.
 	//
 	// Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
-	CloudWatchLogsDetails interface{} `json:"cloudWatchLogsDetails" yaml:"cloudWatchLogsDetails"`
+	CloudWatchLogsDetails interface{} `field:"optional" json:"cloudWatchLogsDetails" yaml:"cloudWatchLogsDetails"`
 	// The configuration details of the Kinesis Data Firehose destination.
 	//
 	// Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
-	KinesisFirehoseDetails interface{} `json:"kinesisFirehoseDetails" yaml:"kinesisFirehoseDetails"`
+	KinesisFirehoseDetails interface{} `field:"optional" json:"kinesisFirehoseDetails" yaml:"kinesisFirehoseDetails"`
 }
 
 // The configuration details of the Kinesis Data Firehose destination.
@@ -1362,20 +1244,26 @@ type CfnCacheCluster_DestinationDetailsProperty struct {
 // Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kinesisFirehoseDestinationDetailsProperty := &kinesisFirehoseDestinationDetailsProperty{
 //   	deliveryStream: jsii.String("deliveryStream"),
 //   }
 //
 type CfnCacheCluster_KinesisFirehoseDestinationDetailsProperty struct {
 	// The name of the Kinesis Data Firehose delivery stream.
-	DeliveryStream *string `json:"deliveryStream" yaml:"deliveryStream"`
+	DeliveryStream *string `field:"required" json:"deliveryStream" yaml:"deliveryStream"`
 }
 
 // Specifies the destination, format and type of the logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logDeliveryConfigurationRequestProperty := &logDeliveryConfigurationRequestProperty{
 //   	destinationDetails: &destinationDetailsProperty{
 //   		cloudWatchLogsDetails: &cloudWatchLogsDestinationDetailsProperty{
@@ -1392,21 +1280,24 @@ type CfnCacheCluster_KinesisFirehoseDestinationDetailsProperty struct {
 //
 type CfnCacheCluster_LogDeliveryConfigurationRequestProperty struct {
 	// Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
-	DestinationDetails interface{} `json:"destinationDetails" yaml:"destinationDetails"`
+	DestinationDetails interface{} `field:"required" json:"destinationDetails" yaml:"destinationDetails"`
 	// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
 	//
 	// Valid values are either `cloudwatch-logs` or `kinesis-firehose` .
-	DestinationType *string `json:"destinationType" yaml:"destinationType"`
+	DestinationType *string `field:"required" json:"destinationType" yaml:"destinationType"`
 	// Valid values are either `json` or `text` .
-	LogFormat *string `json:"logFormat" yaml:"logFormat"`
+	LogFormat *string `field:"required" json:"logFormat" yaml:"logFormat"`
 	// Valid value is either `slow-log` , which refers to [slow-log](https://docs.aws.amazon.com/https://redis.io/commands/slowlog) or `engine-log` .
-	LogType *string `json:"logType" yaml:"logType"`
+	LogType *string `field:"required" json:"logType" yaml:"logType"`
 }
 
 // Properties for defining a `CfnCacheCluster`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCacheClusterProps := &cfnCacheClusterProps{
 //   	cacheNodeType: jsii.String("cacheNodeType"),
 //   	engine: jsii.String("engine"),
@@ -1520,63 +1411,63 @@ type CfnCacheClusterProps struct {
 	// - Redis append-only files (AOF) are not supported for T1 or T2 instances.
 	// - Redis Multi-AZ with automatic failover is not supported on T1 instances.
 	// - Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2.8.22 and later.
-	CacheNodeType *string `json:"cacheNodeType" yaml:"cacheNodeType"`
+	CacheNodeType *string `field:"required" json:"cacheNodeType" yaml:"cacheNodeType"`
 	// The name of the cache engine to be used for this cluster.
 	//
 	// Valid values for this parameter are: `memcached` | `redis`.
-	Engine *string `json:"engine" yaml:"engine"`
+	Engine *string `field:"required" json:"engine" yaml:"engine"`
 	// The number of cache nodes that the cache cluster should have.
 	//
 	// > However, if the `PreferredAvailabilityZone` and `PreferredAvailabilityZones` properties were not previously specified and you don't specify any new values, an update requires [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	NumCacheNodes *float64 `json:"numCacheNodes" yaml:"numCacheNodes"`
+	NumCacheNodes *float64 `field:"required" json:"numCacheNodes" yaml:"numCacheNodes"`
 	// If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
-	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.
 	//
 	// This parameter is only supported for Memcached clusters.
 	//
 	// If the `AZMode` and `PreferredAvailabilityZones` are not specified, ElastiCache assumes `single-az` mode.
-	AzMode *string `json:"azMode" yaml:"azMode"`
+	AzMode *string `field:"optional" json:"azMode" yaml:"azMode"`
 	// The name of the parameter group to associate with this cluster.
 	//
 	// If this argument is omitted, the default parameter group for the specified engine is used. You cannot use any parameter group which has `cluster-enabled='yes'` when creating a cluster.
-	CacheParameterGroupName *string `json:"cacheParameterGroupName" yaml:"cacheParameterGroupName"`
+	CacheParameterGroupName *string `field:"optional" json:"cacheParameterGroupName" yaml:"cacheParameterGroupName"`
 	// A list of security group names to associate with this cluster.
 	//
 	// Use this parameter only when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC).
-	CacheSecurityGroupNames *[]*string `json:"cacheSecurityGroupNames" yaml:"cacheSecurityGroupNames"`
+	CacheSecurityGroupNames *[]*string `field:"optional" json:"cacheSecurityGroupNames" yaml:"cacheSecurityGroupNames"`
 	// The name of the subnet group to be used for the cluster.
 	//
 	// Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).
 	//
 	// > If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see [AWS::ElastiCache::SubnetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html) .
-	CacheSubnetGroupName *string `json:"cacheSubnetGroupName" yaml:"cacheSubnetGroupName"`
+	CacheSubnetGroupName *string `field:"optional" json:"cacheSubnetGroupName" yaml:"cacheSubnetGroupName"`
 	// A name for the cache cluster.
 	//
 	// If you don't specify a name, AWSCloudFormation generates a unique physical ID and uses that ID for the cache cluster. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// The name must contain 1 to 50 alphanumeric characters or hyphens. The name must start with a letter and cannot end with a hyphen or contain two consecutive hyphens.
-	ClusterName *string `json:"clusterName" yaml:"clusterName"`
+	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
 	// The version number of the cache engine to be used for this cluster.
 	//
 	// To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.
 	//
 	// *Important:* You can upgrade to a newer engine version (see [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement) ), but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cluster or replication group and create it anew with the earlier engine version.
-	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
+	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// Specifies the destination, format and type of the logs.
-	LogDeliveryConfigurations interface{} `json:"logDeliveryConfigurations" yaml:"logDeliveryConfigurations"`
+	LogDeliveryConfigurations interface{} `field:"optional" json:"logDeliveryConfigurations" yaml:"logDeliveryConfigurations"`
 	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
 	//
 	// > The Amazon SNS topic owner must be the same as the cluster owner.
-	NotificationTopicArn *string `json:"notificationTopicArn" yaml:"notificationTopicArn"`
+	NotificationTopicArn *string `field:"optional" json:"notificationTopicArn" yaml:"notificationTopicArn"`
 	// The port number on which each of the cache nodes accepts connections.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The EC2 Availability Zone in which the cluster is created.
 	//
 	// All nodes belonging to this cluster are placed in the preferred Availability Zone. If you want to create your nodes across multiple Availability Zones, use `PreferredAvailabilityZones` .
 	//
 	// Default: System chosen Availability Zone.
-	PreferredAvailabilityZone *string `json:"preferredAvailabilityZone" yaml:"preferredAvailabilityZone"`
+	PreferredAvailabilityZone *string `field:"optional" json:"preferredAvailabilityZone" yaml:"preferredAvailabilityZone"`
 	// A list of the Availability Zones in which cache nodes are created.
 	//
 	// The order of the zones in the list is not important.
@@ -1590,7 +1481,7 @@ type CfnCacheClusterProps struct {
 	// If you want all the nodes in the same Availability Zone, use `PreferredAvailabilityZone` instead, or repeat the Availability Zone multiple times in the list.
 	//
 	// Default: System chosen Availability Zones.
-	PreferredAvailabilityZones *[]*string `json:"preferredAvailabilityZones" yaml:"preferredAvailabilityZones"`
+	PreferredAvailabilityZones *[]*string `field:"optional" json:"preferredAvailabilityZones" yaml:"preferredAvailabilityZones"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed.
 	//
 	// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for `ddd` are:
@@ -1608,7 +1499,7 @@ type CfnCacheClusterProps struct {
 	// - `sat`
 	//
 	// Example: `sun:23:00-mon:01:30`.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
 	//
 	// The snapshot file is used to populate the node group (shard). The Amazon S3 object name in the ARN cannot contain any commas.
@@ -1616,13 +1507,13 @@ type CfnCacheClusterProps struct {
 	// > This parameter is only valid if the `Engine` parameter is `redis` .
 	//
 	// Example of an Amazon S3 ARN: `arn:aws:s3:::my_bucket/snapshot1.rdb`
-	SnapshotArns *[]*string `json:"snapshotArns" yaml:"snapshotArns"`
+	SnapshotArns *[]*string `field:"optional" json:"snapshotArns" yaml:"snapshotArns"`
 	// The name of a Redis snapshot from which to restore data into the new node group (shard).
 	//
 	// The snapshot status changes to `restoring` while the new node group (shard) is being created.
 	//
 	// > This parameter is only valid if the `Engine` parameter is `redis` .
-	SnapshotName *string `json:"snapshotName" yaml:"snapshotName"`
+	SnapshotName *string `field:"optional" json:"snapshotName" yaml:"snapshotName"`
 	// The number of days for which ElastiCache retains automatic snapshots before deleting them.
 	//
 	// For example, if you set `SnapshotRetentionLimit` to 5, a snapshot taken today is retained for 5 days before being deleted.
@@ -1630,7 +1521,7 @@ type CfnCacheClusterProps struct {
 	// > This parameter is only valid if the `Engine` parameter is `redis` .
 	//
 	// Default: 0 (i.e., automatic backups are disabled for this cache cluster).
-	SnapshotRetentionLimit *float64 `json:"snapshotRetentionLimit" yaml:"snapshotRetentionLimit"`
+	SnapshotRetentionLimit *float64 `field:"optional" json:"snapshotRetentionLimit" yaml:"snapshotRetentionLimit"`
 	// The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
 	//
 	// Example: `05:00-09:00`
@@ -1638,13 +1529,13 @@ type CfnCacheClusterProps struct {
 	// If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range.
 	//
 	// > This parameter is only valid if the `Engine` parameter is `redis` .
-	SnapshotWindow *string `json:"snapshotWindow" yaml:"snapshotWindow"`
+	SnapshotWindow *string `field:"optional" json:"snapshotWindow" yaml:"snapshotWindow"`
 	// A list of tags to be added to this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// One or more VPC security groups associated with the cluster.
 	//
 	// Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).
-	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 
 // A CloudFormation `AWS::ElastiCache::GlobalReplicationGroup`.
@@ -1654,8 +1545,11 @@ type CfnCacheClusterProps struct {
 // - The *GlobalReplicationGroupIdSuffix* represents the name of the Global datastore, which is what you use to associate a secondary cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
-//   cfnGlobalReplicationGroup := elasticache.NewCfnGlobalReplicationGroup(this, jsii.String("MyCfnGlobalReplicationGroup"), &cfnGlobalReplicationGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGlobalReplicationGroup := awscdk.Aws_elasticache.NewCfnGlobalReplicationGroup(this, jsii.String("MyCfnGlobalReplicationGroup"), &cfnGlobalReplicationGroupProps{
 //   	members: []interface{}{
 //   		&globalReplicationGroupMemberProperty{
 //   			replicationGroupId: jsii.String("replicationGroupId"),
@@ -1711,16 +1605,13 @@ type CfnGlobalReplicationGroup interface {
 	CacheParameterGroupName() *string
 	SetCacheParameterGroupName(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The Elasticache Redis engine version.
 	EngineVersion() *string
@@ -1745,19 +1636,16 @@ type CfnGlobalReplicationGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The replication groups that comprise the Global datastore.
 	Members() interface{}
 	SetMembers(val interface{})
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Regions that comprise the Global Datastore.
 	RegionalConfigurations() interface{}
@@ -1765,22 +1653,18 @@ type CfnGlobalReplicationGroup interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1789,7 +1673,6 @@ type CfnGlobalReplicationGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1834,15 +1717,12 @@ type CfnGlobalReplicationGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1853,13 +1733,11 @@ type CfnGlobalReplicationGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1868,74 +1746,21 @@ type CfnGlobalReplicationGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2095,8 +1920,8 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) Members() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalReplicationGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnGlobalReplicationGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2147,13 +1972,13 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) UpdatedProperites() *map[string]in
 
 
 // Create a new `AWS::ElastiCache::GlobalReplicationGroup`.
-func NewCfnGlobalReplicationGroup(scope awscdk.Construct, id *string, props *CfnGlobalReplicationGroupProps) CfnGlobalReplicationGroup {
+func NewCfnGlobalReplicationGroup(scope constructs.Construct, id *string, props *CfnGlobalReplicationGroupProps) CfnGlobalReplicationGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGlobalReplicationGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnGlobalReplicationGroup",
+		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2162,11 +1987,11 @@ func NewCfnGlobalReplicationGroup(scope awscdk.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::ElastiCache::GlobalReplicationGroup`.
-func NewCfnGlobalReplicationGroup_Override(c CfnGlobalReplicationGroup, scope awscdk.Construct, id *string, props *CfnGlobalReplicationGroupProps) {
+func NewCfnGlobalReplicationGroup_Override(c CfnGlobalReplicationGroup, scope constructs.Construct, id *string, props *CfnGlobalReplicationGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnGlobalReplicationGroup",
+		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2250,14 +2075,13 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) SetRegionalConfigurations(val inte
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnGlobalReplicationGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnGlobalReplicationGroup",
+		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2267,14 +2091,13 @@ func CfnGlobalReplicationGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnGlobalReplicationGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnGlobalReplicationGroup",
+		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2283,15 +2106,17 @@ func CfnGlobalReplicationGroup_IsCfnResource(construct constructs.IConstruct) *b
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnGlobalReplicationGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnGlobalReplicationGroup",
+		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2304,7 +2129,7 @@ func CfnGlobalReplicationGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticache.CfnGlobalReplicationGroup",
+		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2401,48 +2226,11 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) Inspect(inspector awscdk.TreeInspe
 	)
 }
 
-func (c *jsiiProxy_CfnGlobalReplicationGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnGlobalReplicationGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnGlobalReplicationGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnGlobalReplicationGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnGlobalReplicationGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2472,33 +2260,12 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnGlobalReplicationGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnGlobalReplicationGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnGlobalReplicationGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2519,7 +2286,10 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) ValidateProperties(_properties int
 // It contains the Replication Group Id, the Amazon region and the role of the replication group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   globalReplicationGroupMemberProperty := &globalReplicationGroupMemberProperty{
 //   	replicationGroupId: jsii.String("replicationGroupId"),
 //   	replicationGroupRegion: jsii.String("replicationGroupRegion"),
@@ -2528,17 +2298,20 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) ValidateProperties(_properties int
 //
 type CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty struct {
 	// The replication group id of the Global datastore member.
-	ReplicationGroupId *string `json:"replicationGroupId" yaml:"replicationGroupId"`
+	ReplicationGroupId *string `field:"optional" json:"replicationGroupId" yaml:"replicationGroupId"`
 	// The Amazon region of the Global datastore member.
-	ReplicationGroupRegion *string `json:"replicationGroupRegion" yaml:"replicationGroupRegion"`
+	ReplicationGroupRegion *string `field:"optional" json:"replicationGroupRegion" yaml:"replicationGroupRegion"`
 	// Indicates the role of the replication group, `PRIMARY` or `SECONDARY` .
-	Role *string `json:"role" yaml:"role"`
+	Role *string `field:"optional" json:"role" yaml:"role"`
 }
 
 // A list of the replication groups.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   regionalConfigurationProperty := &regionalConfigurationProperty{
 //   	replicationGroupId: jsii.String("replicationGroupId"),
 //   	replicationGroupRegion: jsii.String("replicationGroupRegion"),
@@ -2554,17 +2327,20 @@ type CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty struct {
 //
 type CfnGlobalReplicationGroup_RegionalConfigurationProperty struct {
 	// The name of the secondary cluster.
-	ReplicationGroupId *string `json:"replicationGroupId" yaml:"replicationGroupId"`
+	ReplicationGroupId *string `field:"optional" json:"replicationGroupId" yaml:"replicationGroupId"`
 	// The Amazon region where the cluster is stored.
-	ReplicationGroupRegion *string `json:"replicationGroupRegion" yaml:"replicationGroupRegion"`
+	ReplicationGroupRegion *string `field:"optional" json:"replicationGroupRegion" yaml:"replicationGroupRegion"`
 	// A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster.
-	ReshardingConfigurations interface{} `json:"reshardingConfigurations" yaml:"reshardingConfigurations"`
+	ReshardingConfigurations interface{} `field:"optional" json:"reshardingConfigurations" yaml:"reshardingConfigurations"`
 }
 
 // A list of `PreferredAvailabilityZones` objects that specifies the configuration of a node group in the resharded cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   reshardingConfigurationProperty := &reshardingConfigurationProperty{
 //   	nodeGroupId: jsii.String("nodeGroupId"),
 //   	preferredAvailabilityZones: []*string{
@@ -2574,15 +2350,18 @@ type CfnGlobalReplicationGroup_RegionalConfigurationProperty struct {
 //
 type CfnGlobalReplicationGroup_ReshardingConfigurationProperty struct {
 	// Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
-	NodeGroupId *string `json:"nodeGroupId" yaml:"nodeGroupId"`
+	NodeGroupId *string `field:"optional" json:"nodeGroupId" yaml:"nodeGroupId"`
 	// A list of preferred availability zones for the nodes in this cluster.
-	PreferredAvailabilityZones *[]*string `json:"preferredAvailabilityZones" yaml:"preferredAvailabilityZones"`
+	PreferredAvailabilityZones *[]*string `field:"optional" json:"preferredAvailabilityZones" yaml:"preferredAvailabilityZones"`
 }
 
 // Properties for defining a `CfnGlobalReplicationGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGlobalReplicationGroupProps := &cfnGlobalReplicationGroupProps{
 //   	members: []interface{}{
 //   		&globalReplicationGroupMemberProperty{
@@ -2618,29 +2397,29 @@ type CfnGlobalReplicationGroup_ReshardingConfigurationProperty struct {
 //
 type CfnGlobalReplicationGroupProps struct {
 	// The replication groups that comprise the Global datastore.
-	Members interface{} `json:"members" yaml:"members"`
+	Members interface{} `field:"required" json:"members" yaml:"members"`
 	// Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.
 	//
 	// `AutomaticFailoverEnabled` must be enabled for Redis (cluster mode enabled) replication groups.
-	AutomaticFailoverEnabled interface{} `json:"automaticFailoverEnabled" yaml:"automaticFailoverEnabled"`
+	AutomaticFailoverEnabled interface{} `field:"optional" json:"automaticFailoverEnabled" yaml:"automaticFailoverEnabled"`
 	// The cache node type of the Global datastore.
-	CacheNodeType *string `json:"cacheNodeType" yaml:"cacheNodeType"`
+	CacheNodeType *string `field:"optional" json:"cacheNodeType" yaml:"cacheNodeType"`
 	// The name of the cache parameter group to use with the Global datastore.
 	//
 	// It must be compatible with the major engine version used by the Global datastore.
-	CacheParameterGroupName *string `json:"cacheParameterGroupName" yaml:"cacheParameterGroupName"`
+	CacheParameterGroupName *string `field:"optional" json:"cacheParameterGroupName" yaml:"cacheParameterGroupName"`
 	// The Elasticache Redis engine version.
-	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
+	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// The number of node groups that comprise the Global Datastore.
-	GlobalNodeGroupCount *float64 `json:"globalNodeGroupCount" yaml:"globalNodeGroupCount"`
+	GlobalNodeGroupCount *float64 `field:"optional" json:"globalNodeGroupCount" yaml:"globalNodeGroupCount"`
 	// The optional description of the Global datastore.
-	GlobalReplicationGroupDescription *string `json:"globalReplicationGroupDescription" yaml:"globalReplicationGroupDescription"`
+	GlobalReplicationGroupDescription *string `field:"optional" json:"globalReplicationGroupDescription" yaml:"globalReplicationGroupDescription"`
 	// The suffix name of a Global Datastore.
 	//
 	// The suffix guarantees uniqueness of the Global Datastore name across multiple regions.
-	GlobalReplicationGroupIdSuffix *string `json:"globalReplicationGroupIdSuffix" yaml:"globalReplicationGroupIdSuffix"`
+	GlobalReplicationGroupIdSuffix *string `field:"optional" json:"globalReplicationGroupIdSuffix" yaml:"globalReplicationGroupIdSuffix"`
 	// The Amazon Regions that comprise the Global Datastore.
-	RegionalConfigurations interface{} `json:"regionalConfigurations" yaml:"regionalConfigurations"`
+	RegionalConfigurations interface{} `field:"optional" json:"regionalConfigurations" yaml:"regionalConfigurations"`
 }
 
 // A CloudFormation `AWS::ElastiCache::ParameterGroup`.
@@ -2648,8 +2427,11 @@ type CfnGlobalReplicationGroupProps struct {
 // The `AWS::ElastiCache::ParameterGroup` type creates a new cache parameter group. Cache parameter groups control the parameters for a cache cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
-//   cfnParameterGroup := elasticache.NewCfnParameterGroup(this, jsii.String("MyCfnParameterGroup"), &cfnParameterGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnParameterGroup := awscdk.Aws_elasticache.NewCfnParameterGroup(this, jsii.String("MyCfnParameterGroup"), &cfnParameterGroupProps{
 //   	cacheParameterGroupFamily: jsii.String("cacheParameterGroupFamily"),
 //   	description: jsii.String("description"),
 //
@@ -2674,16 +2456,13 @@ type CfnParameterGroup interface {
 	CacheParameterGroupFamily() *string
 	SetCacheParameterGroupFamily(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The description for this cache parameter group.
 	Description() *string
@@ -2697,11 +2476,9 @@ type CfnParameterGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// A comma-delimited list of parameter name/value pairs.
 	//
 	// For more information, see [ModifyCacheParameterGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html) in the *Amazon ElastiCache API Reference Guide* .
@@ -2718,12 +2495,10 @@ type CfnParameterGroup interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A tag that can be added to an ElastiCache parameter group.
 	//
@@ -2733,16 +2508,13 @@ type CfnParameterGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2751,7 +2523,6 @@ type CfnParameterGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2796,15 +2567,12 @@ type CfnParameterGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2815,13 +2583,11 @@ type CfnParameterGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2830,74 +2596,21 @@ type CfnParameterGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2977,8 +2690,8 @@ func (j *jsiiProxy_CfnParameterGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnParameterGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnParameterGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3039,13 +2752,13 @@ func (j *jsiiProxy_CfnParameterGroup) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::ElastiCache::ParameterGroup`.
-func NewCfnParameterGroup(scope awscdk.Construct, id *string, props *CfnParameterGroupProps) CfnParameterGroup {
+func NewCfnParameterGroup(scope constructs.Construct, id *string, props *CfnParameterGroupProps) CfnParameterGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnParameterGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnParameterGroup",
+		"aws-cdk-lib.aws_elasticache.CfnParameterGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3054,11 +2767,11 @@ func NewCfnParameterGroup(scope awscdk.Construct, id *string, props *CfnParamete
 }
 
 // Create a new `AWS::ElastiCache::ParameterGroup`.
-func NewCfnParameterGroup_Override(c CfnParameterGroup, scope awscdk.Construct, id *string, props *CfnParameterGroupProps) {
+func NewCfnParameterGroup_Override(c CfnParameterGroup, scope constructs.Construct, id *string, props *CfnParameterGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnParameterGroup",
+		"aws-cdk-lib.aws_elasticache.CfnParameterGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3094,14 +2807,13 @@ func (j *jsiiProxy_CfnParameterGroup) SetProperties(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnParameterGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnParameterGroup",
+		"aws-cdk-lib.aws_elasticache.CfnParameterGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3111,14 +2823,13 @@ func CfnParameterGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnParameterGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnParameterGroup",
+		"aws-cdk-lib.aws_elasticache.CfnParameterGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3127,15 +2838,17 @@ func CfnParameterGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnParameterGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnParameterGroup",
+		"aws-cdk-lib.aws_elasticache.CfnParameterGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3148,7 +2861,7 @@ func CfnParameterGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticache.CfnParameterGroup",
+		"aws-cdk-lib.aws_elasticache.CfnParameterGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3245,48 +2958,11 @@ func (c *jsiiProxy_CfnParameterGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnParameterGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnParameterGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnParameterGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnParameterGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnParameterGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3316,33 +2992,12 @@ func (c *jsiiProxy_CfnParameterGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnParameterGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnParameterGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnParameterGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3361,7 +3016,10 @@ func (c *jsiiProxy_CfnParameterGroup) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnParameterGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnParameterGroupProps := &cfnParameterGroupProps{
 //   	cacheParameterGroupFamily: jsii.String("cacheParameterGroupFamily"),
 //   	description: jsii.String("description"),
@@ -3382,9 +3040,9 @@ type CfnParameterGroupProps struct {
 	// The name of the cache parameter group family that this cache parameter group is compatible with.
 	//
 	// Valid values are: `memcached1.4` | `memcached1.5` | `memcached1.6` | `redis2.6` | `redis2.8` | `redis3.2` | `redis4.0` | `redis5.0` | `redis6.x`
-	CacheParameterGroupFamily *string `json:"cacheParameterGroupFamily" yaml:"cacheParameterGroupFamily"`
+	CacheParameterGroupFamily *string `field:"required" json:"cacheParameterGroupFamily" yaml:"cacheParameterGroupFamily"`
 	// The description for this cache parameter group.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// A comma-delimited list of parameter name/value pairs.
 	//
 	// For more information, see [ModifyCacheParameterGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html) in the *Amazon ElastiCache API Reference Guide* .
@@ -3395,11 +3053,11 @@ type CfnParameterGroupProps struct {
 	// "Properties" : { "cas_disabled" : "1", "chunk_size_growth_factor" : "1.02"
 	// }
 	// ```.
-	Properties interface{} `json:"properties" yaml:"properties"`
+	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
 	// A tag that can be added to an ElastiCache parameter group.
 	//
 	// Tags are composed of a Key/Value pair. You can use tags to categorize and track all your parameter groups. A tag with a null Value is permitted.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ElastiCache::ReplicationGroup`.
@@ -3413,8 +3071,11 @@ type CfnParameterGroupProps struct {
 // To request a limit increase, see [Amazon Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type *Nodes per cluster per instance type* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
-//   cfnReplicationGroup := elasticache.NewCfnReplicationGroup(this, jsii.String("MyCfnReplicationGroup"), &cfnReplicationGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnReplicationGroup := awscdk.Aws_elasticache.NewCfnReplicationGroup(this, jsii.String("MyCfnReplicationGroup"), &cfnReplicationGroupProps{
 //   	replicationGroupDescription: jsii.String("replicationGroupDescription"),
 //
 //   	// the properties below are optional
@@ -3632,16 +3293,13 @@ type CfnReplicationGroup interface {
 	CacheSubnetGroupName() *string
 	SetCacheSubnetGroupName(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Enables data tiering.
 	//
@@ -3678,16 +3336,14 @@ type CfnReplicationGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// A flag indicating if you have Multi-AZ enabled to enhance fault tolerance.
 	//
 	// For more information, see [Minimizing Downtime: Multi-AZ](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html) .
 	MultiAzEnabled() interface{}
 	SetMultiAzEnabled(val interface{})
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis cluster node group.
 	//
 	// If you set [UseOnlineResharding](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-useonlineresharding) to `true` , you can update `NodeGroupConfiguration` without interruption. When `UseOnlineResharding` is set to `false` , or is not specified, updating `NodeGroupConfiguration` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
@@ -3760,7 +3416,6 @@ type CfnReplicationGroup interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// An optional parameter that specifies the number of replica nodes in each node group (shard).
 	//
@@ -3818,7 +3473,6 @@ type CfnReplicationGroup interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A list of tags to be added to this resource.
 	//
@@ -3843,19 +3497,16 @@ type CfnReplicationGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The list of user groups to associate with the replication group.
 	UserGroupIds() *[]*string
 	SetUserGroupIds(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3864,7 +3515,6 @@ type CfnReplicationGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -3909,15 +3559,12 @@ type CfnReplicationGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -3928,13 +3575,11 @@ type CfnReplicationGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3943,74 +3588,21 @@ type CfnReplicationGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4320,8 +3912,8 @@ func (j *jsiiProxy_CfnReplicationGroup) MultiAzEnabled() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnReplicationGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4562,13 +4154,13 @@ func (j *jsiiProxy_CfnReplicationGroup) UserGroupIds() *[]*string {
 
 
 // Create a new `AWS::ElastiCache::ReplicationGroup`.
-func NewCfnReplicationGroup(scope awscdk.Construct, id *string, props *CfnReplicationGroupProps) CfnReplicationGroup {
+func NewCfnReplicationGroup(scope constructs.Construct, id *string, props *CfnReplicationGroupProps) CfnReplicationGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnReplicationGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnReplicationGroup",
+		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4577,11 +4169,11 @@ func NewCfnReplicationGroup(scope awscdk.Construct, id *string, props *CfnReplic
 }
 
 // Create a new `AWS::ElastiCache::ReplicationGroup`.
-func NewCfnReplicationGroup_Override(c CfnReplicationGroup, scope awscdk.Construct, id *string, props *CfnReplicationGroupProps) {
+func NewCfnReplicationGroup_Override(c CfnReplicationGroup, scope constructs.Construct, id *string, props *CfnReplicationGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnReplicationGroup",
+		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4865,14 +4457,13 @@ func (j *jsiiProxy_CfnReplicationGroup) SetUserGroupIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnReplicationGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnReplicationGroup",
+		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4882,14 +4473,13 @@ func CfnReplicationGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnReplicationGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnReplicationGroup",
+		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4898,15 +4488,17 @@ func CfnReplicationGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnReplicationGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnReplicationGroup",
+		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4919,7 +4511,7 @@ func CfnReplicationGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticache.CfnReplicationGroup",
+		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5016,48 +4608,11 @@ func (c *jsiiProxy_CfnReplicationGroup) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-func (c *jsiiProxy_CfnReplicationGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnReplicationGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnReplicationGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnReplicationGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnReplicationGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5087,33 +4642,12 @@ func (c *jsiiProxy_CfnReplicationGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnReplicationGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnReplicationGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnReplicationGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5134,20 +4668,26 @@ func (c *jsiiProxy_CfnReplicationGroup) ValidateProperties(_properties interface
 // Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchLogsDestinationDetailsProperty := &cloudWatchLogsDestinationDetailsProperty{
 //   	logGroup: jsii.String("logGroup"),
 //   }
 //
 type CfnReplicationGroup_CloudWatchLogsDestinationDetailsProperty struct {
 	// The name of the CloudWatch Logs log group.
-	LogGroup *string `json:"logGroup" yaml:"logGroup"`
+	LogGroup *string `field:"required" json:"logGroup" yaml:"logGroup"`
 }
 
 // Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationDetailsProperty := &destinationDetailsProperty{
 //   	cloudWatchLogsDetails: &cloudWatchLogsDestinationDetailsProperty{
 //   		logGroup: jsii.String("logGroup"),
@@ -5161,11 +4701,11 @@ type CfnReplicationGroup_DestinationDetailsProperty struct {
 	// The configuration details of the CloudWatch Logs destination.
 	//
 	// Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
-	CloudWatchLogsDetails interface{} `json:"cloudWatchLogsDetails" yaml:"cloudWatchLogsDetails"`
+	CloudWatchLogsDetails interface{} `field:"optional" json:"cloudWatchLogsDetails" yaml:"cloudWatchLogsDetails"`
 	// The configuration details of the Kinesis Data Firehose destination.
 	//
 	// Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
-	KinesisFirehoseDetails interface{} `json:"kinesisFirehoseDetails" yaml:"kinesisFirehoseDetails"`
+	KinesisFirehoseDetails interface{} `field:"optional" json:"kinesisFirehoseDetails" yaml:"kinesisFirehoseDetails"`
 }
 
 // The configuration details of the Kinesis Data Firehose destination.
@@ -5173,20 +4713,26 @@ type CfnReplicationGroup_DestinationDetailsProperty struct {
 // Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kinesisFirehoseDestinationDetailsProperty := &kinesisFirehoseDestinationDetailsProperty{
 //   	deliveryStream: jsii.String("deliveryStream"),
 //   }
 //
 type CfnReplicationGroup_KinesisFirehoseDestinationDetailsProperty struct {
 	// The name of the Kinesis Data Firehose delivery stream.
-	DeliveryStream *string `json:"deliveryStream" yaml:"deliveryStream"`
+	DeliveryStream *string `field:"required" json:"deliveryStream" yaml:"deliveryStream"`
 }
 
 // Specifies the destination, format and type of the logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logDeliveryConfigurationRequestProperty := &logDeliveryConfigurationRequestProperty{
 //   	destinationDetails: &destinationDetailsProperty{
 //   		cloudWatchLogsDetails: &cloudWatchLogsDestinationDetailsProperty{
@@ -5203,21 +4749,24 @@ type CfnReplicationGroup_KinesisFirehoseDestinationDetailsProperty struct {
 //
 type CfnReplicationGroup_LogDeliveryConfigurationRequestProperty struct {
 	// Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
-	DestinationDetails interface{} `json:"destinationDetails" yaml:"destinationDetails"`
+	DestinationDetails interface{} `field:"required" json:"destinationDetails" yaml:"destinationDetails"`
 	// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
 	//
 	// Valid values are either `cloudwatch-logs` or `kinesis-firehose` .
-	DestinationType *string `json:"destinationType" yaml:"destinationType"`
+	DestinationType *string `field:"required" json:"destinationType" yaml:"destinationType"`
 	// Valid values are either `json` or `text` .
-	LogFormat *string `json:"logFormat" yaml:"logFormat"`
+	LogFormat *string `field:"required" json:"logFormat" yaml:"logFormat"`
 	// Valid value is either `slow-log` , which refers to [slow-log](https://docs.aws.amazon.com/https://redis.io/commands/slowlog) or `engine-log` .
-	LogType *string `json:"logType" yaml:"logType"`
+	LogType *string `field:"required" json:"logType" yaml:"logType"`
 }
 
 // `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis cluster node group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   nodeGroupConfigurationProperty := &nodeGroupConfigurationProperty{
 //   	nodeGroupId: jsii.String("nodeGroupId"),
 //   	primaryAvailabilityZone: jsii.String("primaryAvailabilityZone"),
@@ -5230,15 +4779,15 @@ type CfnReplicationGroup_LogDeliveryConfigurationRequestProperty struct {
 //
 type CfnReplicationGroup_NodeGroupConfigurationProperty struct {
 	// Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
-	NodeGroupId *string `json:"nodeGroupId" yaml:"nodeGroupId"`
+	NodeGroupId *string `field:"optional" json:"nodeGroupId" yaml:"nodeGroupId"`
 	// The Availability Zone where the primary node of this node group (shard) is launched.
-	PrimaryAvailabilityZone *string `json:"primaryAvailabilityZone" yaml:"primaryAvailabilityZone"`
+	PrimaryAvailabilityZone *string `field:"optional" json:"primaryAvailabilityZone" yaml:"primaryAvailabilityZone"`
 	// A list of Availability Zones to be used for the read replicas.
 	//
 	// The number of Availability Zones in this list must match the value of `ReplicaCount` or `ReplicasPerNodeGroup` if not specified.
-	ReplicaAvailabilityZones *[]*string `json:"replicaAvailabilityZones" yaml:"replicaAvailabilityZones"`
+	ReplicaAvailabilityZones *[]*string `field:"optional" json:"replicaAvailabilityZones" yaml:"replicaAvailabilityZones"`
 	// The number of read replica nodes in this node group (shard).
-	ReplicaCount *float64 `json:"replicaCount" yaml:"replicaCount"`
+	ReplicaCount *float64 `field:"optional" json:"replicaCount" yaml:"replicaCount"`
 	// A string of comma-separated values where the first set of values are the slot numbers (zero based), and the second set of values are the keyspaces for each slot.
 	//
 	// The following example specifies three slots (numbered 0, 1, and 2): `0,1,2,0-4999,5000-9999,10000-16,383` .
@@ -5246,13 +4795,16 @@ type CfnReplicationGroup_NodeGroupConfigurationProperty struct {
 	// If you don't specify a value, ElastiCache allocates keys equally among each slot.
 	//
 	// When you use an `UseOnlineResharding` update policy to update the number of node groups without interruption, ElastiCache evenly distributes the keyspaces between the specified number of slots. This cannot be updated later. Therefore, after updating the number of node groups in this way, you should remove the value specified for the `Slots` property of each `NodeGroupConfiguration` from the stack template, as it no longer reflects the actual values in each node group. For more information, see [UseOnlineResharding Policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-useonlineresharding) .
-	Slots *string `json:"slots" yaml:"slots"`
+	Slots *string `field:"optional" json:"slots" yaml:"slots"`
 }
 
 // Properties for defining a `CfnReplicationGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnReplicationGroupProps := &cfnReplicationGroupProps{
 //   	replicationGroupDescription: jsii.String("replicationGroupDescription"),
 //
@@ -5334,7 +4886,7 @@ type CfnReplicationGroup_NodeGroupConfigurationProperty struct {
 //
 type CfnReplicationGroupProps struct {
 	// A user-created description for the replication group.
-	ReplicationGroupDescription *string `json:"replicationGroupDescription" yaml:"replicationGroupDescription"`
+	ReplicationGroupDescription *string `field:"required" json:"replicationGroupDescription" yaml:"replicationGroupDescription"`
 	// A flag that enables encryption at rest when set to `true` .
 	//
 	// You cannot modify the value of `AtRestEncryptionEnabled` after the replication group is created. To enable encryption at rest on a replication group you must set `AtRestEncryptionEnabled` to `true` when you create the replication group.
@@ -5342,7 +4894,7 @@ type CfnReplicationGroupProps struct {
 	// *Required:* Only available when creating a replication group in an Amazon VPC using redis version `3.2.6` or `4.x` onward.
 	//
 	// Default: `false`.
-	AtRestEncryptionEnabled interface{} `json:"atRestEncryptionEnabled" yaml:"atRestEncryptionEnabled"`
+	AtRestEncryptionEnabled interface{} `field:"optional" json:"atRestEncryptionEnabled" yaml:"atRestEncryptionEnabled"`
 	// *Reserved parameter.* The password used to access a password protected server.
 	//
 	// `AuthToken` can be specified only on replication groups where `TransitEncryptionEnabled` is `true` . For more information, see [Authenticating Users with the Redis AUTH Command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) .
@@ -5356,15 +4908,15 @@ type CfnReplicationGroupProps struct {
 	// - Nonalphanumeric characters are restricted to (!, &, #, $, ^, <, >, -, ).
 	//
 	// For more information, see [AUTH password](https://docs.aws.amazon.com/http://redis.io/commands/AUTH) at http://redis.io/commands/AUTH.
-	AuthToken *string `json:"authToken" yaml:"authToken"`
+	AuthToken *string `field:"optional" json:"authToken" yaml:"authToken"`
 	// Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.
 	//
 	// `AutomaticFailoverEnabled` must be enabled for Redis (cluster mode enabled) replication groups.
 	//
 	// Default: false.
-	AutomaticFailoverEnabled interface{} `json:"automaticFailoverEnabled" yaml:"automaticFailoverEnabled"`
+	AutomaticFailoverEnabled interface{} `field:"optional" json:"automaticFailoverEnabled" yaml:"automaticFailoverEnabled"`
 	// If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
-	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The compute and memory capacity of the nodes in the node group (shard).
 	//
 	// The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
@@ -5416,7 +4968,7 @@ type CfnReplicationGroupProps struct {
 	// *R3 node types:* `cache.r3.large` , `cache.r3.xlarge` , `cache.r3.2xlarge` , `cache.r3.4xlarge` , `cache.r3.8xlarge`
 	//
 	// For region availability, see [Supported Node Types by Amazon Region](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion)
-	CacheNodeType *string `json:"cacheNodeType" yaml:"cacheNodeType"`
+	CacheNodeType *string `field:"optional" json:"cacheNodeType" yaml:"cacheNodeType"`
 	// The name of the parameter group to associate with this replication group.
 	//
 	// If this argument is omitted, the default cache parameter group for the specified engine is used.
@@ -5425,45 +4977,45 @@ type CfnReplicationGroupProps struct {
 	//
 	// - To create a Redis (cluster mode disabled) replication group, use `CacheParameterGroupName=default.redis3.2` .
 	// - To create a Redis (cluster mode enabled) replication group, use `CacheParameterGroupName=default.redis3.2.cluster.on` .
-	CacheParameterGroupName *string `json:"cacheParameterGroupName" yaml:"cacheParameterGroupName"`
+	CacheParameterGroupName *string `field:"optional" json:"cacheParameterGroupName" yaml:"cacheParameterGroupName"`
 	// A list of cache security group names to associate with this replication group.
-	CacheSecurityGroupNames *[]*string `json:"cacheSecurityGroupNames" yaml:"cacheSecurityGroupNames"`
+	CacheSecurityGroupNames *[]*string `field:"optional" json:"cacheSecurityGroupNames" yaml:"cacheSecurityGroupNames"`
 	// The name of the cache subnet group to be used for the replication group.
 	//
 	// > If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see [AWS::ElastiCache::SubnetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html) .
-	CacheSubnetGroupName *string `json:"cacheSubnetGroupName" yaml:"cacheSubnetGroupName"`
+	CacheSubnetGroupName *string `field:"optional" json:"cacheSubnetGroupName" yaml:"cacheSubnetGroupName"`
 	// Enables data tiering.
 	//
 	// Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes. For more information, see [Data tiering](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html) .
-	DataTieringEnabled interface{} `json:"dataTieringEnabled" yaml:"dataTieringEnabled"`
+	DataTieringEnabled interface{} `field:"optional" json:"dataTieringEnabled" yaml:"dataTieringEnabled"`
 	// The name of the cache engine to be used for the clusters in this replication group.
 	//
 	// Must be Redis.
-	Engine *string `json:"engine" yaml:"engine"`
+	Engine *string `field:"optional" json:"engine" yaml:"engine"`
 	// The version number of the cache engine to be used for the clusters in this replication group.
 	//
 	// To view the supported cache engine versions, use the `DescribeCacheEngineVersions` operation.
 	//
 	// *Important:* You can upgrade to a newer engine version (see [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement) ) in the *ElastiCache User Guide* , but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cluster or replication group and create it anew with the earlier engine version.
-	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
+	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// The name of the Global datastore.
-	GlobalReplicationGroupId *string `json:"globalReplicationGroupId" yaml:"globalReplicationGroupId"`
+	GlobalReplicationGroupId *string `field:"optional" json:"globalReplicationGroupId" yaml:"globalReplicationGroupId"`
 	// The ID of the KMS key used to encrypt the disk on the cluster.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the destination, format and type of the logs.
-	LogDeliveryConfigurations interface{} `json:"logDeliveryConfigurations" yaml:"logDeliveryConfigurations"`
+	LogDeliveryConfigurations interface{} `field:"optional" json:"logDeliveryConfigurations" yaml:"logDeliveryConfigurations"`
 	// A flag indicating if you have Multi-AZ enabled to enhance fault tolerance.
 	//
 	// For more information, see [Minimizing Downtime: Multi-AZ](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html) .
-	MultiAzEnabled interface{} `json:"multiAzEnabled" yaml:"multiAzEnabled"`
+	MultiAzEnabled interface{} `field:"optional" json:"multiAzEnabled" yaml:"multiAzEnabled"`
 	// `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis cluster node group.
 	//
 	// If you set [UseOnlineResharding](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-useonlineresharding) to `true` , you can update `NodeGroupConfiguration` without interruption. When `UseOnlineResharding` is set to `false` , or is not specified, updating `NodeGroupConfiguration` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	NodeGroupConfiguration interface{} `json:"nodeGroupConfiguration" yaml:"nodeGroupConfiguration"`
+	NodeGroupConfiguration interface{} `field:"optional" json:"nodeGroupConfiguration" yaml:"nodeGroupConfiguration"`
 	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
 	//
 	// > The Amazon SNS topic owner must be the same as the cluster owner.
-	NotificationTopicArn *string `json:"notificationTopicArn" yaml:"notificationTopicArn"`
+	NotificationTopicArn *string `field:"optional" json:"notificationTopicArn" yaml:"notificationTopicArn"`
 	// The number of clusters this replication group initially has.
 	//
 	// This parameter is not used if there is more than one node group (shard). You should use `ReplicasPerNodeGroup` instead.
@@ -5471,7 +5023,7 @@ type CfnReplicationGroupProps struct {
 	// If `AutomaticFailoverEnabled` is `true` , the value of this parameter must be at least 2. If `AutomaticFailoverEnabled` is `false` you can omit this parameter (it will default to 1), or you can explicitly set it to a value between 2 and 6.
 	//
 	// The maximum permitted value for `NumCacheClusters` is 6 (1 primary plus 5 replicas).
-	NumCacheClusters *float64 `json:"numCacheClusters" yaml:"numCacheClusters"`
+	NumCacheClusters *float64 `field:"optional" json:"numCacheClusters" yaml:"numCacheClusters"`
 	// An optional parameter that specifies the number of node groups (shards) for this Redis (cluster mode enabled) replication group.
 	//
 	// For Redis (cluster mode disabled) either omit this parameter or set it to 1.
@@ -5479,9 +5031,9 @@ type CfnReplicationGroupProps struct {
 	// If you set [UseOnlineResharding](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-useonlineresharding) to `true` , you can update `NumNodeGroups` without interruption. When `UseOnlineResharding` is set to `false` , or is not specified, updating `NumNodeGroups` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	//
 	// Default: 1.
-	NumNodeGroups *float64 `json:"numNodeGroups" yaml:"numNodeGroups"`
+	NumNodeGroups *float64 `field:"optional" json:"numNodeGroups" yaml:"numNodeGroups"`
 	// The port number on which each member of the replication group accepts connections.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// A list of EC2 Availability Zones in which the replication group's clusters are created.
 	//
 	// The order of the Availability Zones in the list is the order in which clusters are allocated. The primary cluster is created in the first AZ in the list.
@@ -5493,7 +5045,7 @@ type CfnReplicationGroupProps struct {
 	// > The number of Availability Zones listed must equal the value of `NumCacheClusters` .
 	//
 	// Default: system chosen Availability Zones.
-	PreferredCacheClusterAZs *[]*string `json:"preferredCacheClusterAZs" yaml:"preferredCacheClusterAZs"`
+	PreferredCacheClusterAZs *[]*string `field:"optional" json:"preferredCacheClusterAZs" yaml:"preferredCacheClusterAZs"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed.
 	//
 	// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
@@ -5509,17 +5061,17 @@ type CfnReplicationGroupProps struct {
 	// - `sat`
 	//
 	// Example: `sun:23:00-mon:01:30`.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The identifier of the cluster that serves as the primary for this replication group.
 	//
 	// This cluster must already exist and have a status of `available` .
 	//
 	// This parameter is not required if `NumCacheClusters` , `NumNodeGroups` , or `ReplicasPerNodeGroup` is specified.
-	PrimaryClusterId *string `json:"primaryClusterId" yaml:"primaryClusterId"`
+	PrimaryClusterId *string `field:"optional" json:"primaryClusterId" yaml:"primaryClusterId"`
 	// An optional parameter that specifies the number of replica nodes in each node group (shard).
 	//
 	// Valid values are 0 to 5.
-	ReplicasPerNodeGroup *float64 `json:"replicasPerNodeGroup" yaml:"replicasPerNodeGroup"`
+	ReplicasPerNodeGroup *float64 `field:"optional" json:"replicasPerNodeGroup" yaml:"replicasPerNodeGroup"`
 	// The replication group identifier. This parameter is stored as a lowercase string.
 	//
 	// Constraints:
@@ -5527,41 +5079,41 @@ type CfnReplicationGroupProps struct {
 	// - A name must contain from 1 to 40 alphanumeric characters or hyphens.
 	// - The first character must be a letter.
 	// - A name cannot end with a hyphen or contain two consecutive hyphens.
-	ReplicationGroupId *string `json:"replicationGroupId" yaml:"replicationGroupId"`
+	ReplicationGroupId *string `field:"optional" json:"replicationGroupId" yaml:"replicationGroupId"`
 	// One or more Amazon VPC security groups associated with this replication group.
 	//
 	// Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud (Amazon VPC).
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of Amazon Resource Names (ARN) that uniquely identify the Redis RDB snapshot files stored in Amazon S3.
 	//
 	// The snapshot files are used to populate the new replication group. The Amazon S3 object name in the ARN cannot contain any commas. The new replication group will have the number of node groups (console: shards) specified by the parameter *NumNodeGroups* or the number of node groups configured by *NodeGroupConfiguration* regardless of the number of ARNs specified here.
 	//
 	// Example of an Amazon S3 ARN: `arn:aws:s3:::my_bucket/snapshot1.rdb`
-	SnapshotArns *[]*string `json:"snapshotArns" yaml:"snapshotArns"`
+	SnapshotArns *[]*string `field:"optional" json:"snapshotArns" yaml:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new replication group.
 	//
 	// The snapshot status changes to `restoring` while the new replication group is being created.
-	SnapshotName *string `json:"snapshotName" yaml:"snapshotName"`
+	SnapshotName *string `field:"optional" json:"snapshotName" yaml:"snapshotName"`
 	// The number of days for which ElastiCache retains automatic snapshots before deleting them.
 	//
 	// For example, if you set `SnapshotRetentionLimit` to 5, a snapshot that was taken today is retained for 5 days before being deleted.
 	//
 	// Default: 0 (i.e., automatic backups are disabled for this cluster).
-	SnapshotRetentionLimit *float64 `json:"snapshotRetentionLimit" yaml:"snapshotRetentionLimit"`
+	SnapshotRetentionLimit *float64 `field:"optional" json:"snapshotRetentionLimit" yaml:"snapshotRetentionLimit"`
 	// The cluster ID that is used as the daily snapshot source for the replication group.
 	//
 	// This parameter cannot be set for Redis (cluster mode enabled) replication groups.
-	SnapshottingClusterId *string `json:"snapshottingClusterId" yaml:"snapshottingClusterId"`
+	SnapshottingClusterId *string `field:"optional" json:"snapshottingClusterId" yaml:"snapshottingClusterId"`
 	// The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
 	//
 	// Example: `05:00-09:00`
 	//
 	// If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range.
-	SnapshotWindow *string `json:"snapshotWindow" yaml:"snapshotWindow"`
+	SnapshotWindow *string `field:"optional" json:"snapshotWindow" yaml:"snapshotWindow"`
 	// A list of tags to be added to this resource.
 	//
 	// Tags are comma-separated key,value pairs (e.g. Key= `myKey` , Value= `myKeyValue` . You can include multiple tags as shown following: Key= `myKey` , Value= `myKeyValue` Key= `mySecondKey` , Value= `mySecondKeyValue` . Tags on replication groups will be replicated to all nodes.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A flag that enables in-transit encryption when set to `true` .
 	//
 	// You cannot modify the value of `TransitEncryptionEnabled` after the cluster is created. To enable in-transit encryption on a cluster you must set `TransitEncryptionEnabled` to `true` when you create a cluster.
@@ -5575,9 +5127,9 @@ type CfnReplicationGroupProps struct {
 	// Default: `false`
 	//
 	// > For HIPAA compliance, you must specify `TransitEncryptionEnabled` as `true` , an `AuthToken` , and a `CacheSubnetGroup` .
-	TransitEncryptionEnabled interface{} `json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`
+	TransitEncryptionEnabled interface{} `field:"optional" json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`
 	// The list of user groups to associate with the replication group.
-	UserGroupIds *[]*string `json:"userGroupIds" yaml:"userGroupIds"`
+	UserGroupIds *[]*string `field:"optional" json:"userGroupIds" yaml:"userGroupIds"`
 }
 
 // A CloudFormation `AWS::ElastiCache::SecurityGroup`.
@@ -5587,8 +5139,11 @@ type CfnReplicationGroupProps struct {
 // For more information, see [CreateCacheSubnetGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
-//   cfnSecurityGroup := elasticache.NewCfnSecurityGroup(this, jsii.String("MyCfnSecurityGroup"), &cfnSecurityGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSecurityGroup := awscdk.Aws_elasticache.NewCfnSecurityGroup(this, jsii.String("MyCfnSecurityGroup"), &cfnSecurityGroupProps{
 //   	description: jsii.String("description"),
 //
 //   	// the properties below are optional
@@ -5604,16 +5159,13 @@ type CfnSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A description for the cache security group.
 	Description() *string
@@ -5627,21 +5179,17 @@ type CfnSecurityGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A tag that can be added to an ElastiCache security group.
 	//
@@ -5651,16 +5199,13 @@ type CfnSecurityGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -5669,7 +5214,6 @@ type CfnSecurityGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -5714,15 +5258,12 @@ type CfnSecurityGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -5733,13 +5274,11 @@ type CfnSecurityGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -5748,74 +5287,21 @@ type CfnSecurityGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5885,8 +5371,8 @@ func (j *jsiiProxy_CfnSecurityGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnSecurityGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5937,13 +5423,13 @@ func (j *jsiiProxy_CfnSecurityGroup) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::ElastiCache::SecurityGroup`.
-func NewCfnSecurityGroup(scope awscdk.Construct, id *string, props *CfnSecurityGroupProps) CfnSecurityGroup {
+func NewCfnSecurityGroup(scope constructs.Construct, id *string, props *CfnSecurityGroupProps) CfnSecurityGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSecurityGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnSecurityGroup",
+		"aws-cdk-lib.aws_elasticache.CfnSecurityGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5952,11 +5438,11 @@ func NewCfnSecurityGroup(scope awscdk.Construct, id *string, props *CfnSecurityG
 }
 
 // Create a new `AWS::ElastiCache::SecurityGroup`.
-func NewCfnSecurityGroup_Override(c CfnSecurityGroup, scope awscdk.Construct, id *string, props *CfnSecurityGroupProps) {
+func NewCfnSecurityGroup_Override(c CfnSecurityGroup, scope constructs.Construct, id *string, props *CfnSecurityGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnSecurityGroup",
+		"aws-cdk-lib.aws_elasticache.CfnSecurityGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5976,14 +5462,13 @@ func (j *jsiiProxy_CfnSecurityGroup) SetDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSecurityGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnSecurityGroup",
+		"aws-cdk-lib.aws_elasticache.CfnSecurityGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5993,14 +5478,13 @@ func CfnSecurityGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSecurityGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnSecurityGroup",
+		"aws-cdk-lib.aws_elasticache.CfnSecurityGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6009,15 +5493,17 @@ func CfnSecurityGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnSecurityGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnSecurityGroup",
+		"aws-cdk-lib.aws_elasticache.CfnSecurityGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6030,7 +5516,7 @@ func CfnSecurityGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticache.CfnSecurityGroup",
+		"aws-cdk-lib.aws_elasticache.CfnSecurityGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6127,48 +5613,11 @@ func (c *jsiiProxy_CfnSecurityGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnSecurityGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnSecurityGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnSecurityGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnSecurityGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnSecurityGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -6198,33 +5647,12 @@ func (c *jsiiProxy_CfnSecurityGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnSecurityGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnSecurityGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnSecurityGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6247,8 +5675,11 @@ func (c *jsiiProxy_CfnSecurityGroup) ValidateProperties(_properties interface{})
 // > Updates are not supported.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
-//   cfnSecurityGroupIngress := elasticache.NewCfnSecurityGroupIngress(this, jsii.String("MyCfnSecurityGroupIngress"), &cfnSecurityGroupIngressProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSecurityGroupIngress := awscdk.Aws_elasticache.NewCfnSecurityGroupIngress(this, jsii.String("MyCfnSecurityGroupIngress"), &cfnSecurityGroupIngressProps{
 //   	cacheSecurityGroupName: jsii.String("cacheSecurityGroupName"),
 //   	ec2SecurityGroupName: jsii.String("ec2SecurityGroupName"),
 //
@@ -6263,16 +5694,13 @@ type CfnSecurityGroupIngress interface {
 	CacheSecurityGroupName() *string
 	SetCacheSecurityGroupName(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Name of the EC2 Security Group to include in the authorization.
 	Ec2SecurityGroupName() *string
@@ -6291,36 +5719,29 @@ type CfnSecurityGroupIngress interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6329,7 +5750,6 @@ type CfnSecurityGroupIngress interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -6374,15 +5794,12 @@ type CfnSecurityGroupIngress interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -6393,13 +5810,11 @@ type CfnSecurityGroupIngress interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6408,74 +5823,21 @@ type CfnSecurityGroupIngress interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -6565,8 +5927,8 @@ func (j *jsiiProxy_CfnSecurityGroupIngress) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityGroupIngress) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnSecurityGroupIngress) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6607,13 +5969,13 @@ func (j *jsiiProxy_CfnSecurityGroupIngress) UpdatedProperites() *map[string]inte
 
 
 // Create a new `AWS::ElastiCache::SecurityGroupIngress`.
-func NewCfnSecurityGroupIngress(scope awscdk.Construct, id *string, props *CfnSecurityGroupIngressProps) CfnSecurityGroupIngress {
+func NewCfnSecurityGroupIngress(scope constructs.Construct, id *string, props *CfnSecurityGroupIngressProps) CfnSecurityGroupIngress {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSecurityGroupIngress{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnSecurityGroupIngress",
+		"aws-cdk-lib.aws_elasticache.CfnSecurityGroupIngress",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6622,11 +5984,11 @@ func NewCfnSecurityGroupIngress(scope awscdk.Construct, id *string, props *CfnSe
 }
 
 // Create a new `AWS::ElastiCache::SecurityGroupIngress`.
-func NewCfnSecurityGroupIngress_Override(c CfnSecurityGroupIngress, scope awscdk.Construct, id *string, props *CfnSecurityGroupIngressProps) {
+func NewCfnSecurityGroupIngress_Override(c CfnSecurityGroupIngress, scope constructs.Construct, id *string, props *CfnSecurityGroupIngressProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnSecurityGroupIngress",
+		"aws-cdk-lib.aws_elasticache.CfnSecurityGroupIngress",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6662,14 +6024,13 @@ func (j *jsiiProxy_CfnSecurityGroupIngress) SetEc2SecurityGroupOwnerId(val *stri
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSecurityGroupIngress_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnSecurityGroupIngress",
+		"aws-cdk-lib.aws_elasticache.CfnSecurityGroupIngress",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6679,14 +6040,13 @@ func CfnSecurityGroupIngress_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSecurityGroupIngress_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnSecurityGroupIngress",
+		"aws-cdk-lib.aws_elasticache.CfnSecurityGroupIngress",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6695,15 +6055,17 @@ func CfnSecurityGroupIngress_IsCfnResource(construct constructs.IConstruct) *boo
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnSecurityGroupIngress_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnSecurityGroupIngress",
+		"aws-cdk-lib.aws_elasticache.CfnSecurityGroupIngress",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6716,7 +6078,7 @@ func CfnSecurityGroupIngress_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticache.CfnSecurityGroupIngress",
+		"aws-cdk-lib.aws_elasticache.CfnSecurityGroupIngress",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6813,48 +6175,11 @@ func (c *jsiiProxy_CfnSecurityGroupIngress) Inspect(inspector awscdk.TreeInspect
 	)
 }
 
-func (c *jsiiProxy_CfnSecurityGroupIngress) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnSecurityGroupIngress) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnSecurityGroupIngress) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnSecurityGroupIngress) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnSecurityGroupIngress) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -6884,33 +6209,12 @@ func (c *jsiiProxy_CfnSecurityGroupIngress) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnSecurityGroupIngress) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnSecurityGroupIngress) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnSecurityGroupIngress) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6929,7 +6233,10 @@ func (c *jsiiProxy_CfnSecurityGroupIngress) ValidateProperties(_properties inter
 // Properties for defining a `CfnSecurityGroupIngress`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSecurityGroupIngressProps := &cfnSecurityGroupIngressProps{
 //   	cacheSecurityGroupName: jsii.String("cacheSecurityGroupName"),
 //   	ec2SecurityGroupName: jsii.String("ec2SecurityGroupName"),
@@ -6940,19 +6247,22 @@ func (c *jsiiProxy_CfnSecurityGroupIngress) ValidateProperties(_properties inter
 //
 type CfnSecurityGroupIngressProps struct {
 	// The name of the Cache Security Group to authorize.
-	CacheSecurityGroupName *string `json:"cacheSecurityGroupName" yaml:"cacheSecurityGroupName"`
+	CacheSecurityGroupName *string `field:"required" json:"cacheSecurityGroupName" yaml:"cacheSecurityGroupName"`
 	// Name of the EC2 Security Group to include in the authorization.
-	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
+	Ec2SecurityGroupName *string `field:"required" json:"ec2SecurityGroupName" yaml:"ec2SecurityGroupName"`
 	// Specifies the Amazon Account ID of the owner of the EC2 security group specified in the EC2SecurityGroupName property.
 	//
 	// The Amazon access key ID is not an acceptable value.
-	Ec2SecurityGroupOwnerId *string `json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
+	Ec2SecurityGroupOwnerId *string `field:"optional" json:"ec2SecurityGroupOwnerId" yaml:"ec2SecurityGroupOwnerId"`
 }
 
 // Properties for defining a `CfnSecurityGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSecurityGroupProps := &cfnSecurityGroupProps{
 //   	description: jsii.String("description"),
 //
@@ -6967,11 +6277,11 @@ type CfnSecurityGroupIngressProps struct {
 //
 type CfnSecurityGroupProps struct {
 	// A description for the cache security group.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// A tag that can be added to an ElastiCache security group.
 	//
 	// Tags are composed of a Key/Value pair. You can use tags to categorize and track all your security groups. A tag with a null Value is permitted.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ElastiCache::SubnetGroup`.
@@ -6979,8 +6289,11 @@ type CfnSecurityGroupProps struct {
 // Creates a cache subnet group. For more information about cache subnet groups, go to Cache Subnet Groups in the *Amazon ElastiCache User Guide* or go to [CreateCacheSubnetGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html) in the *Amazon ElastiCache API Reference Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
-//   cfnSubnetGroup := elasticache.NewCfnSubnetGroup(this, jsii.String("MyCfnSubnetGroup"), &cfnSubnetGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSubnetGroup := awscdk.Aws_elasticache.NewCfnSubnetGroup(this, jsii.String("MyCfnSubnetGroup"), &cfnSubnetGroupProps{
 //   	description: jsii.String("description"),
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -7007,16 +6320,13 @@ type CfnSubnetGroup interface {
 	CacheSubnetGroupName() *string
 	SetCacheSubnetGroupName(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The description for the cache subnet group.
 	Description() *string
@@ -7030,21 +6340,17 @@ type CfnSubnetGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The EC2 subnet IDs for the cache subnet group.
 	SubnetIds() *[]*string
@@ -7057,16 +6363,13 @@ type CfnSubnetGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7075,7 +6378,6 @@ type CfnSubnetGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -7120,15 +6422,12 @@ type CfnSubnetGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -7139,13 +6438,11 @@ type CfnSubnetGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7154,74 +6451,21 @@ type CfnSubnetGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -7301,8 +6545,8 @@ func (j *jsiiProxy_CfnSubnetGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnetGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnSubnetGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7363,13 +6607,13 @@ func (j *jsiiProxy_CfnSubnetGroup) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ElastiCache::SubnetGroup`.
-func NewCfnSubnetGroup(scope awscdk.Construct, id *string, props *CfnSubnetGroupProps) CfnSubnetGroup {
+func NewCfnSubnetGroup(scope constructs.Construct, id *string, props *CfnSubnetGroupProps) CfnSubnetGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSubnetGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnSubnetGroup",
+		"aws-cdk-lib.aws_elasticache.CfnSubnetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7378,11 +6622,11 @@ func NewCfnSubnetGroup(scope awscdk.Construct, id *string, props *CfnSubnetGroup
 }
 
 // Create a new `AWS::ElastiCache::SubnetGroup`.
-func NewCfnSubnetGroup_Override(c CfnSubnetGroup, scope awscdk.Construct, id *string, props *CfnSubnetGroupProps) {
+func NewCfnSubnetGroup_Override(c CfnSubnetGroup, scope constructs.Construct, id *string, props *CfnSubnetGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnSubnetGroup",
+		"aws-cdk-lib.aws_elasticache.CfnSubnetGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7418,14 +6662,13 @@ func (j *jsiiProxy_CfnSubnetGroup) SetSubnetIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSubnetGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnSubnetGroup",
+		"aws-cdk-lib.aws_elasticache.CfnSubnetGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7435,14 +6678,13 @@ func CfnSubnetGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSubnetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnSubnetGroup",
+		"aws-cdk-lib.aws_elasticache.CfnSubnetGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7451,15 +6693,17 @@ func CfnSubnetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnSubnetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnSubnetGroup",
+		"aws-cdk-lib.aws_elasticache.CfnSubnetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7472,7 +6716,7 @@ func CfnSubnetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticache.CfnSubnetGroup",
+		"aws-cdk-lib.aws_elasticache.CfnSubnetGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7569,48 +6813,11 @@ func (c *jsiiProxy_CfnSubnetGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnSubnetGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnSubnetGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnSubnetGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnSubnetGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnSubnetGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -7640,33 +6847,12 @@ func (c *jsiiProxy_CfnSubnetGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnSubnetGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnSubnetGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnSubnetGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7685,7 +6871,10 @@ func (c *jsiiProxy_CfnSubnetGroup) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnSubnetGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSubnetGroupProps := &cfnSubnetGroupProps{
 //   	description: jsii.String("description"),
 //   	subnetIds: []*string{
@@ -7704,19 +6893,19 @@ func (c *jsiiProxy_CfnSubnetGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnSubnetGroupProps struct {
 	// The description for the cache subnet group.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// The EC2 subnet IDs for the cache subnet group.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The name for the cache subnet group. This value is stored as a lowercase string.
 	//
 	// Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
 	//
 	// Example: `mysubnetgroup`.
-	CacheSubnetGroupName *string `json:"cacheSubnetGroupName" yaml:"cacheSubnetGroupName"`
+	CacheSubnetGroupName *string `field:"optional" json:"cacheSubnetGroupName" yaml:"cacheSubnetGroupName"`
 	// A tag that can be added to an ElastiCache subnet group.
 	//
 	// Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ElastiCache::User`.
@@ -7724,8 +6913,11 @@ type CfnSubnetGroupProps struct {
 // For Redis engine version 6.0 onwards: Creates a Redis user. For more information, see [Using Role Based Access Control (RBAC)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
-//   cfnUser := elasticache.NewCfnUser(this, jsii.String("MyCfnUser"), &cfnUserProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUser := awscdk.Aws_elasticache.NewCfnUser(this, jsii.String("MyCfnUser"), &cfnUserProps{
 //   	engine: jsii.String("engine"),
 //   	userId: jsii.String("userId"),
 //   	userName: jsii.String("userName"),
@@ -7751,16 +6943,13 @@ type CfnUser interface {
 	// Can be "active", "modifying" or "deleting".
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The current supported value is redis.
 	Engine() *string
@@ -7774,11 +6963,9 @@ type CfnUser interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Indicates a password is not required for this user.
 	NoPasswordRequired() interface{}
 	SetNoPasswordRequired(val interface{})
@@ -7791,18 +6978,15 @@ type CfnUser interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The ID of the user.
 	UserId() *string
@@ -7811,13 +6995,11 @@ type CfnUser interface {
 	UserName() *string
 	SetUserName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7826,7 +7008,6 @@ type CfnUser interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -7871,15 +7052,12 @@ type CfnUser interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -7890,13 +7068,11 @@ type CfnUser interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7905,74 +7081,21 @@ type CfnUser interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -8072,8 +7195,8 @@ func (j *jsiiProxy_CfnUser) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUser) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUser) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8154,13 +7277,13 @@ func (j *jsiiProxy_CfnUser) UserName() *string {
 
 
 // Create a new `AWS::ElastiCache::User`.
-func NewCfnUser(scope awscdk.Construct, id *string, props *CfnUserProps) CfnUser {
+func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) CfnUser {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUser{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnUser",
+		"aws-cdk-lib.aws_elasticache.CfnUser",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8169,11 +7292,11 @@ func NewCfnUser(scope awscdk.Construct, id *string, props *CfnUserProps) CfnUser
 }
 
 // Create a new `AWS::ElastiCache::User`.
-func NewCfnUser_Override(c CfnUser, scope awscdk.Construct, id *string, props *CfnUserProps) {
+func NewCfnUser_Override(c CfnUser, scope constructs.Construct, id *string, props *CfnUserProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnUser",
+		"aws-cdk-lib.aws_elasticache.CfnUser",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8233,14 +7356,13 @@ func (j *jsiiProxy_CfnUser) SetUserName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUser_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnUser",
+		"aws-cdk-lib.aws_elasticache.CfnUser",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8250,14 +7372,13 @@ func CfnUser_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUser_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnUser",
+		"aws-cdk-lib.aws_elasticache.CfnUser",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8266,15 +7387,17 @@ func CfnUser_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnUser_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnUser",
+		"aws-cdk-lib.aws_elasticache.CfnUser",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8287,7 +7410,7 @@ func CfnUser_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticache.CfnUser",
+		"aws-cdk-lib.aws_elasticache.CfnUser",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8384,48 +7507,11 @@ func (c *jsiiProxy_CfnUser) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnUser) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUser) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUser) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUser) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUser) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -8455,33 +7541,12 @@ func (c *jsiiProxy_CfnUser) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnUser) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUser) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUser) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8502,8 +7567,11 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 // For Redis engine version 6.0 onwards: Creates a Redis user group. For more information, see [Using Role Based Access Control (RBAC)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html)
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
-//   cfnUserGroup := elasticache.NewCfnUserGroup(this, jsii.String("MyCfnUserGroup"), &cfnUserGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUserGroup := awscdk.Aws_elasticache.NewCfnUserGroup(this, jsii.String("MyCfnUserGroup"), &cfnUserGroupProps{
 //   	engine: jsii.String("engine"),
 //   	userGroupId: jsii.String("userGroupId"),
 //
@@ -8523,16 +7591,13 @@ type CfnUserGroup interface {
 	// Can be "creating", "active", "modifying", "deleting".
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The current supported value is redis.
 	Engine() *string
@@ -8546,27 +7611,22 @@ type CfnUserGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The ID of the user group.
 	UserGroupId() *string
@@ -8577,13 +7637,11 @@ type CfnUserGroup interface {
 	UserIds() *[]*string
 	SetUserIds(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8592,7 +7650,6 @@ type CfnUserGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -8637,15 +7694,12 @@ type CfnUserGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -8656,13 +7710,11 @@ type CfnUserGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8671,74 +7723,21 @@ type CfnUserGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -8828,8 +7827,8 @@ func (j *jsiiProxy_CfnUserGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8890,13 +7889,13 @@ func (j *jsiiProxy_CfnUserGroup) UserIds() *[]*string {
 
 
 // Create a new `AWS::ElastiCache::UserGroup`.
-func NewCfnUserGroup(scope awscdk.Construct, id *string, props *CfnUserGroupProps) CfnUserGroup {
+func NewCfnUserGroup(scope constructs.Construct, id *string, props *CfnUserGroupProps) CfnUserGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnUserGroup",
+		"aws-cdk-lib.aws_elasticache.CfnUserGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8905,11 +7904,11 @@ func NewCfnUserGroup(scope awscdk.Construct, id *string, props *CfnUserGroupProp
 }
 
 // Create a new `AWS::ElastiCache::UserGroup`.
-func NewCfnUserGroup_Override(c CfnUserGroup, scope awscdk.Construct, id *string, props *CfnUserGroupProps) {
+func NewCfnUserGroup_Override(c CfnUserGroup, scope constructs.Construct, id *string, props *CfnUserGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticache.CfnUserGroup",
+		"aws-cdk-lib.aws_elasticache.CfnUserGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8945,14 +7944,13 @@ func (j *jsiiProxy_CfnUserGroup) SetUserIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUserGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnUserGroup",
+		"aws-cdk-lib.aws_elasticache.CfnUserGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8962,14 +7960,13 @@ func CfnUserGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUserGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnUserGroup",
+		"aws-cdk-lib.aws_elasticache.CfnUserGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8978,15 +7975,17 @@ func CfnUserGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnUserGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticache.CfnUserGroup",
+		"aws-cdk-lib.aws_elasticache.CfnUserGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8999,7 +7998,7 @@ func CfnUserGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticache.CfnUserGroup",
+		"aws-cdk-lib.aws_elasticache.CfnUserGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -9096,48 +8095,11 @@ func (c *jsiiProxy_CfnUserGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnUserGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUserGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUserGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUserGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUserGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -9167,33 +8129,12 @@ func (c *jsiiProxy_CfnUserGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnUserGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUserGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUserGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9212,7 +8153,10 @@ func (c *jsiiProxy_CfnUserGroup) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnUserGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserGroupProps := &cfnUserGroupProps{
 //   	engine: jsii.String("engine"),
 //   	userGroupId: jsii.String("userGroupId"),
@@ -9225,19 +8169,22 @@ func (c *jsiiProxy_CfnUserGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnUserGroupProps struct {
 	// The current supported value is redis.
-	Engine *string `json:"engine" yaml:"engine"`
+	Engine *string `field:"required" json:"engine" yaml:"engine"`
 	// The ID of the user group.
-	UserGroupId *string `json:"userGroupId" yaml:"userGroupId"`
+	UserGroupId *string `field:"required" json:"userGroupId" yaml:"userGroupId"`
 	// The list of user IDs that belong to the user group.
 	//
 	// A user named `default` must be included.
-	UserIds *[]*string `json:"userIds" yaml:"userIds"`
+	UserIds *[]*string `field:"optional" json:"userIds" yaml:"userIds"`
 }
 
 // Properties for defining a `CfnUser`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticache "github.com/aws/aws-cdk-go/awscdk/aws_elasticache"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserProps := &cfnUserProps{
 //   	engine: jsii.String("engine"),
 //   	userId: jsii.String("userId"),
@@ -9253,18 +8200,18 @@ type CfnUserGroupProps struct {
 //
 type CfnUserProps struct {
 	// The current supported value is redis.
-	Engine *string `json:"engine" yaml:"engine"`
+	Engine *string `field:"required" json:"engine" yaml:"engine"`
 	// The ID of the user.
-	UserId *string `json:"userId" yaml:"userId"`
+	UserId *string `field:"required" json:"userId" yaml:"userId"`
 	// The username of the user.
-	UserName *string `json:"userName" yaml:"userName"`
+	UserName *string `field:"required" json:"userName" yaml:"userName"`
 	// Access permissions string used for this user.
-	AccessString *string `json:"accessString" yaml:"accessString"`
+	AccessString *string `field:"optional" json:"accessString" yaml:"accessString"`
 	// Indicates a password is not required for this user.
-	NoPasswordRequired interface{} `json:"noPasswordRequired" yaml:"noPasswordRequired"`
+	NoPasswordRequired interface{} `field:"optional" json:"noPasswordRequired" yaml:"noPasswordRequired"`
 	// Passwords used for this user.
 	//
 	// You can create up to two passwords for each user.
-	Passwords *[]*string `json:"passwords" yaml:"passwords"`
+	Passwords *[]*string `field:"optional" json:"passwords" yaml:"passwords"`
 }
 

@@ -1,12 +1,12 @@
 package awsworkspaces
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsworkspaces/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsworkspaces/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::WorkSpaces::ConnectionAlias`.
@@ -14,8 +14,11 @@ import (
 // The `AWS::WorkSpaces::ConnectionAlias` resource specifies a connection alias. Connection aliases are used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import workspaces "github.com/aws/aws-cdk-go/awscdk/aws_workspaces"
-//   cfnConnectionAlias := workspaces.NewCfnConnectionAlias(this, jsii.String("MyCfnConnectionAlias"), &cfnConnectionAliasProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnConnectionAlias := awscdk.Aws_workspaces.NewCfnConnectionAlias(this, jsii.String("MyCfnConnectionAlias"), &cfnConnectionAliasProps{
 //   	connectionString: jsii.String("connectionString"),
 //
 //   	// the properties below are optional
@@ -37,11 +40,9 @@ type CfnConnectionAlias interface {
 	// The current state of the connection alias, returned as a string.
 	AttrConnectionAliasState() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The connection string specified for the connection alias.
 	//
@@ -51,7 +52,6 @@ type CfnConnectionAlias interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -62,21 +62,17 @@ type CfnConnectionAlias interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The tags to associate with the connection alias.
 	Tags() awscdk.TagManager
@@ -84,16 +80,13 @@ type CfnConnectionAlias interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -102,7 +95,6 @@ type CfnConnectionAlias interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -147,15 +139,12 @@ type CfnConnectionAlias interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -166,13 +155,11 @@ type CfnConnectionAlias interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -181,74 +168,21 @@ type CfnConnectionAlias interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -348,8 +282,8 @@ func (j *jsiiProxy_CfnConnectionAlias) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectionAlias) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnConnectionAlias) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -400,13 +334,13 @@ func (j *jsiiProxy_CfnConnectionAlias) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::WorkSpaces::ConnectionAlias`.
-func NewCfnConnectionAlias(scope awscdk.Construct, id *string, props *CfnConnectionAliasProps) CfnConnectionAlias {
+func NewCfnConnectionAlias(scope constructs.Construct, id *string, props *CfnConnectionAliasProps) CfnConnectionAlias {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConnectionAlias{}
 
 	_jsii_.Create(
-		"monocdk.aws_workspaces.CfnConnectionAlias",
+		"aws-cdk-lib.aws_workspaces.CfnConnectionAlias",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -415,11 +349,11 @@ func NewCfnConnectionAlias(scope awscdk.Construct, id *string, props *CfnConnect
 }
 
 // Create a new `AWS::WorkSpaces::ConnectionAlias`.
-func NewCfnConnectionAlias_Override(c CfnConnectionAlias, scope awscdk.Construct, id *string, props *CfnConnectionAliasProps) {
+func NewCfnConnectionAlias_Override(c CfnConnectionAlias, scope constructs.Construct, id *string, props *CfnConnectionAliasProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_workspaces.CfnConnectionAlias",
+		"aws-cdk-lib.aws_workspaces.CfnConnectionAlias",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -439,14 +373,13 @@ func (j *jsiiProxy_CfnConnectionAlias) SetConnectionString(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnConnectionAlias_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_workspaces.CfnConnectionAlias",
+		"aws-cdk-lib.aws_workspaces.CfnConnectionAlias",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -456,14 +389,13 @@ func CfnConnectionAlias_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnConnectionAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_workspaces.CfnConnectionAlias",
+		"aws-cdk-lib.aws_workspaces.CfnConnectionAlias",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -472,15 +404,17 @@ func CfnConnectionAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnConnectionAlias_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_workspaces.CfnConnectionAlias",
+		"aws-cdk-lib.aws_workspaces.CfnConnectionAlias",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -493,7 +427,7 @@ func CfnConnectionAlias_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_workspaces.CfnConnectionAlias",
+		"aws-cdk-lib.aws_workspaces.CfnConnectionAlias",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -590,48 +524,11 @@ func (c *jsiiProxy_CfnConnectionAlias) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnConnectionAlias) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnConnectionAlias) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnConnectionAlias) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnConnectionAlias) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnConnectionAlias) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -661,33 +558,12 @@ func (c *jsiiProxy_CfnConnectionAlias) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnConnectionAlias) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnConnectionAlias) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnConnectionAlias) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -708,7 +584,10 @@ func (c *jsiiProxy_CfnConnectionAlias) ValidateProperties(_properties interface{
 // For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import workspaces "github.com/aws/aws-cdk-go/awscdk/aws_workspaces"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   connectionAliasAssociationProperty := &connectionAliasAssociationProperty{
 //   	associatedAccountId: jsii.String("associatedAccountId"),
 //   	associationStatus: jsii.String("associationStatus"),
@@ -718,21 +597,24 @@ func (c *jsiiProxy_CfnConnectionAlias) ValidateProperties(_properties interface{
 //
 type CfnConnectionAlias_ConnectionAliasAssociationProperty struct {
 	// The identifier of the AWS account that associated the connection alias with a directory.
-	AssociatedAccountId *string `json:"associatedAccountId" yaml:"associatedAccountId"`
+	AssociatedAccountId *string `field:"optional" json:"associatedAccountId" yaml:"associatedAccountId"`
 	// The association status of the connection alias.
-	AssociationStatus *string `json:"associationStatus" yaml:"associationStatus"`
+	AssociationStatus *string `field:"optional" json:"associationStatus" yaml:"associationStatus"`
 	// The identifier of the connection alias association.
 	//
 	// You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
-	ConnectionIdentifier *string `json:"connectionIdentifier" yaml:"connectionIdentifier"`
+	ConnectionIdentifier *string `field:"optional" json:"connectionIdentifier" yaml:"connectionIdentifier"`
 	// The identifier of the directory associated with a connection alias.
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"optional" json:"resourceId" yaml:"resourceId"`
 }
 
 // Properties for defining a `CfnConnectionAlias`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import workspaces "github.com/aws/aws-cdk-go/awscdk/aws_workspaces"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnConnectionAliasProps := &cfnConnectionAliasProps{
 //   	connectionString: jsii.String("connectionString"),
 //
@@ -749,9 +631,9 @@ type CfnConnectionAliasProps struct {
 	// The connection string specified for the connection alias.
 	//
 	// The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
-	ConnectionString *string `json:"connectionString" yaml:"connectionString"`
+	ConnectionString *string `field:"required" json:"connectionString" yaml:"connectionString"`
 	// The tags to associate with the connection alias.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::WorkSpaces::Workspace`.
@@ -761,8 +643,11 @@ type CfnConnectionAliasProps struct {
 // Updates are not supported for the `BundleId` , `RootVolumeEncryptionEnabled` , `UserVolumeEncryptionEnabled` , or `VolumeEncryptionKey` properties. To update these properties, you must also update a property that triggers a replacement, such as the `UserName` property.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import workspaces "github.com/aws/aws-cdk-go/awscdk/aws_workspaces"
-//   cfnWorkspace := workspaces.NewCfnWorkspace(this, jsii.String("MyCfnWorkspace"), &cfnWorkspaceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnWorkspace := awscdk.Aws_workspaces.NewCfnWorkspace(this, jsii.String("MyCfnWorkspace"), &cfnWorkspaceProps{
 //   	bundleId: jsii.String("bundleId"),
 //   	directoryId: jsii.String("directoryId"),
 //   	userName: jsii.String("userName"),
@@ -793,16 +678,13 @@ type CfnWorkspace interface {
 	BundleId() *string
 	SetBundleId(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The identifier of the AWS Directory Service directory for the WorkSpace.
 	DirectoryId() *string
@@ -816,16 +698,13 @@ type CfnWorkspace interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled() interface{}
@@ -833,7 +712,6 @@ type CfnWorkspace interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The tags for the WorkSpace.
 	Tags() awscdk.TagManager
@@ -841,7 +719,6 @@ type CfnWorkspace interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The user name of the user for the WorkSpace.
 	//
@@ -860,13 +737,11 @@ type CfnWorkspace interface {
 	WorkspaceProperties() interface{}
 	SetWorkspaceProperties(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -875,7 +750,6 @@ type CfnWorkspace interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -920,15 +794,12 @@ type CfnWorkspace interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -939,13 +810,11 @@ type CfnWorkspace interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -954,74 +823,21 @@ type CfnWorkspace interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1101,8 +917,8 @@ func (j *jsiiProxy_CfnWorkspace) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspace) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnWorkspace) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1203,13 +1019,13 @@ func (j *jsiiProxy_CfnWorkspace) WorkspaceProperties() interface{} {
 
 
 // Create a new `AWS::WorkSpaces::Workspace`.
-func NewCfnWorkspace(scope awscdk.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
+func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWorkspace{}
 
 	_jsii_.Create(
-		"monocdk.aws_workspaces.CfnWorkspace",
+		"aws-cdk-lib.aws_workspaces.CfnWorkspace",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1218,11 +1034,11 @@ func NewCfnWorkspace(scope awscdk.Construct, id *string, props *CfnWorkspaceProp
 }
 
 // Create a new `AWS::WorkSpaces::Workspace`.
-func NewCfnWorkspace_Override(c CfnWorkspace, scope awscdk.Construct, id *string, props *CfnWorkspaceProps) {
+func NewCfnWorkspace_Override(c CfnWorkspace, scope constructs.Construct, id *string, props *CfnWorkspaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_workspaces.CfnWorkspace",
+		"aws-cdk-lib.aws_workspaces.CfnWorkspace",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1290,14 +1106,13 @@ func (j *jsiiProxy_CfnWorkspace) SetWorkspaceProperties(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnWorkspace_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_workspaces.CfnWorkspace",
+		"aws-cdk-lib.aws_workspaces.CfnWorkspace",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1307,14 +1122,13 @@ func CfnWorkspace_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnWorkspace_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_workspaces.CfnWorkspace",
+		"aws-cdk-lib.aws_workspaces.CfnWorkspace",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1323,15 +1137,17 @@ func CfnWorkspace_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnWorkspace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_workspaces.CfnWorkspace",
+		"aws-cdk-lib.aws_workspaces.CfnWorkspace",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1344,7 +1160,7 @@ func CfnWorkspace_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_workspaces.CfnWorkspace",
+		"aws-cdk-lib.aws_workspaces.CfnWorkspace",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1441,48 +1257,11 @@ func (c *jsiiProxy_CfnWorkspace) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnWorkspace) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnWorkspace) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnWorkspace) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnWorkspace) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnWorkspace) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1512,33 +1291,12 @@ func (c *jsiiProxy_CfnWorkspace) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnWorkspace) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnWorkspace) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnWorkspace) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1557,7 +1315,10 @@ func (c *jsiiProxy_CfnWorkspace) ValidateProperties(_properties interface{}) {
 // Information about a WorkSpace.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import workspaces "github.com/aws/aws-cdk-go/awscdk/aws_workspaces"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   workspacePropertiesProperty := &workspacePropertiesProperty{
 //   	computeTypeName: jsii.String("computeTypeName"),
 //   	rootVolumeSizeGib: jsii.Number(123),
@@ -1570,29 +1331,32 @@ type CfnWorkspace_WorkspacePropertiesProperty struct {
 	// The compute type.
 	//
 	// For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .
-	ComputeTypeName *string `json:"computeTypeName" yaml:"computeTypeName"`
+	ComputeTypeName *string `field:"optional" json:"computeTypeName" yaml:"computeTypeName"`
 	// The size of the root volume.
 	//
 	// For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
-	RootVolumeSizeGib *float64 `json:"rootVolumeSizeGib" yaml:"rootVolumeSizeGib"`
+	RootVolumeSizeGib *float64 `field:"optional" json:"rootVolumeSizeGib" yaml:"rootVolumeSizeGib"`
 	// The running mode.
 	//
 	// For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html) .
-	RunningMode *string `json:"runningMode" yaml:"runningMode"`
+	RunningMode *string `field:"optional" json:"runningMode" yaml:"runningMode"`
 	// The time after a user logs off when WorkSpaces are automatically stopped.
 	//
 	// Configured in 60-minute intervals.
-	RunningModeAutoStopTimeoutInMinutes *float64 `json:"runningModeAutoStopTimeoutInMinutes" yaml:"runningModeAutoStopTimeoutInMinutes"`
+	RunningModeAutoStopTimeoutInMinutes *float64 `field:"optional" json:"runningModeAutoStopTimeoutInMinutes" yaml:"runningModeAutoStopTimeoutInMinutes"`
 	// The size of the user storage.
 	//
 	// For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
-	UserVolumeSizeGib *float64 `json:"userVolumeSizeGib" yaml:"userVolumeSizeGib"`
+	UserVolumeSizeGib *float64 `field:"optional" json:"userVolumeSizeGib" yaml:"userVolumeSizeGib"`
 }
 
 // Properties for defining a `CfnWorkspace`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import workspaces "github.com/aws/aws-cdk-go/awscdk/aws_workspaces"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnWorkspaceProps := &cfnWorkspaceProps{
 //   	bundleId: jsii.String("bundleId"),
 //   	directoryId: jsii.String("directoryId"),
@@ -1619,24 +1383,24 @@ type CfnWorkspace_WorkspacePropertiesProperty struct {
 //
 type CfnWorkspaceProps struct {
 	// The identifier of the bundle for the WorkSpace.
-	BundleId *string `json:"bundleId" yaml:"bundleId"`
+	BundleId *string `field:"required" json:"bundleId" yaml:"bundleId"`
 	// The identifier of the AWS Directory Service directory for the WorkSpace.
-	DirectoryId *string `json:"directoryId" yaml:"directoryId"`
+	DirectoryId *string `field:"required" json:"directoryId" yaml:"directoryId"`
 	// The user name of the user for the WorkSpace.
 	//
 	// This user name must exist in the AWS Directory Service directory for the WorkSpace.
-	UserName *string `json:"userName" yaml:"userName"`
+	UserName *string `field:"required" json:"userName" yaml:"userName"`
 	// Indicates whether the data stored on the root volume is encrypted.
-	RootVolumeEncryptionEnabled interface{} `json:"rootVolumeEncryptionEnabled" yaml:"rootVolumeEncryptionEnabled"`
+	RootVolumeEncryptionEnabled interface{} `field:"optional" json:"rootVolumeEncryptionEnabled" yaml:"rootVolumeEncryptionEnabled"`
 	// The tags for the WorkSpace.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Indicates whether the data stored on the user volume is encrypted.
-	UserVolumeEncryptionEnabled interface{} `json:"userVolumeEncryptionEnabled" yaml:"userVolumeEncryptionEnabled"`
+	UserVolumeEncryptionEnabled interface{} `field:"optional" json:"userVolumeEncryptionEnabled" yaml:"userVolumeEncryptionEnabled"`
 	// The symmetric AWS KMS key used to encrypt data stored on your WorkSpace.
 	//
 	// Amazon WorkSpaces does not support asymmetric KMS keys.
-	VolumeEncryptionKey *string `json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
+	VolumeEncryptionKey *string `field:"optional" json:"volumeEncryptionKey" yaml:"volumeEncryptionKey"`
 	// The WorkSpace properties.
-	WorkspaceProperties interface{} `json:"workspaceProperties" yaml:"workspaceProperties"`
+	WorkspaceProperties interface{} `field:"optional" json:"workspaceProperties" yaml:"workspaceProperties"`
 }
 

@@ -1,12 +1,12 @@
 package awswafv2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awswafv2/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awswafv2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::WAFv2::IPSet`.
@@ -18,8 +18,11 @@ import (
 // You use an IP set by providing its Amazon Resource Name (ARN) to the rule statement `IPSetReferenceStatement` , when you add a rule to a rule group or web ACL.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
-//   cfnIPSet := wafv2.NewCfnIPSet(this, jsii.String("MyCfnIPSet"), &cfnIPSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnIPSet := awscdk.Aws_wafv2.NewCfnIPSet(this, jsii.String("MyCfnIPSet"), &cfnIPSetProps{
 //   	addresses: []*string{
 //   		jsii.String("addresses"),
 //   	},
@@ -40,11 +43,11 @@ import (
 type CfnIPSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
 	//
 	// AWS WAF supports all IPv4 and IPv6 CIDR ranges except for /0.
 	//
-	// Examples:
+	// Example address strings:
 	//
 	// - To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify `192.0.2.44/32` .
 	// - To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
@@ -52,6 +55,13 @@ type CfnIPSet interface {
 	// - To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
 	//
 	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+	//
+	// Example JSON `Addresses` specifications:
+	//
+	// - Empty array: `"Addresses": []`
+	// - Array with one address: `"Addresses": ["192.0.2.44/32"]`
+	// - Array with three addresses: `"Addresses": ["192.0.2.44/32", "192.0.2.0/24", "192.0.0.0/16"]`
+	// - INVALID specification: `"Addresses": [""]` INVALID.
 	Addresses() *[]*string
 	SetAddresses(val *[]*string)
 	// The Amazon Resource Name (ARN) of the IP set.
@@ -59,21 +69,18 @@ type CfnIPSet interface {
 	// The ID of the IP set.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A description of the IP set that helps with identification.
 	Description() *string
 	SetDescription(val *string)
-	// Specify IPV4 or IPV6.
+	// The version of the IP addresses, either `IPV4` or `IPV6` .
 	IpAddressVersion() *string
 	SetIpAddressVersion(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -85,21 +92,18 @@ type CfnIPSet interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The descriptive name of the IP set.
+	// The name of the IP set.
 	//
 	// You cannot change the name of an `IPSet` after you create it.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
@@ -111,7 +115,6 @@ type CfnIPSet interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Key:value pairs associated with an AWS resource.
 	//
@@ -123,16 +126,13 @@ type CfnIPSet interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -141,7 +141,6 @@ type CfnIPSet interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -186,15 +185,12 @@ type CfnIPSet interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -205,13 +201,11 @@ type CfnIPSet interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -220,74 +214,21 @@ type CfnIPSet interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -407,8 +348,8 @@ func (j *jsiiProxy_CfnIPSet) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPSet) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnIPSet) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -469,13 +410,13 @@ func (j *jsiiProxy_CfnIPSet) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::WAFv2::IPSet`.
-func NewCfnIPSet(scope awscdk.Construct, id *string, props *CfnIPSetProps) CfnIPSet {
+func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) CfnIPSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnIPSet{}
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnIPSet",
+		"aws-cdk-lib.aws_wafv2.CfnIPSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -484,11 +425,11 @@ func NewCfnIPSet(scope awscdk.Construct, id *string, props *CfnIPSetProps) CfnIP
 }
 
 // Create a new `AWS::WAFv2::IPSet`.
-func NewCfnIPSet_Override(c CfnIPSet, scope awscdk.Construct, id *string, props *CfnIPSetProps) {
+func NewCfnIPSet_Override(c CfnIPSet, scope constructs.Construct, id *string, props *CfnIPSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnIPSet",
+		"aws-cdk-lib.aws_wafv2.CfnIPSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -540,14 +481,13 @@ func (j *jsiiProxy_CfnIPSet) SetScope(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnIPSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnIPSet",
+		"aws-cdk-lib.aws_wafv2.CfnIPSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -557,14 +497,13 @@ func CfnIPSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnIPSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnIPSet",
+		"aws-cdk-lib.aws_wafv2.CfnIPSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -573,15 +512,17 @@ func CfnIPSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnIPSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnIPSet",
+		"aws-cdk-lib.aws_wafv2.CfnIPSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -594,7 +535,7 @@ func CfnIPSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_wafv2.CfnIPSet",
+		"aws-cdk-lib.aws_wafv2.CfnIPSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -691,48 +632,11 @@ func (c *jsiiProxy_CfnIPSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnIPSet) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnIPSet) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnIPSet) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnIPSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnIPSet) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -762,33 +666,12 @@ func (c *jsiiProxy_CfnIPSet) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnIPSet) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnIPSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnIPSet) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -807,7 +690,10 @@ func (c *jsiiProxy_CfnIPSet) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnIPSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnIPSetProps := &cfnIPSetProps{
 //   	addresses: []*string{
 //   		jsii.String("addresses"),
@@ -827,11 +713,11 @@ func (c *jsiiProxy_CfnIPSet) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnIPSetProps struct {
-	// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
 	//
 	// AWS WAF supports all IPv4 and IPv6 CIDR ranges except for /0.
 	//
-	// Examples:
+	// Example address strings:
 	//
 	// - To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify `192.0.2.44/32` .
 	// - To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
@@ -839,27 +725,34 @@ type CfnIPSetProps struct {
 	// - To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
 	//
 	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
-	Addresses *[]*string `json:"addresses" yaml:"addresses"`
-	// Specify IPV4 or IPV6.
-	IpAddressVersion *string `json:"ipAddressVersion" yaml:"ipAddressVersion"`
+	//
+	// Example JSON `Addresses` specifications:
+	//
+	// - Empty array: `"Addresses": []`
+	// - Array with one address: `"Addresses": ["192.0.2.44/32"]`
+	// - Array with three addresses: `"Addresses": ["192.0.2.44/32", "192.0.2.0/24", "192.0.0.0/16"]`
+	// - INVALID specification: `"Addresses": [""]` INVALID.
+	Addresses *[]*string `field:"required" json:"addresses" yaml:"addresses"`
+	// The version of the IP addresses, either `IPV4` or `IPV6` .
+	IpAddressVersion *string `field:"required" json:"ipAddressVersion" yaml:"ipAddressVersion"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
 	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// A description of the IP set that helps with identification.
-	Description *string `json:"description" yaml:"description"`
-	// The descriptive name of the IP set.
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the IP set.
 	//
 	// You cannot change the name of an `IPSet` after you create it.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Key:value pairs associated with an AWS resource.
 	//
 	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 	//
 	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::WAFv2::LoggingConfiguration`.
@@ -878,7 +771,9 @@ type CfnIPSetProps struct {
 // For additional information about web ACL logging, see [Logging web ACL traffic information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) in the *AWS WAF Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var jsonBody interface{}
 //   var loggingFilter interface{}
@@ -886,7 +781,8 @@ type CfnIPSetProps struct {
 //   var queryString interface{}
 //   var singleHeader interface{}
 //   var uriPath interface{}
-//   cfnLoggingConfiguration := wafv2.NewCfnLoggingConfiguration(this, jsii.String("MyCfnLoggingConfiguration"), &cfnLoggingConfigurationProps{
+//
+//   cfnLoggingConfiguration := awscdk.Aws_wafv2.NewCfnLoggingConfiguration(this, jsii.String("MyCfnLoggingConfiguration"), &cfnLoggingConfigurationProps{
 //   	logDestinationConfigs: []*string{
 //   		jsii.String("logDestinationConfigs"),
 //   	},
@@ -913,16 +809,13 @@ type CfnLoggingConfiguration interface {
 	// If true, only Firewall Manager can modify or delete the configuration.
 	AttrManagedByFirewallManager() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logging destination configuration that you want to associate with the web ACL.
 	//
@@ -943,11 +836,9 @@ type CfnLoggingConfiguration interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The parts of the request that you want to keep out of the logs.
 	//
 	// For example, if you redact the `SingleHeader` field, the `HEADER` field in the logs will be `xxx` .
@@ -959,7 +850,6 @@ type CfnLoggingConfiguration interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with `LogDestinationConfigs` .
 	ResourceArn() *string
@@ -967,22 +857,18 @@ type CfnLoggingConfiguration interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -991,7 +877,6 @@ type CfnLoggingConfiguration interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1036,15 +921,12 @@ type CfnLoggingConfiguration interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1055,13 +937,11 @@ type CfnLoggingConfiguration interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1070,74 +950,21 @@ type CfnLoggingConfiguration interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1227,8 +1054,8 @@ func (j *jsiiProxy_CfnLoggingConfiguration) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggingConfiguration) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLoggingConfiguration) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1289,13 +1116,13 @@ func (j *jsiiProxy_CfnLoggingConfiguration) UpdatedProperites() *map[string]inte
 
 
 // Create a new `AWS::WAFv2::LoggingConfiguration`.
-func NewCfnLoggingConfiguration(scope awscdk.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
+func NewCfnLoggingConfiguration(scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) CfnLoggingConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLoggingConfiguration{}
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnLoggingConfiguration",
+		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1304,11 +1131,11 @@ func NewCfnLoggingConfiguration(scope awscdk.Construct, id *string, props *CfnLo
 }
 
 // Create a new `AWS::WAFv2::LoggingConfiguration`.
-func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope awscdk.Construct, id *string, props *CfnLoggingConfigurationProps) {
+func NewCfnLoggingConfiguration_Override(c CfnLoggingConfiguration, scope constructs.Construct, id *string, props *CfnLoggingConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnLoggingConfiguration",
+		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1352,14 +1179,13 @@ func (j *jsiiProxy_CfnLoggingConfiguration) SetResourceArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLoggingConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnLoggingConfiguration",
+		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1369,14 +1195,13 @@ func CfnLoggingConfiguration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLoggingConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnLoggingConfiguration",
+		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1385,15 +1210,17 @@ func CfnLoggingConfiguration_IsCfnResource(construct constructs.IConstruct) *boo
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLoggingConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnLoggingConfiguration",
+		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1406,7 +1233,7 @@ func CfnLoggingConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_wafv2.CfnLoggingConfiguration",
+		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1503,48 +1330,11 @@ func (c *jsiiProxy_CfnLoggingConfiguration) Inspect(inspector awscdk.TreeInspect
 	)
 }
 
-func (c *jsiiProxy_CfnLoggingConfiguration) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLoggingConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLoggingConfiguration) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLoggingConfiguration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLoggingConfiguration) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1574,33 +1364,12 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLoggingConfiguration) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLoggingConfiguration) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLoggingConfiguration) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1629,13 +1398,16 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties inter
 // `"FieldToMatch": { "Method": { "Name": "DELETE" } }`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var jsonBody interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
 //   var uriPath interface{}
+//
 //   fieldToMatchProperty := &fieldToMatchProperty{
 //   	jsonBody: jsonBody,
 //   	method: method,
@@ -1650,15 +1422,15 @@ type CfnLoggingConfiguration_FieldToMatchProperty struct {
 	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
 	// Only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
-	JsonBody interface{} `json:"jsonBody" yaml:"jsonBody"`
+	JsonBody interface{} `field:"optional" json:"jsonBody" yaml:"jsonBody"`
 	// Inspect the HTTP method.
 	//
 	// The method indicates the type of operation that the request is asking the origin to perform.
-	Method interface{} `json:"method" yaml:"method"`
+	Method interface{} `field:"optional" json:"method" yaml:"method"`
 	// Inspect the query string.
 	//
 	// This is the part of a URL that appears after a `?` character, if any.
-	QueryString interface{} `json:"queryString" yaml:"queryString"`
+	QueryString interface{} `field:"optional" json:"queryString" yaml:"queryString"`
 	// Inspect a single header.
 	//
 	// Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
@@ -1666,17 +1438,19 @@ type CfnLoggingConfiguration_FieldToMatchProperty struct {
 	// Example JSON: `"SingleHeader": { "Name": "haystack" }`
 	//
 	// Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
-	SingleHeader interface{} `json:"singleHeader" yaml:"singleHeader"`
+	SingleHeader interface{} `field:"optional" json:"singleHeader" yaml:"singleHeader"`
 	// Inspect the request URI path.
 	//
 	// This is the part of the web request that identifies a resource, for example, `/images/daily-ad.jpg` .
-	UriPath interface{} `json:"uriPath" yaml:"uriPath"`
+	UriPath interface{} `field:"optional" json:"uriPath" yaml:"uriPath"`
 }
 
 // Properties for defining a `CfnLoggingConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var jsonBody interface{}
 //   var loggingFilter interface{}
@@ -1684,6 +1458,7 @@ type CfnLoggingConfiguration_FieldToMatchProperty struct {
 //   var queryString interface{}
 //   var singleHeader interface{}
 //   var uriPath interface{}
+//
 //   cfnLoggingConfigurationProps := &cfnLoggingConfigurationProps{
 //   	logDestinationConfigs: []*string{
 //   		jsii.String("logDestinationConfigs"),
@@ -1707,32 +1482,35 @@ type CfnLoggingConfigurationProps struct {
 	// The logging destination configuration that you want to associate with the web ACL.
 	//
 	// > You can associate one logging destination to a web ACL.
-	LogDestinationConfigs *[]*string `json:"logDestinationConfigs" yaml:"logDestinationConfigs"`
+	LogDestinationConfigs *[]*string `field:"required" json:"logDestinationConfigs" yaml:"logDestinationConfigs"`
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with `LogDestinationConfigs` .
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// Filtering that specifies which web requests are kept in the logs and which are dropped.
 	//
 	// You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
-	LoggingFilter interface{} `json:"loggingFilter" yaml:"loggingFilter"`
+	LoggingFilter interface{} `field:"optional" json:"loggingFilter" yaml:"loggingFilter"`
 	// The parts of the request that you want to keep out of the logs.
 	//
 	// For example, if you redact the `SingleHeader` field, the `HEADER` field in the logs will be `xxx` .
 	//
 	// > You can specify only the following fields for redaction: `UriPath` , `QueryString` , `SingleHeader` , `Method` , and `JsonBody` .
-	RedactedFields interface{} `json:"redactedFields" yaml:"redactedFields"`
+	RedactedFields interface{} `field:"optional" json:"redactedFields" yaml:"redactedFields"`
 }
 
 // A CloudFormation `AWS::WAFv2::RegexPatternSet`.
 //
 // > This is the latest version of *AWS WAF* , named AWS WAF V2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //
-// Use a `RegexPatternSet` to have AWS WAF inspect a web request component for a specific set of regular expression patterns.
+// Use an `RegexPatternSet` to have AWS WAF inspect a web request component for a specific set of regular expression patterns.
 //
 // You use a regex pattern set by providing its Amazon Resource Name (ARN) to the rule statement `RegexPatternSetReferenceStatement` , when you add a rule to a rule group or web ACL.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
-//   cfnRegexPatternSet := wafv2.NewCfnRegexPatternSet(this, jsii.String("MyCfnRegexPatternSet"), &cfnRegexPatternSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRegexPatternSet := awscdk.Aws_wafv2.NewCfnRegexPatternSet(this, jsii.String("MyCfnRegexPatternSet"), &cfnRegexPatternSetProps{
 //   	regularExpressionList: []*string{
 //   		jsii.String("regularExpressionList"),
 //   	},
@@ -1757,16 +1535,13 @@ type CfnRegexPatternSet interface {
 	// The ID of the regex pattern set.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A description of the set that helps with identification.
 	Description() *string
@@ -1780,21 +1555,18 @@ type CfnRegexPatternSet interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The descriptive name of the set.
+	// The name of the set.
 	//
 	// You cannot change the name after you create the set.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The regular expression patterns in the set.
 	RegularExpressionList() *[]*string
@@ -1809,7 +1581,6 @@ type CfnRegexPatternSet interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Key:value pairs associated with an AWS resource.
 	//
@@ -1821,16 +1592,13 @@ type CfnRegexPatternSet interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1839,7 +1607,6 @@ type CfnRegexPatternSet interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1884,15 +1651,12 @@ type CfnRegexPatternSet interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1903,13 +1667,11 @@ type CfnRegexPatternSet interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1918,74 +1680,21 @@ type CfnRegexPatternSet interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2085,8 +1794,8 @@ func (j *jsiiProxy_CfnRegexPatternSet) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRegexPatternSet) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnRegexPatternSet) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2157,13 +1866,13 @@ func (j *jsiiProxy_CfnRegexPatternSet) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::WAFv2::RegexPatternSet`.
-func NewCfnRegexPatternSet(scope awscdk.Construct, id *string, props *CfnRegexPatternSetProps) CfnRegexPatternSet {
+func NewCfnRegexPatternSet(scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) CfnRegexPatternSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRegexPatternSet{}
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnRegexPatternSet",
+		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2172,11 +1881,11 @@ func NewCfnRegexPatternSet(scope awscdk.Construct, id *string, props *CfnRegexPa
 }
 
 // Create a new `AWS::WAFv2::RegexPatternSet`.
-func NewCfnRegexPatternSet_Override(c CfnRegexPatternSet, scope awscdk.Construct, id *string, props *CfnRegexPatternSetProps) {
+func NewCfnRegexPatternSet_Override(c CfnRegexPatternSet, scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnRegexPatternSet",
+		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2220,14 +1929,13 @@ func (j *jsiiProxy_CfnRegexPatternSet) SetScope(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRegexPatternSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnRegexPatternSet",
+		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2237,14 +1945,13 @@ func CfnRegexPatternSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRegexPatternSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnRegexPatternSet",
+		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2253,15 +1960,17 @@ func CfnRegexPatternSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnRegexPatternSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnRegexPatternSet",
+		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2274,7 +1983,7 @@ func CfnRegexPatternSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_wafv2.CfnRegexPatternSet",
+		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2371,48 +2080,11 @@ func (c *jsiiProxy_CfnRegexPatternSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnRegexPatternSet) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnRegexPatternSet) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnRegexPatternSet) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnRegexPatternSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnRegexPatternSet) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2442,33 +2114,12 @@ func (c *jsiiProxy_CfnRegexPatternSet) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnRegexPatternSet) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnRegexPatternSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnRegexPatternSet) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2487,7 +2138,10 @@ func (c *jsiiProxy_CfnRegexPatternSet) ValidateProperties(_properties interface{
 // Properties for defining a `CfnRegexPatternSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRegexPatternSetProps := &cfnRegexPatternSetProps{
 //   	regularExpressionList: []*string{
 //   		jsii.String("regularExpressionList"),
@@ -2507,25 +2161,25 @@ func (c *jsiiProxy_CfnRegexPatternSet) ValidateProperties(_properties interface{
 //
 type CfnRegexPatternSetProps struct {
 	// The regular expression patterns in the set.
-	RegularExpressionList *[]*string `json:"regularExpressionList" yaml:"regularExpressionList"`
+	RegularExpressionList *[]*string `field:"required" json:"regularExpressionList" yaml:"regularExpressionList"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
 	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// A description of the set that helps with identification.
-	Description *string `json:"description" yaml:"description"`
-	// The descriptive name of the set.
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the set.
 	//
 	// You cannot change the name after you create the set.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Key:value pairs associated with an AWS resource.
 	//
 	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 	//
 	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::WAFv2::RuleGroup`.
@@ -2537,7 +2191,9 @@ type CfnRegexPatternSetProps struct {
 // When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allow interface{}
@@ -2552,7 +2208,8 @@ type CfnRegexPatternSetProps struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
-//   cfnRuleGroup := wafv2.NewCfnRuleGroup(this, jsii.String("MyCfnRuleGroup"), &cfnRuleGroupProps{
+//
+//   cfnRuleGroup := awscdk.Aws_wafv2.NewCfnRuleGroup(this, jsii.String("MyCfnRuleGroup"), &cfnRuleGroupProps{
 //   	capacity: jsii.Number(123),
 //   	scope: jsii.String("scope"),
 //   	visibilityConfig: &visibilityConfigProperty{
@@ -2870,16 +2527,13 @@ type CfnRuleGroup interface {
 	Capacity() *float64
 	SetCapacity(val *float64)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A map of custom response keys and content bodies.
 	//
@@ -2902,21 +2556,18 @@ type CfnRuleGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The descriptive name of the rule group.
+	// The name of the rule group.
 	//
 	// You cannot change the name of a rule group after you create it.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The rule statements used to identify the web requests that you want to allow, block, or count.
 	//
@@ -2933,7 +2584,6 @@ type CfnRuleGroup interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Key:value pairs associated with an AWS resource.
 	//
@@ -2945,19 +2595,16 @@ type CfnRuleGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig() interface{}
 	SetVisibilityConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2966,7 +2613,6 @@ type CfnRuleGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -3011,15 +2657,12 @@ type CfnRuleGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -3030,13 +2673,11 @@ type CfnRuleGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3045,74 +2686,21 @@ type CfnRuleGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3262,8 +2850,8 @@ func (j *jsiiProxy_CfnRuleGroup) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnRuleGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3344,13 +2932,13 @@ func (j *jsiiProxy_CfnRuleGroup) VisibilityConfig() interface{} {
 
 
 // Create a new `AWS::WAFv2::RuleGroup`.
-func NewCfnRuleGroup(scope awscdk.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
+func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRuleGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnRuleGroup",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3359,11 +2947,11 @@ func NewCfnRuleGroup(scope awscdk.Construct, id *string, props *CfnRuleGroupProp
 }
 
 // Create a new `AWS::WAFv2::RuleGroup`.
-func NewCfnRuleGroup_Override(c CfnRuleGroup, scope awscdk.Construct, id *string, props *CfnRuleGroupProps) {
+func NewCfnRuleGroup_Override(c CfnRuleGroup, scope constructs.Construct, id *string, props *CfnRuleGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnRuleGroup",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3431,14 +3019,13 @@ func (j *jsiiProxy_CfnRuleGroup) SetVisibilityConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRuleGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnRuleGroup",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3448,14 +3035,13 @@ func CfnRuleGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRuleGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnRuleGroup",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3464,15 +3050,17 @@ func CfnRuleGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnRuleGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnRuleGroup",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3485,7 +3073,7 @@ func CfnRuleGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_wafv2.CfnRuleGroup",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3582,48 +3170,11 @@ func (c *jsiiProxy_CfnRuleGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnRuleGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnRuleGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnRuleGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnRuleGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnRuleGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3653,33 +3204,12 @@ func (c *jsiiProxy_CfnRuleGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnRuleGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnRuleGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnRuleGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3700,7 +3230,9 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 // You provide more than one `Statement` within the `AndStatement` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -3711,6 +3243,7 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   andStatementProperty := &andStatementProperty{
 //   	statements: []interface{}{
 //   		&statementProperty{
@@ -3952,7 +3485,7 @@ type CfnRuleGroup_AndStatementProperty struct {
 	// The statements to combine with AND logic.
 	//
 	// You can use any statements that can be nested.
-	Statements interface{} `json:"statements" yaml:"statements"`
+	Statements interface{} `field:"required" json:"statements" yaml:"statements"`
 }
 
 // A rule statement that defines a string match search for AWS WAF to apply to web requests.
@@ -3960,7 +3493,9 @@ type CfnRuleGroup_AndStatementProperty struct {
 // The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -3970,6 +3505,7 @@ type CfnRuleGroup_AndStatementProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   byteMatchStatementProperty := &byteMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
@@ -4006,9 +3542,9 @@ type CfnRuleGroup_AndStatementProperty struct {
 //   }
 //
 type CfnRuleGroup_ByteMatchStatementProperty struct {
-	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
-	// The area within the portion of a web request that you want AWS WAF to search for `SearchString` .
+	// The part of the web request that you want AWS WAF to inspect.
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
+	// The area within the portion of the web request that you want AWS WAF to search for `SearchString` .
 	//
 	// Valid values include the following:
 	//
@@ -4034,11 +3570,11 @@ type CfnRuleGroup_ByteMatchStatementProperty struct {
 	// *ENDS_WITH*
 	//
 	// The value of `SearchString` must appear at the end of the specified part of the web request.
-	PositionalConstraint *string `json:"positionalConstraint" yaml:"positionalConstraint"`
+	PositionalConstraint *string `field:"required" json:"positionalConstraint" yaml:"positionalConstraint"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
-	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
+	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 	// A string value that you want AWS WAF to search for.
 	//
 	// AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 50 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
@@ -4048,13 +3584,13 @@ type CfnRuleGroup_ByteMatchStatementProperty struct {
 	// For example, suppose the value of `Type` is `HEADER` and the value of `Data` is `User-Agent` . If you want to search the `User-Agent` header for the value `BadBot` , you provide the string `BadBot` in the value of `SearchString` .
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
-	SearchString *string `json:"searchString" yaml:"searchString"`
+	SearchString *string `field:"optional" json:"searchString" yaml:"searchString"`
 	// String to search for in a web request component, base64-encoded.
 	//
 	// If you don't want to encode the string, specify the unencoded value in `SearchString` instead.
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
-	SearchStringBase64 *string `json:"searchStringBase64" yaml:"searchStringBase64"`
+	SearchStringBase64 *string `field:"optional" json:"searchStringBase64" yaml:"searchStringBase64"`
 }
 
 // Specifies how AWS WAF should handle `CAPTCHA` evaluations.
@@ -4062,7 +3598,10 @@ type CfnRuleGroup_ByteMatchStatementProperty struct {
 // This is available at the web ACL level and in each rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   captchaConfigProperty := &captchaConfigProperty{
 //   	immunityTimeProperty: &immunityTimePropertyProperty{
 //   		immunityTime: jsii.Number(123),
@@ -4071,15 +3610,18 @@ type CfnRuleGroup_ByteMatchStatementProperty struct {
 //
 type CfnRuleGroup_CaptchaConfigProperty struct {
 	// Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
-	ImmunityTimeProperty interface{} `json:"immunityTimeProperty" yaml:"immunityTimeProperty"`
+	ImmunityTimeProperty interface{} `field:"optional" json:"immunityTimeProperty" yaml:"immunityTimeProperty"`
 }
 
 // The response body to use in a custom response to a web request.
 //
-// This is referenced by key from the `CustomResponse` `CustomResponseBodyKey` .
+// This is referenced by key from `CustomResponse` `CustomResponseBodyKey` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customResponseBodyProperty := &customResponseBodyProperty{
 //   	content: jsii.String("content"),
 //   	contentType: jsii.String("contentType"),
@@ -4091,17 +3633,27 @@ type CfnRuleGroup_CustomResponseBodyProperty struct {
 	// You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	Content *string `json:"content" yaml:"content"`
+	Content *string `field:"required" json:"content" yaml:"content"`
 	// The type of content in the payload that you are defining in the `Content` string.
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"required" json:"contentType" yaml:"contentType"`
 }
 
-// The part of a web request that you want AWS WAF to inspect.
+// The part of the web request that you want AWS WAF to inspect.
 //
-// Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.
+// Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
+//
+// Example JSON for a `QueryString` field to match:
+//
+// `"FieldToMatch": { "QueryString": {} }`
+//
+// Example JSON for a `Method` field to match specification:
+//
+// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -4111,6 +3663,7 @@ type CfnRuleGroup_CustomResponseBodyProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   fieldToMatchProperty := &fieldToMatchProperty{
 //   	allQueryArguments: allQueryArguments,
 //   	body: body,
@@ -4135,39 +3688,45 @@ type CfnRuleGroup_CustomResponseBodyProperty struct {
 //
 type CfnRuleGroup_FieldToMatchProperty struct {
 	// Inspect all query arguments.
-	AllQueryArguments interface{} `json:"allQueryArguments" yaml:"allQueryArguments"`
-	// Inspect the request body, which immediately follows the request headers.
+	AllQueryArguments interface{} `field:"optional" json:"allQueryArguments" yaml:"allQueryArguments"`
+	// Inspect the request body as plain text.
 	//
-	// This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
+	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as the `ByteMatchStatement` or `RegexPatternSetReferenceStatement` , with a `SizeConstraintStatement` that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
-	Body interface{} `json:"body" yaml:"body"`
+	// Only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. For information about how to handle oversized request bodies, see the `Body` object configuration.
+	Body interface{} `field:"optional" json:"body" yaml:"body"`
 	// Inspect the request body as JSON.
 	//
 	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as the `ByteMatchStatement` or `RegexPatternSetReferenceStatement` , with a `SizeConstraintStatement` that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
-	JsonBody interface{} `json:"jsonBody" yaml:"jsonBody"`
+	// Only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
+	JsonBody interface{} `field:"optional" json:"jsonBody" yaml:"jsonBody"`
 	// Inspect the HTTP method.
 	//
 	// The method indicates the type of operation that the request is asking the origin to perform.
-	Method interface{} `json:"method" yaml:"method"`
+	Method interface{} `field:"optional" json:"method" yaml:"method"`
 	// Inspect the query string.
 	//
 	// This is the part of a URL that appears after a `?` character, if any.
-	QueryString interface{} `json:"queryString" yaml:"queryString"`
+	QueryString interface{} `field:"optional" json:"queryString" yaml:"queryString"`
 	// Inspect a single header.
 	//
 	// Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
-	SingleHeader interface{} `json:"singleHeader" yaml:"singleHeader"`
+	//
+	// Example JSON: `"SingleHeader": { "Name": "haystack" }`
+	//
+	// Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
+	SingleHeader interface{} `field:"optional" json:"singleHeader" yaml:"singleHeader"`
 	// Inspect a single query argument.
 	//
 	// Provide the name of the query argument to inspect, such as *UserName* or *SalesRegion* . The name can be up to 30 characters long and isn't case sensitive.
-	SingleQueryArgument interface{} `json:"singleQueryArgument" yaml:"singleQueryArgument"`
+	//
+	// Example JSON: `"SingleQueryArgument": { "Name": "myArgument" }`.
+	SingleQueryArgument interface{} `field:"optional" json:"singleQueryArgument" yaml:"singleQueryArgument"`
 	// Inspect the request URI path.
 	//
-	// This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg` .
-	UriPath interface{} `json:"uriPath" yaml:"uriPath"`
+	// This is the part of the web request that identifies a resource, for example, `/images/daily-ad.jpg` .
+	UriPath interface{} `field:"optional" json:"uriPath" yaml:"uriPath"`
 }
 
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
@@ -4181,7 +3740,10 @@ type CfnRuleGroup_FieldToMatchProperty struct {
 // AWS WAF only evaluates the first IP address found in the specified HTTP header.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   forwardedIPConfigurationProperty := &forwardedIPConfigurationProperty{
 //   	fallbackBehavior: jsii.String("fallbackBehavior"),
 //   	headerName: jsii.String("headerName"),
@@ -4196,19 +3758,22 @@ type CfnRuleGroup_ForwardedIPConfigurationProperty struct {
 	//
 	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
 	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
-	FallbackBehavior *string `json:"fallbackBehavior" yaml:"fallbackBehavior"`
+	FallbackBehavior *string `field:"required" json:"fallbackBehavior" yaml:"fallbackBehavior"`
 	// The name of the HTTP header to use for the IP address.
 	//
 	// For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	HeaderName *string `json:"headerName" yaml:"headerName"`
+	HeaderName *string `field:"required" json:"headerName" yaml:"headerName"`
 }
 
 // A rule statement used to identify web requests based on country of origin.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   geoMatchStatementProperty := &geoMatchStatementProperty{
 //   	countryCodes: []*string{
 //   		jsii.String("countryCodes"),
@@ -4221,13 +3786,13 @@ type CfnRuleGroup_ForwardedIPConfigurationProperty struct {
 //
 type CfnRuleGroup_GeoMatchStatementProperty struct {
 	// An array of two-character country codes, for example, `[ "US", "CN" ]` , from the alpha-2 country ISO codes of the ISO 3166 international standard.
-	CountryCodes *[]*string `json:"countryCodes" yaml:"countryCodes"`
+	CountryCodes *[]*string `field:"optional" json:"countryCodes" yaml:"countryCodes"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	ForwardedIpConfig interface{} `json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
+	ForwardedIpConfig interface{} `field:"optional" json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
 }
 
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
@@ -4239,7 +3804,10 @@ type CfnRuleGroup_GeoMatchStatementProperty struct {
 // This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iPSetForwardedIPConfigurationProperty := map[string]*string{
 //   	"fallbackBehavior": jsii.String("fallbackBehavior"),
 //   	"headerName": jsii.String("headerName"),
@@ -4255,13 +3823,13 @@ type CfnRuleGroup_IPSetForwardedIPConfigurationProperty struct {
 	//
 	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
 	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
-	FallbackBehavior *string `json:"fallbackBehavior" yaml:"fallbackBehavior"`
+	FallbackBehavior *string `field:"required" json:"fallbackBehavior" yaml:"fallbackBehavior"`
 	// The name of the HTTP header to use for the IP address.
 	//
 	// For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	HeaderName *string `json:"headerName" yaml:"headerName"`
+	HeaderName *string `field:"required" json:"headerName" yaml:"headerName"`
 	// The position in the header to search for the IP address.
 	//
 	// The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
@@ -4271,7 +3839,7 @@ type CfnRuleGroup_IPSetForwardedIPConfigurationProperty struct {
 	// - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
 	// - LAST - Inspect the last IP address in the list of IP addresses in the header.
 	// - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
-	Position *string `json:"position" yaml:"position"`
+	Position *string `field:"required" json:"position" yaml:"position"`
 }
 
 // A rule statement used to detect web requests coming from particular IP addresses or address ranges.
@@ -4281,7 +3849,10 @@ type CfnRuleGroup_IPSetForwardedIPConfigurationProperty struct {
 // Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iPSetReferenceStatementProperty := map[string]interface{}{
 //   	"arn": jsii.String("arn"),
 //
@@ -4295,19 +3866,22 @@ type CfnRuleGroup_IPSetForwardedIPConfigurationProperty struct {
 //
 type CfnRuleGroup_IPSetReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the `IPSet` that this statement references.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	IpSetForwardedIpConfig interface{} `json:"ipSetForwardedIpConfig" yaml:"ipSetForwardedIpConfig"`
+	IpSetForwardedIpConfig interface{} `field:"optional" json:"ipSetForwardedIpConfig" yaml:"ipSetForwardedIpConfig"`
 }
 
 // Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   immunityTimePropertyProperty := &immunityTimePropertyProperty{
 //   	immunityTime: jsii.Number(123),
 //   }
@@ -4316,19 +3890,24 @@ type CfnRuleGroup_ImmunityTimePropertyProperty struct {
 	// The amount of time, in seconds, that a `CAPTCHA` token is valid.
 	//
 	// The default setting is 300.
-	ImmunityTime *float64 `json:"immunityTime" yaml:"immunityTime"`
+	ImmunityTime *float64 `field:"required" json:"immunityTime" yaml:"immunityTime"`
 }
 
-// The body of a web request, inspected as JSON.
+// Inspect the body of the web request as JSON. The body immediately follows the request headers.
 //
-// The body immediately follows the request headers. This is used in the `FieldToMatch` specification.
+// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
 //
 // Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
 //
+// Example JSON: `"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }`.
+//
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
+//
 //   jsonBodyProperty := &jsonBodyProperty{
 //   	matchPattern: &jsonMatchPatternProperty{
 //   		all: all,
@@ -4346,11 +3925,11 @@ type CfnRuleGroup_JsonBodyProperty struct {
 	// The patterns to look for in the JSON body.
 	//
 	// AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-	MatchPattern interface{} `json:"matchPattern" yaml:"matchPattern"`
+	MatchPattern interface{} `field:"required" json:"matchPattern" yaml:"matchPattern"`
 	// The parts of the JSON to match against using the `MatchPattern` .
 	//
 	// If you specify `All` , AWS WAF matches against keys and values.
-	MatchScope *string `json:"matchScope" yaml:"matchScope"`
+	MatchScope *string `field:"required" json:"matchScope" yaml:"matchScope"`
 	// What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:.
 	//
 	// - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
@@ -4366,7 +3945,7 @@ type CfnRuleGroup_JsonBodyProperty struct {
 	// - Missing comma: `{"key1":"value1""key2":"value2"}`
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
 	// - Extra colons: `{"key1"::"value1","key2""value2"}`.
-	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior" yaml:"invalidFallbackBehavior"`
+	InvalidFallbackBehavior *string `field:"optional" json:"invalidFallbackBehavior" yaml:"invalidFallbackBehavior"`
 }
 
 // The patterns to look for in the JSON body.
@@ -4374,9 +3953,12 @@ type CfnRuleGroup_JsonBodyProperty struct {
 // AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
+//
 //   jsonMatchPatternProperty := &jsonMatchPatternProperty{
 //   	all: all,
 //   	includedPaths: []*string{
@@ -4385,18 +3967,18 @@ type CfnRuleGroup_JsonBodyProperty struct {
 //   }
 //
 type CfnRuleGroup_JsonMatchPatternProperty struct {
-	// Match all of the elements. See also `MatchScope` in `JsonBody` .
+	// Match all of the elements. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
 	//
 	// You must specify either this setting or the `IncludedPaths` setting, but not both.
-	All interface{} `json:"all" yaml:"all"`
-	// Match only the specified include paths. See also `MatchScope` in `JsonBody` .
+	All interface{} `field:"optional" json:"all" yaml:"all"`
+	// Match only the specified include paths. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
 	//
 	// Provide the include paths using JSON Pointer syntax. For example, `"IncludedPaths": ["/dogs/0/name", "/dogs/1/name"]` . For information about this syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 	//
 	// You must specify either this setting or the `All` setting, but not both.
 	//
 	// > Don't use this option to include all paths. Instead, use the `All` setting.
-	IncludedPaths *[]*string `json:"includedPaths" yaml:"includedPaths"`
+	IncludedPaths *[]*string `field:"optional" json:"includedPaths" yaml:"includedPaths"`
 }
 
 // A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL.
@@ -4404,7 +3986,10 @@ type CfnRuleGroup_JsonMatchPatternProperty struct {
 // The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. If you do not provide the fully qualified name in your label match string, AWS WAF performs the search for labels that were added in the same context as the label match statement.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   labelMatchStatementProperty := &labelMatchStatementProperty{
 //   	key: jsii.String("key"),
 //   	scope: jsii.String("scope"),
@@ -4417,42 +4002,48 @@ type CfnRuleGroup_LabelMatchStatementProperty struct {
 	// - If the `Scope` indicates `NAMESPACE` , then this specification can include any number of contiguous namespace strings, and can include the entire label namespace prefix from the rule group or web ACL where the label originates.
 	//
 	// Labels are case sensitive and components of a label must be separated by colon, for example `NS1:NS2:name` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// Specify whether you want to match using the label name or just the namespace.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"required" json:"scope" yaml:"scope"`
 }
 
 // A single label container.
 //
-// This is used as an element of a label array in `RuleLabels` inside a `Rule` .
+// This is used as an element of a label array in `RuleLabels` inside a rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   labelProperty := &labelProperty{
 //   	name: jsii.String("name"),
 //   }
 //
 type CfnRuleGroup_LabelProperty struct {
 	// The label string.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // List of labels used by one or more of the rules of a `RuleGroup` .
 //
 // This summary object is used for the following rule group lists:
 //
-// - `AvailableLabels` - Labels that rules add to matching requests. These labels are defined in the `RuleLabels` for a `Rule` .
-// - `ConsumedLabels` - Labels that rules match against. These labels are defined in a `LabelMatchStatement` specification, in the rule statement.
+// - `AvailableLabels` - Labels that rules add to matching requests. These labels are defined in the `RuleLabels` for a rule.
+// - `ConsumedLabels` - Labels that rules match against. These labels are defined in a `LabelMatchStatement` specification, in the `Statement` definition of a rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   labelSummaryProperty := &labelSummaryProperty{
 //   	name: jsii.String("name"),
 //   }
 //
 type CfnRuleGroup_LabelSummaryProperty struct {
 	// An individual label specification.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A logical rule statement used to negate the results of another rule statement.
@@ -4460,7 +4051,9 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 // You provide one `Statement` within the `NotStatement` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -4471,6 +4064,7 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   notStatementProperty := &notStatementProperty{
 //   	statement: &statementProperty{
 //   		andStatement: &andStatementProperty{
@@ -4710,7 +4304,7 @@ type CfnRuleGroup_NotStatementProperty struct {
 	// The statement to negate.
 	//
 	// You can use any statement that can be nested.
-	Statement interface{} `json:"statement" yaml:"statement"`
+	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
 }
 
 // A logical rule statement used to combine other rule statements with OR logic.
@@ -4718,7 +4312,9 @@ type CfnRuleGroup_NotStatementProperty struct {
 // You provide more than one `Statement` within the `OrStatement` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -4729,6 +4325,7 @@ type CfnRuleGroup_NotStatementProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   orStatementProperty := &orStatementProperty{
 //   	statements: []interface{}{
 //   		&statementProperty{
@@ -4970,12 +4567,14 @@ type CfnRuleGroup_OrStatementProperty struct {
 	// The statements to combine with OR logic.
 	//
 	// You can use any statements that can be nested.
-	Statements interface{} `json:"statements" yaml:"statements"`
+	Statements interface{} `field:"required" json:"statements" yaml:"statements"`
 }
 
 // A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span.
 //
 // You can use this to put a temporary block on requests from an IP address that is sending excessive requests.
+//
+// AWS WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by AWS WAF . If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by AWS WAF .
 //
 // When the rule action triggers, AWS WAF blocks additional requests from the IP address until the request rate falls below the limit.
 //
@@ -4986,10 +4585,12 @@ type CfnRuleGroup_OrStatementProperty struct {
 //
 // In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.
 //
-// You cannot nest a `RateBasedStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
+// You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement` . You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -5000,6 +4601,7 @@ type CfnRuleGroup_OrStatementProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   rateBasedStatementProperty := &rateBasedStatementProperty{
 //   	aggregateKeyType: jsii.String("aggregateKeyType"),
 //   	limit: jsii.Number(123),
@@ -5248,11 +4850,11 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 	//
 	// - IP - Aggregate the request counts on the IP address from the web request origin.
 	// - FORWARDED_IP - Aggregate the request counts on the first IP address in an HTTP header. If you use this, configure the `ForwardedIPConfig` , to specify the header to use.
-	AggregateKeyType *string `json:"aggregateKeyType" yaml:"aggregateKeyType"`
+	AggregateKeyType *string `field:"required" json:"aggregateKeyType" yaml:"aggregateKeyType"`
 	// The limit on requests per 5-minute period for a single originating IP address.
 	//
 	// If the statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
-	Limit *float64 `json:"limit" yaml:"limit"`
+	Limit *float64 `field:"required" json:"limit" yaml:"limit"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
@@ -5260,17 +4862,19 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 	//
 	// This is required if `AggregateKeyType` is set to `FORWARDED_IP` .
-	ForwardedIpConfig interface{} `json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
-	// An optional nested statement that narrows the scope of the rate-based statement to matching web requests.
+	ForwardedIpConfig interface{} `field:"optional" json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
+	// An optional nested statement that narrows the scope of the web requests that are evaluated by the rate-based statement.
 	//
-	// This can be any nestable statement, and you can nest statements at any level below this scope-down statement.
-	ScopeDownStatement interface{} `json:"scopeDownStatement" yaml:"scopeDownStatement"`
+	// Requests are only tracked by the rate-based statement if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
+	ScopeDownStatement interface{} `field:"optional" json:"scopeDownStatement" yaml:"scopeDownStatement"`
 }
 
 // A rule statement used to search web request components for a match against a single regular expression.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -5280,6 +4884,7 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   regexMatchStatementProperty := &regexMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
@@ -5312,16 +4917,14 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 //   }
 //
 type CfnRuleGroup_RegexMatchStatementProperty struct {
-	// The part of a web request that you want AWS WAF to inspect.
-	//
-	// For more information, see `FieldToMatch` .
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	// The part of the web request that you want AWS WAF to inspect.
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The string representing the regular expression.
-	RegexString *string `json:"regexString" yaml:"regexString"`
+	RegexString *string `field:"required" json:"regexString" yaml:"regexString"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
+	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 
 // A rule statement used to search web request components for matches with regular expressions.
@@ -5331,7 +4934,9 @@ type CfnRuleGroup_RegexMatchStatementProperty struct {
 // Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -5341,6 +4946,7 @@ type CfnRuleGroup_RegexMatchStatementProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   regexPatternSetReferenceStatementProperty := &regexPatternSetReferenceStatementProperty{
 //   	arn: jsii.String("arn"),
 //   	fieldToMatch: &fieldToMatchProperty{
@@ -5373,14 +4979,14 @@ type CfnRuleGroup_RegexMatchStatementProperty struct {
 //   }
 //
 type CfnRuleGroup_RegexPatternSetReferenceStatementProperty struct {
-	// The Amazon Resource Name (ARN) of the regular expression pattern set that this statement references.
-	Arn *string `json:"arn" yaml:"arn"`
-	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	// The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
+	// The part of the web request that you want AWS WAF to inspect.
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
-	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
+	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 
 // The action that AWS WAF should take on a web request when it matches a rule's statement.
@@ -5388,12 +4994,15 @@ type CfnRuleGroup_RegexPatternSetReferenceStatementProperty struct {
 // Settings at the web ACL level can override the rule action setting.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var allow interface{}
 //   var block interface{}
 //   var captcha interface{}
 //   var count interface{}
+//
 //   ruleActionProperty := &ruleActionProperty{
 //   	allow: allow,
 //   	block: block,
@@ -5403,9 +5012,9 @@ type CfnRuleGroup_RegexPatternSetReferenceStatementProperty struct {
 //
 type CfnRuleGroup_RuleActionProperty struct {
 	// Instructs AWS WAF to allow the web request.
-	Allow interface{} `json:"allow" yaml:"allow"`
+	Allow interface{} `field:"optional" json:"allow" yaml:"allow"`
 	// Instructs AWS WAF to block the web request.
-	Block interface{} `json:"block" yaml:"block"`
+	Block interface{} `field:"optional" json:"block" yaml:"block"`
 	// Specifies that AWS WAF should run a `CAPTCHA` check against the request:.
 	//
 	// - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
@@ -5420,19 +5029,19 @@ type CfnRuleGroup_RuleActionProperty struct {
 	// You can configure the expiration time in the `CaptchaConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
 	//
 	// This action option is available for rules. It isn't available for web ACL default actions.
-	//
-	// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
-	Captcha interface{} `json:"captcha" yaml:"captcha"`
+	Captcha interface{} `field:"optional" json:"captcha" yaml:"captcha"`
 	// Instructs AWS WAF to count the web request and allow it.
-	Count interface{} `json:"count" yaml:"count"`
+	Count interface{} `field:"optional" json:"count" yaml:"count"`
 }
 
-// A single rule, which you can use to identify web requests that you want to allow, block, or count.
+// A single rule, which you can use in a `WebACL` or `RuleGroup` to identify web requests that you want to allow, block, or count.
 //
-// Each rule includes one top-level Statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
+// Each rule includes one top-level `Statement` that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allow interface{}
@@ -5447,6 +5056,7 @@ type CfnRuleGroup_RuleActionProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   ruleProperty := &ruleProperty{
 //   	name: jsii.String("name"),
 //   	priority: jsii.Number(123),
@@ -5708,26 +5318,26 @@ type CfnRuleGroup_RuleActionProperty struct {
 //   }
 //
 type CfnRuleGroup_RuleProperty struct {
-	// The descriptive name of the rule.
+	// The name of the rule.
 	//
 	// You can't change the name of a `Rule` after you create it.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` .
 	//
 	// AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
-	Priority *float64 `json:"priority" yaml:"priority"`
-	// The AWS WAF processing statement for the rule, for example ByteMatchStatement or SizeConstraintStatement.
-	Statement interface{} `json:"statement" yaml:"statement"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
+	// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
+	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
-	VisibilityConfig interface{} `json:"visibilityConfig" yaml:"visibilityConfig"`
-	// The action that AWS WAF should take on a web request when it matches the rule's statement.
+	VisibilityConfig interface{} `field:"required" json:"visibilityConfig" yaml:"visibilityConfig"`
+	// The action that AWS WAF should take on a web request when it matches the rule statement.
 	//
 	// Settings at the web ACL level can override the rule action setting.
-	Action interface{} `json:"action" yaml:"action"`
+	Action interface{} `field:"optional" json:"action" yaml:"action"`
 	// Specifies how AWS WAF should handle `CAPTCHA` evaluations.
 	//
 	// If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
-	CaptchaConfig interface{} `json:"captchaConfig" yaml:"captchaConfig"`
+	CaptchaConfig interface{} `field:"optional" json:"captchaConfig" yaml:"captchaConfig"`
 	// Labels to apply to web requests that match the rule match statement.
 	//
 	// AWS WAF applies fully qualified labels to matching web requests. A fully qualified label is the concatenation of a label namespace and a rule label. The rule's rule group or web ACL defines the label namespace.
@@ -5742,7 +5352,7 @@ type CfnRuleGroup_RuleProperty struct {
 	// - Don't use the following reserved words in your label specification: `aws` , `waf` , `managed` , `rulegroup` , `webacl` , `regexpatternset` , or `ipset` .
 	//
 	// For example, `myLabelName` or `nameSpace1:nameSpace2:myLabelName` .
-	RuleLabels interface{} `json:"ruleLabels" yaml:"ruleLabels"`
+	RuleLabels interface{} `field:"optional" json:"ruleLabels" yaml:"ruleLabels"`
 }
 
 // A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<).
@@ -5754,7 +5364,9 @@ type CfnRuleGroup_RuleProperty struct {
 // If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -5764,6 +5376,7 @@ type CfnRuleGroup_RuleProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   sizeConstraintStatementProperty := &sizeConstraintStatementProperty{
 //   	comparisonOperator: jsii.String("comparisonOperator"),
 //   	fieldToMatch: &fieldToMatchProperty{
@@ -5798,15 +5411,15 @@ type CfnRuleGroup_RuleProperty struct {
 //
 type CfnRuleGroup_SizeConstraintStatementProperty struct {
 	// The operator to use to compare the request part to the size setting.
-	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
-	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	ComparisonOperator *string `field:"required" json:"comparisonOperator" yaml:"comparisonOperator"`
+	// The part of the web request that you want AWS WAF to inspect.
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The size, in byte, to compare to the request part, after any transformations.
-	Size *float64 `json:"size" yaml:"size"`
+	Size *float64 `field:"required" json:"size" yaml:"size"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
-	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
+	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 
 // Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database.
@@ -5814,7 +5427,9 @@ type CfnRuleGroup_SizeConstraintStatementProperty struct {
 // To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -5824,6 +5439,7 @@ type CfnRuleGroup_SizeConstraintStatementProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   sqliMatchStatementProperty := &sqliMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
@@ -5855,18 +5471,20 @@ type CfnRuleGroup_SizeConstraintStatementProperty struct {
 //   }
 //
 type CfnRuleGroup_SqliMatchStatementProperty struct {
-	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	// The part of the web request that you want AWS WAF to inspect.
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
-	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
+	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 
-// The processing guidance for a `Rule` , used by AWS WAF to determine whether a web request matches the rule.
+// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -5881,6 +5499,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   statementProperty := &statementProperty{
 //   	andStatement: &andStatementProperty{
 //   		statements: []interface{}{
@@ -7022,34 +6641,36 @@ type CfnRuleGroup_StatementProperty struct {
 	// A logical rule statement used to combine other rule statements with AND logic.
 	//
 	// You provide more than one `Statement` within the `AndStatement` .
-	AndStatement interface{} `json:"andStatement" yaml:"andStatement"`
+	AndStatement interface{} `field:"optional" json:"andStatement" yaml:"andStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests.
 	//
 	// The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
-	ByteMatchStatement interface{} `json:"byteMatchStatement" yaml:"byteMatchStatement"`
+	ByteMatchStatement interface{} `field:"optional" json:"byteMatchStatement" yaml:"byteMatchStatement"`
 	// A rule statement used to identify web requests based on country of origin.
-	GeoMatchStatement interface{} `json:"geoMatchStatement" yaml:"geoMatchStatement"`
+	GeoMatchStatement interface{} `field:"optional" json:"geoMatchStatement" yaml:"geoMatchStatement"`
 	// A rule statement used to detect web requests coming from particular IP addresses or address ranges.
 	//
 	// To use this, create an `IPSet` that specifies the addresses you want to detect, then use the ARN of that set in this statement.
 	//
 	// Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-	IpSetReferenceStatement interface{} `json:"ipSetReferenceStatement" yaml:"ipSetReferenceStatement"`
+	IpSetReferenceStatement interface{} `field:"optional" json:"ipSetReferenceStatement" yaml:"ipSetReferenceStatement"`
 	// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL.
 	//
 	// The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. If you do not provide the fully qualified name in your label match string, AWS WAF performs the search for labels that were added in the same context as the label match statement.
-	LabelMatchStatement interface{} `json:"labelMatchStatement" yaml:"labelMatchStatement"`
+	LabelMatchStatement interface{} `field:"optional" json:"labelMatchStatement" yaml:"labelMatchStatement"`
 	// A logical rule statement used to negate the results of another rule statement.
 	//
 	// You provide one `Statement` within the `NotStatement` .
-	NotStatement interface{} `json:"notStatement" yaml:"notStatement"`
+	NotStatement interface{} `field:"optional" json:"notStatement" yaml:"notStatement"`
 	// A logical rule statement used to combine other rule statements with OR logic.
 	//
 	// You provide more than one `Statement` within the `OrStatement` .
-	OrStatement interface{} `json:"orStatement" yaml:"orStatement"`
+	OrStatement interface{} `field:"optional" json:"orStatement" yaml:"orStatement"`
 	// A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span.
 	//
 	// You can use this to put a temporary block on requests from an IP address that is sending excessive requests.
+	//
+	// AWS WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by AWS WAF . If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by AWS WAF .
 	//
 	// When the rule action triggers, AWS WAF blocks additional requests from the IP address until the request rate falls below the limit.
 	//
@@ -7060,16 +6681,16 @@ type CfnRuleGroup_StatementProperty struct {
 	//
 	// In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.
 	//
-	// You cannot nest a `RateBasedStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
-	RateBasedStatement interface{} `json:"rateBasedStatement" yaml:"rateBasedStatement"`
+	// You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement` . You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
+	RateBasedStatement interface{} `field:"optional" json:"rateBasedStatement" yaml:"rateBasedStatement"`
 	// A rule statement used to search web request components for a match against a single regular expression.
-	RegexMatchStatement interface{} `json:"regexMatchStatement" yaml:"regexMatchStatement"`
+	RegexMatchStatement interface{} `field:"optional" json:"regexMatchStatement" yaml:"regexMatchStatement"`
 	// A rule statement used to search web request components for matches with regular expressions.
 	//
 	// To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
 	//
 	// Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement" yaml:"regexPatternSetReferenceStatement"`
+	RegexPatternSetReferenceStatement interface{} `field:"optional" json:"regexPatternSetReferenceStatement" yaml:"regexPatternSetReferenceStatement"`
 	// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<).
 	//
 	// For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes.
@@ -7077,21 +6698,24 @@ type CfnRuleGroup_StatementProperty struct {
 	// If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.
 	//
 	// If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
-	SizeConstraintStatement interface{} `json:"sizeConstraintStatement" yaml:"sizeConstraintStatement"`
+	SizeConstraintStatement interface{} `field:"optional" json:"sizeConstraintStatement" yaml:"sizeConstraintStatement"`
 	// Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database.
 	//
 	// To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.
-	SqliMatchStatement interface{} `json:"sqliMatchStatement" yaml:"sqliMatchStatement"`
+	SqliMatchStatement interface{} `field:"optional" json:"sqliMatchStatement" yaml:"sqliMatchStatement"`
 	// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
 	//
 	// XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
-	XssMatchStatement interface{} `json:"xssMatchStatement" yaml:"xssMatchStatement"`
+	XssMatchStatement interface{} `field:"optional" json:"xssMatchStatement" yaml:"xssMatchStatement"`
 }
 
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   textTransformationProperty := &textTransformationProperty{
 //   	priority: jsii.Number(123),
 //   	type: jsii.String("type"),
@@ -7101,7 +6725,7 @@ type CfnRuleGroup_TextTransformationProperty struct {
 	// Sets the relative processing order for multiple transformations that are defined for a rule statement.
 	//
 	// AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// You can specify the following transformation types:.
 	//
 	// *BASE64_DECODE* - Decode a `Base64` -encoded string.
@@ -7167,13 +6791,16 @@ type CfnRuleGroup_TextTransformationProperty struct {
 	// *URL_DECODE_UNI* - Like `URL_DECODE` , but with support for Microsoft-specific `%u` encoding. If the code is in the full-width ASCII code range of `FF01-FF5E` , the higher byte is used to detect and adjust the lower byte. Otherwise, only the lower byte is used and the higher byte is zeroed.
 	//
 	// *UTF8_TO_UNICODE* - Convert all UTF-8 character sequences to Unicode. This helps input normalization, and minimizing false-positives and false-negatives for non-English languages.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // Defines and enables Amazon CloudWatch metrics and web request sample collection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   visibilityConfigProperty := &visibilityConfigProperty{
 //   	cloudWatchMetricsEnabled: jsii.Boolean(false),
 //   	metricName: jsii.String("metricName"),
@@ -7181,18 +6808,18 @@ type CfnRuleGroup_TextTransformationProperty struct {
 //   }
 //
 type CfnRuleGroup_VisibilityConfigProperty struct {
-	// A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch .
+	// A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch.
 	//
 	// For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) .
-	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
-	// The descriptive name of the Amazon CloudWatch metric.
+	CloudWatchMetricsEnabled interface{} `field:"required" json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
+	// A name of the Amazon CloudWatch metric.
 	//
-	// The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF , for example "All" and "Default_Action." You can't change a `MetricName` after you create a `VisibilityConfig` .
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	// The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain whitespace or metric names reserved for AWS WAF , for example "All" and "Default_Action."
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules.
 	//
 	// You can view the sampled requests through the AWS WAF console.
-	SampledRequestsEnabled interface{} `json:"sampledRequestsEnabled" yaml:"sampledRequestsEnabled"`
+	SampledRequestsEnabled interface{} `field:"required" json:"sampledRequestsEnabled" yaml:"sampledRequestsEnabled"`
 }
 
 // A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
@@ -7200,7 +6827,9 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 // XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -7210,6 +6839,7 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   xssMatchStatementProperty := &xssMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
@@ -7241,18 +6871,20 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 //   }
 //
 type CfnRuleGroup_XssMatchStatementProperty struct {
-	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	// The part of the web request that you want AWS WAF to inspect.
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
-	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
+	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 
 // Properties for defining a `CfnRuleGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allow interface{}
@@ -7267,6 +6899,7 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   cfnRuleGroupProps := &cfnRuleGroupProps{
 //   	capacity: jsii.Number(123),
 //   	scope: jsii.String("scope"),
@@ -7560,15 +7193,15 @@ type CfnRuleGroupProps struct {
 	// When you create your own rule group, you define this, and you cannot change it after creation. When you add or modify the rules in a rule group, AWS WAF enforces this limit.
 	//
 	// AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
-	Capacity *float64 `json:"capacity" yaml:"capacity"`
+	Capacity *float64 `field:"required" json:"capacity" yaml:"capacity"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
 	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 	//
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
-	VisibilityConfig interface{} `json:"visibilityConfig" yaml:"visibilityConfig"`
+	VisibilityConfig interface{} `field:"required" json:"visibilityConfig" yaml:"visibilityConfig"`
 	// A map of custom response keys and content bodies.
 	//
 	// When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
@@ -7576,23 +7209,23 @@ type CfnRuleGroupProps struct {
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	CustomResponseBodies interface{} `json:"customResponseBodies" yaml:"customResponseBodies"`
+	CustomResponseBodies interface{} `field:"optional" json:"customResponseBodies" yaml:"customResponseBodies"`
 	// A description of the rule group that helps with identification.
-	Description *string `json:"description" yaml:"description"`
-	// The descriptive name of the rule group.
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the rule group.
 	//
 	// You cannot change the name of a rule group after you create it.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The rule statements used to identify the web requests that you want to allow, block, or count.
 	//
 	// Each rule includes one top-level statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
-	Rules interface{} `json:"rules" yaml:"rules"`
+	Rules interface{} `field:"optional" json:"rules" yaml:"rules"`
 	// Key:value pairs associated with an AWS resource.
 	//
 	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 	//
 	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::WAFv2::WebACL`.
@@ -7602,7 +7235,9 @@ type CfnRuleGroupProps struct {
 // Use an `WebACL` to define a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can contain rule statements that you define explicitly and rule statements that reference rule groups and managed rule groups. You can associate a web ACL with one or more AWS resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer , or an AWS AppSync GraphQL API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -7615,7 +7250,8 @@ type CfnRuleGroupProps struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
-//   cfnWebACL := wafv2.NewCfnWebACL(this, jsii.String("MyCfnWebACL"), &cfnWebACLProps{
+//
+//   cfnWebACL := awscdk.Aws_wafv2.NewCfnWebACL(this, jsii.String("MyCfnWebACL"), &cfnWebACLProps{
 //   	defaultAction: &defaultActionProperty{
 //   		allow: &allowActionProperty{
 //   			customRequestHandling: &customRequestHandlingProperty{
@@ -8016,7 +7652,9 @@ type CfnWebACL interface {
 	awscdk.IInspectable
 	// The Amazon Resource Name (ARN) of the web ACL.
 	AttrArn() *string
-	// The current web ACL capacity (WCU) usage by the web ACL.
+	// The web ACL capacity units (WCUs) currently being used by this web ACL.
+	//
+	// AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
 	AttrCapacity() *float64
 	// The ID of the web ACL.
 	AttrId() *string
@@ -8034,16 +7672,13 @@ type CfnWebACL interface {
 	CaptchaConfig() interface{}
 	SetCaptchaConfig(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A map of custom response keys and content bodies.
 	//
@@ -8069,21 +7704,18 @@ type CfnWebACL interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The descriptive name of the web ACL.
+	// The name of the web ACL.
 	//
 	// You cannot change the name of a web ACL after you create it.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The rule statements used to identify the web requests that you want to allow, block, or count.
 	//
@@ -8102,7 +7734,6 @@ type CfnWebACL interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Key:value pairs associated with an AWS resource.
 	//
@@ -8114,19 +7745,16 @@ type CfnWebACL interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig() interface{}
 	SetVisibilityConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8135,7 +7763,6 @@ type CfnWebACL interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -8180,15 +7807,12 @@ type CfnWebACL interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -8199,13 +7823,11 @@ type CfnWebACL interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8214,74 +7836,21 @@ type CfnWebACL interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -8431,8 +8000,8 @@ func (j *jsiiProxy_CfnWebACL) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACL) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnWebACL) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8513,13 +8082,13 @@ func (j *jsiiProxy_CfnWebACL) VisibilityConfig() interface{} {
 
 
 // Create a new `AWS::WAFv2::WebACL`.
-func NewCfnWebACL(scope awscdk.Construct, id *string, props *CfnWebACLProps) CfnWebACL {
+func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps) CfnWebACL {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWebACL{}
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8528,11 +8097,11 @@ func NewCfnWebACL(scope awscdk.Construct, id *string, props *CfnWebACLProps) Cfn
 }
 
 // Create a new `AWS::WAFv2::WebACL`.
-func NewCfnWebACL_Override(c CfnWebACL, scope awscdk.Construct, id *string, props *CfnWebACLProps) {
+func NewCfnWebACL_Override(c CfnWebACL, scope constructs.Construct, id *string, props *CfnWebACLProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8608,14 +8177,13 @@ func (j *jsiiProxy_CfnWebACL) SetVisibilityConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnWebACL_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8625,14 +8193,13 @@ func CfnWebACL_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnWebACL_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8641,15 +8208,17 @@ func CfnWebACL_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnWebACL_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8662,7 +8231,7 @@ func CfnWebACL_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8759,48 +8328,11 @@ func (c *jsiiProxy_CfnWebACL) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnWebACL) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnWebACL) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnWebACL) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnWebACL) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnWebACL) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -8830,33 +8362,12 @@ func (c *jsiiProxy_CfnWebACL) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnWebACL) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnWebACL) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnWebACL) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8872,12 +8383,15 @@ func (c *jsiiProxy_CfnWebACL) ValidateProperties(_properties interface{}) {
 	)
 }
 
-// Specifies that AWS WAF should allow requests.
+// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
 //
-// This is used only in the context of other settings, for example to specify values for the web ACL and rule group `RuleAction` and for the web ACL `DefaultAction` .
+// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   allowActionProperty := &allowActionProperty{
 //   	customRequestHandling: &customRequestHandlingProperty{
 //   		insertHeaders: []interface{}{
@@ -8893,7 +8407,7 @@ type CfnWebACL_AllowActionProperty struct {
 	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	CustomRequestHandling interface{} `json:"customRequestHandling" yaml:"customRequestHandling"`
+	CustomRequestHandling interface{} `field:"optional" json:"customRequestHandling" yaml:"customRequestHandling"`
 }
 
 // A logical rule statement used to combine other rule statements with AND logic.
@@ -8901,7 +8415,9 @@ type CfnWebACL_AllowActionProperty struct {
 // You provide more than one `Statement` within the `AndStatement` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -8912,6 +8428,7 @@ type CfnWebACL_AllowActionProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   andStatementProperty := &andStatementProperty{
 //   	statements: []interface{}{
 //   		&statementProperty{
@@ -9188,15 +8705,18 @@ type CfnWebACL_AndStatementProperty struct {
 	// The statements to combine with AND logic.
 	//
 	// You can use any statements that can be nested.
-	Statements interface{} `json:"statements" yaml:"statements"`
+	Statements interface{} `field:"required" json:"statements" yaml:"statements"`
 }
 
-// Specifies that AWS WAF should block requests.
+// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
 //
-// This is used only in the context of other settings, for example to specify values for the web ACL and rule group `RuleAction` and for the web ACL `DefaultAction` .
+// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   blockActionProperty := &blockActionProperty{
 //   	customResponse: &customResponseProperty{
 //   		responseCode: jsii.Number(123),
@@ -9216,7 +8736,7 @@ type CfnWebACL_BlockActionProperty struct {
 	// Defines a custom response for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	CustomResponse interface{} `json:"customResponse" yaml:"customResponse"`
+	CustomResponse interface{} `field:"optional" json:"customResponse" yaml:"customResponse"`
 }
 
 // A rule statement that defines a string match search for AWS WAF to apply to web requests.
@@ -9224,7 +8744,9 @@ type CfnWebACL_BlockActionProperty struct {
 // The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -9234,6 +8756,7 @@ type CfnWebACL_BlockActionProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   byteMatchStatementProperty := &byteMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
@@ -9270,9 +8793,9 @@ type CfnWebACL_BlockActionProperty struct {
 //   }
 //
 type CfnWebACL_ByteMatchStatementProperty struct {
-	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
-	// The area within the portion of a web request that you want AWS WAF to search for `SearchString` .
+	// The part of the web request that you want AWS WAF to inspect.
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
+	// The area within the portion of the web request that you want AWS WAF to search for `SearchString` .
 	//
 	// Valid values include the following:
 	//
@@ -9298,11 +8821,11 @@ type CfnWebACL_ByteMatchStatementProperty struct {
 	// *ENDS_WITH*
 	//
 	// The value of `SearchString` must appear at the end of the specified part of the web request.
-	PositionalConstraint *string `json:"positionalConstraint" yaml:"positionalConstraint"`
+	PositionalConstraint *string `field:"required" json:"positionalConstraint" yaml:"positionalConstraint"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
-	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
+	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 	// A string value that you want AWS WAF to search for.
 	//
 	// AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 50 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
@@ -9312,13 +8835,13 @@ type CfnWebACL_ByteMatchStatementProperty struct {
 	// For example, suppose the value of `Type` is `HEADER` and the value of `Data` is `User-Agent` . If you want to search the `User-Agent` header for the value `BadBot` , you provide the string `BadBot` in the value of `SearchString` .
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
-	SearchString *string `json:"searchString" yaml:"searchString"`
+	SearchString *string `field:"optional" json:"searchString" yaml:"searchString"`
 	// String to search for in a web request component, base64-encoded.
 	//
 	// If you don't want to encode the string, specify the unencoded value in `SearchString` instead.
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
-	SearchStringBase64 *string `json:"searchStringBase64" yaml:"searchStringBase64"`
+	SearchStringBase64 *string `field:"optional" json:"searchStringBase64" yaml:"searchStringBase64"`
 }
 
 // Specifies that AWS WAF should run a `CAPTCHA` check against the request:.
@@ -9336,10 +8859,11 @@ type CfnWebACL_ByteMatchStatementProperty struct {
 //
 // This action option is available for rules. It isn't available for web ACL default actions.
 //
-// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
-//
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   captchaActionProperty := &captchaActionProperty{
 //   	customRequestHandling: &customRequestHandlingProperty{
 //   		insertHeaders: []interface{}{
@@ -9355,15 +8879,18 @@ type CfnWebACL_CaptchaActionProperty struct {
 	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	CustomRequestHandling interface{} `json:"customRequestHandling" yaml:"customRequestHandling"`
+	CustomRequestHandling interface{} `field:"optional" json:"customRequestHandling" yaml:"customRequestHandling"`
 }
 
-// Specifies how AWS WAF should handle `CAPTCHA` evaluations.
+// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings.
 //
-// This is available at the web ACL level and in each rule.
+// If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   captchaConfigProperty := &captchaConfigProperty{
 //   	immunityTimeProperty: &immunityTimePropertyProperty{
 //   		immunityTime: jsii.Number(123),
@@ -9372,15 +8899,18 @@ type CfnWebACL_CaptchaActionProperty struct {
 //
 type CfnWebACL_CaptchaConfigProperty struct {
 	// Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
-	ImmunityTimeProperty interface{} `json:"immunityTimeProperty" yaml:"immunityTimeProperty"`
+	ImmunityTimeProperty interface{} `field:"optional" json:"immunityTimeProperty" yaml:"immunityTimeProperty"`
 }
 
-// Specifies that AWS WAF should count requests.
+// Specifies that AWS WAF should count the request. Optionally defines additional custom handling for the request.
 //
-// This is used only in the context of other settings, for example to specify values for the web ACL and rule group `RuleAction` and for the web ACL `DefaultAction` .
+// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   countActionProperty := &countActionProperty{
 //   	customRequestHandling: &customRequestHandlingProperty{
 //   		insertHeaders: []interface{}{
@@ -9396,7 +8926,7 @@ type CfnWebACL_CountActionProperty struct {
 	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	CustomRequestHandling interface{} `json:"customRequestHandling" yaml:"customRequestHandling"`
+	CustomRequestHandling interface{} `field:"optional" json:"customRequestHandling" yaml:"customRequestHandling"`
 }
 
 // A custom header for custom request and response handling.
@@ -9404,7 +8934,10 @@ type CfnWebACL_CountActionProperty struct {
 // This is used in `CustomResponse` and `CustomRequestHandling` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customHTTPHeaderProperty := &customHTTPHeaderProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -9414,9 +8947,9 @@ type CfnWebACL_CustomHTTPHeaderProperty struct {
 	// The name of the custom header.
 	//
 	// For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-` , to avoid confusion with the headers that are already in the request. For example, for the header name `sample` , AWS WAF inserts the header `x-amzn-waf-sample` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value of the custom header.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Custom request handling behavior that inserts custom headers into a web request.
@@ -9426,7 +8959,10 @@ type CfnWebACL_CustomHTTPHeaderProperty struct {
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customRequestHandlingProperty := &customRequestHandlingProperty{
 //   	insertHeaders: []interface{}{
 //   		&customHTTPHeaderProperty{
@@ -9440,15 +8976,18 @@ type CfnWebACL_CustomRequestHandlingProperty struct {
 	// The HTTP headers to insert into the request. Duplicate header names are not allowed.
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	InsertHeaders interface{} `json:"insertHeaders" yaml:"insertHeaders"`
+	InsertHeaders interface{} `field:"required" json:"insertHeaders" yaml:"insertHeaders"`
 }
 
 // The response body to use in a custom response to a web request.
 //
-// This is referenced by key from the `CustomResponse` `CustomResponseBodyKey` .
+// This is referenced by key from `CustomResponse` `CustomResponseBodyKey` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customResponseBodyProperty := &customResponseBodyProperty{
 //   	content: jsii.String("content"),
 //   	contentType: jsii.String("contentType"),
@@ -9460,19 +8999,22 @@ type CfnWebACL_CustomResponseBodyProperty struct {
 	// You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	Content *string `json:"content" yaml:"content"`
+	Content *string `field:"required" json:"content" yaml:"content"`
 	// The type of content in the payload that you are defining in the `Content` string.
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"required" json:"contentType" yaml:"contentType"`
 }
 
 // A custom response to send to the client.
 //
-// You can define a custom response for rule actions and default web ACL actions that are set to `BlockAction` .
+// You can define a custom response for rule actions and default web ACL actions that are set to the block action.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customResponseProperty := &customResponseProperty{
 //   	responseCode: jsii.Number(123),
 //
@@ -9490,23 +9032,26 @@ type CfnWebACL_CustomResponseProperty struct {
 	// The HTTP status code to return to the client.
 	//
 	// For a list of status codes that you can use in your custom reqponses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	ResponseCode *float64 `json:"responseCode" yaml:"responseCode"`
+	ResponseCode *float64 `field:"required" json:"responseCode" yaml:"responseCode"`
 	// References the response body that you want AWS WAF to return to the web request client.
 	//
 	// You can define a custom response for a rule action or a default web ACL action that is set to block. To do this, you first define the response body key and value in the `CustomResponseBodies` setting for the `WebACL` or `RuleGroup` where you want to use it. Then, in the rule action or web ACL default action `BlockAction` setting, you reference the response body using this key.
-	CustomResponseBodyKey *string `json:"customResponseBodyKey" yaml:"customResponseBodyKey"`
+	CustomResponseBodyKey *string `field:"optional" json:"customResponseBodyKey" yaml:"customResponseBodyKey"`
 	// The HTTP headers to use in the response. Duplicate header names are not allowed.
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	ResponseHeaders interface{} `json:"responseHeaders" yaml:"responseHeaders"`
+	ResponseHeaders interface{} `field:"optional" json:"responseHeaders" yaml:"responseHeaders"`
 }
 
 // In a `WebACL` , this is the action that you want AWS WAF to perform when a web request doesn't match any of the rules in the `WebACL` .
 //
-// The default action must be a terminating action, so count is not allowed.
+// The default action must be a terminating action, so you can't use count.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   defaultActionProperty := &defaultActionProperty{
 //   	allow: &allowActionProperty{
 //   		customRequestHandling: &customRequestHandlingProperty{
@@ -9536,30 +9081,36 @@ type CfnWebACL_CustomResponseProperty struct {
 //
 type CfnWebACL_DefaultActionProperty struct {
 	// Specifies that AWS WAF should allow requests by default.
-	Allow interface{} `json:"allow" yaml:"allow"`
+	Allow interface{} `field:"optional" json:"allow" yaml:"allow"`
 	// Specifies that AWS WAF should block requests by default.
-	Block interface{} `json:"block" yaml:"block"`
+	Block interface{} `field:"optional" json:"block" yaml:"block"`
 }
 
-// Specifies a single rule to exclude from the rule group.
+// Specifies a single rule in a rule group whose action you want to override to `Count` .
 //
-// Excluding a rule overrides its action setting for the rule group in the web ACL, setting it to `COUNT` . This effectively excludes the rule from acting on web requests.
+// When you exclude a rule, AWS WAF evaluates it exactly as it would if the rule action setting were `Count` . This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   excludedRuleProperty := &excludedRuleProperty{
 //   	name: jsii.String("name"),
 //   }
 //
 type CfnWebACL_ExcludedRuleProperty struct {
-	// The name of the rule to exclude.
-	Name *string `json:"name" yaml:"name"`
+	// The name of the rule whose action you want to override to `Count` .
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // The identifier of the username or password field, used in the `ManagedRuleGroupConfig` settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fieldIdentifierProperty := &fieldIdentifierProperty{
 //   	identifier: jsii.String("identifier"),
 //   }
@@ -9570,15 +9121,25 @@ type CfnWebACL_FieldIdentifierProperty struct {
 	// When the `PayloadType` is `JSON` , the identifier must be in JSON pointer syntax. For example `/form/username` . For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 	//
 	// When the `PayloadType` is `FORM_ENCODED` , use the HTML form names. For example, `username` .
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 }
 
-// The part of a web request that you want AWS WAF to inspect.
+// The part of the web request that you want AWS WAF to inspect.
 //
-// Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.
+// Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
+//
+// Example JSON for a `QueryString` field to match:
+//
+// `"FieldToMatch": { "QueryString": {} }`
+//
+// Example JSON for a `Method` field to match specification:
+//
+// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -9588,6 +9149,7 @@ type CfnWebACL_FieldIdentifierProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   fieldToMatchProperty := &fieldToMatchProperty{
 //   	allQueryArguments: allQueryArguments,
 //   	body: body,
@@ -9612,39 +9174,45 @@ type CfnWebACL_FieldIdentifierProperty struct {
 //
 type CfnWebACL_FieldToMatchProperty struct {
 	// Inspect all query arguments.
-	AllQueryArguments interface{} `json:"allQueryArguments" yaml:"allQueryArguments"`
-	// Inspect the request body, which immediately follows the request headers.
+	AllQueryArguments interface{} `field:"optional" json:"allQueryArguments" yaml:"allQueryArguments"`
+	// Inspect the request body as plain text.
 	//
-	// This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
+	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as the `ByteMatchStatement` or `RegexPatternSetReferenceStatement` , with a `SizeConstraintStatement` that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
-	Body interface{} `json:"body" yaml:"body"`
+	// Only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. For information about how to handle oversized request bodies, see the `Body` object configuration.
+	Body interface{} `field:"optional" json:"body" yaml:"body"`
 	// Inspect the request body as JSON.
 	//
 	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as the `ByteMatchStatement` or `RegexPatternSetReferenceStatement` , with a `SizeConstraintStatement` that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.
-	JsonBody interface{} `json:"jsonBody" yaml:"jsonBody"`
+	// Only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
+	JsonBody interface{} `field:"optional" json:"jsonBody" yaml:"jsonBody"`
 	// Inspect the HTTP method.
 	//
 	// The method indicates the type of operation that the request is asking the origin to perform.
-	Method interface{} `json:"method" yaml:"method"`
+	Method interface{} `field:"optional" json:"method" yaml:"method"`
 	// Inspect the query string.
 	//
 	// This is the part of a URL that appears after a `?` character, if any.
-	QueryString interface{} `json:"queryString" yaml:"queryString"`
+	QueryString interface{} `field:"optional" json:"queryString" yaml:"queryString"`
 	// Inspect a single header.
 	//
 	// Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
-	SingleHeader interface{} `json:"singleHeader" yaml:"singleHeader"`
+	//
+	// Example JSON: `"SingleHeader": { "Name": "haystack" }`
+	//
+	// Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
+	SingleHeader interface{} `field:"optional" json:"singleHeader" yaml:"singleHeader"`
 	// Inspect a single query argument.
 	//
 	// Provide the name of the query argument to inspect, such as *UserName* or *SalesRegion* . The name can be up to 30 characters long and isn't case sensitive.
-	SingleQueryArgument interface{} `json:"singleQueryArgument" yaml:"singleQueryArgument"`
+	//
+	// Example JSON: `"SingleQueryArgument": { "Name": "myArgument" }`.
+	SingleQueryArgument interface{} `field:"optional" json:"singleQueryArgument" yaml:"singleQueryArgument"`
 	// Inspect the request URI path.
 	//
-	// This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg` .
-	UriPath interface{} `json:"uriPath" yaml:"uriPath"`
+	// This is the part of the web request that identifies a resource, for example, `/images/daily-ad.jpg` .
+	UriPath interface{} `field:"optional" json:"uriPath" yaml:"uriPath"`
 }
 
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
@@ -9658,7 +9226,10 @@ type CfnWebACL_FieldToMatchProperty struct {
 // AWS WAF only evaluates the first IP address found in the specified HTTP header.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   forwardedIPConfigurationProperty := &forwardedIPConfigurationProperty{
 //   	fallbackBehavior: jsii.String("fallbackBehavior"),
 //   	headerName: jsii.String("headerName"),
@@ -9673,19 +9244,22 @@ type CfnWebACL_ForwardedIPConfigurationProperty struct {
 	//
 	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
 	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
-	FallbackBehavior *string `json:"fallbackBehavior" yaml:"fallbackBehavior"`
+	FallbackBehavior *string `field:"required" json:"fallbackBehavior" yaml:"fallbackBehavior"`
 	// The name of the HTTP header to use for the IP address.
 	//
 	// For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	HeaderName *string `json:"headerName" yaml:"headerName"`
+	HeaderName *string `field:"required" json:"headerName" yaml:"headerName"`
 }
 
 // A rule statement used to identify web requests based on country of origin.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   geoMatchStatementProperty := &geoMatchStatementProperty{
 //   	countryCodes: []*string{
 //   		jsii.String("countryCodes"),
@@ -9698,13 +9272,13 @@ type CfnWebACL_ForwardedIPConfigurationProperty struct {
 //
 type CfnWebACL_GeoMatchStatementProperty struct {
 	// An array of two-character country codes, for example, `[ "US", "CN" ]` , from the alpha-2 country ISO codes of the ISO 3166 international standard.
-	CountryCodes *[]*string `json:"countryCodes" yaml:"countryCodes"`
+	CountryCodes *[]*string `field:"optional" json:"countryCodes" yaml:"countryCodes"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	ForwardedIpConfig interface{} `json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
+	ForwardedIpConfig interface{} `field:"optional" json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
 }
 
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
@@ -9716,7 +9290,10 @@ type CfnWebACL_GeoMatchStatementProperty struct {
 // This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iPSetForwardedIPConfigurationProperty := map[string]*string{
 //   	"fallbackBehavior": jsii.String("fallbackBehavior"),
 //   	"headerName": jsii.String("headerName"),
@@ -9732,13 +9309,13 @@ type CfnWebACL_IPSetForwardedIPConfigurationProperty struct {
 	//
 	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
 	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
-	FallbackBehavior *string `json:"fallbackBehavior" yaml:"fallbackBehavior"`
+	FallbackBehavior *string `field:"required" json:"fallbackBehavior" yaml:"fallbackBehavior"`
 	// The name of the HTTP header to use for the IP address.
 	//
 	// For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	HeaderName *string `json:"headerName" yaml:"headerName"`
+	HeaderName *string `field:"required" json:"headerName" yaml:"headerName"`
 	// The position in the header to search for the IP address.
 	//
 	// The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
@@ -9748,7 +9325,7 @@ type CfnWebACL_IPSetForwardedIPConfigurationProperty struct {
 	// - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
 	// - LAST - Inspect the last IP address in the list of IP addresses in the header.
 	// - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
-	Position *string `json:"position" yaml:"position"`
+	Position *string `field:"required" json:"position" yaml:"position"`
 }
 
 // A rule statement used to detect web requests coming from particular IP addresses or address ranges.
@@ -9758,7 +9335,10 @@ type CfnWebACL_IPSetForwardedIPConfigurationProperty struct {
 // Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iPSetReferenceStatementProperty := map[string]interface{}{
 //   	"arn": jsii.String("arn"),
 //
@@ -9771,20 +9351,23 @@ type CfnWebACL_IPSetForwardedIPConfigurationProperty struct {
 //   }
 //
 type CfnWebACL_IPSetReferenceStatementProperty struct {
-	// The Amazon Resource Name (ARN) of the IP set that this statement references.
-	Arn *string `json:"arn" yaml:"arn"`
+	// The Amazon Resource Name (ARN) of the `IPSet` that this statement references.
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	IpSetForwardedIpConfig interface{} `json:"ipSetForwardedIpConfig" yaml:"ipSetForwardedIpConfig"`
+	IpSetForwardedIpConfig interface{} `field:"optional" json:"ipSetForwardedIpConfig" yaml:"ipSetForwardedIpConfig"`
 }
 
 // Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   immunityTimePropertyProperty := &immunityTimePropertyProperty{
 //   	immunityTime: jsii.Number(123),
 //   }
@@ -9793,19 +9376,24 @@ type CfnWebACL_ImmunityTimePropertyProperty struct {
 	// The amount of time, in seconds, that a `CAPTCHA` token is valid.
 	//
 	// The default setting is 300.
-	ImmunityTime *float64 `json:"immunityTime" yaml:"immunityTime"`
+	ImmunityTime *float64 `field:"required" json:"immunityTime" yaml:"immunityTime"`
 }
 
-// The body of a web request, inspected as JSON.
+// Inspect the body of the web request as JSON. The body immediately follows the request headers.
 //
-// The body immediately follows the request headers. This is used in the `FieldToMatch` specification.
+// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
 //
 // Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
 //
+// Example JSON: `"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }`.
+//
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
+//
 //   jsonBodyProperty := &jsonBodyProperty{
 //   	matchPattern: &jsonMatchPatternProperty{
 //   		all: all,
@@ -9823,13 +9411,11 @@ type CfnWebACL_JsonBodyProperty struct {
 	// The patterns to look for in the JSON body.
 	//
 	// AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-	MatchPattern interface{} `json:"matchPattern" yaml:"matchPattern"`
+	MatchPattern interface{} `field:"required" json:"matchPattern" yaml:"matchPattern"`
 	// The parts of the JSON to match against using the `MatchPattern` .
 	//
 	// If you specify `All` , AWS WAF matches against keys and values.
-	//
-	// Valid Values: `ALL` | `KEY` | `VALUE`.
-	MatchScope *string `json:"matchScope" yaml:"matchScope"`
+	MatchScope *string `field:"required" json:"matchScope" yaml:"matchScope"`
 	// What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:.
 	//
 	// - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
@@ -9845,7 +9431,7 @@ type CfnWebACL_JsonBodyProperty struct {
 	// - Missing comma: `{"key1":"value1""key2":"value2"}`
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
 	// - Extra colons: `{"key1"::"value1","key2""value2"}`.
-	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior" yaml:"invalidFallbackBehavior"`
+	InvalidFallbackBehavior *string `field:"optional" json:"invalidFallbackBehavior" yaml:"invalidFallbackBehavior"`
 }
 
 // The patterns to look for in the JSON body.
@@ -9853,9 +9439,12 @@ type CfnWebACL_JsonBodyProperty struct {
 // AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
+//
 //   jsonMatchPatternProperty := &jsonMatchPatternProperty{
 //   	all: all,
 //   	includedPaths: []*string{
@@ -9864,18 +9453,18 @@ type CfnWebACL_JsonBodyProperty struct {
 //   }
 //
 type CfnWebACL_JsonMatchPatternProperty struct {
-	// Match all of the elements. See also `MatchScope` in `JsonBody` .
+	// Match all of the elements. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
 	//
 	// You must specify either this setting or the `IncludedPaths` setting, but not both.
-	All interface{} `json:"all" yaml:"all"`
-	// Match only the specified include paths. See also `MatchScope` in `JsonBody` .
+	All interface{} `field:"optional" json:"all" yaml:"all"`
+	// Match only the specified include paths. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
 	//
 	// Provide the include paths using JSON Pointer syntax. For example, `"IncludedPaths": ["/dogs/0/name", "/dogs/1/name"]` . For information about this syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 	//
 	// You must specify either this setting or the `All` setting, but not both.
 	//
 	// > Don't use this option to include all paths. Instead, use the `All` setting.
-	IncludedPaths *[]*string `json:"includedPaths" yaml:"includedPaths"`
+	IncludedPaths *[]*string `field:"optional" json:"includedPaths" yaml:"includedPaths"`
 }
 
 // A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL.
@@ -9883,7 +9472,10 @@ type CfnWebACL_JsonMatchPatternProperty struct {
 // The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. If you do not provide the fully qualified name in your label match string, AWS WAF performs the search for labels that were added in the same context as the label match statement.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   labelMatchStatementProperty := &labelMatchStatementProperty{
 //   	key: jsii.String("key"),
 //   	scope: jsii.String("scope"),
@@ -9896,24 +9488,27 @@ type CfnWebACL_LabelMatchStatementProperty struct {
 	// - If the `Scope` indicates `NAMESPACE` , then this specification can include any number of contiguous namespace strings, and can include the entire label namespace prefix from the rule group or web ACL where the label originates.
 	//
 	// Labels are case sensitive and components of a label must be separated by colon, for example `NS1:NS2:name` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// Specify whether you want to match using the label name or just the namespace.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"required" json:"scope" yaml:"scope"`
 }
 
 // A single label container.
 //
-// This is used as an element of a label array in `RuleLabels` inside a `Rule` .
+// This is used as an element of a label array in `RuleLabels` inside a rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   labelProperty := &labelProperty{
 //   	name: jsii.String("name"),
 //   }
 //
 type CfnWebACL_LabelProperty struct {
 	// The label string.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // Additional information that's used by a managed rule group. Most managed rule groups don't require this.
@@ -9923,7 +9518,10 @@ type CfnWebACL_LabelProperty struct {
 // You can provide multiple individual `ManagedRuleGroupConfig` objects for any rule group configuration, for example `UsernameField` and `PasswordField` . The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: `LoginPath` , `PasswordField` , `PayloadType` and `UsernameField` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   managedRuleGroupConfigProperty := &managedRuleGroupConfigProperty{
 //   	loginPath: jsii.String("loginPath"),
 //   	passwordField: &fieldIdentifierProperty{
@@ -9939,23 +9537,25 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 	// The path of the login endpoint for your application.
 	//
 	// For example, for the URL `https://example.com/web/login` , you would provide the path `/web/login` .
-	LoginPath *string `json:"loginPath" yaml:"loginPath"`
+	LoginPath *string `field:"optional" json:"loginPath" yaml:"loginPath"`
 	// Details about your login page password field.
-	PasswordField interface{} `json:"passwordField" yaml:"passwordField"`
+	PasswordField interface{} `field:"optional" json:"passwordField" yaml:"passwordField"`
 	// The payload type for your login endpoint, either JSON or form encoded.
-	PayloadType *string `json:"payloadType" yaml:"payloadType"`
+	PayloadType *string `field:"optional" json:"payloadType" yaml:"payloadType"`
 	// Details about your login page username field.
-	UsernameField interface{} `json:"usernameField" yaml:"usernameField"`
+	UsernameField interface{} `field:"optional" json:"usernameField" yaml:"usernameField"`
 }
 
 // A rule statement used to run the rules that are defined in a managed rule group.
 //
 // To use this, provide the vendor name and the name of the rule group in this statement.
 //
-// You can't nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
+// You cannot nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -9966,6 +9566,7 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   managedRuleGroupStatementProperty := &managedRuleGroupStatementProperty{
 //   	name: jsii.String("name"),
 //   	vendorName: jsii.String("vendorName"),
@@ -10262,29 +9863,29 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 	// The name of the managed rule group.
 	//
 	// You use this, along with the vendor name, to identify the rule group.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The name of the managed rule group vendor.
 	//
 	// You use this, along with the rule group name, to identify the rule group.
-	VendorName *string `json:"vendorName" yaml:"vendorName"`
-	// The rules whose actions are set to `COUNT` by the web ACL, regardless of the action that is configured in the rule.
+	VendorName *string `field:"required" json:"vendorName" yaml:"vendorName"`
+	// The rules in the referenced rule group whose actions are set to `Count` .
 	//
-	// This effectively excludes the rule from acting on web requests.
-	ExcludedRules interface{} `json:"excludedRules" yaml:"excludedRules"`
+	// When you exclude a rule, AWS WAF evaluates it exactly as it would if the rule action setting were `Count` . This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.
+	ExcludedRules interface{} `field:"optional" json:"excludedRules" yaml:"excludedRules"`
 	// Additional information that's used by a managed rule group. Most managed rule groups don't require this.
 	//
 	// Use this for the account takeover prevention managed rule group `AWSManagedRulesATPRuleSet` , to provide information about the sign-in page of your application.
 	//
 	// You can provide multiple individual `ManagedRuleGroupConfig` objects for any rule group configuration, for example `UsernameField` and `PasswordField` . The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: `LoginPath` , `PasswordField` , `PayloadType` and `UsernameField` .
-	ManagedRuleGroupConfigs interface{} `json:"managedRuleGroupConfigs" yaml:"managedRuleGroupConfigs"`
-	// Statement nested inside a managed rule group statement to narrow the scope of the requests that AWS WAF evaluates using the rule group.
+	ManagedRuleGroupConfigs interface{} `field:"optional" json:"managedRuleGroupConfigs" yaml:"managedRuleGroupConfigs"`
+	// An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group.
 	//
-	// Requests that match the scope-down statement are evaluated using the rule group. Requests that don't match the scope-down statement are not a match for the managed rule group statement, without any further evaluation.
-	ScopeDownStatement interface{} `json:"scopeDownStatement" yaml:"scopeDownStatement"`
+	// Requests are only evaluated by the rule group if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
+	ScopeDownStatement interface{} `field:"optional" json:"scopeDownStatement" yaml:"scopeDownStatement"`
 	// The version of the managed rule group to use.
 	//
 	// If you specify this, the version setting is fixed until you change it. If you don't specify this, AWS WAF uses the vendor's default version, and then keeps the version at the vendor's default when the vendor updates the managed rule group settings.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // A logical rule statement used to negate the results of another rule statement.
@@ -10292,7 +9893,9 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 // You provide one `Statement` within the `NotStatement` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -10303,6 +9906,7 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   notStatementProperty := &notStatementProperty{
 //   	statement: &statementProperty{
 //   		andStatement: &andStatementProperty{
@@ -10577,7 +10181,7 @@ type CfnWebACL_NotStatementProperty struct {
 	// The statement to negate.
 	//
 	// You can use any statement that can be nested.
-	Statement interface{} `json:"statement" yaml:"statement"`
+	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
 }
 
 // A logical rule statement used to combine other rule statements with OR logic.
@@ -10585,7 +10189,9 @@ type CfnWebACL_NotStatementProperty struct {
 // You provide more than one `Statement` within the `OrStatement` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -10596,6 +10202,7 @@ type CfnWebACL_NotStatementProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   orStatementProperty := &orStatementProperty{
 //   	statements: []interface{}{
 //   		&statementProperty{
@@ -10872,33 +10479,46 @@ type CfnWebACL_OrStatementProperty struct {
 	// The statements to combine with OR logic.
 	//
 	// You can use any statements that can be nested.
-	Statements interface{} `json:"statements" yaml:"statements"`
+	Statements interface{} `field:"required" json:"statements" yaml:"statements"`
 }
 
-// The action to use to override the `Action` settings on the rules in the web ACL.
+// The action to use in the place of the action that results from the rule group evaluation.
 //
-// You can use none, in which case the rule actions are in effect, or count, in which case, if a rule matches a web request, it only counts the match.
+// Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only.
+//
+// You can only use this for rule statements that reference a rule group, like `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
+//
+// > This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead exclude those rules in your rule group reference statement settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var count interface{}
 //   var none interface{}
+//
 //   overrideActionProperty := &overrideActionProperty{
 //   	count: count,
 //   	none: none,
 //   }
 //
 type CfnWebACL_OverrideActionProperty struct {
-	// Override the rule action settings to count.
-	Count interface{} `json:"count" yaml:"count"`
-	// Don't override the rule action settings.
-	None interface{} `json:"none" yaml:"none"`
+	// Override the rule group evaluation result to count only.
+	//
+	// > This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead exclude those rules in your rule group reference statement settings.
+	Count interface{} `field:"optional" json:"count" yaml:"count"`
+	// Don't override the rule group evaluation result.
+	//
+	// This is the most common setting.
+	None interface{} `field:"optional" json:"none" yaml:"none"`
 }
 
 // A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span.
 //
 // You can use this to put a temporary block on requests from an IP address that is sending excessive requests.
+//
+// AWS WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by AWS WAF . If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by AWS WAF .
 //
 // When the rule action triggers, AWS WAF blocks additional requests from the IP address until the request rate falls below the limit.
 //
@@ -10909,10 +10529,12 @@ type CfnWebACL_OverrideActionProperty struct {
 //
 // In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.
 //
-// You cannot nest a `RateBasedStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
+// You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement` . You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -10923,6 +10545,7 @@ type CfnWebACL_OverrideActionProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   rateBasedStatementProperty := &rateBasedStatementProperty{
 //   	aggregateKeyType: jsii.String("aggregateKeyType"),
 //   	limit: jsii.Number(123),
@@ -11206,11 +10829,11 @@ type CfnWebACL_RateBasedStatementProperty struct {
 	//
 	// - IP - Aggregate the request counts on the IP address from the web request origin.
 	// - FORWARDED_IP - Aggregate the request counts on the first IP address in an HTTP header. If you use this, configure the `ForwardedIPConfig` , to specify the header to use.
-	AggregateKeyType *string `json:"aggregateKeyType" yaml:"aggregateKeyType"`
+	AggregateKeyType *string `field:"required" json:"aggregateKeyType" yaml:"aggregateKeyType"`
 	// The limit on requests per 5-minute period for a single originating IP address.
 	//
 	// If the statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
-	Limit *float64 `json:"limit" yaml:"limit"`
+	Limit *float64 `field:"required" json:"limit" yaml:"limit"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
@@ -11218,17 +10841,19 @@ type CfnWebACL_RateBasedStatementProperty struct {
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 	//
 	// This is required if `AggregateKeyType` is set to `FORWARDED_IP` .
-	ForwardedIpConfig interface{} `json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
-	// An optional nested statement that narrows the scope of the rate-based statement to matching web requests.
+	ForwardedIpConfig interface{} `field:"optional" json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
+	// An optional nested statement that narrows the scope of the web requests that are evaluated by the rate-based statement.
 	//
-	// This can be any nestable statement, and you can nest statements at any level below this scope-down statement.
-	ScopeDownStatement interface{} `json:"scopeDownStatement" yaml:"scopeDownStatement"`
+	// Requests are only tracked by the rate-based statement if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
+	ScopeDownStatement interface{} `field:"optional" json:"scopeDownStatement" yaml:"scopeDownStatement"`
 }
 
 // A rule statement used to search web request components for a match against a single regular expression.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -11238,6 +10863,7 @@ type CfnWebACL_RateBasedStatementProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   regexMatchStatementProperty := &regexMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
@@ -11270,16 +10896,14 @@ type CfnWebACL_RateBasedStatementProperty struct {
 //   }
 //
 type CfnWebACL_RegexMatchStatementProperty struct {
-	// The part of a web request that you want AWS WAF to inspect.
-	//
-	// For more information, see `FieldToMatch` .
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	// The part of the web request that you want AWS WAF to inspect.
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The string representing the regular expression.
-	RegexString *string `json:"regexString" yaml:"regexString"`
+	RegexString *string `field:"required" json:"regexString" yaml:"regexString"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
+	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 
 // A rule statement used to search web request components for matches with regular expressions.
@@ -11289,7 +10913,9 @@ type CfnWebACL_RegexMatchStatementProperty struct {
 // Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -11299,6 +10925,7 @@ type CfnWebACL_RegexMatchStatementProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   regexPatternSetReferenceStatementProperty := &regexPatternSetReferenceStatementProperty{
 //   	arn: jsii.String("arn"),
 //   	fieldToMatch: &fieldToMatchProperty{
@@ -11331,14 +10958,14 @@ type CfnWebACL_RegexMatchStatementProperty struct {
 //   }
 //
 type CfnWebACL_RegexPatternSetReferenceStatementProperty struct {
-	// The Amazon Resource Name (ARN) of the regular expression pattern set that this statement references.
-	Arn *string `json:"arn" yaml:"arn"`
-	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	// The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
+	// The part of the web request that you want AWS WAF to inspect.
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
-	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
+	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 
 // The action that AWS WAF should take on a web request when it matches a rule's statement.
@@ -11346,7 +10973,10 @@ type CfnWebACL_RegexPatternSetReferenceStatementProperty struct {
 // Settings at the web ACL level can override the rule action setting.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleActionProperty := &ruleActionProperty{
 //   	allow: &allowActionProperty{
 //   		customRequestHandling: &customRequestHandlingProperty{
@@ -11396,9 +11026,9 @@ type CfnWebACL_RegexPatternSetReferenceStatementProperty struct {
 //
 type CfnWebACL_RuleActionProperty struct {
 	// Instructs AWS WAF to allow the web request.
-	Allow interface{} `json:"allow" yaml:"allow"`
+	Allow interface{} `field:"optional" json:"allow" yaml:"allow"`
 	// Instructs AWS WAF to block the web request.
-	Block interface{} `json:"block" yaml:"block"`
+	Block interface{} `field:"optional" json:"block" yaml:"block"`
 	// Specifies that AWS WAF should run a `CAPTCHA` check against the request:.
 	//
 	// - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
@@ -11413,11 +11043,9 @@ type CfnWebACL_RuleActionProperty struct {
 	// You can configure the expiration time in the `CaptchaConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
 	//
 	// This action option is available for rules. It isn't available for web ACL default actions.
-	//
-	// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
-	Captcha interface{} `json:"captcha" yaml:"captcha"`
+	Captcha interface{} `field:"optional" json:"captcha" yaml:"captcha"`
 	// Instructs AWS WAF to count the web request and allow it.
-	Count interface{} `json:"count" yaml:"count"`
+	Count interface{} `field:"optional" json:"count" yaml:"count"`
 }
 
 // A rule statement used to run the rules that are defined in a `RuleGroup` .
@@ -11427,7 +11055,10 @@ type CfnWebACL_RuleActionProperty struct {
 // You cannot nest a `RuleGroupReferenceStatement` , for example for use inside a `NotStatement` or `OrStatement` . You can only use a rule group reference statement at the top level inside a web ACL.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleGroupReferenceStatementProperty := &ruleGroupReferenceStatementProperty{
 //   	arn: jsii.String("arn"),
 //
@@ -11441,19 +11072,21 @@ type CfnWebACL_RuleActionProperty struct {
 //
 type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 	// The Amazon Resource Name (ARN) of the entity.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The rules in the referenced rule group whose actions are set to `Count` .
 	//
 	// When you exclude a rule, AWS WAF evaluates it exactly as it would if the rule action setting were `Count` . This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.
-	ExcludedRules interface{} `json:"excludedRules" yaml:"excludedRules"`
+	ExcludedRules interface{} `field:"optional" json:"excludedRules" yaml:"excludedRules"`
 }
 
-// A single rule, which you can use to identify web requests that you want to allow, block, or count.
+// A single rule, which you can use in a `WebACL` or `RuleGroup` to identify web requests that you want to allow, block, or count.
 //
-// Each rule includes one top-level Statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
+// Each rule includes one top-level `Statement` that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -11466,6 +11099,7 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   ruleProperty := &ruleProperty{
 //   	name: jsii.String("name"),
 //   	priority: jsii.Number(123),
@@ -11806,18 +11440,18 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //   }
 //
 type CfnWebACL_RuleProperty struct {
-	// The descriptive name of the rule.
+	// The name of the rule.
 	//
 	// You can't change the name of a `Rule` after you create it.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` .
 	//
 	// AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
-	Priority *float64 `json:"priority" yaml:"priority"`
-	// The AWS WAF processing statement for the rule, for example ByteMatchStatement or SizeConstraintStatement.
-	Statement interface{} `json:"statement" yaml:"statement"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
+	// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
+	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
-	VisibilityConfig interface{} `json:"visibilityConfig" yaml:"visibilityConfig"`
+	VisibilityConfig interface{} `field:"required" json:"visibilityConfig" yaml:"visibilityConfig"`
 	// The action that AWS WAF should take on a web request when it matches the rule's statement.
 	//
 	// Settings at the web ACL level can override the rule action setting.
@@ -11828,11 +11462,11 @@ type CfnWebACL_RuleProperty struct {
 	//
 	// - If the rule statement doesn't reference a rule group, you must set this rule action setting and you must not set the rule's override action setting.
 	// - If the rule statement references a rule group, you must not set this action setting, because the actions are already set on the rules inside the rule group. You must set the rule's override action setting to indicate specifically whether to override the actions that are set on the rules in the rule group.
-	Action interface{} `json:"action" yaml:"action"`
+	Action interface{} `field:"optional" json:"action" yaml:"action"`
 	// Specifies how AWS WAF should handle `CAPTCHA` evaluations.
 	//
 	// If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
-	CaptchaConfig interface{} `json:"captchaConfig" yaml:"captchaConfig"`
+	CaptchaConfig interface{} `field:"optional" json:"captchaConfig" yaml:"captchaConfig"`
 	// The override action to apply to the rules in a rule group, instead of the individual rule action settings.
 	//
 	// This is used only for rules whose statements reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
@@ -11843,7 +11477,7 @@ type CfnWebACL_RuleProperty struct {
 	//
 	// - If the rule statement references a rule group, you must set this override action setting and you must not set the rule's action setting.
 	// - If the rule statement doesn't reference a rule group, you must set the rule action setting and you must not set the rule's override action setting.
-	OverrideAction interface{} `json:"overrideAction" yaml:"overrideAction"`
+	OverrideAction interface{} `field:"optional" json:"overrideAction" yaml:"overrideAction"`
 	// Labels to apply to web requests that match the rule match statement.
 	//
 	// AWS WAF applies fully qualified labels to matching web requests. A fully qualified label is the concatenation of a label namespace and a rule label. The rule's rule group or web ACL defines the label namespace.
@@ -11858,7 +11492,7 @@ type CfnWebACL_RuleProperty struct {
 	// - Don't use the following reserved words in your label specification: `aws` , `waf` , `managed` , `rulegroup` , `webacl` , `regexpatternset` , or `ipset` .
 	//
 	// For example, `myLabelName` or `nameSpace1:nameSpace2:myLabelName` .
-	RuleLabels interface{} `json:"ruleLabels" yaml:"ruleLabels"`
+	RuleLabels interface{} `field:"optional" json:"ruleLabels" yaml:"ruleLabels"`
 }
 
 // A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<).
@@ -11870,7 +11504,9 @@ type CfnWebACL_RuleProperty struct {
 // If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -11880,6 +11516,7 @@ type CfnWebACL_RuleProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   sizeConstraintStatementProperty := &sizeConstraintStatementProperty{
 //   	comparisonOperator: jsii.String("comparisonOperator"),
 //   	fieldToMatch: &fieldToMatchProperty{
@@ -11914,15 +11551,15 @@ type CfnWebACL_RuleProperty struct {
 //
 type CfnWebACL_SizeConstraintStatementProperty struct {
 	// The operator to use to compare the request part to the size setting.
-	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
-	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	ComparisonOperator *string `field:"required" json:"comparisonOperator" yaml:"comparisonOperator"`
+	// The part of the web request that you want AWS WAF to inspect.
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The size, in byte, to compare to the request part, after any transformations.
-	Size *float64 `json:"size" yaml:"size"`
+	Size *float64 `field:"required" json:"size" yaml:"size"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
-	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
+	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 
 // Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database.
@@ -11930,7 +11567,9 @@ type CfnWebACL_SizeConstraintStatementProperty struct {
 // To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -11940,6 +11579,7 @@ type CfnWebACL_SizeConstraintStatementProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   sqliMatchStatementProperty := &sqliMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
@@ -11971,18 +11611,20 @@ type CfnWebACL_SizeConstraintStatementProperty struct {
 //   }
 //
 type CfnWebACL_SqliMatchStatementProperty struct {
-	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	// The part of the web request that you want AWS WAF to inspect.
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
-	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
+	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 
-// The processing guidance for a `Rule` , used by AWS WAF to determine whether a web request matches the rule.
+// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -11998,6 +11640,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   statementProperty := &statementProperty{
 //   	andStatement: &andStatementProperty{
 //   		statements: []interface{}{
@@ -13556,40 +13199,42 @@ type CfnWebACL_StatementProperty struct {
 	// A logical rule statement used to combine other rule statements with AND logic.
 	//
 	// You provide more than one `Statement` within the `AndStatement` .
-	AndStatement interface{} `json:"andStatement" yaml:"andStatement"`
+	AndStatement interface{} `field:"optional" json:"andStatement" yaml:"andStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests.
 	//
 	// The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
-	ByteMatchStatement interface{} `json:"byteMatchStatement" yaml:"byteMatchStatement"`
+	ByteMatchStatement interface{} `field:"optional" json:"byteMatchStatement" yaml:"byteMatchStatement"`
 	// A rule statement used to identify web requests based on country of origin.
-	GeoMatchStatement interface{} `json:"geoMatchStatement" yaml:"geoMatchStatement"`
+	GeoMatchStatement interface{} `field:"optional" json:"geoMatchStatement" yaml:"geoMatchStatement"`
 	// A rule statement used to detect web requests coming from particular IP addresses or address ranges.
 	//
 	// To use this, create an `IPSet` that specifies the addresses you want to detect, then use the ARN of that set in this statement.
 	//
 	// Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-	IpSetReferenceStatement interface{} `json:"ipSetReferenceStatement" yaml:"ipSetReferenceStatement"`
+	IpSetReferenceStatement interface{} `field:"optional" json:"ipSetReferenceStatement" yaml:"ipSetReferenceStatement"`
 	// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL.
 	//
 	// The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. If you do not provide the fully qualified name in your label match string, AWS WAF performs the search for labels that were added in the same context as the label match statement.
-	LabelMatchStatement interface{} `json:"labelMatchStatement" yaml:"labelMatchStatement"`
+	LabelMatchStatement interface{} `field:"optional" json:"labelMatchStatement" yaml:"labelMatchStatement"`
 	// A rule statement used to run the rules that are defined in a managed rule group.
 	//
 	// To use this, provide the vendor name and the name of the rule group in this statement.
 	//
-	// You can't nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
-	ManagedRuleGroupStatement interface{} `json:"managedRuleGroupStatement" yaml:"managedRuleGroupStatement"`
+	// You cannot nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
+	ManagedRuleGroupStatement interface{} `field:"optional" json:"managedRuleGroupStatement" yaml:"managedRuleGroupStatement"`
 	// A logical rule statement used to negate the results of another rule statement.
 	//
 	// You provide one `Statement` within the `NotStatement` .
-	NotStatement interface{} `json:"notStatement" yaml:"notStatement"`
+	NotStatement interface{} `field:"optional" json:"notStatement" yaml:"notStatement"`
 	// A logical rule statement used to combine other rule statements with OR logic.
 	//
 	// You provide more than one `Statement` within the `OrStatement` .
-	OrStatement interface{} `json:"orStatement" yaml:"orStatement"`
+	OrStatement interface{} `field:"optional" json:"orStatement" yaml:"orStatement"`
 	// A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span.
 	//
 	// You can use this to put a temporary block on requests from an IP address that is sending excessive requests.
+	//
+	// AWS WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by AWS WAF . If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by AWS WAF .
 	//
 	// When the rule action triggers, AWS WAF blocks additional requests from the IP address until the request rate falls below the limit.
 	//
@@ -13600,22 +13245,22 @@ type CfnWebACL_StatementProperty struct {
 	//
 	// In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.
 	//
-	// You cannot nest a `RateBasedStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
-	RateBasedStatement interface{} `json:"rateBasedStatement" yaml:"rateBasedStatement"`
+	// You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement` . You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
+	RateBasedStatement interface{} `field:"optional" json:"rateBasedStatement" yaml:"rateBasedStatement"`
 	// A rule statement used to search web request components for a match against a single regular expression.
-	RegexMatchStatement interface{} `json:"regexMatchStatement" yaml:"regexMatchStatement"`
+	RegexMatchStatement interface{} `field:"optional" json:"regexMatchStatement" yaml:"regexMatchStatement"`
 	// A rule statement used to search web request components for matches with regular expressions.
 	//
 	// To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
 	//
 	// Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement" yaml:"regexPatternSetReferenceStatement"`
+	RegexPatternSetReferenceStatement interface{} `field:"optional" json:"regexPatternSetReferenceStatement" yaml:"regexPatternSetReferenceStatement"`
 	// A rule statement used to run the rules that are defined in a `RuleGroup` .
 	//
 	// To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.
 	//
-	// You cannot nest a `RuleGroupReferenceStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
-	RuleGroupReferenceStatement interface{} `json:"ruleGroupReferenceStatement" yaml:"ruleGroupReferenceStatement"`
+	// You cannot nest a `RuleGroupReferenceStatement` , for example for use inside a `NotStatement` or `OrStatement` . You can only use a rule group reference statement at the top level inside a web ACL.
+	RuleGroupReferenceStatement interface{} `field:"optional" json:"ruleGroupReferenceStatement" yaml:"ruleGroupReferenceStatement"`
 	// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<).
 	//
 	// For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes.
@@ -13623,21 +13268,24 @@ type CfnWebACL_StatementProperty struct {
 	// If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.
 	//
 	// If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
-	SizeConstraintStatement interface{} `json:"sizeConstraintStatement" yaml:"sizeConstraintStatement"`
+	SizeConstraintStatement interface{} `field:"optional" json:"sizeConstraintStatement" yaml:"sizeConstraintStatement"`
 	// Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database.
 	//
 	// To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.
-	SqliMatchStatement interface{} `json:"sqliMatchStatement" yaml:"sqliMatchStatement"`
+	SqliMatchStatement interface{} `field:"optional" json:"sqliMatchStatement" yaml:"sqliMatchStatement"`
 	// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
 	//
 	// XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
-	XssMatchStatement interface{} `json:"xssMatchStatement" yaml:"xssMatchStatement"`
+	XssMatchStatement interface{} `field:"optional" json:"xssMatchStatement" yaml:"xssMatchStatement"`
 }
 
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   textTransformationProperty := &textTransformationProperty{
 //   	priority: jsii.Number(123),
 //   	type: jsii.String("type"),
@@ -13647,7 +13295,7 @@ type CfnWebACL_TextTransformationProperty struct {
 	// Sets the relative processing order for multiple transformations that are defined for a rule statement.
 	//
 	// AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// You can specify the following transformation types:.
 	//
 	// *BASE64_DECODE* - Decode a `Base64` -encoded string.
@@ -13713,13 +13361,16 @@ type CfnWebACL_TextTransformationProperty struct {
 	// *URL_DECODE_UNI* - Like `URL_DECODE` , but with support for Microsoft-specific `%u` encoding. If the code is in the full-width ASCII code range of `FF01-FF5E` , the higher byte is used to detect and adjust the lower byte. Otherwise, only the lower byte is used and the higher byte is zeroed.
 	//
 	// *UTF8_TO_UNICODE* - Convert all UTF-8 character sequences to Unicode. This helps input normalization, and minimizing false-positives and false-negatives for non-English languages.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // Defines and enables Amazon CloudWatch metrics and web request sample collection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   visibilityConfigProperty := &visibilityConfigProperty{
 //   	cloudWatchMetricsEnabled: jsii.Boolean(false),
 //   	metricName: jsii.String("metricName"),
@@ -13727,18 +13378,18 @@ type CfnWebACL_TextTransformationProperty struct {
 //   }
 //
 type CfnWebACL_VisibilityConfigProperty struct {
-	// A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch .
+	// A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch.
 	//
 	// For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) .
-	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
-	// The descriptive name of the Amazon CloudWatch metric.
+	CloudWatchMetricsEnabled interface{} `field:"required" json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
+	// A name of the Amazon CloudWatch metric.
 	//
-	// The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF , for example "All" and "Default_Action." You can't change a `MetricName` after you create a `VisibilityConfig` .
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	// The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain whitespace or metric names reserved for AWS WAF , for example "All" and "Default_Action."
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules.
 	//
 	// You can view the sampled requests through the AWS WAF console.
-	SampledRequestsEnabled interface{} `json:"sampledRequestsEnabled" yaml:"sampledRequestsEnabled"`
+	SampledRequestsEnabled interface{} `field:"required" json:"sampledRequestsEnabled" yaml:"sampledRequestsEnabled"`
 }
 
 // A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
@@ -13746,7 +13397,9 @@ type CfnWebACL_VisibilityConfigProperty struct {
 // XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -13756,6 +13409,7 @@ type CfnWebACL_VisibilityConfigProperty struct {
 //   var singleHeader interface{}
 //   var singleQueryArgument interface{}
 //   var uriPath interface{}
+//
 //   xssMatchStatementProperty := &xssMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
@@ -13787,12 +13441,12 @@ type CfnWebACL_VisibilityConfigProperty struct {
 //   }
 //
 type CfnWebACL_XssMatchStatementProperty struct {
-	// The part of a web request that you want AWS WAF to inspect.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	// The part of the web request that you want AWS WAF to inspect.
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
 	//
-	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-	TextTransformations interface{} `json:"textTransformations" yaml:"textTransformations"`
+	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 
 // A CloudFormation `AWS::WAFv2::WebACLAssociation`.
@@ -13804,8 +13458,11 @@ type CfnWebACL_XssMatchStatementProperty struct {
 // For Amazon CloudFront , don't use this resource. Instead, use your CloudFront distribution configuration. To associate a web ACL with a distribution, provide the Amazon Resource Name (ARN) of the `WebACL` to your CloudFront distribution configuration. To disassociate a web ACL, provide an empty ARN. For information, see [AWS::CloudFront::Distribution](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
-//   cfnWebACLAssociation := wafv2.NewCfnWebACLAssociation(this, jsii.String("MyCfnWebACLAssociation"), &cfnWebACLAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnWebACLAssociation := awscdk.Aws_wafv2.NewCfnWebACLAssociation(this, jsii.String("MyCfnWebACLAssociation"), &cfnWebACLAssociationProps{
 //   	resourceArn: jsii.String("resourceArn"),
 //   	webAclArn: jsii.String("webAclArn"),
 //   })
@@ -13814,16 +13471,13 @@ type CfnWebACLAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -13834,50 +13488,41 @@ type CfnWebACLAssociation interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
 	//
 	// The ARN must be in one of the following formats:
 	//
-	// - For an Application Load Balancer : `arn:aws:elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+	// - For an Application Load Balancer: `arn:aws:elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
 	// - For an Amazon API Gateway REST API: `arn:aws:apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
-	// - For an AWS AppSync GraphQL API: `arn:aws:appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
-	//
-	// For Amazon CloudFront , define the association in your CloudFront distribution configuration. To associate a web ACL, provide the Amazon Resource Name (ARN) of the `WebACL` to your CloudFront distribution configuration. To disassociate a web ACL, provide an empty ARN. For information, see [AWS::CloudFront::Distribution](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html) .
+	// - For an AWS AppSync GraphQL API: `arn:aws:appsync: *region* : *account-id* :apis/ *GraphQLApiId*`.
 	ResourceArn() *string
 	SetResourceArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
 	WebAclArn() *string
 	SetWebAclArn(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -13886,7 +13531,6 @@ type CfnWebACLAssociation interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -13931,15 +13575,12 @@ type CfnWebACLAssociation interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -13950,13 +13591,11 @@ type CfnWebACLAssociation interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -13965,74 +13604,21 @@ type CfnWebACLAssociation interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -14092,8 +13678,8 @@ func (j *jsiiProxy_CfnWebACLAssociation) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACLAssociation) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnWebACLAssociation) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -14154,13 +13740,13 @@ func (j *jsiiProxy_CfnWebACLAssociation) WebAclArn() *string {
 
 
 // Create a new `AWS::WAFv2::WebACLAssociation`.
-func NewCfnWebACLAssociation(scope awscdk.Construct, id *string, props *CfnWebACLAssociationProps) CfnWebACLAssociation {
+func NewCfnWebACLAssociation(scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) CfnWebACLAssociation {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWebACLAssociation{}
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnWebACLAssociation",
+		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -14169,11 +13755,11 @@ func NewCfnWebACLAssociation(scope awscdk.Construct, id *string, props *CfnWebAC
 }
 
 // Create a new `AWS::WAFv2::WebACLAssociation`.
-func NewCfnWebACLAssociation_Override(c CfnWebACLAssociation, scope awscdk.Construct, id *string, props *CfnWebACLAssociationProps) {
+func NewCfnWebACLAssociation_Override(c CfnWebACLAssociation, scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_wafv2.CfnWebACLAssociation",
+		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -14201,14 +13787,13 @@ func (j *jsiiProxy_CfnWebACLAssociation) SetWebAclArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnWebACLAssociation_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnWebACLAssociation",
+		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -14218,14 +13803,13 @@ func CfnWebACLAssociation_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnWebACLAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnWebACLAssociation",
+		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -14234,15 +13818,17 @@ func CfnWebACLAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnWebACLAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_wafv2.CfnWebACLAssociation",
+		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -14255,7 +13841,7 @@ func CfnWebACLAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_wafv2.CfnWebACLAssociation",
+		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -14352,48 +13938,11 @@ func (c *jsiiProxy_CfnWebACLAssociation) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
-func (c *jsiiProxy_CfnWebACLAssociation) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnWebACLAssociation) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnWebACLAssociation) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnWebACLAssociation) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnWebACLAssociation) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -14423,33 +13972,12 @@ func (c *jsiiProxy_CfnWebACLAssociation) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnWebACLAssociation) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnWebACLAssociation) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnWebACLAssociation) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -14468,7 +13996,10 @@ func (c *jsiiProxy_CfnWebACLAssociation) ValidateProperties(_properties interfac
 // Properties for defining a `CfnWebACLAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnWebACLAssociationProps := &cfnWebACLAssociationProps{
 //   	resourceArn: jsii.String("resourceArn"),
 //   	webAclArn: jsii.String("webAclArn"),
@@ -14479,20 +14010,20 @@ type CfnWebACLAssociationProps struct {
 	//
 	// The ARN must be in one of the following formats:
 	//
-	// - For an Application Load Balancer : `arn:aws:elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
+	// - For an Application Load Balancer: `arn:aws:elasticloadbalancing: *region* : *account-id* :loadbalancer/app/ *load-balancer-name* / *load-balancer-id*`
 	// - For an Amazon API Gateway REST API: `arn:aws:apigateway: *region* ::/restapis/ *api-id* /stages/ *stage-name*`
-	// - For an AWS AppSync GraphQL API: `arn:aws:appsync: *region* : *account-id* :apis/ *GraphQLApiId*`
-	//
-	// For Amazon CloudFront , define the association in your CloudFront distribution configuration. To associate a web ACL, provide the Amazon Resource Name (ARN) of the `WebACL` to your CloudFront distribution configuration. To disassociate a web ACL, provide an empty ARN. For information, see [AWS::CloudFront::Distribution](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html) .
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	// - For an AWS AppSync GraphQL API: `arn:aws:appsync: *region* : *account-id* :apis/ *GraphQLApiId*`.
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
-	WebAclArn *string `json:"webAclArn" yaml:"webAclArn"`
+	WebAclArn *string `field:"required" json:"webAclArn" yaml:"webAclArn"`
 }
 
 // Properties for defining a `CfnWebACL`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafv2 "github.com/aws/aws-cdk-go/awscdk/aws_wafv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
@@ -14505,6 +14036,7 @@ type CfnWebACLAssociationProps struct {
 //   var singleQueryArgument interface{}
 //   var statementProperty_ statementProperty
 //   var uriPath interface{}
+//
 //   cfnWebACLProps := &cfnWebACLProps{
 //   	defaultAction: &defaultActionProperty{
 //   		allow: &allowActionProperty{
@@ -14903,7 +14435,7 @@ type CfnWebACLAssociationProps struct {
 //
 type CfnWebACLProps struct {
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
-	DefaultAction interface{} `json:"defaultAction" yaml:"defaultAction"`
+	DefaultAction interface{} `field:"required" json:"defaultAction" yaml:"defaultAction"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.
 	//
 	// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AWS AppSync GraphQL API. Valid Values are `CLOUDFRONT` and `REGIONAL` .
@@ -14911,13 +14443,13 @@ type CfnWebACLProps struct {
 	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	//
 	// For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
-	VisibilityConfig interface{} `json:"visibilityConfig" yaml:"visibilityConfig"`
+	VisibilityConfig interface{} `field:"required" json:"visibilityConfig" yaml:"visibilityConfig"`
 	// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings.
 	//
 	// If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
-	CaptchaConfig interface{} `json:"captchaConfig" yaml:"captchaConfig"`
+	CaptchaConfig interface{} `field:"optional" json:"captchaConfig" yaml:"captchaConfig"`
 	// A map of custom response keys and content bodies.
 	//
 	// When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
@@ -14925,22 +14457,22 @@ type CfnWebACLProps struct {
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-	CustomResponseBodies interface{} `json:"customResponseBodies" yaml:"customResponseBodies"`
+	CustomResponseBodies interface{} `field:"optional" json:"customResponseBodies" yaml:"customResponseBodies"`
 	// A description of the web ACL that helps with identification.
-	Description *string `json:"description" yaml:"description"`
-	// The descriptive name of the web ACL.
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the web ACL.
 	//
 	// You cannot change the name of a web ACL after you create it.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The rule statements used to identify the web requests that you want to allow, block, or count.
 	//
 	// Each rule includes one top-level statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
-	Rules interface{} `json:"rules" yaml:"rules"`
+	Rules interface{} `field:"optional" json:"rules" yaml:"rules"`
 	// Key:value pairs associated with an AWS resource.
 	//
 	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 	//
 	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

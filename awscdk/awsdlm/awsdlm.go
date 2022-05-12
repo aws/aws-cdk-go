@@ -1,12 +1,12 @@
 package awsdlm
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsdlm/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdlm/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::DLM::LifecyclePolicy`.
@@ -16,8 +16,11 @@ import (
 // The properties are required when you add a lifecycle policy and optional when you update a lifecycle policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
-//   cfnLifecyclePolicy := dlm.NewCfnLifecyclePolicy(this, jsii.String("MyCfnLifecyclePolicy"), &cfnLifecyclePolicyProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLifecyclePolicy := awscdk.Aws_dlm.NewCfnLifecyclePolicy(this, jsii.String("MyCfnLifecyclePolicy"), &cfnLifecyclePolicyProps{
 //   	description: jsii.String("description"),
 //   	executionRoleArn: jsii.String("executionRoleArn"),
 //   	policyDetails: &policyDetailsProperty{
@@ -163,16 +166,13 @@ type CfnLifecyclePolicy interface {
 	// The Amazon Resource Name (ARN) of the lifecycle policy.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A description of the lifecycle policy.
 	//
@@ -191,11 +191,9 @@ type CfnLifecyclePolicy interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The configuration details of the lifecycle policy.
 	PolicyDetails() interface{}
 	SetPolicyDetails(val interface{})
@@ -203,12 +201,10 @@ type CfnLifecyclePolicy interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The activation state of the lifecycle policy.
 	State() *string
@@ -219,16 +215,13 @@ type CfnLifecyclePolicy interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -237,7 +230,6 @@ type CfnLifecyclePolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -282,15 +274,12 @@ type CfnLifecyclePolicy interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -301,13 +290,11 @@ type CfnLifecyclePolicy interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -316,74 +303,21 @@ type CfnLifecyclePolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -473,8 +407,8 @@ func (j *jsiiProxy_CfnLifecyclePolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLifecyclePolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLifecyclePolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -545,13 +479,13 @@ func (j *jsiiProxy_CfnLifecyclePolicy) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::DLM::LifecyclePolicy`.
-func NewCfnLifecyclePolicy(scope awscdk.Construct, id *string, props *CfnLifecyclePolicyProps) CfnLifecyclePolicy {
+func NewCfnLifecyclePolicy(scope constructs.Construct, id *string, props *CfnLifecyclePolicyProps) CfnLifecyclePolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLifecyclePolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_dlm.CfnLifecyclePolicy",
+		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -560,11 +494,11 @@ func NewCfnLifecyclePolicy(scope awscdk.Construct, id *string, props *CfnLifecyc
 }
 
 // Create a new `AWS::DLM::LifecyclePolicy`.
-func NewCfnLifecyclePolicy_Override(c CfnLifecyclePolicy, scope awscdk.Construct, id *string, props *CfnLifecyclePolicyProps) {
+func NewCfnLifecyclePolicy_Override(c CfnLifecyclePolicy, scope constructs.Construct, id *string, props *CfnLifecyclePolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_dlm.CfnLifecyclePolicy",
+		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -608,14 +542,13 @@ func (j *jsiiProxy_CfnLifecyclePolicy) SetState(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLifecyclePolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dlm.CfnLifecyclePolicy",
+		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -625,14 +558,13 @@ func CfnLifecyclePolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLifecyclePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dlm.CfnLifecyclePolicy",
+		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -641,15 +573,17 @@ func CfnLifecyclePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLifecyclePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dlm.CfnLifecyclePolicy",
+		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -662,7 +596,7 @@ func CfnLifecyclePolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_dlm.CfnLifecyclePolicy",
+		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -759,48 +693,11 @@ func (c *jsiiProxy_CfnLifecyclePolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnLifecyclePolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLifecyclePolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLifecyclePolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLifecyclePolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLifecyclePolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -830,33 +727,12 @@ func (c *jsiiProxy_CfnLifecyclePolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLifecyclePolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLifecyclePolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLifecyclePolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -875,7 +751,10 @@ func (c *jsiiProxy_CfnLifecyclePolicy) ValidateProperties(_properties interface{
 // Specifies an action for an event-based policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionProperty := &actionProperty{
 //   	crossRegionCopy: []interface{}{
 //   		&crossRegionCopyActionProperty{
@@ -899,9 +778,9 @@ func (c *jsiiProxy_CfnLifecyclePolicy) ValidateProperties(_properties interface{
 //
 type CfnLifecyclePolicy_ActionProperty struct {
 	// The rule for copying shared snapshots across Regions.
-	CrossRegionCopy interface{} `json:"crossRegionCopy" yaml:"crossRegionCopy"`
+	CrossRegionCopy interface{} `field:"required" json:"crossRegionCopy" yaml:"crossRegionCopy"`
 	// A descriptive name for the action.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // Specifies when to create snapshots of EBS volumes.
@@ -909,7 +788,10 @@ type CfnLifecyclePolicy_ActionProperty struct {
 // You must specify either a Cron expression or an interval, interval unit, and start time. You cannot specify both.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   createRuleProperty := &createRuleProperty{
 //   	cronExpression: jsii.String("cronExpression"),
 //   	interval: jsii.Number(123),
@@ -924,13 +806,13 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 	// The schedule, as a Cron expression.
 	//
 	// The schedule interval must be between 1 hour and 1 year. For more information, see [Cron expressions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions) in the *Amazon CloudWatch User Guide* .
-	CronExpression *string `json:"cronExpression" yaml:"cronExpression"`
+	CronExpression *string `field:"optional" json:"cronExpression" yaml:"cronExpression"`
 	// The interval between snapshots.
 	//
 	// The supported values are 1, 2, 3, 4, 6, 8, 12, and 24.
-	Interval *float64 `json:"interval" yaml:"interval"`
+	Interval *float64 `field:"optional" json:"interval" yaml:"interval"`
 	// The interval unit.
-	IntervalUnit *string `json:"intervalUnit" yaml:"intervalUnit"`
+	IntervalUnit *string `field:"optional" json:"intervalUnit" yaml:"intervalUnit"`
 	// Specifies the destination for snapshots created by the policy.
 	//
 	// To create snapshots in the same Region as the source resource, specify `CLOUD` . To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL` . If you omit this parameter, `CLOUD` is used by default.
@@ -938,17 +820,20 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 	// If the policy targets resources in an AWS Region , then you must create snapshots in the same Region as the source resource.
 	//
 	// If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost.
-	Location *string `json:"location" yaml:"location"`
+	Location *string `field:"optional" json:"location" yaml:"location"`
 	// The time, in UTC, to start the operation. The supported format is hh:mm.
 	//
 	// The operation occurs within a one-hour window following the specified time. If you do not specify a time, Amazon DLM selects a time within the next 24 hours.
-	Times *[]*string `json:"times" yaml:"times"`
+	Times *[]*string `field:"optional" json:"times" yaml:"times"`
 }
 
 // Specifies a rule for copying shared snapshots across Regions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   crossRegionCopyActionProperty := &crossRegionCopyActionProperty{
 //   	encryptionConfiguration: &encryptionConfigurationProperty{
 //   		encrypted: jsii.Boolean(false),
@@ -967,17 +852,20 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 //
 type CfnLifecyclePolicy_CrossRegionCopyActionProperty struct {
 	// The encryption settings for the copied snapshot.
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `field:"required" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The target Region.
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"required" json:"target" yaml:"target"`
 	// Specifies the retention rule for cross-Region snapshot copies.
-	RetainRule interface{} `json:"retainRule" yaml:"retainRule"`
+	RetainRule interface{} `field:"optional" json:"retainRule" yaml:"retainRule"`
 }
 
 // Specifies an AMI deprecation rule for cross-Region AMI copies created by a cross-Region copy rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   crossRegionCopyDeprecateRuleProperty := &crossRegionCopyDeprecateRuleProperty{
 //   	interval: jsii.Number(123),
 //   	intervalUnit: jsii.String("intervalUnit"),
@@ -987,15 +875,18 @@ type CfnLifecyclePolicy_CrossRegionCopyDeprecateRuleProperty struct {
 	// The period after which to deprecate the cross-Region AMI copies.
 	//
 	// The period must be less than or equal to the cross-Region AMI copy retention period, and it can't be greater than 10 years. This is equivalent to 120 months, 520 weeks, or 3650 days.
-	Interval *float64 `json:"interval" yaml:"interval"`
+	Interval *float64 `field:"required" json:"interval" yaml:"interval"`
 	// The unit of time in which to measure the *Interval* .
-	IntervalUnit *string `json:"intervalUnit" yaml:"intervalUnit"`
+	IntervalUnit *string `field:"required" json:"intervalUnit" yaml:"intervalUnit"`
 }
 
 // Specifies the retention rule for cross-Region snapshot copies.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   crossRegionCopyRetainRuleProperty := &crossRegionCopyRetainRuleProperty{
 //   	interval: jsii.Number(123),
 //   	intervalUnit: jsii.String("intervalUnit"),
@@ -1005,15 +896,18 @@ type CfnLifecyclePolicy_CrossRegionCopyRetainRuleProperty struct {
 	// The amount of time to retain each snapshot.
 	//
 	// The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-	Interval *float64 `json:"interval" yaml:"interval"`
+	Interval *float64 `field:"required" json:"interval" yaml:"interval"`
 	// The unit of time for time-based retention.
-	IntervalUnit *string `json:"intervalUnit" yaml:"intervalUnit"`
+	IntervalUnit *string `field:"required" json:"intervalUnit" yaml:"intervalUnit"`
 }
 
 // Specifies a rule for cross-Region snapshot copies.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   crossRegionCopyRuleProperty := &crossRegionCopyRuleProperty{
 //   	encrypted: jsii.Boolean(false),
 //
@@ -1036,33 +930,36 @@ type CfnLifecyclePolicy_CrossRegionCopyRuleProperty struct {
 	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter.
 	//
 	// Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
-	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
+	Encrypted interface{} `field:"required" json:"encrypted" yaml:"encrypted"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption.
 	//
 	// If this parameter is not specified, the default KMS key for the account is used.
-	CmkArn *string `json:"cmkArn" yaml:"cmkArn"`
+	CmkArn *string `field:"optional" json:"cmkArn" yaml:"cmkArn"`
 	// Indicates whether to copy all user-defined tags from the source snapshot to the cross-Region snapshot copy.
-	CopyTags interface{} `json:"copyTags" yaml:"copyTags"`
+	CopyTags interface{} `field:"optional" json:"copyTags" yaml:"copyTags"`
 	// The AMI deprecation rule for cross-Region AMI copies created by the rule.
-	DeprecateRule interface{} `json:"deprecateRule" yaml:"deprecateRule"`
+	DeprecateRule interface{} `field:"optional" json:"deprecateRule" yaml:"deprecateRule"`
 	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region.
-	RetainRule interface{} `json:"retainRule" yaml:"retainRule"`
+	RetainRule interface{} `field:"optional" json:"retainRule" yaml:"retainRule"`
 	// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
 	//
 	// Use this parameter instead of *TargetRegion* . Do not specify both.
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"optional" json:"target" yaml:"target"`
 	// Avoid using this parameter when creating new policies.
 	//
 	// Instead, use *Target* to specify a target Region or a target Outpost for snapshot copies.
 	//
 	// For policies created before the *Target* parameter was introduced, this parameter indicates the target Region for snapshot copies.
-	TargetRegion *string `json:"targetRegion" yaml:"targetRegion"`
+	TargetRegion *string `field:"optional" json:"targetRegion" yaml:"targetRegion"`
 }
 
 // Specifies an AMI deprecation rule for a schedule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deprecateRuleProperty := &deprecateRuleProperty{
 //   	count: jsii.Number(123),
 //   	interval: jsii.Number(123),
@@ -1073,19 +970,22 @@ type CfnLifecyclePolicy_DeprecateRuleProperty struct {
 	// If the schedule has a count-based retention rule, this parameter specifies the number of oldest AMIs to deprecate.
 	//
 	// The count must be less than or equal to the schedule's retention count, and it can't be greater than 1000.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// If the schedule has an age-based retention rule, this parameter specifies the period after which to deprecate AMIs created by the schedule.
 	//
 	// The period must be less than or equal to the schedule's retention period, and it can't be greater than 10 years. This is equivalent to 120 months, 520 weeks, or 3650 days.
-	Interval *float64 `json:"interval" yaml:"interval"`
+	Interval *float64 `field:"optional" json:"interval" yaml:"interval"`
 	// The unit of time in which to measure the *Interval* .
-	IntervalUnit *string `json:"intervalUnit" yaml:"intervalUnit"`
+	IntervalUnit *string `field:"optional" json:"intervalUnit" yaml:"intervalUnit"`
 }
 
 // Specifies the encryption settings for shared snapshots that are copied across Regions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionConfigurationProperty := &encryptionConfigurationProperty{
 //   	encrypted: jsii.Boolean(false),
 //
@@ -1097,17 +997,20 @@ type CfnLifecyclePolicy_EncryptionConfigurationProperty struct {
 	// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter.
 	//
 	// Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
-	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
+	Encrypted interface{} `field:"required" json:"encrypted" yaml:"encrypted"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption.
 	//
 	// If this parameter is not specified, the default KMS key for the account is used.
-	CmkArn *string `json:"cmkArn" yaml:"cmkArn"`
+	CmkArn *string `field:"optional" json:"cmkArn" yaml:"cmkArn"`
 }
 
 // Specifies an event that triggers an event-based policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventParametersProperty := &eventParametersProperty{
 //   	eventType: jsii.String("eventType"),
 //   	snapshotOwner: []*string{
@@ -1122,23 +1025,26 @@ type CfnLifecyclePolicy_EventParametersProperty struct {
 	// The type of event.
 	//
 	// Currently, only snapshot sharing events are supported.
-	EventType *string `json:"eventType" yaml:"eventType"`
+	EventType *string `field:"required" json:"eventType" yaml:"eventType"`
 	// The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account.
 	//
 	// The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
-	SnapshotOwner *[]*string `json:"snapshotOwner" yaml:"snapshotOwner"`
+	SnapshotOwner *[]*string `field:"required" json:"snapshotOwner" yaml:"snapshotOwner"`
 	// The snapshot description that can trigger the policy.
 	//
 	// The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
 	//
 	// For example, specifying `^.*Created for policy: policy-1234567890abcdef0.*$` configures the policy to run only if snapshots created by policy `policy-1234567890abcdef0` are shared with your account.
-	DescriptionRegex *string `json:"descriptionRegex" yaml:"descriptionRegex"`
+	DescriptionRegex *string `field:"optional" json:"descriptionRegex" yaml:"descriptionRegex"`
 }
 
 // Specifies an event that triggers an event-based policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventSourceProperty := &eventSourceProperty{
 //   	type: jsii.String("type"),
 //
@@ -1158,9 +1064,9 @@ type CfnLifecyclePolicy_EventSourceProperty struct {
 	// The source of the event.
 	//
 	// Currently only managed CloudWatch Events rules are supported.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Information about the event.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 
 // Specifies a rule for enabling fast snapshot restore.
@@ -1168,7 +1074,10 @@ type CfnLifecyclePolicy_EventSourceProperty struct {
 // You can enable fast snapshot restore based on either a count or a time interval.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fastRestoreRuleProperty := &fastRestoreRuleProperty{
 //   	availabilityZones: []*string{
 //   		jsii.String("availabilityZones"),
@@ -1180,15 +1089,15 @@ type CfnLifecyclePolicy_EventSourceProperty struct {
 //
 type CfnLifecyclePolicy_FastRestoreRuleProperty struct {
 	// The Availability Zones in which to enable fast snapshot restore.
-	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
+	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
 	// The number of snapshots to be enabled with fast snapshot restore.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// The amount of time to enable fast snapshot restore.
 	//
 	// The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-	Interval *float64 `json:"interval" yaml:"interval"`
+	Interval *float64 `field:"optional" json:"interval" yaml:"interval"`
 	// The unit of time for enabling fast snapshot restore.
-	IntervalUnit *string `json:"intervalUnit" yaml:"intervalUnit"`
+	IntervalUnit *string `field:"optional" json:"intervalUnit" yaml:"intervalUnit"`
 }
 
 // Specifies optional parameters to add to a policy.
@@ -1196,7 +1105,10 @@ type CfnLifecyclePolicy_FastRestoreRuleProperty struct {
 // The set of valid parameters depends on the combination of policy type and resource type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   parametersProperty := &parametersProperty{
 //   	excludeBootVolume: jsii.Boolean(false),
 //   	noReboot: jsii.Boolean(false),
@@ -1204,17 +1116,20 @@ type CfnLifecyclePolicy_FastRestoreRuleProperty struct {
 //
 type CfnLifecyclePolicy_ParametersProperty struct {
 	// [EBS Snapshot Management – Instance policies only] Indicates whether to exclude the root volume from snapshots created using [CreateSnapshots](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSnapshots.html) . The default is false.
-	ExcludeBootVolume interface{} `json:"excludeBootVolume" yaml:"excludeBootVolume"`
+	ExcludeBootVolume interface{} `field:"optional" json:"excludeBootVolume" yaml:"excludeBootVolume"`
 	// Applies to AMI lifecycle policies only.
 	//
 	// Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
-	NoReboot interface{} `json:"noReboot" yaml:"noReboot"`
+	NoReboot interface{} `field:"optional" json:"noReboot" yaml:"noReboot"`
 }
 
 // Specifies the configuration of a lifecycle policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   policyDetailsProperty := &policyDetailsProperty{
 //   	actions: []interface{}{
 //   		&actionProperty{
@@ -1348,45 +1263,45 @@ type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 	// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy.
 	//
 	// This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.
-	Actions interface{} `json:"actions" yaml:"actions"`
+	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 	// The event that triggers the event-based policy.
 	//
 	// This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.
-	EventSource interface{} `json:"eventSource" yaml:"eventSource"`
+	EventSource interface{} `field:"optional" json:"eventSource" yaml:"eventSource"`
 	// A set of optional parameters for snapshot and AMI lifecycle policies.
 	//
 	// This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.
 	//
 	// > If you are modifying a policy that was created or previously modified using the Amazon Data Lifecycle Manager console, then you must include this parameter and specify either the default values or the new values that you require. You can't omit this parameter or set its values to null.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The valid target resource types and actions a policy can manage.
 	//
 	// Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account .
 	//
 	// The default is `EBS_SNAPSHOT_MANAGEMENT` .
-	PolicyType *string `json:"policyType" yaml:"policyType"`
+	PolicyType *string `field:"optional" json:"policyType" yaml:"policyType"`
 	// The location of the resources to backup.
 	//
 	// If the source resources are located in an AWS Region , specify `CLOUD` . If the source resources are located on an Outpost in your account, specify `OUTPOST` .
 	//
 	// If you specify `OUTPOST` , Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account.
-	ResourceLocations *[]*string `json:"resourceLocations" yaml:"resourceLocations"`
+	ResourceLocations *[]*string `field:"optional" json:"resourceLocations" yaml:"resourceLocations"`
 	// The target resource type for snapshot and AMI lifecycle policies.
 	//
 	// Use `VOLUME` to create snapshots of individual volumes or use `INSTANCE` to create multi-volume snapshots from the volumes for an instance.
 	//
 	// This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.
-	ResourceTypes *[]*string `json:"resourceTypes" yaml:"resourceTypes"`
+	ResourceTypes *[]*string `field:"optional" json:"resourceTypes" yaml:"resourceTypes"`
 	// The schedules of policy-defined actions for snapshot and AMI lifecycle policies.
 	//
 	// A policy can have up to four schedules—one mandatory schedule and up to three optional schedules.
 	//
 	// This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.
-	Schedules interface{} `json:"schedules" yaml:"schedules"`
+	Schedules interface{} `field:"optional" json:"schedules" yaml:"schedules"`
 	// The single tag that identifies targeted resources for this policy.
 	//
 	// This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.
-	TargetTags interface{} `json:"targetTags" yaml:"targetTags"`
+	TargetTags interface{} `field:"optional" json:"targetTags" yaml:"targetTags"`
 }
 
 // Specifies the retention rule for a lifecycle policy.
@@ -1394,7 +1309,10 @@ type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 // You can retain snapshots based on either a count or a time interval.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   retainRuleProperty := &retainRuleProperty{
 //   	count: jsii.Number(123),
 //   	interval: jsii.Number(123),
@@ -1403,19 +1321,22 @@ type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 //
 type CfnLifecyclePolicy_RetainRuleProperty struct {
 	// The number of snapshots to retain for each volume, up to a maximum of 1000.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// The amount of time to retain each snapshot.
 	//
 	// The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-	Interval *float64 `json:"interval" yaml:"interval"`
+	Interval *float64 `field:"optional" json:"interval" yaml:"interval"`
 	// The unit of time for time-based retention.
-	IntervalUnit *string `json:"intervalUnit" yaml:"intervalUnit"`
+	IntervalUnit *string `field:"optional" json:"intervalUnit" yaml:"intervalUnit"`
 }
 
 // Specifies a backup schedule for a snapshot or AMI lifecycle policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scheduleProperty := &scheduleProperty{
 //   	copyTags: jsii.Boolean(false),
 //   	createRule: &createRuleProperty{
@@ -1490,37 +1411,40 @@ type CfnLifecyclePolicy_RetainRuleProperty struct {
 //
 type CfnLifecyclePolicy_ScheduleProperty struct {
 	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
-	CopyTags interface{} `json:"copyTags" yaml:"copyTags"`
+	CopyTags interface{} `field:"optional" json:"copyTags" yaml:"copyTags"`
 	// The creation rule.
-	CreateRule interface{} `json:"createRule" yaml:"createRule"`
+	CreateRule interface{} `field:"optional" json:"createRule" yaml:"createRule"`
 	// The rule for cross-Region snapshot copies.
 	//
 	// You can only specify cross-Region copy rules for policies that create snapshots in a Region. If the policy creates snapshots on an Outpost, then you cannot copy the snapshots to a Region or to an Outpost. If the policy creates snapshots in a Region, then snapshots can be copied to up to three Regions or Outposts.
-	CrossRegionCopyRules interface{} `json:"crossRegionCopyRules" yaml:"crossRegionCopyRules"`
+	CrossRegionCopyRules interface{} `field:"optional" json:"crossRegionCopyRules" yaml:"crossRegionCopyRules"`
 	// The AMI deprecation rule for the schedule.
-	DeprecateRule interface{} `json:"deprecateRule" yaml:"deprecateRule"`
+	DeprecateRule interface{} `field:"optional" json:"deprecateRule" yaml:"deprecateRule"`
 	// The rule for enabling fast snapshot restore.
-	FastRestoreRule interface{} `json:"fastRestoreRule" yaml:"fastRestoreRule"`
+	FastRestoreRule interface{} `field:"optional" json:"fastRestoreRule" yaml:"fastRestoreRule"`
 	// The name of the schedule.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The retention rule.
-	RetainRule interface{} `json:"retainRule" yaml:"retainRule"`
+	RetainRule interface{} `field:"optional" json:"retainRule" yaml:"retainRule"`
 	// The rule for sharing snapshots with other AWS accounts .
-	ShareRules interface{} `json:"shareRules" yaml:"shareRules"`
+	ShareRules interface{} `field:"optional" json:"shareRules" yaml:"shareRules"`
 	// The tags to apply to policy-created resources.
 	//
 	// These user-defined tags are in addition to the AWS -added lifecycle tags.
-	TagsToAdd interface{} `json:"tagsToAdd" yaml:"tagsToAdd"`
+	TagsToAdd interface{} `field:"optional" json:"tagsToAdd" yaml:"tagsToAdd"`
 	// A collection of key/value pairs with values determined dynamically when the policy is executed.
 	//
 	// Keys may be any valid Amazon EC2 tag key. Values must be in one of the two following formats: `$(instance-id)` or `$(timestamp)` . Variable tags are only valid for EBS Snapshot Management – Instance policies.
-	VariableTags interface{} `json:"variableTags" yaml:"variableTags"`
+	VariableTags interface{} `field:"optional" json:"variableTags" yaml:"variableTags"`
 }
 
 // Specifies a rule for sharing snapshots across AWS accounts .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   shareRuleProperty := &shareRuleProperty{
 //   	targetAccounts: []*string{
 //   		jsii.String("targetAccounts"),
@@ -1531,17 +1455,20 @@ type CfnLifecyclePolicy_ScheduleProperty struct {
 //
 type CfnLifecyclePolicy_ShareRuleProperty struct {
 	// The IDs of the AWS accounts with which to share the snapshots.
-	TargetAccounts *[]*string `json:"targetAccounts" yaml:"targetAccounts"`
+	TargetAccounts *[]*string `field:"optional" json:"targetAccounts" yaml:"targetAccounts"`
 	// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-	UnshareInterval *float64 `json:"unshareInterval" yaml:"unshareInterval"`
+	UnshareInterval *float64 `field:"optional" json:"unshareInterval" yaml:"unshareInterval"`
 	// The unit of time for the automatic unsharing interval.
-	UnshareIntervalUnit *string `json:"unshareIntervalUnit" yaml:"unshareIntervalUnit"`
+	UnshareIntervalUnit *string `field:"optional" json:"unshareIntervalUnit" yaml:"unshareIntervalUnit"`
 }
 
 // Properties for defining a `CfnLifecyclePolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dlm "github.com/aws/aws-cdk-go/awscdk/aws_dlm"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLifecyclePolicyProps := &cfnLifecyclePolicyProps{
 //   	description: jsii.String("description"),
 //   	executionRoleArn: jsii.String("executionRoleArn"),
@@ -1686,14 +1613,14 @@ type CfnLifecyclePolicyProps struct {
 	// A description of the lifecycle policy.
 	//
 	// The characters ^[0-9A-Za-z _-]+$ are supported.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.
-	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The configuration details of the lifecycle policy.
-	PolicyDetails interface{} `json:"policyDetails" yaml:"policyDetails"`
+	PolicyDetails interface{} `field:"optional" json:"policyDetails" yaml:"policyDetails"`
 	// The activation state of the lifecycle policy.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 	// The tags to apply to the lifecycle policy during creation.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -1,13 +1,13 @@
 package awsglobalacceleratorendpoints
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalaccelerator"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalacceleratorendpoints/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalacceleratorendpoints/internal"
 )
 
 // Use an Application Load Balancer as a Global Accelerator Endpoint.
@@ -15,6 +15,7 @@ import (
 // Example:
 //   var alb applicationLoadBalancer
 //   var listener listener
+//
 //
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
@@ -25,16 +26,13 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type ApplicationLoadBalancerEndpoint interface {
 	awsglobalaccelerator.IEndpoint
 	// The region where the endpoint is located.
 	//
 	// If the region cannot be determined, `undefined` is returned.
-	// Experimental.
 	Region() *string
 	// Render the endpoint to an endpoint configuration.
-	// Experimental.
 	RenderEndpointConfiguration() interface{}
 }
 
@@ -54,14 +52,13 @@ func (j *jsiiProxy_ApplicationLoadBalancerEndpoint) Region() *string {
 }
 
 
-// Experimental.
 func NewApplicationLoadBalancerEndpoint(loadBalancer awselasticloadbalancingv2.IApplicationLoadBalancer, options *ApplicationLoadBalancerEndpointOptions) ApplicationLoadBalancerEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_ApplicationLoadBalancerEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
 		[]interface{}{loadBalancer, options},
 		&j,
 	)
@@ -69,12 +66,11 @@ func NewApplicationLoadBalancerEndpoint(loadBalancer awselasticloadbalancingv2.I
 	return &j
 }
 
-// Experimental.
 func NewApplicationLoadBalancerEndpoint_Override(a ApplicationLoadBalancerEndpoint, loadBalancer awselasticloadbalancingv2.IApplicationLoadBalancer, options *ApplicationLoadBalancerEndpointOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
 		[]interface{}{loadBalancer, options},
 		a,
 	)
@@ -99,6 +95,7 @@ func (a *jsiiProxy_ApplicationLoadBalancerEndpoint) RenderEndpointConfiguration(
 //   var alb applicationLoadBalancer
 //   var listener listener
 //
+//
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
 //   		ga_endpoints.NewApplicationLoadBalancerEndpoint(alb, &applicationLoadBalancerEndpointOptions{
@@ -108,7 +105,6 @@ func (a *jsiiProxy_ApplicationLoadBalancerEndpoint) RenderEndpointConfiguration(
 //   	},
 //   })
 //
-// Experimental.
 type ApplicationLoadBalancerEndpointOptions struct {
 	// Forward the client IP address in an `X-Forwarded-For` header.
 	//
@@ -117,13 +113,11 @@ type ApplicationLoadBalancerEndpointOptions struct {
 	//
 	// Client IP address preservation is supported only in specific AWS Regions.
 	// See the GlobalAccelerator Developer Guide for a list.
-	// Experimental.
-	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
+	PreserveClientIp *bool `field:"optional" json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
-	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // Use an EC2 Instance as a Global Accelerator Endpoint.
@@ -131,6 +125,7 @@ type ApplicationLoadBalancerEndpointOptions struct {
 // Example:
 //   var listener listener
 //   var eip cfnEIP
+//
 //
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
@@ -140,16 +135,13 @@ type ApplicationLoadBalancerEndpointOptions struct {
 //   	},
 //   })
 //
-// Experimental.
 type CfnEipEndpoint interface {
 	awsglobalaccelerator.IEndpoint
 	// The region where the endpoint is located.
 	//
 	// If the region cannot be determined, `undefined` is returned.
-	// Experimental.
 	Region() *string
 	// Render the endpoint to an endpoint configuration.
-	// Experimental.
 	RenderEndpointConfiguration() interface{}
 }
 
@@ -169,14 +161,13 @@ func (j *jsiiProxy_CfnEipEndpoint) Region() *string {
 }
 
 
-// Experimental.
 func NewCfnEipEndpoint(eip awsec2.CfnEIP, options *CfnEipEndpointProps) CfnEipEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEipEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.CfnEipEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.CfnEipEndpoint",
 		[]interface{}{eip, options},
 		&j,
 	)
@@ -184,12 +175,11 @@ func NewCfnEipEndpoint(eip awsec2.CfnEIP, options *CfnEipEndpointProps) CfnEipEn
 	return &j
 }
 
-// Experimental.
 func NewCfnEipEndpoint_Override(c CfnEipEndpoint, eip awsec2.CfnEIP, options *CfnEipEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.CfnEipEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.CfnEipEndpoint",
 		[]interface{}{eip, options},
 		c,
 	)
@@ -214,6 +204,7 @@ func (c *jsiiProxy_CfnEipEndpoint) RenderEndpointConfiguration() interface{} {
 //   var listener listener
 //   var eip cfnEIP
 //
+//
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
 //   		ga_endpoints.NewCfnEipEndpoint(eip, &cfnEipEndpointProps{
@@ -222,13 +213,11 @@ func (c *jsiiProxy_CfnEipEndpoint) RenderEndpointConfiguration() interface{} {
 //   	},
 //   })
 //
-// Experimental.
 type CfnEipEndpointProps struct {
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
-	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // Use an EC2 Instance as a Global Accelerator Endpoint.
@@ -236,6 +225,7 @@ type CfnEipEndpointProps struct {
 // Example:
 //   var listener listener
 //   var instance instance
+//
 //
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
@@ -246,16 +236,13 @@ type CfnEipEndpointProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type InstanceEndpoint interface {
 	awsglobalaccelerator.IEndpoint
 	// The region where the endpoint is located.
 	//
 	// If the region cannot be determined, `undefined` is returned.
-	// Experimental.
 	Region() *string
 	// Render the endpoint to an endpoint configuration.
-	// Experimental.
 	RenderEndpointConfiguration() interface{}
 }
 
@@ -275,14 +262,13 @@ func (j *jsiiProxy_InstanceEndpoint) Region() *string {
 }
 
 
-// Experimental.
 func NewInstanceEndpoint(instance awsec2.IInstance, options *InstanceEndpointProps) InstanceEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_InstanceEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.InstanceEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.InstanceEndpoint",
 		[]interface{}{instance, options},
 		&j,
 	)
@@ -290,12 +276,11 @@ func NewInstanceEndpoint(instance awsec2.IInstance, options *InstanceEndpointPro
 	return &j
 }
 
-// Experimental.
 func NewInstanceEndpoint_Override(i InstanceEndpoint, instance awsec2.IInstance, options *InstanceEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.InstanceEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.InstanceEndpoint",
 		[]interface{}{instance, options},
 		i,
 	)
@@ -320,6 +305,7 @@ func (i *jsiiProxy_InstanceEndpoint) RenderEndpointConfiguration() interface{} {
 //   var listener listener
 //   var instance instance
 //
+//
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
 //   		ga_endpoints.NewInstanceEndpoint(instance, &instanceEndpointProps{
@@ -329,7 +315,6 @@ func (i *jsiiProxy_InstanceEndpoint) RenderEndpointConfiguration() interface{} {
 //   	},
 //   })
 //
-// Experimental.
 type InstanceEndpointProps struct {
 	// Forward the client IP address.
 	//
@@ -338,13 +323,11 @@ type InstanceEndpointProps struct {
 	//
 	// Client IP address preservation is supported only in specific AWS Regions.
 	// See the GlobalAccelerator Developer Guide for a list.
-	// Experimental.
-	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
+	PreserveClientIp *bool `field:"optional" json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
-	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // Use a Network Load Balancer as a Global Accelerator Endpoint.
@@ -388,16 +371,13 @@ type InstanceEndpointProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type NetworkLoadBalancerEndpoint interface {
 	awsglobalaccelerator.IEndpoint
 	// The region where the endpoint is located.
 	//
 	// If the region cannot be determined, `undefined` is returned.
-	// Experimental.
 	Region() *string
 	// Render the endpoint to an endpoint configuration.
-	// Experimental.
 	RenderEndpointConfiguration() interface{}
 }
 
@@ -417,14 +397,13 @@ func (j *jsiiProxy_NetworkLoadBalancerEndpoint) Region() *string {
 }
 
 
-// Experimental.
 func NewNetworkLoadBalancerEndpoint(loadBalancer awselasticloadbalancingv2.INetworkLoadBalancer, options *NetworkLoadBalancerEndpointProps) NetworkLoadBalancerEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_NetworkLoadBalancerEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
 		[]interface{}{loadBalancer, options},
 		&j,
 	)
@@ -432,12 +411,11 @@ func NewNetworkLoadBalancerEndpoint(loadBalancer awselasticloadbalancingv2.INetw
 	return &j
 }
 
-// Experimental.
 func NewNetworkLoadBalancerEndpoint_Override(n NetworkLoadBalancerEndpoint, loadBalancer awselasticloadbalancingv2.INetworkLoadBalancer, options *NetworkLoadBalancerEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
 		[]interface{}{loadBalancer, options},
 		n,
 	)
@@ -462,6 +440,7 @@ func (n *jsiiProxy_NetworkLoadBalancerEndpoint) RenderEndpointConfiguration() in
 //   var nlb networkLoadBalancer
 //   var listener listener
 //
+//
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
 //   		ga_endpoints.NewNetworkLoadBalancerEndpoint(nlb, &networkLoadBalancerEndpointProps{
@@ -470,12 +449,10 @@ func (n *jsiiProxy_NetworkLoadBalancerEndpoint) RenderEndpointConfiguration() in
 //   	},
 //   })
 //
-// Experimental.
 type NetworkLoadBalancerEndpointProps struct {
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
-	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

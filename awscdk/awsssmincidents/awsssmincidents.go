@@ -1,12 +1,12 @@
 package awsssmincidents
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsssmincidents/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsssmincidents/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::SSMIncidents::ReplicationSet`.
@@ -14,8 +14,11 @@ import (
 // The `AWS::SSMIncidents::ReplicationSet` resource specifies a set of Regions that Incident Manager data is replicated to and the KMS key used to encrypt the data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
-//   cfnReplicationSet := ssmincidents.NewCfnReplicationSet(this, jsii.String("MyCfnReplicationSet"), &cfnReplicationSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnReplicationSet := awscdk.Aws_ssmincidents.NewCfnReplicationSet(this, jsii.String("MyCfnReplicationSet"), &cfnReplicationSetProps{
 //   	regions: []interface{}{
 //   		&replicationRegionProperty{
 //   			regionConfiguration: &regionConfigurationProperty{
@@ -34,16 +37,13 @@ type CfnReplicationSet interface {
 	awscdk.IInspectable
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Determines if the replication set deletion protection is enabled or not.
 	//
@@ -59,16 +59,13 @@ type CfnReplicationSet interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Specifies the Regions of the replication set.
 	Regions() interface{}
@@ -76,22 +73,18 @@ type CfnReplicationSet interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -100,7 +93,6 @@ type CfnReplicationSet interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -145,15 +137,12 @@ type CfnReplicationSet interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -164,13 +153,11 @@ type CfnReplicationSet interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -179,74 +166,21 @@ type CfnReplicationSet interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -326,8 +260,8 @@ func (j *jsiiProxy_CfnReplicationSet) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReplicationSet) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnReplicationSet) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -378,13 +312,13 @@ func (j *jsiiProxy_CfnReplicationSet) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::SSMIncidents::ReplicationSet`.
-func NewCfnReplicationSet(scope awscdk.Construct, id *string, props *CfnReplicationSetProps) CfnReplicationSet {
+func NewCfnReplicationSet(scope constructs.Construct, id *string, props *CfnReplicationSetProps) CfnReplicationSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnReplicationSet{}
 
 	_jsii_.Create(
-		"monocdk.aws_ssmincidents.CfnReplicationSet",
+		"aws-cdk-lib.aws_ssmincidents.CfnReplicationSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -393,11 +327,11 @@ func NewCfnReplicationSet(scope awscdk.Construct, id *string, props *CfnReplicat
 }
 
 // Create a new `AWS::SSMIncidents::ReplicationSet`.
-func NewCfnReplicationSet_Override(c CfnReplicationSet, scope awscdk.Construct, id *string, props *CfnReplicationSetProps) {
+func NewCfnReplicationSet_Override(c CfnReplicationSet, scope constructs.Construct, id *string, props *CfnReplicationSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ssmincidents.CfnReplicationSet",
+		"aws-cdk-lib.aws_ssmincidents.CfnReplicationSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -425,14 +359,13 @@ func (j *jsiiProxy_CfnReplicationSet) SetRegions(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnReplicationSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmincidents.CfnReplicationSet",
+		"aws-cdk-lib.aws_ssmincidents.CfnReplicationSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -442,14 +375,13 @@ func CfnReplicationSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnReplicationSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmincidents.CfnReplicationSet",
+		"aws-cdk-lib.aws_ssmincidents.CfnReplicationSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -458,15 +390,17 @@ func CfnReplicationSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnReplicationSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmincidents.CfnReplicationSet",
+		"aws-cdk-lib.aws_ssmincidents.CfnReplicationSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -479,7 +413,7 @@ func CfnReplicationSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ssmincidents.CfnReplicationSet",
+		"aws-cdk-lib.aws_ssmincidents.CfnReplicationSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -576,48 +510,11 @@ func (c *jsiiProxy_CfnReplicationSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnReplicationSet) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnReplicationSet) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnReplicationSet) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnReplicationSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnReplicationSet) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -647,33 +544,12 @@ func (c *jsiiProxy_CfnReplicationSet) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnReplicationSet) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnReplicationSet) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnReplicationSet) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -692,20 +568,26 @@ func (c *jsiiProxy_CfnReplicationSet) ValidateProperties(_properties interface{}
 // The `RegionConfiguration` property specifies the Region and KMS key to add to the replication set.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   regionConfigurationProperty := &regionConfigurationProperty{
 //   	sseKmsKeyId: jsii.String("sseKmsKeyId"),
 //   }
 //
 type CfnReplicationSet_RegionConfigurationProperty struct {
 	// The KMS key ID to use to encrypt your replication set.
-	SseKmsKeyId *string `json:"sseKmsKeyId" yaml:"sseKmsKeyId"`
+	SseKmsKeyId *string `field:"required" json:"sseKmsKeyId" yaml:"sseKmsKeyId"`
 }
 
 // The `ReplicationRegion` property type specifies the Region and KMS key to add to the replication set.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   replicationRegionProperty := &replicationRegionProperty{
 //   	regionConfiguration: &regionConfigurationProperty{
 //   		sseKmsKeyId: jsii.String("sseKmsKeyId"),
@@ -715,15 +597,18 @@ type CfnReplicationSet_RegionConfigurationProperty struct {
 //
 type CfnReplicationSet_ReplicationRegionProperty struct {
 	// Specifies the Region configuration.
-	RegionConfiguration interface{} `json:"regionConfiguration" yaml:"regionConfiguration"`
+	RegionConfiguration interface{} `field:"optional" json:"regionConfiguration" yaml:"regionConfiguration"`
 	// Specifies the region name to add to the replication set.
-	RegionName *string `json:"regionName" yaml:"regionName"`
+	RegionName *string `field:"optional" json:"regionName" yaml:"regionName"`
 }
 
 // Properties for defining a `CfnReplicationSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnReplicationSetProps := &cfnReplicationSetProps{
 //   	regions: []interface{}{
 //   		&replicationRegionProperty{
@@ -740,11 +625,11 @@ type CfnReplicationSet_ReplicationRegionProperty struct {
 //
 type CfnReplicationSetProps struct {
 	// Specifies the Regions of the replication set.
-	Regions interface{} `json:"regions" yaml:"regions"`
+	Regions interface{} `field:"required" json:"regions" yaml:"regions"`
 	// Determines if the replication set deletion protection is enabled or not.
 	//
 	// If deletion protection is enabled, you can't delete the last Region in the replication set.
-	DeletionProtected interface{} `json:"deletionProtected" yaml:"deletionProtected"`
+	DeletionProtected interface{} `field:"optional" json:"deletionProtected" yaml:"deletionProtected"`
 }
 
 // A CloudFormation `AWS::SSMIncidents::ResponsePlan`.
@@ -752,8 +637,11 @@ type CfnReplicationSetProps struct {
 // The `AWS::SSMIncidents::ResponsePlan` resource specifies the details of the response plan that are used when creating an incident.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
-//   cfnResponsePlan := ssmincidents.NewCfnResponsePlan(this, jsii.String("MyCfnResponsePlan"), &cfnResponsePlanProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResponsePlan := awscdk.Aws_ssmincidents.NewCfnResponsePlan(this, jsii.String("MyCfnResponsePlan"), &cfnResponsePlanProps{
 //   	incidentTemplate: &incidentTemplateProperty{
 //   		impact: jsii.Number(123),
 //   		title: jsii.String("title"),
@@ -815,11 +703,9 @@ type CfnResponsePlan interface {
 	SetActions(val interface{})
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The AWS Chatbot chat channel used for collaboration during an incident.
 	ChatChannel() interface{}
@@ -827,7 +713,6 @@ type CfnResponsePlan interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The human readable name of the response plan.
 	DisplayName() *string
@@ -847,24 +732,20 @@ type CfnResponsePlan interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the response plan.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -874,16 +755,13 @@ type CfnResponsePlan interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -892,7 +770,6 @@ type CfnResponsePlan interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -937,15 +814,12 @@ type CfnResponsePlan interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -956,13 +830,11 @@ type CfnResponsePlan interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -971,74 +843,21 @@ type CfnResponsePlan interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1168,8 +987,8 @@ func (j *jsiiProxy_CfnResponsePlan) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResponsePlan) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnResponsePlan) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1220,13 +1039,13 @@ func (j *jsiiProxy_CfnResponsePlan) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::SSMIncidents::ResponsePlan`.
-func NewCfnResponsePlan(scope awscdk.Construct, id *string, props *CfnResponsePlanProps) CfnResponsePlan {
+func NewCfnResponsePlan(scope constructs.Construct, id *string, props *CfnResponsePlanProps) CfnResponsePlan {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResponsePlan{}
 
 	_jsii_.Create(
-		"monocdk.aws_ssmincidents.CfnResponsePlan",
+		"aws-cdk-lib.aws_ssmincidents.CfnResponsePlan",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1235,11 +1054,11 @@ func NewCfnResponsePlan(scope awscdk.Construct, id *string, props *CfnResponsePl
 }
 
 // Create a new `AWS::SSMIncidents::ResponsePlan`.
-func NewCfnResponsePlan_Override(c CfnResponsePlan, scope awscdk.Construct, id *string, props *CfnResponsePlanProps) {
+func NewCfnResponsePlan_Override(c CfnResponsePlan, scope constructs.Construct, id *string, props *CfnResponsePlanProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ssmincidents.CfnResponsePlan",
+		"aws-cdk-lib.aws_ssmincidents.CfnResponsePlan",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1299,14 +1118,13 @@ func (j *jsiiProxy_CfnResponsePlan) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnResponsePlan_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmincidents.CfnResponsePlan",
+		"aws-cdk-lib.aws_ssmincidents.CfnResponsePlan",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1316,14 +1134,13 @@ func CfnResponsePlan_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnResponsePlan_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmincidents.CfnResponsePlan",
+		"aws-cdk-lib.aws_ssmincidents.CfnResponsePlan",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1332,15 +1149,17 @@ func CfnResponsePlan_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnResponsePlan_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmincidents.CfnResponsePlan",
+		"aws-cdk-lib.aws_ssmincidents.CfnResponsePlan",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1353,7 +1172,7 @@ func CfnResponsePlan_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ssmincidents.CfnResponsePlan",
+		"aws-cdk-lib.aws_ssmincidents.CfnResponsePlan",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1450,48 +1269,11 @@ func (c *jsiiProxy_CfnResponsePlan) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnResponsePlan) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnResponsePlan) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnResponsePlan) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnResponsePlan) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnResponsePlan) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1521,33 +1303,12 @@ func (c *jsiiProxy_CfnResponsePlan) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnResponsePlan) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnResponsePlan) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnResponsePlan) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1566,7 +1327,10 @@ func (c *jsiiProxy_CfnResponsePlan) ValidateProperties(_properties interface{}) 
 // The `Action` property type specifies the configuration to launch.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionProperty := &actionProperty{
 //   	ssmAutomation: &ssmAutomationProperty{
 //   		documentName: jsii.String("documentName"),
@@ -1588,13 +1352,16 @@ func (c *jsiiProxy_CfnResponsePlan) ValidateProperties(_properties interface{}) 
 //
 type CfnResponsePlan_ActionProperty struct {
 	// Details about the Systems Manager automation document that will be used as a runbook during an incident.
-	SsmAutomation interface{} `json:"ssmAutomation" yaml:"ssmAutomation"`
+	SsmAutomation interface{} `field:"optional" json:"ssmAutomation" yaml:"ssmAutomation"`
 }
 
 // The AWS Chatbot chat channel used for collaboration during an incident.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   chatChannelProperty := &chatChannelProperty{
 //   	chatbotSns: []*string{
 //   		jsii.String("chatbotSns"),
@@ -1605,13 +1372,16 @@ type CfnResponsePlan_ChatChannelProperty struct {
 	// The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident.
 	//
 	// You can also make updates to the incident through the chat channel by using the SNS topics.
-	ChatbotSns *[]*string `json:"chatbotSns" yaml:"chatbotSns"`
+	ChatbotSns *[]*string `field:"optional" json:"chatbotSns" yaml:"chatbotSns"`
 }
 
 // The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   incidentTemplateProperty := &incidentTemplateProperty{
 //   	impact: jsii.Number(123),
 //   	title: jsii.String("title"),
@@ -1634,36 +1404,42 @@ type CfnResponsePlan_IncidentTemplateProperty struct {
 	// - `3` - Medium impact, the application is providing reduced service to customers.
 	// - `4` - Low impact, customer might aren't impacted by the problem yet.
 	// - `5` - No impact, customers aren't currently impacted but urgent action is needed to avoid impact.
-	Impact *float64 `json:"impact" yaml:"impact"`
+	Impact *float64 `field:"required" json:"impact" yaml:"impact"`
 	// The title of the incident is a brief and easily recognizable.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"required" json:"title" yaml:"title"`
 	// Used to create only one incident record for an incident.
-	DedupeString *string `json:"dedupeString" yaml:"dedupeString"`
+	DedupeString *string `field:"optional" json:"dedupeString" yaml:"dedupeString"`
 	// The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident.
 	//
 	// You can also make updates to the incident through the chat channel using the SNS topics.
-	NotificationTargets interface{} `json:"notificationTargets" yaml:"notificationTargets"`
+	NotificationTargets interface{} `field:"optional" json:"notificationTargets" yaml:"notificationTargets"`
 	// The summary describes what has happened during the incident.
-	Summary *string `json:"summary" yaml:"summary"`
+	Summary *string `field:"optional" json:"summary" yaml:"summary"`
 }
 
 // The SNS topic that's used by AWS Chatbot to notify the incidents chat channel.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notificationTargetItemProperty := &notificationTargetItemProperty{
 //   	snsTopicArn: jsii.String("snsTopicArn"),
 //   }
 //
 type CfnResponsePlan_NotificationTargetItemProperty struct {
 	// The Amazon Resource Name (ARN) of the SNS topic.
-	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
+	SnsTopicArn *string `field:"optional" json:"snsTopicArn" yaml:"snsTopicArn"`
 }
 
 // The `SsmAutomation` property type specifies details about the Systems Manager automation document that will be used as a runbook during an incident.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ssmAutomationProperty := &ssmAutomationProperty{
 //   	documentName: jsii.String("documentName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -1683,23 +1459,26 @@ type CfnResponsePlan_NotificationTargetItemProperty struct {
 //
 type CfnResponsePlan_SsmAutomationProperty struct {
 	// The automation document's name.
-	DocumentName *string `json:"documentName" yaml:"documentName"`
+	DocumentName *string `field:"required" json:"documentName" yaml:"documentName"`
 	// The Amazon Resource Name (ARN) of the role that the automation document will assume when running commands.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The automation document's version to use when running.
-	DocumentVersion *string `json:"documentVersion" yaml:"documentVersion"`
+	DocumentVersion *string `field:"optional" json:"documentVersion" yaml:"documentVersion"`
 	// The key-value pair parameters to use when running the automation document.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The account that the automation document will be run in.
 	//
 	// This can be in either the management account or an application account.
-	TargetAccount *string `json:"targetAccount" yaml:"targetAccount"`
+	TargetAccount *string `field:"optional" json:"targetAccount" yaml:"targetAccount"`
 }
 
 // The key-value pair parameters to use when running the automation document.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ssmParameterProperty := &ssmParameterProperty{
 //   	key: jsii.String("key"),
 //   	values: []*string{
@@ -1709,15 +1488,18 @@ type CfnResponsePlan_SsmAutomationProperty struct {
 //
 type CfnResponsePlan_SsmParameterProperty struct {
 	// The key parameter to use when running the automation document.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value parameter to use when running the automation document.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // Properties for defining a `CfnResponsePlan`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResponsePlanProps := &cfnResponsePlanProps{
 //   	incidentTemplate: &incidentTemplateProperty{
 //   		impact: jsii.Number(123),
@@ -1774,20 +1556,20 @@ type CfnResponsePlan_SsmParameterProperty struct {
 //
 type CfnResponsePlanProps struct {
 	// Details used to create an incident when using this response plan.
-	IncidentTemplate interface{} `json:"incidentTemplate" yaml:"incidentTemplate"`
+	IncidentTemplate interface{} `field:"required" json:"incidentTemplate" yaml:"incidentTemplate"`
 	// The name of the response plan.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The actions that the response plan starts at the beginning of an incident.
-	Actions interface{} `json:"actions" yaml:"actions"`
+	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 	// The AWS Chatbot chat channel used for collaboration during an incident.
-	ChatChannel interface{} `json:"chatChannel" yaml:"chatChannel"`
+	ChatChannel interface{} `field:"optional" json:"chatChannel" yaml:"chatChannel"`
 	// The human readable name of the response plan.
-	DisplayName *string `json:"displayName" yaml:"displayName"`
+	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// The contacts and escalation plans that the response plan engages during an incident.
-	Engagements *[]*string `json:"engagements" yaml:"engagements"`
+	Engagements *[]*string `field:"optional" json:"engagements" yaml:"engagements"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

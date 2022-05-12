@@ -1,12 +1,12 @@
 package awsdatasync
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsdatasync/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdatasync/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::DataSync::Agent`.
@@ -22,8 +22,11 @@ import (
 // Agents are automatically updated by AWS on a regular basis, using a mechanism that ensures minimal interruption to your tasks.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
-//   cfnAgent := datasync.NewCfnAgent(this, jsii.String("MyCfnAgent"), &cfnAgentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAgent := awscdk.Aws_datasync.NewCfnAgent(this, jsii.String("MyCfnAgent"), &cfnAgentProps{
 //   	activationKey: jsii.String("activationKey"),
 //
 //   	// the properties below are optional
@@ -69,16 +72,13 @@ type CfnAgent interface {
 	// If the endpoint is a VPC endpoint, the agent is not accessible over the public internet.
 	AttrEndpointType() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -89,16 +89,13 @@ type CfnAgent interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Resource Names (ARNs) of the security groups used to protect your data transfer task subnets.
 	//
@@ -110,7 +107,6 @@ type CfnAgent interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
 	//
@@ -127,7 +123,6 @@ type CfnAgent interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The ID of the virtual private cloud (VPC) endpoint that the agent has access to.
 	//
@@ -139,13 +134,11 @@ type CfnAgent interface {
 	VpcEndpointId() *string
 	SetVpcEndpointId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -154,7 +147,6 @@ type CfnAgent interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -199,15 +191,12 @@ type CfnAgent interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -218,13 +207,11 @@ type CfnAgent interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -233,74 +220,21 @@ type CfnAgent interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -400,8 +334,8 @@ func (j *jsiiProxy_CfnAgent) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAgent) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnAgent) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -482,13 +416,13 @@ func (j *jsiiProxy_CfnAgent) VpcEndpointId() *string {
 
 
 // Create a new `AWS::DataSync::Agent`.
-func NewCfnAgent(scope awscdk.Construct, id *string, props *CfnAgentProps) CfnAgent {
+func NewCfnAgent(scope constructs.Construct, id *string, props *CfnAgentProps) CfnAgent {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAgent{}
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnAgent",
+		"aws-cdk-lib.aws_datasync.CfnAgent",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -497,11 +431,11 @@ func NewCfnAgent(scope awscdk.Construct, id *string, props *CfnAgentProps) CfnAg
 }
 
 // Create a new `AWS::DataSync::Agent`.
-func NewCfnAgent_Override(c CfnAgent, scope awscdk.Construct, id *string, props *CfnAgentProps) {
+func NewCfnAgent_Override(c CfnAgent, scope constructs.Construct, id *string, props *CfnAgentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnAgent",
+		"aws-cdk-lib.aws_datasync.CfnAgent",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -553,14 +487,13 @@ func (j *jsiiProxy_CfnAgent) SetVpcEndpointId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAgent_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnAgent",
+		"aws-cdk-lib.aws_datasync.CfnAgent",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -570,14 +503,13 @@ func CfnAgent_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAgent_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnAgent",
+		"aws-cdk-lib.aws_datasync.CfnAgent",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -586,15 +518,17 @@ func CfnAgent_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnAgent_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnAgent",
+		"aws-cdk-lib.aws_datasync.CfnAgent",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -607,7 +541,7 @@ func CfnAgent_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_datasync.CfnAgent",
+		"aws-cdk-lib.aws_datasync.CfnAgent",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -704,48 +638,11 @@ func (c *jsiiProxy_CfnAgent) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnAgent) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnAgent) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnAgent) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnAgent) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnAgent) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -775,33 +672,12 @@ func (c *jsiiProxy_CfnAgent) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnAgent) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnAgent) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnAgent) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -820,7 +696,10 @@ func (c *jsiiProxy_CfnAgent) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnAgent`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAgentProps := &cfnAgentProps{
 //   	activationKey: jsii.String("activationKey"),
 //
@@ -849,27 +728,27 @@ type CfnAgentProps struct {
 	// The redirect URL returned in the response provides you the activation key for your agent in the query string parameter `activationKey` . It might also include other activation-related parameters; however, these are merely defaults. The arguments you pass to this API call determine the actual configuration of your agent.
 	//
 	// For more information, see [Creating and activating an agent](https://docs.aws.amazon.com/datasync/latest/userguide/activating-agent.html) in the *AWS DataSync User Guide.*
-	ActivationKey *string `json:"activationKey" yaml:"activationKey"`
+	ActivationKey *string `field:"required" json:"activationKey" yaml:"activationKey"`
 	// The name you configured for your agent.
 	//
 	// This value is a text reference that is used to identify the agent in the console.
-	AgentName *string `json:"agentName" yaml:"agentName"`
+	AgentName *string `field:"optional" json:"agentName" yaml:"agentName"`
 	// The Amazon Resource Names (ARNs) of the security groups used to protect your data transfer task subnets.
 	//
 	// See [SecurityGroupArns](https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns) .
 	//
 	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
-	SecurityGroupArns *[]*string `json:"securityGroupArns" yaml:"securityGroupArns"`
+	SecurityGroupArns *[]*string `field:"optional" json:"securityGroupArns" yaml:"securityGroupArns"`
 	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
 	//
 	// The agent that runs a task must be private. When you start a task that is associated with an agent created in a VPC, or one that has access to an IP address in a VPC, then the task is also private. In this case, DataSync creates four network interfaces for each task in your subnet. For a data transfer to work, the agent must be able to route to all these four network interfaces.
-	SubnetArns *[]*string `json:"subnetArns" yaml:"subnetArns"`
+	SubnetArns *[]*string `field:"optional" json:"subnetArns" yaml:"subnetArns"`
 	// The key-value pair that represents the tag that you want to associate with the agent.
 	//
 	// The value can be an empty string. This value helps you manage, filter, and search for your agents.
 	//
 	// > Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ID of the virtual private cloud (VPC) endpoint that the agent has access to.
 	//
 	// This is the client-side VPC endpoint, powered by AWS PrivateLink . If you don't have an AWS PrivateLink VPC endpoint, see [AWS PrivateLink and VPC endpoints](https://docs.aws.amazon.com//vpc/latest/userguide/endpoint-services-overview.html) in the *Amazon VPC User Guide* .
@@ -877,7 +756,7 @@ type CfnAgentProps struct {
 	// For more information about activating your agent in a private network based on a VPC, see [Using AWS DataSync in a Virtual Private Cloud](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-in-vpc.html) in the *AWS DataSync User Guide.*
 	//
 	// A VPC endpoint ID looks like this: `vpce-01234d5aff67890e1` .
-	VpcEndpointId *string `json:"vpcEndpointId" yaml:"vpcEndpointId"`
+	VpcEndpointId *string `field:"optional" json:"vpcEndpointId" yaml:"vpcEndpointId"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationEFS`.
@@ -885,8 +764,11 @@ type CfnAgentProps struct {
 // The `AWS::DataSync::LocationEFS` resource specifies an endpoint for an Amazon EFS location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
-//   cfnLocationEFS := datasync.NewCfnLocationEFS(this, jsii.String("MyCfnLocationEFS"), &cfnLocationEFSProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLocationEFS := awscdk.Aws_datasync.NewCfnLocationEFS(this, jsii.String("MyCfnLocationEFS"), &cfnLocationEFSProps{
 //   	ec2Config: &ec2ConfigProperty{
 //   		securityGroupArns: []*string{
 //   			jsii.String("securityGroupArns"),
@@ -913,16 +795,13 @@ type CfnLocationEFS interface {
 	// The URI of the Amazon EFS file system.
 	AttrLocationUri() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The subnet and security group that the Amazon EFS file system uses.
 	//
@@ -948,21 +827,17 @@ type CfnLocationEFS interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A subdirectory in the location’s path.
 	//
@@ -979,16 +854,13 @@ type CfnLocationEFS interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -997,7 +869,6 @@ type CfnLocationEFS interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1042,15 +913,12 @@ type CfnLocationEFS interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1061,13 +929,11 @@ type CfnLocationEFS interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1076,74 +942,21 @@ type CfnLocationEFS interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1243,8 +1056,8 @@ func (j *jsiiProxy_CfnLocationEFS) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationEFS) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLocationEFS) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1305,13 +1118,13 @@ func (j *jsiiProxy_CfnLocationEFS) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DataSync::LocationEFS`.
-func NewCfnLocationEFS(scope awscdk.Construct, id *string, props *CfnLocationEFSProps) CfnLocationEFS {
+func NewCfnLocationEFS(scope constructs.Construct, id *string, props *CfnLocationEFSProps) CfnLocationEFS {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLocationEFS{}
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationEFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationEFS",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1320,11 +1133,11 @@ func NewCfnLocationEFS(scope awscdk.Construct, id *string, props *CfnLocationEFS
 }
 
 // Create a new `AWS::DataSync::LocationEFS`.
-func NewCfnLocationEFS_Override(c CfnLocationEFS, scope awscdk.Construct, id *string, props *CfnLocationEFSProps) {
+func NewCfnLocationEFS_Override(c CfnLocationEFS, scope constructs.Construct, id *string, props *CfnLocationEFSProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationEFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationEFS",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1360,14 +1173,13 @@ func (j *jsiiProxy_CfnLocationEFS) SetSubdirectory(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLocationEFS_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationEFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationEFS",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1377,14 +1189,13 @@ func CfnLocationEFS_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLocationEFS_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationEFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationEFS",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1393,15 +1204,17 @@ func CfnLocationEFS_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLocationEFS_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationEFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationEFS",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1414,7 +1227,7 @@ func CfnLocationEFS_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_datasync.CfnLocationEFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationEFS",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1511,48 +1324,11 @@ func (c *jsiiProxy_CfnLocationEFS) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnLocationEFS) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLocationEFS) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationEFS) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLocationEFS) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationEFS) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1582,33 +1358,12 @@ func (c *jsiiProxy_CfnLocationEFS) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLocationEFS) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLocationEFS) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLocationEFS) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1629,7 +1384,10 @@ func (c *jsiiProxy_CfnLocationEFS) ValidateProperties(_properties interface{}) {
 // The subnet must have at least one mount target for that file system. The security group that you provide must be able to communicate with the security group on the mount target in the subnet specified.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ec2ConfigProperty := &ec2ConfigProperty{
 //   	securityGroupArns: []*string{
 //   		jsii.String("securityGroupArns"),
@@ -1641,15 +1399,18 @@ type CfnLocationEFS_Ec2ConfigProperty struct {
 	// The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
 	//
 	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
-	SecurityGroupArns *[]*string `json:"securityGroupArns" yaml:"securityGroupArns"`
+	SecurityGroupArns *[]*string `field:"required" json:"securityGroupArns" yaml:"securityGroupArns"`
 	// The Amazon Resource Name (ARN) of the subnet that DataSync uses to access the target EFS file system.
-	SubnetArn *string `json:"subnetArn" yaml:"subnetArn"`
+	SubnetArn *string `field:"required" json:"subnetArn" yaml:"subnetArn"`
 }
 
 // Properties for defining a `CfnLocationEFS`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLocationEFSProps := &cfnLocationEFSProps{
 //   	ec2Config: &ec2ConfigProperty{
 //   		securityGroupArns: []*string{
@@ -1680,19 +1441,19 @@ type CfnLocationEFSProps struct {
 	// - Security group S (provided to DataSync to access EFS) should have a rule that enables outbound connections to the NFS port on one of the file system’s mount targets. You can enable outbound connections either by IP address (CIDR range) or security group.
 	//
 	// For information about security groups and mount targets, see [Security Groups for Amazon EC2 Instances and Mount Targets](https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access) in the *Amazon EFS User Guide.*
-	Ec2Config interface{} `json:"ec2Config" yaml:"ec2Config"`
+	Ec2Config interface{} `field:"required" json:"ec2Config" yaml:"ec2Config"`
 	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
-	EfsFilesystemArn *string `json:"efsFilesystemArn" yaml:"efsFilesystemArn"`
+	EfsFilesystemArn *string `field:"required" json:"efsFilesystemArn" yaml:"efsFilesystemArn"`
 	// A subdirectory in the location’s path.
 	//
 	// This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination. By default, AWS DataSync uses the root directory.
 	//
 	// > `Subdirectory` must be specified with forward slashes. For example, `/path/to/folder` .
-	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
+	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
 	// The key-value pair that represents a tag that you want to add to the resource.
 	//
 	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationFSxLustre`.
@@ -1700,8 +1461,11 @@ type CfnLocationEFSProps struct {
 // The `AWS::DataSync::LocationFSxLustre` resource specifies an endpoint for an Amazon FSx for Lustre file system.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
-//   cfnLocationFSxLustre := datasync.NewCfnLocationFSxLustre(this, jsii.String("MyCfnLocationFSxLustre"), &cfnLocationFSxLustreProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLocationFSxLustre := awscdk.Aws_datasync.NewCfnLocationFSxLustre(this, jsii.String("MyCfnLocationFSxLustre"), &cfnLocationFSxLustreProps{
 //   	fsxFilesystemArn: jsii.String("fsxFilesystemArn"),
 //   	securityGroupArns: []*string{
 //   		jsii.String("securityGroupArns"),
@@ -1725,16 +1489,13 @@ type CfnLocationFSxLustre interface {
 	// The URI of the specified FSx for Lustre file system location.
 	AttrLocationUri() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn() *string
@@ -1748,16 +1509,13 @@ type CfnLocationFSxLustre interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The ARNs of the security groups that are used to configure the FSx for Lustre file system.
 	//
@@ -1769,7 +1527,6 @@ type CfnLocationFSxLustre interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A subdirectory in the location's path.
 	//
@@ -1784,16 +1541,13 @@ type CfnLocationFSxLustre interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1802,7 +1556,6 @@ type CfnLocationFSxLustre interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1847,15 +1600,12 @@ type CfnLocationFSxLustre interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1866,13 +1616,11 @@ type CfnLocationFSxLustre interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1881,74 +1629,21 @@ type CfnLocationFSxLustre interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2038,8 +1733,8 @@ func (j *jsiiProxy_CfnLocationFSxLustre) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationFSxLustre) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLocationFSxLustre) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2110,13 +1805,13 @@ func (j *jsiiProxy_CfnLocationFSxLustre) UpdatedProperites() *map[string]interfa
 
 
 // Create a new `AWS::DataSync::LocationFSxLustre`.
-func NewCfnLocationFSxLustre(scope awscdk.Construct, id *string, props *CfnLocationFSxLustreProps) CfnLocationFSxLustre {
+func NewCfnLocationFSxLustre(scope constructs.Construct, id *string, props *CfnLocationFSxLustreProps) CfnLocationFSxLustre {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLocationFSxLustre{}
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationFSxLustre",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxLustre",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2125,11 +1820,11 @@ func NewCfnLocationFSxLustre(scope awscdk.Construct, id *string, props *CfnLocat
 }
 
 // Create a new `AWS::DataSync::LocationFSxLustre`.
-func NewCfnLocationFSxLustre_Override(c CfnLocationFSxLustre, scope awscdk.Construct, id *string, props *CfnLocationFSxLustreProps) {
+func NewCfnLocationFSxLustre_Override(c CfnLocationFSxLustre, scope constructs.Construct, id *string, props *CfnLocationFSxLustreProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationFSxLustre",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxLustre",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2165,14 +1860,13 @@ func (j *jsiiProxy_CfnLocationFSxLustre) SetSubdirectory(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLocationFSxLustre_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationFSxLustre",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxLustre",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2182,14 +1876,13 @@ func CfnLocationFSxLustre_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLocationFSxLustre_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationFSxLustre",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxLustre",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2198,15 +1891,17 @@ func CfnLocationFSxLustre_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLocationFSxLustre_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationFSxLustre",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxLustre",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2219,7 +1914,7 @@ func CfnLocationFSxLustre_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_datasync.CfnLocationFSxLustre",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxLustre",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2316,48 +2011,11 @@ func (c *jsiiProxy_CfnLocationFSxLustre) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
-func (c *jsiiProxy_CfnLocationFSxLustre) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLocationFSxLustre) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationFSxLustre) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLocationFSxLustre) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationFSxLustre) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2387,33 +2045,12 @@ func (c *jsiiProxy_CfnLocationFSxLustre) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLocationFSxLustre) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLocationFSxLustre) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLocationFSxLustre) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2432,7 +2069,10 @@ func (c *jsiiProxy_CfnLocationFSxLustre) ValidateProperties(_properties interfac
 // Properties for defining a `CfnLocationFSxLustre`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLocationFSxLustreProps := &cfnLocationFSxLustreProps{
 //   	fsxFilesystemArn: jsii.String("fsxFilesystemArn"),
 //   	securityGroupArns: []*string{
@@ -2451,21 +2091,21 @@ func (c *jsiiProxy_CfnLocationFSxLustre) ValidateProperties(_properties interfac
 //
 type CfnLocationFSxLustreProps struct {
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-	FsxFilesystemArn *string `json:"fsxFilesystemArn" yaml:"fsxFilesystemArn"`
+	FsxFilesystemArn *string `field:"required" json:"fsxFilesystemArn" yaml:"fsxFilesystemArn"`
 	// The ARNs of the security groups that are used to configure the FSx for Lustre file system.
 	//
 	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
 	//
 	// *Length constraints* : Maximum length of 128.
-	SecurityGroupArns *[]*string `json:"securityGroupArns" yaml:"securityGroupArns"`
+	SecurityGroupArns *[]*string `field:"required" json:"securityGroupArns" yaml:"securityGroupArns"`
 	// A subdirectory in the location's path.
 	//
 	// This subdirectory in the FSx for Lustre file system is used to read data from the FSx for Lustre source location or write data to the FSx for Lustre destination.
-	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
+	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
 	// The key-value pair that represents a tag that you want to add to the resource.
 	//
 	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationFSxOpenZFS`.
@@ -2473,8 +2113,11 @@ type CfnLocationFSxLustreProps struct {
 // The `AWS::DataSync::LocationFSxOpenZFS` resource specifies an endpoint for an Amazon FSx for OpenZFS file system.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
-//   cfnLocationFSxOpenZFS := datasync.NewCfnLocationFSxOpenZFS(this, jsii.String("MyCfnLocationFSxOpenZFS"), &cfnLocationFSxOpenZFSProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLocationFSxOpenZFS := awscdk.Aws_datasync.NewCfnLocationFSxOpenZFS(this, jsii.String("MyCfnLocationFSxOpenZFS"), &cfnLocationFSxOpenZFSProps{
 //   	fsxFilesystemArn: jsii.String("fsxFilesystemArn"),
 //   	protocol: &protocolProperty{
 //   		nfs: &nFSProperty{
@@ -2505,16 +2148,13 @@ type CfnLocationFSxOpenZFS interface {
 	// The URI of the specified FSx for OpenZFS file system location.
 	AttrLocationUri() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The Amazon Resource Name (ARN) of the FSx for OpenZFS file system.
 	FsxFilesystemArn() *string
@@ -2528,11 +2168,9 @@ type CfnLocationFSxOpenZFS interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The type of protocol that AWS DataSync uses to access your file system.
 	Protocol() interface{}
 	SetProtocol(val interface{})
@@ -2540,7 +2178,6 @@ type CfnLocationFSxOpenZFS interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The ARNs of the security groups that are used to configure the FSx for OpenZFS file system.
 	//
@@ -2552,7 +2189,6 @@ type CfnLocationFSxOpenZFS interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A subdirectory in the location's path that must begin with `/fsx` .
 	//
@@ -2567,16 +2203,13 @@ type CfnLocationFSxOpenZFS interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2585,7 +2218,6 @@ type CfnLocationFSxOpenZFS interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2630,15 +2262,12 @@ type CfnLocationFSxOpenZFS interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2649,13 +2278,11 @@ type CfnLocationFSxOpenZFS interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2664,74 +2291,21 @@ type CfnLocationFSxOpenZFS interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2821,8 +2395,8 @@ func (j *jsiiProxy_CfnLocationFSxOpenZFS) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationFSxOpenZFS) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLocationFSxOpenZFS) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2903,13 +2477,13 @@ func (j *jsiiProxy_CfnLocationFSxOpenZFS) UpdatedProperites() *map[string]interf
 
 
 // Create a new `AWS::DataSync::LocationFSxOpenZFS`.
-func NewCfnLocationFSxOpenZFS(scope awscdk.Construct, id *string, props *CfnLocationFSxOpenZFSProps) CfnLocationFSxOpenZFS {
+func NewCfnLocationFSxOpenZFS(scope constructs.Construct, id *string, props *CfnLocationFSxOpenZFSProps) CfnLocationFSxOpenZFS {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLocationFSxOpenZFS{}
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationFSxOpenZFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxOpenZFS",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2918,11 +2492,11 @@ func NewCfnLocationFSxOpenZFS(scope awscdk.Construct, id *string, props *CfnLoca
 }
 
 // Create a new `AWS::DataSync::LocationFSxOpenZFS`.
-func NewCfnLocationFSxOpenZFS_Override(c CfnLocationFSxOpenZFS, scope awscdk.Construct, id *string, props *CfnLocationFSxOpenZFSProps) {
+func NewCfnLocationFSxOpenZFS_Override(c CfnLocationFSxOpenZFS, scope constructs.Construct, id *string, props *CfnLocationFSxOpenZFSProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationFSxOpenZFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxOpenZFS",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2966,14 +2540,13 @@ func (j *jsiiProxy_CfnLocationFSxOpenZFS) SetSubdirectory(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLocationFSxOpenZFS_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationFSxOpenZFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxOpenZFS",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2983,14 +2556,13 @@ func CfnLocationFSxOpenZFS_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLocationFSxOpenZFS_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationFSxOpenZFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxOpenZFS",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2999,15 +2571,17 @@ func CfnLocationFSxOpenZFS_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLocationFSxOpenZFS_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationFSxOpenZFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxOpenZFS",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3020,7 +2594,7 @@ func CfnLocationFSxOpenZFS_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_datasync.CfnLocationFSxOpenZFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxOpenZFS",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3117,48 +2691,11 @@ func (c *jsiiProxy_CfnLocationFSxOpenZFS) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
-func (c *jsiiProxy_CfnLocationFSxOpenZFS) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLocationFSxOpenZFS) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationFSxOpenZFS) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLocationFSxOpenZFS) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationFSxOpenZFS) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3188,33 +2725,12 @@ func (c *jsiiProxy_CfnLocationFSxOpenZFS) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLocationFSxOpenZFS) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLocationFSxOpenZFS) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLocationFSxOpenZFS) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3233,7 +2749,10 @@ func (c *jsiiProxy_CfnLocationFSxOpenZFS) ValidateProperties(_properties interfa
 // Represents the mount options that are available for DataSync to access a Network File System (NFS) location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mountOptionsProperty := &mountOptionsProperty{
 //   	version: jsii.String("version"),
 //   }
@@ -3248,13 +2767,16 @@ type CfnLocationFSxOpenZFS_MountOptionsProperty struct {
 	// - *[NFSv3](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc1813)* : Stateless protocol version that allows for asynchronous writes on the server.
 	// - *[NFSv4.0](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3530)* : Stateful, firewall-friendly protocol version that supports delegations and pseudo file systems.
 	// - *[NFSv4.1](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5661)* : Stateful protocol version that supports sessions, directory delegations, and parallel data processing. Version 4.1 also includes all features available in version 4.0.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Represents the Network File System (NFS) protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   nFSProperty := &nFSProperty{
 //   	mountOptions: &mountOptionsProperty{
 //   		version: jsii.String("version"),
@@ -3263,13 +2785,16 @@ type CfnLocationFSxOpenZFS_MountOptionsProperty struct {
 //
 type CfnLocationFSxOpenZFS_NFSProperty struct {
 	// Represents the mount options that are available for DataSync to access an NFS location.
-	MountOptions interface{} `json:"mountOptions" yaml:"mountOptions"`
+	MountOptions interface{} `field:"required" json:"mountOptions" yaml:"mountOptions"`
 }
 
 // Represents the protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   protocolProperty := &protocolProperty{
 //   	nfs: &nFSProperty{
 //   		mountOptions: &mountOptionsProperty{
@@ -3280,13 +2805,16 @@ type CfnLocationFSxOpenZFS_NFSProperty struct {
 //
 type CfnLocationFSxOpenZFS_ProtocolProperty struct {
 	// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
-	Nfs interface{} `json:"nfs" yaml:"nfs"`
+	Nfs interface{} `field:"optional" json:"nfs" yaml:"nfs"`
 }
 
 // Properties for defining a `CfnLocationFSxOpenZFS`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLocationFSxOpenZFSProps := &cfnLocationFSxOpenZFSProps{
 //   	fsxFilesystemArn: jsii.String("fsxFilesystemArn"),
 //   	protocol: &protocolProperty{
@@ -3312,23 +2840,23 @@ type CfnLocationFSxOpenZFS_ProtocolProperty struct {
 //
 type CfnLocationFSxOpenZFSProps struct {
 	// The Amazon Resource Name (ARN) of the FSx for OpenZFS file system.
-	FsxFilesystemArn *string `json:"fsxFilesystemArn" yaml:"fsxFilesystemArn"`
+	FsxFilesystemArn *string `field:"required" json:"fsxFilesystemArn" yaml:"fsxFilesystemArn"`
 	// The type of protocol that AWS DataSync uses to access your file system.
-	Protocol interface{} `json:"protocol" yaml:"protocol"`
+	Protocol interface{} `field:"required" json:"protocol" yaml:"protocol"`
 	// The ARNs of the security groups that are used to configure the FSx for OpenZFS file system.
 	//
 	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
 	//
 	// *Length constraints* : Maximum length of 128.
-	SecurityGroupArns *[]*string `json:"securityGroupArns" yaml:"securityGroupArns"`
+	SecurityGroupArns *[]*string `field:"required" json:"securityGroupArns" yaml:"securityGroupArns"`
 	// A subdirectory in the location's path that must begin with `/fsx` .
 	//
 	// DataSync uses this subdirectory to read or write data (depending on whether the file system is a source or destination location).
-	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
+	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
 	// The key-value pair that represents a tag that you want to add to the resource.
 	//
 	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationFSxWindows`.
@@ -3336,8 +2864,11 @@ type CfnLocationFSxOpenZFSProps struct {
 // The `AWS::DataSync::LocationFSxWindows` resource specifies an endpoint for an Amazon FSx for Windows Server file system.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
-//   cfnLocationFSxWindows := datasync.NewCfnLocationFSxWindows(this, jsii.String("MyCfnLocationFSxWindows"), &cfnLocationFSxWindowsProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLocationFSxWindows := awscdk.Aws_datasync.NewCfnLocationFSxWindows(this, jsii.String("MyCfnLocationFSxWindows"), &cfnLocationFSxWindowsProps{
 //   	fsxFilesystemArn: jsii.String("fsxFilesystemArn"),
 //   	password: jsii.String("password"),
 //   	securityGroupArns: []*string{
@@ -3364,16 +2895,13 @@ type CfnLocationFSxWindows interface {
 	// The URI of the specified FSx for Windows Server file system location.
 	AttrLocationUri() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The name of the Windows domain that the FSx for Windows File Server belongs to.
 	Domain() *string
@@ -3390,11 +2918,9 @@ type CfnLocationFSxWindows interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows File Server file system.
 	Password() *string
 	SetPassword(val *string)
@@ -3402,7 +2928,6 @@ type CfnLocationFSxWindows interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Resource Names (ARNs) of the security groups that are used to configure the FSx for Windows File Server file system.
 	//
@@ -3414,7 +2939,6 @@ type CfnLocationFSxWindows interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A subdirectory in the location's path.
 	//
@@ -3429,7 +2953,6 @@ type CfnLocationFSxWindows interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The user who has the permissions to access files and folders in the FSx for Windows File Server file system.
 	//
@@ -3437,13 +2960,11 @@ type CfnLocationFSxWindows interface {
 	User() *string
 	SetUser(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3452,7 +2973,6 @@ type CfnLocationFSxWindows interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -3497,15 +3017,12 @@ type CfnLocationFSxWindows interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -3516,13 +3033,11 @@ type CfnLocationFSxWindows interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3531,74 +3046,21 @@ type CfnLocationFSxWindows interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3698,8 +3160,8 @@ func (j *jsiiProxy_CfnLocationFSxWindows) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationFSxWindows) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLocationFSxWindows) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3790,13 +3252,13 @@ func (j *jsiiProxy_CfnLocationFSxWindows) User() *string {
 
 
 // Create a new `AWS::DataSync::LocationFSxWindows`.
-func NewCfnLocationFSxWindows(scope awscdk.Construct, id *string, props *CfnLocationFSxWindowsProps) CfnLocationFSxWindows {
+func NewCfnLocationFSxWindows(scope constructs.Construct, id *string, props *CfnLocationFSxWindowsProps) CfnLocationFSxWindows {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLocationFSxWindows{}
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationFSxWindows",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxWindows",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3805,11 +3267,11 @@ func NewCfnLocationFSxWindows(scope awscdk.Construct, id *string, props *CfnLoca
 }
 
 // Create a new `AWS::DataSync::LocationFSxWindows`.
-func NewCfnLocationFSxWindows_Override(c CfnLocationFSxWindows, scope awscdk.Construct, id *string, props *CfnLocationFSxWindowsProps) {
+func NewCfnLocationFSxWindows_Override(c CfnLocationFSxWindows, scope constructs.Construct, id *string, props *CfnLocationFSxWindowsProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationFSxWindows",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxWindows",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3869,14 +3331,13 @@ func (j *jsiiProxy_CfnLocationFSxWindows) SetUser(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLocationFSxWindows_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationFSxWindows",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxWindows",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3886,14 +3347,13 @@ func CfnLocationFSxWindows_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLocationFSxWindows_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationFSxWindows",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxWindows",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3902,15 +3362,17 @@ func CfnLocationFSxWindows_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLocationFSxWindows_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationFSxWindows",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxWindows",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3923,7 +3385,7 @@ func CfnLocationFSxWindows_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_datasync.CfnLocationFSxWindows",
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxWindows",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4020,48 +3482,11 @@ func (c *jsiiProxy_CfnLocationFSxWindows) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
-func (c *jsiiProxy_CfnLocationFSxWindows) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLocationFSxWindows) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationFSxWindows) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLocationFSxWindows) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationFSxWindows) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -4091,33 +3516,12 @@ func (c *jsiiProxy_CfnLocationFSxWindows) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLocationFSxWindows) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLocationFSxWindows) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLocationFSxWindows) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4136,7 +3540,10 @@ func (c *jsiiProxy_CfnLocationFSxWindows) ValidateProperties(_properties interfa
 // Properties for defining a `CfnLocationFSxWindows`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLocationFSxWindowsProps := &cfnLocationFSxWindowsProps{
 //   	fsxFilesystemArn: jsii.String("fsxFilesystemArn"),
 //   	password: jsii.String("password"),
@@ -4158,29 +3565,29 @@ func (c *jsiiProxy_CfnLocationFSxWindows) ValidateProperties(_properties interfa
 //
 type CfnLocationFSxWindowsProps struct {
 	// The Amazon Resource Name (ARN) for the FSx for Windows File Server file system.
-	FsxFilesystemArn *string `json:"fsxFilesystemArn" yaml:"fsxFilesystemArn"`
+	FsxFilesystemArn *string `field:"required" json:"fsxFilesystemArn" yaml:"fsxFilesystemArn"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows File Server file system.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// The Amazon Resource Names (ARNs) of the security groups that are used to configure the FSx for Windows File Server file system.
 	//
 	// *Pattern* : `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:security-group/.*$`
 	//
 	// *Length constraints* : Maximum length of 128.
-	SecurityGroupArns *[]*string `json:"securityGroupArns" yaml:"securityGroupArns"`
+	SecurityGroupArns *[]*string `field:"required" json:"securityGroupArns" yaml:"securityGroupArns"`
 	// The user who has the permissions to access files and folders in the FSx for Windows File Server file system.
 	//
 	// For information about choosing a user name that ensures sufficient permissions to files, folders, and metadata, see [user](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#FSxWuser) .
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"required" json:"user" yaml:"user"`
 	// The name of the Windows domain that the FSx for Windows File Server belongs to.
-	Domain *string `json:"domain" yaml:"domain"`
+	Domain *string `field:"optional" json:"domain" yaml:"domain"`
 	// A subdirectory in the location's path.
 	//
 	// This subdirectory in the Amazon FSx for Windows File Server file system is used to read data from the Amazon FSx for Windows File Server source location or write data to the FSx for Windows File Server destination.
-	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
+	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
 	// The key-value pair that represents a tag that you want to add to the resource.
 	//
 	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationHDFS`.
@@ -4188,8 +3595,11 @@ type CfnLocationFSxWindowsProps struct {
 // The `AWS::DataSync::LocationHDFS` resource specifies an endpoint for a Hadoop Distributed File System (HDFS).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
-//   cfnLocationHDFS := datasync.NewCfnLocationHDFS(this, jsii.String("MyCfnLocationHDFS"), &cfnLocationHDFSProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLocationHDFS := awscdk.Aws_datasync.NewCfnLocationHDFS(this, jsii.String("MyCfnLocationHDFS"), &cfnLocationHDFSProps{
 //   	agentArns: []*string{
 //   		jsii.String("agentArns"),
 //   	},
@@ -4241,16 +3651,13 @@ type CfnLocationHDFS interface {
 	BlockSize() *float64
 	SetBlockSize(val *float64)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys.
 	//
@@ -4277,16 +3684,14 @@ type CfnLocationHDFS interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The NameNode that manages the HDFS namespace.
 	//
 	// The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode.
 	NameNodes() interface{}
 	SetNameNodes(val interface{})
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster.
 	//
 	// If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
@@ -4296,7 +3701,6 @@ type CfnLocationHDFS interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster.
 	//
@@ -4311,7 +3715,6 @@ type CfnLocationHDFS interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A subdirectory in the HDFS cluster.
 	//
@@ -4326,16 +3729,13 @@ type CfnLocationHDFS interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4344,7 +3744,6 @@ type CfnLocationHDFS interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -4389,15 +3788,12 @@ type CfnLocationHDFS interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -4408,13 +3804,11 @@ type CfnLocationHDFS interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4423,74 +3817,21 @@ type CfnLocationHDFS interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4650,8 +3991,8 @@ func (j *jsiiProxy_CfnLocationHDFS) NameNodes() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationHDFS) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLocationHDFS) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4742,13 +4083,13 @@ func (j *jsiiProxy_CfnLocationHDFS) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::DataSync::LocationHDFS`.
-func NewCfnLocationHDFS(scope awscdk.Construct, id *string, props *CfnLocationHDFSProps) CfnLocationHDFS {
+func NewCfnLocationHDFS(scope constructs.Construct, id *string, props *CfnLocationHDFSProps) CfnLocationHDFS {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLocationHDFS{}
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationHDFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationHDFS",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4757,11 +4098,11 @@ func NewCfnLocationHDFS(scope awscdk.Construct, id *string, props *CfnLocationHD
 }
 
 // Create a new `AWS::DataSync::LocationHDFS`.
-func NewCfnLocationHDFS_Override(c CfnLocationHDFS, scope awscdk.Construct, id *string, props *CfnLocationHDFSProps) {
+func NewCfnLocationHDFS_Override(c CfnLocationHDFS, scope constructs.Construct, id *string, props *CfnLocationHDFSProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationHDFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationHDFS",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4869,14 +4210,13 @@ func (j *jsiiProxy_CfnLocationHDFS) SetSubdirectory(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLocationHDFS_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationHDFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationHDFS",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4886,14 +4226,13 @@ func CfnLocationHDFS_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLocationHDFS_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationHDFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationHDFS",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4902,15 +4241,17 @@ func CfnLocationHDFS_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLocationHDFS_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationHDFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationHDFS",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4923,7 +4264,7 @@ func CfnLocationHDFS_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_datasync.CfnLocationHDFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationHDFS",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5020,48 +4361,11 @@ func (c *jsiiProxy_CfnLocationHDFS) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnLocationHDFS) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLocationHDFS) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationHDFS) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLocationHDFS) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationHDFS) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5091,33 +4395,12 @@ func (c *jsiiProxy_CfnLocationHDFS) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLocationHDFS) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLocationHDFS) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLocationHDFS) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5138,7 +4421,10 @@ func (c *jsiiProxy_CfnLocationHDFS) ValidateProperties(_properties interface{}) 
 // The NameNode manages the file system's namespace and performs operations such as opening, closing, and renaming files and directories. The NameNode also contains the information to map blocks of data to the DataNodes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   nameNodeProperty := &nameNodeProperty{
 //   	hostname: jsii.String("hostname"),
 //   	port: jsii.Number(123),
@@ -5148,15 +4434,18 @@ type CfnLocationHDFS_NameNodeProperty struct {
 	// The hostname of the NameNode in the HDFS cluster.
 	//
 	// This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
-	Hostname *string `json:"hostname" yaml:"hostname"`
+	Hostname *string `field:"required" json:"hostname" yaml:"hostname"`
 	// The port that the NameNode uses to listen to client requests.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   qopConfigurationProperty := &qopConfigurationProperty{
 //   	dataTransferProtection: jsii.String("dataTransferProtection"),
 //   	rpcProtection: jsii.String("rpcProtection"),
@@ -5166,17 +4455,20 @@ type CfnLocationHDFS_QopConfigurationProperty struct {
 	// The data transfer protection setting configured on the HDFS cluster.
 	//
 	// This setting corresponds to your `dfs.data.transfer.protection` setting in the `hdfs-site.xml` file on your Hadoop cluster.
-	DataTransferProtection *string `json:"dataTransferProtection" yaml:"dataTransferProtection"`
+	DataTransferProtection *string `field:"optional" json:"dataTransferProtection" yaml:"dataTransferProtection"`
 	// The Remote Procedure Call (RPC) protection setting configured on the HDFS cluster.
 	//
 	// This setting corresponds to your `hadoop.rpc.protection` setting in your `core-site.xml` file on your Hadoop cluster.
-	RpcProtection *string `json:"rpcProtection" yaml:"rpcProtection"`
+	RpcProtection *string `field:"optional" json:"rpcProtection" yaml:"rpcProtection"`
 }
 
 // Properties for defining a `CfnLocationHDFS`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLocationHDFSProps := &cfnLocationHDFSProps{
 //   	agentArns: []*string{
 //   		jsii.String("agentArns"),
@@ -5212,49 +4504,49 @@ type CfnLocationHDFS_QopConfigurationProperty struct {
 //
 type CfnLocationHDFSProps struct {
 	// The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS cluster.
-	AgentArns *[]*string `json:"agentArns" yaml:"agentArns"`
+	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`
 	// `AWS::DataSync::LocationHDFS.AuthenticationType`.
-	AuthenticationType *string `json:"authenticationType" yaml:"authenticationType"`
+	AuthenticationType *string `field:"required" json:"authenticationType" yaml:"authenticationType"`
 	// The NameNode that manages the HDFS namespace.
 	//
 	// The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode.
-	NameNodes interface{} `json:"nameNodes" yaml:"nameNodes"`
+	NameNodes interface{} `field:"required" json:"nameNodes" yaml:"nameNodes"`
 	// The size of data blocks to write into the HDFS cluster.
 	//
 	// The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
-	BlockSize *float64 `json:"blockSize" yaml:"blockSize"`
+	BlockSize *float64 `field:"optional" json:"blockSize" yaml:"blockSize"`
 	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys.
 	//
 	// Provide the base64-encoded file text. If `KERBEROS` is specified for `AuthType` , this value is required.
-	KerberosKeytab *string `json:"kerberosKeytab" yaml:"kerberosKeytab"`
+	KerberosKeytab *string `field:"optional" json:"kerberosKeytab" yaml:"kerberosKeytab"`
 	// The `krb5.conf` file that contains the Kerberos configuration information. You can load the `krb5.conf` by providing a string of the file's contents or an Amazon S3 presigned URL of the file. If `KERBEROS` is specified for `AuthType` , this value is required.
-	KerberosKrb5Conf *string `json:"kerberosKrb5Conf" yaml:"kerberosKrb5Conf"`
+	KerberosKrb5Conf *string `field:"optional" json:"kerberosKrb5Conf" yaml:"kerberosKrb5Conf"`
 	// The Kerberos principal with access to the files and folders on the HDFS cluster.
 	//
 	// > If `KERBEROS` is specified for `AuthenticationType` , this parameter is required.
-	KerberosPrincipal *string `json:"kerberosPrincipal" yaml:"kerberosPrincipal"`
+	KerberosPrincipal *string `field:"optional" json:"kerberosPrincipal" yaml:"kerberosPrincipal"`
 	// The URI of the HDFS cluster's Key Management Server (KMS).
-	KmsKeyProviderUri *string `json:"kmsKeyProviderUri" yaml:"kmsKeyProviderUri"`
+	KmsKeyProviderUri *string `field:"optional" json:"kmsKeyProviderUri" yaml:"kmsKeyProviderUri"`
 	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster.
 	//
 	// If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
-	QopConfiguration interface{} `json:"qopConfiguration" yaml:"qopConfiguration"`
+	QopConfiguration interface{} `field:"optional" json:"qopConfiguration" yaml:"qopConfiguration"`
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster.
 	//
 	// By default, data is replicated to three DataNodes.
-	ReplicationFactor *float64 `json:"replicationFactor" yaml:"replicationFactor"`
+	ReplicationFactor *float64 `field:"optional" json:"replicationFactor" yaml:"replicationFactor"`
 	// The user name used to identify the client on the host operating system.
 	//
 	// > If `SIMPLE` is specified for `AuthenticationType` , this parameter is required.
-	SimpleUser *string `json:"simpleUser" yaml:"simpleUser"`
+	SimpleUser *string `field:"optional" json:"simpleUser" yaml:"simpleUser"`
 	// A subdirectory in the HDFS cluster.
 	//
 	// This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to `/` .
-	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
+	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
 	// The key-value pair that represents the tag that you want to add to the location.
 	//
 	// The value can be an empty string. We recommend using tags to name your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationNFS`.
@@ -5262,8 +4554,11 @@ type CfnLocationHDFSProps struct {
 // The `AWS::DataSync::LocationNFS` resource specifies a file system on a Network File System (NFS) server that can be read from or written to.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
-//   cfnLocationNFS := datasync.NewCfnLocationNFS(this, jsii.String("MyCfnLocationNFS"), &cfnLocationNFSProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLocationNFS := awscdk.Aws_datasync.NewCfnLocationNFS(this, jsii.String("MyCfnLocationNFS"), &cfnLocationNFSProps{
 //   	onPremConfig: &onPremConfigProperty{
 //   		agentArns: []*string{
 //   			jsii.String("agentArns"),
@@ -5292,16 +4587,13 @@ type CfnLocationNFS interface {
 	// The URI of the specified source NFS location.
 	AttrLocationUri() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -5312,14 +4604,12 @@ type CfnLocationNFS interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The NFS mount options that DataSync can use to mount your NFS share.
 	MountOptions() interface{}
 	SetMountOptions(val interface{})
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect to an NFS server.
 	//
 	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
@@ -5329,7 +4619,6 @@ type CfnLocationNFS interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The name of the NFS server.
 	//
@@ -5343,7 +4632,6 @@ type CfnLocationNFS interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
 	//
@@ -5366,16 +4654,13 @@ type CfnLocationNFS interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -5384,7 +4669,6 @@ type CfnLocationNFS interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -5429,15 +4713,12 @@ type CfnLocationNFS interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -5448,13 +4729,11 @@ type CfnLocationNFS interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -5463,74 +4742,21 @@ type CfnLocationNFS interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5620,8 +4846,8 @@ func (j *jsiiProxy_CfnLocationNFS) MountOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationNFS) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLocationNFS) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5702,13 +4928,13 @@ func (j *jsiiProxy_CfnLocationNFS) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DataSync::LocationNFS`.
-func NewCfnLocationNFS(scope awscdk.Construct, id *string, props *CfnLocationNFSProps) CfnLocationNFS {
+func NewCfnLocationNFS(scope constructs.Construct, id *string, props *CfnLocationNFSProps) CfnLocationNFS {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLocationNFS{}
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationNFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationNFS",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5717,11 +4943,11 @@ func NewCfnLocationNFS(scope awscdk.Construct, id *string, props *CfnLocationNFS
 }
 
 // Create a new `AWS::DataSync::LocationNFS`.
-func NewCfnLocationNFS_Override(c CfnLocationNFS, scope awscdk.Construct, id *string, props *CfnLocationNFSProps) {
+func NewCfnLocationNFS_Override(c CfnLocationNFS, scope constructs.Construct, id *string, props *CfnLocationNFSProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationNFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationNFS",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5765,14 +4991,13 @@ func (j *jsiiProxy_CfnLocationNFS) SetSubdirectory(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLocationNFS_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationNFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationNFS",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5782,14 +5007,13 @@ func CfnLocationNFS_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLocationNFS_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationNFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationNFS",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5798,15 +5022,17 @@ func CfnLocationNFS_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLocationNFS_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationNFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationNFS",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5819,7 +5045,7 @@ func CfnLocationNFS_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_datasync.CfnLocationNFS",
+		"aws-cdk-lib.aws_datasync.CfnLocationNFS",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5916,48 +5142,11 @@ func (c *jsiiProxy_CfnLocationNFS) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnLocationNFS) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLocationNFS) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationNFS) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLocationNFS) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationNFS) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5987,33 +5176,12 @@ func (c *jsiiProxy_CfnLocationNFS) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLocationNFS) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLocationNFS) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLocationNFS) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6032,7 +5200,10 @@ func (c *jsiiProxy_CfnLocationNFS) ValidateProperties(_properties interface{}) {
 // The NFS mount options that DataSync can use to mount your NFS share.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mountOptionsProperty := &mountOptionsProperty{
 //   	version: jsii.String("version"),
 //   }
@@ -6047,13 +5218,16 @@ type CfnLocationNFS_MountOptionsProperty struct {
 	// - *[NFSv3](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc1813)* - stateless protocol version that allows for asynchronous writes on the server.
 	// - *[NFSv4.0](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3530)* - stateful, firewall-friendly protocol version that supports delegations and pseudo file systems.
 	// - *[NFSv4.1](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc5661)* - stateful protocol version that supports sessions, directory delegations, and parallel data processing. Version 4.1 also includes all features available in version 4.0.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // A list of Amazon Resource Names (ARNs) of agents to use for a Network File System (NFS) location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   onPremConfigProperty := &onPremConfigProperty{
 //   	agentArns: []*string{
 //   		jsii.String("agentArns"),
@@ -6062,13 +5236,16 @@ type CfnLocationNFS_MountOptionsProperty struct {
 //
 type CfnLocationNFS_OnPremConfigProperty struct {
 	// ARNs of the agents to use for an NFS location.
-	AgentArns *[]*string `json:"agentArns" yaml:"agentArns"`
+	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`
 }
 
 // Properties for defining a `CfnLocationNFS`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLocationNFSProps := &cfnLocationNFSProps{
 //   	onPremConfig: &onPremConfigProperty{
 //   		agentArns: []*string{
@@ -6094,7 +5271,7 @@ type CfnLocationNFSProps struct {
 	// Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect to an NFS server.
 	//
 	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
-	OnPremConfig interface{} `json:"onPremConfig" yaml:"onPremConfig"`
+	OnPremConfig interface{} `field:"required" json:"onPremConfig" yaml:"onPremConfig"`
 	// The name of the NFS server.
 	//
 	// This value is the IP address or Domain Name Service (DNS) name of the NFS server. An agent that is installed on-premises uses this hostname to mount the NFS server in a network.
@@ -6102,7 +5279,7 @@ type CfnLocationNFSProps struct {
 	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
 	//
 	// > This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.
-	ServerHostname *string `json:"serverHostname" yaml:"serverHostname"`
+	ServerHostname *string `field:"required" json:"serverHostname" yaml:"serverHostname"`
 	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
 	//
 	// The NFS path should be a path that's exported by the NFS server, or a subdirectory of that path. The path should be such that it can be mounted by other NFS clients in your network.
@@ -6114,13 +5291,13 @@ type CfnLocationNFSProps struct {
 	// If you are copying data to or from your AWS Snowcone device, see [NFS Server on AWS Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone) for more information.
 	//
 	// For information about NFS export configuration, see [18.7. The /etc/exports Configuration File](https://docs.aws.amazon.com/http://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-nfs-server-config-exports.html) in the Red Hat Enterprise Linux documentation.
-	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
+	Subdirectory *string `field:"required" json:"subdirectory" yaml:"subdirectory"`
 	// The NFS mount options that DataSync can use to mount your NFS share.
-	MountOptions interface{} `json:"mountOptions" yaml:"mountOptions"`
+	MountOptions interface{} `field:"optional" json:"mountOptions" yaml:"mountOptions"`
 	// The key-value pair that represents the tag that you want to add to the location.
 	//
 	// The value can be an empty string. We recommend using tags to name your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationObjectStorage`.
@@ -6128,8 +5305,11 @@ type CfnLocationNFSProps struct {
 // The `AWS::DataSync::LocationObjectStorage` resource specifies an endpoint for a self-managed object storage bucket. For more information about self-managed object storage locations, see [Creating a Location for Object Storage](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
-//   cfnLocationObjectStorage := datasync.NewCfnLocationObjectStorage(this, jsii.String("MyCfnLocationObjectStorage"), &cfnLocationObjectStorageProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLocationObjectStorage := awscdk.Aws_datasync.NewCfnLocationObjectStorage(this, jsii.String("MyCfnLocationObjectStorage"), &cfnLocationObjectStorageProps{
 //   	agentArns: []*string{
 //   		jsii.String("agentArns"),
 //   	},
@@ -6169,16 +5349,13 @@ type CfnLocationObjectStorage interface {
 	BucketName() *string
 	SetBucketName(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -6189,16 +5366,13 @@ type CfnLocationObjectStorage interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Optional.
 	//
@@ -6223,7 +5397,6 @@ type CfnLocationObjectStorage interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The subdirectory in the self-managed object storage server that is used to read data from.
 	Subdirectory() *string
@@ -6236,16 +5409,13 @@ type CfnLocationObjectStorage interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6254,7 +5424,6 @@ type CfnLocationObjectStorage interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -6299,15 +5468,12 @@ type CfnLocationObjectStorage interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -6318,13 +5484,11 @@ type CfnLocationObjectStorage interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6333,74 +5497,21 @@ type CfnLocationObjectStorage interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -6510,8 +5621,8 @@ func (j *jsiiProxy_CfnLocationObjectStorage) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationObjectStorage) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLocationObjectStorage) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6612,13 +5723,13 @@ func (j *jsiiProxy_CfnLocationObjectStorage) UpdatedProperites() *map[string]int
 
 
 // Create a new `AWS::DataSync::LocationObjectStorage`.
-func NewCfnLocationObjectStorage(scope awscdk.Construct, id *string, props *CfnLocationObjectStorageProps) CfnLocationObjectStorage {
+func NewCfnLocationObjectStorage(scope constructs.Construct, id *string, props *CfnLocationObjectStorageProps) CfnLocationObjectStorage {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLocationObjectStorage{}
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationObjectStorage",
+		"aws-cdk-lib.aws_datasync.CfnLocationObjectStorage",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6627,11 +5738,11 @@ func NewCfnLocationObjectStorage(scope awscdk.Construct, id *string, props *CfnL
 }
 
 // Create a new `AWS::DataSync::LocationObjectStorage`.
-func NewCfnLocationObjectStorage_Override(c CfnLocationObjectStorage, scope awscdk.Construct, id *string, props *CfnLocationObjectStorageProps) {
+func NewCfnLocationObjectStorage_Override(c CfnLocationObjectStorage, scope constructs.Construct, id *string, props *CfnLocationObjectStorageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationObjectStorage",
+		"aws-cdk-lib.aws_datasync.CfnLocationObjectStorage",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6707,14 +5818,13 @@ func (j *jsiiProxy_CfnLocationObjectStorage) SetSubdirectory(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLocationObjectStorage_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationObjectStorage",
+		"aws-cdk-lib.aws_datasync.CfnLocationObjectStorage",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6724,14 +5834,13 @@ func CfnLocationObjectStorage_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLocationObjectStorage_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationObjectStorage",
+		"aws-cdk-lib.aws_datasync.CfnLocationObjectStorage",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6740,15 +5849,17 @@ func CfnLocationObjectStorage_IsCfnResource(construct constructs.IConstruct) *bo
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLocationObjectStorage_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationObjectStorage",
+		"aws-cdk-lib.aws_datasync.CfnLocationObjectStorage",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6761,7 +5872,7 @@ func CfnLocationObjectStorage_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_datasync.CfnLocationObjectStorage",
+		"aws-cdk-lib.aws_datasync.CfnLocationObjectStorage",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6858,48 +5969,11 @@ func (c *jsiiProxy_CfnLocationObjectStorage) Inspect(inspector awscdk.TreeInspec
 	)
 }
 
-func (c *jsiiProxy_CfnLocationObjectStorage) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLocationObjectStorage) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationObjectStorage) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLocationObjectStorage) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationObjectStorage) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -6929,33 +6003,12 @@ func (c *jsiiProxy_CfnLocationObjectStorage) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLocationObjectStorage) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLocationObjectStorage) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLocationObjectStorage) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6974,7 +6027,10 @@ func (c *jsiiProxy_CfnLocationObjectStorage) ValidateProperties(_properties inte
 // Properties for defining a `CfnLocationObjectStorage`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLocationObjectStorageProps := &cfnLocationObjectStorageProps{
 //   	agentArns: []*string{
 //   		jsii.String("agentArns"),
@@ -6998,35 +6054,35 @@ func (c *jsiiProxy_CfnLocationObjectStorage) ValidateProperties(_properties inte
 //
 type CfnLocationObjectStorageProps struct {
 	// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
-	AgentArns *[]*string `json:"agentArns" yaml:"agentArns"`
+	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`
 	// The bucket on the self-managed object storage server that is used to read data from.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The name of the self-managed object storage server.
 	//
 	// This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this hostname to mount the object storage server in a network.
-	ServerHostname *string `json:"serverHostname" yaml:"serverHostname"`
+	ServerHostname *string `field:"required" json:"serverHostname" yaml:"serverHostname"`
 	// Optional.
 	//
 	// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
-	AccessKey *string `json:"accessKey" yaml:"accessKey"`
+	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
 	// Optional.
 	//
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
-	SecretKey *string `json:"secretKey" yaml:"secretKey"`
+	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
 	// The port that your self-managed object storage server accepts inbound network traffic on.
 	//
 	// The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS). You can specify a custom port if your self-managed object storage server requires one.
-	ServerPort *float64 `json:"serverPort" yaml:"serverPort"`
+	ServerPort *float64 `field:"optional" json:"serverPort" yaml:"serverPort"`
 	// The protocol that the object storage server uses to communicate.
 	//
 	// Valid values are HTTP or HTTPS.
-	ServerProtocol *string `json:"serverProtocol" yaml:"serverProtocol"`
+	ServerProtocol *string `field:"optional" json:"serverProtocol" yaml:"serverProtocol"`
 	// The subdirectory in the self-managed object storage server that is used to read data from.
-	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
+	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
 	// The key-value pair that represents the tag that you want to add to the location.
 	//
 	// The value can be an empty string. We recommend using tags to name your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationS3`.
@@ -7036,8 +6092,11 @@ type CfnLocationObjectStorageProps struct {
 // For more information, see [Create an Amazon S3 location](https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli) in the *AWS DataSync User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
-//   cfnLocationS3 := datasync.NewCfnLocationS3(this, jsii.String("MyCfnLocationS3"), &cfnLocationS3Props{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLocationS3 := awscdk.Aws_datasync.NewCfnLocationS3(this, jsii.String("MyCfnLocationS3"), &cfnLocationS3Props{
 //   	s3BucketArn: jsii.String("s3BucketArn"),
 //   	s3Config: &s3ConfigProperty{
 //   		bucketAccessRoleArn: jsii.String("bucketAccessRoleArn"),
@@ -7062,16 +6121,13 @@ type CfnLocationS3 interface {
 	// The URI of the specified Amazon S3 location.
 	AttrLocationUri() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -7082,16 +6138,13 @@ type CfnLocationS3 interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The ARN of the Amazon S3 bucket.
 	S3BucketArn() *string
@@ -7111,7 +6164,6 @@ type CfnLocationS3 interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A subdirectory in the Amazon S3 bucket.
 	//
@@ -7126,16 +6178,13 @@ type CfnLocationS3 interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7144,7 +6193,6 @@ type CfnLocationS3 interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -7189,15 +6237,12 @@ type CfnLocationS3 interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -7208,13 +6253,11 @@ type CfnLocationS3 interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7223,74 +6266,21 @@ type CfnLocationS3 interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -7370,8 +6360,8 @@ func (j *jsiiProxy_CfnLocationS3) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationS3) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLocationS3) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7462,13 +6452,13 @@ func (j *jsiiProxy_CfnLocationS3) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DataSync::LocationS3`.
-func NewCfnLocationS3(scope awscdk.Construct, id *string, props *CfnLocationS3Props) CfnLocationS3 {
+func NewCfnLocationS3(scope constructs.Construct, id *string, props *CfnLocationS3Props) CfnLocationS3 {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLocationS3{}
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationS3",
+		"aws-cdk-lib.aws_datasync.CfnLocationS3",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7477,11 +6467,11 @@ func NewCfnLocationS3(scope awscdk.Construct, id *string, props *CfnLocationS3Pr
 }
 
 // Create a new `AWS::DataSync::LocationS3`.
-func NewCfnLocationS3_Override(c CfnLocationS3, scope awscdk.Construct, id *string, props *CfnLocationS3Props) {
+func NewCfnLocationS3_Override(c CfnLocationS3, scope constructs.Construct, id *string, props *CfnLocationS3Props) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationS3",
+		"aws-cdk-lib.aws_datasync.CfnLocationS3",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7525,14 +6515,13 @@ func (j *jsiiProxy_CfnLocationS3) SetSubdirectory(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLocationS3_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationS3",
+		"aws-cdk-lib.aws_datasync.CfnLocationS3",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7542,14 +6531,13 @@ func CfnLocationS3_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLocationS3_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationS3",
+		"aws-cdk-lib.aws_datasync.CfnLocationS3",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7558,15 +6546,17 @@ func CfnLocationS3_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLocationS3_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationS3",
+		"aws-cdk-lib.aws_datasync.CfnLocationS3",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7579,7 +6569,7 @@ func CfnLocationS3_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_datasync.CfnLocationS3",
+		"aws-cdk-lib.aws_datasync.CfnLocationS3",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7676,48 +6666,11 @@ func (c *jsiiProxy_CfnLocationS3) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnLocationS3) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLocationS3) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationS3) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLocationS3) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationS3) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -7747,33 +6700,12 @@ func (c *jsiiProxy_CfnLocationS3) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLocationS3) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLocationS3) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLocationS3) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7794,20 +6726,26 @@ func (c *jsiiProxy_CfnLocationS3) ValidateProperties(_properties interface{}) {
 // For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3ConfigProperty := &s3ConfigProperty{
 //   	bucketAccessRoleArn: jsii.String("bucketAccessRoleArn"),
 //   }
 //
 type CfnLocationS3_S3ConfigProperty struct {
 	// The ARN of the IAM role for accessing the S3 bucket.
-	BucketAccessRoleArn *string `json:"bucketAccessRoleArn" yaml:"bucketAccessRoleArn"`
+	BucketAccessRoleArn *string `field:"required" json:"bucketAccessRoleArn" yaml:"bucketAccessRoleArn"`
 }
 
 // Properties for defining a `CfnLocationS3`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLocationS3Props := &cfnLocationS3Props{
 //   	s3BucketArn: jsii.String("s3BucketArn"),
 //   	s3Config: &s3ConfigProperty{
@@ -7827,25 +6765,25 @@ type CfnLocationS3_S3ConfigProperty struct {
 //
 type CfnLocationS3Props struct {
 	// The ARN of the Amazon S3 bucket.
-	S3BucketArn *string `json:"s3BucketArn" yaml:"s3BucketArn"`
+	S3BucketArn *string `field:"required" json:"s3BucketArn" yaml:"s3BucketArn"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
 	//
 	// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
-	S3Config interface{} `json:"s3Config" yaml:"s3Config"`
+	S3Config interface{} `field:"required" json:"s3Config" yaml:"s3Config"`
 	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination.
 	//
 	// For buckets in AWS Regions , the storage class defaults to S3 Standard.
 	//
 	// For more information about S3 storage classes, see [Amazon S3 Storage Classes](https://docs.aws.amazon.com/s3/storage-classes/) . Some storage classes have behaviors that can affect your S3 storage costs. For detailed information, see [Considerations When Working with Amazon S3 Storage Classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) .
-	S3StorageClass *string `json:"s3StorageClass" yaml:"s3StorageClass"`
+	S3StorageClass *string `field:"optional" json:"s3StorageClass" yaml:"s3StorageClass"`
 	// A subdirectory in the Amazon S3 bucket.
 	//
 	// This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
-	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
+	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
 	// The key-value pair that represents the tag that you want to add to the location.
 	//
 	// The value can be an empty string. We recommend using tags to name your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationSMB`.
@@ -7853,8 +6791,11 @@ type CfnLocationS3Props struct {
 // The `AWS::DataSync::LocationSMB` resource specifies a Server Message Block (SMB) location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
-//   cfnLocationSMB := datasync.NewCfnLocationSMB(this, jsii.String("MyCfnLocationSMB"), &cfnLocationSMBProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLocationSMB := awscdk.Aws_datasync.NewCfnLocationSMB(this, jsii.String("MyCfnLocationSMB"), &cfnLocationSMBProps{
 //   	agentArns: []*string{
 //   		jsii.String("agentArns"),
 //   	},
@@ -7887,16 +6828,13 @@ type CfnLocationSMB interface {
 	// The URI of the specified SMB location.
 	AttrLocationUri() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The name of the Windows domain that the SMB server belongs to.
 	Domain() *string
@@ -7910,14 +6848,12 @@ type CfnLocationSMB interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The mount options used by DataSync to access the SMB server.
 	MountOptions() interface{}
 	SetMountOptions(val interface{})
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
 	Password() *string
 	SetPassword(val *string)
@@ -7925,7 +6861,6 @@ type CfnLocationSMB interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The name of the SMB server.
 	//
@@ -7937,7 +6872,6 @@ type CfnLocationSMB interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination.
 	//
@@ -7956,7 +6890,6 @@ type CfnLocationSMB interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The user who can mount the share and has the permissions to access files and folders in the SMB share.
 	//
@@ -7964,13 +6897,11 @@ type CfnLocationSMB interface {
 	User() *string
 	SetUser(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7979,7 +6910,6 @@ type CfnLocationSMB interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -8024,15 +6954,12 @@ type CfnLocationSMB interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -8043,13 +6970,11 @@ type CfnLocationSMB interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8058,74 +6983,21 @@ type CfnLocationSMB interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -8235,8 +7107,8 @@ func (j *jsiiProxy_CfnLocationSMB) MountOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationSMB) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLocationSMB) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8327,13 +7199,13 @@ func (j *jsiiProxy_CfnLocationSMB) User() *string {
 
 
 // Create a new `AWS::DataSync::LocationSMB`.
-func NewCfnLocationSMB(scope awscdk.Construct, id *string, props *CfnLocationSMBProps) CfnLocationSMB {
+func NewCfnLocationSMB(scope constructs.Construct, id *string, props *CfnLocationSMBProps) CfnLocationSMB {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLocationSMB{}
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationSMB",
+		"aws-cdk-lib.aws_datasync.CfnLocationSMB",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8342,11 +7214,11 @@ func NewCfnLocationSMB(scope awscdk.Construct, id *string, props *CfnLocationSMB
 }
 
 // Create a new `AWS::DataSync::LocationSMB`.
-func NewCfnLocationSMB_Override(c CfnLocationSMB, scope awscdk.Construct, id *string, props *CfnLocationSMBProps) {
+func NewCfnLocationSMB_Override(c CfnLocationSMB, scope constructs.Construct, id *string, props *CfnLocationSMBProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnLocationSMB",
+		"aws-cdk-lib.aws_datasync.CfnLocationSMB",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8414,14 +7286,13 @@ func (j *jsiiProxy_CfnLocationSMB) SetUser(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLocationSMB_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationSMB",
+		"aws-cdk-lib.aws_datasync.CfnLocationSMB",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8431,14 +7302,13 @@ func CfnLocationSMB_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLocationSMB_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationSMB",
+		"aws-cdk-lib.aws_datasync.CfnLocationSMB",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8447,15 +7317,17 @@ func CfnLocationSMB_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnLocationSMB_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnLocationSMB",
+		"aws-cdk-lib.aws_datasync.CfnLocationSMB",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8468,7 +7340,7 @@ func CfnLocationSMB_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_datasync.CfnLocationSMB",
+		"aws-cdk-lib.aws_datasync.CfnLocationSMB",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8565,48 +7437,11 @@ func (c *jsiiProxy_CfnLocationSMB) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnLocationSMB) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLocationSMB) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationSMB) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLocationSMB) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLocationSMB) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -8636,33 +7471,12 @@ func (c *jsiiProxy_CfnLocationSMB) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLocationSMB) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLocationSMB) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLocationSMB) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8681,7 +7495,10 @@ func (c *jsiiProxy_CfnLocationSMB) ValidateProperties(_properties interface{}) {
 // The mount options used by DataSync to access the SMB server.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mountOptionsProperty := &mountOptionsProperty{
 //   	version: jsii.String("version"),
 //   }
@@ -8690,13 +7507,16 @@ type CfnLocationSMB_MountOptionsProperty struct {
 	// The specific SMB version that you want DataSync to use to mount your SMB share.
 	//
 	// If you don't specify a version, DataSync defaults to `AUTOMATIC` . That is, DataSync automatically selects a version based on negotiation with the SMB server.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnLocationSMB`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLocationSMBProps := &cfnLocationSMBProps{
 //   	agentArns: []*string{
 //   		jsii.String("agentArns"),
@@ -8721,15 +7541,15 @@ type CfnLocationSMB_MountOptionsProperty struct {
 //
 type CfnLocationSMBProps struct {
 	// The Amazon Resource Names (ARNs) of agents to use for a Server Message Block (SMB) location.
-	AgentArns *[]*string `json:"agentArns" yaml:"agentArns"`
+	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// The name of the SMB server.
 	//
 	// This value is the IP address or Domain Name Service (DNS) name of the SMB server. An agent that is installed on-premises uses this hostname to mount the SMB server in a network.
 	//
 	// > This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.
-	ServerHostname *string `json:"serverHostname" yaml:"serverHostname"`
+	ServerHostname *string `field:"required" json:"serverHostname" yaml:"serverHostname"`
 	// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination.
 	//
 	// The SMB path should be a path that's exported by the SMB server, or a subdirectory of that path. The path should be such that it can be mounted by other SMB clients in your network.
@@ -8737,19 +7557,19 @@ type CfnLocationSMBProps struct {
 	// > `Subdirectory` must be specified with forward slashes. For example, `/path/to/folder` .
 	//
 	// To transfer all the data in the folder you specified, DataSync must have permissions to mount the SMB share, as well as to access all the data in that share. To ensure this, either make sure that the user name and password specified belongs to the user who can mount the share, and who has the appropriate permissions for all of the files and directories that you want DataSync to access, or use credentials of a member of the Backup Operators group to mount the share. Doing either one enables the agent to access the data. For the agent to access directories, you must additionally enable all execute access.
-	Subdirectory *string `json:"subdirectory" yaml:"subdirectory"`
+	Subdirectory *string `field:"required" json:"subdirectory" yaml:"subdirectory"`
 	// The user who can mount the share and has the permissions to access files and folders in the SMB share.
 	//
 	// For information about choosing a user name that ensures sufficient permissions to files, folders, and metadata, see [user](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#SMBuser) .
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"required" json:"user" yaml:"user"`
 	// The name of the Windows domain that the SMB server belongs to.
-	Domain *string `json:"domain" yaml:"domain"`
+	Domain *string `field:"optional" json:"domain" yaml:"domain"`
 	// The mount options used by DataSync to access the SMB server.
-	MountOptions interface{} `json:"mountOptions" yaml:"mountOptions"`
+	MountOptions interface{} `field:"optional" json:"mountOptions" yaml:"mountOptions"`
 	// The key-value pair that represents the tag that you want to add to the location.
 	//
 	// The value can be an empty string. We recommend using tags to name your resources.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::Task`.
@@ -8757,8 +7577,11 @@ type CfnLocationSMBProps struct {
 // The `AWS::DataSync::Task` resource specifies a task. A task is a set of two locations (source and destination) and a set of `Options` that you use to control the behavior of a task. If you don't specify `Options` when you create a task, AWS DataSync populates them with service defaults.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
-//   cfnTask := datasync.NewCfnTask(this, jsii.String("MyCfnTask"), &cfnTaskProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTask := awscdk.Aws_datasync.NewCfnTask(this, jsii.String("MyCfnTask"), &cfnTaskProps{
 //   	destinationLocationArn: jsii.String("destinationLocationArn"),
 //   	sourceLocationArn: jsii.String("sourceLocationArn"),
 //
@@ -8824,11 +7647,9 @@ type CfnTask interface {
 	// The ARN of the task.
 	AttrTaskArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to monitor and log events in the task.
 	//
@@ -8840,7 +7661,6 @@ type CfnTask interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The Amazon Resource Name (ARN) of an AWS storage resource's location.
 	DestinationLocationArn() *string
@@ -8864,16 +7684,14 @@ type CfnTask interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of a task.
 	//
 	// This value is a text reference that is used to identify the task in the console.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The set of configuration options that control the behavior of a single execution of the task that occurs when you call `StartTaskExecution` .
 	//
 	// You can configure these options to preserve metadata such as user ID (UID) and group ID (GID), file permissions, data integrity verification, and so on.
@@ -8885,7 +7703,6 @@ type CfnTask interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	//
@@ -8898,7 +7715,6 @@ type CfnTask interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The key-value pair that represents the tag that you want to add to the resource.
 	//
@@ -8908,16 +7724,13 @@ type CfnTask interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8926,7 +7739,6 @@ type CfnTask interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -8971,15 +7783,12 @@ type CfnTask interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -8990,13 +7799,11 @@ type CfnTask interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -9005,74 +7812,21 @@ type CfnTask interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -9242,8 +7996,8 @@ func (j *jsiiProxy_CfnTask) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTask) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnTask) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -9324,13 +8078,13 @@ func (j *jsiiProxy_CfnTask) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DataSync::Task`.
-func NewCfnTask(scope awscdk.Construct, id *string, props *CfnTaskProps) CfnTask {
+func NewCfnTask(scope constructs.Construct, id *string, props *CfnTaskProps) CfnTask {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTask{}
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnTask",
+		"aws-cdk-lib.aws_datasync.CfnTask",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9339,11 +8093,11 @@ func NewCfnTask(scope awscdk.Construct, id *string, props *CfnTaskProps) CfnTask
 }
 
 // Create a new `AWS::DataSync::Task`.
-func NewCfnTask_Override(c CfnTask, scope awscdk.Construct, id *string, props *CfnTaskProps) {
+func NewCfnTask_Override(c CfnTask, scope constructs.Construct, id *string, props *CfnTaskProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_datasync.CfnTask",
+		"aws-cdk-lib.aws_datasync.CfnTask",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -9419,14 +8173,13 @@ func (j *jsiiProxy_CfnTask) SetSourceLocationArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnTask_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnTask",
+		"aws-cdk-lib.aws_datasync.CfnTask",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -9436,14 +8189,13 @@ func CfnTask_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnTask_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnTask",
+		"aws-cdk-lib.aws_datasync.CfnTask",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -9452,15 +8204,17 @@ func CfnTask_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnTask_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_datasync.CfnTask",
+		"aws-cdk-lib.aws_datasync.CfnTask",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9473,7 +8227,7 @@ func CfnTask_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_datasync.CfnTask",
+		"aws-cdk-lib.aws_datasync.CfnTask",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -9570,48 +8324,11 @@ func (c *jsiiProxy_CfnTask) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnTask) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnTask) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnTask) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnTask) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnTask) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -9641,33 +8358,12 @@ func (c *jsiiProxy_CfnTask) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnTask) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnTask) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnTask) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9686,7 +8382,10 @@ func (c *jsiiProxy_CfnTask) ValidateProperties(_properties interface{}) {
 // Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   filterRuleProperty := &filterRuleProperty{
 //   	filterType: jsii.String("filterType"),
 //   	value: jsii.String("value"),
@@ -9696,11 +8395,11 @@ type CfnTask_FilterRuleProperty struct {
 	// The type of filter rule to apply.
 	//
 	// AWS DataSync only supports the SIMPLE_PATTERN rule type.
-	FilterType *string `json:"filterType" yaml:"filterType"`
+	FilterType *string `field:"optional" json:"filterType" yaml:"filterType"`
 	// A single filter string that consists of the patterns to include or exclude.
 	//
 	// The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Represents the options that are available to control the behavior of a [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation. This behavior includes preserving metadata, such as user ID (UID), group ID (GID), and file permissions; overwriting files in the destination; data integrity verification; and so on.
@@ -9708,7 +8407,10 @@ type CfnTask_FilterRuleProperty struct {
 // A task has a set of default options associated with it. If you don't specify an option in [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) , the default value is used. You can override the default options on each task execution by specifying an overriding `Options` value to [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   optionsProperty := &optionsProperty{
 //   	atime: jsii.String("atime"),
 //   	bytesPerSecond: jsii.Number(123),
@@ -9740,11 +8442,11 @@ type CfnTask_OptionsProperty struct {
 	// > If `Atime` is set to `BEST_EFFORT` , `Mtime` must be set to `PRESERVE` .
 	// >
 	// > If `Atime` is set to `NONE` , `Mtime` must also be `NONE` .
-	Atime *string `json:"atime" yaml:"atime"`
+	Atime *string `field:"optional" json:"atime" yaml:"atime"`
 	// A value that limits the bandwidth used by AWS DataSync .
 	//
 	// For example, if you want AWS DataSync to use a maximum of 1 MB, set this value to `1048576` (=1024*1024).
-	BytesPerSecond *float64 `json:"bytesPerSecond" yaml:"bytesPerSecond"`
+	BytesPerSecond *float64 `field:"optional" json:"bytesPerSecond" yaml:"bytesPerSecond"`
 	// The group ID (GID) of the file's owners.
 	//
 	// Default value: `INT_VALUE`
@@ -9754,11 +8456,11 @@ type CfnTask_OptionsProperty struct {
 	// `NAME` : Currently not supported.
 	//
 	// `NONE` : Ignore the UID and GID.
-	Gid *string `json:"gid" yaml:"gid"`
+	Gid *string `field:"optional" json:"gid" yaml:"gid"`
 	// A value that determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
 	//
 	// For more information about providing a log group for DataSync, see [CloudWatchLogGroupArn](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn) . If set to `OFF` , no logs are published. `BASIC` publishes logs on errors for individual files transferred, and `TRANSFER` publishes logs for every file or object that is transferred and integrity checked.
-	LogLevel *string `json:"logLevel" yaml:"logLevel"`
+	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`
 	// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
 	//
 	// This option is required for cases when you need to run the same task more than one time.
@@ -9772,13 +8474,13 @@ type CfnTask_OptionsProperty struct {
 	// > If `Mtime` is set to `PRESERVE` , `Atime` must be set to `BEST_EFFORT` .
 	// >
 	// > If `Mtime` is set to `NONE` , `Atime` must also be set to `NONE` .
-	Mtime *string `json:"mtime" yaml:"mtime"`
+	Mtime *string `field:"optional" json:"mtime" yaml:"mtime"`
 	// A value that determines whether files at the destination should be overwritten or preserved when copying files.
 	//
 	// If set to `NEVER` a destination file will not be replaced by a source file, even if the destination file differs from the source file. If you modify files in the destination and you sync the files, you can use this value to protect against overwriting those changes.
 	//
 	// Some storage classes have specific behaviors that can affect your S3 storage cost. For detailed information, see [Considerations when working with Amazon S3 storage classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) in the *AWS DataSync User Guide* .
-	OverwriteMode *string `json:"overwriteMode" yaml:"overwriteMode"`
+	OverwriteMode *string `field:"optional" json:"overwriteMode" yaml:"overwriteMode"`
 	// A value that determines which users or groups can access a file for a specific purpose, such as reading, writing, or execution of the file.
 	//
 	// This option should be set only for Network File System (NFS), Amazon EFS, and Amazon S3 locations. For more information about what metadata is copied by DataSync, see [Metadata Copied by DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied) .
@@ -9790,7 +8492,7 @@ type CfnTask_OptionsProperty struct {
 	// `NONE` : Ignore permissions.
 	//
 	// > AWS DataSync can preserve extant permissions of a source location.
-	PosixPermissions *string `json:"posixPermissions" yaml:"posixPermissions"`
+	PosixPermissions *string `field:"optional" json:"posixPermissions" yaml:"posixPermissions"`
 	// A value that specifies whether files in the destination that don't exist in the source file system are preserved.
 	//
 	// This option can affect your storage costs. If your task deletes objects, you might incur minimum storage duration charges for certain storage classes. For detailed information, see [Considerations when working with Amazon S3 storage classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) in the *AWS DataSync User Guide* .
@@ -9800,7 +8502,7 @@ type CfnTask_OptionsProperty struct {
 	// `PRESERVE` : Ignore destination files that aren't present in the source (recommended).
 	//
 	// `REMOVE` : Delete destination files that aren't present in the source.
-	PreserveDeletedFiles *string `json:"preserveDeletedFiles" yaml:"preserveDeletedFiles"`
+	PreserveDeletedFiles *string `field:"optional" json:"preserveDeletedFiles" yaml:"preserveDeletedFiles"`
 	// A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and re-create the files with that device name and metadata on the destination.
 	//
 	// DataSync does not copy the contents of such devices, only the name and metadata.
@@ -9812,7 +8514,7 @@ type CfnTask_OptionsProperty struct {
 	// `NONE` : Ignore special devices (recommended).
 	//
 	// `PRESERVE` : Preserve character and block device metadata. This option isn't currently supported for Amazon EFS.
-	PreserveDevices *string `json:"preserveDevices" yaml:"preserveDevices"`
+	PreserveDevices *string `field:"optional" json:"preserveDevices" yaml:"preserveDevices"`
 	// A value that determines which components of the SMB security descriptor are copied from source to destination objects.
 	//
 	// This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. For more information about how DataSync handles metadata, see [How DataSync Handles Metadata and Special Files](https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html) .
@@ -9835,19 +8537,19 @@ type CfnTask_OptionsProperty struct {
 	// Copying SACLs requires granting additional permissions to the Windows user that DataSync uses to access your SMB location. For information about choosing a user that ensures sufficient permissions to files, folders, and metadata, see [user](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#SMBuser) .
 	//
 	// `NONE` : None of the SMB security descriptor components are copied. Destination objects are owned by the user that was provided for accessing the destination location. DACLs and SACLs are set based on the destination server’s configuration.
-	SecurityDescriptorCopyFlags *string `json:"securityDescriptorCopyFlags" yaml:"securityDescriptorCopyFlags"`
+	SecurityDescriptorCopyFlags *string `field:"optional" json:"securityDescriptorCopyFlags" yaml:"securityDescriptorCopyFlags"`
 	// A value that determines whether tasks should be queued before executing the tasks.
 	//
 	// If set to `ENABLED` , the tasks will be queued. The default is `ENABLED` .
 	//
 	// If you use the same agent to run multiple tasks, you can enable the tasks to run in series. For more information, see [Queueing task executions](https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution) .
-	TaskQueueing *string `json:"taskQueueing" yaml:"taskQueueing"`
+	TaskQueueing *string `field:"optional" json:"taskQueueing" yaml:"taskQueueing"`
 	// A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing it to the destination location.
 	//
 	// `CHANGED` : DataSync copies only data or metadata that is new or different from the source location to the destination location.
 	//
 	// `ALL` : DataSync copies all source location content to the destination, without comparing it to existing content on the destination.
-	TransferMode *string `json:"transferMode" yaml:"transferMode"`
+	TransferMode *string `field:"optional" json:"transferMode" yaml:"transferMode"`
 	// The user ID (UID) of the file's owner.
 	//
 	// Default value: `INT_VALUE`
@@ -9857,7 +8559,7 @@ type CfnTask_OptionsProperty struct {
 	// `NAME` : Currently not supported
 	//
 	// `NONE` : Ignore the UID and GID.
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"optional" json:"uid" yaml:"uid"`
 	// A value that determines whether a data integrity verification is performed at the end of a task execution after all data and metadata have been transferred.
 	//
 	// For more information, see [Configure task settings](https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html) .
@@ -9869,7 +8571,7 @@ type CfnTask_OptionsProperty struct {
 	// `POINT_IN_TIME_CONSISTENT` : Scan the entire source and entire destination at the end of the transfer to verify that the source and destination are fully synchronized. This option isn't supported when transferring to S3 Glacier or S3 Glacier Deep Archive storage classes.
 	//
 	// `NONE` : No additional verification is done at the end of the transfer, but all data transmissions are integrity-checked with checksum verification during the transfer.
-	VerifyMode *string `json:"verifyMode" yaml:"verifyMode"`
+	VerifyMode *string `field:"optional" json:"verifyMode" yaml:"verifyMode"`
 }
 
 // Specifies the schedule you want your task to use for repeated executions.
@@ -9877,20 +8579,26 @@ type CfnTask_OptionsProperty struct {
 // For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   taskScheduleProperty := &taskScheduleProperty{
 //   	scheduleExpression: jsii.String("scheduleExpression"),
 //   }
 //
 type CfnTask_TaskScheduleProperty struct {
 	// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location.
-	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
+	ScheduleExpression *string `field:"required" json:"scheduleExpression" yaml:"scheduleExpression"`
 }
 
 // Properties for defining a `CfnTask`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import datasync "github.com/aws/aws-cdk-go/awscdk/aws_datasync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTaskProps := &cfnTaskProps{
 //   	destinationLocationArn: jsii.String("destinationLocationArn"),
 //   	sourceLocationArn: jsii.String("sourceLocationArn"),
@@ -9939,40 +8647,40 @@ type CfnTask_TaskScheduleProperty struct {
 //
 type CfnTaskProps struct {
 	// The Amazon Resource Name (ARN) of an AWS storage resource's location.
-	DestinationLocationArn *string `json:"destinationLocationArn" yaml:"destinationLocationArn"`
+	DestinationLocationArn *string `field:"required" json:"destinationLocationArn" yaml:"destinationLocationArn"`
 	// The Amazon Resource Name (ARN) of the source location for the task.
-	SourceLocationArn *string `json:"sourceLocationArn" yaml:"sourceLocationArn"`
+	SourceLocationArn *string `field:"required" json:"sourceLocationArn" yaml:"sourceLocationArn"`
 	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to monitor and log events in the task.
 	//
 	// For more information about how to use CloudWatch Logs with DataSync, see [Monitoring Your Task](https://docs.aws.amazon.com/datasync/latest/userguide/monitor-datasync.html#cloudwatchlogs) in the *AWS DataSync User Guide.*
 	//
 	// For more information about these groups, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) in the *Amazon CloudWatch Logs User Guide* .
-	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
+	CloudWatchLogGroupArn *string `field:"optional" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
 	// A list of filter rules that determines which files to exclude from a task.
 	//
 	// The list should contain a single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example, `"/folder1|/folder2"` .
-	Excludes interface{} `json:"excludes" yaml:"excludes"`
+	Excludes interface{} `field:"optional" json:"excludes" yaml:"excludes"`
 	// A list of filter rules that determines which files to include when running a task.
 	//
 	// The pattern contains a single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example, `"/folder1|/folder2"` .
-	Includes interface{} `json:"includes" yaml:"includes"`
+	Includes interface{} `field:"optional" json:"includes" yaml:"includes"`
 	// The name of a task.
 	//
 	// This value is a text reference that is used to identify the task in the console.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The set of configuration options that control the behavior of a single execution of the task that occurs when you call `StartTaskExecution` .
 	//
 	// You can configure these options to preserve metadata such as user ID (UID) and group ID (GID), file permissions, data integrity verification, and so on.
 	//
 	// For each individual task execution, you can override these options by specifying the `OverrideOptions` before starting the task execution. For more information, see the [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation.
-	Options interface{} `json:"options" yaml:"options"`
+	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	//
 	// The schedule should be specified in UTC time. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
-	Schedule interface{} `json:"schedule" yaml:"schedule"`
+	Schedule interface{} `field:"optional" json:"schedule" yaml:"schedule"`
 	// The key-value pair that represents the tag that you want to add to the resource.
 	//
 	// The value can be an empty string.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

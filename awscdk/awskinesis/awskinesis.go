@@ -1,15 +1,15 @@
 package awskinesis
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskinesis/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::Kinesis::Stream`.
@@ -17,8 +17,11 @@ import (
 // Creates a Kinesis stream that captures and transports data records that are emitted from data sources. For information about creating streams, see [CreateStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html) in the Amazon Kinesis API Reference.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"
-//   cfnStream := kinesis.NewCfnStream(this, jsii.String("MyCfnStream"), &cfnStreamProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStream := awscdk.Aws_kinesis.NewCfnStream(this, jsii.String("MyCfnStream"), &cfnStreamProps{
 //   	name: jsii.String("name"),
 //   	retentionPeriodHours: jsii.Number(123),
 //   	shardCount: jsii.Number(123),
@@ -43,16 +46,13 @@ type CfnStream interface {
 	// The Amazon resource name (ARN) of the Kinesis stream, such as `arn:aws:kinesis:us-east-2:123456789012:stream/mystream` .
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -63,7 +63,6 @@ type CfnStream interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the Kinesis stream.
 	//
@@ -72,14 +71,12 @@ type CfnStream interface {
 	// If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	//
@@ -94,7 +91,6 @@ type CfnStream interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
 	//
@@ -114,16 +110,13 @@ type CfnStream interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -132,7 +125,6 @@ type CfnStream interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -177,15 +169,12 @@ type CfnStream interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -196,13 +185,11 @@ type CfnStream interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -211,74 +198,21 @@ type CfnStream interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -358,8 +292,8 @@ func (j *jsiiProxy_CfnStream) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStream) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnStream) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -450,13 +384,13 @@ func (j *jsiiProxy_CfnStream) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Kinesis::Stream`.
-func NewCfnStream(scope awscdk.Construct, id *string, props *CfnStreamProps) CfnStream {
+func NewCfnStream(scope constructs.Construct, id *string, props *CfnStreamProps) CfnStream {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStream{}
 
 	_jsii_.Create(
-		"monocdk.aws_kinesis.CfnStream",
+		"aws-cdk-lib.aws_kinesis.CfnStream",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -465,11 +399,11 @@ func NewCfnStream(scope awscdk.Construct, id *string, props *CfnStreamProps) Cfn
 }
 
 // Create a new `AWS::Kinesis::Stream`.
-func NewCfnStream_Override(c CfnStream, scope awscdk.Construct, id *string, props *CfnStreamProps) {
+func NewCfnStream_Override(c CfnStream, scope constructs.Construct, id *string, props *CfnStreamProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_kinesis.CfnStream",
+		"aws-cdk-lib.aws_kinesis.CfnStream",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -521,14 +455,13 @@ func (j *jsiiProxy_CfnStream) SetStreamModeDetails(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnStream_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kinesis.CfnStream",
+		"aws-cdk-lib.aws_kinesis.CfnStream",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -538,14 +471,13 @@ func CfnStream_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnStream_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kinesis.CfnStream",
+		"aws-cdk-lib.aws_kinesis.CfnStream",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -554,15 +486,17 @@ func CfnStream_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnStream_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kinesis.CfnStream",
+		"aws-cdk-lib.aws_kinesis.CfnStream",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -575,7 +509,7 @@ func CfnStream_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_kinesis.CfnStream",
+		"aws-cdk-lib.aws_kinesis.CfnStream",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -672,48 +606,11 @@ func (c *jsiiProxy_CfnStream) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnStream) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnStream) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnStream) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnStream) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnStream) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -743,33 +640,12 @@ func (c *jsiiProxy_CfnStream) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnStream) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnStream) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnStream) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -794,7 +670,10 @@ func (c *jsiiProxy_CfnStream) ValidateProperties(_properties interface{}) {
 // Note: It can take up to 5 seconds after the stream is in an `ACTIVE` status before all records written to the stream are encrypted. After you enable encryption, you can verify that encryption is applied by inspecting the API response from `PutRecord` or `PutRecords` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   streamEncryptionProperty := &streamEncryptionProperty{
 //   	encryptionType: jsii.String("encryptionType"),
 //   	keyId: jsii.String("keyId"),
@@ -804,7 +683,7 @@ type CfnStream_StreamEncryptionProperty struct {
 	// The encryption type to use.
 	//
 	// The only valid value is `KMS` .
-	EncryptionType *string `json:"encryptionType" yaml:"encryptionType"`
+	EncryptionType *string `field:"required" json:"encryptionType" yaml:"encryptionType"`
 	// The GUID for the customer-managed AWS KMS key to use for encryption.
 	//
 	// This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis` .
@@ -814,7 +693,7 @@ type CfnStream_StreamEncryptionProperty struct {
 	// - Globally unique key ID example: `12345678-1234-1234-1234-123456789012`
 	// - Alias name example: `alias/MyAliasName`
 	// - Master key owned by Kinesis Data Streams: `alias/aws/kinesis`.
-	KeyId *string `json:"keyId" yaml:"keyId"`
+	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 }
 
 // Specifies the capacity mode to which you want to set your data stream.
@@ -822,7 +701,10 @@ type CfnStream_StreamEncryptionProperty struct {
 // Currently, in Kinesis Data Streams, you can choose between an *on-demand* capacity mode and a *provisioned* capacity mode for your data streams.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   streamModeDetailsProperty := &streamModeDetailsProperty{
 //   	streamMode: jsii.String("streamMode"),
 //   }
@@ -831,7 +713,7 @@ type CfnStream_StreamModeDetailsProperty struct {
 	// Specifies the capacity mode to which you want to set your data stream.
 	//
 	// Currently, in Kinesis Data Streams, you can choose between an *on-demand* capacity mode and a *provisioned* capacity mode for your data streams.
-	StreamMode *string `json:"streamMode" yaml:"streamMode"`
+	StreamMode *string `field:"required" json:"streamMode" yaml:"streamMode"`
 }
 
 // A CloudFormation `AWS::Kinesis::StreamConsumer`.
@@ -843,8 +725,11 @@ type CfnStream_StreamModeDetailsProperty struct {
 // For more information, see [Using Consumers with Enhanced Fan-Out](https://docs.aws.amazon.com/streams/latest/dev/introduction-to-enhanced-consumers.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"
-//   cfnStreamConsumer := kinesis.NewCfnStreamConsumer(this, jsii.String("MyCfnStreamConsumer"), &cfnStreamConsumerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStreamConsumer := awscdk.Aws_kinesis.NewCfnStreamConsumer(this, jsii.String("MyCfnStreamConsumer"), &cfnStreamConsumerProps{
 //   	consumerName: jsii.String("consumerName"),
 //   	streamArn: jsii.String("streamArn"),
 //   })
@@ -867,11 +752,9 @@ type CfnStreamConsumer interface {
 	// The ARN of the data stream with which the consumer is registered.
 	AttrStreamArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The name of the consumer is something you choose when you register the consumer.
 	ConsumerName() *string
@@ -879,7 +762,6 @@ type CfnStreamConsumer interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -890,21 +772,17 @@ type CfnStreamConsumer interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The ARN of the stream with which you registered the consumer.
 	StreamArn() *string
@@ -913,16 +791,13 @@ type CfnStreamConsumer interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -931,7 +806,6 @@ type CfnStreamConsumer interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -976,15 +850,12 @@ type CfnStreamConsumer interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -995,13 +866,11 @@ type CfnStreamConsumer interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1010,74 +879,21 @@ type CfnStreamConsumer interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1197,8 +1013,8 @@ func (j *jsiiProxy_CfnStreamConsumer) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamConsumer) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnStreamConsumer) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1249,13 +1065,13 @@ func (j *jsiiProxy_CfnStreamConsumer) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::Kinesis::StreamConsumer`.
-func NewCfnStreamConsumer(scope awscdk.Construct, id *string, props *CfnStreamConsumerProps) CfnStreamConsumer {
+func NewCfnStreamConsumer(scope constructs.Construct, id *string, props *CfnStreamConsumerProps) CfnStreamConsumer {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStreamConsumer{}
 
 	_jsii_.Create(
-		"monocdk.aws_kinesis.CfnStreamConsumer",
+		"aws-cdk-lib.aws_kinesis.CfnStreamConsumer",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1264,11 +1080,11 @@ func NewCfnStreamConsumer(scope awscdk.Construct, id *string, props *CfnStreamCo
 }
 
 // Create a new `AWS::Kinesis::StreamConsumer`.
-func NewCfnStreamConsumer_Override(c CfnStreamConsumer, scope awscdk.Construct, id *string, props *CfnStreamConsumerProps) {
+func NewCfnStreamConsumer_Override(c CfnStreamConsumer, scope constructs.Construct, id *string, props *CfnStreamConsumerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_kinesis.CfnStreamConsumer",
+		"aws-cdk-lib.aws_kinesis.CfnStreamConsumer",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1296,14 +1112,13 @@ func (j *jsiiProxy_CfnStreamConsumer) SetStreamArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnStreamConsumer_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kinesis.CfnStreamConsumer",
+		"aws-cdk-lib.aws_kinesis.CfnStreamConsumer",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1313,14 +1128,13 @@ func CfnStreamConsumer_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnStreamConsumer_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kinesis.CfnStreamConsumer",
+		"aws-cdk-lib.aws_kinesis.CfnStreamConsumer",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1329,15 +1143,17 @@ func CfnStreamConsumer_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnStreamConsumer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kinesis.CfnStreamConsumer",
+		"aws-cdk-lib.aws_kinesis.CfnStreamConsumer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1350,7 +1166,7 @@ func CfnStreamConsumer_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_kinesis.CfnStreamConsumer",
+		"aws-cdk-lib.aws_kinesis.CfnStreamConsumer",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1447,48 +1263,11 @@ func (c *jsiiProxy_CfnStreamConsumer) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnStreamConsumer) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnStreamConsumer) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnStreamConsumer) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnStreamConsumer) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnStreamConsumer) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1518,33 +1297,12 @@ func (c *jsiiProxy_CfnStreamConsumer) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnStreamConsumer) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnStreamConsumer) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnStreamConsumer) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1563,7 +1321,10 @@ func (c *jsiiProxy_CfnStreamConsumer) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnStreamConsumer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStreamConsumerProps := &cfnStreamConsumerProps{
 //   	consumerName: jsii.String("consumerName"),
 //   	streamArn: jsii.String("streamArn"),
@@ -1571,15 +1332,18 @@ func (c *jsiiProxy_CfnStreamConsumer) ValidateProperties(_properties interface{}
 //
 type CfnStreamConsumerProps struct {
 	// The name of the consumer is something you choose when you register the consumer.
-	ConsumerName *string `json:"consumerName" yaml:"consumerName"`
+	ConsumerName *string `field:"required" json:"consumerName" yaml:"consumerName"`
 	// The ARN of the stream with which you registered the consumer.
-	StreamArn *string `json:"streamArn" yaml:"streamArn"`
+	StreamArn *string `field:"required" json:"streamArn" yaml:"streamArn"`
 }
 
 // Properties for defining a `CfnStream`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStreamProps := &cfnStreamProps{
 //   	name: jsii.String("name"),
 //   	retentionPeriodHours: jsii.Number(123),
@@ -1605,56 +1369,50 @@ type CfnStreamProps struct {
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the stream name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	//
 	// The default value is 24. For more information about the stream retention period, see [Changing the Data Retention Period](https://docs.aws.amazon.com/streams/latest/dev/kinesis-extended-retention.html) in the Amazon Kinesis Developer Guide.
-	RetentionPeriodHours *float64 `json:"retentionPeriodHours" yaml:"retentionPeriodHours"`
+	RetentionPeriodHours *float64 `field:"optional" json:"retentionPeriodHours" yaml:"retentionPeriodHours"`
 	// The number of shards that the stream uses.
 	//
 	// For greater provisioned throughput, increase the number of shards.
-	ShardCount *float64 `json:"shardCount" yaml:"shardCount"`
+	ShardCount *float64 `field:"optional" json:"shardCount" yaml:"shardCount"`
 	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
 	//
 	// Removing this property from your stack template and updating your stack disables encryption.
-	StreamEncryption interface{} `json:"streamEncryption" yaml:"streamEncryption"`
+	StreamEncryption interface{} `field:"optional" json:"streamEncryption" yaml:"streamEncryption"`
 	// Specifies the capacity mode to which you want to set your data stream.
 	//
 	// Currently, in Kinesis Data Streams, you can choose between an *on-demand* capacity mode and a *provisioned* capacity mode for your data streams.
-	StreamModeDetails interface{} `json:"streamModeDetails" yaml:"streamModeDetails"`
+	StreamModeDetails interface{} `field:"optional" json:"streamModeDetails" yaml:"streamModeDetails"`
 	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
 	//
 	// For information about constraints for this property, see [Tag Restrictions](https://docs.aws.amazon.com/streams/latest/dev/tagging.html#tagging-restrictions) in the *Amazon Kinesis Developer Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A Kinesis Stream.
-// Experimental.
 type IStream interface {
 	awscdk.IResource
 	// Grant the indicated permissions on this stream to the provided IAM principal.
-	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant read permissions for this stream and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to ues the key to decrypt the
 	// contents of the stream will also be granted.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants read/write permissions for this stream and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to use the key for
 	// encrypt/decrypt will also be granted.
-	// Experimental.
 	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for this stream and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to ues the key to encrypt the
 	// contents of the stream will also be granted.
-	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Return stream metric based from its metric name.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records retrieved from the shard, measured over the specified time period.
 	//
@@ -1663,7 +1421,6 @@ type IStream interface {
 	// period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricGetRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of bytes retrieved from the Kinesis stream, measured over the specified time period.
 	//
@@ -1672,7 +1429,6 @@ type IStream interface {
 	// period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricGetRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The age of the last record in all GetRecords calls made against a Kinesis stream, measured over the specified time period.
 	//
@@ -1681,17 +1437,14 @@ type IStream interface {
 	// applications. A value of zero indicates that the records being read are completely caught up with the stream.
 	//
 	// The metric defaults to maximum over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricGetRecordsIteratorAgeMilliseconds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time taken per GetRecords operation, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricGetRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of successful GetRecords operations per stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricGetRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of bytes successfully put to the Kinesis stream over the specified time period.
 	//
@@ -1700,7 +1453,6 @@ type IStream interface {
 	// single put operation for the stream in the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records successfully put to the Kinesis stream over the specified time period.
 	//
@@ -1709,54 +1461,44 @@ type IStream interface {
 	// records in a single put operation for the stream in the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricIncomingRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of bytes put to the Kinesis stream using the PutRecord operation over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time taken per PutRecord operation, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of bytes put to the Kinesis stream using the PutRecords operation over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records rejected due to internal failures in a PutRecords operation per Kinesis data stream, measured over the specified time period.
 	//
 	// Occasional internal failures are to be expected and should be retried.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsFailedRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time taken per PutRecords operation, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of PutRecords operations where at least one record succeeded, per Kinesis stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of successful records in a PutRecords operation per Kinesis data stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsSuccessfulRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records rejected due to throttling in a PutRecords operation per Kinesis data stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsThrottledRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total number of records sent in a PutRecords operation per Kinesis data stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsTotalRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of successful PutRecord operations per Kinesis stream, measured over the specified time period.
 	//
@@ -1764,7 +1506,6 @@ type IStream interface {
 	// reflects the percentage of successful writes to a stream.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of GetRecords calls throttled for the stream over the specified time period.
 	//
@@ -1778,7 +1519,6 @@ type IStream interface {
 	// time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricReadProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records rejected due to throttling for the stream over the specified time period.
 	//
@@ -1792,16 +1532,12 @@ type IStream interface {
 	// specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricWriteProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Optional KMS encryption key associated with this stream.
-	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The ARN of the stream.
-	// Experimental.
 	StreamArn() *string
 	// The name of the stream.
-	// Experimental.
 	StreamName() *string
 }
 
@@ -2169,12 +1905,10 @@ func (j *jsiiProxy_IStream) StreamName() *string {
 //   	encryptionKey: key,
 //   })
 //
-// Experimental.
 type Stream interface {
 	awscdk.Resource
 	IStream
 	// Optional KMS encryption key associated with this stream.
-	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
 	//
@@ -2184,11 +1918,9 @@ type Stream interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -2196,16 +1928,12 @@ type Stream interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// The ARN of the stream.
-	// Experimental.
 	StreamArn() *string
 	// The name of the stream.
-	// Experimental.
 	StreamName() *string
 	// Apply the given removal policy to this resource.
 	//
@@ -2216,9 +1944,7 @@ type Stream interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -2226,38 +1952,31 @@ type Stream interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the indicated permissions on this stream to the given IAM principal (Role/Group/User).
-	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant read permissions for this stream and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to ues the key to decrypt the
 	// contents of the stream will also be granted.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants read/write permissions for this stream and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to use the key for
 	// encrypt/decrypt will also be granted.
-	// Experimental.
 	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for this stream and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to ues the key to encrypt the
 	// contents of the stream will also be granted.
-	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Return stream metric based from its metric name.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records retrieved from the shard, measured over the specified time period.
 	//
@@ -2267,7 +1986,6 @@ type Stream interface {
 	//
 	// average
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricGetRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of bytes retrieved from the Kinesis stream, measured over the specified time period.
 	//
@@ -2276,7 +1994,6 @@ type Stream interface {
 	// period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricGetRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The age of the last record in all GetRecords calls made against a Kinesis stream, measured over the specified time period.
 	//
@@ -2285,17 +2002,14 @@ type Stream interface {
 	// applications. A value of zero indicates that the records being read are completely caught up with the stream.
 	//
 	// The metric defaults to maximum over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricGetRecordsIteratorAgeMilliseconds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of successful GetRecords operations per stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricGetRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of successful GetRecords operations per stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricGetRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of bytes successfully put to the Kinesis stream over the specified time period.
 	//
@@ -2304,7 +2018,6 @@ type Stream interface {
 	// single put operation for the stream in the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records successfully put to the Kinesis stream over the specified time period.
 	//
@@ -2313,54 +2026,44 @@ type Stream interface {
 	// records in a single put operation for the stream in the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricIncomingRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of bytes put to the Kinesis stream using the PutRecord operation over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time taken per PutRecord operation, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of bytes put to the Kinesis stream using the PutRecords operation over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records rejected due to internal failures in a PutRecords operation per Kinesis data stream, measured over the specified time period.
 	//
 	// Occasional internal failures are to be expected and should be retried.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsFailedRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time taken per PutRecords operation, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of PutRecords operations where at least one record succeeded, per Kinesis stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of successful records in a PutRecords operation per Kinesis data stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsSuccessfulRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records rejected due to throttling in a PutRecords operation per Kinesis data stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsThrottledRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total number of records sent in a PutRecords operation per Kinesis data stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordsTotalRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of successful PutRecord operations per Kinesis stream, measured over the specified time period.
 	//
@@ -2368,7 +2071,6 @@ type Stream interface {
 	// reflects the percentage of successful writes to a stream.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricPutRecordSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of GetRecords calls throttled for the stream over the specified time period.
 	//
@@ -2382,7 +2084,6 @@ type Stream interface {
 	// time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricReadProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records rejected due to throttling for the stream over the specified time period.
 	//
@@ -2396,59 +2097,9 @@ type Stream interface {
 	// specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
-	// Experimental.
 	MetricWriteProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Stream
@@ -2477,8 +2128,8 @@ func (j *jsiiProxy_Stream) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_Stream) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Stream) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2528,14 +2179,13 @@ func (j *jsiiProxy_Stream) StreamName() *string {
 }
 
 
-// Experimental.
 func NewStream(scope constructs.Construct, id *string, props *StreamProps) Stream {
 	_init_.Initialize()
 
 	j := jsiiProxy_Stream{}
 
 	_jsii_.Create(
-		"monocdk.aws_kinesis.Stream",
+		"aws-cdk-lib.aws_kinesis.Stream",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2543,26 +2193,24 @@ func NewStream(scope constructs.Construct, id *string, props *StreamProps) Strea
 	return &j
 }
 
-// Experimental.
 func NewStream_Override(s Stream, scope constructs.Construct, id *string, props *StreamProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_kinesis.Stream",
+		"aws-cdk-lib.aws_kinesis.Stream",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
 // Import an existing Kinesis Stream provided an ARN.
-// Experimental.
 func Stream_FromStreamArn(scope constructs.Construct, id *string, streamArn *string) IStream {
 	_init_.Initialize()
 
 	var returns IStream
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kinesis.Stream",
+		"aws-cdk-lib.aws_kinesis.Stream",
 		"fromStreamArn",
 		[]interface{}{scope, id, streamArn},
 		&returns,
@@ -2572,14 +2220,13 @@ func Stream_FromStreamArn(scope constructs.Construct, id *string, streamArn *str
 }
 
 // Creates a Stream construct that represents an external stream.
-// Experimental.
 func Stream_FromStreamAttributes(scope constructs.Construct, id *string, attrs *StreamAttributes) IStream {
 	_init_.Initialize()
 
 	var returns IStream
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kinesis.Stream",
+		"aws-cdk-lib.aws_kinesis.Stream",
 		"fromStreamAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -2588,15 +2235,17 @@ func Stream_FromStreamAttributes(scope constructs.Construct, id *string, attrs *
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func Stream_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kinesis.Stream",
+		"aws-cdk-lib.aws_kinesis.Stream",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2606,14 +2255,13 @@ func Stream_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func Stream_IsResource(construct awscdk.IConstruct) *bool {
+func Stream_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_kinesis.Stream",
+		"aws-cdk-lib.aws_kinesis.Stream",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2986,70 +2634,12 @@ func (s *jsiiProxy_Stream) MetricWriteProvisionedThroughputExceeded(props *awscl
 	return returns
 }
 
-func (s *jsiiProxy_Stream) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_Stream) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_Stream) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_Stream) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_Stream) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_Stream) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_Stream) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3069,14 +2659,11 @@ func (s *jsiiProxy_Stream) Validate() *[]*string {
 //   	encryptionKey: kms.key.fromKeyArn(this, jsii.String("key"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012")),
 //   })
 //
-// Experimental.
 type StreamAttributes struct {
 	// The ARN of the stream.
-	// Experimental.
-	StreamArn *string `json:"streamArn" yaml:"streamArn"`
+	StreamArn *string `field:"required" json:"streamArn" yaml:"streamArn"`
 	// The KMS key securing the contents of the stream if encryption is enabled.
-	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 
 // What kind of server-side encryption to apply to this stream.
@@ -3089,25 +2676,20 @@ type StreamAttributes struct {
 //   	encryptionKey: key,
 //   })
 //
-// Experimental.
 type StreamEncryption string
 
 const (
 	// Records in the stream are not encrypted.
-	// Experimental.
 	StreamEncryption_UNENCRYPTED StreamEncryption = "UNENCRYPTED"
 	// Server-side encryption with a KMS key managed by the user.
 	//
 	// If `encryptionKey` is specified, this key will be used, otherwise, one will be defined.
-	// Experimental.
 	StreamEncryption_KMS StreamEncryption = "KMS"
 	// Server-side encryption with a master key managed by Amazon Kinesis.
-	// Experimental.
 	StreamEncryption_MANAGED StreamEncryption = "MANAGED"
 )
 
 // Specifies the capacity mode to apply to this stream.
-// Experimental.
 type StreamMode string
 
 const (
@@ -3115,13 +2697,11 @@ const (
 	//
 	// The stream will have `shardCount` shards unless
 	// modified and will be billed according to the provisioned capacity.
-	// Experimental.
 	StreamMode_PROVISIONED StreamMode = "PROVISIONED"
 	// Specify the on-demand capacity mode.
 	//
 	// The stream will autoscale and be billed according to the
 	// volume of data ingested and retrieved.
-	// Experimental.
 	StreamMode_ON_DEMAND StreamMode = "ON_DEMAND"
 )
 
@@ -3135,32 +2715,25 @@ const (
 //   	encryptionKey: key,
 //   })
 //
-// Experimental.
 type StreamProps struct {
 	// The kind of server-side encryption to apply to this stream.
 	//
 	// If you choose KMS, you can specify a KMS key via `encryptionKey`. If
 	// encryption key is not specified, a key will automatically be created.
-	// Experimental.
-	Encryption StreamEncryption `json:"encryption" yaml:"encryption"`
+	Encryption StreamEncryption `field:"optional" json:"encryption" yaml:"encryption"`
 	// External KMS key to use for stream encryption.
 	//
 	// The 'encryption' property must be set to "Kms".
-	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
-	// Experimental.
-	RetentionPeriod awscdk.Duration `json:"retentionPeriod" yaml:"retentionPeriod"`
+	RetentionPeriod awscdk.Duration `field:"optional" json:"retentionPeriod" yaml:"retentionPeriod"`
 	// The number of shards for the stream.
 	//
 	// Can only be provided if streamMode is Provisioned.
-	// Experimental.
-	ShardCount *float64 `json:"shardCount" yaml:"shardCount"`
+	ShardCount *float64 `field:"optional" json:"shardCount" yaml:"shardCount"`
 	// The capacity mode of this stream.
-	// Experimental.
-	StreamMode StreamMode `json:"streamMode" yaml:"streamMode"`
+	StreamMode StreamMode `field:"optional" json:"streamMode" yaml:"streamMode"`
 	// Enforces a particular physical stream name.
-	// Experimental.
-	StreamName *string `json:"streamName" yaml:"streamName"`
+	StreamName *string `field:"optional" json:"streamName" yaml:"streamName"`
 }
 
