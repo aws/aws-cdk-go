@@ -1,12 +1,12 @@
 package awslex
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awslex/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslex/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::Lex::Bot`.
@@ -1031,16 +1031,13 @@ type CfnBot interface {
 	BotTags() interface{}
 	SetBotTags(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Provides information on additional privacy protections Amazon Lex should use with the bot's data.
 	DataPrivacy() interface{}
@@ -1064,19 +1061,16 @@ type CfnBot interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the field to filter the list of bots.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 	RoleArn() *string
@@ -1084,7 +1078,6 @@ type CfnBot interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Specifies configuration settings for the alias used to test the bot.
 	//
@@ -1100,16 +1093,13 @@ type CfnBot interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1118,7 +1108,6 @@ type CfnBot interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1163,15 +1152,12 @@ type CfnBot interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1182,13 +1168,11 @@ type CfnBot interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1197,74 +1181,21 @@ type CfnBot interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1424,8 +1355,8 @@ func (j *jsiiProxy_CfnBot) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBot) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnBot) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1496,13 +1427,13 @@ func (j *jsiiProxy_CfnBot) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Lex::Bot`.
-func NewCfnBot(scope awscdk.Construct, id *string, props *CfnBotProps) CfnBot {
+func NewCfnBot(scope constructs.Construct, id *string, props *CfnBotProps) CfnBot {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBot{}
 
 	_jsii_.Create(
-		"monocdk.aws_lex.CfnBot",
+		"aws-cdk-lib.aws_lex.CfnBot",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1511,11 +1442,11 @@ func NewCfnBot(scope awscdk.Construct, id *string, props *CfnBotProps) CfnBot {
 }
 
 // Create a new `AWS::Lex::Bot`.
-func NewCfnBot_Override(c CfnBot, scope awscdk.Construct, id *string, props *CfnBotProps) {
+func NewCfnBot_Override(c CfnBot, scope constructs.Construct, id *string, props *CfnBotProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lex.CfnBot",
+		"aws-cdk-lib.aws_lex.CfnBot",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1615,14 +1546,13 @@ func (j *jsiiProxy_CfnBot) SetTestBotAliasTags(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnBot_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lex.CfnBot",
+		"aws-cdk-lib.aws_lex.CfnBot",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1632,14 +1562,13 @@ func CfnBot_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnBot_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lex.CfnBot",
+		"aws-cdk-lib.aws_lex.CfnBot",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1648,15 +1577,17 @@ func CfnBot_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnBot_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lex.CfnBot",
+		"aws-cdk-lib.aws_lex.CfnBot",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1669,7 +1600,7 @@ func CfnBot_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lex.CfnBot",
+		"aws-cdk-lib.aws_lex.CfnBot",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1766,48 +1697,11 @@ func (c *jsiiProxy_CfnBot) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnBot) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnBot) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnBot) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnBot) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnBot) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1837,33 +1731,12 @@ func (c *jsiiProxy_CfnBot) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnBot) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnBot) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnBot) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7113,11 +6986,9 @@ type CfnBotAlias interface {
 	BotVersion() *string
 	SetBotVersion(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Specifies whether Amazon Lex logs text and audio for conversations with the bot.
 	//
@@ -7127,7 +6998,6 @@ type CfnBotAlias interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The description of the bot alias.
 	Description() *string
@@ -7141,16 +7011,13 @@ type CfnBotAlias interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 	SentimentAnalysisSettings() interface{}
@@ -7158,22 +7025,18 @@ type CfnBotAlias interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7182,7 +7045,6 @@ type CfnBotAlias interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -7227,15 +7089,12 @@ type CfnBotAlias interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -7246,13 +7105,11 @@ type CfnBotAlias interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7261,74 +7118,21 @@ type CfnBotAlias interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -7488,8 +7292,8 @@ func (j *jsiiProxy_CfnBotAlias) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBotAlias) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnBotAlias) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7540,13 +7344,13 @@ func (j *jsiiProxy_CfnBotAlias) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Lex::BotAlias`.
-func NewCfnBotAlias(scope awscdk.Construct, id *string, props *CfnBotAliasProps) CfnBotAlias {
+func NewCfnBotAlias(scope constructs.Construct, id *string, props *CfnBotAliasProps) CfnBotAlias {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBotAlias{}
 
 	_jsii_.Create(
-		"monocdk.aws_lex.CfnBotAlias",
+		"aws-cdk-lib.aws_lex.CfnBotAlias",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7555,11 +7359,11 @@ func NewCfnBotAlias(scope awscdk.Construct, id *string, props *CfnBotAliasProps)
 }
 
 // Create a new `AWS::Lex::BotAlias`.
-func NewCfnBotAlias_Override(c CfnBotAlias, scope awscdk.Construct, id *string, props *CfnBotAliasProps) {
+func NewCfnBotAlias_Override(c CfnBotAlias, scope constructs.Construct, id *string, props *CfnBotAliasProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lex.CfnBotAlias",
+		"aws-cdk-lib.aws_lex.CfnBotAlias",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7635,14 +7439,13 @@ func (j *jsiiProxy_CfnBotAlias) SetSentimentAnalysisSettings(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnBotAlias_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lex.CfnBotAlias",
+		"aws-cdk-lib.aws_lex.CfnBotAlias",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7652,14 +7455,13 @@ func CfnBotAlias_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnBotAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lex.CfnBotAlias",
+		"aws-cdk-lib.aws_lex.CfnBotAlias",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7668,15 +7470,17 @@ func CfnBotAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnBotAlias_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lex.CfnBotAlias",
+		"aws-cdk-lib.aws_lex.CfnBotAlias",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7689,7 +7493,7 @@ func CfnBotAlias_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lex.CfnBotAlias",
+		"aws-cdk-lib.aws_lex.CfnBotAlias",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7786,48 +7590,11 @@ func (c *jsiiProxy_CfnBotAlias) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnBotAlias) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnBotAlias) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnBotAlias) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnBotAlias) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnBotAlias) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -7857,33 +7624,12 @@ func (c *jsiiProxy_CfnBotAlias) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnBotAlias) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnBotAlias) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnBotAlias) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9345,16 +9091,13 @@ type CfnBotVersion interface {
 	BotVersionLocaleSpecification() interface{}
 	SetBotVersionLocaleSpecification(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The description of the version.
 	Description() *string
@@ -9368,36 +9111,29 @@ type CfnBotVersion interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -9406,7 +9142,6 @@ type CfnBotVersion interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -9451,15 +9186,12 @@ type CfnBotVersion interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -9470,13 +9202,11 @@ type CfnBotVersion interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -9485,74 +9215,21 @@ type CfnBotVersion interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -9652,8 +9329,8 @@ func (j *jsiiProxy_CfnBotVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBotVersion) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnBotVersion) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -9694,13 +9371,13 @@ func (j *jsiiProxy_CfnBotVersion) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Lex::BotVersion`.
-func NewCfnBotVersion(scope awscdk.Construct, id *string, props *CfnBotVersionProps) CfnBotVersion {
+func NewCfnBotVersion(scope constructs.Construct, id *string, props *CfnBotVersionProps) CfnBotVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBotVersion{}
 
 	_jsii_.Create(
-		"monocdk.aws_lex.CfnBotVersion",
+		"aws-cdk-lib.aws_lex.CfnBotVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9709,11 +9386,11 @@ func NewCfnBotVersion(scope awscdk.Construct, id *string, props *CfnBotVersionPr
 }
 
 // Create a new `AWS::Lex::BotVersion`.
-func NewCfnBotVersion_Override(c CfnBotVersion, scope awscdk.Construct, id *string, props *CfnBotVersionProps) {
+func NewCfnBotVersion_Override(c CfnBotVersion, scope constructs.Construct, id *string, props *CfnBotVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lex.CfnBotVersion",
+		"aws-cdk-lib.aws_lex.CfnBotVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -9749,14 +9426,13 @@ func (j *jsiiProxy_CfnBotVersion) SetDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnBotVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lex.CfnBotVersion",
+		"aws-cdk-lib.aws_lex.CfnBotVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -9766,14 +9442,13 @@ func CfnBotVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnBotVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lex.CfnBotVersion",
+		"aws-cdk-lib.aws_lex.CfnBotVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -9782,15 +9457,17 @@ func CfnBotVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnBotVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lex.CfnBotVersion",
+		"aws-cdk-lib.aws_lex.CfnBotVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9803,7 +9480,7 @@ func CfnBotVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lex.CfnBotVersion",
+		"aws-cdk-lib.aws_lex.CfnBotVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -9900,48 +9577,11 @@ func (c *jsiiProxy_CfnBotVersion) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnBotVersion) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnBotVersion) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnBotVersion) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnBotVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnBotVersion) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -9971,33 +9611,12 @@ func (c *jsiiProxy_CfnBotVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnBotVersion) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnBotVersion) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnBotVersion) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -10109,16 +9728,13 @@ type CfnResourcePolicy interface {
 	// Specifies the current revision of a resource policy.
 	AttrRevisionId() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -10129,11 +9745,9 @@ type CfnResourcePolicy interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// A resource policy to add to the resource.
 	//
 	// The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
@@ -10143,7 +9757,6 @@ type CfnResourcePolicy interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
 	ResourceArn() *string
@@ -10151,22 +9764,18 @@ type CfnResourcePolicy interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -10175,7 +9784,6 @@ type CfnResourcePolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -10220,15 +9828,12 @@ type CfnResourcePolicy interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -10239,13 +9844,11 @@ type CfnResourcePolicy interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -10254,74 +9857,21 @@ type CfnResourcePolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -10401,8 +9951,8 @@ func (j *jsiiProxy_CfnResourcePolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourcePolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnResourcePolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -10463,13 +10013,13 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::Lex::ResourcePolicy`.
-func NewCfnResourcePolicy(scope awscdk.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
+func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResourcePolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_lex.CfnResourcePolicy",
+		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10478,11 +10028,11 @@ func NewCfnResourcePolicy(scope awscdk.Construct, id *string, props *CfnResource
 }
 
 // Create a new `AWS::Lex::ResourcePolicy`.
-func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope awscdk.Construct, id *string, props *CfnResourcePolicyProps) {
+func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope constructs.Construct, id *string, props *CfnResourcePolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lex.CfnResourcePolicy",
+		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -10510,14 +10060,13 @@ func (j *jsiiProxy_CfnResourcePolicy) SetResourceArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnResourcePolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lex.CfnResourcePolicy",
+		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -10527,14 +10076,13 @@ func CfnResourcePolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnResourcePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lex.CfnResourcePolicy",
+		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -10543,15 +10091,17 @@ func CfnResourcePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnResourcePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lex.CfnResourcePolicy",
+		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10564,7 +10114,7 @@ func CfnResourcePolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lex.CfnResourcePolicy",
+		"aws-cdk-lib.aws_lex.CfnResourcePolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -10661,48 +10211,11 @@ func (c *jsiiProxy_CfnResourcePolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnResourcePolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnResourcePolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnResourcePolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnResourcePolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnResourcePolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -10732,33 +10245,12 @@ func (c *jsiiProxy_CfnResourcePolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnResourcePolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnResourcePolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnResourcePolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

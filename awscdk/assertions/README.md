@@ -537,7 +537,7 @@ Say you have a `MyAspect` and a `MyStack` that uses `MyAspect`:
 
 ```go
 import cdk "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/constructs-go/constructs"
+import "github.com/aws-samples/dummy/constructs"
 
 type myAspect struct {
 }

@@ -3,6 +3,7 @@
 Define an unencrypted S3 bucket.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyFirstBucket"))
 ```
 
@@ -32,6 +33,7 @@ bucket := s3.NewBucket(this, jsii.String("MyFirstBucket"))
 Define a KMS-encrypted bucket:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyEncryptedBucket"), &bucketProps{
 	encryption: s3.bucketEncryption_KMS,
 })
@@ -43,6 +45,7 @@ assert(bucket.encryptionKey instanceof kms.key)
 You can also supply your own key:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 myKmsKey := kms.NewKey(this, jsii.String("MyKey"))
 
 bucket := s3.NewBucket(this, jsii.String("MyEncryptedBucket"), &bucketProps{
@@ -56,6 +59,7 @@ assert(bucket.encryptionKey == myKmsKey)
 Enable KMS-SSE encryption via [S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html):
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyEncryptedBucket"), &bucketProps{
 	encryption: s3.bucketEncryption_KMS,
 	bucketKeyEnabled: jsii.Boolean(true),
@@ -65,6 +69,7 @@ bucket := s3.NewBucket(this, jsii.String("MyEncryptedBucket"), &bucketProps{
 Use `BucketEncryption.ManagedKms` to use the S3 master KMS key:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("Buck"), &bucketProps{
 	encryption: s3.bucketEncryption_KMS_MANAGED,
 })
@@ -78,6 +83,7 @@ A bucket policy will be automatically created for the bucket upon the first call
 `addToResourcePolicy(statement)`:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 result := bucket.addToResourcePolicy(iam.NewPolicyStatement(&policyStatementProps{
 	actions: []*string{
@@ -96,6 +102,7 @@ If you try to add a policy statement to an existing bucket, this method will
 not do anything:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.bucket.fromBucketName(this, jsii.String("existingBucket"), jsii.String("bucket-name"))
 
 // No policy statement will be added to the resource
@@ -117,6 +124,7 @@ already has a policy attached, let alone to re-use that policy to add more
 statements to it. We recommend that you always check the result of the call:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 result := bucket.addToResourcePolicy(iam.NewPolicyStatement(&policyStatementProps{
 	actions: []*string{
@@ -137,6 +145,7 @@ The bucket policy can be directly accessed after creation to add statements or
 adjust the removal policy.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 bucket.policy.applyRemovalPolicy(cdk.removalPolicy_RETAIN)
 ```
@@ -146,6 +155,7 @@ Instead, buckets have "grant" methods called to give prepackaged sets of permiss
 to other resources. For example:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var myLambda function
 
 
@@ -163,6 +173,7 @@ from the bucket.
 To require all requests use Secure Socket Layer (SSL):
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("Bucket"), &bucketProps{
 	enforceSSL: jsii.Boolean(true),
 })
@@ -226,6 +237,7 @@ factory method. This method accepts `BucketAttributes` which describes the prope
 existing bucket:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var myLambda function
 
 bucket := s3.bucket.fromBucketAttributes(this, jsii.String("ImportedBucket"), &bucketAttributes{
@@ -243,6 +255,7 @@ Alternatively, short-hand factories are available as `Bucket.fromBucketName` and
 name or ARN respectively:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 byName := s3.bucket.fromBucketName(this, jsii.String("BucketByName"), jsii.String("my-bucket"))
 byArn := s3.bucket.fromBucketArn(this, jsii.String("BucketByArn"), jsii.String("arn:aws:s3:::my-bucket"))
 ```
@@ -251,6 +264,7 @@ The bucket's region defaults to the current stack's region, but can also be expl
 regional properties needs to contain the correct values.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 myCrossRegionBucket := s3.bucket.fromBucketAttributes(this, jsii.String("CrossRegionImport"), &bucketAttributes{
 	bucketArn: jsii.String("arn:aws:s3:::my-bucket"),
 	region: jsii.String("us-east-1"),
@@ -270,6 +284,7 @@ these common use cases.
 The following example will subscribe an SNS topic to be notified of all `s3:ObjectCreated:*` events:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 topic := sns.NewTopic(this, jsii.String("MyTopic"))
 bucket.addEventNotification(s3.eventType_OBJECT_CREATED, s3n.NewSnsDestination(topic))
@@ -285,6 +300,7 @@ following example will notify `myQueue` when objects prefixed with `foo/` and
 have the `.jpg` suffix are removed from the bucket.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var myQueue queue
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
@@ -298,6 +314,7 @@ s3n.NewSqsDestination(myQueue), &notificationKeyFilter{
 Adding notifications on existing buckets:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var topic topic
 
 bucket := s3.bucket.fromBucketAttributes(this, jsii.String("ImportedBucket"), &bucketAttributes{
@@ -312,6 +329,7 @@ function that implements this feature. If you want to use your own role instead,
 you should provide it in the `Bucket` constructor:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var myRole iRole
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
@@ -326,6 +344,7 @@ If you’re passing an imported role, and you don’t want this to happen, confi
 it to be immutable:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 importedRole := iam.role.fromRoleArn(this, jsii.String("role"), jsii.String("arn:aws:iam::123456789012:role/RoleName"), &fromRoleArnOptions{
 	mutable: jsii.Boolean(false),
 })
@@ -342,6 +361,7 @@ Unlike other destinations, you don't need to select which event types you want t
 The following example will enable EventBridge notifications:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyEventBridgeBucket"), &bucketProps{
 	eventBridgeEnabled: jsii.Boolean(true),
 })
@@ -354,6 +374,7 @@ Use `blockPublicAccess` to specify [block public access settings](https://docs.a
 Enable all block public access settings:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyBlockedBucket"), &bucketProps{
 	blockPublicAccess: s3.blockPublicAccess_BLOCK_ALL(),
 })
@@ -362,6 +383,7 @@ bucket := s3.NewBucket(this, jsii.String("MyBlockedBucket"), &bucketProps{
 Block and ignore public ACLs:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyBlockedBucket"), &bucketProps{
 	blockPublicAccess: s3.blockPublicAccess_BLOCK_ACLS(),
 })
@@ -370,6 +392,7 @@ bucket := s3.NewBucket(this, jsii.String("MyBlockedBucket"), &bucketProps{
 Alternatively, specify the settings manually:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyBlockedBucket"), &bucketProps{
 	blockPublicAccess: s3.NewBlockPublicAccess(&blockPublicAccessOptions{
 		blockPublicPolicy: jsii.Boolean(true),
@@ -384,6 +407,7 @@ When `blockPublicPolicy` is set to `true`, `grantPublicRead()` throws an error.
 Use `serverAccessLogsBucket` to describe where server access logs are to be stored.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"))
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
@@ -394,6 +418,7 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 It's also possible to specify a prefix for Amazon S3 to assign to all log object keys.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"))
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
@@ -409,6 +434,7 @@ An [inventory](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory
 You can configure multiple inventory lists for a bucket. You can configure what object metadata to include in the inventory, whether to list all object versions or only current versions, where to store the inventory list file output, and whether to generate the inventory on a daily or weekly basis.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 inventoryBucket := s3.NewBucket(this, jsii.String("InventoryBucket"))
 
 dataBucket := s3.NewBucket(this, jsii.String("DataBucket"), &bucketProps{
@@ -459,6 +485,7 @@ You can use the two following properties to specify the bucket [redirection poli
 You can statically redirect a to a given Bucket URL or any other host name with `websiteRedirect`:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyRedirectedBucket"), &bucketProps{
 	websiteRedirect: &redirectTarget{
 		hostName: jsii.String("www.example.com"),
@@ -471,6 +498,7 @@ bucket := s3.NewBucket(this, jsii.String("MyRedirectedBucket"), &bucketProps{
 Alternatively, you can also define multiple `websiteRoutingRules`, to define complex, conditional redirections:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyRedirectedBucket"), &bucketProps{
 	websiteRoutingRules: []routingRule{
 		&routingRule{
@@ -504,6 +532,7 @@ We recommend to use Virtual Hosted-Style URL for newly made bucket.
 You can generate both of them.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 bucket.urlForObject(jsii.String("objectname")) // Path-Style URL
 bucket.virtualHostedUrlForObject(jsii.String("objectname")) // Virtual Hosted-Style URL
@@ -521,6 +550,7 @@ You can use one of following properties to specify the bucket [object Ownership]
 The Uploading account will own the object.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 	objectOwnership: s3.objectOwnership_OBJECT_WRITER,
 })
@@ -531,6 +561,7 @@ s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 The bucket owner will own the object if the object is uploaded with the bucket-owner-full-control canned ACL. Without this setting and canned ACL, the object is uploaded and remains owned by the uploading account.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 	objectOwnership: s3.objectOwnership_BUCKET_OWNER_PREFERRED,
 })
@@ -541,6 +572,7 @@ s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 ACLs are disabled, and the bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket. The bucket uses policies to define access control.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 	objectOwnership: s3.objectOwnership_BUCKET_OWNER_ENFORCED,
 })
@@ -558,6 +590,7 @@ To override this and force all objects to get deleted during bucket deletion,
 enable the`autoDeleteObjects` option.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyTempFileBucket"), &bucketProps{
 	removalPolicy: cdk.removalPolicy_DESTROY,
 	autoDeleteObjects: jsii.Boolean(true),
@@ -574,6 +607,7 @@ by deploying with CDK version `1.126.0` or later **before** switching this value
 [Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html) can be configured to enable fast, easy, and secure transfers of files over long distances:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 	transferAcceleration: jsii.Boolean(true),
 })
@@ -582,6 +616,7 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 To access the bucket that is enabled for Transfer Acceleration, you must use a special endpoint. The URL can be generated using method `transferAccelerationUrlForObject`:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 	transferAcceleration: jsii.Boolean(true),
 })
@@ -593,6 +628,7 @@ bucket.transferAccelerationUrlForObject(jsii.String("objectname"))
 [Intelligent Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) can be configured to automatically move files to glacier:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 	intelligentTieringConfigurations: []intelligentTieringConfiguration{
 		&intelligentTieringConfiguration{

@@ -1,16 +1,16 @@
 package awssecretsmanager
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Options to add a secret attachment to a secret.
@@ -26,35 +26,26 @@ import (
 //   	target: secretAttachmentTarget,
 //   }
 //
-// Experimental.
 type AttachedSecretOptions struct {
 	// The target to attach the secret to.
-	// Experimental.
 	Target ISecretAttachmentTarget `field:"required" json:"target" yaml:"target"`
 }
 
 // The type of service or database that's being associated with the secret.
-// Experimental.
 type AttachmentTargetType string
 
 const (
-	// A database instance.
-	// Deprecated: use RDS_DB_INSTANCE instead.
-	AttachmentTargetType_INSTANCE AttachmentTargetType = "INSTANCE"
-	// A database cluster.
-	// Deprecated: use RDS_DB_CLUSTER instead.
-	AttachmentTargetType_CLUSTER AttachmentTargetType = "CLUSTER"
+	// AWS::RDS::DBInstance.
+	AttachmentTargetType_RDS_DB_INSTANCE AttachmentTargetType = "RDS_DB_INSTANCE"
+	// AWS::RDS::DBCluster.
+	AttachmentTargetType_RDS_DB_CLUSTER AttachmentTargetType = "RDS_DB_CLUSTER"
 	// AWS::RDS::DBProxy.
-	// Experimental.
 	AttachmentTargetType_RDS_DB_PROXY AttachmentTargetType = "RDS_DB_PROXY"
 	// AWS::Redshift::Cluster.
-	// Experimental.
 	AttachmentTargetType_REDSHIFT_CLUSTER AttachmentTargetType = "REDSHIFT_CLUSTER"
 	// AWS::DocDB::DBInstance.
-	// Experimental.
 	AttachmentTargetType_DOCDB_DB_INSTANCE AttachmentTargetType = "DOCDB_DB_INSTANCE"
 	// AWS::DocDB::DBCluster.
-	// Experimental.
 	AttachmentTargetType_DOCDB_DB_CLUSTER AttachmentTargetType = "DOCDB_DB_CLUSTER"
 )
 
@@ -90,16 +81,13 @@ type CfnResourcePolicy interface {
 	BlockPublicPolicy() interface{}
 	SetBlockPublicPolicy(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -110,16 +98,13 @@ type CfnResourcePolicy interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// A JSON-formatted string for an AWS resource-based policy.
 	//
@@ -134,22 +119,18 @@ type CfnResourcePolicy interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -158,7 +139,6 @@ type CfnResourcePolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -203,15 +183,12 @@ type CfnResourcePolicy interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -222,13 +199,11 @@ type CfnResourcePolicy interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -237,74 +212,21 @@ type CfnResourcePolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -374,8 +296,8 @@ func (j *jsiiProxy_CfnResourcePolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourcePolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnResourcePolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -436,13 +358,13 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::SecretsManager::ResourcePolicy`.
-func NewCfnResourcePolicy(scope awscdk.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
+func NewCfnResourcePolicy(scope constructs.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResourcePolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.CfnResourcePolicy",
+		"aws-cdk-lib.aws_secretsmanager.CfnResourcePolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -451,11 +373,11 @@ func NewCfnResourcePolicy(scope awscdk.Construct, id *string, props *CfnResource
 }
 
 // Create a new `AWS::SecretsManager::ResourcePolicy`.
-func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope awscdk.Construct, id *string, props *CfnResourcePolicyProps) {
+func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope constructs.Construct, id *string, props *CfnResourcePolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.CfnResourcePolicy",
+		"aws-cdk-lib.aws_secretsmanager.CfnResourcePolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -491,14 +413,13 @@ func (j *jsiiProxy_CfnResourcePolicy) SetSecretId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnResourcePolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.CfnResourcePolicy",
+		"aws-cdk-lib.aws_secretsmanager.CfnResourcePolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -508,14 +429,13 @@ func CfnResourcePolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnResourcePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.CfnResourcePolicy",
+		"aws-cdk-lib.aws_secretsmanager.CfnResourcePolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -524,15 +444,17 @@ func CfnResourcePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnResourcePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.CfnResourcePolicy",
+		"aws-cdk-lib.aws_secretsmanager.CfnResourcePolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -545,7 +467,7 @@ func CfnResourcePolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.CfnResourcePolicy",
+		"aws-cdk-lib.aws_secretsmanager.CfnResourcePolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -642,48 +564,11 @@ func (c *jsiiProxy_CfnResourcePolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnResourcePolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnResourcePolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnResourcePolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnResourcePolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnResourcePolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -713,33 +598,12 @@ func (c *jsiiProxy_CfnResourcePolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnResourcePolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnResourcePolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnResourcePolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -831,16 +695,13 @@ type CfnRotationSchedule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Creates a new Lambda rotation function based on one of the [Secrets Manager rotation function templates](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html) . To use a rotation function that already exists, specify `RotationLambdaARN` instead.
 	HostedRotationLambda() interface{}
@@ -854,16 +715,13 @@ type CfnRotationSchedule interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
 	//
@@ -892,22 +750,18 @@ type CfnRotationSchedule interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -916,7 +770,6 @@ type CfnRotationSchedule interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -961,15 +814,12 @@ type CfnRotationSchedule interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -980,13 +830,11 @@ type CfnRotationSchedule interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -995,74 +843,21 @@ type CfnRotationSchedule interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1132,8 +927,8 @@ func (j *jsiiProxy_CfnRotationSchedule) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRotationSchedule) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnRotationSchedule) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1214,13 +1009,13 @@ func (j *jsiiProxy_CfnRotationSchedule) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::SecretsManager::RotationSchedule`.
-func NewCfnRotationSchedule(scope awscdk.Construct, id *string, props *CfnRotationScheduleProps) CfnRotationSchedule {
+func NewCfnRotationSchedule(scope constructs.Construct, id *string, props *CfnRotationScheduleProps) CfnRotationSchedule {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRotationSchedule{}
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.CfnRotationSchedule",
+		"aws-cdk-lib.aws_secretsmanager.CfnRotationSchedule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1229,11 +1024,11 @@ func NewCfnRotationSchedule(scope awscdk.Construct, id *string, props *CfnRotati
 }
 
 // Create a new `AWS::SecretsManager::RotationSchedule`.
-func NewCfnRotationSchedule_Override(c CfnRotationSchedule, scope awscdk.Construct, id *string, props *CfnRotationScheduleProps) {
+func NewCfnRotationSchedule_Override(c CfnRotationSchedule, scope constructs.Construct, id *string, props *CfnRotationScheduleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.CfnRotationSchedule",
+		"aws-cdk-lib.aws_secretsmanager.CfnRotationSchedule",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1285,14 +1080,13 @@ func (j *jsiiProxy_CfnRotationSchedule) SetSecretId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRotationSchedule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.CfnRotationSchedule",
+		"aws-cdk-lib.aws_secretsmanager.CfnRotationSchedule",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1302,14 +1096,13 @@ func CfnRotationSchedule_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRotationSchedule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.CfnRotationSchedule",
+		"aws-cdk-lib.aws_secretsmanager.CfnRotationSchedule",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1318,15 +1111,17 @@ func CfnRotationSchedule_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnRotationSchedule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.CfnRotationSchedule",
+		"aws-cdk-lib.aws_secretsmanager.CfnRotationSchedule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1339,7 +1134,7 @@ func CfnRotationSchedule_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.CfnRotationSchedule",
+		"aws-cdk-lib.aws_secretsmanager.CfnRotationSchedule",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1436,48 +1231,11 @@ func (c *jsiiProxy_CfnRotationSchedule) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-func (c *jsiiProxy_CfnRotationSchedule) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnRotationSchedule) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnRotationSchedule) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnRotationSchedule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnRotationSchedule) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1507,33 +1265,12 @@ func (c *jsiiProxy_CfnRotationSchedule) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnRotationSchedule) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnRotationSchedule) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnRotationSchedule) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1772,16 +1509,13 @@ type CfnSecret interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The description of the secret.
 	Description() *string
@@ -1811,7 +1545,6 @@ type CfnSecret interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the new secret.
 	//
@@ -1820,14 +1553,12 @@ type CfnSecret interface {
 	// Do not end your secret name with a hyphen followed by six characters. If you do so, you risk confusion and unexpected results when searching for a secret by partial ARN. Secrets Manager automatically adds a hyphen and six random characters after the secret name at the end of the ARN.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// A custom type that specifies a `Region` and the `KmsKeyId` for a replica secret.
 	ReplicaRegions() interface{}
@@ -1842,7 +1573,6 @@ type CfnSecret interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A list of tags to attach to the secret.
 	//
@@ -1869,16 +1599,13 @@ type CfnSecret interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1887,7 +1614,6 @@ type CfnSecret interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1932,15 +1658,12 @@ type CfnSecret interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1951,13 +1674,11 @@ type CfnSecret interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1966,74 +1687,21 @@ type CfnSecret interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2133,8 +1801,8 @@ func (j *jsiiProxy_CfnSecret) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecret) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnSecret) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2205,13 +1873,13 @@ func (j *jsiiProxy_CfnSecret) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::SecretsManager::Secret`.
-func NewCfnSecret(scope awscdk.Construct, id *string, props *CfnSecretProps) CfnSecret {
+func NewCfnSecret(scope constructs.Construct, id *string, props *CfnSecretProps) CfnSecret {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSecret{}
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.CfnSecret",
+		"aws-cdk-lib.aws_secretsmanager.CfnSecret",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2220,11 +1888,11 @@ func NewCfnSecret(scope awscdk.Construct, id *string, props *CfnSecretProps) Cfn
 }
 
 // Create a new `AWS::SecretsManager::Secret`.
-func NewCfnSecret_Override(c CfnSecret, scope awscdk.Construct, id *string, props *CfnSecretProps) {
+func NewCfnSecret_Override(c CfnSecret, scope constructs.Construct, id *string, props *CfnSecretProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.CfnSecret",
+		"aws-cdk-lib.aws_secretsmanager.CfnSecret",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2284,14 +1952,13 @@ func (j *jsiiProxy_CfnSecret) SetSecretString(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSecret_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.CfnSecret",
+		"aws-cdk-lib.aws_secretsmanager.CfnSecret",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2301,14 +1968,13 @@ func CfnSecret_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSecret_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.CfnSecret",
+		"aws-cdk-lib.aws_secretsmanager.CfnSecret",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2317,15 +1983,17 @@ func CfnSecret_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnSecret_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.CfnSecret",
+		"aws-cdk-lib.aws_secretsmanager.CfnSecret",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2338,7 +2006,7 @@ func CfnSecret_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.CfnSecret",
+		"aws-cdk-lib.aws_secretsmanager.CfnSecret",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2435,48 +2103,11 @@ func (c *jsiiProxy_CfnSecret) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnSecret) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnSecret) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnSecret) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnSecret) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnSecret) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2506,33 +2137,12 @@ func (c *jsiiProxy_CfnSecret) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnSecret) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnSecret) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnSecret) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2747,16 +2357,13 @@ type CfnSecretTargetAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -2767,16 +2374,13 @@ type CfnSecretTargetAttachment interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The ARN or name of the secret.
 	//
@@ -2786,7 +2390,6 @@ type CfnSecretTargetAttachment interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The ID of the database or cluster.
 	TargetId() *string
@@ -2806,16 +2409,13 @@ type CfnSecretTargetAttachment interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2824,7 +2424,6 @@ type CfnSecretTargetAttachment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2869,15 +2468,12 @@ type CfnSecretTargetAttachment interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2888,13 +2484,11 @@ type CfnSecretTargetAttachment interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2903,74 +2497,21 @@ type CfnSecretTargetAttachment interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3030,8 +2571,8 @@ func (j *jsiiProxy_CfnSecretTargetAttachment) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecretTargetAttachment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnSecretTargetAttachment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3102,13 +2643,13 @@ func (j *jsiiProxy_CfnSecretTargetAttachment) UpdatedProperites() *map[string]in
 
 
 // Create a new `AWS::SecretsManager::SecretTargetAttachment`.
-func NewCfnSecretTargetAttachment(scope awscdk.Construct, id *string, props *CfnSecretTargetAttachmentProps) CfnSecretTargetAttachment {
+func NewCfnSecretTargetAttachment(scope constructs.Construct, id *string, props *CfnSecretTargetAttachmentProps) CfnSecretTargetAttachment {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSecretTargetAttachment{}
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.CfnSecretTargetAttachment",
+		"aws-cdk-lib.aws_secretsmanager.CfnSecretTargetAttachment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3117,11 +2658,11 @@ func NewCfnSecretTargetAttachment(scope awscdk.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::SecretsManager::SecretTargetAttachment`.
-func NewCfnSecretTargetAttachment_Override(c CfnSecretTargetAttachment, scope awscdk.Construct, id *string, props *CfnSecretTargetAttachmentProps) {
+func NewCfnSecretTargetAttachment_Override(c CfnSecretTargetAttachment, scope constructs.Construct, id *string, props *CfnSecretTargetAttachmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.CfnSecretTargetAttachment",
+		"aws-cdk-lib.aws_secretsmanager.CfnSecretTargetAttachment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3157,14 +2698,13 @@ func (j *jsiiProxy_CfnSecretTargetAttachment) SetTargetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSecretTargetAttachment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.CfnSecretTargetAttachment",
+		"aws-cdk-lib.aws_secretsmanager.CfnSecretTargetAttachment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3174,14 +2714,13 @@ func CfnSecretTargetAttachment_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSecretTargetAttachment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.CfnSecretTargetAttachment",
+		"aws-cdk-lib.aws_secretsmanager.CfnSecretTargetAttachment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3190,15 +2729,17 @@ func CfnSecretTargetAttachment_IsCfnResource(construct constructs.IConstruct) *b
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnSecretTargetAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.CfnSecretTargetAttachment",
+		"aws-cdk-lib.aws_secretsmanager.CfnSecretTargetAttachment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3211,7 +2752,7 @@ func CfnSecretTargetAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.CfnSecretTargetAttachment",
+		"aws-cdk-lib.aws_secretsmanager.CfnSecretTargetAttachment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3308,48 +2849,11 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) Inspect(inspector awscdk.TreeInspe
 	)
 }
 
-func (c *jsiiProxy_CfnSecretTargetAttachment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnSecretTargetAttachment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnSecretTargetAttachment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnSecretTargetAttachment) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnSecretTargetAttachment) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3379,33 +2883,12 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnSecretTargetAttachment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnSecretTargetAttachment) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnSecretTargetAttachment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3462,14 +2945,11 @@ type CfnSecretTargetAttachmentProps struct {
 //   	hostedRotation: secretsmanager.hostedRotation.mysqlSingleUser(),
 //   })
 //
-// Experimental.
 type HostedRotation interface {
 	awsec2.IConnectable
 	// Security group connections for this hosted rotation.
-	// Experimental.
 	Connections() awsec2.Connections
 	// Binds this hosted rotation to a secret.
-	// Experimental.
 	Bind(secret ISecret, scope constructs.Construct) *CfnRotationSchedule_HostedRotationLambdaProperty
 }
 
@@ -3490,14 +2970,13 @@ func (j *jsiiProxy_HostedRotation) Connections() awsec2.Connections {
 
 
 // MariaDB Multi User.
-// Experimental.
 func HostedRotation_MariaDbMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"mariaDbMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -3507,14 +2986,13 @@ func HostedRotation_MariaDbMultiUser(options *MultiUserHostedRotationOptions) Ho
 }
 
 // MariaDB Single User.
-// Experimental.
 func HostedRotation_MariaDbSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"mariaDbSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -3524,14 +3002,13 @@ func HostedRotation_MariaDbSingleUser(options *SingleUserHostedRotationOptions) 
 }
 
 // MongoDB Multi User.
-// Experimental.
 func HostedRotation_MongoDbMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"mongoDbMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -3541,14 +3018,13 @@ func HostedRotation_MongoDbMultiUser(options *MultiUserHostedRotationOptions) Ho
 }
 
 // MongoDB Single User.
-// Experimental.
 func HostedRotation_MongoDbSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"mongoDbSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -3558,14 +3034,13 @@ func HostedRotation_MongoDbSingleUser(options *SingleUserHostedRotationOptions) 
 }
 
 // MySQL Multi User.
-// Experimental.
 func HostedRotation_MysqlMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"mysqlMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -3575,14 +3050,13 @@ func HostedRotation_MysqlMultiUser(options *MultiUserHostedRotationOptions) Host
 }
 
 // MySQL Single User.
-// Experimental.
 func HostedRotation_MysqlSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"mysqlSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -3592,14 +3066,13 @@ func HostedRotation_MysqlSingleUser(options *SingleUserHostedRotationOptions) Ho
 }
 
 // Oracle Multi User.
-// Experimental.
 func HostedRotation_OracleMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"oracleMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -3609,14 +3082,13 @@ func HostedRotation_OracleMultiUser(options *MultiUserHostedRotationOptions) Hos
 }
 
 // Oracle Single User.
-// Experimental.
 func HostedRotation_OracleSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"oracleSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -3626,14 +3098,13 @@ func HostedRotation_OracleSingleUser(options *SingleUserHostedRotationOptions) H
 }
 
 // PostgreSQL Multi User.
-// Experimental.
 func HostedRotation_PostgreSqlMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"postgreSqlMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -3643,14 +3114,13 @@ func HostedRotation_PostgreSqlMultiUser(options *MultiUserHostedRotationOptions)
 }
 
 // PostgreSQL Single User.
-// Experimental.
 func HostedRotation_PostgreSqlSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"postgreSqlSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -3660,14 +3130,13 @@ func HostedRotation_PostgreSqlSingleUser(options *SingleUserHostedRotationOption
 }
 
 // Redshift Multi User.
-// Experimental.
 func HostedRotation_RedshiftMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"redshiftMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -3677,14 +3146,13 @@ func HostedRotation_RedshiftMultiUser(options *MultiUserHostedRotationOptions) H
 }
 
 // Redshift Single User.
-// Experimental.
 func HostedRotation_RedshiftSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"redshiftSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -3694,14 +3162,13 @@ func HostedRotation_RedshiftSingleUser(options *SingleUserHostedRotationOptions)
 }
 
 // SQL Server Multi User.
-// Experimental.
 func HostedRotation_SqlServerMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"sqlServerMultiUser",
 		[]interface{}{options},
 		&returns,
@@ -3711,14 +3178,13 @@ func HostedRotation_SqlServerMultiUser(options *MultiUserHostedRotationOptions) 
 }
 
 // SQL Server Single User.
-// Experimental.
 func HostedRotation_SqlServerSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
 	var returns HostedRotation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.HostedRotation",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotation",
 		"sqlServerSingleUser",
 		[]interface{}{options},
 		&returns,
@@ -3749,13 +3215,10 @@ func (h *jsiiProxy_HostedRotation) Bind(secret ISecret, scope constructs.Constru
 //
 //   hostedRotationType := awscdk.Aws_secretsmanager.hostedRotationType_MARIADB_MULTI_USER()
 //
-// Experimental.
 type HostedRotationType interface {
 	// Whether the rotation uses the mutli user scheme.
-	// Experimental.
 	IsMultiUser() *bool
 	// The type of rotation.
-	// Experimental.
 	Name() *string
 }
 
@@ -3789,7 +3252,7 @@ func HostedRotationType_MARIADB_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"MARIADB_MULTI_USER",
 		&returns,
 	)
@@ -3800,7 +3263,7 @@ func HostedRotationType_MARIADB_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"MARIADB_SINGLE_USER",
 		&returns,
 	)
@@ -3811,7 +3274,7 @@ func HostedRotationType_MONGODB_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"MONGODB_MULTI_USER",
 		&returns,
 	)
@@ -3822,7 +3285,7 @@ func HostedRotationType_MONGODB_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"MONGODB_SINGLE_USER",
 		&returns,
 	)
@@ -3833,7 +3296,7 @@ func HostedRotationType_MYSQL_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"MYSQL_MULTI_USER",
 		&returns,
 	)
@@ -3844,7 +3307,7 @@ func HostedRotationType_MYSQL_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"MYSQL_SINGLE_USER",
 		&returns,
 	)
@@ -3855,7 +3318,7 @@ func HostedRotationType_ORACLE_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"ORACLE_MULTI_USER",
 		&returns,
 	)
@@ -3866,7 +3329,7 @@ func HostedRotationType_ORACLE_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"ORACLE_SINGLE_USER",
 		&returns,
 	)
@@ -3877,7 +3340,7 @@ func HostedRotationType_POSTGRESQL_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"POSTGRESQL_MULTI_USER",
 		&returns,
 	)
@@ -3888,7 +3351,7 @@ func HostedRotationType_POSTGRESQL_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"POSTGRESQL_SINGLE_USER",
 		&returns,
 	)
@@ -3899,7 +3362,7 @@ func HostedRotationType_REDSHIFT_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"REDSHIFT_MULTI_USER",
 		&returns,
 	)
@@ -3910,7 +3373,7 @@ func HostedRotationType_REDSHIFT_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"REDSHIFT_SINGLE_USER",
 		&returns,
 	)
@@ -3921,7 +3384,7 @@ func HostedRotationType_SQLSERVER_MULTI_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"SQLSERVER_MULTI_USER",
 		&returns,
 	)
@@ -3932,7 +3395,7 @@ func HostedRotationType_SQLSERVER_SINGLE_USER() HostedRotationType {
 	_init_.Initialize()
 	var returns HostedRotationType
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.HostedRotationType",
+		"aws-cdk-lib.aws_secretsmanager.HostedRotationType",
 		"SQLSERVER_SINGLE_USER",
 		&returns,
 	)
@@ -3940,61 +3403,48 @@ func HostedRotationType_SQLSERVER_SINGLE_USER() HostedRotationType {
 }
 
 // A secret in AWS Secrets Manager.
-// Experimental.
 type ISecret interface {
 	awscdk.IResource
 	// Adds a rotation schedule to the secret.
-	// Experimental.
 	AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule
 	// Adds a statement to the IAM resource policy associated with this secret.
 	//
 	// If this secret was created in this stack, a resource policy will be
 	// automatically created upon the first call to `addToResourcePolicy`. If
 	// the secret is imported, then this is a no-op.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Attach a target to this secret.
 	//
 	// Returns: An attached secret.
-	// Experimental.
 	Attach(target ISecretAttachmentTarget) ISecret
 	// Denies the `DeleteSecret` action to all principals within the current account.
-	// Experimental.
 	DenyAccountRootDelete()
 	// Grants reading the secret value to some role.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant
 	// Grants writing and updating the secret value to some role.
-	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
-	// Experimental.
 	SecretValueFromJson(key *string) awscdk.SecretValue
 	// The customer-managed encryption key that is used to encrypt this secret, if any.
 	//
 	// When not specified, the default
 	// KMS key for the account and region is being used.
-	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The ARN of the secret in AWS Secrets Manager.
 	//
 	// Will return the full ARN if available, otherwise a partial arn.
 	// For secrets imported by the deprecated `fromSecretName`, it will return the `secretName`.
-	// Experimental.
 	SecretArn() *string
 	// The full ARN of the secret in AWS Secrets Manager, which is the ARN including the Secrets Manager-supplied 6-character suffix.
 	//
 	// This is equal to `secretArn` in most cases, but is undefined when a full ARN is not available (e.g., secrets imported by name).
-	// Experimental.
 	SecretFullArn() *string
 	// The name of the secret.
 	//
 	// For "owned" secrets, this will be the full resource name (secret name + suffix), unless the
 	// '@aws-cdk/aws-secretsmanager:parseOwnedSecretName' feature flag is set.
-	// Experimental.
 	SecretName() *string
 	// Retrieve the value of the stored secret as a `SecretValue`.
-	// Experimental.
 	SecretValue() awscdk.SecretValue
 }
 
@@ -4140,10 +3590,8 @@ func (j *jsiiProxy_ISecret) SecretValue() awscdk.SecretValue {
 }
 
 // A secret attachment target.
-// Experimental.
 type ISecretAttachmentTarget interface {
 	// Renders the target specifications.
-	// Experimental.
 	AsSecretAttachmentTarget() *SecretAttachmentTargetProps
 }
 
@@ -4165,11 +3613,9 @@ func (i *jsiiProxy_ISecretAttachmentTarget) AsSecretAttachmentTarget() *SecretAt
 	return returns
 }
 
-// Experimental.
 type ISecretTargetAttachment interface {
 	ISecret
 	// Same as `secretArn`.
-	// Experimental.
 	SecretTargetAttachmentSecretArn() *string
 }
 
@@ -4220,30 +3666,23 @@ func (j *jsiiProxy_ISecretTargetAttachment) SecretTargetAttachmentSecretArn() *s
 //   			subnetFilter,
 //   		},
 //   		subnetGroupName: jsii.String("subnetGroupName"),
-//   		subnetName: jsii.String("subnetName"),
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_PRIVATE_ISOLATED,
 //   	},
 //   }
 //
-// Experimental.
 type MultiUserHostedRotationOptions struct {
 	// A name for the Lambda created to rotate the secret.
-	// Experimental.
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// A list of security groups for the Lambda created to rotate the secret.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The VPC where the Lambda rotation function will run.
-	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The master secret for a multi user rotation scheme.
-	// Experimental.
 	MasterSecret ISecret `field:"required" json:"masterSecret" yaml:"masterSecret"`
 }
 
@@ -4264,13 +3703,10 @@ type MultiUserHostedRotationOptions struct {
 //   	encryptionKey: key,
 //   }
 //
-// Experimental.
 type ReplicaRegion struct {
 	// The name of the region.
-	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The customer-managed encryption key to use for encrypting the secret value.
-	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 
@@ -4298,11 +3734,9 @@ type ReplicaRegion struct {
 //   	secret: secret,
 //   })
 //
-// Experimental.
 type ResourcePolicy interface {
 	awscdk.Resource
 	// The IAM policy document for this policy.
-	// Experimental.
 	Document() awsiam.PolicyDocument
 	// The environment this resource belongs to.
 	//
@@ -4312,11 +3746,9 @@ type ResourcePolicy interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -4324,10 +3756,8 @@ type ResourcePolicy interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -4338,9 +3768,7 @@ type ResourcePolicy interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -4348,66 +3776,15 @@ type ResourcePolicy interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ResourcePolicy
@@ -4435,8 +3812,8 @@ func (j *jsiiProxy_ResourcePolicy) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ResourcePolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ResourcePolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4466,14 +3843,13 @@ func (j *jsiiProxy_ResourcePolicy) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewResourcePolicy(scope constructs.Construct, id *string, props *ResourcePolicyProps) ResourcePolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_ResourcePolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.ResourcePolicy",
+		"aws-cdk-lib.aws_secretsmanager.ResourcePolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4481,26 +3857,27 @@ func NewResourcePolicy(scope constructs.Construct, id *string, props *ResourcePo
 	return &j
 }
 
-// Experimental.
 func NewResourcePolicy_Override(r ResourcePolicy, scope constructs.Construct, id *string, props *ResourcePolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.ResourcePolicy",
+		"aws-cdk-lib.aws_secretsmanager.ResourcePolicy",
 		[]interface{}{scope, id, props},
 		r,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func ResourcePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.ResourcePolicy",
+		"aws-cdk-lib.aws_secretsmanager.ResourcePolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4510,14 +3887,13 @@ func ResourcePolicy_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func ResourcePolicy_IsResource(construct awscdk.IConstruct) *bool {
+func ResourcePolicy_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.ResourcePolicy",
+		"aws-cdk-lib.aws_secretsmanager.ResourcePolicy",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4573,70 +3949,12 @@ func (r *jsiiProxy_ResourcePolicy) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
-func (r *jsiiProxy_ResourcePolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		r,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (r *jsiiProxy_ResourcePolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		r,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (r *jsiiProxy_ResourcePolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		r,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (r *jsiiProxy_ResourcePolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		r,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (r *jsiiProxy_ResourcePolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		r,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (r *jsiiProxy_ResourcePolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		r,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (r *jsiiProxy_ResourcePolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		r,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4657,10 +3975,8 @@ func (r *jsiiProxy_ResourcePolicy) Validate() *[]*string {
 //   	secret: secret,
 //   }
 //
-// Experimental.
 type ResourcePolicyProps struct {
 	// The secret to attach a resource-based permissions policy.
-	// Experimental.
 	Secret ISecret `field:"required" json:"secret" yaml:"secret"`
 }
 
@@ -4669,11 +3985,10 @@ type ResourcePolicyProps struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var function_ function
 //   var hostedRotation hostedRotation
 //   var secret secret
@@ -4682,12 +3997,11 @@ type ResourcePolicyProps struct {
 //   	secret: secret,
 //
 //   	// the properties below are optional
-//   	automaticallyAfter: duration,
+//   	automaticallyAfter: cdk.duration.minutes(jsii.Number(30)),
 //   	hostedRotation: hostedRotation,
 //   	rotationLambda: function_,
 //   })
 //
-// Experimental.
 type RotationSchedule interface {
 	awscdk.Resource
 	// The environment this resource belongs to.
@@ -4698,11 +4012,9 @@ type RotationSchedule interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -4710,10 +4022,8 @@ type RotationSchedule interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -4724,9 +4034,7 @@ type RotationSchedule interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -4734,66 +4042,15 @@ type RotationSchedule interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for RotationSchedule
@@ -4811,8 +4068,8 @@ func (j *jsiiProxy_RotationSchedule) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_RotationSchedule) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_RotationSchedule) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4842,14 +4099,13 @@ func (j *jsiiProxy_RotationSchedule) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewRotationSchedule(scope constructs.Construct, id *string, props *RotationScheduleProps) RotationSchedule {
 	_init_.Initialize()
 
 	j := jsiiProxy_RotationSchedule{}
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.RotationSchedule",
+		"aws-cdk-lib.aws_secretsmanager.RotationSchedule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4857,26 +4113,27 @@ func NewRotationSchedule(scope constructs.Construct, id *string, props *Rotation
 	return &j
 }
 
-// Experimental.
 func NewRotationSchedule_Override(r RotationSchedule, scope constructs.Construct, id *string, props *RotationScheduleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.RotationSchedule",
+		"aws-cdk-lib.aws_secretsmanager.RotationSchedule",
 		[]interface{}{scope, id, props},
 		r,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func RotationSchedule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.RotationSchedule",
+		"aws-cdk-lib.aws_secretsmanager.RotationSchedule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4886,14 +4143,13 @@ func RotationSchedule_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func RotationSchedule_IsResource(construct awscdk.IConstruct) *bool {
+func RotationSchedule_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.RotationSchedule",
+		"aws-cdk-lib.aws_secretsmanager.RotationSchedule",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4949,70 +4205,12 @@ func (r *jsiiProxy_RotationSchedule) GetResourceNameAttribute(nameAttr *string) 
 	return returns
 }
 
-func (r *jsiiProxy_RotationSchedule) OnPrepare() {
-	_jsii_.InvokeVoid(
-		r,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (r *jsiiProxy_RotationSchedule) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		r,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (r *jsiiProxy_RotationSchedule) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		r,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (r *jsiiProxy_RotationSchedule) Prepare() {
-	_jsii_.InvokeVoid(
-		r,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (r *jsiiProxy_RotationSchedule) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		r,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (r *jsiiProxy_RotationSchedule) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		r,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (r *jsiiProxy_RotationSchedule) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		r,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5034,16 +4232,12 @@ func (r *jsiiProxy_RotationSchedule) Validate() *[]*string {
 //   	automaticallyAfter: awscdk.Duration.days(jsii.Number(15)),
 //   })
 //
-// Experimental.
 type RotationScheduleOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	// Experimental.
 	AutomaticallyAfter awscdk.Duration `field:"optional" json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// Hosted rotation.
-	// Experimental.
 	HostedRotation HostedRotation `field:"optional" json:"hostedRotation" yaml:"hostedRotation"`
 	// A Lambda function that can rotate the secret.
-	// Experimental.
 	RotationLambda awslambda.IFunction `field:"optional" json:"rotationLambda" yaml:"rotationLambda"`
 }
 
@@ -5052,11 +4246,10 @@ type RotationScheduleOptions struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var function_ function
 //   var hostedRotation hostedRotation
 //   var secret secret
@@ -5065,21 +4258,17 @@ type RotationScheduleOptions struct {
 //   	secret: secret,
 //
 //   	// the properties below are optional
-//   	automaticallyAfter: duration,
+//   	automaticallyAfter: cdk.duration.minutes(jsii.Number(30)),
 //   	hostedRotation: hostedRotation,
 //   	rotationLambda: function_,
 //   }
 //
-// Experimental.
 type RotationScheduleProps struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	// Experimental.
 	AutomaticallyAfter awscdk.Duration `field:"optional" json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// Hosted rotation.
-	// Experimental.
 	HostedRotation HostedRotation `field:"optional" json:"hostedRotation" yaml:"hostedRotation"`
 	// A Lambda function that can rotate the secret.
-	// Experimental.
 	RotationLambda awslambda.IFunction `field:"optional" json:"rotationLambda" yaml:"rotationLambda"`
 	// The secret to rotate.
 	//
@@ -5099,7 +4288,6 @@ type RotationScheduleProps struct {
 	//
 	// This is typically the case for a secret referenced from an `AWS::SecretsManager::SecretTargetAttachment`
 	// or an `ISecret` returned by the `attach()` method of `Secret`.
-	// Experimental.
 	Secret ISecret `field:"required" json:"secret" yaml:"secret"`
 }
 
@@ -5116,7 +4304,6 @@ type RotationScheduleProps struct {
 //   	secretStringBeta1: secretValue,
 //   })
 //
-// Experimental.
 type Secret interface {
 	awscdk.Resource
 	ISecret
@@ -5125,15 +4312,12 @@ type Secret interface {
 	// If there is a full ARN, this is just the ARN;
 	// if we have a partial ARN -- due to either importing by secret name or partial ARN --
 	// then we need to add a suffix to capture the full ARN's format.
-	// Experimental.
 	ArnForPolicies() *string
-	// Experimental.
 	AutoCreatePolicy() *bool
 	// The customer-managed encryption key that is used to encrypt this secret, if any.
 	//
 	// When not specified, the default
 	// KMS key for the account and region is being used.
-	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
 	//
@@ -5143,11 +4327,9 @@ type Secret interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -5155,48 +4337,34 @@ type Secret interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The ARN of the secret in AWS Secrets Manager.
 	//
 	// Will return the full ARN if available, otherwise a partial arn.
 	// For secrets imported by the deprecated `fromSecretName`, it will return the `secretName`.
-	// Experimental.
 	SecretArn() *string
 	// The full ARN of the secret in AWS Secrets Manager, which is the ARN including the Secrets Manager-supplied 6-character suffix.
 	//
 	// This is equal to `secretArn` in most cases, but is undefined when a full ARN is not available (e.g., secrets imported by name).
-	// Experimental.
 	SecretFullArn() *string
 	// The name of the secret.
 	//
 	// For "owned" secrets, this will be the full resource name (secret name + suffix), unless the
 	// '@aws-cdk/aws-secretsmanager:parseOwnedSecretName' feature flag is set.
-	// Experimental.
 	SecretName() *string
 	// Retrieve the value of the stored secret as a `SecretValue`.
-	// Experimental.
 	SecretValue() awscdk.SecretValue
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Adds a replica region for the secret.
-	// Experimental.
 	AddReplicaRegion(region *string, encryptionKey awskms.IKey)
 	// Adds a rotation schedule to the secret.
-	// Experimental.
 	AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule
-	// Adds a target attachment to the secret.
-	//
-	// Returns: an AttachedSecret.
-	// Deprecated: use `attach()` instead.
-	AddTargetAttachment(id *string, options *AttachedSecretOptions) SecretTargetAttachment
 	// Adds a statement to the IAM resource policy associated with this secret.
 	//
 	// If this secret was created in this stack, a resource policy will be
 	// automatically created upon the first call to `addToResourcePolicy`. If
 	// the secret is imported, then this is a no-op.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
@@ -5207,17 +4375,13 @@ type Secret interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Attach a target to this secret.
 	//
 	// Returns: An attached secret.
-	// Experimental.
 	Attach(target ISecretAttachmentTarget) ISecret
 	// Denies the `DeleteSecret` action to all principals within the current account.
-	// Experimental.
 	DenyAccountRootDelete()
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -5225,73 +4389,21 @@ type Secret interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants reading the secret value to some role.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant
 	// Grants writing and updating the secret value to some role.
-	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
-	// Experimental.
 	SecretValueFromJson(jsonField *string) awscdk.SecretValue
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Secret
@@ -5340,8 +4452,8 @@ func (j *jsiiProxy_Secret) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_Secret) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Secret) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5411,14 +4523,13 @@ func (j *jsiiProxy_Secret) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewSecret(scope constructs.Construct, id *string, props *SecretProps) Secret {
 	_init_.Initialize()
 
 	j := jsiiProxy_Secret{}
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.Secret",
+		"aws-cdk-lib.aws_secretsmanager.Secret",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5426,42 +4537,24 @@ func NewSecret(scope constructs.Construct, id *string, props *SecretProps) Secre
 	return &j
 }
 
-// Experimental.
 func NewSecret_Override(s Secret, scope constructs.Construct, id *string, props *SecretProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.Secret",
+		"aws-cdk-lib.aws_secretsmanager.Secret",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Deprecated: use `fromSecretCompleteArn` or `fromSecretPartialArn`.
-func Secret_FromSecretArn(scope constructs.Construct, id *string, secretArn *string) ISecret {
-	_init_.Initialize()
-
-	var returns ISecret
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.Secret",
-		"fromSecretArn",
-		[]interface{}{scope, id, secretArn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Import an existing secret into the Stack.
-// Experimental.
 func Secret_FromSecretAttributes(scope constructs.Construct, id *string, attrs *SecretAttributes) ISecret {
 	_init_.Initialize()
 
 	var returns ISecret
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.Secret",
+		"aws-cdk-lib.aws_secretsmanager.Secret",
 		"fromSecretAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -5473,36 +4566,15 @@ func Secret_FromSecretAttributes(scope constructs.Construct, id *string, attrs *
 // Imports a secret by complete ARN.
 //
 // The complete ARN is the ARN with the Secrets Manager-supplied suffix.
-// Experimental.
 func Secret_FromSecretCompleteArn(scope constructs.Construct, id *string, secretCompleteArn *string) ISecret {
 	_init_.Initialize()
 
 	var returns ISecret
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.Secret",
+		"aws-cdk-lib.aws_secretsmanager.Secret",
 		"fromSecretCompleteArn",
 		[]interface{}{scope, id, secretCompleteArn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Imports a secret by secret name;
-//
-// the ARN of the Secret will be set to the secret name.
-// A secret with this name must exist in the same account & region.
-// Deprecated: use `fromSecretNameV2`.
-func Secret_FromSecretName(scope constructs.Construct, id *string, secretName *string) ISecret {
-	_init_.Initialize()
-
-	var returns ISecret
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.Secret",
-		"fromSecretName",
-		[]interface{}{scope, id, secretName},
 		&returns,
 	)
 
@@ -5513,14 +4585,13 @@ func Secret_FromSecretName(scope constructs.Construct, id *string, secretName *s
 //
 // A secret with this name must exist in the same account & region.
 // Replaces the deprecated `fromSecretName`.
-// Experimental.
 func Secret_FromSecretNameV2(scope constructs.Construct, id *string, secretName *string) ISecret {
 	_init_.Initialize()
 
 	var returns ISecret
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.Secret",
+		"aws-cdk-lib.aws_secretsmanager.Secret",
 		"fromSecretNameV2",
 		[]interface{}{scope, id, secretName},
 		&returns,
@@ -5532,14 +4603,13 @@ func Secret_FromSecretNameV2(scope constructs.Construct, id *string, secretName 
 // Imports a secret by partial ARN.
 //
 // The partial ARN is the ARN without the Secrets Manager-supplied suffix.
-// Experimental.
 func Secret_FromSecretPartialArn(scope constructs.Construct, id *string, secretPartialArn *string) ISecret {
 	_init_.Initialize()
 
 	var returns ISecret
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.Secret",
+		"aws-cdk-lib.aws_secretsmanager.Secret",
 		"fromSecretPartialArn",
 		[]interface{}{scope, id, secretPartialArn},
 		&returns,
@@ -5548,15 +4618,17 @@ func Secret_FromSecretPartialArn(scope constructs.Construct, id *string, secretP
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func Secret_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.Secret",
+		"aws-cdk-lib.aws_secretsmanager.Secret",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5566,14 +4638,13 @@ func Secret_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func Secret_IsResource(construct awscdk.IConstruct) *bool {
+func Secret_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.Secret",
+		"aws-cdk-lib.aws_secretsmanager.Secret",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5596,19 +4667,6 @@ func (s *jsiiProxy_Secret) AddRotationSchedule(id *string, options *RotationSche
 	_jsii_.Invoke(
 		s,
 		"addRotationSchedule",
-		[]interface{}{id, options},
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_Secret) AddTargetAttachment(id *string, options *AttachedSecretOptions) SecretTargetAttachment {
-	var returns SecretTargetAttachment
-
-	_jsii_.Invoke(
-		s,
-		"addTargetAttachment",
 		[]interface{}{id, options},
 		&returns,
 	)
@@ -5723,43 +4781,6 @@ func (s *jsiiProxy_Secret) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
 	return returns
 }
 
-func (s *jsiiProxy_Secret) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_Secret) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_Secret) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_Secret) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (s *jsiiProxy_Secret) SecretValueFromJson(jsonField *string) awscdk.SecretValue {
 	var returns awscdk.SecretValue
 
@@ -5773,33 +4794,12 @@ func (s *jsiiProxy_Secret) SecretValueFromJson(jsonField *string) awscdk.SecretV
 	return returns
 }
 
-func (s *jsiiProxy_Secret) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_Secret) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_Secret) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5816,16 +4816,13 @@ func (s *jsiiProxy_Secret) Validate() *[]*string {
 //
 //   secretAttachmentTargetProps := &secretAttachmentTargetProps{
 //   	targetId: jsii.String("targetId"),
-//   	targetType: awscdk.Aws_secretsmanager.attachmentTargetType_INSTANCE,
+//   	targetType: awscdk.Aws_secretsmanager.attachmentTargetType_RDS_DB_INSTANCE,
 //   }
 //
-// Experimental.
 type SecretAttachmentTargetProps struct {
 	// The id of the target to attach the secret to.
-	// Experimental.
 	TargetId *string `field:"required" json:"targetId" yaml:"targetId"`
 	// The type of the target to attach the secret to.
-	// Experimental.
 	TargetType AttachmentTargetType `field:"required" json:"targetType" yaml:"targetType"`
 }
 
@@ -5842,27 +4839,18 @@ type SecretAttachmentTargetProps struct {
 //   	encryptionKey: encryptionKey,
 //   })
 //
-// Experimental.
 type SecretAttributes struct {
 	// The encryption key that is used to encrypt the secret, unless the default SecretsManager key is used.
-	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
-	// The ARN of the secret in SecretsManager.
-	//
-	// Cannot be used with `secretCompleteArn` or `secretPartialArn`.
-	// Deprecated: use `secretCompleteArn` or `secretPartialArn` instead.
-	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`
 	// The complete ARN of the secret in SecretsManager.
 	//
 	// This is the ARN including the Secrets Manager 6-character suffix.
 	// Cannot be used with `secretArn` or `secretPartialArn`.
-	// Experimental.
 	SecretCompleteArn *string `field:"optional" json:"secretCompleteArn" yaml:"secretCompleteArn"`
 	// The partial ARN of the secret in SecretsManager.
 	//
 	// This is the ARN without the Secrets Manager 6-character suffix.
 	// Cannot be used with `secretArn` or `secretCompleteArn`.
-	// Experimental.
 	SecretPartialArn *string `field:"optional" json:"secretPartialArn" yaml:"secretPartialArn"`
 }
 
@@ -5879,30 +4867,23 @@ type SecretAttributes struct {
 //   	secretStringBeta1: secretValue,
 //   })
 //
-// Experimental.
 type SecretProps struct {
 	// An optional, human-friendly description of the secret.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The customer-managed encryption key to use for encrypting the secret value.
-	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Configuration for how to generate a secret value.
 	//
 	// Only one of `secretString` and `generateSecretString` can be provided.
-	// Experimental.
 	GenerateSecretString *SecretStringGenerator `field:"optional" json:"generateSecretString" yaml:"generateSecretString"`
 	// Policy to apply when the secret is removed from this stack.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// A list of regions where to replicate this secret.
-	// Experimental.
 	ReplicaRegions *[]*ReplicaRegion `field:"optional" json:"replicaRegions" yaml:"replicaRegions"`
 	// A name for the secret.
 	//
 	// Note that deleting secrets from SecretsManager does not happen immediately, but after a 7 to
 	// 30 days blackout period. During that period, it is not possible to create another secret that shares the same name.
-	// Experimental.
 	SecretName *string `field:"optional" json:"secretName" yaml:"secretName"`
 	// Initial value for the secret.
 	//
@@ -5930,7 +4911,6 @@ type SecretProps struct {
 	// May be a simple string value, or a string representation of a JSON structure.
 	//
 	// Only one of `secretStringBeta1`, `secretStringValue`, and `generateSecretString` can be provided.
-	// Experimental.
 	SecretStringValue awscdk.SecretValue `field:"optional" json:"secretStringValue" yaml:"secretStringValue"`
 }
 
@@ -5953,72 +4933,21 @@ type SecretProps struct {
 //   	excludeCharacters: jsii.String(" %+:;{}"),
 //   })
 //
-// Experimental.
 type SecretRotation interface {
-	awscdk.Construct
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
+	constructs.Construct
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for SecretRotation
 type jsiiProxy_SecretRotation struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
-func (j *jsiiProxy_SecretRotation) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SecretRotation) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6028,14 +4957,13 @@ func (j *jsiiProxy_SecretRotation) Node() awscdk.ConstructNode {
 }
 
 
-// Experimental.
 func NewSecretRotation(scope constructs.Construct, id *string, props *SecretRotationProps) SecretRotation {
 	_init_.Initialize()
 
 	j := jsiiProxy_SecretRotation{}
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.SecretRotation",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotation",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6043,26 +4971,27 @@ func NewSecretRotation(scope constructs.Construct, id *string, props *SecretRota
 	return &j
 }
 
-// Experimental.
 func NewSecretRotation_Override(s SecretRotation, scope constructs.Construct, id *string, props *SecretRotationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.SecretRotation",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotation",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func SecretRotation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.SecretRotation",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotation",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6071,70 +5000,12 @@ func SecretRotation_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (s *jsiiProxy_SecretRotation) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SecretRotation) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_SecretRotation) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SecretRotation) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SecretRotation) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_SecretRotation) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SecretRotation) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6161,42 +5032,22 @@ func (s *jsiiProxy_SecretRotation) Validate() *[]*string {
 //   	excludeCharacters: jsii.String(" %+:;{}"),
 //   })
 //
-// Experimental.
 type SecretRotationApplication interface {
-	// The application identifier of the rotation application.
-	// Deprecated: only valid when deploying to the 'aws' partition. Use `applicationArnForPartition` instead.
-	ApplicationId() *string
 	// Whether the rotation application uses the mutli user scheme.
-	// Experimental.
 	IsMultiUser() *bool
-	// The semantic version of the rotation application.
-	// Deprecated: only valid when deploying to the 'aws' partition. Use `semanticVersionForPartition` instead.
-	SemanticVersion() *string
 	// Returns the application ARN for the current partition.
 	//
 	// Can be used in combination with a `CfnMapping` to automatically select the correct ARN based on the current partition.
-	// Experimental.
 	ApplicationArnForPartition(partition *string) *string
 	// The semantic version of the app for the current partition.
 	//
 	// Can be used in combination with a `CfnMapping` to automatically select the correct version based on the current partition.
-	// Experimental.
 	SemanticVersionForPartition(partition *string) *string
 }
 
 // The jsii proxy struct for SecretRotationApplication
 type jsiiProxy_SecretRotationApplication struct {
 	_ byte // padding
-}
-
-func (j *jsiiProxy_SecretRotationApplication) ApplicationId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"applicationId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_SecretRotationApplication) IsMultiUser() *bool {
@@ -6209,25 +5060,14 @@ func (j *jsiiProxy_SecretRotationApplication) IsMultiUser() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_SecretRotationApplication) SemanticVersion() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"semanticVersion",
-		&returns,
-	)
-	return returns
-}
 
-
-// Experimental.
 func NewSecretRotationApplication(applicationId *string, semanticVersion *string, options *SecretRotationApplicationOptions) SecretRotationApplication {
 	_init_.Initialize()
 
 	j := jsiiProxy_SecretRotationApplication{}
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		[]interface{}{applicationId, semanticVersion, options},
 		&j,
 	)
@@ -6235,12 +5075,11 @@ func NewSecretRotationApplication(applicationId *string, semanticVersion *string
 	return &j
 }
 
-// Experimental.
 func NewSecretRotationApplication_Override(s SecretRotationApplication, applicationId *string, semanticVersion *string, options *SecretRotationApplicationOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		[]interface{}{applicationId, semanticVersion, options},
 		s,
 	)
@@ -6250,7 +5089,7 @@ func SecretRotationApplication_MARIADB_ROTATION_MULTI_USER() SecretRotationAppli
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"MARIADB_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -6261,7 +5100,7 @@ func SecretRotationApplication_MARIADB_ROTATION_SINGLE_USER() SecretRotationAppl
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"MARIADB_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -6272,7 +5111,7 @@ func SecretRotationApplication_MONGODB_ROTATION_MULTI_USER() SecretRotationAppli
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"MONGODB_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -6283,7 +5122,7 @@ func SecretRotationApplication_MONGODB_ROTATION_SINGLE_USER() SecretRotationAppl
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"MONGODB_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -6294,7 +5133,7 @@ func SecretRotationApplication_MYSQL_ROTATION_MULTI_USER() SecretRotationApplica
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"MYSQL_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -6305,7 +5144,7 @@ func SecretRotationApplication_MYSQL_ROTATION_SINGLE_USER() SecretRotationApplic
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"MYSQL_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -6316,7 +5155,7 @@ func SecretRotationApplication_ORACLE_ROTATION_MULTI_USER() SecretRotationApplic
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"ORACLE_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -6327,7 +5166,7 @@ func SecretRotationApplication_ORACLE_ROTATION_SINGLE_USER() SecretRotationAppli
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"ORACLE_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -6338,7 +5177,7 @@ func SecretRotationApplication_POSTGRES_ROTATION_MULTI_USER() SecretRotationAppl
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"POSTGRES_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -6349,7 +5188,7 @@ func SecretRotationApplication_POSTGRES_ROTATION_SINGLE_USER() SecretRotationApp
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"POSTGRES_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -6360,7 +5199,7 @@ func SecretRotationApplication_REDSHIFT_ROTATION_MULTI_USER() SecretRotationAppl
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"REDSHIFT_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -6371,7 +5210,7 @@ func SecretRotationApplication_REDSHIFT_ROTATION_SINGLE_USER() SecretRotationApp
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"REDSHIFT_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -6382,7 +5221,7 @@ func SecretRotationApplication_SQLSERVER_ROTATION_MULTI_USER() SecretRotationApp
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"SQLSERVER_ROTATION_MULTI_USER",
 		&returns,
 	)
@@ -6393,7 +5232,7 @@ func SecretRotationApplication_SQLSERVER_ROTATION_SINGLE_USER() SecretRotationAp
 	_init_.Initialize()
 	var returns SecretRotationApplication
 	_jsii_.StaticGet(
-		"monocdk.aws_secretsmanager.SecretRotationApplication",
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
 		"SQLSERVER_ROTATION_SINGLE_USER",
 		&returns,
 	)
@@ -6437,10 +5276,8 @@ func (s *jsiiProxy_SecretRotationApplication) SemanticVersionForPartition(partit
 //   	isMultiUser: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type SecretRotationApplicationOptions struct {
 	// Whether the rotation application uses the mutli user scheme.
-	// Experimental.
 	IsMultiUser *bool `field:"optional" json:"isMultiUser" yaml:"isMultiUser"`
 }
 
@@ -6463,10 +5300,8 @@ type SecretRotationApplicationOptions struct {
 //   	excludeCharacters: jsii.String(" %+:;{}"),
 //   })
 //
-// Experimental.
 type SecretRotationProps struct {
 	// The serverless application for the rotation.
-	// Experimental.
 	Application SecretRotationApplication `field:"required" json:"application" yaml:"application"`
 	// The secret to rotate. It must be a JSON string with the following format:.
 	//
@@ -6486,16 +5321,12 @@ type SecretRotationProps struct {
 	// or an `ISecret` returned by the `attach()` method of `Secret`.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html
 	//
-	// Experimental.
 	Secret ISecret `field:"required" json:"secret" yaml:"secret"`
 	// The target service or database.
-	// Experimental.
 	Target awsec2.IConnectable `field:"required" json:"target" yaml:"target"`
 	// The VPC where the Lambda rotation function will run.
-	// Experimental.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	// Experimental.
 	AutomaticallyAfter awscdk.Duration `field:"optional" json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
@@ -6503,19 +5334,14 @@ type SecretRotationProps struct {
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
-	// Experimental.
 	Endpoint awsec2.IInterfaceVpcEndpoint `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// Characters which should not appear in the generated password.
-	// Experimental.
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// The master secret for a multi user rotation scheme.
-	// Experimental.
 	MasterSecret ISecret `field:"optional" json:"masterSecret" yaml:"masterSecret"`
 	// The security group for the Lambda rotation function.
-	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
@@ -6545,40 +5371,30 @@ type SecretRotationProps struct {
 //   	password: templatedSecret.secretValueFromJson(jsii.String("password")),
 //   })
 //
-// Experimental.
 type SecretStringGenerator struct {
 	// A string that includes characters that shouldn't be included in the generated password.
 	//
 	// The string can be a minimum
 	// of ``0`` and a maximum of ``4096`` characters long.
-	// Experimental.
 	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// Specifies that the generated password shouldn't include lowercase letters.
-	// Experimental.
 	ExcludeLowercase *bool `field:"optional" json:"excludeLowercase" yaml:"excludeLowercase"`
 	// Specifies that the generated password shouldn't include digits.
-	// Experimental.
 	ExcludeNumbers *bool `field:"optional" json:"excludeNumbers" yaml:"excludeNumbers"`
 	// Specifies that the generated password shouldn't include punctuation characters.
-	// Experimental.
 	ExcludePunctuation *bool `field:"optional" json:"excludePunctuation" yaml:"excludePunctuation"`
 	// Specifies that the generated password shouldn't include uppercase letters.
-	// Experimental.
 	ExcludeUppercase *bool `field:"optional" json:"excludeUppercase" yaml:"excludeUppercase"`
 	// The JSON key name that's used to add the generated password to the JSON structure specified by the ``secretStringTemplate`` parameter.
 	//
 	// If you specify ``generateStringKey`` then ``secretStringTemplate``
 	// must be also be specified.
-	// Experimental.
 	GenerateStringKey *string `field:"optional" json:"generateStringKey" yaml:"generateStringKey"`
 	// Specifies that the generated password can include the space character.
-	// Experimental.
 	IncludeSpace *bool `field:"optional" json:"includeSpace" yaml:"includeSpace"`
 	// The desired length of the generated password.
-	// Experimental.
 	PasswordLength *float64 `field:"optional" json:"passwordLength" yaml:"passwordLength"`
 	// Specifies whether the generated password must include at least one of every allowed character type.
-	// Experimental.
 	RequireEachIncludedType *bool `field:"optional" json:"requireEachIncludedType" yaml:"requireEachIncludedType"`
 	// A properly structured JSON string that the generated password can be added to.
 	//
@@ -6586,7 +5402,6 @@ type SecretStringGenerator struct {
 	// combined with the generated random string and inserted into the JSON structure that's specified by this parameter.
 	// The merged JSON string is returned as the completed SecretString of the secret. If you specify ``secretStringTemplate``
 	// then ``generateStringKey`` must be also be specified.
-	// Experimental.
 	SecretStringTemplate *string `field:"optional" json:"secretStringTemplate" yaml:"secretStringTemplate"`
 }
 
@@ -6658,7 +5473,7 @@ func SecretStringValueBeta1_FromToken(secretValueFromToken *string) SecretString
 	var returns SecretStringValueBeta1
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.SecretStringValueBeta1",
+		"aws-cdk-lib.aws_secretsmanager.SecretStringValueBeta1",
 		"fromToken",
 		[]interface{}{secretValueFromToken},
 		&returns,
@@ -6679,7 +5494,7 @@ func SecretStringValueBeta1_FromUnsafePlaintext(secretValue *string) SecretStrin
 	var returns SecretStringValueBeta1
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.SecretStringValueBeta1",
+		"aws-cdk-lib.aws_secretsmanager.SecretStringValueBeta1",
 		"fromUnsafePlaintext",
 		[]interface{}{secretValue},
 		&returns,
@@ -6716,7 +5531,6 @@ func (s *jsiiProxy_SecretStringValueBeta1) SecretValue() *string {
 //   	target: secretAttachmentTarget,
 //   })
 //
-// Experimental.
 type SecretTargetAttachment interface {
 	awscdk.Resource
 	ISecret
@@ -6726,15 +5540,12 @@ type SecretTargetAttachment interface {
 	// If there is a full ARN, this is just the ARN;
 	// if we have a partial ARN -- due to either importing by secret name or partial ARN --
 	// then we need to add a suffix to capture the full ARN's format.
-	// Experimental.
 	ArnForPolicies() *string
-	// Experimental.
 	AutoCreatePolicy() *bool
 	// The customer-managed encryption key that is used to encrypt this secret, if any.
 	//
 	// When not specified, the default
 	// KMS key for the account and region is being used.
-	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
 	//
@@ -6744,11 +5555,9 @@ type SecretTargetAttachment interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -6756,43 +5565,34 @@ type SecretTargetAttachment interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The ARN of the secret in AWS Secrets Manager.
 	//
 	// Will return the full ARN if available, otherwise a partial arn.
 	// For secrets imported by the deprecated `fromSecretName`, it will return the `secretName`.
-	// Experimental.
 	SecretArn() *string
 	// The full ARN of the secret in AWS Secrets Manager, which is the ARN including the Secrets Manager-supplied 6-character suffix.
 	//
 	// This is equal to `secretArn` in most cases, but is undefined when a full ARN is not available (e.g., secrets imported by name).
-	// Experimental.
 	SecretFullArn() *string
 	// The name of the secret.
 	//
 	// For "owned" secrets, this will be the full resource name (secret name + suffix), unless the
 	// '@aws-cdk/aws-secretsmanager:parseOwnedSecretName' feature flag is set.
-	// Experimental.
 	SecretName() *string
 	// Same as `secretArn`.
-	// Experimental.
 	SecretTargetAttachmentSecretArn() *string
 	// Retrieve the value of the stored secret as a `SecretValue`.
-	// Experimental.
 	SecretValue() awscdk.SecretValue
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Adds a rotation schedule to the secret.
-	// Experimental.
 	AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule
 	// Adds a statement to the IAM resource policy associated with this secret.
 	//
 	// If this secret was created in this stack, a resource policy will be
 	// automatically created upon the first call to `addToResourcePolicy`. If
 	// the secret is imported, then this is a no-op.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
@@ -6803,17 +5603,13 @@ type SecretTargetAttachment interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Attach a target to this secret.
 	//
 	// Returns: An attached secret.
-	// Experimental.
 	Attach(target ISecretAttachmentTarget) ISecret
 	// Denies the `DeleteSecret` action to all principals within the current account.
-	// Experimental.
 	DenyAccountRootDelete()
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -6821,73 +5617,21 @@ type SecretTargetAttachment interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants reading the secret value to some role.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant
 	// Grants writing and updating the secret value to some role.
-	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
-	// Experimental.
 	SecretValueFromJson(jsonField *string) awscdk.SecretValue
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for SecretTargetAttachment
@@ -6937,8 +5681,8 @@ func (j *jsiiProxy_SecretTargetAttachment) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_SecretTargetAttachment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SecretTargetAttachment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7018,14 +5762,13 @@ func (j *jsiiProxy_SecretTargetAttachment) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewSecretTargetAttachment(scope constructs.Construct, id *string, props *SecretTargetAttachmentProps) SecretTargetAttachment {
 	_init_.Initialize()
 
 	j := jsiiProxy_SecretTargetAttachment{}
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.SecretTargetAttachment",
+		"aws-cdk-lib.aws_secretsmanager.SecretTargetAttachment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7033,25 +5776,23 @@ func NewSecretTargetAttachment(scope constructs.Construct, id *string, props *Se
 	return &j
 }
 
-// Experimental.
 func NewSecretTargetAttachment_Override(s SecretTargetAttachment, scope constructs.Construct, id *string, props *SecretTargetAttachmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_secretsmanager.SecretTargetAttachment",
+		"aws-cdk-lib.aws_secretsmanager.SecretTargetAttachment",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Experimental.
 func SecretTargetAttachment_FromSecretTargetAttachmentSecretArn(scope constructs.Construct, id *string, secretTargetAttachmentSecretArn *string) ISecretTargetAttachment {
 	_init_.Initialize()
 
 	var returns ISecretTargetAttachment
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.SecretTargetAttachment",
+		"aws-cdk-lib.aws_secretsmanager.SecretTargetAttachment",
 		"fromSecretTargetAttachmentSecretArn",
 		[]interface{}{scope, id, secretTargetAttachmentSecretArn},
 		&returns,
@@ -7060,15 +5801,17 @@ func SecretTargetAttachment_FromSecretTargetAttachmentSecretArn(scope constructs
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func SecretTargetAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.SecretTargetAttachment",
+		"aws-cdk-lib.aws_secretsmanager.SecretTargetAttachment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7078,14 +5821,13 @@ func SecretTargetAttachment_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func SecretTargetAttachment_IsResource(construct awscdk.IConstruct) *bool {
+func SecretTargetAttachment_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_secretsmanager.SecretTargetAttachment",
+		"aws-cdk-lib.aws_secretsmanager.SecretTargetAttachment",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -7214,43 +5956,6 @@ func (s *jsiiProxy_SecretTargetAttachment) GrantWrite(grantee awsiam.IGrantable)
 	return returns
 }
 
-func (s *jsiiProxy_SecretTargetAttachment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SecretTargetAttachment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_SecretTargetAttachment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SecretTargetAttachment) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (s *jsiiProxy_SecretTargetAttachment) SecretValueFromJson(jsonField *string) awscdk.SecretValue {
 	var returns awscdk.SecretValue
 
@@ -7264,33 +5969,12 @@ func (s *jsiiProxy_SecretTargetAttachment) SecretValueFromJson(jsonField *string
 	return returns
 }
 
-func (s *jsiiProxy_SecretTargetAttachment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_SecretTargetAttachment) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SecretTargetAttachment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7313,13 +5997,10 @@ func (s *jsiiProxy_SecretTargetAttachment) Validate() *[]*string {
 //   	target: secretAttachmentTarget,
 //   }
 //
-// Experimental.
 type SecretTargetAttachmentProps struct {
 	// The target to attach the secret to.
-	// Experimental.
 	Target ISecretAttachmentTarget `field:"required" json:"target" yaml:"target"`
 	// The secret to attach to the target.
-	// Experimental.
 	Secret ISecret `field:"required" json:"secret" yaml:"secret"`
 }
 
@@ -7339,19 +6020,14 @@ type SecretTargetAttachmentProps struct {
 //   })
 //   dbConnections.allowDefaultPortFrom(myHostedRotation)
 //
-// Experimental.
 type SingleUserHostedRotationOptions struct {
 	// A name for the Lambda created to rotate the secret.
-	// Experimental.
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// A list of security groups for the Lambda created to rotate the secret.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The VPC where the Lambda rotation function will run.
-	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

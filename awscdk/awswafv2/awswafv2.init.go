@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_wafv2.CfnIPSet",
+		"aws-cdk-lib.aws_wafv2.CfnIPSet",
 		reflect.TypeOf((*CfnIPSet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -33,21 +33,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "scope", GoGetter: "Scope"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -58,11 +52,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnIPSetProps",
+		"aws-cdk-lib.aws_wafv2.CfnIPSetProps",
 		reflect.TypeOf((*CfnIPSetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_wafv2.CfnLoggingConfiguration",
+		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration",
 		reflect.TypeOf((*CfnLoggingConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -84,21 +78,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "loggingFilter", GoGetter: "LoggingFilter"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "redactedFields", GoGetter: "RedactedFields"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceArn", GoGetter: "ResourceArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -109,15 +97,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnLoggingConfiguration.FieldToMatchProperty",
+		"aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration.FieldToMatchProperty",
 		reflect.TypeOf((*CfnLoggingConfiguration_FieldToMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnLoggingConfigurationProps",
+		"aws-cdk-lib.aws_wafv2.CfnLoggingConfigurationProps",
 		reflect.TypeOf((*CfnLoggingConfigurationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_wafv2.CfnRegexPatternSet",
+		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
 		reflect.TypeOf((*CfnRegexPatternSet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -140,22 +128,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "regularExpressionList", GoGetter: "RegularExpressionList"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "scope", GoGetter: "Scope"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -166,11 +148,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRegexPatternSetProps",
+		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSetProps",
 		reflect.TypeOf((*CfnRegexPatternSetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_wafv2.CfnRuleGroup",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
 		reflect.TypeOf((*CfnRuleGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -198,22 +180,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "rules", GoGetter: "Rules"},
 			_jsii_.MemberProperty{JsiiProperty: "scope", GoGetter: "Scope"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "visibilityConfig", GoGetter: "VisibilityConfig"},
 		},
@@ -225,123 +201,123 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.AndStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.AndStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_AndStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.ByteMatchStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.ByteMatchStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_ByteMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.CaptchaConfigProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.CaptchaConfigProperty",
 		reflect.TypeOf((*CfnRuleGroup_CaptchaConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.CustomResponseBodyProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.CustomResponseBodyProperty",
 		reflect.TypeOf((*CfnRuleGroup_CustomResponseBodyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.FieldToMatchProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.FieldToMatchProperty",
 		reflect.TypeOf((*CfnRuleGroup_FieldToMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.ForwardedIPConfigurationProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.ForwardedIPConfigurationProperty",
 		reflect.TypeOf((*CfnRuleGroup_ForwardedIPConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.GeoMatchStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.GeoMatchStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_GeoMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.IPSetForwardedIPConfigurationProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.IPSetForwardedIPConfigurationProperty",
 		reflect.TypeOf((*CfnRuleGroup_IPSetForwardedIPConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.IPSetReferenceStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.IPSetReferenceStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_IPSetReferenceStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.ImmunityTimePropertyProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.ImmunityTimePropertyProperty",
 		reflect.TypeOf((*CfnRuleGroup_ImmunityTimePropertyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.JsonBodyProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.JsonBodyProperty",
 		reflect.TypeOf((*CfnRuleGroup_JsonBodyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.JsonMatchPatternProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.JsonMatchPatternProperty",
 		reflect.TypeOf((*CfnRuleGroup_JsonMatchPatternProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.LabelMatchStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.LabelMatchStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_LabelMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.LabelProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.LabelProperty",
 		reflect.TypeOf((*CfnRuleGroup_LabelProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.LabelSummaryProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.LabelSummaryProperty",
 		reflect.TypeOf((*CfnRuleGroup_LabelSummaryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.NotStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.NotStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_NotStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.OrStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.OrStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_OrStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.RateBasedStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RateBasedStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_RateBasedStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.RegexMatchStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RegexMatchStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_RegexMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.RegexPatternSetReferenceStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RegexPatternSetReferenceStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_RegexPatternSetReferenceStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.RuleActionProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RuleActionProperty",
 		reflect.TypeOf((*CfnRuleGroup_RuleActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.RuleProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RuleProperty",
 		reflect.TypeOf((*CfnRuleGroup_RuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.SizeConstraintStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.SizeConstraintStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_SizeConstraintStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.SqliMatchStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.SqliMatchStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_SqliMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.StatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.StatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_StatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.TextTransformationProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.TextTransformationProperty",
 		reflect.TypeOf((*CfnRuleGroup_TextTransformationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.VisibilityConfigProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.VisibilityConfigProperty",
 		reflect.TypeOf((*CfnRuleGroup_VisibilityConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroup.XssMatchStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.XssMatchStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_XssMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnRuleGroupProps",
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroupProps",
 		reflect.TypeOf((*CfnRuleGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_wafv2.CfnWebACL",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL",
 		reflect.TypeOf((*CfnWebACL)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -369,22 +345,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "rules", GoGetter: "Rules"},
 			_jsii_.MemberProperty{JsiiProperty: "scope", GoGetter: "Scope"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "visibilityConfig", GoGetter: "VisibilityConfig"},
 		},
@@ -396,171 +366,171 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.AllowActionProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.AllowActionProperty",
 		reflect.TypeOf((*CfnWebACL_AllowActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.AndStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.AndStatementProperty",
 		reflect.TypeOf((*CfnWebACL_AndStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.BlockActionProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.BlockActionProperty",
 		reflect.TypeOf((*CfnWebACL_BlockActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.ByteMatchStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.ByteMatchStatementProperty",
 		reflect.TypeOf((*CfnWebACL_ByteMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.CaptchaActionProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.CaptchaActionProperty",
 		reflect.TypeOf((*CfnWebACL_CaptchaActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.CaptchaConfigProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.CaptchaConfigProperty",
 		reflect.TypeOf((*CfnWebACL_CaptchaConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.CountActionProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.CountActionProperty",
 		reflect.TypeOf((*CfnWebACL_CountActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.CustomHTTPHeaderProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.CustomHTTPHeaderProperty",
 		reflect.TypeOf((*CfnWebACL_CustomHTTPHeaderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.CustomRequestHandlingProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.CustomRequestHandlingProperty",
 		reflect.TypeOf((*CfnWebACL_CustomRequestHandlingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.CustomResponseBodyProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.CustomResponseBodyProperty",
 		reflect.TypeOf((*CfnWebACL_CustomResponseBodyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.CustomResponseProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.CustomResponseProperty",
 		reflect.TypeOf((*CfnWebACL_CustomResponseProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.DefaultActionProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.DefaultActionProperty",
 		reflect.TypeOf((*CfnWebACL_DefaultActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.ExcludedRuleProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.ExcludedRuleProperty",
 		reflect.TypeOf((*CfnWebACL_ExcludedRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.FieldIdentifierProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.FieldIdentifierProperty",
 		reflect.TypeOf((*CfnWebACL_FieldIdentifierProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.FieldToMatchProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.FieldToMatchProperty",
 		reflect.TypeOf((*CfnWebACL_FieldToMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.ForwardedIPConfigurationProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.ForwardedIPConfigurationProperty",
 		reflect.TypeOf((*CfnWebACL_ForwardedIPConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.GeoMatchStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.GeoMatchStatementProperty",
 		reflect.TypeOf((*CfnWebACL_GeoMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.IPSetForwardedIPConfigurationProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.IPSetForwardedIPConfigurationProperty",
 		reflect.TypeOf((*CfnWebACL_IPSetForwardedIPConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.IPSetReferenceStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.IPSetReferenceStatementProperty",
 		reflect.TypeOf((*CfnWebACL_IPSetReferenceStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.ImmunityTimePropertyProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.ImmunityTimePropertyProperty",
 		reflect.TypeOf((*CfnWebACL_ImmunityTimePropertyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.JsonBodyProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.JsonBodyProperty",
 		reflect.TypeOf((*CfnWebACL_JsonBodyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.JsonMatchPatternProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.JsonMatchPatternProperty",
 		reflect.TypeOf((*CfnWebACL_JsonMatchPatternProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.LabelMatchStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.LabelMatchStatementProperty",
 		reflect.TypeOf((*CfnWebACL_LabelMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.LabelProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.LabelProperty",
 		reflect.TypeOf((*CfnWebACL_LabelProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.ManagedRuleGroupConfigProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.ManagedRuleGroupConfigProperty",
 		reflect.TypeOf((*CfnWebACL_ManagedRuleGroupConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.ManagedRuleGroupStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.ManagedRuleGroupStatementProperty",
 		reflect.TypeOf((*CfnWebACL_ManagedRuleGroupStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.NotStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.NotStatementProperty",
 		reflect.TypeOf((*CfnWebACL_NotStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.OrStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.OrStatementProperty",
 		reflect.TypeOf((*CfnWebACL_OrStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.OverrideActionProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.OverrideActionProperty",
 		reflect.TypeOf((*CfnWebACL_OverrideActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.RateBasedStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RateBasedStatementProperty",
 		reflect.TypeOf((*CfnWebACL_RateBasedStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.RegexMatchStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RegexMatchStatementProperty",
 		reflect.TypeOf((*CfnWebACL_RegexMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.RegexPatternSetReferenceStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RegexPatternSetReferenceStatementProperty",
 		reflect.TypeOf((*CfnWebACL_RegexPatternSetReferenceStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.RuleActionProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RuleActionProperty",
 		reflect.TypeOf((*CfnWebACL_RuleActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.RuleGroupReferenceStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RuleGroupReferenceStatementProperty",
 		reflect.TypeOf((*CfnWebACL_RuleGroupReferenceStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.RuleProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.RuleProperty",
 		reflect.TypeOf((*CfnWebACL_RuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.SizeConstraintStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.SizeConstraintStatementProperty",
 		reflect.TypeOf((*CfnWebACL_SizeConstraintStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.SqliMatchStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.SqliMatchStatementProperty",
 		reflect.TypeOf((*CfnWebACL_SqliMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.StatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.StatementProperty",
 		reflect.TypeOf((*CfnWebACL_StatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.TextTransformationProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.TextTransformationProperty",
 		reflect.TypeOf((*CfnWebACL_TextTransformationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.VisibilityConfigProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.VisibilityConfigProperty",
 		reflect.TypeOf((*CfnWebACL_VisibilityConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACL.XssMatchStatementProperty",
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.XssMatchStatementProperty",
 		reflect.TypeOf((*CfnWebACL_XssMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_wafv2.CfnWebACLAssociation",
+		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
 		reflect.TypeOf((*CfnWebACLAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -579,20 +549,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceArn", GoGetter: "ResourceArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "webAclArn", GoGetter: "WebAclArn"},
 		},
@@ -604,11 +568,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACLAssociationProps",
+		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociationProps",
 		reflect.TypeOf((*CfnWebACLAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_wafv2.CfnWebACLProps",
+		"aws-cdk-lib.aws_wafv2.CfnWebACLProps",
 		reflect.TypeOf((*CfnWebACLProps)(nil)).Elem(),
 	)
 }

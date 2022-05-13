@@ -1,122 +1,23 @@
 # Amazon Neptune Construct Library
 
-Amazon Neptune is a fast, reliable, fully managed graph database service that makes it easy to build and run applications that work with highly connected datasets. The core of Neptune is a purpose-built, high-performance graph database engine. This engine is optimized for storing billions of relationships and querying the graph with milliseconds latency. Neptune supports the popular graph query languages Apache TinkerPop Gremlin and W3C’s SPARQL, enabling you to build queries that efficiently navigate highly connected datasets.
-
-The `@aws-cdk/aws-neptune` package contains primitives for setting up Neptune database clusters and instances.
+This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.
 
 ```go
 import neptune "github.com/aws/aws-cdk-go/awscdk"
 ```
 
-## Starting a Neptune Database
+<!--BEGIN CFNONLY DISCLAIMER-->
 
-To set up a Neptune database, define a `DatabaseCluster`. You must always launch a database in a VPC.
+There are no official hand-written ([L2](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_lib)) constructs for this service yet. Here are some suggestions on how to proceed:
 
-```go
-cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
-	vpc: vpc,
-	instanceType: neptune.instanceType_R5_LARGE(),
-})
-```
+* Search [Construct Hub for Neptune construct libraries](https://constructs.dev/search?q=neptune)
+* Use the automatically generated [L1](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_l1_using) constructs, in the same way you would use [the CloudFormation AWS::Neptune resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Neptune.html) directly.
 
-By default only writer instance is provisioned with this construct.
+> An experimental construct library for this service is available in preview. Since it is not stable yet, it is distributed
+> as a separate package so that you can pin its version independently of the rest of the CDK. See the package:
+>
+> <span class="package-reference">@aws-cdk/aws-neptune-alpha</span>
 
-## Connecting
+(Read the [CDK Contributing Guide](https://github.com/aws/aws-cdk/blob/master/CONTRIBUTING.md) if you are interested in contributing to this construct library.)
 
-To control who can access the cluster, use the `.connections` attribute. Neptune databases have a default port, so
-you don't need to specify the port:
-
-```go
-cluster.connections.allowDefaultPortFromAnyIpv4(jsii.String("Open to the world"))
-```
-
-The endpoints to access your database cluster will be available as the `.clusterEndpoint` and `.clusterReadEndpoint`
-attributes:
-
-```go
-writeAddress := cluster.clusterEndpoint.socketAddress
-```
-
-## IAM Authentication
-
-You can also authenticate to a database cluster using AWS Identity and Access Management (IAM) database authentication;
-See [https://docs.aws.amazon.com/neptune/latest/userguide/iam-auth.html](https://docs.aws.amazon.com/neptune/latest/userguide/iam-auth.html) for more information and a list of supported
-versions and limitations.
-
-The following example shows enabling IAM authentication for a database cluster and granting connection access to an IAM role.
-
-```go
-cluster := neptune.NewDatabaseCluster(this, jsii.String("Cluster"), &databaseClusterProps{
-	vpc: vpc,
-	instanceType: neptune.instanceType_R5_LARGE(),
-	iamAuthentication: jsii.Boolean(true),
-})
-role := iam.NewRole(this, jsii.String("DBRole"), &roleProps{
-	assumedBy: iam.NewAccountPrincipal(this.account),
-})
-cluster.grantConnect(role)
-```
-
-## Customizing parameters
-
-Neptune allows configuring database behavior by supplying custom parameter groups.  For more details, refer to the
-following link: [https://docs.aws.amazon.com/neptune/latest/userguide/parameters.html](https://docs.aws.amazon.com/neptune/latest/userguide/parameters.html)
-
-```go
-clusterParams := neptune.NewClusterParameterGroup(this, jsii.String("ClusterParams"), &clusterParameterGroupProps{
-	description: jsii.String("Cluster parameter group"),
-	parameters: map[string]*string{
-		"neptune_enable_audit_log": jsii.String("1"),
-	},
-})
-
-dbParams := neptune.NewParameterGroup(this, jsii.String("DbParams"), &parameterGroupProps{
-	description: jsii.String("Db parameter group"),
-	parameters: map[string]*string{
-		"neptune_query_timeout": jsii.String("120000"),
-	},
-})
-
-cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
-	vpc: vpc,
-	instanceType: neptune.instanceType_R5_LARGE(),
-	clusterParameterGroup: clusterParams,
-	parameterGroup: dbParams,
-})
-```
-
-## Adding replicas
-
-`DatabaseCluster` allows launching replicas along with the writer instance. This can be specified using the `instanceCount`
-attribute.
-
-```go
-cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
-	vpc: vpc,
-	instanceType: neptune.instanceType_R5_LARGE(),
-	instances: jsii.Number(2),
-})
-```
-
-Additionally it is also possible to add replicas using `DatabaseInstance` for an existing cluster.
-
-```go
-replica1 := neptune.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
-	cluster: cluster,
-	instanceType: neptune.*instanceType_R5_LARGE(),
-})
-```
-
-## Automatic minor version upgrades
-
-By setting `autoMinorVersionUpgrade` to true, Neptune will automatically update
-the engine of the entire cluster to the latest minor version after a stabilization
-window of 2 to 3 weeks.
-
-```go
-neptune.NewDatabaseCluster(this, jsii.String("Cluster"), &databaseClusterProps{
-	vpc: vpc,
-	instanceType: neptune.instanceType_R5_LARGE(),
-	autoMinorVersionUpgrade: jsii.Boolean(true),
-})
-```
+<!--END CFNONLY DISCLAIMER-->

@@ -1,7 +1,7 @@
 package cloudassemblyschema
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -28,22 +28,16 @@ import (
 //   	},
 //   }
 //
-// Experimental.
 type AmiContextQuery struct {
 	// Account to query.
-	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Filters to DescribeImages call.
-	// Experimental.
 	Filters *map[string]*[]*string `field:"required" json:"filters" yaml:"filters"`
 	// Region to query.
-	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
-	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// Owners to DescribeImages call.
-	// Experimental.
 	Owners *[]*string `field:"optional" json:"owners" yaml:"owners"`
 }
 
@@ -106,74 +100,54 @@ type AmiContextQuery struct {
 //   	},
 //   }
 //
-// Experimental.
 type ArtifactManifest struct {
 	// The type of artifact.
-	// Experimental.
 	Type ArtifactType `field:"required" json:"type" yaml:"type"`
 	// IDs of artifacts that must be deployed before this artifact.
-	// Experimental.
 	Dependencies *[]*string `field:"optional" json:"dependencies" yaml:"dependencies"`
 	// A string that represents this artifact.
 	//
 	// Should only be used in user interfaces.
-	// Experimental.
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// The environment into which this artifact is deployed.
-	// Experimental.
 	Environment *string `field:"optional" json:"environment" yaml:"environment"`
 	// Associated metadata.
-	// Experimental.
 	Metadata *map[string]*[]*MetadataEntry `field:"optional" json:"metadata" yaml:"metadata"`
 	// The set of properties for this artifact (depends on type).
-	// Experimental.
 	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
 }
 
 // Type of artifact metadata entry.
-// Experimental.
 type ArtifactMetadataEntryType string
 
 const (
 	// Asset in metadata.
-	// Experimental.
 	ArtifactMetadataEntryType_ASSET ArtifactMetadataEntryType = "ASSET"
 	// Metadata key used to print INFO-level messages by the toolkit when an app is syntheized.
-	// Experimental.
 	ArtifactMetadataEntryType_INFO ArtifactMetadataEntryType = "INFO"
 	// Metadata key used to print WARNING-level messages by the toolkit when an app is syntheized.
-	// Experimental.
 	ArtifactMetadataEntryType_WARN ArtifactMetadataEntryType = "WARN"
 	// Metadata key used to print ERROR-level messages by the toolkit when an app is syntheized.
-	// Experimental.
 	ArtifactMetadataEntryType_ERROR ArtifactMetadataEntryType = "ERROR"
 	// Represents the CloudFormation logical ID of a resource at a certain path.
-	// Experimental.
 	ArtifactMetadataEntryType_LOGICAL_ID ArtifactMetadataEntryType = "LOGICAL_ID"
 	// Represents tags of a stack.
-	// Experimental.
 	ArtifactMetadataEntryType_STACK_TAGS ArtifactMetadataEntryType = "STACK_TAGS"
 )
 
 // Type of cloud artifact.
-// Experimental.
 type ArtifactType string
 
 const (
 	// Stub required because of JSII.
-	// Experimental.
 	ArtifactType_NONE ArtifactType = "NONE"
 	// The artifact is an AWS CloudFormation stack.
-	// Experimental.
 	ArtifactType_AWS_CLOUDFORMATION_STACK ArtifactType = "AWS_CLOUDFORMATION_STACK"
 	// The artifact contains the CDK application's construct tree.
-	// Experimental.
 	ArtifactType_CDK_TREE ArtifactType = "CDK_TREE"
 	// Manifest for all assets in the Cloud Assembly.
-	// Experimental.
 	ArtifactType_ASSET_MANIFEST ArtifactType = "ASSET_MANIFEST"
 	// Nested Cloud Assembly.
-	// Experimental.
 	ArtifactType_NESTED_CLOUD_ASSEMBLY ArtifactType = "NESTED_CLOUD_ASSEMBLY"
 )
 
@@ -269,22 +243,17 @@ const (
 //   	},
 //   }
 //
-// Experimental.
 type AssemblyManifest struct {
 	// Protocol version.
-	// Experimental.
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// The set of artifacts in this assembly.
-	// Experimental.
 	Artifacts *map[string]*ArtifactManifest `field:"optional" json:"artifacts" yaml:"artifacts"`
 	// Missing context information.
 	//
 	// If this field has values, it means that the
 	// cloud assembly is not complete and should not be deployed.
-	// Experimental.
 	Missing *[]*MissingContext `field:"optional" json:"missing" yaml:"missing"`
 	// Runtime information.
-	// Experimental.
 	Runtime *RuntimeInfo `field:"optional" json:"runtime" yaml:"runtime"`
 }
 
@@ -350,16 +319,12 @@ type AssemblyManifest struct {
 //   	},
 //   }
 //
-// Experimental.
 type AssetManifest struct {
 	// Version of the manifest.
-	// Experimental.
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// The Docker image assets in this manifest.
-	// Experimental.
 	DockerImages *map[string]*DockerImageAsset `field:"optional" json:"dockerImages" yaml:"dockerImages"`
 	// The file assets in this manifest.
-	// Experimental.
 	Files *map[string]*FileAsset `field:"optional" json:"files" yaml:"files"`
 }
 
@@ -378,10 +343,8 @@ type AssetManifest struct {
 //   	requiresBootstrapStackVersion: jsii.Number(123),
 //   }
 //
-// Experimental.
 type AssetManifestProperties struct {
 	// Filename of the asset manifest.
-	// Experimental.
 	File *string `field:"required" json:"file" yaml:"file"`
 	// SSM parameter where the bootstrap stack version number can be found.
 	//
@@ -390,10 +353,8 @@ type AssetManifestProperties struct {
 	//    outputs.
 	// - If this value is set, the bootstrap stack can have any name because
 	//    we won't need to look it up.
-	// Experimental.
 	BootstrapStackVersionSsmParameter *string `field:"optional" json:"bootstrapStackVersionSsmParameter" yaml:"bootstrapStackVersionSsmParameter"`
 	// Version of bootstrap stack required to deploy this stack.
-	// Experimental.
 	RequiresBootstrapStackVersion *float64 `field:"optional" json:"requiresBootstrapStackVersion" yaml:"requiresBootstrapStackVersion"`
 }
 
@@ -412,16 +373,12 @@ type AssetManifestProperties struct {
 //   	lookupRoleArn: jsii.String("lookupRoleArn"),
 //   }
 //
-// Experimental.
 type AvailabilityZonesContextQuery struct {
 	// Query account.
-	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Query region.
-	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
-	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 
@@ -461,16 +418,12 @@ type AvailabilityZonesContextQuery struct {
 //   	validateOnSynth: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type AwsCloudFormationStackProperties struct {
 	// A file relative to the assembly root which contains the CloudFormation template for this stack.
-	// Experimental.
 	TemplateFile *string `field:"required" json:"templateFile" yaml:"templateFile"`
 	// The role that needs to be assumed to deploy the stack.
-	// Experimental.
 	AssumeRoleArn *string `field:"optional" json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// External ID to use when assuming role for cloudformation deployments.
-	// Experimental.
 	AssumeRoleExternalId *string `field:"optional" json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// SSM parameter where the bootstrap stack version number can be found.
 	//
@@ -481,34 +434,24 @@ type AwsCloudFormationStackProperties struct {
 	//    outputs.
 	// - If this value is set, the bootstrap stack can have any name because
 	//    we won't need to look it up.
-	// Experimental.
 	BootstrapStackVersionSsmParameter *string `field:"optional" json:"bootstrapStackVersionSsmParameter" yaml:"bootstrapStackVersionSsmParameter"`
 	// The role that is passed to CloudFormation to execute the change set.
-	// Experimental.
 	CloudFormationExecutionRoleArn *string `field:"optional" json:"cloudFormationExecutionRoleArn" yaml:"cloudFormationExecutionRoleArn"`
 	// The role to use to look up values from the target AWS account.
-	// Experimental.
 	LookupRole *BootstrapRole `field:"optional" json:"lookupRole" yaml:"lookupRole"`
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
-	// Experimental.
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// Version of bootstrap stack required to deploy this stack.
-	// Experimental.
 	RequiresBootstrapStackVersion *float64 `field:"optional" json:"requiresBootstrapStackVersion" yaml:"requiresBootstrapStackVersion"`
 	// The name to use for the CloudFormation stack.
-	// Experimental.
 	StackName *string `field:"optional" json:"stackName" yaml:"stackName"`
 	// If the stack template has already been included in the asset manifest, its asset URL.
-	// Experimental.
 	StackTemplateAssetObjectUrl *string `field:"optional" json:"stackTemplateAssetObjectUrl" yaml:"stackTemplateAssetObjectUrl"`
 	// Values for CloudFormation stack tags that should be passed when the stack is deployed.
-	// Experimental.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// Whether to enable termination protection for this stack.
-	// Experimental.
 	TerminationProtection *bool `field:"optional" json:"terminationProtection" yaml:"terminationProtection"`
 	// Whether this stack should be validated by the CLI after synthesis.
-	// Experimental.
 	ValidateOnSynth *bool `field:"optional" json:"validateOnSynth" yaml:"validateOnSynth"`
 }
 
@@ -525,16 +468,12 @@ type AwsCloudFormationStackProperties struct {
 //   	region: jsii.String("region"),
 //   }
 //
-// Experimental.
 type AwsDestination struct {
 	// The role that needs to be assumed while publishing this asset.
-	// Experimental.
 	AssumeRoleArn *string `field:"optional" json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// The ExternalId that needs to be supplied while assuming this role.
-	// Experimental.
 	AssumeRoleExternalId *string `field:"optional" json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// The region where this asset will need to be published.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 
@@ -554,19 +493,14 @@ type AwsDestination struct {
 //   	requiresBootstrapStackVersion: jsii.Number(123),
 //   }
 //
-// Experimental.
 type BootstrapRole struct {
 	// The ARN of the IAM role created as part of bootrapping e.g. lookupRoleArn.
-	// Experimental.
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// External ID to use when assuming the bootstrap role.
-	// Experimental.
 	AssumeRoleExternalId *string `field:"optional" json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// Name of SSM parameter with bootstrap stack version.
-	// Experimental.
 	BootstrapStackVersionSsmParameter *string `field:"optional" json:"bootstrapStackVersionSsmParameter" yaml:"bootstrapStackVersionSsmParameter"`
 	// Version of bootstrap stack required to use this role.
-	// Experimental.
 	RequiresBootstrapStackVersion *float64 `field:"optional" json:"requiresBootstrapStackVersion" yaml:"requiresBootstrapStackVersion"`
 }
 
@@ -583,16 +517,12 @@ type BootstrapRole struct {
 //   	expectError: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type CdkCommand struct {
 	// Whether or not to run this command as part of the workflow This can be used if you only want to test some of the workflow for example enable `synth` and disable `deploy` & `destroy` in order to limit the test to synthesis.
-	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// This can be used in combination with `expectedError` to validate that a specific message is returned.
-	// Experimental.
 	ExpectedMessage *string `field:"optional" json:"expectedMessage" yaml:"expectedMessage"`
 	// If the runner should expect this command to fail.
-	// Experimental.
 	ExpectError *bool `field:"optional" json:"expectError" yaml:"expectError"`
 }
 
@@ -605,7 +535,7 @@ type CdkCommand struct {
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
+//   testCase := awscdkintegtestsalpha.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
 //   	stacks: []stack{
 //   		stackUnderTest,
 //   	},
@@ -626,19 +556,16 @@ type CdkCommand struct {
 //   	},
 //   })
 //
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   awscdkintegtestsalpha.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
 //   	testCases: []integTestCase{
 //   		testCase,
 //   	},
 //   })
 //
-// Experimental.
 type CdkCommands struct {
 	// Options to for the cdk deploy command.
-	// Experimental.
 	Deploy *DeployCommand `field:"optional" json:"deploy" yaml:"deploy"`
 	// Options to for the cdk destroy command.
-	// Experimental.
 	Destroy *DestroyCommand `field:"optional" json:"destroy" yaml:"destroy"`
 }
 
@@ -661,96 +588,68 @@ type CdkCommands struct {
 //   		"buildArgsKey": jsii.String("buildArgs"),
 //   	},
 //   	file: jsii.String("file"),
-//   	imageNameParameter: jsii.String("imageNameParameter"),
 //   	imageTag: jsii.String("imageTag"),
 //   	networkMode: jsii.String("networkMode"),
 //   	repositoryName: jsii.String("repositoryName"),
 //   	target: jsii.String("target"),
 //   }
 //
-// Experimental.
 type ContainerImageAssetMetadataEntry struct {
 	// Logical identifier for the asset.
-	// Experimental.
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// Type of asset.
-	// Experimental.
 	Packaging *string `field:"required" json:"packaging" yaml:"packaging"`
 	// Path on disk to the asset.
-	// Experimental.
 	Path *string `field:"required" json:"path" yaml:"path"`
 	// The hash of the asset source.
-	// Experimental.
 	SourceHash *string `field:"required" json:"sourceHash" yaml:"sourceHash"`
 	// Build args to pass to the `docker build` command.
-	// Experimental.
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
-	// Experimental.
 	File *string `field:"optional" json:"file" yaml:"file"`
-	// ECR Repository name and repo digest (separated by "@sha256:") where this image is stored.
-	// Deprecated: specify `repositoryName` and `imageTag` instead, and then you
-	// know where the image will go.
-	ImageNameParameter *string `field:"optional" json:"imageNameParameter" yaml:"imageNameParameter"`
 	// The docker image tag to use for tagging pushed images.
 	//
 	// This field is
 	// required if `imageParameterName` is ommited (otherwise, the app won't be
 	// able to find the image).
-	// Experimental.
 	ImageTag *string `field:"optional" json:"imageTag" yaml:"imageTag"`
 	// Networking mode for the RUN commands during build.
-	// Experimental.
 	NetworkMode *string `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// ECR repository name, if omitted a default name based on the asset's ID is used instead.
 	//
 	// Specify this property if you need to statically address the
 	// image, e.g. from a Kubernetes Pod. Note, this is only the repository name,
 	// without the registry and the tag parts.
-	// Experimental.
 	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 	// Docker target to build to.
-	// Experimental.
 	Target *string `field:"optional" json:"target" yaml:"target"`
 }
 
 // Identifier for the context provider.
-// Experimental.
 type ContextProvider string
 
 const (
 	// AMI provider.
-	// Experimental.
 	ContextProvider_AMI_PROVIDER ContextProvider = "AMI_PROVIDER"
 	// AZ provider.
-	// Experimental.
 	ContextProvider_AVAILABILITY_ZONE_PROVIDER ContextProvider = "AVAILABILITY_ZONE_PROVIDER"
 	// Route53 Hosted Zone provider.
-	// Experimental.
 	ContextProvider_HOSTED_ZONE_PROVIDER ContextProvider = "HOSTED_ZONE_PROVIDER"
 	// SSM Parameter Provider.
-	// Experimental.
 	ContextProvider_SSM_PARAMETER_PROVIDER ContextProvider = "SSM_PARAMETER_PROVIDER"
 	// VPC Provider.
-	// Experimental.
 	ContextProvider_VPC_PROVIDER ContextProvider = "VPC_PROVIDER"
 	// VPC Endpoint Service AZ Provider.
-	// Experimental.
 	ContextProvider_ENDPOINT_SERVICE_AVAILABILITY_ZONE_PROVIDER ContextProvider = "ENDPOINT_SERVICE_AVAILABILITY_ZONE_PROVIDER"
 	// Load balancer provider.
-	// Experimental.
 	ContextProvider_LOAD_BALANCER_PROVIDER ContextProvider = "LOAD_BALANCER_PROVIDER"
 	// Load balancer listener provider.
-	// Experimental.
 	ContextProvider_LOAD_BALANCER_LISTENER_PROVIDER ContextProvider = "LOAD_BALANCER_LISTENER_PROVIDER"
 	// Security group provider.
-	// Experimental.
 	ContextProvider_SECURITY_GROUP_PROVIDER ContextProvider = "SECURITY_GROUP_PROVIDER"
 	// KMS Key Provider.
-	// Experimental.
 	ContextProvider_KEY_PROVIDER ContextProvider = "KEY_PROVIDER"
 	// A plugin provider (the actual plugin name will be in the properties).
-	// Experimental.
 	ContextProvider_PLUGIN ContextProvider = "PLUGIN"
 )
 
@@ -791,88 +690,64 @@ const (
 //   	versionReporting: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type DefaultCdkOptions struct {
 	// Deploy all stacks.
 	//
 	// Requried if `stacks` is not set.
-	// Experimental.
 	All *bool `field:"optional" json:"all" yaml:"all"`
 	// command-line for executing your app or a cloud assembly directory e.g. "node bin/my-app.js" or "cdk.out".
-	// Experimental.
 	App *string `field:"optional" json:"app" yaml:"app"`
 	// Include "aws:asset:*" CloudFormation metadata for resources that use assets.
-	// Experimental.
 	AssetMetadata *bool `field:"optional" json:"assetMetadata" yaml:"assetMetadata"`
 	// Path to CA certificate to use when validating HTTPS requests.
-	// Experimental.
 	CaBundlePath *string `field:"optional" json:"caBundlePath" yaml:"caBundlePath"`
 	// Show colors and other style from console output.
-	// Experimental.
 	Color *bool `field:"optional" json:"color" yaml:"color"`
 	// Additional context.
-	// Experimental.
 	Context *map[string]*string `field:"optional" json:"context" yaml:"context"`
 	// enable emission of additional debugging information, such as creation stack traces of tokens.
-	// Experimental.
 	Debug *bool `field:"optional" json:"debug" yaml:"debug"`
 	// Force trying to fetch EC2 instance credentials.
-	// Experimental.
 	Ec2Creds *bool `field:"optional" json:"ec2Creds" yaml:"ec2Creds"`
 	// Ignores synthesis errors, which will likely produce an invalid output.
-	// Experimental.
 	IgnoreErrors *bool `field:"optional" json:"ignoreErrors" yaml:"ignoreErrors"`
 	// Use JSON output instead of YAML when templates are printed to STDOUT.
-	// Experimental.
 	Json *bool `field:"optional" json:"json" yaml:"json"`
 	// Perform context lookups.
 	//
 	// Synthesis fails if this is disabled and context lookups need
 	// to be performed.
-	// Experimental.
 	Lookups *bool `field:"optional" json:"lookups" yaml:"lookups"`
 	// Show relevant notices.
-	// Experimental.
 	Notices *bool `field:"optional" json:"notices" yaml:"notices"`
 	// Emits the synthesized cloud assembly into a directory.
-	// Experimental.
 	Output *string `field:"optional" json:"output" yaml:"output"`
 	// Include "aws:cdk:path" CloudFormation metadata for each resource.
-	// Experimental.
 	PathMetadata *bool `field:"optional" json:"pathMetadata" yaml:"pathMetadata"`
 	// Use the indicated AWS profile as the default environment.
-	// Experimental.
 	Profile *string `field:"optional" json:"profile" yaml:"profile"`
 	// Use the indicated proxy.
 	//
 	// Will read from
 	// HTTPS_PROXY environment if specified.
-	// Experimental.
 	Proxy *string `field:"optional" json:"proxy" yaml:"proxy"`
 	// Role to pass to CloudFormation for deployment.
-	// Experimental.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// List of stacks to deploy.
 	//
 	// Requried if `all` is not set.
-	// Experimental.
 	Stacks *[]*string `field:"optional" json:"stacks" yaml:"stacks"`
 	// Copy assets to the output directory.
 	//
 	// Needed for local debugging the source files with SAM CLI.
-	// Experimental.
 	Staging *bool `field:"optional" json:"staging" yaml:"staging"`
 	// Do not construct stacks with warnings.
-	// Experimental.
 	Strict *bool `field:"optional" json:"strict" yaml:"strict"`
 	// Print trace for stack warnings.
-	// Experimental.
 	Trace *bool `field:"optional" json:"trace" yaml:"trace"`
 	// show debug logs.
-	// Experimental.
 	Verbose *bool `field:"optional" json:"verbose" yaml:"verbose"`
 	// Include "AWS::CDK::Metadata" resource in synthesized templates.
-	// Experimental.
 	VersionReporting *bool `field:"optional" json:"versionReporting" yaml:"versionReporting"`
 }
 
@@ -885,7 +760,7 @@ type DefaultCdkOptions struct {
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
+//   testCase := awscdkintegtestsalpha.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
 //   	stacks: []stack{
 //   		stackUnderTest,
 //   	},
@@ -906,25 +781,20 @@ type DefaultCdkOptions struct {
 //   	},
 //   })
 //
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   awscdkintegtestsalpha.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
 //   	testCases: []integTestCase{
 //   		testCase,
 //   	},
 //   })
 //
-// Experimental.
 type DeployCommand struct {
 	// Whether or not to run this command as part of the workflow This can be used if you only want to test some of the workflow for example enable `synth` and disable `deploy` & `destroy` in order to limit the test to synthesis.
-	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// This can be used in combination with `expectedError` to validate that a specific message is returned.
-	// Experimental.
 	ExpectedMessage *string `field:"optional" json:"expectedMessage" yaml:"expectedMessage"`
 	// If the runner should expect this command to fail.
-	// Experimental.
 	ExpectError *bool `field:"optional" json:"expectError" yaml:"expectError"`
 	// Additional arguments to pass to the command This can be used to test specific CLI functionality.
-	// Experimental.
 	Args *DeployOptions `field:"optional" json:"args" yaml:"args"`
 }
 
@@ -937,7 +807,7 @@ type DeployCommand struct {
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
+//   testCase := awscdkintegtestsalpha.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
 //   	stacks: []stack{
 //   		stackUnderTest,
 //   	},
@@ -958,137 +828,100 @@ type DeployCommand struct {
 //   	},
 //   })
 //
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   awscdkintegtestsalpha.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
 //   	testCases: []integTestCase{
 //   		testCase,
 //   	},
 //   })
 //
-// Experimental.
 type DeployOptions struct {
 	// Deploy all stacks.
 	//
 	// Requried if `stacks` is not set.
-	// Experimental.
 	All *bool `field:"optional" json:"all" yaml:"all"`
 	// command-line for executing your app or a cloud assembly directory e.g. "node bin/my-app.js" or "cdk.out".
-	// Experimental.
 	App *string `field:"optional" json:"app" yaml:"app"`
 	// Include "aws:asset:*" CloudFormation metadata for resources that use assets.
-	// Experimental.
 	AssetMetadata *bool `field:"optional" json:"assetMetadata" yaml:"assetMetadata"`
 	// Path to CA certificate to use when validating HTTPS requests.
-	// Experimental.
 	CaBundlePath *string `field:"optional" json:"caBundlePath" yaml:"caBundlePath"`
 	// Show colors and other style from console output.
-	// Experimental.
 	Color *bool `field:"optional" json:"color" yaml:"color"`
 	// Additional context.
-	// Experimental.
 	Context *map[string]*string `field:"optional" json:"context" yaml:"context"`
 	// enable emission of additional debugging information, such as creation stack traces of tokens.
-	// Experimental.
 	Debug *bool `field:"optional" json:"debug" yaml:"debug"`
 	// Force trying to fetch EC2 instance credentials.
-	// Experimental.
 	Ec2Creds *bool `field:"optional" json:"ec2Creds" yaml:"ec2Creds"`
 	// Ignores synthesis errors, which will likely produce an invalid output.
-	// Experimental.
 	IgnoreErrors *bool `field:"optional" json:"ignoreErrors" yaml:"ignoreErrors"`
 	// Use JSON output instead of YAML when templates are printed to STDOUT.
-	// Experimental.
 	Json *bool `field:"optional" json:"json" yaml:"json"`
 	// Perform context lookups.
 	//
 	// Synthesis fails if this is disabled and context lookups need
 	// to be performed.
-	// Experimental.
 	Lookups *bool `field:"optional" json:"lookups" yaml:"lookups"`
 	// Show relevant notices.
-	// Experimental.
 	Notices *bool `field:"optional" json:"notices" yaml:"notices"`
 	// Emits the synthesized cloud assembly into a directory.
-	// Experimental.
 	Output *string `field:"optional" json:"output" yaml:"output"`
 	// Include "aws:cdk:path" CloudFormation metadata for each resource.
-	// Experimental.
 	PathMetadata *bool `field:"optional" json:"pathMetadata" yaml:"pathMetadata"`
 	// Use the indicated AWS profile as the default environment.
-	// Experimental.
 	Profile *string `field:"optional" json:"profile" yaml:"profile"`
 	// Use the indicated proxy.
 	//
 	// Will read from
 	// HTTPS_PROXY environment if specified.
-	// Experimental.
 	Proxy *string `field:"optional" json:"proxy" yaml:"proxy"`
 	// Role to pass to CloudFormation for deployment.
-	// Experimental.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// List of stacks to deploy.
 	//
 	// Requried if `all` is not set.
-	// Experimental.
 	Stacks *[]*string `field:"optional" json:"stacks" yaml:"stacks"`
 	// Copy assets to the output directory.
 	//
 	// Needed for local debugging the source files with SAM CLI.
-	// Experimental.
 	Staging *bool `field:"optional" json:"staging" yaml:"staging"`
 	// Do not construct stacks with warnings.
-	// Experimental.
 	Strict *bool `field:"optional" json:"strict" yaml:"strict"`
 	// Print trace for stack warnings.
-	// Experimental.
 	Trace *bool `field:"optional" json:"trace" yaml:"trace"`
 	// show debug logs.
-	// Experimental.
 	Verbose *bool `field:"optional" json:"verbose" yaml:"verbose"`
 	// Include "AWS::CDK::Metadata" resource in synthesized templates.
-	// Experimental.
 	VersionReporting *bool `field:"optional" json:"versionReporting" yaml:"versionReporting"`
 	// Optional name to use for the CloudFormation change set.
 	//
 	// If not provided, a name will be generated automatically.
-	// Experimental.
 	ChangeSetName *string `field:"optional" json:"changeSetName" yaml:"changeSetName"`
 	// Whether we are on a CI system.
-	// Experimental.
 	Ci *bool `field:"optional" json:"ci" yaml:"ci"`
 	// Only perform action on the given stack.
-	// Experimental.
 	Exclusively *bool `field:"optional" json:"exclusively" yaml:"exclusively"`
 	// Whether to execute the ChangeSet Not providing `execute` parameter will result in execution of ChangeSet.
-	// Experimental.
 	Execute *bool `field:"optional" json:"execute" yaml:"execute"`
 	// Always deploy, even if templates are identical.
-	// Experimental.
 	Force *bool `field:"optional" json:"force" yaml:"force"`
 	// ARNs of SNS topics that CloudFormation will notify with stack related events.
-	// Experimental.
 	NotificationArns *[]*string `field:"optional" json:"notificationArns" yaml:"notificationArns"`
 	// Path to file where stack outputs will be written after a successful deploy as JSON.
-	// Experimental.
 	OutputsFile *string `field:"optional" json:"outputsFile" yaml:"outputsFile"`
 	// Additional parameters for CloudFormation at deploy time.
-	// Experimental.
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// What kind of security changes require approval.
-	// Experimental.
 	RequireApproval RequireApproval `field:"optional" json:"requireApproval" yaml:"requireApproval"`
 	// Reuse the assets with the given asset IDs.
-	// Experimental.
 	ReuseAssets *[]*string `field:"optional" json:"reuseAssets" yaml:"reuseAssets"`
 	// Rollback failed deployments.
-	// Experimental.
 	Rollback *bool `field:"optional" json:"rollback" yaml:"rollback"`
 	// Name of the toolkit stack to use/deploy.
-	// Experimental.
 	ToolkitStackName *string `field:"optional" json:"toolkitStackName" yaml:"toolkitStackName"`
 	// Use previous values for unspecified parameters.
 	//
 	// If not set, all parameters must be specified for every deployment.
-	// Experimental.
 	UsePreviousParameters *bool `field:"optional" json:"usePreviousParameters" yaml:"usePreviousParameters"`
 }
 
@@ -1101,7 +934,7 @@ type DeployOptions struct {
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
+//   testCase := awscdkintegtestsalpha.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
 //   	stacks: []stack{
 //   		stackUnderTest,
 //   	},
@@ -1122,25 +955,20 @@ type DeployOptions struct {
 //   	},
 //   })
 //
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   awscdkintegtestsalpha.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
 //   	testCases: []integTestCase{
 //   		testCase,
 //   	},
 //   })
 //
-// Experimental.
 type DestroyCommand struct {
 	// Whether or not to run this command as part of the workflow This can be used if you only want to test some of the workflow for example enable `synth` and disable `deploy` & `destroy` in order to limit the test to synthesis.
-	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// This can be used in combination with `expectedError` to validate that a specific message is returned.
-	// Experimental.
 	ExpectedMessage *string `field:"optional" json:"expectedMessage" yaml:"expectedMessage"`
 	// If the runner should expect this command to fail.
-	// Experimental.
 	ExpectError *bool `field:"optional" json:"expectError" yaml:"expectError"`
 	// Additional arguments to pass to the command This can be used to test specific CLI functionality.
-	// Experimental.
 	Args *DestroyOptions `field:"optional" json:"args" yaml:"args"`
 }
 
@@ -1153,7 +981,7 @@ type DestroyCommand struct {
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
+//   testCase := awscdkintegtestsalpha.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
 //   	stacks: []stack{
 //   		stackUnderTest,
 //   	},
@@ -1174,100 +1002,74 @@ type DestroyCommand struct {
 //   	},
 //   })
 //
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   awscdkintegtestsalpha.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
 //   	testCases: []integTestCase{
 //   		testCase,
 //   	},
 //   })
 //
-// Experimental.
 type DestroyOptions struct {
 	// Deploy all stacks.
 	//
 	// Requried if `stacks` is not set.
-	// Experimental.
 	All *bool `field:"optional" json:"all" yaml:"all"`
 	// command-line for executing your app or a cloud assembly directory e.g. "node bin/my-app.js" or "cdk.out".
-	// Experimental.
 	App *string `field:"optional" json:"app" yaml:"app"`
 	// Include "aws:asset:*" CloudFormation metadata for resources that use assets.
-	// Experimental.
 	AssetMetadata *bool `field:"optional" json:"assetMetadata" yaml:"assetMetadata"`
 	// Path to CA certificate to use when validating HTTPS requests.
-	// Experimental.
 	CaBundlePath *string `field:"optional" json:"caBundlePath" yaml:"caBundlePath"`
 	// Show colors and other style from console output.
-	// Experimental.
 	Color *bool `field:"optional" json:"color" yaml:"color"`
 	// Additional context.
-	// Experimental.
 	Context *map[string]*string `field:"optional" json:"context" yaml:"context"`
 	// enable emission of additional debugging information, such as creation stack traces of tokens.
-	// Experimental.
 	Debug *bool `field:"optional" json:"debug" yaml:"debug"`
 	// Force trying to fetch EC2 instance credentials.
-	// Experimental.
 	Ec2Creds *bool `field:"optional" json:"ec2Creds" yaml:"ec2Creds"`
 	// Ignores synthesis errors, which will likely produce an invalid output.
-	// Experimental.
 	IgnoreErrors *bool `field:"optional" json:"ignoreErrors" yaml:"ignoreErrors"`
 	// Use JSON output instead of YAML when templates are printed to STDOUT.
-	// Experimental.
 	Json *bool `field:"optional" json:"json" yaml:"json"`
 	// Perform context lookups.
 	//
 	// Synthesis fails if this is disabled and context lookups need
 	// to be performed.
-	// Experimental.
 	Lookups *bool `field:"optional" json:"lookups" yaml:"lookups"`
 	// Show relevant notices.
-	// Experimental.
 	Notices *bool `field:"optional" json:"notices" yaml:"notices"`
 	// Emits the synthesized cloud assembly into a directory.
-	// Experimental.
 	Output *string `field:"optional" json:"output" yaml:"output"`
 	// Include "aws:cdk:path" CloudFormation metadata for each resource.
-	// Experimental.
 	PathMetadata *bool `field:"optional" json:"pathMetadata" yaml:"pathMetadata"`
 	// Use the indicated AWS profile as the default environment.
-	// Experimental.
 	Profile *string `field:"optional" json:"profile" yaml:"profile"`
 	// Use the indicated proxy.
 	//
 	// Will read from
 	// HTTPS_PROXY environment if specified.
-	// Experimental.
 	Proxy *string `field:"optional" json:"proxy" yaml:"proxy"`
 	// Role to pass to CloudFormation for deployment.
-	// Experimental.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// List of stacks to deploy.
 	//
 	// Requried if `all` is not set.
-	// Experimental.
 	Stacks *[]*string `field:"optional" json:"stacks" yaml:"stacks"`
 	// Copy assets to the output directory.
 	//
 	// Needed for local debugging the source files with SAM CLI.
-	// Experimental.
 	Staging *bool `field:"optional" json:"staging" yaml:"staging"`
 	// Do not construct stacks with warnings.
-	// Experimental.
 	Strict *bool `field:"optional" json:"strict" yaml:"strict"`
 	// Print trace for stack warnings.
-	// Experimental.
 	Trace *bool `field:"optional" json:"trace" yaml:"trace"`
 	// show debug logs.
-	// Experimental.
 	Verbose *bool `field:"optional" json:"verbose" yaml:"verbose"`
 	// Include "AWS::CDK::Metadata" resource in synthesized templates.
-	// Experimental.
 	VersionReporting *bool `field:"optional" json:"versionReporting" yaml:"versionReporting"`
 	// Only destroy the given stack.
-	// Experimental.
 	Exclusively *bool `field:"optional" json:"exclusively" yaml:"exclusively"`
 	// Do not ask for permission before destroying stacks.
-	// Experimental.
 	Force *bool `field:"optional" json:"force" yaml:"force"`
 }
 
@@ -1304,13 +1106,10 @@ type DestroyOptions struct {
 //   	},
 //   }
 //
-// Experimental.
 type DockerImageAsset struct {
 	// Destinations for this file asset.
-	// Experimental.
 	Destinations *map[string]*DockerImageDestination `field:"required" json:"destinations" yaml:"destinations"`
 	// Source description for file assets.
-	// Experimental.
 	Source *DockerImageSource `field:"required" json:"source" yaml:"source"`
 }
 
@@ -1331,22 +1130,16 @@ type DockerImageAsset struct {
 //   	region: jsii.String("region"),
 //   }
 //
-// Experimental.
 type DockerImageDestination struct {
 	// The role that needs to be assumed while publishing this asset.
-	// Experimental.
 	AssumeRoleArn *string `field:"optional" json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// The ExternalId that needs to be supplied while assuming this role.
-	// Experimental.
 	AssumeRoleExternalId *string `field:"optional" json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// The region where this asset will need to be published.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Tag of the image to publish.
-	// Experimental.
 	ImageTag *string `field:"required" json:"imageTag" yaml:"imageTag"`
 	// Name of the ECR repository to publish to.
-	// Experimental.
 	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 }
 
@@ -1370,35 +1163,28 @@ type DockerImageDestination struct {
 //   	networkMode: jsii.String("networkMode"),
 //   }
 //
-// Experimental.
 type DockerImageSource struct {
 	// The directory containing the Docker image build instructions.
 	//
 	// This path is relative to the asset manifest location.
-	// Experimental.
 	Directory *string `field:"optional" json:"directory" yaml:"directory"`
 	// Additional build arguments.
 	//
 	// Only allowed when `directory` is set.
-	// Experimental.
 	DockerBuildArgs *map[string]*string `field:"optional" json:"dockerBuildArgs" yaml:"dockerBuildArgs"`
 	// Target build stage in a Dockerfile with multiple build stages.
 	//
 	// Only allowed when `directory` is set.
-	// Experimental.
 	DockerBuildTarget *string `field:"optional" json:"dockerBuildTarget" yaml:"dockerBuildTarget"`
 	// The name of the file with build instructions.
 	//
 	// Only allowed when `directory` is set.
-	// Experimental.
 	DockerFile *string `field:"optional" json:"dockerFile" yaml:"dockerFile"`
 	// A command-line executable that returns the name of a local Docker image on stdout after being run.
-	// Experimental.
 	Executable *[]*string `field:"optional" json:"executable" yaml:"executable"`
 	// Networking mode for the RUN commands during build. _Requires Docker Engine API v1.25+_.
 	//
 	// Specify this property to build images on a specific networking mode.
-	// Experimental.
 	NetworkMode *string `field:"optional" json:"networkMode" yaml:"networkMode"`
 }
 
@@ -1418,19 +1204,14 @@ type DockerImageSource struct {
 //   	lookupRoleArn: jsii.String("lookupRoleArn"),
 //   }
 //
-// Experimental.
 type EndpointServiceAvailabilityZonesContextQuery struct {
 	// Query account.
-	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Query region.
-	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// Query service name.
-	// Experimental.
 	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// The ARN of the role that should be used to look up the missing values.
-	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 
@@ -1462,13 +1243,10 @@ type EndpointServiceAvailabilityZonesContextQuery struct {
 //   	},
 //   }
 //
-// Experimental.
 type FileAsset struct {
 	// Destinations for this file asset.
-	// Experimental.
 	Destinations *map[string]*FileDestination `field:"required" json:"destinations" yaml:"destinations"`
 	// Source description for file assets.
-	// Experimental.
 	Source *FileSource `field:"required" json:"source" yaml:"source"`
 }
 
@@ -1490,41 +1268,30 @@ type FileAsset struct {
 //   	sourceHash: jsii.String("sourceHash"),
 //   }
 //
-// Experimental.
 type FileAssetMetadataEntry struct {
 	// The name of the parameter where the hash of the bundled asset should be passed in.
-	// Experimental.
 	ArtifactHashParameter *string `field:"required" json:"artifactHashParameter" yaml:"artifactHashParameter"`
 	// Logical identifier for the asset.
-	// Experimental.
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// Requested packaging style.
-	// Experimental.
 	Packaging *string `field:"required" json:"packaging" yaml:"packaging"`
 	// Path on disk to the asset.
-	// Experimental.
 	Path *string `field:"required" json:"path" yaml:"path"`
 	// Name of parameter where S3 bucket should be passed in.
-	// Experimental.
 	S3BucketParameter *string `field:"required" json:"s3BucketParameter" yaml:"s3BucketParameter"`
 	// Name of parameter where S3 key should be passed in.
-	// Experimental.
 	S3KeyParameter *string `field:"required" json:"s3KeyParameter" yaml:"s3KeyParameter"`
 	// The hash of the asset source.
-	// Experimental.
 	SourceHash *string `field:"required" json:"sourceHash" yaml:"sourceHash"`
 }
 
 // Packaging strategy for file assets.
-// Experimental.
 type FileAssetPackaging string
 
 const (
 	// Upload the given path as a file.
-	// Experimental.
 	FileAssetPackaging_FILE FileAssetPackaging = "FILE"
 	// The given path is a directory, zip it and upload.
-	// Experimental.
 	FileAssetPackaging_ZIP_DIRECTORY FileAssetPackaging = "ZIP_DIRECTORY"
 )
 
@@ -1545,22 +1312,16 @@ const (
 //   	region: jsii.String("region"),
 //   }
 //
-// Experimental.
 type FileDestination struct {
 	// The role that needs to be assumed while publishing this asset.
-	// Experimental.
 	AssumeRoleArn *string `field:"optional" json:"assumeRoleArn" yaml:"assumeRoleArn"`
 	// The ExternalId that needs to be supplied while assuming this role.
-	// Experimental.
 	AssumeRoleExternalId *string `field:"optional" json:"assumeRoleExternalId" yaml:"assumeRoleExternalId"`
 	// The region where this asset will need to be published.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// The name of the bucket.
-	// Experimental.
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The destination object key.
-	// Experimental.
 	ObjectKey *string `field:"required" json:"objectKey" yaml:"objectKey"`
 }
 
@@ -1579,20 +1340,16 @@ type FileDestination struct {
 //   	path: jsii.String("path"),
 //   }
 //
-// Experimental.
 type FileSource struct {
 	// External command which will produce the file asset to upload.
-	// Experimental.
 	Executable *[]*string `field:"optional" json:"executable" yaml:"executable"`
 	// Packaging method.
 	//
 	// Only allowed when `path` is specified.
-	// Experimental.
 	Packaging FileAssetPackaging `field:"optional" json:"packaging" yaml:"packaging"`
 	// The filesystem object to upload.
 	//
 	// This path is relative to the asset manifest location.
-	// Experimental.
 	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 
@@ -1618,19 +1375,14 @@ type FileSource struct {
 //   	},
 //   }
 //
-// Experimental.
 type Hooks struct {
 	// Commands to run prior after deploying the cdk stacks in the integration test.
-	// Experimental.
 	PostDeploy *[]*string `field:"optional" json:"postDeploy" yaml:"postDeploy"`
 	// Commands to run after destroying the cdk stacks in the integration test.
-	// Experimental.
 	PostDestroy *[]*string `field:"optional" json:"postDestroy" yaml:"postDestroy"`
 	// Commands to run prior to deploying the cdk stacks in the integration test.
-	// Experimental.
 	PreDeploy *[]*string `field:"optional" json:"preDeploy" yaml:"preDeploy"`
 	// Commands to run prior to destroying the cdk stacks in the integration test.
-	// Experimental.
 	PreDestroy *[]*string `field:"optional" json:"preDestroy" yaml:"preDestroy"`
 }
 
@@ -1652,28 +1404,21 @@ type Hooks struct {
 //   	vpcId: jsii.String("vpcId"),
 //   }
 //
-// Experimental.
 type HostedZoneContextQuery struct {
 	// Query account.
-	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// The domain name e.g. example.com to lookup.
-	// Experimental.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// Query region.
-	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
-	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// True if the zone you want to find is a private hosted zone.
-	// Experimental.
 	PrivateZone *bool `field:"optional" json:"privateZone" yaml:"privateZone"`
 	// The VPC ID to that the private zone must be associated with.
 	//
 	// If you provide VPC ID and privateZone is false, this will return no results
 	// and raise an error.
-	// Experimental.
 	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 
@@ -1816,13 +1561,10 @@ type HostedZoneContextQuery struct {
 //   	},
 //   }
 //
-// Experimental.
 type IntegManifest struct {
 	// test cases.
-	// Experimental.
 	TestCases *map[string]*TestCase `field:"required" json:"testCases" yaml:"testCases"`
 	// Version of the manifest.
-	// Experimental.
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// Enable lookups for this test.
 	//
@@ -1830,13 +1572,11 @@ type IntegManifest struct {
 	// then `stackUpdateWorkflow` must be set to false.
 	// Lookups should only be enabled when you are explicitely testing
 	// lookups.
-	// Experimental.
 	EnableLookups *bool `field:"optional" json:"enableLookups" yaml:"enableLookups"`
 	// Additional context to use when performing a synth.
 	//
 	// Any context provided here will override
 	// any default context.
-	// Experimental.
 	SynthContext *map[string]*string `field:"optional" json:"synthContext" yaml:"synthContext"`
 }
 
@@ -1856,19 +1596,14 @@ type IntegManifest struct {
 //   	lookupRoleArn: jsii.String("lookupRoleArn"),
 //   }
 //
-// Experimental.
 type KeyContextQuery struct {
 	// Query account.
-	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Alias name used to search the Key.
-	// Experimental.
 	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 	// Query region.
-	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
-	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 
@@ -1895,25 +1630,18 @@ type KeyContextQuery struct {
 //   	lookupRoleArn: jsii.String("lookupRoleArn"),
 //   }
 //
-// Experimental.
 type LoadBalancerContextQuery struct {
 	// Filter load balancers by their type.
-	// Experimental.
 	LoadBalancerType LoadBalancerType `field:"required" json:"loadBalancerType" yaml:"loadBalancerType"`
 	// Find by load balancer's ARN.
-	// Experimental.
 	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
-	// Experimental.
 	LoadBalancerTags *[]*Tag `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 	// Query account.
-	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Query region.
-	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
-	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 
@@ -1937,16 +1665,12 @@ type LoadBalancerContextQuery struct {
 //   	},
 //   }
 //
-// Experimental.
 type LoadBalancerFilter struct {
 	// Filter load balancers by their type.
-	// Experimental.
 	LoadBalancerType LoadBalancerType `field:"required" json:"loadBalancerType" yaml:"loadBalancerType"`
 	// Find by load balancer's ARN.
-	// Experimental.
 	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
-	// Experimental.
 	LoadBalancerTags *[]*Tag `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
@@ -1976,72 +1700,52 @@ type LoadBalancerFilter struct {
 //   	lookupRoleArn: jsii.String("lookupRoleArn"),
 //   }
 //
-// Experimental.
 type LoadBalancerListenerContextQuery struct {
 	// Filter load balancers by their type.
-	// Experimental.
 	LoadBalancerType LoadBalancerType `field:"required" json:"loadBalancerType" yaml:"loadBalancerType"`
 	// Find by load balancer's ARN.
-	// Experimental.
 	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
-	// Experimental.
 	LoadBalancerTags *[]*Tag `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 	// Query account.
-	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Query region.
-	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// Find by listener's arn.
-	// Experimental.
 	ListenerArn *string `field:"optional" json:"listenerArn" yaml:"listenerArn"`
 	// Filter listeners by listener port.
-	// Experimental.
 	ListenerPort *float64 `field:"optional" json:"listenerPort" yaml:"listenerPort"`
 	// Filter by listener protocol.
-	// Experimental.
 	ListenerProtocol LoadBalancerListenerProtocol `field:"optional" json:"listenerProtocol" yaml:"listenerProtocol"`
 	// The ARN of the role that should be used to look up the missing values.
-	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 
 // The protocol for connections from clients to the load balancer.
-// Experimental.
 type LoadBalancerListenerProtocol string
 
 const (
 	// HTTP protocol.
-	// Experimental.
 	LoadBalancerListenerProtocol_HTTP LoadBalancerListenerProtocol = "HTTP"
 	// HTTPS protocol.
-	// Experimental.
 	LoadBalancerListenerProtocol_HTTPS LoadBalancerListenerProtocol = "HTTPS"
 	// TCP protocol.
-	// Experimental.
 	LoadBalancerListenerProtocol_TCP LoadBalancerListenerProtocol = "TCP"
 	// TLS protocol.
-	// Experimental.
 	LoadBalancerListenerProtocol_TLS LoadBalancerListenerProtocol = "TLS"
 	// UDP protocol.
-	// Experimental.
 	LoadBalancerListenerProtocol_UDP LoadBalancerListenerProtocol = "UDP"
 	// TCP and UDP protocol.
-	// Experimental.
 	LoadBalancerListenerProtocol_TCP_UDP LoadBalancerListenerProtocol = "TCP_UDP"
 )
 
 // Type of load balancer.
-// Experimental.
 type LoadBalancerType string
 
 const (
 	// Network load balancer.
-	// Experimental.
 	LoadBalancerType_NETWORK LoadBalancerType = "NETWORK"
 	// Application load balancer.
-	// Experimental.
 	LoadBalancerType_APPLICATION LoadBalancerType = "APPLICATION"
 )
 
@@ -2057,25 +1761,21 @@ const (
 //   	skipVersionCheck: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type LoadManifestOptions struct {
 	// Skip enum checks.
 	//
 	// This means you may read enum values you don't know about yet. Make sure to always
 	// check the values of enums you encounter in the manifest.
-	// Experimental.
 	SkipEnumCheck *bool `field:"optional" json:"skipEnumCheck" yaml:"skipEnumCheck"`
 	// Skip the version check.
 	//
 	// This means you may read a newer cloud assembly than the CX API is designed
 	// to support, and your application may not be aware of all features that in use
 	// in the Cloud Assembly.
-	// Experimental.
 	SkipVersionCheck *bool `field:"optional" json:"skipVersionCheck" yaml:"skipVersionCheck"`
 }
 
 // Protocol utility class.
-// Experimental.
 type Manifest interface {
 }
 
@@ -2084,32 +1784,14 @@ type jsiiProxy_Manifest struct {
 	_ byte // padding
 }
 
-// Deprecated.
-// Deprecated: use `loadAssemblyManifest()`.
-func Manifest_Load(filePath *string) *AssemblyManifest {
-	_init_.Initialize()
-
-	var returns *AssemblyManifest
-
-	_jsii_.StaticInvoke(
-		"monocdk.cloud_assembly_schema.Manifest",
-		"load",
-		[]interface{}{filePath},
-		&returns,
-	)
-
-	return returns
-}
-
 // Load and validates the cloud assembly manifest from file.
-// Experimental.
 func Manifest_LoadAssemblyManifest(filePath *string, options *LoadManifestOptions) *AssemblyManifest {
 	_init_.Initialize()
 
 	var returns *AssemblyManifest
 
 	_jsii_.StaticInvoke(
-		"monocdk.cloud_assembly_schema.Manifest",
+		"aws-cdk-lib.cloud_assembly_schema.Manifest",
 		"loadAssemblyManifest",
 		[]interface{}{filePath, options},
 		&returns,
@@ -2119,14 +1801,13 @@ func Manifest_LoadAssemblyManifest(filePath *string, options *LoadManifestOption
 }
 
 // Load and validates the asset manifest from file.
-// Experimental.
 func Manifest_LoadAssetManifest(filePath *string) *AssetManifest {
 	_init_.Initialize()
 
 	var returns *AssetManifest
 
 	_jsii_.StaticInvoke(
-		"monocdk.cloud_assembly_schema.Manifest",
+		"aws-cdk-lib.cloud_assembly_schema.Manifest",
 		"loadAssetManifest",
 		[]interface{}{filePath},
 		&returns,
@@ -2136,14 +1817,13 @@ func Manifest_LoadAssetManifest(filePath *string) *AssetManifest {
 }
 
 // Load and validates the integ manifest from file.
-// Experimental.
 func Manifest_LoadIntegManifest(filePath *string) *IntegManifest {
 	_init_.Initialize()
 
 	var returns *IntegManifest
 
 	_jsii_.StaticInvoke(
-		"monocdk.cloud_assembly_schema.Manifest",
+		"aws-cdk-lib.cloud_assembly_schema.Manifest",
 		"loadIntegManifest",
 		[]interface{}{filePath},
 		&returns,
@@ -2152,63 +1832,47 @@ func Manifest_LoadIntegManifest(filePath *string) *IntegManifest {
 	return returns
 }
 
-// Deprecated.
-// Deprecated: use `saveAssemblyManifest()`.
-func Manifest_Save(manifest *AssemblyManifest, filePath *string) {
-	_init_.Initialize()
-
-	_jsii_.StaticInvokeVoid(
-		"monocdk.cloud_assembly_schema.Manifest",
-		"save",
-		[]interface{}{manifest, filePath},
-	)
-}
-
 // Validates and saves the cloud assembly manifest to file.
-// Experimental.
 func Manifest_SaveAssemblyManifest(manifest *AssemblyManifest, filePath *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.cloud_assembly_schema.Manifest",
+		"aws-cdk-lib.cloud_assembly_schema.Manifest",
 		"saveAssemblyManifest",
 		[]interface{}{manifest, filePath},
 	)
 }
 
 // Validates and saves the asset manifest to file.
-// Experimental.
 func Manifest_SaveAssetManifest(manifest *AssetManifest, filePath *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.cloud_assembly_schema.Manifest",
+		"aws-cdk-lib.cloud_assembly_schema.Manifest",
 		"saveAssetManifest",
 		[]interface{}{manifest, filePath},
 	)
 }
 
 // Validates and saves the integ manifest to file.
-// Experimental.
 func Manifest_SaveIntegManifest(manifest *IntegManifest, filePath *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.cloud_assembly_schema.Manifest",
+		"aws-cdk-lib.cloud_assembly_schema.Manifest",
 		"saveIntegManifest",
 		[]interface{}{manifest, filePath},
 	)
 }
 
 // Fetch the current schema version number.
-// Experimental.
 func Manifest_Version() *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"monocdk.cloud_assembly_schema.Manifest",
+		"aws-cdk-lib.cloud_assembly_schema.Manifest",
 		"version",
 		nil, // no parameters
 		&returns,
@@ -2234,16 +1898,12 @@ func Manifest_Version() *string {
 //   	},
 //   }
 //
-// Experimental.
 type MetadataEntry struct {
 	// The type of the metadata entry.
-	// Experimental.
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// The data.
-	// Experimental.
 	Data interface{} `field:"optional" json:"data" yaml:"data"`
 	// A stack trace for when the entry was created.
-	// Experimental.
 	Trace *[]*string `field:"optional" json:"trace" yaml:"trace"`
 }
 
@@ -2274,16 +1934,12 @@ type MetadataEntry struct {
 //   	provider: awscdk.Cloud_assembly_schema.contextProvider_AMI_PROVIDER,
 //   }
 //
-// Experimental.
 type MissingContext struct {
 	// The missing context key.
-	// Experimental.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// A set of provider-specific options.
-	// Experimental.
 	Props interface{} `field:"required" json:"props" yaml:"props"`
 	// The provider from which we expect this context key to be obtained.
-	// Experimental.
 	Provider ContextProvider `field:"required" json:"provider" yaml:"provider"`
 }
 
@@ -2301,13 +1957,10 @@ type MissingContext struct {
 //   	displayName: jsii.String("displayName"),
 //   }
 //
-// Experimental.
 type NestedCloudAssemblyProperties struct {
 	// Relative path to the nested cloud assembly.
-	// Experimental.
 	DirectoryName *string `field:"required" json:"directoryName" yaml:"directoryName"`
 	// Display name for the cloud assembly.
-	// Experimental.
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 }
 
@@ -2325,10 +1978,8 @@ type NestedCloudAssemblyProperties struct {
 //   	pluginName: jsii.String("pluginName"),
 //   }
 //
-// Experimental.
 type PluginContextQuery struct {
 	// The name of the plugin.
-	// Experimental.
 	PluginName *string `field:"required" json:"pluginName" yaml:"pluginName"`
 }
 
@@ -2341,7 +1992,7 @@ type PluginContextQuery struct {
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
+//   testCase := awscdkintegtestsalpha.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
 //   	stacks: []stack{
 //   		stackUnderTest,
 //   	},
@@ -2362,24 +2013,20 @@ type PluginContextQuery struct {
 //   	},
 //   })
 //
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   awscdkintegtestsalpha.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
 //   	testCases: []integTestCase{
 //   		testCase,
 //   	},
 //   })
 //
-// Experimental.
 type RequireApproval string
 
 const (
 	// Never ask for approval.
-	// Experimental.
 	RequireApproval_NEVER RequireApproval = "NEVER"
 	// Prompt for approval for any type  of change to the stack.
-	// Experimental.
 	RequireApproval_ANYCHANGE RequireApproval = "ANYCHANGE"
 	// Only prompt for approval if there are security related changes.
-	// Experimental.
 	RequireApproval_BROADENING RequireApproval = "BROADENING"
 )
 
@@ -2396,10 +2043,8 @@ const (
 //   	},
 //   }
 //
-// Experimental.
 type RuntimeInfo struct {
 	// The list of libraries loaded in the application, associated with their versions.
-	// Experimental.
 	Libraries *map[string]*string `field:"required" json:"libraries" yaml:"libraries"`
 }
 
@@ -2419,19 +2064,14 @@ type RuntimeInfo struct {
 //   	lookupRoleArn: jsii.String("lookupRoleArn"),
 //   }
 //
-// Experimental.
 type SSMParameterContextQuery struct {
 	// Query account.
-	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Parameter name to query.
-	// Experimental.
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// Query region.
-	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
-	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 }
 
@@ -2453,25 +2093,18 @@ type SSMParameterContextQuery struct {
 //   	vpcId: jsii.String("vpcId"),
 //   }
 //
-// Experimental.
 type SecurityGroupContextQuery struct {
 	// Query account.
-	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Query region.
-	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
-	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// Security group id.
-	// Experimental.
 	SecurityGroupId *string `field:"optional" json:"securityGroupId" yaml:"securityGroupId"`
 	// Security group name.
-	// Experimental.
 	SecurityGroupName *string `field:"optional" json:"securityGroupName" yaml:"securityGroupName"`
 	// VPC ID.
-	// Experimental.
 	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 
@@ -2487,21 +2120,18 @@ type SecurityGroupContextQuery struct {
 //   	value: jsii.String("value"),
 //   }
 //
-// Experimental.
 type Tag struct {
 	// Tag key.
 	//
 	// (In the actual file on disk this will be cased as "Key", and the structure is
 	// patched to match this structure upon loading:
 	// https://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)
-	// Experimental.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// Tag value.
 	//
 	// (In the actual file on disk this will be cased as "Value", and the structure is
 	// patched to match this structure upon loading:
 	// https://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)
-	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
@@ -2633,7 +2263,6 @@ type Tag struct {
 //   	stackUpdateWorkflow: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type TestCase struct {
 	// List of CloudFormation resource types in this stack that can be destroyed as part of an update without failing the test.
 	//
@@ -2643,30 +2272,23 @@ type TestCase struct {
 	// first before the old resource is destroyed which prevents any outage.
 	//
 	// e.g. ['AWS::IAM::Role']
-	// Experimental.
 	AllowDestroy *[]*string `field:"optional" json:"allowDestroy" yaml:"allowDestroy"`
 	// Additional options to use for each CDK command.
-	// Experimental.
 	CdkCommandOptions *CdkCommands `field:"optional" json:"cdkCommandOptions" yaml:"cdkCommandOptions"`
 	// Whether or not to include asset hashes in the diff Asset hashes can introduces a lot of unneccessary noise into tests, but there are some cases where asset hashes _should_ be included.
 	//
 	// For example
 	// any tests involving custom resources or bundling.
-	// Experimental.
 	DiffAssets *bool `field:"optional" json:"diffAssets" yaml:"diffAssets"`
 	// Additional commands to run at predefined points in the test workflow.
 	//
 	// e.g. { postDeploy: ['yarn', 'test'] }
-	// Experimental.
 	Hooks *Hooks `field:"optional" json:"hooks" yaml:"hooks"`
 	// Limit deployment to these regions.
-	// Experimental.
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
 	// Run update workflow on this test case This should only be set to false to test scenarios that are not possible to test as part of the update workflow.
-	// Experimental.
 	StackUpdateWorkflow *bool `field:"optional" json:"stackUpdateWorkflow" yaml:"stackUpdateWorkflow"`
 	// Stacks that should be tested as part of this test case The stackNames will be passed as args to the cdk commands so dependent stacks will be automatically deployed unless `exclusively` is passed.
-	// Experimental.
 	Stacks *[]*string `field:"required" json:"stacks" yaml:"stacks"`
 }
 
@@ -2793,7 +2415,6 @@ type TestCase struct {
 //   	stackUpdateWorkflow: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type TestOptions struct {
 	// List of CloudFormation resource types in this stack that can be destroyed as part of an update without failing the test.
 	//
@@ -2803,27 +2424,21 @@ type TestOptions struct {
 	// first before the old resource is destroyed which prevents any outage.
 	//
 	// e.g. ['AWS::IAM::Role']
-	// Experimental.
 	AllowDestroy *[]*string `field:"optional" json:"allowDestroy" yaml:"allowDestroy"`
 	// Additional options to use for each CDK command.
-	// Experimental.
 	CdkCommandOptions *CdkCommands `field:"optional" json:"cdkCommandOptions" yaml:"cdkCommandOptions"`
 	// Whether or not to include asset hashes in the diff Asset hashes can introduces a lot of unneccessary noise into tests, but there are some cases where asset hashes _should_ be included.
 	//
 	// For example
 	// any tests involving custom resources or bundling.
-	// Experimental.
 	DiffAssets *bool `field:"optional" json:"diffAssets" yaml:"diffAssets"`
 	// Additional commands to run at predefined points in the test workflow.
 	//
 	// e.g. { postDeploy: ['yarn', 'test'] }
-	// Experimental.
 	Hooks *Hooks `field:"optional" json:"hooks" yaml:"hooks"`
 	// Limit deployment to these regions.
-	// Experimental.
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
 	// Run update workflow on this test case This should only be set to false to test scenarios that are not possible to test as part of the update workflow.
-	// Experimental.
 	StackUpdateWorkflow *bool `field:"optional" json:"stackUpdateWorkflow" yaml:"stackUpdateWorkflow"`
 }
 
@@ -2838,10 +2453,8 @@ type TestOptions struct {
 //   	file: jsii.String("file"),
 //   }
 //
-// Experimental.
 type TreeArtifactProperties struct {
 	// Filename of the tree artifact.
-	// Experimental.
 	File *string `field:"required" json:"file" yaml:"file"`
 }
 
@@ -2865,33 +2478,26 @@ type TreeArtifactProperties struct {
 //   	subnetGroupNameTag: jsii.String("subnetGroupNameTag"),
 //   }
 //
-// Experimental.
 type VpcContextQuery struct {
 	// Query account.
-	// Experimental.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// Filters to apply to the VPC.
 	//
 	// Filter parameters are the same as passed to DescribeVpcs.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html
 	//
-	// Experimental.
 	Filter *map[string]*string `field:"required" json:"filter" yaml:"filter"`
 	// Query region.
-	// Experimental.
 	Region *string `field:"required" json:"region" yaml:"region"`
 	// The ARN of the role that should be used to look up the missing values.
-	// Experimental.
 	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// Whether to populate the subnetGroups field of the {@link VpcContextResponse}, which contains potentially asymmetric subnet groups.
-	// Experimental.
 	ReturnAsymmetricSubnets *bool `field:"optional" json:"returnAsymmetricSubnets" yaml:"returnAsymmetricSubnets"`
 	// Optional tag for subnet group name.
 	//
 	// If not provided, we'll look at the aws-cdk:subnet-name tag.
 	// If the subnet does not have the specified tag,
 	// we'll use its type as the name.
-	// Experimental.
 	SubnetGroupNameTag *string `field:"optional" json:"subnetGroupNameTag" yaml:"subnetGroupNameTag"`
 }
 

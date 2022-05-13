@@ -1,85 +1,23 @@
 # AWS::S3ObjectLambda Construct Library
 
-This construct library allows you to define S3 object lambda access points.
+This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
-import lambda "github.com/aws/aws-cdk-go/awscdk"
-import s3 "github.com/aws/aws-cdk-go/awscdk"
 import s3objectlambda "github.com/aws/aws-cdk-go/awscdk"
-import cdk "github.com/aws/aws-cdk-go/awscdk"
-
-
-stack := cdk.NewStack()
-bucket := s3.NewBucket(stack, jsii.String("MyBucket"))
-handler := lambda.NewFunction(stack, jsii.String("MyFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromAsset(jsii.String("lambda.zip")),
-})
-s3objectlambda.NewAccessPoint(stack, jsii.String("MyObjectLambda"), &accessPointProps{
-	bucket: bucket,
-	handler: handler,
-	accessPointName: jsii.String("my-access-point"),
-	payload: map[string]interface{}{
-		"prop": jsii.String("value"),
-	},
-})
 ```
 
-## Handling range and part number requests
+<!--BEGIN CFNONLY DISCLAIMER-->
 
-Lambdas are currently limited to only transforming `GetObject` requests. However, they can additionally support `GetObject-Range` and `GetObject-PartNumber` requests, which needs to be specified in the access point configuration:
+There are no official hand-written ([L2](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_lib)) constructs for this service yet. Here are some suggestions on how to proceed:
 
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-import lambda "github.com/aws/aws-cdk-go/awscdk"
-import s3 "github.com/aws/aws-cdk-go/awscdk"
-import s3objectlambda "github.com/aws/aws-cdk-go/awscdk"
-import cdk "github.com/aws/aws-cdk-go/awscdk"
+* Search [Construct Hub for S3ObjectLambda construct libraries](https://constructs.dev/search?q=s3objectlambda)
+* Use the automatically generated [L1](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_l1_using) constructs, in the same way you would use [the CloudFormation AWS::S3ObjectLambda resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3ObjectLambda.html) directly.
 
+> An experimental construct library for this service is available in preview. Since it is not stable yet, it is distributed
+> as a separate package so that you can pin its version independently of the rest of the CDK. See the package:
+>
+> <span class="package-reference">@aws-cdk/aws-s3objectlambda-alpha</span>
 
-stack := cdk.NewStack()
-bucket := s3.NewBucket(stack, jsii.String("MyBucket"))
-handler := lambda.NewFunction(stack, jsii.String("MyFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromAsset(jsii.String("lambda.zip")),
-})
-s3objectlambda.NewAccessPoint(stack, jsii.String("MyObjectLambda"), &accessPointProps{
-	bucket: bucket,
-	handler: handler,
-	accessPointName: jsii.String("my-access-point"),
-	supportsGetObjectRange: jsii.Boolean(true),
-	supportsGetObjectPartNumber: jsii.Boolean(true),
-})
-```
+(Read the [CDK Contributing Guide](https://github.com/aws/aws-cdk/blob/master/CONTRIBUTING.md) if you are interested in contributing to this construct library.)
 
-## Pass additional data to Lambda function
-
-You can specify an additional object that provides supplemental data to the Lambda function used to transform objects. The data is delivered as a JSON payload to the Lambda:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-import lambda "github.com/aws/aws-cdk-go/awscdk"
-import s3 "github.com/aws/aws-cdk-go/awscdk"
-import s3objectlambda "github.com/aws/aws-cdk-go/awscdk"
-import cdk "github.com/aws/aws-cdk-go/awscdk"
-
-
-stack := cdk.NewStack()
-bucket := s3.NewBucket(stack, jsii.String("MyBucket"))
-handler := lambda.NewFunction(stack, jsii.String("MyFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
-	handler: jsii.String("index.handler"),
-	code: lambda.code.fromAsset(jsii.String("lambda.zip")),
-})
-s3objectlambda.NewAccessPoint(stack, jsii.String("MyObjectLambda"), &accessPointProps{
-	bucket: bucket,
-	handler: handler,
-	accessPointName: jsii.String("my-access-point"),
-	payload: map[string]interface{}{
-		"prop": jsii.String("value"),
-	},
-})
-```
+<!--END CFNONLY DISCLAIMER-->
