@@ -23,7 +23,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &databaseCluste
 		// optional , defaults to t3.medium
 		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_SMALL),
 		vpcSubnets: &subnetSelection{
-			subnetType: ec2.subnetType_PRIVATE,
+			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 		},
 		vpc: vpc,
 	},
@@ -77,7 +77,7 @@ instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInst
 	 // Optional - will default to 'admin' username and generated password
 	vpc: vpc,
 	vpcSubnets: &subnetSelection{
-		subnetType: ec2.subnetType_PRIVATE,
+		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 	},
 })
 ```
@@ -347,7 +347,7 @@ rds.NewDatabaseInstance(this, jsii.String("Instance"), &databaseInstanceProps{
 	}),
 	vpc: vpc,
 	vpcSubnets: &subnetSelection{
-		subnetType: ec2.subnetType_PRIVATE,
+		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 	},
 	publiclyAccessible: jsii.Boolean(true),
 })
@@ -359,7 +359,7 @@ rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &databaseClusterPro
 	instanceProps: &instanceProps{
 		vpc: vpc,
 		vpcSubnets: &subnetSelection{
-			subnetType: ec2.*subnetType_PRIVATE,
+			subnetType: ec2.*subnetType_PRIVATE_WITH_NAT,
 		},
 		publiclyAccessible: jsii.Boolean(true),
 	},
@@ -382,7 +382,7 @@ rule := instance.onEvent(jsii.String("InstanceEvent"), &onEventOptions{
 
 ## Login credentials
 
-By default, database instances and clusters will have `admin` user with an auto-generated password.
+By default, database instances and clusters (with the exception of `DatabaseInstanceFromSnapshot` and `ServerlessClusterFromSnapshot`) will have `admin` user with an auto-generated password.
 An alternative username (and password) may be specified for the admin user instead of the default.
 
 The following examples use a `DatabaseInstance`, but the same usage is applicable to `DatabaseCluster`.
@@ -428,6 +428,37 @@ rds.NewDatabaseInstance(this, jsii.String("InstanceWithCustomizedSecret"), &data
 	vpc: vpc,
 	credentials: rds.credentials.fromGeneratedSecret(jsii.String("postgres"), &credentialsBaseOptions{
 		secretName: jsii.String("my-cool-name"),
+		encryptionKey: myKey,
+		excludeCharacters: jsii.String("!&*^#@()"),
+		replicaRegions: []replicaRegion{
+			&replicaRegion{
+				region: jsii.String("eu-west-1"),
+			},
+			&replicaRegion{
+				region: jsii.String("eu-west-2"),
+			},
+		},
+	}),
+})
+```
+
+### Snapshot credentials
+
+As noted above, Databases created with `DatabaseInstanceFromSnapshot` or `ServerlessClusterFromSnapshot` will not create user and auto-generated password by default because it's not possible to change the master username for a snapshot. Instead, they will use the existing username and password from the snapshot. You can still generate a new password - to generate a secret similarly to the other constructs, pass in credentials with `fromGeneratedSecret()` or `fromGeneratedPassword()`.
+
+```go
+var vpc vpc
+
+engine := rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
+	version: rds.postgresEngineVersion_VER_12_3(),
+})
+myKey := kms.NewKey(this, jsii.String("MyKey"))
+
+rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("InstanceFromSnapshotWithCustomizedSecret"), &databaseInstanceFromSnapshotProps{
+	engine: engine,
+	vpc: vpc,
+	snapshotIdentifier: jsii.String("mySnapshot"),
+	credentials: rds.snapshotCredentials.fromGeneratedSecret(jsii.String("username"), &snapshotCredentialsFromGeneratedPasswordOptions{
 		encryptionKey: myKey,
 		excludeCharacters: jsii.String("!&*^#@()"),
 		replicaRegions: []replicaRegion{

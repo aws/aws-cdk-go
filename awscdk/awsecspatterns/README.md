@@ -530,7 +530,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 		securityGroup,
 	},
 	taskSubnets: &subnetSelection{
-		subnetType: ec2.subnetType_ISOLATED,
+		subnetType: ec2.subnetType_PRIVATE_ISOLATED,
 	},
 })
 ```

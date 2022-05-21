@@ -1,14 +1,16 @@
 package awscloudfrontorigins
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudfront"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudfrontorigins/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfrontorigins/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An Origin for an HTTP server or S3 bucket configured for website hosting.
@@ -28,17 +30,13 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type HttpOrigin interface {
 	awscloudfront.OriginBase
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	// Experimental.
-	Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
-	// Experimental.
+	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
-	// Experimental.
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
 
@@ -47,14 +45,13 @@ type jsiiProxy_HttpOrigin struct {
 	internal.Type__awscloudfrontOriginBase
 }
 
-// Experimental.
 func NewHttpOrigin(domainName *string, props *HttpOriginProps) HttpOrigin {
 	_init_.Initialize()
 
 	j := jsiiProxy_HttpOrigin{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront_origins.HttpOrigin",
+		"aws-cdk-lib.aws_cloudfront_origins.HttpOrigin",
 		[]interface{}{domainName, props},
 		&j,
 	)
@@ -62,18 +59,17 @@ func NewHttpOrigin(domainName *string, props *HttpOriginProps) HttpOrigin {
 	return &j
 }
 
-// Experimental.
 func NewHttpOrigin_Override(h HttpOrigin, domainName *string, props *HttpOriginProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront_origins.HttpOrigin",
+		"aws-cdk-lib.aws_cloudfront_origins.HttpOrigin",
 		[]interface{}{domainName, props},
 		h,
 	)
 }
 
-func (h *jsiiProxy_HttpOrigin) Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+func (h *jsiiProxy_HttpOrigin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
 	var returns *awscloudfront.OriginBindConfig
 
 	_jsii_.Invoke(
@@ -117,60 +113,50 @@ func (h *jsiiProxy_HttpOrigin) RenderS3OriginConfig() *awscloudfront.CfnDistribu
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var duration duration
 //
 //   httpOriginProps := &httpOriginProps{
 //   	connectionAttempts: jsii.Number(123),
-//   	connectionTimeout: duration,
+//   	connectionTimeout: cdk.duration.minutes(jsii.Number(30)),
 //   	customHeaders: map[string]*string{
 //   		"customHeadersKey": jsii.String("customHeaders"),
 //   	},
 //   	httpPort: jsii.Number(123),
 //   	httpsPort: jsii.Number(123),
-//   	keepaliveTimeout: duration,
+//   	keepaliveTimeout: cdk.*duration.minutes(jsii.Number(30)),
 //   	originPath: jsii.String("originPath"),
 //   	originShieldRegion: jsii.String("originShieldRegion"),
 //   	originSslProtocols: []originSslPolicy{
 //   		awscdk.Aws_cloudfront.*originSslPolicy_SSL_V3,
 //   	},
 //   	protocolPolicy: awscdk.*Aws_cloudfront.originProtocolPolicy_HTTP_ONLY,
-//   	readTimeout: duration,
+//   	readTimeout: cdk.*duration.minutes(jsii.Number(30)),
 //   }
 //
-// Experimental.
 type HttpOriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
 	//
 	// valid values are 1, 2, or 3 attempts.
-	// Experimental.
 	ConnectionAttempts *float64 `field:"optional" json:"connectionAttempts" yaml:"connectionAttempts"`
 	// The number of seconds that CloudFront waits when trying to establish a connection to the origin.
 	//
 	// Valid values are 1-10 seconds, inclusive.
-	// Experimental.
 	ConnectionTimeout awscdk.Duration `field:"optional" json:"connectionTimeout" yaml:"connectionTimeout"`
 	// A list of HTTP header names and values that CloudFront adds to requests it sends to the origin.
-	// Experimental.
 	CustomHeaders *map[string]*string `field:"optional" json:"customHeaders" yaml:"customHeaders"`
-	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
-	//
-	// Must begin, but not end, with '/' (e.g., '/production/images').
-	// Experimental.
-	OriginPath *string `field:"optional" json:"originPath" yaml:"originPath"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
 	//
-	// Experimental.
 	OriginShieldRegion *string `field:"optional" json:"originShieldRegion" yaml:"originShieldRegion"`
+	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
+	//
+	// Must begin, but not end, with '/' (e.g., '/production/images').
+	OriginPath *string `field:"optional" json:"originPath" yaml:"originPath"`
 	// The HTTP port that CloudFront uses to connect to the origin.
-	// Experimental.
 	HttpPort *float64 `field:"optional" json:"httpPort" yaml:"httpPort"`
 	// The HTTPS port that CloudFront uses to connect to the origin.
-	// Experimental.
 	HttpsPort *float64 `field:"optional" json:"httpsPort" yaml:"httpsPort"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
@@ -178,13 +164,10 @@ type HttpOriginProps struct {
 	//
 	// Note that values over 60 seconds are possible only after a limit increase request for the origin response timeout quota
 	// has been approved in the target account; otherwise, values over 60 seconds will produce an error at deploy time.
-	// Experimental.
 	KeepaliveTimeout awscdk.Duration `field:"optional" json:"keepaliveTimeout" yaml:"keepaliveTimeout"`
 	// The SSL versions to use when interacting with the origin.
-	// Experimental.
 	OriginSslProtocols *[]awscloudfront.OriginSslPolicy `field:"optional" json:"originSslProtocols" yaml:"originSslProtocols"`
 	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
-	// Experimental.
 	ProtocolPolicy awscloudfront.OriginProtocolPolicy `field:"optional" json:"protocolPolicy" yaml:"protocolPolicy"`
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin, also known as the origin response timeout.
 	//
@@ -192,7 +175,6 @@ type HttpOriginProps struct {
 	//
 	// Note that values over 60 seconds are possible only after a limit increase request for the origin response timeout quota
 	// has been approved in the target account; otherwise, values over 60 seconds will produce an error at deploy time.
-	// Experimental.
 	ReadTimeout awscdk.Duration `field:"optional" json:"readTimeout" yaml:"readTimeout"`
 }
 
@@ -216,17 +198,13 @@ type HttpOriginProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type LoadBalancerV2Origin interface {
 	HttpOrigin
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	// Experimental.
-	Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
-	// Experimental.
+	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
-	// Experimental.
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
 
@@ -235,14 +213,13 @@ type jsiiProxy_LoadBalancerV2Origin struct {
 	jsiiProxy_HttpOrigin
 }
 
-// Experimental.
 func NewLoadBalancerV2Origin(loadBalancer awselasticloadbalancingv2.ILoadBalancerV2, props *LoadBalancerV2OriginProps) LoadBalancerV2Origin {
 	_init_.Initialize()
 
 	j := jsiiProxy_LoadBalancerV2Origin{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront_origins.LoadBalancerV2Origin",
+		"aws-cdk-lib.aws_cloudfront_origins.LoadBalancerV2Origin",
 		[]interface{}{loadBalancer, props},
 		&j,
 	)
@@ -250,18 +227,17 @@ func NewLoadBalancerV2Origin(loadBalancer awselasticloadbalancingv2.ILoadBalance
 	return &j
 }
 
-// Experimental.
 func NewLoadBalancerV2Origin_Override(l LoadBalancerV2Origin, loadBalancer awselasticloadbalancingv2.ILoadBalancerV2, props *LoadBalancerV2OriginProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront_origins.LoadBalancerV2Origin",
+		"aws-cdk-lib.aws_cloudfront_origins.LoadBalancerV2Origin",
 		[]interface{}{loadBalancer, props},
 		l,
 	)
 }
 
-func (l *jsiiProxy_LoadBalancerV2Origin) Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+func (l *jsiiProxy_LoadBalancerV2Origin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
 	var returns *awscloudfront.OriginBindConfig
 
 	_jsii_.Invoke(
@@ -315,36 +291,28 @@ func (l *jsiiProxy_LoadBalancerV2Origin) RenderS3OriginConfig() *awscloudfront.C
 //   	protocolPolicy: cloudfront.originProtocolPolicy_MATCH_VIEWER,
 //   })
 //
-// Experimental.
 type LoadBalancerV2OriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
 	//
 	// valid values are 1, 2, or 3 attempts.
-	// Experimental.
 	ConnectionAttempts *float64 `field:"optional" json:"connectionAttempts" yaml:"connectionAttempts"`
 	// The number of seconds that CloudFront waits when trying to establish a connection to the origin.
 	//
 	// Valid values are 1-10 seconds, inclusive.
-	// Experimental.
 	ConnectionTimeout awscdk.Duration `field:"optional" json:"connectionTimeout" yaml:"connectionTimeout"`
 	// A list of HTTP header names and values that CloudFront adds to requests it sends to the origin.
-	// Experimental.
 	CustomHeaders *map[string]*string `field:"optional" json:"customHeaders" yaml:"customHeaders"`
-	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
-	//
-	// Must begin, but not end, with '/' (e.g., '/production/images').
-	// Experimental.
-	OriginPath *string `field:"optional" json:"originPath" yaml:"originPath"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
 	//
-	// Experimental.
 	OriginShieldRegion *string `field:"optional" json:"originShieldRegion" yaml:"originShieldRegion"`
+	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
+	//
+	// Must begin, but not end, with '/' (e.g., '/production/images').
+	OriginPath *string `field:"optional" json:"originPath" yaml:"originPath"`
 	// The HTTP port that CloudFront uses to connect to the origin.
-	// Experimental.
 	HttpPort *float64 `field:"optional" json:"httpPort" yaml:"httpPort"`
 	// The HTTPS port that CloudFront uses to connect to the origin.
-	// Experimental.
 	HttpsPort *float64 `field:"optional" json:"httpsPort" yaml:"httpsPort"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
@@ -352,13 +320,10 @@ type LoadBalancerV2OriginProps struct {
 	//
 	// Note that values over 60 seconds are possible only after a limit increase request for the origin response timeout quota
 	// has been approved in the target account; otherwise, values over 60 seconds will produce an error at deploy time.
-	// Experimental.
 	KeepaliveTimeout awscdk.Duration `field:"optional" json:"keepaliveTimeout" yaml:"keepaliveTimeout"`
 	// The SSL versions to use when interacting with the origin.
-	// Experimental.
 	OriginSslProtocols *[]awscloudfront.OriginSslPolicy `field:"optional" json:"originSslProtocols" yaml:"originSslProtocols"`
 	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
-	// Experimental.
 	ProtocolPolicy awscloudfront.OriginProtocolPolicy `field:"optional" json:"protocolPolicy" yaml:"protocolPolicy"`
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin, also known as the origin response timeout.
 	//
@@ -366,7 +331,6 @@ type LoadBalancerV2OriginProps struct {
 	//
 	// Note that values over 60 seconds are possible only after a limit increase request for the origin response timeout quota
 	// has been approved in the target account; otherwise, values over 60 seconds will produce an error at deploy time.
-	// Experimental.
 	ReadTimeout awscdk.Duration `field:"optional" json:"readTimeout" yaml:"readTimeout"`
 }
 
@@ -390,12 +354,10 @@ type LoadBalancerV2OriginProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type OriginGroup interface {
 	awscloudfront.IOrigin
 	// The method called when a given Origin is added (for the first time) to a Distribution.
-	// Experimental.
-	Bind(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 }
 
 // The jsii proxy struct for OriginGroup
@@ -403,14 +365,13 @@ type jsiiProxy_OriginGroup struct {
 	internal.Type__awscloudfrontIOrigin
 }
 
-// Experimental.
 func NewOriginGroup(props *OriginGroupProps) OriginGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_OriginGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront_origins.OriginGroup",
+		"aws-cdk-lib.aws_cloudfront_origins.OriginGroup",
 		[]interface{}{props},
 		&j,
 	)
@@ -418,18 +379,17 @@ func NewOriginGroup(props *OriginGroupProps) OriginGroup {
 	return &j
 }
 
-// Experimental.
 func NewOriginGroup_Override(o OriginGroup, props *OriginGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront_origins.OriginGroup",
+		"aws-cdk-lib.aws_cloudfront_origins.OriginGroup",
 		[]interface{}{props},
 		o,
 	)
 }
 
-func (o *jsiiProxy_OriginGroup) Bind(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+func (o *jsiiProxy_OriginGroup) Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
 	var returns *awscloudfront.OriginBindConfig
 
 	_jsii_.Invoke(
@@ -459,17 +419,152 @@ func (o *jsiiProxy_OriginGroup) Bind(scope awscdk.Construct, options *awscloudfr
 //   	},
 //   })
 //
-// Experimental.
 type OriginGroupProps struct {
 	// The fallback origin that should serve requests when the primary fails.
-	// Experimental.
 	FallbackOrigin awscloudfront.IOrigin `field:"required" json:"fallbackOrigin" yaml:"fallbackOrigin"`
 	// The primary origin that should serve requests for this group.
-	// Experimental.
 	PrimaryOrigin awscloudfront.IOrigin `field:"required" json:"primaryOrigin" yaml:"primaryOrigin"`
 	// The list of HTTP status codes that, when returned from the primary origin, would cause querying the fallback origin.
-	// Experimental.
 	FallbackStatusCodes *[]*float64 `field:"optional" json:"fallbackStatusCodes" yaml:"fallbackStatusCodes"`
+}
+
+// An Origin for an API Gateway REST API.
+//
+// Example:
+//   var api restApi
+//
+//   cloudfront.NewDistribution(this, jsii.String("Distribution"), &distributionProps{
+//   	defaultBehavior: &behaviorOptions{
+//   		origin: origins.NewRestApiOrigin(api),
+//   	},
+//   })
+//
+type RestApiOrigin interface {
+	awscloudfront.OriginBase
+	// Binds the origin to the associated Distribution.
+	//
+	// Can be used to grant permissions, create dependent resources, etc.
+	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
+	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
+}
+
+// The jsii proxy struct for RestApiOrigin
+type jsiiProxy_RestApiOrigin struct {
+	internal.Type__awscloudfrontOriginBase
+}
+
+func NewRestApiOrigin(restApi awsapigateway.RestApi, props *RestApiOriginProps) RestApiOrigin {
+	_init_.Initialize()
+
+	j := jsiiProxy_RestApiOrigin{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_cloudfront_origins.RestApiOrigin",
+		[]interface{}{restApi, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewRestApiOrigin_Override(r RestApiOrigin, restApi awsapigateway.RestApi, props *RestApiOriginProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_cloudfront_origins.RestApiOrigin",
+		[]interface{}{restApi, props},
+		r,
+	)
+}
+
+func (r *jsiiProxy_RestApiOrigin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+	var returns *awscloudfront.OriginBindConfig
+
+	_jsii_.Invoke(
+		r,
+		"bind",
+		[]interface{}{_scope, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_RestApiOrigin) RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty {
+	var returns *awscloudfront.CfnDistribution_CustomOriginConfigProperty
+
+	_jsii_.Invoke(
+		r,
+		"renderCustomOriginConfig",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_RestApiOrigin) RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty {
+	var returns *awscloudfront.CfnDistribution_S3OriginConfigProperty
+
+	_jsii_.Invoke(
+		r,
+		"renderS3OriginConfig",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for an Origin for an API Gateway REST API.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   restApiOriginProps := &restApiOriginProps{
+//   	connectionAttempts: jsii.Number(123),
+//   	connectionTimeout: cdk.duration.minutes(jsii.Number(30)),
+//   	customHeaders: map[string]*string{
+//   		"customHeadersKey": jsii.String("customHeaders"),
+//   	},
+//   	keepaliveTimeout: cdk.*duration.minutes(jsii.Number(30)),
+//   	originShieldRegion: jsii.String("originShieldRegion"),
+//   	readTimeout: cdk.*duration.minutes(jsii.Number(30)),
+//   }
+//
+type RestApiOriginProps struct {
+	// The number of times that CloudFront attempts to connect to the origin;
+	//
+	// valid values are 1, 2, or 3 attempts.
+	ConnectionAttempts *float64 `field:"optional" json:"connectionAttempts" yaml:"connectionAttempts"`
+	// The number of seconds that CloudFront waits when trying to establish a connection to the origin.
+	//
+	// Valid values are 1-10 seconds, inclusive.
+	ConnectionTimeout awscdk.Duration `field:"optional" json:"connectionTimeout" yaml:"connectionTimeout"`
+	// A list of HTTP header names and values that CloudFront adds to requests it sends to the origin.
+	CustomHeaders *map[string]*string `field:"optional" json:"customHeaders" yaml:"customHeaders"`
+	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
+	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
+	//
+	OriginShieldRegion *string `field:"optional" json:"originShieldRegion" yaml:"originShieldRegion"`
+	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
+	//
+	// The valid range is from 1 to 180 seconds, inclusive.
+	//
+	// Note that values over 60 seconds are possible only after a limit increase request for the origin response timeout quota
+	// has been approved in the target account; otherwise, values over 60 seconds will produce an error at deploy time.
+	KeepaliveTimeout awscdk.Duration `field:"optional" json:"keepaliveTimeout" yaml:"keepaliveTimeout"`
+	// Specifies how long, in seconds, CloudFront waits for a response from the origin, also known as the origin response timeout.
+	//
+	// The valid range is from 1 to 180 seconds, inclusive.
+	//
+	// Note that values over 60 seconds are possible only after a limit increase request for the origin response timeout quota
+	// has been approved in the target account; otherwise, values over 60 seconds will produce an error at deploy time.
+	ReadTimeout awscdk.Duration `field:"optional" json:"readTimeout" yaml:"readTimeout"`
 }
 
 // An Origin that is backed by an S3 bucket.
@@ -497,12 +592,10 @@ type OriginGroupProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type S3Origin interface {
 	awscloudfront.IOrigin
 	// The method called when a given Origin is added (for the first time) to a Distribution.
-	// Experimental.
-	Bind(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 }
 
 // The jsii proxy struct for S3Origin
@@ -510,14 +603,13 @@ type jsiiProxy_S3Origin struct {
 	internal.Type__awscloudfrontIOrigin
 }
 
-// Experimental.
 func NewS3Origin(bucket awss3.IBucket, props *S3OriginProps) S3Origin {
 	_init_.Initialize()
 
 	j := jsiiProxy_S3Origin{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront_origins.S3Origin",
+		"aws-cdk-lib.aws_cloudfront_origins.S3Origin",
 		[]interface{}{bucket, props},
 		&j,
 	)
@@ -525,18 +617,17 @@ func NewS3Origin(bucket awss3.IBucket, props *S3OriginProps) S3Origin {
 	return &j
 }
 
-// Experimental.
 func NewS3Origin_Override(s S3Origin, bucket awss3.IBucket, props *S3OriginProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront_origins.S3Origin",
+		"aws-cdk-lib.aws_cloudfront_origins.S3Origin",
 		[]interface{}{bucket, props},
 		s,
 	)
 }
 
-func (s *jsiiProxy_S3Origin) Bind(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+func (s *jsiiProxy_S3Origin) Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
 	var returns *awscloudfront.OriginBindConfig
 
 	_jsii_.Invoke(
@@ -563,33 +654,26 @@ func (s *jsiiProxy_S3Origin) Bind(scope awscdk.Construct, options *awscloudfront
 //   	},
 //   })
 //
-// Experimental.
 type S3OriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
 	//
 	// valid values are 1, 2, or 3 attempts.
-	// Experimental.
 	ConnectionAttempts *float64 `field:"optional" json:"connectionAttempts" yaml:"connectionAttempts"`
 	// The number of seconds that CloudFront waits when trying to establish a connection to the origin.
 	//
 	// Valid values are 1-10 seconds, inclusive.
-	// Experimental.
 	ConnectionTimeout awscdk.Duration `field:"optional" json:"connectionTimeout" yaml:"connectionTimeout"`
 	// A list of HTTP header names and values that CloudFront adds to requests it sends to the origin.
-	// Experimental.
 	CustomHeaders *map[string]*string `field:"optional" json:"customHeaders" yaml:"customHeaders"`
-	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
-	//
-	// Must begin, but not end, with '/' (e.g., '/production/images').
-	// Experimental.
-	OriginPath *string `field:"optional" json:"originPath" yaml:"originPath"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
 	//
-	// Experimental.
 	OriginShieldRegion *string `field:"optional" json:"originShieldRegion" yaml:"originShieldRegion"`
+	// An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
+	//
+	// Must begin, but not end, with '/' (e.g., '/production/images').
+	OriginPath *string `field:"optional" json:"originPath" yaml:"originPath"`
 	// An optional Origin Access Identity of the origin identity cloudfront will use when calling your s3 bucket.
-	// Experimental.
 	OriginAccessIdentity awscloudfront.IOriginAccessIdentity `field:"optional" json:"originAccessIdentity" yaml:"originAccessIdentity"`
 }
 

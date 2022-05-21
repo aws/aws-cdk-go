@@ -1,15 +1,17 @@
 package alexaask
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/alexaask/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/alexaask/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `Alexa::ASK::Skill`.
+//
+// The `Alexa::ASK::Skill` resource creates an Alexa skill that enables customers to access new abilities. For more information about developing a skill, see the  .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,20 +43,19 @@ import (
 type CfnSkill interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `Alexa::ASK::Skill.AuthenticationConfiguration`.
+	// Login with Amazon (LWA) configuration used to authenticate with the Alexa service.
+	//
+	// Only Login with Amazon clients created through the  are supported. The client ID, client secret, and refresh token are required.
 	AuthenticationConfiguration() interface{}
 	SetAuthenticationConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -65,42 +66,39 @@ type CfnSkill interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
-	// `Alexa::ASK::Skill.SkillPackage`.
+	// Configuration for the skill package that contains the components of the Alexa skill.
+	//
+	// Skill packages are retrieved from an Amazon S3 bucket and key and used to create and update the skill. For more information about the skill package format, see the  .
 	SkillPackage() interface{}
 	SetSkillPackage(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// `Alexa::ASK::Skill.VendorId`.
+	// The vendor ID associated with the Amazon developer account that will host the skill.
+	//
+	// Details for retrieving the vendor ID are in  . The provided LWA credentials must be linked to the developer account associated with this vendor ID.
 	VendorId() *string
 	SetVendorId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -109,7 +107,6 @@ type CfnSkill interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -154,15 +151,12 @@ type CfnSkill interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -173,13 +167,11 @@ type CfnSkill interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -188,74 +180,21 @@ type CfnSkill interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -325,8 +264,8 @@ func (j *jsiiProxy_CfnSkill) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSkill) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnSkill) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -387,13 +326,13 @@ func (j *jsiiProxy_CfnSkill) VendorId() *string {
 
 
 // Create a new `Alexa::ASK::Skill`.
-func NewCfnSkill(scope awscdk.Construct, id *string, props *CfnSkillProps) CfnSkill {
+func NewCfnSkill(scope constructs.Construct, id *string, props *CfnSkillProps) CfnSkill {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSkill{}
 
 	_jsii_.Create(
-		"monocdk.alexa_ask.CfnSkill",
+		"aws-cdk-lib.alexa_ask.CfnSkill",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -402,11 +341,11 @@ func NewCfnSkill(scope awscdk.Construct, id *string, props *CfnSkillProps) CfnSk
 }
 
 // Create a new `Alexa::ASK::Skill`.
-func NewCfnSkill_Override(c CfnSkill, scope awscdk.Construct, id *string, props *CfnSkillProps) {
+func NewCfnSkill_Override(c CfnSkill, scope constructs.Construct, id *string, props *CfnSkillProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.alexa_ask.CfnSkill",
+		"aws-cdk-lib.alexa_ask.CfnSkill",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -442,14 +381,13 @@ func (j *jsiiProxy_CfnSkill) SetVendorId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSkill_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.alexa_ask.CfnSkill",
+		"aws-cdk-lib.alexa_ask.CfnSkill",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -459,14 +397,13 @@ func CfnSkill_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSkill_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.alexa_ask.CfnSkill",
+		"aws-cdk-lib.alexa_ask.CfnSkill",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -475,15 +412,17 @@ func CfnSkill_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnSkill_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.alexa_ask.CfnSkill",
+		"aws-cdk-lib.alexa_ask.CfnSkill",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -496,7 +435,7 @@ func CfnSkill_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.alexa_ask.CfnSkill",
+		"aws-cdk-lib.alexa_ask.CfnSkill",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -593,48 +532,11 @@ func (c *jsiiProxy_CfnSkill) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnSkill) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnSkill) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnSkill) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnSkill) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnSkill) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -664,33 +566,12 @@ func (c *jsiiProxy_CfnSkill) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnSkill) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnSkill) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnSkill) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -706,6 +587,12 @@ func (c *jsiiProxy_CfnSkill) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The `AuthenticationConfiguration` property type specifies the Login with Amazon (LWA) configuration used to authenticate with the Alexa service.
+//
+// Only Login with Amazon security profiles created through the  are supported for authentication. A client ID, client secret, and refresh token are required. You can generate a client ID and client secret by creating a new  on the Amazon Developer Portal or you can retrieve them from an existing profile. You can then retrieve the refresh token using the Alexa Skills Kit CLI. For instructions, see  in the  .
+//
+// `AuthenticationConfiguration` is a property of the `Alexa::ASK::Skill` resource.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -718,14 +605,22 @@ func (c *jsiiProxy_CfnSkill) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnSkill_AuthenticationConfigurationProperty struct {
-	// `CfnSkill.AuthenticationConfigurationProperty.ClientId`.
+	// Client ID from Login with Amazon (LWA).
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
-	// `CfnSkill.AuthenticationConfigurationProperty.ClientSecret`.
+	// Client secret from Login with Amazon (LWA).
 	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
-	// `CfnSkill.AuthenticationConfigurationProperty.RefreshToken`.
+	// Refresh token from Login with Amazon (LWA).
+	//
+	// This token is secret.
 	RefreshToken *string `field:"required" json:"refreshToken" yaml:"refreshToken"`
 }
 
+// The `Overrides` property type provides overrides to the skill package to apply when creating or updating the skill.
+//
+// Values provided here do not modify the contents of the original skill package. Currently, only overriding values inside of the skill manifest component of the package is supported.
+//
+// `Overrides` is a property of the `Alexa::ASK::Skill SkillPackage` property type.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -738,10 +633,18 @@ type CfnSkill_AuthenticationConfigurationProperty struct {
 //   }
 //
 type CfnSkill_OverridesProperty struct {
-	// `CfnSkill.OverridesProperty.Manifest`.
+	// Overrides to apply to the skill manifest inside of the skill package.
+	//
+	// The skill manifest contains metadata about the skill. For more information, see  .
 	Manifest interface{} `field:"optional" json:"manifest" yaml:"manifest"`
 }
 
+// The `SkillPackage` property type contains configuration details for the skill package that contains the components of the Alexa skill.
+//
+// Skill packages are retrieved from an Amazon S3 bucket and key and used to create and update the skill. More details about the skill package format are located in the  .
+//
+// `SkillPackage` is a property of the `Alexa::ASK::Skill` resource.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -762,15 +665,17 @@ type CfnSkill_OverridesProperty struct {
 //   }
 //
 type CfnSkill_SkillPackageProperty struct {
-	// `CfnSkill.SkillPackageProperty.S3Bucket`.
+	// The name of the Amazon S3 bucket where the .zip file that contains the skill package is stored.
 	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
-	// `CfnSkill.SkillPackageProperty.S3Key`.
+	// The location and name of the skill package .zip file.
 	S3Key *string `field:"required" json:"s3Key" yaml:"s3Key"`
-	// `CfnSkill.SkillPackageProperty.Overrides`.
+	// Overrides to the skill package to apply when creating or updating the skill.
+	//
+	// Values provided here do not modify the contents of the original skill package. Currently, only overriding values inside of the skill manifest component of the package is supported.
 	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
-	// `CfnSkill.SkillPackageProperty.S3BucketRole`.
+	// ARN of the IAM role that grants the Alexa service ( `alexa-appkit.amazon.com` ) permission to access the bucket and retrieve the skill package. This property is optional. If you do not provide it, the bucket must be publicly accessible or configured with a policy that allows this access. Otherwise, AWS CloudFormation cannot create the skill.
 	S3BucketRole *string `field:"optional" json:"s3BucketRole" yaml:"s3BucketRole"`
-	// `CfnSkill.SkillPackageProperty.S3ObjectVersion`.
+	// If you have S3 versioning enabled, the version ID of the skill package.zip file.
 	S3ObjectVersion *string `field:"optional" json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
 }
 
@@ -804,11 +709,17 @@ type CfnSkill_SkillPackageProperty struct {
 //   }
 //
 type CfnSkillProps struct {
-	// `Alexa::ASK::Skill.AuthenticationConfiguration`.
+	// Login with Amazon (LWA) configuration used to authenticate with the Alexa service.
+	//
+	// Only Login with Amazon clients created through the  are supported. The client ID, client secret, and refresh token are required.
 	AuthenticationConfiguration interface{} `field:"required" json:"authenticationConfiguration" yaml:"authenticationConfiguration"`
-	// `Alexa::ASK::Skill.SkillPackage`.
+	// Configuration for the skill package that contains the components of the Alexa skill.
+	//
+	// Skill packages are retrieved from an Amazon S3 bucket and key and used to create and update the skill. For more information about the skill package format, see the  .
 	SkillPackage interface{} `field:"required" json:"skillPackage" yaml:"skillPackage"`
-	// `Alexa::ASK::Skill.VendorId`.
+	// The vendor ID associated with the Amazon developer account that will host the skill.
+	//
+	// Details for retrieving the vendor ID are in  . The provided LWA credentials must be linked to the developer account associated with this vendor ID.
 	VendorId *string `field:"required" json:"vendorId" yaml:"vendorId"`
 }
 

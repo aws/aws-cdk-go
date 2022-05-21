@@ -1,15 +1,17 @@
 package awsbillingconductor
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsbillingconductor/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsbillingconductor/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::BillingConductor::BillingGroup`.
+//
+// Creates a billing group that resembles a consolidated billing family that AWS charges, based off of the predefined pricing plan computation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,31 +43,38 @@ import (
 type CfnBillingGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::BillingConductor::BillingGroup.AccountGrouping`.
+	// The set of accounts that will be under the billing group.
+	//
+	// The set of accounts resemble the linked accounts in a consolidated family.
 	AccountGrouping() interface{}
 	SetAccountGrouping(val interface{})
+	// The Amazon Resource Name (ARN) of the created billing group.
 	AttrArn() *string
+	// The time the billing group was created.
 	AttrCreationTime() *float64
+	// The most recent time the billing group was modified.
 	AttrLastModifiedTime() *float64
+	// The number of accounts in the particular billing group.
 	AttrSize() *float64
+	// The billing group status.
+	//
+	// Only one of the valid values can be used.
 	AttrStatus() *string
+	// The reason why the billing group is in its current status.
 	AttrStatusReason() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
-	// `AWS::BillingConductor::BillingGroup.ComputationPreference`.
+	// The preferences and settings that will be used to compute the AWS charges for a billing group.
 	ComputationPreference() interface{}
 	SetComputationPreference(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::BillingConductor::BillingGroup.Description`.
+	// The billing group description.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -77,27 +86,23 @@ type CfnBillingGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// `AWS::BillingConductor::BillingGroup.Name`.
+	// The billing group's name.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// `AWS::BillingConductor::BillingGroup.PrimaryAccountId`.
+	// The tree node.
+	Node() constructs.Node
+	// The account ID that serves as the main account in a billing group.
 	PrimaryAccountId() *string
 	SetPrimaryAccountId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::BillingConductor::BillingGroup.Tags`.
 	Tags() awscdk.TagManager
@@ -105,16 +110,13 @@ type CfnBillingGroup interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -123,7 +125,6 @@ type CfnBillingGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -168,15 +169,12 @@ type CfnBillingGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -187,13 +185,11 @@ type CfnBillingGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -202,74 +198,21 @@ type CfnBillingGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -429,8 +372,8 @@ func (j *jsiiProxy_CfnBillingGroup) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBillingGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnBillingGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -491,13 +434,13 @@ func (j *jsiiProxy_CfnBillingGroup) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::BillingConductor::BillingGroup`.
-func NewCfnBillingGroup(scope awscdk.Construct, id *string, props *CfnBillingGroupProps) CfnBillingGroup {
+func NewCfnBillingGroup(scope constructs.Construct, id *string, props *CfnBillingGroupProps) CfnBillingGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBillingGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_billingconductor.CfnBillingGroup",
+		"aws-cdk-lib.aws_billingconductor.CfnBillingGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -506,11 +449,11 @@ func NewCfnBillingGroup(scope awscdk.Construct, id *string, props *CfnBillingGro
 }
 
 // Create a new `AWS::BillingConductor::BillingGroup`.
-func NewCfnBillingGroup_Override(c CfnBillingGroup, scope awscdk.Construct, id *string, props *CfnBillingGroupProps) {
+func NewCfnBillingGroup_Override(c CfnBillingGroup, scope constructs.Construct, id *string, props *CfnBillingGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_billingconductor.CfnBillingGroup",
+		"aws-cdk-lib.aws_billingconductor.CfnBillingGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -562,14 +505,13 @@ func (j *jsiiProxy_CfnBillingGroup) SetPrimaryAccountId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnBillingGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_billingconductor.CfnBillingGroup",
+		"aws-cdk-lib.aws_billingconductor.CfnBillingGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -579,14 +521,13 @@ func CfnBillingGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnBillingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_billingconductor.CfnBillingGroup",
+		"aws-cdk-lib.aws_billingconductor.CfnBillingGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -595,15 +536,17 @@ func CfnBillingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnBillingGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_billingconductor.CfnBillingGroup",
+		"aws-cdk-lib.aws_billingconductor.CfnBillingGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -616,7 +559,7 @@ func CfnBillingGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_billingconductor.CfnBillingGroup",
+		"aws-cdk-lib.aws_billingconductor.CfnBillingGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -713,48 +656,11 @@ func (c *jsiiProxy_CfnBillingGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnBillingGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnBillingGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnBillingGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnBillingGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnBillingGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -784,33 +690,12 @@ func (c *jsiiProxy_CfnBillingGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnBillingGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnBillingGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnBillingGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -826,6 +711,10 @@ func (c *jsiiProxy_CfnBillingGroup) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// The set of accounts that will be under the billing group.
+//
+// The set of accounts resemble the linked accounts in a consolidated family.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -838,10 +727,14 @@ func (c *jsiiProxy_CfnBillingGroup) ValidateProperties(_properties interface{}) 
 //   }
 //
 type CfnBillingGroup_AccountGroupingProperty struct {
-	// `CfnBillingGroup.AccountGroupingProperty.LinkedAccountIds`.
+	// The account IDs that make up the billing group.
+	//
+	// Account IDs must be a part of the consolidated billing family, and not associated with another billing group.
 	LinkedAccountIds *[]*string `field:"required" json:"linkedAccountIds" yaml:"linkedAccountIds"`
 }
 
+// The preferences and settings that will be used to compute the AWS charges for a billing group.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -852,7 +745,7 @@ type CfnBillingGroup_AccountGroupingProperty struct {
 //   }
 //
 type CfnBillingGroup_ComputationPreferenceProperty struct {
-	// `CfnBillingGroup.ComputationPreferenceProperty.PricingPlanArn`.
+	// The Amazon Resource Name (ARN) of the pricing plan used to compute the AWS charges for a billing group.
 	PricingPlanArn *string `field:"required" json:"pricingPlanArn" yaml:"pricingPlanArn"`
 }
 
@@ -886,21 +779,25 @@ type CfnBillingGroup_ComputationPreferenceProperty struct {
 //   }
 //
 type CfnBillingGroupProps struct {
-	// `AWS::BillingConductor::BillingGroup.AccountGrouping`.
+	// The set of accounts that will be under the billing group.
+	//
+	// The set of accounts resemble the linked accounts in a consolidated family.
 	AccountGrouping interface{} `field:"required" json:"accountGrouping" yaml:"accountGrouping"`
-	// `AWS::BillingConductor::BillingGroup.ComputationPreference`.
+	// The preferences and settings that will be used to compute the AWS charges for a billing group.
 	ComputationPreference interface{} `field:"required" json:"computationPreference" yaml:"computationPreference"`
-	// `AWS::BillingConductor::BillingGroup.Name`.
+	// The billing group's name.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::BillingConductor::BillingGroup.PrimaryAccountId`.
+	// The account ID that serves as the main account in a billing group.
 	PrimaryAccountId *string `field:"required" json:"primaryAccountId" yaml:"primaryAccountId"`
-	// `AWS::BillingConductor::BillingGroup.Description`.
+	// The billing group description.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::BillingConductor::BillingGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::BillingConductor::CustomLineItem`.
+//
+// Creates a custom line item that can be used to create a one-time fixed charge that can be applied to a single billing group for the current or previous billing period. The one-time fixed charge is either a fee or discount.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -944,34 +841,43 @@ type CfnBillingGroupProps struct {
 type CfnCustomLineItem interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) that references the billing group where the custom line item applies to.
 	AttrArn() *string
+	// The number of resources that are associated to the custom line item.
 	AttrAssociationSize() *float64
+	// The time created.
 	AttrCreationTime() *float64
+	// The custom line item's charge value currency.
+	//
+	// Only one of the valid values can be used.
 	AttrCurrencyCode() *string
+	// The most recent time the custom line item was modified.
 	AttrLastModifiedTime() *float64
+	// The product code associated with the custom line item.
 	AttrProductCode() *string
-	// `AWS::BillingConductor::CustomLineItem.BillingGroupArn`.
+	// The Amazon Resource Name (ARN) that references the billing group where the custom line item applies to.
 	BillingGroupArn() *string
 	SetBillingGroupArn(val *string)
-	// `AWS::BillingConductor::CustomLineItem.BillingPeriodRange`.
+	// A time range for which the custom line item is effective.
 	BillingPeriodRange() interface{}
 	SetBillingPeriodRange(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::BillingConductor::CustomLineItem.CustomLineItemChargeDetails`.
+	// The charge details of a custom line item.
+	//
+	// It should contain only one of `Flat` or `Percentage` .
 	CustomLineItemChargeDetails() interface{}
 	SetCustomLineItemChargeDetails(val interface{})
-	// `AWS::BillingConductor::CustomLineItem.Description`.
+	// The custom line item's description.
+	//
+	// This is shown on the Bills page in association with the charge value.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -983,24 +889,20 @@ type CfnCustomLineItem interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// `AWS::BillingConductor::CustomLineItem.Name`.
+	// The custom line item's name.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::BillingConductor::CustomLineItem.Tags`.
 	Tags() awscdk.TagManager
@@ -1008,16 +910,13 @@ type CfnCustomLineItem interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1026,7 +925,6 @@ type CfnCustomLineItem interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1071,15 +969,12 @@ type CfnCustomLineItem interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1090,13 +985,11 @@ type CfnCustomLineItem interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1105,74 +998,21 @@ type CfnCustomLineItem interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1342,8 +1182,8 @@ func (j *jsiiProxy_CfnCustomLineItem) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomLineItem) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnCustomLineItem) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1394,13 +1234,13 @@ func (j *jsiiProxy_CfnCustomLineItem) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::BillingConductor::CustomLineItem`.
-func NewCfnCustomLineItem(scope awscdk.Construct, id *string, props *CfnCustomLineItemProps) CfnCustomLineItem {
+func NewCfnCustomLineItem(scope constructs.Construct, id *string, props *CfnCustomLineItemProps) CfnCustomLineItem {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCustomLineItem{}
 
 	_jsii_.Create(
-		"monocdk.aws_billingconductor.CfnCustomLineItem",
+		"aws-cdk-lib.aws_billingconductor.CfnCustomLineItem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1409,11 +1249,11 @@ func NewCfnCustomLineItem(scope awscdk.Construct, id *string, props *CfnCustomLi
 }
 
 // Create a new `AWS::BillingConductor::CustomLineItem`.
-func NewCfnCustomLineItem_Override(c CfnCustomLineItem, scope awscdk.Construct, id *string, props *CfnCustomLineItemProps) {
+func NewCfnCustomLineItem_Override(c CfnCustomLineItem, scope constructs.Construct, id *string, props *CfnCustomLineItemProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_billingconductor.CfnCustomLineItem",
+		"aws-cdk-lib.aws_billingconductor.CfnCustomLineItem",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1465,14 +1305,13 @@ func (j *jsiiProxy_CfnCustomLineItem) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnCustomLineItem_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_billingconductor.CfnCustomLineItem",
+		"aws-cdk-lib.aws_billingconductor.CfnCustomLineItem",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1482,14 +1321,13 @@ func CfnCustomLineItem_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnCustomLineItem_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_billingconductor.CfnCustomLineItem",
+		"aws-cdk-lib.aws_billingconductor.CfnCustomLineItem",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1498,15 +1336,17 @@ func CfnCustomLineItem_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnCustomLineItem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_billingconductor.CfnCustomLineItem",
+		"aws-cdk-lib.aws_billingconductor.CfnCustomLineItem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1519,7 +1359,7 @@ func CfnCustomLineItem_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_billingconductor.CfnCustomLineItem",
+		"aws-cdk-lib.aws_billingconductor.CfnCustomLineItem",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1616,48 +1456,11 @@ func (c *jsiiProxy_CfnCustomLineItem) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnCustomLineItem) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnCustomLineItem) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnCustomLineItem) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnCustomLineItem) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnCustomLineItem) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1687,33 +1490,12 @@ func (c *jsiiProxy_CfnCustomLineItem) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnCustomLineItem) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnCustomLineItem) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnCustomLineItem) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1729,6 +1511,8 @@ func (c *jsiiProxy_CfnCustomLineItem) ValidateProperties(_properties interface{}
 	)
 }
 
+// The billing period range in which the custom line item request will be applied.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1740,12 +1524,16 @@ func (c *jsiiProxy_CfnCustomLineItem) ValidateProperties(_properties interface{}
 //   }
 //
 type CfnCustomLineItem_BillingPeriodRangeProperty struct {
-	// `CfnCustomLineItem.BillingPeriodRangeProperty.ExclusiveEndBillingPeriod`.
+	// The inclusive end billing period that defines a billing period range where a custom line is applied.
 	ExclusiveEndBillingPeriod *string `field:"optional" json:"exclusiveEndBillingPeriod" yaml:"exclusiveEndBillingPeriod"`
-	// `CfnCustomLineItem.BillingPeriodRangeProperty.InclusiveStartBillingPeriod`.
+	// The inclusive start billing period that defines a billing period range where a custom line is applied.
 	InclusiveStartBillingPeriod *string `field:"optional" json:"inclusiveStartBillingPeriod" yaml:"inclusiveStartBillingPeriod"`
 }
 
+// The charge details of a custom line item.
+//
+// It should contain only one of `Flat` or `Percentage` .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1769,14 +1557,18 @@ type CfnCustomLineItem_BillingPeriodRangeProperty struct {
 //   }
 //
 type CfnCustomLineItem_CustomLineItemChargeDetailsProperty struct {
-	// `CfnCustomLineItem.CustomLineItemChargeDetailsProperty.Type`.
+	// The type of the custom line item that indicates whether the charge is a fee or credit.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnCustomLineItem.CustomLineItemChargeDetailsProperty.Flat`.
+	// A `CustomLineItemFlatChargeDetails` that describes the charge details of a flat custom line item.
 	Flat interface{} `field:"optional" json:"flat" yaml:"flat"`
-	// `CfnCustomLineItem.CustomLineItemChargeDetailsProperty.Percentage`.
+	// A `CustomLineItemPercentageChargeDetails` that describes the charge details of a percentage custom line item.
 	Percentage interface{} `field:"optional" json:"percentage" yaml:"percentage"`
 }
 
+// The charge details of a custom line item.
+//
+// It should contain only one of `Flat` or `Percentage` .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1787,10 +1579,12 @@ type CfnCustomLineItem_CustomLineItemChargeDetailsProperty struct {
 //   }
 //
 type CfnCustomLineItem_CustomLineItemFlatChargeDetailsProperty struct {
-	// `CfnCustomLineItem.CustomLineItemFlatChargeDetailsProperty.ChargeValue`.
+	// The custom line item's fixed charge value in USD.
 	ChargeValue *float64 `field:"required" json:"chargeValue" yaml:"chargeValue"`
 }
 
+// A representation of the charge details associated with a percentage custom line item.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1806,9 +1600,11 @@ type CfnCustomLineItem_CustomLineItemFlatChargeDetailsProperty struct {
 //   }
 //
 type CfnCustomLineItem_CustomLineItemPercentageChargeDetailsProperty struct {
-	// `CfnCustomLineItem.CustomLineItemPercentageChargeDetailsProperty.PercentageValue`.
+	// The custom line item's percentage value.
+	//
+	// This will be multiplied against the combined value of its associated resources to determine its charge value.
 	PercentageValue *float64 `field:"required" json:"percentageValue" yaml:"percentageValue"`
-	// `CfnCustomLineItem.CustomLineItemPercentageChargeDetailsProperty.ChildAssociatedResources`.
+	// A list of resource ARNs to associate to the percentage custom line item.
 	ChildAssociatedResources *[]*string `field:"optional" json:"childAssociatedResources" yaml:"childAssociatedResources"`
 }
 
@@ -1854,21 +1650,27 @@ type CfnCustomLineItem_CustomLineItemPercentageChargeDetailsProperty struct {
 //   }
 //
 type CfnCustomLineItemProps struct {
-	// `AWS::BillingConductor::CustomLineItem.BillingGroupArn`.
+	// The Amazon Resource Name (ARN) that references the billing group where the custom line item applies to.
 	BillingGroupArn *string `field:"required" json:"billingGroupArn" yaml:"billingGroupArn"`
-	// `AWS::BillingConductor::CustomLineItem.Name`.
+	// The custom line item's name.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::BillingConductor::CustomLineItem.BillingPeriodRange`.
+	// A time range for which the custom line item is effective.
 	BillingPeriodRange interface{} `field:"optional" json:"billingPeriodRange" yaml:"billingPeriodRange"`
-	// `AWS::BillingConductor::CustomLineItem.CustomLineItemChargeDetails`.
+	// The charge details of a custom line item.
+	//
+	// It should contain only one of `Flat` or `Percentage` .
 	CustomLineItemChargeDetails interface{} `field:"optional" json:"customLineItemChargeDetails" yaml:"customLineItemChargeDetails"`
-	// `AWS::BillingConductor::CustomLineItem.Description`.
+	// The custom line item's description.
+	//
+	// This is shown on the Bills page in association with the charge value.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::BillingConductor::CustomLineItem.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::BillingConductor::PricingPlan`.
+//
+// Creates a pricing plan that is used for computing AWS charges for billing groups.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -1894,23 +1696,24 @@ type CfnCustomLineItemProps struct {
 type CfnPricingPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the created pricing plan.
 	AttrArn() *string
+	// The time the pricing plan was created.
 	AttrCreationTime() *float64
+	// The most recent time the pricing plan was modified.
 	AttrLastModifiedTime() *float64
+	// The pricing rules count currently associated with this pricing plan list element.
 	AttrSize() *float64
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::BillingConductor::PricingPlan.Description`.
+	// The pricing plan description.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -1922,27 +1725,23 @@ type CfnPricingPlan interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// `AWS::BillingConductor::PricingPlan.Name`.
+	// The name of a pricing plan.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// `AWS::BillingConductor::PricingPlan.PricingRuleArns`.
+	// The tree node.
+	Node() constructs.Node
+	// The `PricingRuleArns` that are associated with the Pricing Plan.
 	PricingRuleArns() *[]*string
 	SetPricingRuleArns(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::BillingConductor::PricingPlan.Tags`.
 	Tags() awscdk.TagManager
@@ -1950,16 +1749,13 @@ type CfnPricingPlan interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1968,7 +1764,6 @@ type CfnPricingPlan interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2013,15 +1808,12 @@ type CfnPricingPlan interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2032,13 +1824,11 @@ type CfnPricingPlan interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2047,74 +1837,21 @@ type CfnPricingPlan interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2234,8 +1971,8 @@ func (j *jsiiProxy_CfnPricingPlan) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPricingPlan) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnPricingPlan) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2296,13 +2033,13 @@ func (j *jsiiProxy_CfnPricingPlan) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::BillingConductor::PricingPlan`.
-func NewCfnPricingPlan(scope awscdk.Construct, id *string, props *CfnPricingPlanProps) CfnPricingPlan {
+func NewCfnPricingPlan(scope constructs.Construct, id *string, props *CfnPricingPlanProps) CfnPricingPlan {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPricingPlan{}
 
 	_jsii_.Create(
-		"monocdk.aws_billingconductor.CfnPricingPlan",
+		"aws-cdk-lib.aws_billingconductor.CfnPricingPlan",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2311,11 +2048,11 @@ func NewCfnPricingPlan(scope awscdk.Construct, id *string, props *CfnPricingPlan
 }
 
 // Create a new `AWS::BillingConductor::PricingPlan`.
-func NewCfnPricingPlan_Override(c CfnPricingPlan, scope awscdk.Construct, id *string, props *CfnPricingPlanProps) {
+func NewCfnPricingPlan_Override(c CfnPricingPlan, scope constructs.Construct, id *string, props *CfnPricingPlanProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_billingconductor.CfnPricingPlan",
+		"aws-cdk-lib.aws_billingconductor.CfnPricingPlan",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2351,14 +2088,13 @@ func (j *jsiiProxy_CfnPricingPlan) SetPricingRuleArns(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnPricingPlan_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_billingconductor.CfnPricingPlan",
+		"aws-cdk-lib.aws_billingconductor.CfnPricingPlan",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2368,14 +2104,13 @@ func CfnPricingPlan_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnPricingPlan_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_billingconductor.CfnPricingPlan",
+		"aws-cdk-lib.aws_billingconductor.CfnPricingPlan",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2384,15 +2119,17 @@ func CfnPricingPlan_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnPricingPlan_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_billingconductor.CfnPricingPlan",
+		"aws-cdk-lib.aws_billingconductor.CfnPricingPlan",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2405,7 +2142,7 @@ func CfnPricingPlan_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_billingconductor.CfnPricingPlan",
+		"aws-cdk-lib.aws_billingconductor.CfnPricingPlan",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2502,48 +2239,11 @@ func (c *jsiiProxy_CfnPricingPlan) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnPricingPlan) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnPricingPlan) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnPricingPlan) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnPricingPlan) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnPricingPlan) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2573,33 +2273,12 @@ func (c *jsiiProxy_CfnPricingPlan) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnPricingPlan) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnPricingPlan) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnPricingPlan) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2639,17 +2318,19 @@ func (c *jsiiProxy_CfnPricingPlan) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnPricingPlanProps struct {
-	// `AWS::BillingConductor::PricingPlan.Name`.
+	// The name of a pricing plan.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::BillingConductor::PricingPlan.Description`.
+	// The pricing plan description.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::BillingConductor::PricingPlan.PricingRuleArns`.
+	// The `PricingRuleArns` that are associated with the Pricing Plan.
 	PricingRuleArns *[]*string `field:"optional" json:"pricingRuleArns" yaml:"pricingRuleArns"`
 	// `AWS::BillingConductor::PricingPlan.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::BillingConductor::PricingRule`.
+//
+// Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -2676,23 +2357,24 @@ type CfnPricingPlanProps struct {
 type CfnPricingRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) used to uniquely identify a pricing rule.
 	AttrArn() *string
+	// The pricing plans count that this pricing rule is associated with.
 	AttrAssociatedPricingPlanCount() *float64
+	// The time the pricing rule was created.
 	AttrCreationTime() *float64
+	// The most recent time the pricing rule was modified.
 	AttrLastModifiedTime() *float64
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::BillingConductor::PricingRule.Description`.
+	// The pricing rule description.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -2704,53 +2386,46 @@ type CfnPricingRule interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// `AWS::BillingConductor::PricingRule.ModifierPercentage`.
+	// A percentage modifier applied on the public pricing rates.
 	ModifierPercentage() *float64
 	SetModifierPercentage(val *float64)
-	// `AWS::BillingConductor::PricingRule.Name`.
+	// The name of a pricing rule.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
-	// `AWS::BillingConductor::PricingRule.Scope`.
+	// The scope of pricing rule that indicates if it is globally applicable, or if it is service-specific.
 	Scope() *string
 	SetScope(val *string)
-	// `AWS::BillingConductor::PricingRule.Service`.
+	// If the `Scope` attribute is `SERVICE` , this attribute indicates which service the `PricingRule` is applicable for.
 	Service() *string
 	SetService(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// `AWS::BillingConductor::PricingRule.Tags`.
 	Tags() awscdk.TagManager
-	// `AWS::BillingConductor::PricingRule.Type`.
+	// The type of pricing rule.
 	Type() *string
 	SetType(val *string)
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2759,7 +2434,6 @@ type CfnPricingRule interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2804,15 +2478,12 @@ type CfnPricingRule interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2823,13 +2494,11 @@ type CfnPricingRule interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2838,74 +2507,21 @@ type CfnPricingRule interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3035,8 +2651,8 @@ func (j *jsiiProxy_CfnPricingRule) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPricingRule) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnPricingRule) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3117,13 +2733,13 @@ func (j *jsiiProxy_CfnPricingRule) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::BillingConductor::PricingRule`.
-func NewCfnPricingRule(scope awscdk.Construct, id *string, props *CfnPricingRuleProps) CfnPricingRule {
+func NewCfnPricingRule(scope constructs.Construct, id *string, props *CfnPricingRuleProps) CfnPricingRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPricingRule{}
 
 	_jsii_.Create(
-		"monocdk.aws_billingconductor.CfnPricingRule",
+		"aws-cdk-lib.aws_billingconductor.CfnPricingRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3132,11 +2748,11 @@ func NewCfnPricingRule(scope awscdk.Construct, id *string, props *CfnPricingRule
 }
 
 // Create a new `AWS::BillingConductor::PricingRule`.
-func NewCfnPricingRule_Override(c CfnPricingRule, scope awscdk.Construct, id *string, props *CfnPricingRuleProps) {
+func NewCfnPricingRule_Override(c CfnPricingRule, scope constructs.Construct, id *string, props *CfnPricingRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_billingconductor.CfnPricingRule",
+		"aws-cdk-lib.aws_billingconductor.CfnPricingRule",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3196,14 +2812,13 @@ func (j *jsiiProxy_CfnPricingRule) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnPricingRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_billingconductor.CfnPricingRule",
+		"aws-cdk-lib.aws_billingconductor.CfnPricingRule",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3213,14 +2828,13 @@ func CfnPricingRule_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnPricingRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_billingconductor.CfnPricingRule",
+		"aws-cdk-lib.aws_billingconductor.CfnPricingRule",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3229,15 +2843,17 @@ func CfnPricingRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
 func CfnPricingRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_billingconductor.CfnPricingRule",
+		"aws-cdk-lib.aws_billingconductor.CfnPricingRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3250,7 +2866,7 @@ func CfnPricingRule_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_billingconductor.CfnPricingRule",
+		"aws-cdk-lib.aws_billingconductor.CfnPricingRule",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3347,48 +2963,11 @@ func (c *jsiiProxy_CfnPricingRule) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnPricingRule) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnPricingRule) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnPricingRule) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnPricingRule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnPricingRule) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3418,33 +2997,12 @@ func (c *jsiiProxy_CfnPricingRule) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnPricingRule) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnPricingRule) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnPricingRule) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3485,17 +3043,17 @@ func (c *jsiiProxy_CfnPricingRule) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnPricingRuleProps struct {
-	// `AWS::BillingConductor::PricingRule.ModifierPercentage`.
+	// A percentage modifier applied on the public pricing rates.
 	ModifierPercentage *float64 `field:"required" json:"modifierPercentage" yaml:"modifierPercentage"`
-	// `AWS::BillingConductor::PricingRule.Name`.
+	// The name of a pricing rule.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::BillingConductor::PricingRule.Scope`.
+	// The scope of pricing rule that indicates if it is globally applicable, or if it is service-specific.
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
-	// `AWS::BillingConductor::PricingRule.Type`.
+	// The type of pricing rule.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `AWS::BillingConductor::PricingRule.Description`.
+	// The pricing rule description.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::BillingConductor::PricingRule.Service`.
+	// If the `Scope` attribute is `SERVICE` , this attribute indicates which service the `PricingRule` is applicable for.
 	Service *string `field:"optional" json:"service" yaml:"service"`
 	// `AWS::BillingConductor::PricingRule.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

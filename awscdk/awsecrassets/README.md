@@ -121,7 +121,7 @@ Here an example from the [cdklabs/cdk-ecr-deployment](https://github.com/cdklabs
 ```text
 // This example available in TypeScript only
 
-import { DockerImageAsset } from 'monocdk/aws-ecr-assets';
+import { DockerImageAsset } from 'aws-cdk-lib/aws-ecr-assets';
 import * as ecrdeploy from 'cdk-ecr-deployment';
 
 const image = new DockerImageAsset(this, 'CDKDockerImage', {

@@ -130,7 +130,10 @@ autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &a
 	desiredCapacity: jsii.Number(3),
 })
 
-cluster.addAutoScalingGroup(autoScalingGroup)
+capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
+	autoScalingGroup: autoScalingGroup,
+})
+cluster.addAsgCapacityProvider(capacityProvider)
 ```
 
 If you omit the property `vpc`, the construct will create a new VPC with two AZs.
