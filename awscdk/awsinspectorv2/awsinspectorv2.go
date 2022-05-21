@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::InspectorV2::Filter`.
 //
+// Details about a filter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -240,6 +242,7 @@ import (
 type CfnFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Number (ARN) associated with this filter.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -253,13 +256,13 @@ type CfnFilter interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::InspectorV2::Filter.Description`.
+	// A description of the filter.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::InspectorV2::Filter.FilterAction`.
+	// The action that is to be applied to the findings that match the filter.
 	FilterAction() *string
 	SetFilterAction(val *string)
-	// `AWS::InspectorV2::Filter.FilterCriteria`.
+	// Details on the filter criteria associated with this filter.
 	FilterCriteria() interface{}
 	SetFilterCriteria(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -273,7 +276,7 @@ type CfnFilter interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::InspectorV2::Filter.Name`.
+	// The name of the filter.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
@@ -937,6 +940,8 @@ func (c *jsiiProxy_CfnFilter) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Contains details on the time range used to filter findings.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -948,12 +953,14 @@ func (c *jsiiProxy_CfnFilter) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnFilter_DateFilterProperty struct {
-	// `CfnFilter.DateFilterProperty.EndInclusive`.
+	// A timestamp representing the end of the time period filtered on.
 	EndInclusive *float64 `field:"optional" json:"endInclusive" yaml:"endInclusive"`
-	// `CfnFilter.DateFilterProperty.StartInclusive`.
+	// A timestamp representing the start of the time period filtered on.
 	StartInclusive *float64 `field:"optional" json:"startInclusive" yaml:"startInclusive"`
 }
 
+// Details on the criteria used to define the filter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1174,70 +1181,72 @@ type CfnFilter_DateFilterProperty struct {
 //   }
 //
 type CfnFilter_FilterCriteriaProperty struct {
-	// `CfnFilter.FilterCriteriaProperty.AwsAccountId`.
+	// Details of the AWS account IDs used to filter findings.
 	AwsAccountId interface{} `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
-	// `CfnFilter.FilterCriteriaProperty.ComponentId`.
+	// Details of the component IDs used to filter findings.
 	ComponentId interface{} `field:"optional" json:"componentId" yaml:"componentId"`
-	// `CfnFilter.FilterCriteriaProperty.ComponentType`.
+	// Details of the component types used to filter findings.
 	ComponentType interface{} `field:"optional" json:"componentType" yaml:"componentType"`
-	// `CfnFilter.FilterCriteriaProperty.Ec2InstanceImageId`.
+	// Details of the Amazon EC2 instance image IDs used to filter findings.
 	Ec2InstanceImageId interface{} `field:"optional" json:"ec2InstanceImageId" yaml:"ec2InstanceImageId"`
-	// `CfnFilter.FilterCriteriaProperty.Ec2InstanceSubnetId`.
+	// Details of the Amazon EC2 instance subnet IDs used to filter findings.
 	Ec2InstanceSubnetId interface{} `field:"optional" json:"ec2InstanceSubnetId" yaml:"ec2InstanceSubnetId"`
-	// `CfnFilter.FilterCriteriaProperty.Ec2InstanceVpcId`.
+	// Details of the Amazon EC2 instance VPC IDs used to filter findings.
 	Ec2InstanceVpcId interface{} `field:"optional" json:"ec2InstanceVpcId" yaml:"ec2InstanceVpcId"`
-	// `CfnFilter.FilterCriteriaProperty.EcrImageArchitecture`.
+	// Details of the Amazon ECR image architecture types used to filter findings.
 	EcrImageArchitecture interface{} `field:"optional" json:"ecrImageArchitecture" yaml:"ecrImageArchitecture"`
-	// `CfnFilter.FilterCriteriaProperty.EcrImageHash`.
+	// Details of the Amazon ECR image hashes used to filter findings.
 	EcrImageHash interface{} `field:"optional" json:"ecrImageHash" yaml:"ecrImageHash"`
-	// `CfnFilter.FilterCriteriaProperty.EcrImagePushedAt`.
+	// Details on the Amazon ECR image push date and time used to filter findings.
 	EcrImagePushedAt interface{} `field:"optional" json:"ecrImagePushedAt" yaml:"ecrImagePushedAt"`
-	// `CfnFilter.FilterCriteriaProperty.EcrImageRegistry`.
+	// Details on the Amazon ECR registry used to filter findings.
 	EcrImageRegistry interface{} `field:"optional" json:"ecrImageRegistry" yaml:"ecrImageRegistry"`
-	// `CfnFilter.FilterCriteriaProperty.EcrImageRepositoryName`.
+	// Details on the name of the Amazon ECR repository used to filter findings.
 	EcrImageRepositoryName interface{} `field:"optional" json:"ecrImageRepositoryName" yaml:"ecrImageRepositoryName"`
-	// `CfnFilter.FilterCriteriaProperty.EcrImageTags`.
+	// The tags attached to the Amazon ECR container image.
 	EcrImageTags interface{} `field:"optional" json:"ecrImageTags" yaml:"ecrImageTags"`
-	// `CfnFilter.FilterCriteriaProperty.FindingArn`.
+	// Details on the finding ARNs used to filter findings.
 	FindingArn interface{} `field:"optional" json:"findingArn" yaml:"findingArn"`
-	// `CfnFilter.FilterCriteriaProperty.FindingStatus`.
+	// Details on the finding status types used to filter findings.
 	FindingStatus interface{} `field:"optional" json:"findingStatus" yaml:"findingStatus"`
-	// `CfnFilter.FilterCriteriaProperty.FindingType`.
+	// Details on the finding types used to filter findings.
 	FindingType interface{} `field:"optional" json:"findingType" yaml:"findingType"`
-	// `CfnFilter.FilterCriteriaProperty.FirstObservedAt`.
+	// Details on the date and time a finding was first seen used to filter findings.
 	FirstObservedAt interface{} `field:"optional" json:"firstObservedAt" yaml:"firstObservedAt"`
-	// `CfnFilter.FilterCriteriaProperty.InspectorScore`.
+	// The Amazon Inspector score to filter on.
 	InspectorScore interface{} `field:"optional" json:"inspectorScore" yaml:"inspectorScore"`
-	// `CfnFilter.FilterCriteriaProperty.LastObservedAt`.
+	// Details on the date and time a finding was last seen used to filter findings.
 	LastObservedAt interface{} `field:"optional" json:"lastObservedAt" yaml:"lastObservedAt"`
-	// `CfnFilter.FilterCriteriaProperty.NetworkProtocol`.
+	// Details on the ingress source addresses used to filter findings.
 	NetworkProtocol interface{} `field:"optional" json:"networkProtocol" yaml:"networkProtocol"`
-	// `CfnFilter.FilterCriteriaProperty.PortRange`.
+	// Details on the port ranges used to filter findings.
 	PortRange interface{} `field:"optional" json:"portRange" yaml:"portRange"`
-	// `CfnFilter.FilterCriteriaProperty.RelatedVulnerabilities`.
+	// Details on the related vulnerabilities used to filter findings.
 	RelatedVulnerabilities interface{} `field:"optional" json:"relatedVulnerabilities" yaml:"relatedVulnerabilities"`
-	// `CfnFilter.FilterCriteriaProperty.ResourceId`.
+	// Details on the resource IDs used to filter findings.
 	ResourceId interface{} `field:"optional" json:"resourceId" yaml:"resourceId"`
-	// `CfnFilter.FilterCriteriaProperty.ResourceTags`.
+	// Details on the resource tags used to filter findings.
 	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
-	// `CfnFilter.FilterCriteriaProperty.ResourceType`.
+	// Details on the resource types used to filter findings.
 	ResourceType interface{} `field:"optional" json:"resourceType" yaml:"resourceType"`
-	// `CfnFilter.FilterCriteriaProperty.Severity`.
+	// Details on the severity used to filter findings.
 	Severity interface{} `field:"optional" json:"severity" yaml:"severity"`
-	// `CfnFilter.FilterCriteriaProperty.Title`.
+	// Details on the finding title used to filter findings.
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
-	// `CfnFilter.FilterCriteriaProperty.UpdatedAt`.
+	// Details on the date and time a finding was last updated at used to filter findings.
 	UpdatedAt interface{} `field:"optional" json:"updatedAt" yaml:"updatedAt"`
-	// `CfnFilter.FilterCriteriaProperty.VendorSeverity`.
+	// Details on the vendor severity used to filter findings.
 	VendorSeverity interface{} `field:"optional" json:"vendorSeverity" yaml:"vendorSeverity"`
-	// `CfnFilter.FilterCriteriaProperty.VulnerabilityId`.
+	// Details on the vulnerability ID used to filter findings.
 	VulnerabilityId interface{} `field:"optional" json:"vulnerabilityId" yaml:"vulnerabilityId"`
-	// `CfnFilter.FilterCriteriaProperty.VulnerabilitySource`.
+	// Details on the vulnerability score to filter findings by.
 	VulnerabilitySource interface{} `field:"optional" json:"vulnerabilitySource" yaml:"vulnerabilitySource"`
-	// `CfnFilter.FilterCriteriaProperty.VulnerablePackages`.
+	// Details on the vulnerable packages used to filter findings.
 	VulnerablePackages interface{} `field:"optional" json:"vulnerablePackages" yaml:"vulnerablePackages"`
 }
 
+// An object that describes details of a map filter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1252,14 +1261,16 @@ type CfnFilter_FilterCriteriaProperty struct {
 //   }
 //
 type CfnFilter_MapFilterProperty struct {
-	// `CfnFilter.MapFilterProperty.Comparison`.
+	// The operator to use when comparing values in the filter.
 	Comparison *string `field:"required" json:"comparison" yaml:"comparison"`
-	// `CfnFilter.MapFilterProperty.Key`.
+	// The tag key used in the filter.
 	Key *string `field:"optional" json:"key" yaml:"key"`
-	// `CfnFilter.MapFilterProperty.Value`.
+	// The tag value used in the filter.
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
+// An object that describes the details of a number filter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1271,12 +1282,14 @@ type CfnFilter_MapFilterProperty struct {
 //   }
 //
 type CfnFilter_NumberFilterProperty struct {
-	// `CfnFilter.NumberFilterProperty.LowerInclusive`.
+	// The lowest number to be included in the filter.
 	LowerInclusive *float64 `field:"optional" json:"lowerInclusive" yaml:"lowerInclusive"`
-	// `CfnFilter.NumberFilterProperty.UpperInclusive`.
+	// The highest number to be included in the filter.
 	UpperInclusive *float64 `field:"optional" json:"upperInclusive" yaml:"upperInclusive"`
 }
 
+// Contains information on the details of a package filter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1310,20 +1323,22 @@ type CfnFilter_NumberFilterProperty struct {
 //   }
 //
 type CfnFilter_PackageFilterProperty struct {
-	// `CfnFilter.PackageFilterProperty.Architecture`.
+	// An object that contains details on the package architecture type to filter on.
 	Architecture interface{} `field:"optional" json:"architecture" yaml:"architecture"`
-	// `CfnFilter.PackageFilterProperty.Epoch`.
+	// An object that contains details on the package epoch to filter on.
 	Epoch interface{} `field:"optional" json:"epoch" yaml:"epoch"`
-	// `CfnFilter.PackageFilterProperty.Name`.
+	// An object that contains details on the name of the package to filter on.
 	Name interface{} `field:"optional" json:"name" yaml:"name"`
-	// `CfnFilter.PackageFilterProperty.Release`.
+	// An object that contains details on the package release to filter on.
 	Release interface{} `field:"optional" json:"release" yaml:"release"`
-	// `CfnFilter.PackageFilterProperty.SourceLayerHash`.
+	// An object that contains details on the source layer hash to filter on.
 	SourceLayerHash interface{} `field:"optional" json:"sourceLayerHash" yaml:"sourceLayerHash"`
-	// `CfnFilter.PackageFilterProperty.Version`.
+	// The package version to filter on.
 	Version interface{} `field:"optional" json:"version" yaml:"version"`
 }
 
+// An object that describes the details of a port range filter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1335,12 +1350,14 @@ type CfnFilter_PackageFilterProperty struct {
 //   }
 //
 type CfnFilter_PortRangeFilterProperty struct {
-	// `CfnFilter.PortRangeFilterProperty.BeginInclusive`.
+	// The port number the port range begins at.
 	BeginInclusive *float64 `field:"optional" json:"beginInclusive" yaml:"beginInclusive"`
-	// `CfnFilter.PortRangeFilterProperty.EndInclusive`.
+	// The port number the port range ends at.
 	EndInclusive *float64 `field:"optional" json:"endInclusive" yaml:"endInclusive"`
 }
 
+// An object that describes the details of a string filter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1352,9 +1369,9 @@ type CfnFilter_PortRangeFilterProperty struct {
 //   }
 //
 type CfnFilter_StringFilterProperty struct {
-	// `CfnFilter.StringFilterProperty.Comparison`.
+	// The operator to use when comparing values in the filter.
 	Comparison *string `field:"required" json:"comparison" yaml:"comparison"`
-	// `CfnFilter.StringFilterProperty.Value`.
+	// The value to filter on.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
@@ -1587,13 +1604,13 @@ type CfnFilter_StringFilterProperty struct {
 //   }
 //
 type CfnFilterProps struct {
-	// `AWS::InspectorV2::Filter.FilterAction`.
+	// The action that is to be applied to the findings that match the filter.
 	FilterAction *string `field:"required" json:"filterAction" yaml:"filterAction"`
-	// `AWS::InspectorV2::Filter.FilterCriteria`.
+	// Details on the filter criteria associated with this filter.
 	FilterCriteria interface{} `field:"required" json:"filterCriteria" yaml:"filterCriteria"`
-	// `AWS::InspectorV2::Filter.Name`.
+	// The name of the filter.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::InspectorV2::Filter.Description`.
+	// A description of the filter.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

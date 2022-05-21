@@ -11344,6 +11344,9 @@ type Metric interface {
 	// Unit of the metric.
 	// Experimental.
 	Unit() Unit
+	// Warnings attached to this metric.
+	// Experimental.
+	Warnings() *[]*string
 	// Attach the metric object to the given construct scope.
 	//
 	// Returns a Metric object that uses the account and region from the Stack
@@ -11481,6 +11484,16 @@ func (j *jsiiProxy_Metric) Unit() Unit {
 	_jsii_.Get(
 		j,
 		"unit",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Metric) Warnings() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"warnings",
 		&returns,
 	)
 	return returns
@@ -13006,7 +13019,7 @@ const (
 	// Count/second.
 	// Experimental.
 	Unit_COUNT_PER_SECOND Unit = "COUNT_PER_SECOND"
-	// No unit.
+	// None.
 	// Experimental.
 	Unit_NONE Unit = "NONE"
 )

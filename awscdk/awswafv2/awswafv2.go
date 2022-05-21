@@ -2580,7 +2580,6 @@ type CfnRegexPatternSetProps struct {
 //   var allow interface{}
 //   var allQueryArguments interface{}
 //   var block interface{}
-//   var body interface{}
 //   var captcha interface{}
 //   var count interface{}
 //   var method interface{}
@@ -2621,7 +2620,35 @@ type CfnRegexPatternSetProps struct {
 //   				byteMatchStatement: &byteMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -2633,6 +2660,7 @@ type CfnRegexPatternSetProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -2697,7 +2725,35 @@ type CfnRegexPatternSetProps struct {
 //   				regexMatchStatement: &regexMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -2709,6 +2765,7 @@ type CfnRegexPatternSetProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -2728,7 +2785,35 @@ type CfnRegexPatternSetProps struct {
 //   					arn: jsii.String("arn"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -2740,6 +2825,7 @@ type CfnRegexPatternSetProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -2758,7 +2844,35 @@ type CfnRegexPatternSetProps struct {
 //   					comparisonOperator: jsii.String("comparisonOperator"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -2770,6 +2884,7 @@ type CfnRegexPatternSetProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -2788,7 +2903,35 @@ type CfnRegexPatternSetProps struct {
 //   				sqliMatchStatement: &sqliMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -2800,6 +2943,7 @@ type CfnRegexPatternSetProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -2817,7 +2961,35 @@ type CfnRegexPatternSetProps struct {
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -2829,6 +3001,7 @@ type CfnRegexPatternSetProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -3744,7 +3917,6 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -3763,7 +3935,35 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //   			byteMatchStatement: &byteMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -3775,6 +3975,7 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -3839,7 +4040,35 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //   			regexMatchStatement: &regexMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -3851,6 +4080,7 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -3870,7 +4100,35 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //   				arn: jsii.String("arn"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -3882,6 +4140,7 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -3900,7 +4159,35 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //   				comparisonOperator: jsii.String("comparisonOperator"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -3912,6 +4199,7 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -3930,7 +4218,35 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //   			sqliMatchStatement: &sqliMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -3942,6 +4258,7 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -3959,7 +4276,35 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -3971,6 +4316,7 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -3996,6 +4342,36 @@ type CfnRuleGroup_AndStatementProperty struct {
 	Statements interface{} `field:"required" json:"statements" yaml:"statements"`
 }
 
+// Inspect the body of the web request. The body immediately follows the request headers.
+//
+// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   bodyProperty := &bodyProperty{
+//   	oversizeHandling: jsii.String("oversizeHandling"),
+//   }
+//
+type CfnRuleGroup_BodyProperty struct {
+	// What AWS WAF should do if the body is larger than AWS WAF can inspect.
+	//
+	// AWS WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to AWS WAF by the underlying host service.
+	//
+	// The options for oversize handling are the following:
+	//
+	// - `CONTINUE` - Inspect the body normally, according to the rule inspection criteria.
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	//
+	// You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over 8 KB.
+	//
+	// Default: `CONTINUE`.
+	OversizeHandling *string `field:"optional" json:"oversizeHandling" yaml:"oversizeHandling"`
+}
+
 // A rule statement that defines a string match search for AWS WAF to apply to web requests.
 //
 // The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
@@ -4007,7 +4383,6 @@ type CfnRuleGroup_AndStatementProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -4017,7 +4392,35 @@ type CfnRuleGroup_AndStatementProperty struct {
 //   byteMatchStatementProperty := &byteMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
-//   		body: body,
+//   		body: &bodyProperty{
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		cookies: &cookiesProperty{
+//   			matchPattern: &cookieMatchPatternProperty{
+//   				all: all,
+//   				excludedCookies: []*string{
+//   					jsii.String("excludedCookies"),
+//   				},
+//   				includedCookies: []*string{
+//   					jsii.String("includedCookies"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		headers: &headersProperty{
+//   			matchPattern: &headerMatchPatternProperty{
+//   				all: all,
+//   				excludedHeaders: []*string{
+//   					jsii.String("excludedHeaders"),
+//   				},
+//   				includedHeaders: []*string{
+//   					jsii.String("includedHeaders"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		jsonBody: &jsonBodyProperty{
 //   			matchPattern: &jsonMatchPatternProperty{
 //   				all: all,
@@ -4029,6 +4432,7 @@ type CfnRuleGroup_AndStatementProperty struct {
 //
 //   			// the properties below are optional
 //   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
 //   		},
 //   		method: method,
 //   		queryString: queryString,
@@ -4121,6 +4525,90 @@ type CfnRuleGroup_CaptchaConfigProperty struct {
 	ImmunityTimeProperty interface{} `field:"optional" json:"immunityTimeProperty" yaml:"immunityTimeProperty"`
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request.
+//
+// You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
+//
+// Example JSON: `"MatchPattern": { "IncludedCookies": {"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"} }`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var all interface{}
+//
+//   cookieMatchPatternProperty := &cookieMatchPatternProperty{
+//   	all: all,
+//   	excludedCookies: []*string{
+//   		jsii.String("excludedCookies"),
+//   	},
+//   	includedCookies: []*string{
+//   		jsii.String("includedCookies"),
+//   	},
+//   }
+//
+type CfnRuleGroup_CookieMatchPatternProperty struct {
+	// Inspect all cookies.
+	All interface{} `field:"optional" json:"all" yaml:"all"`
+	// Inspect only the cookies whose keys don't match any of the strings specified here.
+	ExcludedCookies *[]*string `field:"optional" json:"excludedCookies" yaml:"excludedCookies"`
+	// Inspect only the cookies that have a key that matches one of the strings specified here.
+	IncludedCookies *[]*string `field:"optional" json:"includedCookies" yaml:"includedCookies"`
+}
+
+// Inspect the cookies in the web request.
+//
+// You can specify the parts of the cookies to inspect and you can narrow the set of cookies to inspect by including or excluding specific keys.
+//
+// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+//
+// Example JSON: `"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var all interface{}
+//
+//   cookiesProperty := &cookiesProperty{
+//   	matchPattern: &cookieMatchPatternProperty{
+//   		all: all,
+//   		excludedCookies: []*string{
+//   			jsii.String("excludedCookies"),
+//   		},
+//   		includedCookies: []*string{
+//   			jsii.String("includedCookies"),
+//   		},
+//   	},
+//   	matchScope: jsii.String("matchScope"),
+//   	oversizeHandling: jsii.String("oversizeHandling"),
+//   }
+//
+type CfnRuleGroup_CookiesProperty struct {
+	// The filter to use to identify the subset of cookies to inspect in a web request.
+	//
+	// You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
+	//
+	// Example JSON: `"MatchPattern": { "IncludedCookies": {"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"} }`.
+	MatchPattern interface{} `field:"required" json:"matchPattern" yaml:"matchPattern"`
+	// The parts of the cookies to inspect with the rule inspection criteria.
+	//
+	// If you specify `All` , AWS WAF inspects both keys and values.
+	MatchScope *string `field:"required" json:"matchScope" yaml:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect.
+	//
+	// AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF .
+	//
+	// The options for oversize handling are the following:
+	//
+	// - `CONTINUE` - Inspect the cookies normally, according to the rule inspection criteria.
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	OversizeHandling *string `field:"required" json:"oversizeHandling" yaml:"oversizeHandling"`
+}
+
 // The response body to use in a custom response to a web request.
 //
 // This is referenced by key from `CustomResponse` `CustomResponseBodyKey` .
@@ -4165,7 +4653,6 @@ type CfnRuleGroup_CustomResponseBodyProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -4174,7 +4661,35 @@ type CfnRuleGroup_CustomResponseBodyProperty struct {
 //
 //   fieldToMatchProperty := &fieldToMatchProperty{
 //   	allQueryArguments: allQueryArguments,
-//   	body: body,
+//   	body: &bodyProperty{
+//   		oversizeHandling: jsii.String("oversizeHandling"),
+//   	},
+//   	cookies: &cookiesProperty{
+//   		matchPattern: &cookieMatchPatternProperty{
+//   			all: all,
+//   			excludedCookies: []*string{
+//   				jsii.String("excludedCookies"),
+//   			},
+//   			includedCookies: []*string{
+//   				jsii.String("includedCookies"),
+//   			},
+//   		},
+//   		matchScope: jsii.String("matchScope"),
+//   		oversizeHandling: jsii.String("oversizeHandling"),
+//   	},
+//   	headers: &headersProperty{
+//   		matchPattern: &headerMatchPatternProperty{
+//   			all: all,
+//   			excludedHeaders: []*string{
+//   				jsii.String("excludedHeaders"),
+//   			},
+//   			includedHeaders: []*string{
+//   				jsii.String("includedHeaders"),
+//   			},
+//   		},
+//   		matchScope: jsii.String("matchScope"),
+//   		oversizeHandling: jsii.String("oversizeHandling"),
+//   	},
 //   	jsonBody: &jsonBodyProperty{
 //   		matchPattern: &jsonMatchPatternProperty{
 //   			all: all,
@@ -4186,6 +4701,7 @@ type CfnRuleGroup_CustomResponseBodyProperty struct {
 //
 //   		// the properties below are optional
 //   		invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		oversizeHandling: jsii.String("oversizeHandling"),
 //   	},
 //   	method: method,
 //   	queryString: queryString,
@@ -4203,6 +4719,18 @@ type CfnRuleGroup_FieldToMatchProperty struct {
 	//
 	// Only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. For information about how to handle oversized request bodies, see the `Body` object configuration.
 	Body interface{} `field:"optional" json:"body" yaml:"body"`
+	// Inspect the request cookies.
+	//
+	// You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
+	//
+	// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
+	Cookies interface{} `field:"optional" json:"cookies" yaml:"cookies"`
+	// Inspect the request headers.
+	//
+	// You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
+	//
+	// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
+	Headers interface{} `field:"optional" json:"headers" yaml:"headers"`
 	// Inspect the request body as JSON.
 	//
 	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
@@ -4301,6 +4829,92 @@ type CfnRuleGroup_GeoMatchStatementProperty struct {
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 	ForwardedIpConfig interface{} `field:"optional" json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
+}
+
+// The filter to use to identify the subset of headers to inspect in a web request.
+//
+// You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
+//
+// Example JSON: `"MatchPattern": { "ExcludedHeaders": {"KeyToExclude1", "KeyToExclude2"} }`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var all interface{}
+//
+//   headerMatchPatternProperty := &headerMatchPatternProperty{
+//   	all: all,
+//   	excludedHeaders: []*string{
+//   		jsii.String("excludedHeaders"),
+//   	},
+//   	includedHeaders: []*string{
+//   		jsii.String("includedHeaders"),
+//   	},
+//   }
+//
+type CfnRuleGroup_HeaderMatchPatternProperty struct {
+	// Inspect all headers.
+	All interface{} `field:"optional" json:"all" yaml:"all"`
+	// Inspect only the headers whose keys don't match any of the strings specified here.
+	ExcludedHeaders *[]*string `field:"optional" json:"excludedHeaders" yaml:"excludedHeaders"`
+	// Inspect only the headers that have a key that matches one of the strings specified here.
+	IncludedHeaders *[]*string `field:"optional" json:"includedHeaders" yaml:"includedHeaders"`
+}
+
+// Inspect all headers in the web request.
+//
+// You can specify the parts of the headers to inspect and you can narrow the set of headers to inspect by including or excluding specific keys.
+//
+// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+//
+// If you want to inspect just the value of a single header, use the `SingleHeader` `FieldToMatch` setting instead.
+//
+// Example JSON: `"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var all interface{}
+//
+//   headersProperty := &headersProperty{
+//   	matchPattern: &headerMatchPatternProperty{
+//   		all: all,
+//   		excludedHeaders: []*string{
+//   			jsii.String("excludedHeaders"),
+//   		},
+//   		includedHeaders: []*string{
+//   			jsii.String("includedHeaders"),
+//   		},
+//   	},
+//   	matchScope: jsii.String("matchScope"),
+//   	oversizeHandling: jsii.String("oversizeHandling"),
+//   }
+//
+type CfnRuleGroup_HeadersProperty struct {
+	// The filter to use to identify the subset of headers to inspect in a web request.
+	//
+	// You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
+	//
+	// Example JSON: `"MatchPattern": { "ExcludedHeaders": {"KeyToExclude1", "KeyToExclude2"} }`.
+	MatchPattern interface{} `field:"required" json:"matchPattern" yaml:"matchPattern"`
+	// The parts of the headers to match with the rule inspection criteria.
+	//
+	// If you specify `All` , AWS WAF inspects both keys and values.
+	MatchScope *string `field:"required" json:"matchScope" yaml:"matchScope"`
+	// What AWS WAF should do if the headers of the request are larger than AWS WAF can inspect.
+	//
+	// AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
+	//
+	// The options for oversize handling are the following:
+	//
+	// - `CONTINUE` - Inspect the headers normally, according to the rule inspection criteria.
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	OversizeHandling *string `field:"required" json:"oversizeHandling" yaml:"oversizeHandling"`
 }
 
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
@@ -4427,6 +5041,7 @@ type CfnRuleGroup_ImmunityTimePropertyProperty struct {
 //
 //   	// the properties below are optional
 //   	invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   	oversizeHandling: jsii.String("oversizeHandling"),
 //   }
 //
 type CfnRuleGroup_JsonBodyProperty struct {
@@ -4454,6 +5069,20 @@ type CfnRuleGroup_JsonBodyProperty struct {
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
 	// - Extra colons: `{"key1"::"value1","key2""value2"}`.
 	InvalidFallbackBehavior *string `field:"optional" json:"invalidFallbackBehavior" yaml:"invalidFallbackBehavior"`
+	// What AWS WAF should do if the body is larger than AWS WAF can inspect.
+	//
+	// AWS WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to AWS WAF by the underlying host service.
+	//
+	// The options for oversize handling are the following:
+	//
+	// - `CONTINUE` - Inspect the body normally, according to the rule inspection criteria.
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	//
+	// You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over 8 KB.
+	//
+	// Default: `CONTINUE`.
+	OversizeHandling *string `field:"optional" json:"oversizeHandling" yaml:"oversizeHandling"`
 }
 
 // The patterns to look for in the JSON body.
@@ -4565,7 +5194,6 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -4583,7 +5211,35 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //   		byteMatchStatement: &byteMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -4595,6 +5251,7 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -4659,7 +5316,35 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //   		regexMatchStatement: &regexMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -4671,6 +5356,7 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -4690,7 +5376,35 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //   			arn: jsii.String("arn"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -4702,6 +5416,7 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -4720,7 +5435,35 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //   			comparisonOperator: jsii.String("comparisonOperator"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -4732,6 +5475,7 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -4750,7 +5494,35 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //   		sqliMatchStatement: &sqliMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -4762,6 +5534,7 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -4779,7 +5552,35 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -4791,6 +5592,7 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -4826,7 +5628,6 @@ type CfnRuleGroup_NotStatementProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -4845,7 +5646,35 @@ type CfnRuleGroup_NotStatementProperty struct {
 //   			byteMatchStatement: &byteMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -4857,6 +5686,7 @@ type CfnRuleGroup_NotStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -4921,7 +5751,35 @@ type CfnRuleGroup_NotStatementProperty struct {
 //   			regexMatchStatement: &regexMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -4933,6 +5791,7 @@ type CfnRuleGroup_NotStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -4952,7 +5811,35 @@ type CfnRuleGroup_NotStatementProperty struct {
 //   				arn: jsii.String("arn"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -4964,6 +5851,7 @@ type CfnRuleGroup_NotStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -4982,7 +5870,35 @@ type CfnRuleGroup_NotStatementProperty struct {
 //   				comparisonOperator: jsii.String("comparisonOperator"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -4994,6 +5910,7 @@ type CfnRuleGroup_NotStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -5012,7 +5929,35 @@ type CfnRuleGroup_NotStatementProperty struct {
 //   			sqliMatchStatement: &sqliMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -5024,6 +5969,7 @@ type CfnRuleGroup_NotStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -5041,7 +5987,35 @@ type CfnRuleGroup_NotStatementProperty struct {
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -5053,6 +6027,7 @@ type CfnRuleGroup_NotStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -5102,7 +6077,6 @@ type CfnRuleGroup_OrStatementProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -5128,7 +6102,35 @@ type CfnRuleGroup_OrStatementProperty struct {
 //   		byteMatchStatement: &byteMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -5140,6 +6142,7 @@ type CfnRuleGroup_OrStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -5204,7 +6207,35 @@ type CfnRuleGroup_OrStatementProperty struct {
 //   		regexMatchStatement: &regexMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -5216,6 +6247,7 @@ type CfnRuleGroup_OrStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -5235,7 +6267,35 @@ type CfnRuleGroup_OrStatementProperty struct {
 //   			arn: jsii.String("arn"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -5247,6 +6307,7 @@ type CfnRuleGroup_OrStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -5265,7 +6326,35 @@ type CfnRuleGroup_OrStatementProperty struct {
 //   			comparisonOperator: jsii.String("comparisonOperator"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -5277,6 +6366,7 @@ type CfnRuleGroup_OrStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -5295,7 +6385,35 @@ type CfnRuleGroup_OrStatementProperty struct {
 //   		sqliMatchStatement: &sqliMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -5307,6 +6425,7 @@ type CfnRuleGroup_OrStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -5324,7 +6443,35 @@ type CfnRuleGroup_OrStatementProperty struct {
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -5336,6 +6483,7 @@ type CfnRuleGroup_OrStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -5386,7 +6534,6 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -5396,7 +6543,35 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 //   regexMatchStatementProperty := &regexMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
-//   		body: body,
+//   		body: &bodyProperty{
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		cookies: &cookiesProperty{
+//   			matchPattern: &cookieMatchPatternProperty{
+//   				all: all,
+//   				excludedCookies: []*string{
+//   					jsii.String("excludedCookies"),
+//   				},
+//   				includedCookies: []*string{
+//   					jsii.String("includedCookies"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		headers: &headersProperty{
+//   			matchPattern: &headerMatchPatternProperty{
+//   				all: all,
+//   				excludedHeaders: []*string{
+//   					jsii.String("excludedHeaders"),
+//   				},
+//   				includedHeaders: []*string{
+//   					jsii.String("includedHeaders"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		jsonBody: &jsonBodyProperty{
 //   			matchPattern: &jsonMatchPatternProperty{
 //   				all: all,
@@ -5408,6 +6583,7 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 //
 //   			// the properties below are optional
 //   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
 //   		},
 //   		method: method,
 //   		queryString: queryString,
@@ -5448,7 +6624,6 @@ type CfnRuleGroup_RegexMatchStatementProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -5459,7 +6634,35 @@ type CfnRuleGroup_RegexMatchStatementProperty struct {
 //   	arn: jsii.String("arn"),
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
-//   		body: body,
+//   		body: &bodyProperty{
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		cookies: &cookiesProperty{
+//   			matchPattern: &cookieMatchPatternProperty{
+//   				all: all,
+//   				excludedCookies: []*string{
+//   					jsii.String("excludedCookies"),
+//   				},
+//   				includedCookies: []*string{
+//   					jsii.String("includedCookies"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		headers: &headersProperty{
+//   			matchPattern: &headerMatchPatternProperty{
+//   				all: all,
+//   				excludedHeaders: []*string{
+//   					jsii.String("excludedHeaders"),
+//   				},
+//   				includedHeaders: []*string{
+//   					jsii.String("includedHeaders"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		jsonBody: &jsonBodyProperty{
 //   			matchPattern: &jsonMatchPatternProperty{
 //   				all: all,
@@ -5471,6 +6674,7 @@ type CfnRuleGroup_RegexMatchStatementProperty struct {
 //
 //   			// the properties below are optional
 //   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
 //   		},
 //   		method: method,
 //   		queryString: queryString,
@@ -5555,7 +6759,6 @@ type CfnRuleGroup_RuleActionProperty struct {
 //   var allow interface{}
 //   var allQueryArguments interface{}
 //   var block interface{}
-//   var body interface{}
 //   var captcha interface{}
 //   var count interface{}
 //   var method interface{}
@@ -5577,7 +6780,35 @@ type CfnRuleGroup_RuleActionProperty struct {
 //   		byteMatchStatement: &byteMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -5589,6 +6820,7 @@ type CfnRuleGroup_RuleActionProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -5653,7 +6885,35 @@ type CfnRuleGroup_RuleActionProperty struct {
 //   		regexMatchStatement: &regexMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -5665,6 +6925,7 @@ type CfnRuleGroup_RuleActionProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -5684,7 +6945,35 @@ type CfnRuleGroup_RuleActionProperty struct {
 //   			arn: jsii.String("arn"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -5696,6 +6985,7 @@ type CfnRuleGroup_RuleActionProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -5714,7 +7004,35 @@ type CfnRuleGroup_RuleActionProperty struct {
 //   			comparisonOperator: jsii.String("comparisonOperator"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -5726,6 +7044,7 @@ type CfnRuleGroup_RuleActionProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -5744,7 +7063,35 @@ type CfnRuleGroup_RuleActionProperty struct {
 //   		sqliMatchStatement: &sqliMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -5756,6 +7103,7 @@ type CfnRuleGroup_RuleActionProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -5773,7 +7121,35 @@ type CfnRuleGroup_RuleActionProperty struct {
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -5785,6 +7161,7 @@ type CfnRuleGroup_RuleActionProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -5878,7 +7255,6 @@ type CfnRuleGroup_RuleProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -5889,7 +7265,35 @@ type CfnRuleGroup_RuleProperty struct {
 //   	comparisonOperator: jsii.String("comparisonOperator"),
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
-//   		body: body,
+//   		body: &bodyProperty{
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		cookies: &cookiesProperty{
+//   			matchPattern: &cookieMatchPatternProperty{
+//   				all: all,
+//   				excludedCookies: []*string{
+//   					jsii.String("excludedCookies"),
+//   				},
+//   				includedCookies: []*string{
+//   					jsii.String("includedCookies"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		headers: &headersProperty{
+//   			matchPattern: &headerMatchPatternProperty{
+//   				all: all,
+//   				excludedHeaders: []*string{
+//   					jsii.String("excludedHeaders"),
+//   				},
+//   				includedHeaders: []*string{
+//   					jsii.String("includedHeaders"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		jsonBody: &jsonBodyProperty{
 //   			matchPattern: &jsonMatchPatternProperty{
 //   				all: all,
@@ -5901,6 +7305,7 @@ type CfnRuleGroup_RuleProperty struct {
 //
 //   			// the properties below are optional
 //   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
 //   		},
 //   		method: method,
 //   		queryString: queryString,
@@ -5941,7 +7346,6 @@ type CfnRuleGroup_SizeConstraintStatementProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -5951,7 +7355,35 @@ type CfnRuleGroup_SizeConstraintStatementProperty struct {
 //   sqliMatchStatementProperty := &sqliMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
-//   		body: body,
+//   		body: &bodyProperty{
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		cookies: &cookiesProperty{
+//   			matchPattern: &cookieMatchPatternProperty{
+//   				all: all,
+//   				excludedCookies: []*string{
+//   					jsii.String("excludedCookies"),
+//   				},
+//   				includedCookies: []*string{
+//   					jsii.String("includedCookies"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		headers: &headersProperty{
+//   			matchPattern: &headerMatchPatternProperty{
+//   				all: all,
+//   				excludedHeaders: []*string{
+//   					jsii.String("excludedHeaders"),
+//   				},
+//   				includedHeaders: []*string{
+//   					jsii.String("includedHeaders"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		jsonBody: &jsonBodyProperty{
 //   			matchPattern: &jsonMatchPatternProperty{
 //   				all: all,
@@ -5963,6 +7395,7 @@ type CfnRuleGroup_SizeConstraintStatementProperty struct {
 //
 //   			// the properties below are optional
 //   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
 //   		},
 //   		method: method,
 //   		queryString: queryString,
@@ -5997,7 +7430,6 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   var all interface{}
 //   var allQueryArguments interface{}
 //   var andStatementProperty_ andStatementProperty
-//   var body interface{}
 //   var method interface{}
 //   var notStatementProperty_ notStatementProperty
 //   var orStatementProperty_ orStatementProperty
@@ -6016,7 +7448,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				byteMatchStatement: &byteMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -6028,6 +7488,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -6092,7 +7553,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				regexMatchStatement: &regexMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -6104,6 +7593,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -6123,7 +7613,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   					arn: jsii.String("arn"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -6135,6 +7653,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -6153,7 +7672,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   					comparisonOperator: jsii.String("comparisonOperator"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -6165,6 +7712,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -6183,7 +7731,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				sqliMatchStatement: &sqliMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -6195,6 +7771,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -6212,7 +7789,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -6224,6 +7829,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -6244,7 +7850,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   	byteMatchStatement: &byteMatchStatementProperty{
 //   		fieldToMatch: &fieldToMatchProperty{
 //   			allQueryArguments: allQueryArguments,
-//   			body: body,
+//   			body: &bodyProperty{
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			cookies: &cookiesProperty{
+//   				matchPattern: &cookieMatchPatternProperty{
+//   					all: all,
+//   					excludedCookies: []*string{
+//   						jsii.String("excludedCookies"),
+//   					},
+//   					includedCookies: []*string{
+//   						jsii.String("includedCookies"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			headers: &headersProperty{
+//   				matchPattern: &headerMatchPatternProperty{
+//   					all: all,
+//   					excludedHeaders: []*string{
+//   						jsii.String("excludedHeaders"),
+//   					},
+//   					includedHeaders: []*string{
+//   						jsii.String("includedHeaders"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			jsonBody: &jsonBodyProperty{
 //   				matchPattern: &jsonMatchPatternProperty{
 //   					all: all,
@@ -6256,6 +7890,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   				// the properties below are optional
 //   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			method: method,
 //   			queryString: queryString,
@@ -6308,7 +7943,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   			byteMatchStatement: &byteMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -6320,6 +7983,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -6382,7 +8046,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   			regexMatchStatement: &regexMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -6394,6 +8086,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -6413,7 +8106,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				arn: jsii.String("arn"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -6425,6 +8146,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -6443,7 +8165,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				comparisonOperator: jsii.String("comparisonOperator"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -6455,6 +8205,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -6473,7 +8224,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   			sqliMatchStatement: &sqliMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -6485,6 +8264,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -6502,7 +8282,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -6514,6 +8322,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -6541,7 +8350,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				byteMatchStatement: &byteMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -6553,6 +8390,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -6613,7 +8451,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				regexMatchStatement: &regexMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -6625,6 +8491,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -6644,7 +8511,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   					arn: jsii.String("arn"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -6656,6 +8551,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -6674,7 +8570,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   					comparisonOperator: jsii.String("comparisonOperator"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -6686,6 +8610,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -6704,7 +8629,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				sqliMatchStatement: &sqliMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -6716,6 +8669,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -6733,7 +8687,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -6745,6 +8727,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -6780,7 +8763,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   			byteMatchStatement: &byteMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -6792,6 +8803,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -6846,7 +8858,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   			regexMatchStatement: &regexMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -6858,6 +8898,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -6877,7 +8918,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				arn: jsii.String("arn"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -6889,6 +8958,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -6907,7 +8977,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				comparisonOperator: jsii.String("comparisonOperator"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -6919,6 +9017,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -6937,7 +9036,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   			sqliMatchStatement: &sqliMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -6949,6 +9076,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -6966,7 +9094,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -6978,6 +9134,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -6997,7 +9154,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   	regexMatchStatement: &regexMatchStatementProperty{
 //   		fieldToMatch: &fieldToMatchProperty{
 //   			allQueryArguments: allQueryArguments,
-//   			body: body,
+//   			body: &bodyProperty{
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			cookies: &cookiesProperty{
+//   				matchPattern: &cookieMatchPatternProperty{
+//   					all: all,
+//   					excludedCookies: []*string{
+//   						jsii.String("excludedCookies"),
+//   					},
+//   					includedCookies: []*string{
+//   						jsii.String("includedCookies"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			headers: &headersProperty{
+//   				matchPattern: &headerMatchPatternProperty{
+//   					all: all,
+//   					excludedHeaders: []*string{
+//   						jsii.String("excludedHeaders"),
+//   					},
+//   					includedHeaders: []*string{
+//   						jsii.String("includedHeaders"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			jsonBody: &jsonBodyProperty{
 //   				matchPattern: &jsonMatchPatternProperty{
 //   					all: all,
@@ -7009,6 +9194,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   				// the properties below are optional
 //   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			method: method,
 //   			queryString: queryString,
@@ -7028,7 +9214,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   		arn: jsii.String("arn"),
 //   		fieldToMatch: &fieldToMatchProperty{
 //   			allQueryArguments: allQueryArguments,
-//   			body: body,
+//   			body: &bodyProperty{
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			cookies: &cookiesProperty{
+//   				matchPattern: &cookieMatchPatternProperty{
+//   					all: all,
+//   					excludedCookies: []*string{
+//   						jsii.String("excludedCookies"),
+//   					},
+//   					includedCookies: []*string{
+//   						jsii.String("includedCookies"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			headers: &headersProperty{
+//   				matchPattern: &headerMatchPatternProperty{
+//   					all: all,
+//   					excludedHeaders: []*string{
+//   						jsii.String("excludedHeaders"),
+//   					},
+//   					includedHeaders: []*string{
+//   						jsii.String("includedHeaders"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			jsonBody: &jsonBodyProperty{
 //   				matchPattern: &jsonMatchPatternProperty{
 //   					all: all,
@@ -7040,6 +9254,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   				// the properties below are optional
 //   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			method: method,
 //   			queryString: queryString,
@@ -7058,7 +9273,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   		comparisonOperator: jsii.String("comparisonOperator"),
 //   		fieldToMatch: &fieldToMatchProperty{
 //   			allQueryArguments: allQueryArguments,
-//   			body: body,
+//   			body: &bodyProperty{
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			cookies: &cookiesProperty{
+//   				matchPattern: &cookieMatchPatternProperty{
+//   					all: all,
+//   					excludedCookies: []*string{
+//   						jsii.String("excludedCookies"),
+//   					},
+//   					includedCookies: []*string{
+//   						jsii.String("includedCookies"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			headers: &headersProperty{
+//   				matchPattern: &headerMatchPatternProperty{
+//   					all: all,
+//   					excludedHeaders: []*string{
+//   						jsii.String("excludedHeaders"),
+//   					},
+//   					includedHeaders: []*string{
+//   						jsii.String("includedHeaders"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			jsonBody: &jsonBodyProperty{
 //   				matchPattern: &jsonMatchPatternProperty{
 //   					all: all,
@@ -7070,6 +9313,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   				// the properties below are optional
 //   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			method: method,
 //   			queryString: queryString,
@@ -7088,7 +9332,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   	sqliMatchStatement: &sqliMatchStatementProperty{
 //   		fieldToMatch: &fieldToMatchProperty{
 //   			allQueryArguments: allQueryArguments,
-//   			body: body,
+//   			body: &bodyProperty{
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			cookies: &cookiesProperty{
+//   				matchPattern: &cookieMatchPatternProperty{
+//   					all: all,
+//   					excludedCookies: []*string{
+//   						jsii.String("excludedCookies"),
+//   					},
+//   					includedCookies: []*string{
+//   						jsii.String("includedCookies"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			headers: &headersProperty{
+//   				matchPattern: &headerMatchPatternProperty{
+//   					all: all,
+//   					excludedHeaders: []*string{
+//   						jsii.String("excludedHeaders"),
+//   					},
+//   					includedHeaders: []*string{
+//   						jsii.String("includedHeaders"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			jsonBody: &jsonBodyProperty{
 //   				matchPattern: &jsonMatchPatternProperty{
 //   					all: all,
@@ -7100,6 +9372,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   				// the properties below are optional
 //   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			method: method,
 //   			queryString: queryString,
@@ -7117,7 +9390,35 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   	xssMatchStatement: &xssMatchStatementProperty{
 //   		fieldToMatch: &fieldToMatchProperty{
 //   			allQueryArguments: allQueryArguments,
-//   			body: body,
+//   			body: &bodyProperty{
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			cookies: &cookiesProperty{
+//   				matchPattern: &cookieMatchPatternProperty{
+//   					all: all,
+//   					excludedCookies: []*string{
+//   						jsii.String("excludedCookies"),
+//   					},
+//   					includedCookies: []*string{
+//   						jsii.String("includedCookies"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			headers: &headersProperty{
+//   				matchPattern: &headerMatchPatternProperty{
+//   					all: all,
+//   					excludedHeaders: []*string{
+//   						jsii.String("excludedHeaders"),
+//   					},
+//   					includedHeaders: []*string{
+//   						jsii.String("includedHeaders"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			jsonBody: &jsonBodyProperty{
 //   				matchPattern: &jsonMatchPatternProperty{
 //   					all: all,
@@ -7129,6 +9430,7 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //
 //   				// the properties below are optional
 //   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			method: method,
 //   			queryString: queryString,
@@ -7341,7 +9643,6 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -7351,7 +9652,35 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 //   xssMatchStatementProperty := &xssMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
-//   		body: body,
+//   		body: &bodyProperty{
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		cookies: &cookiesProperty{
+//   			matchPattern: &cookieMatchPatternProperty{
+//   				all: all,
+//   				excludedCookies: []*string{
+//   					jsii.String("excludedCookies"),
+//   				},
+//   				includedCookies: []*string{
+//   					jsii.String("includedCookies"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		headers: &headersProperty{
+//   			matchPattern: &headerMatchPatternProperty{
+//   				all: all,
+//   				excludedHeaders: []*string{
+//   					jsii.String("excludedHeaders"),
+//   				},
+//   				includedHeaders: []*string{
+//   					jsii.String("includedHeaders"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		jsonBody: &jsonBodyProperty{
 //   			matchPattern: &jsonMatchPatternProperty{
 //   				all: all,
@@ -7363,6 +9692,7 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 //
 //   			// the properties below are optional
 //   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
 //   		},
 //   		method: method,
 //   		queryString: queryString,
@@ -7398,7 +9728,6 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //   var allow interface{}
 //   var allQueryArguments interface{}
 //   var block interface{}
-//   var body interface{}
 //   var captcha interface{}
 //   var count interface{}
 //   var method interface{}
@@ -7439,7 +9768,35 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //   				byteMatchStatement: &byteMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -7451,6 +9808,7 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -7515,7 +9873,35 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //   				regexMatchStatement: &regexMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -7527,6 +9913,7 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -7546,7 +9933,35 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //   					arn: jsii.String("arn"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -7558,6 +9973,7 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -7576,7 +9992,35 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //   					comparisonOperator: jsii.String("comparisonOperator"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -7588,6 +10032,7 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -7606,7 +10051,35 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //   				sqliMatchStatement: &sqliMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -7618,6 +10091,7 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -7635,7 +10109,35 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -7647,6 +10149,7 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -7749,7 +10252,6 @@ type CfnRuleGroupProps struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var count interface{}
 //   var method interface{}
 //   var none interface{}
@@ -7820,7 +10322,35 @@ type CfnRuleGroupProps struct {
 //   				byteMatchStatement: &byteMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -7832,6 +10362,7 @@ type CfnRuleGroupProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -7921,7 +10452,35 @@ type CfnRuleGroupProps struct {
 //   				regexMatchStatement: &regexMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -7933,6 +10492,7 @@ type CfnRuleGroupProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -7952,7 +10512,35 @@ type CfnRuleGroupProps struct {
 //   					arn: jsii.String("arn"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -7964,6 +10552,7 @@ type CfnRuleGroupProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -7992,7 +10581,35 @@ type CfnRuleGroupProps struct {
 //   					comparisonOperator: jsii.String("comparisonOperator"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -8004,6 +10621,7 @@ type CfnRuleGroupProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -8022,7 +10640,35 @@ type CfnRuleGroupProps struct {
 //   				sqliMatchStatement: &sqliMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -8034,6 +10680,7 @@ type CfnRuleGroupProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -8051,7 +10698,35 @@ type CfnRuleGroupProps struct {
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -8063,6 +10738,7 @@ type CfnRuleGroupProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -9056,7 +11732,6 @@ type CfnWebACL_AllowActionProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -9075,7 +11750,35 @@ type CfnWebACL_AllowActionProperty struct {
 //   			byteMatchStatement: &byteMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -9087,6 +11790,7 @@ type CfnWebACL_AllowActionProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -9176,7 +11880,35 @@ type CfnWebACL_AllowActionProperty struct {
 //   			regexMatchStatement: &regexMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -9188,6 +11920,7 @@ type CfnWebACL_AllowActionProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -9207,7 +11940,35 @@ type CfnWebACL_AllowActionProperty struct {
 //   				arn: jsii.String("arn"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -9219,6 +11980,7 @@ type CfnWebACL_AllowActionProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -9247,7 +12009,35 @@ type CfnWebACL_AllowActionProperty struct {
 //   				comparisonOperator: jsii.String("comparisonOperator"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -9259,6 +12049,7 @@ type CfnWebACL_AllowActionProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -9277,7 +12068,35 @@ type CfnWebACL_AllowActionProperty struct {
 //   			sqliMatchStatement: &sqliMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -9289,6 +12108,7 @@ type CfnWebACL_AllowActionProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -9306,7 +12126,35 @@ type CfnWebACL_AllowActionProperty struct {
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -9318,6 +12166,7 @@ type CfnWebACL_AllowActionProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -9374,6 +12223,36 @@ type CfnWebACL_BlockActionProperty struct {
 	CustomResponse interface{} `field:"optional" json:"customResponse" yaml:"customResponse"`
 }
 
+// Inspect the body of the web request. The body immediately follows the request headers.
+//
+// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   bodyProperty := &bodyProperty{
+//   	oversizeHandling: jsii.String("oversizeHandling"),
+//   }
+//
+type CfnWebACL_BodyProperty struct {
+	// What AWS WAF should do if the body is larger than AWS WAF can inspect.
+	//
+	// AWS WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to AWS WAF by the underlying host service.
+	//
+	// The options for oversize handling are the following:
+	//
+	// - `CONTINUE` - Inspect the body normally, according to the rule inspection criteria.
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	//
+	// You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over 8 KB.
+	//
+	// Default: `CONTINUE`.
+	OversizeHandling *string `field:"optional" json:"oversizeHandling" yaml:"oversizeHandling"`
+}
+
 // A rule statement that defines a string match search for AWS WAF to apply to web requests.
 //
 // The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
@@ -9385,7 +12264,6 @@ type CfnWebACL_BlockActionProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -9395,7 +12273,35 @@ type CfnWebACL_BlockActionProperty struct {
 //   byteMatchStatementProperty := &byteMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
-//   		body: body,
+//   		body: &bodyProperty{
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		cookies: &cookiesProperty{
+//   			matchPattern: &cookieMatchPatternProperty{
+//   				all: all,
+//   				excludedCookies: []*string{
+//   					jsii.String("excludedCookies"),
+//   				},
+//   				includedCookies: []*string{
+//   					jsii.String("includedCookies"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		headers: &headersProperty{
+//   			matchPattern: &headerMatchPatternProperty{
+//   				all: all,
+//   				excludedHeaders: []*string{
+//   					jsii.String("excludedHeaders"),
+//   				},
+//   				includedHeaders: []*string{
+//   					jsii.String("includedHeaders"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		jsonBody: &jsonBodyProperty{
 //   			matchPattern: &jsonMatchPatternProperty{
 //   				all: all,
@@ -9407,6 +12313,7 @@ type CfnWebACL_BlockActionProperty struct {
 //
 //   			// the properties below are optional
 //   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
 //   		},
 //   		method: method,
 //   		queryString: queryString,
@@ -9535,6 +12442,90 @@ type CfnWebACL_CaptchaActionProperty struct {
 type CfnWebACL_CaptchaConfigProperty struct {
 	// Determines how long a `CAPTCHA` token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 	ImmunityTimeProperty interface{} `field:"optional" json:"immunityTimeProperty" yaml:"immunityTimeProperty"`
+}
+
+// The filter to use to identify the subset of cookies to inspect in a web request.
+//
+// You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
+//
+// Example JSON: `"MatchPattern": { "IncludedCookies": {"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"} }`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var all interface{}
+//
+//   cookieMatchPatternProperty := &cookieMatchPatternProperty{
+//   	all: all,
+//   	excludedCookies: []*string{
+//   		jsii.String("excludedCookies"),
+//   	},
+//   	includedCookies: []*string{
+//   		jsii.String("includedCookies"),
+//   	},
+//   }
+//
+type CfnWebACL_CookieMatchPatternProperty struct {
+	// Inspect all cookies.
+	All interface{} `field:"optional" json:"all" yaml:"all"`
+	// Inspect only the cookies whose keys don't match any of the strings specified here.
+	ExcludedCookies *[]*string `field:"optional" json:"excludedCookies" yaml:"excludedCookies"`
+	// Inspect only the cookies that have a key that matches one of the strings specified here.
+	IncludedCookies *[]*string `field:"optional" json:"includedCookies" yaml:"includedCookies"`
+}
+
+// Inspect the cookies in the web request.
+//
+// You can specify the parts of the cookies to inspect and you can narrow the set of cookies to inspect by including or excluding specific keys.
+//
+// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+//
+// Example JSON: `"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var all interface{}
+//
+//   cookiesProperty := &cookiesProperty{
+//   	matchPattern: &cookieMatchPatternProperty{
+//   		all: all,
+//   		excludedCookies: []*string{
+//   			jsii.String("excludedCookies"),
+//   		},
+//   		includedCookies: []*string{
+//   			jsii.String("includedCookies"),
+//   		},
+//   	},
+//   	matchScope: jsii.String("matchScope"),
+//   	oversizeHandling: jsii.String("oversizeHandling"),
+//   }
+//
+type CfnWebACL_CookiesProperty struct {
+	// The filter to use to identify the subset of cookies to inspect in a web request.
+	//
+	// You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
+	//
+	// Example JSON: `"MatchPattern": { "IncludedCookies": {"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"} }`.
+	MatchPattern interface{} `field:"required" json:"matchPattern" yaml:"matchPattern"`
+	// The parts of the cookies to inspect with the rule inspection criteria.
+	//
+	// If you specify `All` , AWS WAF inspects both keys and values.
+	MatchScope *string `field:"required" json:"matchScope" yaml:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect.
+	//
+	// AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF .
+	//
+	// The options for oversize handling are the following:
+	//
+	// - `CONTINUE` - Inspect the cookies normally, according to the rule inspection criteria.
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	OversizeHandling *string `field:"required" json:"oversizeHandling" yaml:"oversizeHandling"`
 }
 
 // Specifies that AWS WAF should count the request. Optionally defines additional custom handling for the request.
@@ -9778,7 +12769,6 @@ type CfnWebACL_FieldIdentifierProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -9787,7 +12777,35 @@ type CfnWebACL_FieldIdentifierProperty struct {
 //
 //   fieldToMatchProperty := &fieldToMatchProperty{
 //   	allQueryArguments: allQueryArguments,
-//   	body: body,
+//   	body: &bodyProperty{
+//   		oversizeHandling: jsii.String("oversizeHandling"),
+//   	},
+//   	cookies: &cookiesProperty{
+//   		matchPattern: &cookieMatchPatternProperty{
+//   			all: all,
+//   			excludedCookies: []*string{
+//   				jsii.String("excludedCookies"),
+//   			},
+//   			includedCookies: []*string{
+//   				jsii.String("includedCookies"),
+//   			},
+//   		},
+//   		matchScope: jsii.String("matchScope"),
+//   		oversizeHandling: jsii.String("oversizeHandling"),
+//   	},
+//   	headers: &headersProperty{
+//   		matchPattern: &headerMatchPatternProperty{
+//   			all: all,
+//   			excludedHeaders: []*string{
+//   				jsii.String("excludedHeaders"),
+//   			},
+//   			includedHeaders: []*string{
+//   				jsii.String("includedHeaders"),
+//   			},
+//   		},
+//   		matchScope: jsii.String("matchScope"),
+//   		oversizeHandling: jsii.String("oversizeHandling"),
+//   	},
 //   	jsonBody: &jsonBodyProperty{
 //   		matchPattern: &jsonMatchPatternProperty{
 //   			all: all,
@@ -9799,6 +12817,7 @@ type CfnWebACL_FieldIdentifierProperty struct {
 //
 //   		// the properties below are optional
 //   		invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   		oversizeHandling: jsii.String("oversizeHandling"),
 //   	},
 //   	method: method,
 //   	queryString: queryString,
@@ -9816,6 +12835,18 @@ type CfnWebACL_FieldToMatchProperty struct {
 	//
 	// Only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. For information about how to handle oversized request bodies, see the `Body` object configuration.
 	Body interface{} `field:"optional" json:"body" yaml:"body"`
+	// Inspect the request cookies.
+	//
+	// You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
+	//
+	// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
+	Cookies interface{} `field:"optional" json:"cookies" yaml:"cookies"`
+	// Inspect the request headers.
+	//
+	// You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
+	//
+	// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
+	Headers interface{} `field:"optional" json:"headers" yaml:"headers"`
 	// Inspect the request body as JSON.
 	//
 	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
@@ -9914,6 +12945,92 @@ type CfnWebACL_GeoMatchStatementProperty struct {
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 	ForwardedIpConfig interface{} `field:"optional" json:"forwardedIpConfig" yaml:"forwardedIpConfig"`
+}
+
+// The filter to use to identify the subset of headers to inspect in a web request.
+//
+// You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
+//
+// Example JSON: `"MatchPattern": { "ExcludedHeaders": {"KeyToExclude1", "KeyToExclude2"} }`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var all interface{}
+//
+//   headerMatchPatternProperty := &headerMatchPatternProperty{
+//   	all: all,
+//   	excludedHeaders: []*string{
+//   		jsii.String("excludedHeaders"),
+//   	},
+//   	includedHeaders: []*string{
+//   		jsii.String("includedHeaders"),
+//   	},
+//   }
+//
+type CfnWebACL_HeaderMatchPatternProperty struct {
+	// Inspect all headers.
+	All interface{} `field:"optional" json:"all" yaml:"all"`
+	// Inspect only the headers whose keys don't match any of the strings specified here.
+	ExcludedHeaders *[]*string `field:"optional" json:"excludedHeaders" yaml:"excludedHeaders"`
+	// Inspect only the headers that have a key that matches one of the strings specified here.
+	IncludedHeaders *[]*string `field:"optional" json:"includedHeaders" yaml:"includedHeaders"`
+}
+
+// Inspect all headers in the web request.
+//
+// You can specify the parts of the headers to inspect and you can narrow the set of headers to inspect by including or excluding specific keys.
+//
+// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+//
+// If you want to inspect just the value of a single header, use the `SingleHeader` `FieldToMatch` setting instead.
+//
+// Example JSON: `"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var all interface{}
+//
+//   headersProperty := &headersProperty{
+//   	matchPattern: &headerMatchPatternProperty{
+//   		all: all,
+//   		excludedHeaders: []*string{
+//   			jsii.String("excludedHeaders"),
+//   		},
+//   		includedHeaders: []*string{
+//   			jsii.String("includedHeaders"),
+//   		},
+//   	},
+//   	matchScope: jsii.String("matchScope"),
+//   	oversizeHandling: jsii.String("oversizeHandling"),
+//   }
+//
+type CfnWebACL_HeadersProperty struct {
+	// The filter to use to identify the subset of headers to inspect in a web request.
+	//
+	// You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
+	//
+	// Example JSON: `"MatchPattern": { "ExcludedHeaders": {"KeyToExclude1", "KeyToExclude2"} }`.
+	MatchPattern interface{} `field:"required" json:"matchPattern" yaml:"matchPattern"`
+	// The parts of the headers to match with the rule inspection criteria.
+	//
+	// If you specify `All` , AWS WAF inspects both keys and values.
+	MatchScope *string `field:"required" json:"matchScope" yaml:"matchScope"`
+	// What AWS WAF should do if the headers of the request are larger than AWS WAF can inspect.
+	//
+	// AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
+	//
+	// The options for oversize handling are the following:
+	//
+	// - `CONTINUE` - Inspect the headers normally, according to the rule inspection criteria.
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	OversizeHandling *string `field:"required" json:"oversizeHandling" yaml:"oversizeHandling"`
 }
 
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
@@ -10040,6 +13157,7 @@ type CfnWebACL_ImmunityTimePropertyProperty struct {
 //
 //   	// the properties below are optional
 //   	invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   	oversizeHandling: jsii.String("oversizeHandling"),
 //   }
 //
 type CfnWebACL_JsonBodyProperty struct {
@@ -10067,6 +13185,20 @@ type CfnWebACL_JsonBodyProperty struct {
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
 	// - Extra colons: `{"key1"::"value1","key2""value2"}`.
 	InvalidFallbackBehavior *string `field:"optional" json:"invalidFallbackBehavior" yaml:"invalidFallbackBehavior"`
+	// What AWS WAF should do if the body is larger than AWS WAF can inspect.
+	//
+	// AWS WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to AWS WAF by the underlying host service.
+	//
+	// The options for oversize handling are the following:
+	//
+	// - `CONTINUE` - Inspect the body normally, according to the rule inspection criteria.
+	// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+	// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+	//
+	// You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over 8 KB.
+	//
+	// Default: `CONTINUE`.
+	OversizeHandling *string `field:"optional" json:"oversizeHandling" yaml:"oversizeHandling"`
 }
 
 // The patterns to look for in the JSON body.
@@ -10194,7 +13326,6 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -10233,7 +13364,35 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //   		byteMatchStatement: &byteMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -10245,6 +13404,7 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -10334,7 +13494,35 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //   		regexMatchStatement: &regexMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -10346,6 +13534,7 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -10365,7 +13554,35 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //   			arn: jsii.String("arn"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -10377,6 +13594,7 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -10405,7 +13623,35 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //   			comparisonOperator: jsii.String("comparisonOperator"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -10417,6 +13663,7 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -10435,7 +13682,35 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //   		sqliMatchStatement: &sqliMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -10447,6 +13722,7 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -10464,7 +13740,35 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -10476,6 +13780,7 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -10534,7 +13839,6 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -10552,7 +13856,35 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //   		byteMatchStatement: &byteMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -10564,6 +13896,7 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -10653,7 +13986,35 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //   		regexMatchStatement: &regexMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -10665,6 +14026,7 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -10684,7 +14046,35 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //   			arn: jsii.String("arn"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -10696,6 +14086,7 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -10724,7 +14115,35 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //   			comparisonOperator: jsii.String("comparisonOperator"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -10736,6 +14155,7 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -10754,7 +14174,35 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //   		sqliMatchStatement: &sqliMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -10766,6 +14214,7 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -10783,7 +14232,35 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -10795,6 +14272,7 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -10830,7 +14308,6 @@ type CfnWebACL_NotStatementProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -10849,7 +14326,35 @@ type CfnWebACL_NotStatementProperty struct {
 //   			byteMatchStatement: &byteMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -10861,6 +14366,7 @@ type CfnWebACL_NotStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -10950,7 +14456,35 @@ type CfnWebACL_NotStatementProperty struct {
 //   			regexMatchStatement: &regexMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -10962,6 +14496,7 @@ type CfnWebACL_NotStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -10981,7 +14516,35 @@ type CfnWebACL_NotStatementProperty struct {
 //   				arn: jsii.String("arn"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -10993,6 +14556,7 @@ type CfnWebACL_NotStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -11021,7 +14585,35 @@ type CfnWebACL_NotStatementProperty struct {
 //   				comparisonOperator: jsii.String("comparisonOperator"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -11033,6 +14625,7 @@ type CfnWebACL_NotStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -11051,7 +14644,35 @@ type CfnWebACL_NotStatementProperty struct {
 //   			sqliMatchStatement: &sqliMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -11063,6 +14684,7 @@ type CfnWebACL_NotStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -11080,7 +14702,35 @@ type CfnWebACL_NotStatementProperty struct {
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -11092,6 +14742,7 @@ type CfnWebACL_NotStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -11173,7 +14824,6 @@ type CfnWebACL_OverrideActionProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -11199,7 +14849,35 @@ type CfnWebACL_OverrideActionProperty struct {
 //   		byteMatchStatement: &byteMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -11211,6 +14889,7 @@ type CfnWebACL_OverrideActionProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -11300,7 +14979,35 @@ type CfnWebACL_OverrideActionProperty struct {
 //   		regexMatchStatement: &regexMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -11312,6 +15019,7 @@ type CfnWebACL_OverrideActionProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -11331,7 +15039,35 @@ type CfnWebACL_OverrideActionProperty struct {
 //   			arn: jsii.String("arn"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -11343,6 +15079,7 @@ type CfnWebACL_OverrideActionProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -11371,7 +15108,35 @@ type CfnWebACL_OverrideActionProperty struct {
 //   			comparisonOperator: jsii.String("comparisonOperator"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -11383,6 +15148,7 @@ type CfnWebACL_OverrideActionProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -11401,7 +15167,35 @@ type CfnWebACL_OverrideActionProperty struct {
 //   		sqliMatchStatement: &sqliMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -11413,6 +15207,7 @@ type CfnWebACL_OverrideActionProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -11430,7 +15225,35 @@ type CfnWebACL_OverrideActionProperty struct {
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -11442,6 +15265,7 @@ type CfnWebACL_OverrideActionProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -11492,7 +15316,6 @@ type CfnWebACL_RateBasedStatementProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -11502,7 +15325,35 @@ type CfnWebACL_RateBasedStatementProperty struct {
 //   regexMatchStatementProperty := &regexMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
-//   		body: body,
+//   		body: &bodyProperty{
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		cookies: &cookiesProperty{
+//   			matchPattern: &cookieMatchPatternProperty{
+//   				all: all,
+//   				excludedCookies: []*string{
+//   					jsii.String("excludedCookies"),
+//   				},
+//   				includedCookies: []*string{
+//   					jsii.String("includedCookies"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		headers: &headersProperty{
+//   			matchPattern: &headerMatchPatternProperty{
+//   				all: all,
+//   				excludedHeaders: []*string{
+//   					jsii.String("excludedHeaders"),
+//   				},
+//   				includedHeaders: []*string{
+//   					jsii.String("includedHeaders"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		jsonBody: &jsonBodyProperty{
 //   			matchPattern: &jsonMatchPatternProperty{
 //   				all: all,
@@ -11514,6 +15365,7 @@ type CfnWebACL_RateBasedStatementProperty struct {
 //
 //   			// the properties below are optional
 //   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
 //   		},
 //   		method: method,
 //   		queryString: queryString,
@@ -11554,7 +15406,6 @@ type CfnWebACL_RegexMatchStatementProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -11565,7 +15416,35 @@ type CfnWebACL_RegexMatchStatementProperty struct {
 //   	arn: jsii.String("arn"),
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
-//   		body: body,
+//   		body: &bodyProperty{
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		cookies: &cookiesProperty{
+//   			matchPattern: &cookieMatchPatternProperty{
+//   				all: all,
+//   				excludedCookies: []*string{
+//   					jsii.String("excludedCookies"),
+//   				},
+//   				includedCookies: []*string{
+//   					jsii.String("includedCookies"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		headers: &headersProperty{
+//   			matchPattern: &headerMatchPatternProperty{
+//   				all: all,
+//   				excludedHeaders: []*string{
+//   					jsii.String("excludedHeaders"),
+//   				},
+//   				includedHeaders: []*string{
+//   					jsii.String("includedHeaders"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		jsonBody: &jsonBodyProperty{
 //   			matchPattern: &jsonMatchPatternProperty{
 //   				all: all,
@@ -11577,6 +15456,7 @@ type CfnWebACL_RegexMatchStatementProperty struct {
 //
 //   			// the properties below are optional
 //   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
 //   		},
 //   		method: method,
 //   		queryString: queryString,
@@ -11725,7 +15605,6 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var count interface{}
 //   var method interface{}
 //   var none interface{}
@@ -11747,7 +15626,35 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //   		byteMatchStatement: &byteMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -11759,6 +15666,7 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -11848,7 +15756,35 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //   		regexMatchStatement: &regexMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -11860,6 +15796,7 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -11879,7 +15816,35 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //   			arn: jsii.String("arn"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -11891,6 +15856,7 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -11919,7 +15885,35 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //   			comparisonOperator: jsii.String("comparisonOperator"),
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -11931,6 +15925,7 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -11949,7 +15944,35 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //   		sqliMatchStatement: &sqliMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -11961,6 +15984,7 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -11978,7 +16002,35 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
 //   				allQueryArguments: allQueryArguments,
-//   				body: body,
+//   				body: &bodyProperty{
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				cookies: &cookiesProperty{
+//   					matchPattern: &cookieMatchPatternProperty{
+//   						all: all,
+//   						excludedCookies: []*string{
+//   							jsii.String("excludedCookies"),
+//   						},
+//   						includedCookies: []*string{
+//   							jsii.String("includedCookies"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				headers: &headersProperty{
+//   					matchPattern: &headerMatchPatternProperty{
+//   						all: all,
+//   						excludedHeaders: []*string{
+//   							jsii.String("excludedHeaders"),
+//   						},
+//   						includedHeaders: []*string{
+//   							jsii.String("includedHeaders"),
+//   						},
+//   					},
+//   					matchScope: jsii.String("matchScope"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
+//   				},
 //   				jsonBody: &jsonBodyProperty{
 //   					matchPattern: &jsonMatchPatternProperty{
 //   						all: all,
@@ -11990,6 +16042,7 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //
 //   					// the properties below are optional
 //   					invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   					oversizeHandling: jsii.String("oversizeHandling"),
 //   				},
 //   				method: method,
 //   				queryString: queryString,
@@ -12145,7 +16198,6 @@ type CfnWebACL_RuleProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -12156,7 +16208,35 @@ type CfnWebACL_RuleProperty struct {
 //   	comparisonOperator: jsii.String("comparisonOperator"),
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
-//   		body: body,
+//   		body: &bodyProperty{
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		cookies: &cookiesProperty{
+//   			matchPattern: &cookieMatchPatternProperty{
+//   				all: all,
+//   				excludedCookies: []*string{
+//   					jsii.String("excludedCookies"),
+//   				},
+//   				includedCookies: []*string{
+//   					jsii.String("includedCookies"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		headers: &headersProperty{
+//   			matchPattern: &headerMatchPatternProperty{
+//   				all: all,
+//   				excludedHeaders: []*string{
+//   					jsii.String("excludedHeaders"),
+//   				},
+//   				includedHeaders: []*string{
+//   					jsii.String("includedHeaders"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		jsonBody: &jsonBodyProperty{
 //   			matchPattern: &jsonMatchPatternProperty{
 //   				all: all,
@@ -12168,6 +16248,7 @@ type CfnWebACL_RuleProperty struct {
 //
 //   			// the properties below are optional
 //   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
 //   		},
 //   		method: method,
 //   		queryString: queryString,
@@ -12208,7 +16289,6 @@ type CfnWebACL_SizeConstraintStatementProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -12218,7 +16298,35 @@ type CfnWebACL_SizeConstraintStatementProperty struct {
 //   sqliMatchStatementProperty := &sqliMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
-//   		body: body,
+//   		body: &bodyProperty{
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		cookies: &cookiesProperty{
+//   			matchPattern: &cookieMatchPatternProperty{
+//   				all: all,
+//   				excludedCookies: []*string{
+//   					jsii.String("excludedCookies"),
+//   				},
+//   				includedCookies: []*string{
+//   					jsii.String("includedCookies"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		headers: &headersProperty{
+//   			matchPattern: &headerMatchPatternProperty{
+//   				all: all,
+//   				excludedHeaders: []*string{
+//   					jsii.String("excludedHeaders"),
+//   				},
+//   				includedHeaders: []*string{
+//   					jsii.String("includedHeaders"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		jsonBody: &jsonBodyProperty{
 //   			matchPattern: &jsonMatchPatternProperty{
 //   				all: all,
@@ -12230,6 +16338,7 @@ type CfnWebACL_SizeConstraintStatementProperty struct {
 //
 //   			// the properties below are optional
 //   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
 //   		},
 //   		method: method,
 //   		queryString: queryString,
@@ -12264,7 +16373,6 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   var all interface{}
 //   var allQueryArguments interface{}
 //   var andStatementProperty_ andStatementProperty
-//   var body interface{}
 //   var managedRuleGroupStatementProperty_ managedRuleGroupStatementProperty
 //   var method interface{}
 //   var notStatementProperty_ notStatementProperty
@@ -12284,7 +16392,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				byteMatchStatement: &byteMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -12296,6 +16432,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -12385,7 +16522,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				regexMatchStatement: &regexMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -12397,6 +16562,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -12416,7 +16582,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   					arn: jsii.String("arn"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -12428,6 +16622,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -12456,7 +16651,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   					comparisonOperator: jsii.String("comparisonOperator"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -12468,6 +16691,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -12486,7 +16710,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				sqliMatchStatement: &sqliMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -12498,6 +16750,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -12515,7 +16768,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -12527,6 +16808,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -12547,7 +16829,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   	byteMatchStatement: &byteMatchStatementProperty{
 //   		fieldToMatch: &fieldToMatchProperty{
 //   			allQueryArguments: allQueryArguments,
-//   			body: body,
+//   			body: &bodyProperty{
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			cookies: &cookiesProperty{
+//   				matchPattern: &cookieMatchPatternProperty{
+//   					all: all,
+//   					excludedCookies: []*string{
+//   						jsii.String("excludedCookies"),
+//   					},
+//   					includedCookies: []*string{
+//   						jsii.String("includedCookies"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			headers: &headersProperty{
+//   				matchPattern: &headerMatchPatternProperty{
+//   					all: all,
+//   					excludedHeaders: []*string{
+//   						jsii.String("excludedHeaders"),
+//   					},
+//   					includedHeaders: []*string{
+//   						jsii.String("includedHeaders"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			jsonBody: &jsonBodyProperty{
 //   				matchPattern: &jsonMatchPatternProperty{
 //   					all: all,
@@ -12559,6 +16869,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   				// the properties below are optional
 //   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			method: method,
 //   			queryString: queryString,
@@ -12632,7 +16943,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   			byteMatchStatement: &byteMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -12644,6 +16983,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -12709,7 +17049,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   			regexMatchStatement: &regexMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -12721,6 +17089,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -12740,7 +17109,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				arn: jsii.String("arn"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -12752,6 +17149,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -12780,7 +17178,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				comparisonOperator: jsii.String("comparisonOperator"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -12792,6 +17218,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -12810,7 +17237,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   			sqliMatchStatement: &sqliMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -12822,6 +17277,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -12839,7 +17295,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -12851,6 +17335,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -12878,7 +17363,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   			byteMatchStatement: &byteMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -12890,6 +17403,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -12977,7 +17491,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   			regexMatchStatement: &regexMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -12989,6 +17531,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -13008,7 +17551,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				arn: jsii.String("arn"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -13020,6 +17591,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -13048,7 +17620,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				comparisonOperator: jsii.String("comparisonOperator"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -13060,6 +17660,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -13078,7 +17679,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   			sqliMatchStatement: &sqliMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -13090,6 +17719,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -13107,7 +17737,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -13119,6 +17777,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -13146,7 +17805,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				byteMatchStatement: &byteMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -13158,6 +17845,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -13243,7 +17931,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				regexMatchStatement: &regexMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -13255,6 +17971,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -13274,7 +17991,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   					arn: jsii.String("arn"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -13286,6 +18031,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -13314,7 +18060,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   					comparisonOperator: jsii.String("comparisonOperator"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -13326,6 +18100,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -13344,7 +18119,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				sqliMatchStatement: &sqliMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -13356,6 +18159,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -13373,7 +18177,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -13385,6 +18217,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -13420,7 +18253,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   			byteMatchStatement: &byteMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -13432,6 +18293,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -13511,7 +18373,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   			regexMatchStatement: &regexMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -13523,6 +18413,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -13542,7 +18433,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				arn: jsii.String("arn"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -13554,6 +18473,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -13582,7 +18502,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				comparisonOperator: jsii.String("comparisonOperator"),
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -13594,6 +18542,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -13612,7 +18561,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   			sqliMatchStatement: &sqliMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -13624,6 +18601,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -13641,7 +18619,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
 //   					allQueryArguments: allQueryArguments,
-//   					body: body,
+//   					body: &bodyProperty{
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					cookies: &cookiesProperty{
+//   						matchPattern: &cookieMatchPatternProperty{
+//   							all: all,
+//   							excludedCookies: []*string{
+//   								jsii.String("excludedCookies"),
+//   							},
+//   							includedCookies: []*string{
+//   								jsii.String("includedCookies"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					headers: &headersProperty{
+//   						matchPattern: &headerMatchPatternProperty{
+//   							all: all,
+//   							excludedHeaders: []*string{
+//   								jsii.String("excludedHeaders"),
+//   							},
+//   							includedHeaders: []*string{
+//   								jsii.String("includedHeaders"),
+//   							},
+//   						},
+//   						matchScope: jsii.String("matchScope"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
+//   					},
 //   					jsonBody: &jsonBodyProperty{
 //   						matchPattern: &jsonMatchPatternProperty{
 //   							all: all,
@@ -13653,6 +18659,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   						// the properties below are optional
 //   						invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   						oversizeHandling: jsii.String("oversizeHandling"),
 //   					},
 //   					method: method,
 //   					queryString: queryString,
@@ -13672,7 +18679,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   	regexMatchStatement: &regexMatchStatementProperty{
 //   		fieldToMatch: &fieldToMatchProperty{
 //   			allQueryArguments: allQueryArguments,
-//   			body: body,
+//   			body: &bodyProperty{
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			cookies: &cookiesProperty{
+//   				matchPattern: &cookieMatchPatternProperty{
+//   					all: all,
+//   					excludedCookies: []*string{
+//   						jsii.String("excludedCookies"),
+//   					},
+//   					includedCookies: []*string{
+//   						jsii.String("includedCookies"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			headers: &headersProperty{
+//   				matchPattern: &headerMatchPatternProperty{
+//   					all: all,
+//   					excludedHeaders: []*string{
+//   						jsii.String("excludedHeaders"),
+//   					},
+//   					includedHeaders: []*string{
+//   						jsii.String("includedHeaders"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			jsonBody: &jsonBodyProperty{
 //   				matchPattern: &jsonMatchPatternProperty{
 //   					all: all,
@@ -13684,6 +18719,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   				// the properties below are optional
 //   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			method: method,
 //   			queryString: queryString,
@@ -13703,7 +18739,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   		arn: jsii.String("arn"),
 //   		fieldToMatch: &fieldToMatchProperty{
 //   			allQueryArguments: allQueryArguments,
-//   			body: body,
+//   			body: &bodyProperty{
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			cookies: &cookiesProperty{
+//   				matchPattern: &cookieMatchPatternProperty{
+//   					all: all,
+//   					excludedCookies: []*string{
+//   						jsii.String("excludedCookies"),
+//   					},
+//   					includedCookies: []*string{
+//   						jsii.String("includedCookies"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			headers: &headersProperty{
+//   				matchPattern: &headerMatchPatternProperty{
+//   					all: all,
+//   					excludedHeaders: []*string{
+//   						jsii.String("excludedHeaders"),
+//   					},
+//   					includedHeaders: []*string{
+//   						jsii.String("includedHeaders"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			jsonBody: &jsonBodyProperty{
 //   				matchPattern: &jsonMatchPatternProperty{
 //   					all: all,
@@ -13715,6 +18779,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   				// the properties below are optional
 //   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			method: method,
 //   			queryString: queryString,
@@ -13743,7 +18808,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   		comparisonOperator: jsii.String("comparisonOperator"),
 //   		fieldToMatch: &fieldToMatchProperty{
 //   			allQueryArguments: allQueryArguments,
-//   			body: body,
+//   			body: &bodyProperty{
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			cookies: &cookiesProperty{
+//   				matchPattern: &cookieMatchPatternProperty{
+//   					all: all,
+//   					excludedCookies: []*string{
+//   						jsii.String("excludedCookies"),
+//   					},
+//   					includedCookies: []*string{
+//   						jsii.String("includedCookies"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			headers: &headersProperty{
+//   				matchPattern: &headerMatchPatternProperty{
+//   					all: all,
+//   					excludedHeaders: []*string{
+//   						jsii.String("excludedHeaders"),
+//   					},
+//   					includedHeaders: []*string{
+//   						jsii.String("includedHeaders"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			jsonBody: &jsonBodyProperty{
 //   				matchPattern: &jsonMatchPatternProperty{
 //   					all: all,
@@ -13755,6 +18848,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   				// the properties below are optional
 //   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			method: method,
 //   			queryString: queryString,
@@ -13773,7 +18867,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   	sqliMatchStatement: &sqliMatchStatementProperty{
 //   		fieldToMatch: &fieldToMatchProperty{
 //   			allQueryArguments: allQueryArguments,
-//   			body: body,
+//   			body: &bodyProperty{
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			cookies: &cookiesProperty{
+//   				matchPattern: &cookieMatchPatternProperty{
+//   					all: all,
+//   					excludedCookies: []*string{
+//   						jsii.String("excludedCookies"),
+//   					},
+//   					includedCookies: []*string{
+//   						jsii.String("includedCookies"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			headers: &headersProperty{
+//   				matchPattern: &headerMatchPatternProperty{
+//   					all: all,
+//   					excludedHeaders: []*string{
+//   						jsii.String("excludedHeaders"),
+//   					},
+//   					includedHeaders: []*string{
+//   						jsii.String("includedHeaders"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			jsonBody: &jsonBodyProperty{
 //   				matchPattern: &jsonMatchPatternProperty{
 //   					all: all,
@@ -13785,6 +18907,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   				// the properties below are optional
 //   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			method: method,
 //   			queryString: queryString,
@@ -13802,7 +18925,35 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   	xssMatchStatement: &xssMatchStatementProperty{
 //   		fieldToMatch: &fieldToMatchProperty{
 //   			allQueryArguments: allQueryArguments,
-//   			body: body,
+//   			body: &bodyProperty{
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			cookies: &cookiesProperty{
+//   				matchPattern: &cookieMatchPatternProperty{
+//   					all: all,
+//   					excludedCookies: []*string{
+//   						jsii.String("excludedCookies"),
+//   					},
+//   					includedCookies: []*string{
+//   						jsii.String("includedCookies"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			headers: &headersProperty{
+//   				matchPattern: &headerMatchPatternProperty{
+//   					all: all,
+//   					excludedHeaders: []*string{
+//   						jsii.String("excludedHeaders"),
+//   					},
+//   					includedHeaders: []*string{
+//   						jsii.String("includedHeaders"),
+//   					},
+//   				},
+//   				matchScope: jsii.String("matchScope"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			jsonBody: &jsonBodyProperty{
 //   				matchPattern: &jsonMatchPatternProperty{
 //   					all: all,
@@ -13814,6 +18965,7 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //
 //   				// the properties below are optional
 //   				invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   				oversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			method: method,
 //   			queryString: queryString,
@@ -14038,7 +19190,6 @@ type CfnWebACL_VisibilityConfigProperty struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
@@ -14048,7 +19199,35 @@ type CfnWebACL_VisibilityConfigProperty struct {
 //   xssMatchStatementProperty := &xssMatchStatementProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		allQueryArguments: allQueryArguments,
-//   		body: body,
+//   		body: &bodyProperty{
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		cookies: &cookiesProperty{
+//   			matchPattern: &cookieMatchPatternProperty{
+//   				all: all,
+//   				excludedCookies: []*string{
+//   					jsii.String("excludedCookies"),
+//   				},
+//   				includedCookies: []*string{
+//   					jsii.String("includedCookies"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
+//   		headers: &headersProperty{
+//   			matchPattern: &headerMatchPatternProperty{
+//   				all: all,
+//   				excludedHeaders: []*string{
+//   					jsii.String("excludedHeaders"),
+//   				},
+//   				includedHeaders: []*string{
+//   					jsii.String("includedHeaders"),
+//   				},
+//   			},
+//   			matchScope: jsii.String("matchScope"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		jsonBody: &jsonBodyProperty{
 //   			matchPattern: &jsonMatchPatternProperty{
 //   				all: all,
@@ -14060,6 +19239,7 @@ type CfnWebACL_VisibilityConfigProperty struct {
 //
 //   			// the properties below are optional
 //   			invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   			oversizeHandling: jsii.String("oversizeHandling"),
 //   		},
 //   		method: method,
 //   		queryString: queryString,
@@ -14789,7 +19969,6 @@ type CfnWebACLAssociationProps struct {
 //
 //   var all interface{}
 //   var allQueryArguments interface{}
-//   var body interface{}
 //   var count interface{}
 //   var method interface{}
 //   var none interface{}
@@ -14860,7 +20039,35 @@ type CfnWebACLAssociationProps struct {
 //   				byteMatchStatement: &byteMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -14872,6 +20079,7 @@ type CfnWebACLAssociationProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -14961,7 +20169,35 @@ type CfnWebACLAssociationProps struct {
 //   				regexMatchStatement: &regexMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -14973,6 +20209,7 @@ type CfnWebACLAssociationProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -14992,7 +20229,35 @@ type CfnWebACLAssociationProps struct {
 //   					arn: jsii.String("arn"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -15004,6 +20269,7 @@ type CfnWebACLAssociationProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -15032,7 +20298,35 @@ type CfnWebACLAssociationProps struct {
 //   					comparisonOperator: jsii.String("comparisonOperator"),
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -15044,6 +20338,7 @@ type CfnWebACLAssociationProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -15062,7 +20357,35 @@ type CfnWebACLAssociationProps struct {
 //   				sqliMatchStatement: &sqliMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -15074,6 +20397,7 @@ type CfnWebACLAssociationProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,
@@ -15091,7 +20415,35 @@ type CfnWebACLAssociationProps struct {
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
 //   						allQueryArguments: allQueryArguments,
-//   						body: body,
+//   						body: &bodyProperty{
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						cookies: &cookiesProperty{
+//   							matchPattern: &cookieMatchPatternProperty{
+//   								all: all,
+//   								excludedCookies: []*string{
+//   									jsii.String("excludedCookies"),
+//   								},
+//   								includedCookies: []*string{
+//   									jsii.String("includedCookies"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						headers: &headersProperty{
+//   							matchPattern: &headerMatchPatternProperty{
+//   								all: all,
+//   								excludedHeaders: []*string{
+//   									jsii.String("excludedHeaders"),
+//   								},
+//   								includedHeaders: []*string{
+//   									jsii.String("includedHeaders"),
+//   								},
+//   							},
+//   							matchScope: jsii.String("matchScope"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
+//   						},
 //   						jsonBody: &jsonBodyProperty{
 //   							matchPattern: &jsonMatchPatternProperty{
 //   								all: all,
@@ -15103,6 +20455,7 @@ type CfnWebACLAssociationProps struct {
 //
 //   							// the properties below are optional
 //   							invalidFallbackBehavior: jsii.String("invalidFallbackBehavior"),
+//   							oversizeHandling: jsii.String("oversizeHandling"),
 //   						},
 //   						method: method,
 //   						queryString: queryString,

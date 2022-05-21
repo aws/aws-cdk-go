@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::IoTTwinMaker::ComponentType`.
 //
+// Use the `AWS::IoTTwinMaker::ComponentType` resource to declare a component type.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -106,10 +108,15 @@ import (
 type CfnComponentType interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the component type.
 	AttrArn() *string
+	// The date and time when the component type was created.
 	AttrCreationDateTime() *string
+	// A boolean value that specifies whether the component type is abstract.
 	AttrIsAbstract() awscdk.IResolvable
+	// A boolean value that specifies whether the component type has a schema initializer and that the schema initializer has run.
 	AttrIsSchemaInitialized() awscdk.IResolvable
+	// The component type the update time.
 	AttrUpdateDateTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -118,7 +125,7 @@ type CfnComponentType interface {
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
-	// `AWS::IoTTwinMaker::ComponentType.ComponentTypeId`.
+	// The ID of the component type.
 	ComponentTypeId() *string
 	SetComponentTypeId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -126,16 +133,20 @@ type CfnComponentType interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::IoTTwinMaker::ComponentType.Description`.
+	// The description of the component type.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::IoTTwinMaker::ComponentType.ExtendsFrom`.
+	// The name of the parent component type that this component type extends.
 	ExtendsFrom() *[]*string
 	SetExtendsFrom(val *[]*string)
-	// `AWS::IoTTwinMaker::ComponentType.Functions`.
+	// An object that maps strings to the functions in the component type.
+	//
+	// Each string in the mapping must be unique to this object.
+	//
+	// For information on the FunctionResponse object see the [FunctionResponse](https://docs.aws.amazon.com//iot-twinmaker/latest/apireference/API_FunctionResponse.html) API reference.
 	Functions() interface{}
 	SetFunctions(val interface{})
-	// `AWS::IoTTwinMaker::ComponentType.IsSingleton`.
+	// A boolean value that specifies whether an entity can have more than one component of this type.
 	IsSingleton() interface{}
 	SetIsSingleton(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -152,7 +163,11 @@ type CfnComponentType interface {
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// `AWS::IoTTwinMaker::ComponentType.PropertyDefinitions`.
+	// An object that maps strings to the property definitions in the component type.
+	//
+	// Each string in the mapping must be unique to this object.
+	//
+	// For information about the PropertyDefinitionResponse object, see the [PropertyDefinitionResponse](https://docs.aws.amazon.com//iot-twinmaker/latest/apireference/API_PropertyDefinitionResponse.html) API reference.
 	PropertyDefinitions() interface{}
 	SetPropertyDefinitions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -166,7 +181,7 @@ type CfnComponentType interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::IoTTwinMaker::ComponentType.Tags`.
+	// The ComponentType tags.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -174,7 +189,7 @@ type CfnComponentType interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// `AWS::IoTTwinMaker::ComponentType.WorkspaceId`.
+	// The ID of the workspace.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -922,6 +937,8 @@ func (c *jsiiProxy_CfnComponentType) ValidateProperties(_properties interface{})
 	)
 }
 
+// The data connector.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -935,12 +952,14 @@ func (c *jsiiProxy_CfnComponentType) ValidateProperties(_properties interface{})
 //   }
 //
 type CfnComponentType_DataConnectorProperty struct {
-	// `CfnComponentType.DataConnectorProperty.IsNative`.
+	// A boolean value that specifies whether the data connector is native to IoT TwinMaker.
 	IsNative interface{} `field:"optional" json:"isNative" yaml:"isNative"`
-	// `CfnComponentType.DataConnectorProperty.Lambda`.
+	// The Lambda function associated with the data connector.
 	Lambda interface{} `field:"optional" json:"lambda" yaml:"lambda"`
 }
 
+// An object that specifies the data type of a property.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1007,18 +1026,22 @@ type CfnComponentType_DataConnectorProperty struct {
 //   }
 //
 type CfnComponentType_DataTypeProperty struct {
-	// `CfnComponentType.DataTypeProperty.Type`.
+	// The underlying type of the data type.
+	//
+	// Valid Values: `RELATIONSHIP | STRING | LONG | BOOLEAN | INTEGER | DOUBLE | LIST | MAP`.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnComponentType.DataTypeProperty.AllowedValues`.
+	// The allowed values for this data type.
 	AllowedValues interface{} `field:"optional" json:"allowedValues" yaml:"allowedValues"`
-	// `CfnComponentType.DataTypeProperty.NestedType`.
+	// The nested type in the data type.
 	NestedType interface{} `field:"optional" json:"nestedType" yaml:"nestedType"`
-	// `CfnComponentType.DataTypeProperty.Relationship`.
+	// A relationship that associates a component with another component.
 	Relationship interface{} `field:"optional" json:"relationship" yaml:"relationship"`
-	// `CfnComponentType.DataTypeProperty.UnitOfMeasure`.
+	// The unit of measure used in this data type.
 	UnitOfMeasure *string `field:"optional" json:"unitOfMeasure" yaml:"unitOfMeasure"`
 }
 
+// An object that specifies a value for a property.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1072,26 +1095,28 @@ type CfnComponentType_DataTypeProperty struct {
 //   }
 //
 type CfnComponentType_DataValueProperty struct {
-	// `CfnComponentType.DataValueProperty.BooleanValue`.
+	// A boolean value.
 	BooleanValue interface{} `field:"optional" json:"booleanValue" yaml:"booleanValue"`
-	// `CfnComponentType.DataValueProperty.DoubleValue`.
+	// A double value.
 	DoubleValue *float64 `field:"optional" json:"doubleValue" yaml:"doubleValue"`
-	// `CfnComponentType.DataValueProperty.Expression`.
+	// An expression that produces the value.
 	Expression *string `field:"optional" json:"expression" yaml:"expression"`
-	// `CfnComponentType.DataValueProperty.IntegerValue`.
+	// An integer value.
 	IntegerValue *float64 `field:"optional" json:"integerValue" yaml:"integerValue"`
-	// `CfnComponentType.DataValueProperty.ListValue`.
+	// A list of multiple values.
 	ListValue interface{} `field:"optional" json:"listValue" yaml:"listValue"`
-	// `CfnComponentType.DataValueProperty.LongValue`.
+	// A long value.
 	LongValue *float64 `field:"optional" json:"longValue" yaml:"longValue"`
-	// `CfnComponentType.DataValueProperty.MapValue`.
+	// An object that maps strings to multiple `DataValue` objects.
 	MapValue interface{} `field:"optional" json:"mapValue" yaml:"mapValue"`
-	// `CfnComponentType.DataValueProperty.RelationshipValue`.
+	// A value that relates a component to another component.
 	RelationshipValue interface{} `field:"optional" json:"relationshipValue" yaml:"relationshipValue"`
-	// `CfnComponentType.DataValueProperty.StringValue`.
+	// A string value.
 	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 
+// The function body.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1111,14 +1136,16 @@ type CfnComponentType_DataValueProperty struct {
 //   }
 //
 type CfnComponentType_FunctionProperty struct {
-	// `CfnComponentType.FunctionProperty.ImplementedBy`.
+	// The data connector.
 	ImplementedBy interface{} `field:"optional" json:"implementedBy" yaml:"implementedBy"`
-	// `CfnComponentType.FunctionProperty.RequiredProperties`.
+	// The required properties of the function.
 	RequiredProperties *[]*string `field:"optional" json:"requiredProperties" yaml:"requiredProperties"`
-	// `CfnComponentType.FunctionProperty.Scope`.
+	// The scope of the function.
 	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 }
 
+// The Lambda function.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1129,10 +1156,12 @@ type CfnComponentType_FunctionProperty struct {
 //   }
 //
 type CfnComponentType_LambdaFunctionProperty struct {
-	// `CfnComponentType.LambdaFunctionProperty.Arn`.
+	// The Lambda function ARN.
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 
+// PropertyDefinition is an object that maps strings to the property definitions in the component type.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1196,22 +1225,24 @@ type CfnComponentType_LambdaFunctionProperty struct {
 //   }
 //
 type CfnComponentType_PropertyDefinitionProperty struct {
-	// `CfnComponentType.PropertyDefinitionProperty.Configurations`.
+	// A mapping that specifies configuration information about the property.
 	Configurations interface{} `field:"optional" json:"configurations" yaml:"configurations"`
 	// `CfnComponentType.PropertyDefinitionProperty.DataType`.
 	DataType interface{} `field:"optional" json:"dataType" yaml:"dataType"`
-	// `CfnComponentType.PropertyDefinitionProperty.DefaultValue`.
+	// A boolean value that specifies whether the property ID comes from an external data store.
 	DefaultValue interface{} `field:"optional" json:"defaultValue" yaml:"defaultValue"`
-	// `CfnComponentType.PropertyDefinitionProperty.IsExternalId`.
+	// A boolean value that specifies whether the property ID comes from an external data store.
 	IsExternalId interface{} `field:"optional" json:"isExternalId" yaml:"isExternalId"`
-	// `CfnComponentType.PropertyDefinitionProperty.IsRequiredInEntity`.
+	// A boolean value that specifies whether the property is required in an entity.
 	IsRequiredInEntity interface{} `field:"optional" json:"isRequiredInEntity" yaml:"isRequiredInEntity"`
-	// `CfnComponentType.PropertyDefinitionProperty.IsStoredExternally`.
+	// A boolean value that specifies whether the property is stored externally.
 	IsStoredExternally interface{} `field:"optional" json:"isStoredExternally" yaml:"isStoredExternally"`
-	// `CfnComponentType.PropertyDefinitionProperty.IsTimeSeries`.
+	// A boolean value that specifies whether the property consists of time series data.
 	IsTimeSeries interface{} `field:"optional" json:"isTimeSeries" yaml:"isTimeSeries"`
 }
 
+// An object that specifies a relationship with another component type.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1223,9 +1254,9 @@ type CfnComponentType_PropertyDefinitionProperty struct {
 //   }
 //
 type CfnComponentType_RelationshipProperty struct {
-	// `CfnComponentType.RelationshipProperty.RelationshipType`.
+	// The type of the relationship.
 	RelationshipType *string `field:"optional" json:"relationshipType" yaml:"relationshipType"`
-	// `CfnComponentType.RelationshipProperty.TargetComponentTypeId`.
+	// The ID of the target component type associated with this relationship.
 	TargetComponentTypeId *string `field:"optional" json:"targetComponentTypeId" yaml:"targetComponentTypeId"`
 }
 
@@ -1324,25 +1355,35 @@ type CfnComponentType_RelationshipProperty struct {
 //   }
 //
 type CfnComponentTypeProps struct {
-	// `AWS::IoTTwinMaker::ComponentType.ComponentTypeId`.
+	// The ID of the component type.
 	ComponentTypeId *string `field:"required" json:"componentTypeId" yaml:"componentTypeId"`
-	// `AWS::IoTTwinMaker::ComponentType.WorkspaceId`.
+	// The ID of the workspace.
 	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
-	// `AWS::IoTTwinMaker::ComponentType.Description`.
+	// The description of the component type.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::IoTTwinMaker::ComponentType.ExtendsFrom`.
+	// The name of the parent component type that this component type extends.
 	ExtendsFrom *[]*string `field:"optional" json:"extendsFrom" yaml:"extendsFrom"`
-	// `AWS::IoTTwinMaker::ComponentType.Functions`.
+	// An object that maps strings to the functions in the component type.
+	//
+	// Each string in the mapping must be unique to this object.
+	//
+	// For information on the FunctionResponse object see the [FunctionResponse](https://docs.aws.amazon.com//iot-twinmaker/latest/apireference/API_FunctionResponse.html) API reference.
 	Functions interface{} `field:"optional" json:"functions" yaml:"functions"`
-	// `AWS::IoTTwinMaker::ComponentType.IsSingleton`.
+	// A boolean value that specifies whether an entity can have more than one component of this type.
 	IsSingleton interface{} `field:"optional" json:"isSingleton" yaml:"isSingleton"`
-	// `AWS::IoTTwinMaker::ComponentType.PropertyDefinitions`.
+	// An object that maps strings to the property definitions in the component type.
+	//
+	// Each string in the mapping must be unique to this object.
+	//
+	// For information about the PropertyDefinitionResponse object, see the [PropertyDefinitionResponse](https://docs.aws.amazon.com//iot-twinmaker/latest/apireference/API_PropertyDefinitionResponse.html) API reference.
 	PropertyDefinitions interface{} `field:"optional" json:"propertyDefinitions" yaml:"propertyDefinitions"`
-	// `AWS::IoTTwinMaker::ComponentType.Tags`.
+	// The ComponentType tags.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTTwinMaker::Entity`.
+//
+// Use the `AWS::IoTTwinMaker::Entity` resource to declare an entity.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -1402,9 +1443,13 @@ type CfnComponentTypeProps struct {
 type CfnEntity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The entity ARN.
 	AttrArn() *string
+	// The date and time the entity was created.
 	AttrCreationDateTime() *string
+	// A boolean value that specifies whether the entity has child entities or not.
 	AttrHasChildEntities() awscdk.IResolvable
+	// The date and time when the component type was last updated.
 	AttrUpdateDateTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -1413,7 +1458,11 @@ type CfnEntity interface {
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
-	// `AWS::IoTTwinMaker::Entity.Components`.
+	// An object that maps strings to the components in the entity.
+	//
+	// Each string in the mapping must be unique to this object.
+	//
+	// For information on the component object see the [component](https://docs.aws.amazon.com//iot-twinmaker/latest/apireference/API_ComponentResponse.html) API reference.
 	Components() interface{}
 	SetComponents(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -1421,13 +1470,13 @@ type CfnEntity interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::IoTTwinMaker::Entity.Description`.
+	// The description of the entity.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::IoTTwinMaker::Entity.EntityId`.
+	// The entity ID.
 	EntityId() *string
 	SetEntityId(val *string)
-	// `AWS::IoTTwinMaker::Entity.EntityName`.
+	// The entity name.
 	EntityName() *string
 	SetEntityName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -1444,7 +1493,7 @@ type CfnEntity interface {
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// `AWS::IoTTwinMaker::Entity.ParentEntityId`.
+	// The ID of the parent entity.
 	ParentEntityId() *string
 	SetParentEntityId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -1458,7 +1507,7 @@ type CfnEntity interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::IoTTwinMaker::Entity.Tags`.
+	// Metadata that you can use to manage the entity.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -1466,7 +1515,7 @@ type CfnEntity interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// `AWS::IoTTwinMaker::Entity.WorkspaceId`.
+	// The ID of the workspace.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -2186,6 +2235,8 @@ func (c *jsiiProxy_CfnEntity) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The entity componenet.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2228,20 +2279,24 @@ func (c *jsiiProxy_CfnEntity) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnEntity_ComponentProperty struct {
-	// `CfnEntity.ComponentProperty.ComponentName`.
+	// The name of the component.
 	ComponentName *string `field:"optional" json:"componentName" yaml:"componentName"`
-	// `CfnEntity.ComponentProperty.ComponentTypeId`.
+	// The ID of the ComponentType.
 	ComponentTypeId *string `field:"optional" json:"componentTypeId" yaml:"componentTypeId"`
-	// `CfnEntity.ComponentProperty.DefinedIn`.
+	// The name of the property definition set in the request.
 	DefinedIn *string `field:"optional" json:"definedIn" yaml:"definedIn"`
-	// `CfnEntity.ComponentProperty.Description`.
+	// The description of the component.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `CfnEntity.ComponentProperty.Properties`.
+	// An object that maps strings to the properties to set in the component type.
+	//
+	// Each string in the mapping must be unique to this object.
 	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
-	// `CfnEntity.ComponentProperty.Status`.
+	// The status of the component.
 	Status interface{} `field:"optional" json:"status" yaml:"status"`
 }
 
+// An object that specifies a value for a property.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2295,26 +2350,28 @@ type CfnEntity_ComponentProperty struct {
 //   }
 //
 type CfnEntity_DataValueProperty struct {
-	// `CfnEntity.DataValueProperty.BooleanValue`.
+	// A boolean value.
 	BooleanValue interface{} `field:"optional" json:"booleanValue" yaml:"booleanValue"`
-	// `CfnEntity.DataValueProperty.DoubleValue`.
+	// A double value.
 	DoubleValue *float64 `field:"optional" json:"doubleValue" yaml:"doubleValue"`
-	// `CfnEntity.DataValueProperty.Expression`.
+	// An expression that produces the value.
 	Expression *string `field:"optional" json:"expression" yaml:"expression"`
-	// `CfnEntity.DataValueProperty.IntegerValue`.
+	// An integer value.
 	IntegerValue *float64 `field:"optional" json:"integerValue" yaml:"integerValue"`
-	// `CfnEntity.DataValueProperty.ListValue`.
+	// A list of multiple values.
 	ListValue interface{} `field:"optional" json:"listValue" yaml:"listValue"`
-	// `CfnEntity.DataValueProperty.LongValue`.
+	// A long value.
 	LongValue *float64 `field:"optional" json:"longValue" yaml:"longValue"`
-	// `CfnEntity.DataValueProperty.MapValue`.
+	// An object that maps strings to multiple DataValue objects.
 	MapValue interface{} `field:"optional" json:"mapValue" yaml:"mapValue"`
-	// `CfnEntity.DataValueProperty.RelationshipValue`.
+	// A value that relates a component to another component.
 	RelationshipValue interface{} `field:"optional" json:"relationshipValue" yaml:"relationshipValue"`
-	// `CfnEntity.DataValueProperty.StringValue`.
+	// A string value.
 	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 
+// An object that sets information about a property.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2344,12 +2401,14 @@ type CfnEntity_DataValueProperty struct {
 //   }
 //
 type CfnEntity_PropertyProperty struct {
-	// `CfnEntity.PropertyProperty.Definition`.
+	// An object that specifies information about a property.
 	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
-	// `CfnEntity.PropertyProperty.Value`.
+	// An object that contains information about a value for a time series property.
 	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 
+// The current status of the entity.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2363,9 +2422,11 @@ type CfnEntity_PropertyProperty struct {
 //   }
 //
 type CfnEntity_StatusProperty struct {
-	// `CfnEntity.StatusProperty.Error`.
+	// The error message.
 	Error interface{} `field:"optional" json:"error" yaml:"error"`
-	// `CfnEntity.StatusProperty.State`.
+	// The current state of the entity, component, component type, or workspace.
+	//
+	// Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`.
 	State *string `field:"optional" json:"state" yaml:"state"`
 }
 
@@ -2427,23 +2488,29 @@ type CfnEntity_StatusProperty struct {
 //   }
 //
 type CfnEntityProps struct {
-	// `AWS::IoTTwinMaker::Entity.EntityName`.
+	// The entity name.
 	EntityName *string `field:"required" json:"entityName" yaml:"entityName"`
-	// `AWS::IoTTwinMaker::Entity.WorkspaceId`.
+	// The ID of the workspace.
 	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
-	// `AWS::IoTTwinMaker::Entity.Components`.
+	// An object that maps strings to the components in the entity.
+	//
+	// Each string in the mapping must be unique to this object.
+	//
+	// For information on the component object see the [component](https://docs.aws.amazon.com//iot-twinmaker/latest/apireference/API_ComponentResponse.html) API reference.
 	Components interface{} `field:"optional" json:"components" yaml:"components"`
-	// `AWS::IoTTwinMaker::Entity.Description`.
+	// The description of the entity.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::IoTTwinMaker::Entity.EntityId`.
+	// The entity ID.
 	EntityId *string `field:"optional" json:"entityId" yaml:"entityId"`
-	// `AWS::IoTTwinMaker::Entity.ParentEntityId`.
+	// The ID of the parent entity.
 	ParentEntityId *string `field:"optional" json:"parentEntityId" yaml:"parentEntityId"`
-	// `AWS::IoTTwinMaker::Entity.Tags`.
+	// Metadata that you can use to manage the entity.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTTwinMaker::Scene`.
+//
+// Use the `AWS::IoTTwinMaker::Scene` resource to declare a scene.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -2468,10 +2535,13 @@ type CfnEntityProps struct {
 type CfnScene interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The scene ARN.
 	AttrArn() *string
+	// The date and time when the scene was created.
 	AttrCreationDateTime() *string
+	// The scene the update time.
 	AttrUpdateDateTime() *string
-	// `AWS::IoTTwinMaker::Scene.Capabilities`.
+	// A list of capabilities that the scene uses to render.
 	Capabilities() *[]*string
 	SetCapabilities(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -2481,7 +2551,7 @@ type CfnScene interface {
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
-	// `AWS::IoTTwinMaker::Scene.ContentLocation`.
+	// The relative path that specifies the location of the content definition file.
 	ContentLocation() *string
 	SetContentLocation(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -2489,7 +2559,7 @@ type CfnScene interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::IoTTwinMaker::Scene.Description`.
+	// The description of this scene.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -2512,7 +2582,7 @@ type CfnScene interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::IoTTwinMaker::Scene.SceneId`.
+	// The scene ID.
 	SceneId() *string
 	SetSceneId(val *string)
 	// The stack in which this element is defined.
@@ -2520,7 +2590,7 @@ type CfnScene interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::IoTTwinMaker::Scene.Tags`.
+	// The ComponentType tags.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -2528,7 +2598,7 @@ type CfnScene interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// `AWS::IoTTwinMaker::Scene.WorkspaceId`.
+	// The ID of the workspace.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -3243,21 +3313,23 @@ func (c *jsiiProxy_CfnScene) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnSceneProps struct {
-	// `AWS::IoTTwinMaker::Scene.ContentLocation`.
+	// The relative path that specifies the location of the content definition file.
 	ContentLocation *string `field:"required" json:"contentLocation" yaml:"contentLocation"`
-	// `AWS::IoTTwinMaker::Scene.SceneId`.
+	// The scene ID.
 	SceneId *string `field:"required" json:"sceneId" yaml:"sceneId"`
-	// `AWS::IoTTwinMaker::Scene.WorkspaceId`.
+	// The ID of the workspace.
 	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
-	// `AWS::IoTTwinMaker::Scene.Capabilities`.
+	// A list of capabilities that the scene uses to render.
 	Capabilities *[]*string `field:"optional" json:"capabilities" yaml:"capabilities"`
-	// `AWS::IoTTwinMaker::Scene.Description`.
+	// The description of this scene.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::IoTTwinMaker::Scene.Tags`.
+	// The ComponentType tags.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTTwinMaker::Workspace`.
+//
+// Use the `AWS::IoTTwinMaker::Workspace` resource to declare a workspace.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -3279,8 +3351,11 @@ type CfnSceneProps struct {
 type CfnWorkspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The workspace ARN.
 	AttrArn() *string
+	// The date and time the workspace was created.
 	AttrCreationDateTime() *string
+	// The date and time the workspace was updated.
 	AttrUpdateDateTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -3294,7 +3369,7 @@ type CfnWorkspace interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::IoTTwinMaker::Workspace.Description`.
+	// The description of the workspace.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -3317,10 +3392,10 @@ type CfnWorkspace interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::IoTTwinMaker::Workspace.Role`.
+	// The ARN of the execution role associated with the workspace.
 	Role() *string
 	SetRole(val *string)
-	// `AWS::IoTTwinMaker::Workspace.S3Location`.
+	// The ARN of the S3 bucket where resources associated with the workspace are stored.
 	S3Location() *string
 	SetS3Location(val *string)
 	// The stack in which this element is defined.
@@ -3328,7 +3403,7 @@ type CfnWorkspace interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::IoTTwinMaker::Workspace.Tags`.
+	// Metadata that you can use to manage the workspace.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -3336,7 +3411,7 @@ type CfnWorkspace interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// `AWS::IoTTwinMaker::Workspace.WorkspaceId`.
+	// The ID of the workspace.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -4030,15 +4105,15 @@ func (c *jsiiProxy_CfnWorkspace) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnWorkspaceProps struct {
-	// `AWS::IoTTwinMaker::Workspace.Role`.
+	// The ARN of the execution role associated with the workspace.
 	Role *string `field:"required" json:"role" yaml:"role"`
-	// `AWS::IoTTwinMaker::Workspace.S3Location`.
+	// The ARN of the S3 bucket where resources associated with the workspace are stored.
 	S3Location *string `field:"required" json:"s3Location" yaml:"s3Location"`
-	// `AWS::IoTTwinMaker::Workspace.WorkspaceId`.
+	// The ID of the workspace.
 	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
-	// `AWS::IoTTwinMaker::Workspace.Description`.
+	// The description of the workspace.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::IoTTwinMaker::Workspace.Tags`.
+	// Metadata that you can use to manage the workspace.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

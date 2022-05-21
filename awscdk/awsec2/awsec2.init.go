@@ -1660,6 +1660,58 @@ func init() {
 		reflect.TypeOf((*CfnInternetGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"monocdk.aws_ec2.CfnKeyPair",
+		reflect.TypeOf((*CfnKeyPair)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrKeyFingerprint", GoGetter: "AttrKeyFingerprint"},
+			_jsii_.MemberProperty{JsiiProperty: "attrKeyPairId", GoGetter: "AttrKeyPairId"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "keyName", GoGetter: "KeyName"},
+			_jsii_.MemberProperty{JsiiProperty: "keyType", GoGetter: "KeyType"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "publicKeyMaterial", GoGetter: "PublicKeyMaterial"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnKeyPair{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnKeyPairProps",
+		reflect.TypeOf((*CfnKeyPairProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"monocdk.aws_ec2.CfnLaunchTemplate",
 		reflect.TypeOf((*CfnLaunchTemplate)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2347,6 +2399,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.PortRangeProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysis_PortRangeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnNetworkInsightsAnalysis.TransitGatewayRouteTableRouteProperty",
+		reflect.TypeOf((*CfnNetworkInsightsAnalysis_TransitGatewayRouteTableRouteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnNetworkInsightsAnalysisProps",
@@ -3525,6 +3581,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "gatewayLoadBalancerEndpointId", GoGetter: "GatewayLoadBalancerEndpointId"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -3625,6 +3682,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -4262,6 +4320,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrDefaultNetworkAcl", GoGetter: "AttrDefaultNetworkAcl"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDefaultSecurityGroup", GoGetter: "AttrDefaultSecurityGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIpv6CidrBlocks", GoGetter: "AttrIpv6CidrBlocks"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcId", GoGetter: "AttrVpcId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -6924,12 +6983,16 @@ func init() {
 		"monocdk.aws_ec2.RouterType",
 		reflect.TypeOf((*RouterType)(nil)).Elem(),
 		map[string]interface{}{
+			"CARRIER_GATEWAY": RouterType_CARRIER_GATEWAY,
 			"EGRESS_ONLY_INTERNET_GATEWAY": RouterType_EGRESS_ONLY_INTERNET_GATEWAY,
 			"GATEWAY": RouterType_GATEWAY,
 			"INSTANCE": RouterType_INSTANCE,
+			"LOCAL_GATEWAY": RouterType_LOCAL_GATEWAY,
 			"NAT_GATEWAY": RouterType_NAT_GATEWAY,
 			"NETWORK_INTERFACE": RouterType_NETWORK_INTERFACE,
+			"TRANSIT_GATEWAY": RouterType_TRANSIT_GATEWAY,
 			"VPC_PEERING_CONNECTION": RouterType_VPC_PEERING_CONNECTION,
+			"VPC_ENDPOINT": RouterType_VPC_ENDPOINT,
 		},
 	)
 	_jsii_.RegisterStruct(

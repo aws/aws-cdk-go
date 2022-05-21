@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::KafkaConnect::Connector`.
 //
+// Creates a connector using the specified properties.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -104,8 +106,9 @@ import (
 type CfnConnector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the newly created connector.
 	AttrConnectorArn() *string
-	// `AWS::KafkaConnect::Connector.Capacity`.
+	// The connector's compute capacity settings.
 	Capacity() interface{}
 	SetCapacity(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -115,13 +118,13 @@ type CfnConnector interface {
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
-	// `AWS::KafkaConnect::Connector.ConnectorConfiguration`.
+	// The configuration of the connector.
 	ConnectorConfiguration() interface{}
 	SetConnectorConfiguration(val interface{})
-	// `AWS::KafkaConnect::Connector.ConnectorDescription`.
+	// The description of the connector.
 	ConnectorDescription() *string
 	SetConnectorDescription(val *string)
-	// `AWS::KafkaConnect::Connector.ConnectorName`.
+	// The name of the connector.
 	ConnectorName() *string
 	SetConnectorName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -129,19 +132,23 @@ type CfnConnector interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::KafkaConnect::Connector.KafkaCluster`.
+	// The details of the Apache Kafka cluster to which the connector is connected.
 	KafkaCluster() interface{}
 	SetKafkaCluster(val interface{})
-	// `AWS::KafkaConnect::Connector.KafkaClusterClientAuthentication`.
+	// The type of client authentication used to connect to the Apache Kafka cluster.
+	//
+	// The value is NONE when no client authentication is used.
 	KafkaClusterClientAuthentication() interface{}
 	SetKafkaClusterClientAuthentication(val interface{})
-	// `AWS::KafkaConnect::Connector.KafkaClusterEncryptionInTransit`.
+	// Details of encryption in transit to the Apache Kafka cluster.
 	KafkaClusterEncryptionInTransit() interface{}
 	SetKafkaClusterEncryptionInTransit(val interface{})
-	// `AWS::KafkaConnect::Connector.KafkaConnectVersion`.
+	// The version of Kafka Connect.
+	//
+	// It has to be compatible with both the Apache Kafka cluster's version and the plugins.
 	KafkaConnectVersion() *string
 	SetKafkaConnectVersion(val *string)
-	// `AWS::KafkaConnect::Connector.LogDelivery`.
+	// The settings for delivering connector logs to Amazon CloudWatch Logs.
 	LogDelivery() interface{}
 	SetLogDelivery(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -158,7 +165,9 @@ type CfnConnector interface {
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// `AWS::KafkaConnect::Connector.Plugins`.
+	// Specifies which plugin to use for the connector.
+	//
+	// You must specify a single-element list. Amazon MSK Connect does not currently support specifying multiple plugins.
 	Plugins() interface{}
 	SetPlugins(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -167,7 +176,7 @@ type CfnConnector interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::KafkaConnect::Connector.ServiceExecutionRoleArn`.
+	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon Web Services resources.
 	ServiceExecutionRoleArn() *string
 	SetServiceExecutionRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -181,7 +190,7 @@ type CfnConnector interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// `AWS::KafkaConnect::Connector.WorkerConfiguration`.
+	// The worker configurations that are in use with the connector.
 	WorkerConfiguration() interface{}
 	SetWorkerConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -969,6 +978,8 @@ func (c *jsiiProxy_CfnConnector) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The details of the Apache Kafka cluster to which the connector is connected.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -987,12 +998,14 @@ func (c *jsiiProxy_CfnConnector) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnConnector_ApacheKafkaClusterProperty struct {
-	// `CfnConnector.ApacheKafkaClusterProperty.BootstrapServers`.
+	// The bootstrap servers of the cluster.
 	BootstrapServers *string `field:"required" json:"bootstrapServers" yaml:"bootstrapServers"`
-	// `CfnConnector.ApacheKafkaClusterProperty.Vpc`.
+	// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
 	Vpc interface{} `field:"required" json:"vpc" yaml:"vpc"`
 }
 
+// Specifies how the connector scales.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1011,18 +1024,22 @@ type CfnConnector_ApacheKafkaClusterProperty struct {
 //   }
 //
 type CfnConnector_AutoScalingProperty struct {
-	// `CfnConnector.AutoScalingProperty.MaxWorkerCount`.
+	// The maximum number of workers allocated to the connector.
 	MaxWorkerCount *float64 `field:"required" json:"maxWorkerCount" yaml:"maxWorkerCount"`
-	// `CfnConnector.AutoScalingProperty.McuCount`.
+	// The number of microcontroller units (MCUs) allocated to each connector worker.
+	//
+	// The valid values are 1,2,4,8.
 	McuCount *float64 `field:"required" json:"mcuCount" yaml:"mcuCount"`
-	// `CfnConnector.AutoScalingProperty.MinWorkerCount`.
+	// The minimum number of workers allocated to the connector.
 	MinWorkerCount *float64 `field:"required" json:"minWorkerCount" yaml:"minWorkerCount"`
-	// `CfnConnector.AutoScalingProperty.ScaleInPolicy`.
+	// The sacle-in policy for the connector.
 	ScaleInPolicy interface{} `field:"required" json:"scaleInPolicy" yaml:"scaleInPolicy"`
-	// `CfnConnector.AutoScalingProperty.ScaleOutPolicy`.
+	// The sacle-out policy for the connector.
 	ScaleOutPolicy interface{} `field:"required" json:"scaleOutPolicy" yaml:"scaleOutPolicy"`
 }
 
+// Information about the capacity of the connector, whether it is auto scaled or provisioned.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1049,12 +1066,14 @@ type CfnConnector_AutoScalingProperty struct {
 //   }
 //
 type CfnConnector_CapacityProperty struct {
-	// `CfnConnector.CapacityProperty.AutoScaling`.
+	// Information about the auto scaling parameters for the connector.
 	AutoScaling interface{} `field:"optional" json:"autoScaling" yaml:"autoScaling"`
-	// `CfnConnector.CapacityProperty.ProvisionedCapacity`.
+	// Details about a fixed capacity allocated to a connector.
 	ProvisionedCapacity interface{} `field:"optional" json:"provisionedCapacity" yaml:"provisionedCapacity"`
 }
 
+// The settings for delivering connector logs to Amazon CloudWatch Logs.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1068,12 +1087,14 @@ type CfnConnector_CapacityProperty struct {
 //   }
 //
 type CfnConnector_CloudWatchLogsLogDeliveryProperty struct {
-	// `CfnConnector.CloudWatchLogsLogDeliveryProperty.Enabled`.
+	// Whether log delivery to Amazon CloudWatch Logs is enabled.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
-	// `CfnConnector.CloudWatchLogsLogDeliveryProperty.LogGroup`.
+	// The name of the CloudWatch log group that is the destination for log delivery.
 	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
 }
 
+// A plugin is an AWS resource that contains the code that defines a connector's logic.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1085,12 +1106,14 @@ type CfnConnector_CloudWatchLogsLogDeliveryProperty struct {
 //   }
 //
 type CfnConnector_CustomPluginProperty struct {
-	// `CfnConnector.CustomPluginProperty.CustomPluginArn`.
+	// The Amazon Resource Name (ARN) of the custom plugin.
 	CustomPluginArn *string `field:"required" json:"customPluginArn" yaml:"customPluginArn"`
-	// `CfnConnector.CustomPluginProperty.Revision`.
+	// The revision of the custom plugin.
 	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
 }
 
+// The settings for delivering logs to Amazon Kinesis Data Firehose.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1104,12 +1127,14 @@ type CfnConnector_CustomPluginProperty struct {
 //   }
 //
 type CfnConnector_FirehoseLogDeliveryProperty struct {
-	// `CfnConnector.FirehoseLogDeliveryProperty.Enabled`.
+	// Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
-	// `CfnConnector.FirehoseLogDeliveryProperty.DeliveryStream`.
+	// The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
 	DeliveryStream *string `field:"optional" json:"deliveryStream" yaml:"deliveryStream"`
 }
 
+// The client authentication information used in order to authenticate with the Apache Kafka cluster.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1120,10 +1145,14 @@ type CfnConnector_FirehoseLogDeliveryProperty struct {
 //   }
 //
 type CfnConnector_KafkaClusterClientAuthenticationProperty struct {
-	// `CfnConnector.KafkaClusterClientAuthenticationProperty.AuthenticationType`.
+	// The type of client authentication used to connect to the Apache Kafka cluster.
+	//
+	// Value NONE means that no client authentication is used.
 	AuthenticationType *string `field:"required" json:"authenticationType" yaml:"authenticationType"`
 }
 
+// Details of encryption in transit to the Apache Kafka cluster.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1134,10 +1163,12 @@ type CfnConnector_KafkaClusterClientAuthenticationProperty struct {
 //   }
 //
 type CfnConnector_KafkaClusterEncryptionInTransitProperty struct {
-	// `CfnConnector.KafkaClusterEncryptionInTransitProperty.EncryptionType`.
+	// The type of encryption in transit to the Apache Kafka cluster.
 	EncryptionType *string `field:"required" json:"encryptionType" yaml:"encryptionType"`
 }
 
+// The details of the Apache Kafka cluster to which the connector is connected.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1158,10 +1189,12 @@ type CfnConnector_KafkaClusterEncryptionInTransitProperty struct {
 //   }
 //
 type CfnConnector_KafkaClusterProperty struct {
-	// `CfnConnector.KafkaClusterProperty.ApacheKafkaCluster`.
+	// The Apache Kafka cluster to which the connector is connected.
 	ApacheKafkaCluster interface{} `field:"required" json:"apacheKafkaCluster" yaml:"apacheKafkaCluster"`
 }
 
+// Details about log delivery.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1192,10 +1225,14 @@ type CfnConnector_KafkaClusterProperty struct {
 //   }
 //
 type CfnConnector_LogDeliveryProperty struct {
-	// `CfnConnector.LogDeliveryProperty.WorkerLogDelivery`.
+	// The workers can send worker logs to different destination types.
+	//
+	// This configuration specifies the details of these destinations.
 	WorkerLogDelivery interface{} `field:"required" json:"workerLogDelivery" yaml:"workerLogDelivery"`
 }
 
+// A plugin is an AWS resource that contains the code that defines your connector logic.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1209,10 +1246,12 @@ type CfnConnector_LogDeliveryProperty struct {
 //   }
 //
 type CfnConnector_PluginProperty struct {
-	// `CfnConnector.PluginProperty.CustomPlugin`.
+	// Details about a custom plugin.
 	CustomPlugin interface{} `field:"required" json:"customPlugin" yaml:"customPlugin"`
 }
 
+// Details about a connector's provisioned capacity.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1226,12 +1265,16 @@ type CfnConnector_PluginProperty struct {
 //   }
 //
 type CfnConnector_ProvisionedCapacityProperty struct {
-	// `CfnConnector.ProvisionedCapacityProperty.WorkerCount`.
+	// The number of workers that are allocated to the connector.
 	WorkerCount *float64 `field:"required" json:"workerCount" yaml:"workerCount"`
-	// `CfnConnector.ProvisionedCapacityProperty.McuCount`.
+	// The number of microcontroller units (MCUs) allocated to each connector worker.
+	//
+	// The valid values are 1,2,4,8.
 	McuCount *float64 `field:"optional" json:"mcuCount" yaml:"mcuCount"`
 }
 
+// Details about delivering logs to Amazon S3.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1246,14 +1289,16 @@ type CfnConnector_ProvisionedCapacityProperty struct {
 //   }
 //
 type CfnConnector_S3LogDeliveryProperty struct {
-	// `CfnConnector.S3LogDeliveryProperty.Enabled`.
+	// Specifies whether connector logs get sent to the specified Amazon S3 destination.
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
-	// `CfnConnector.S3LogDeliveryProperty.Bucket`.
+	// The name of the S3 bucket that is the destination for log delivery.
 	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
-	// `CfnConnector.S3LogDeliveryProperty.Prefix`.
+	// The S3 prefix that is the destination for log delivery.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
+// The scale-in policy for the connector.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1264,10 +1309,12 @@ type CfnConnector_S3LogDeliveryProperty struct {
 //   }
 //
 type CfnConnector_ScaleInPolicyProperty struct {
-	// `CfnConnector.ScaleInPolicyProperty.CpuUtilizationPercentage`.
+	// Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
 	CpuUtilizationPercentage *float64 `field:"required" json:"cpuUtilizationPercentage" yaml:"cpuUtilizationPercentage"`
 }
 
+// The scale-out policy for the connector.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1278,10 +1325,12 @@ type CfnConnector_ScaleInPolicyProperty struct {
 //   }
 //
 type CfnConnector_ScaleOutPolicyProperty struct {
-	// `CfnConnector.ScaleOutPolicyProperty.CpuUtilizationPercentage`.
+	// The CPU utilization percentage threshold at which you want connector scale out to be triggered.
 	CpuUtilizationPercentage *float64 `field:"required" json:"cpuUtilizationPercentage" yaml:"cpuUtilizationPercentage"`
 }
 
+// Information about the VPC in which the connector resides.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1297,12 +1346,14 @@ type CfnConnector_ScaleOutPolicyProperty struct {
 //   }
 //
 type CfnConnector_VpcProperty struct {
-	// `CfnConnector.VpcProperty.SecurityGroups`.
+	// The security groups for the connector.
 	SecurityGroups *[]*string `field:"required" json:"securityGroups" yaml:"securityGroups"`
-	// `CfnConnector.VpcProperty.Subnets`.
+	// The subnets for the connector.
 	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 }
 
+// The configuration of the workers, which are the processes that run the connector logic.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1314,12 +1365,16 @@ type CfnConnector_VpcProperty struct {
 //   }
 //
 type CfnConnector_WorkerConfigurationProperty struct {
-	// `CfnConnector.WorkerConfigurationProperty.Revision`.
+	// The revision of the worker configuration.
 	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
-	// `CfnConnector.WorkerConfigurationProperty.WorkerConfigurationArn`.
+	// The Amazon Resource Name (ARN) of the worker configuration.
 	WorkerConfigurationArn *string `field:"required" json:"workerConfigurationArn" yaml:"workerConfigurationArn"`
 }
 
+// Workers can send worker logs to different destination types.
+//
+// This configuration specifies the details of these destinations.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1348,11 +1403,11 @@ type CfnConnector_WorkerConfigurationProperty struct {
 //   }
 //
 type CfnConnector_WorkerLogDeliveryProperty struct {
-	// `CfnConnector.WorkerLogDeliveryProperty.CloudWatchLogs`.
+	// Details about delivering logs to Amazon CloudWatch Logs.
 	CloudWatchLogs interface{} `field:"optional" json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
-	// `CfnConnector.WorkerLogDeliveryProperty.Firehose`.
+	// Details about delivering logs to Amazon Kinesis Data Firehose.
 	Firehose interface{} `field:"optional" json:"firehose" yaml:"firehose"`
-	// `CfnConnector.WorkerLogDeliveryProperty.S3`.
+	// Details about delivering logs to Amazon S3.
 	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
 }
 
@@ -1449,29 +1504,35 @@ type CfnConnector_WorkerLogDeliveryProperty struct {
 //   }
 //
 type CfnConnectorProps struct {
-	// `AWS::KafkaConnect::Connector.Capacity`.
+	// The connector's compute capacity settings.
 	Capacity interface{} `field:"required" json:"capacity" yaml:"capacity"`
-	// `AWS::KafkaConnect::Connector.ConnectorConfiguration`.
+	// The configuration of the connector.
 	ConnectorConfiguration interface{} `field:"required" json:"connectorConfiguration" yaml:"connectorConfiguration"`
-	// `AWS::KafkaConnect::Connector.ConnectorName`.
+	// The name of the connector.
 	ConnectorName *string `field:"required" json:"connectorName" yaml:"connectorName"`
-	// `AWS::KafkaConnect::Connector.KafkaCluster`.
+	// The details of the Apache Kafka cluster to which the connector is connected.
 	KafkaCluster interface{} `field:"required" json:"kafkaCluster" yaml:"kafkaCluster"`
-	// `AWS::KafkaConnect::Connector.KafkaClusterClientAuthentication`.
+	// The type of client authentication used to connect to the Apache Kafka cluster.
+	//
+	// The value is NONE when no client authentication is used.
 	KafkaClusterClientAuthentication interface{} `field:"required" json:"kafkaClusterClientAuthentication" yaml:"kafkaClusterClientAuthentication"`
-	// `AWS::KafkaConnect::Connector.KafkaClusterEncryptionInTransit`.
+	// Details of encryption in transit to the Apache Kafka cluster.
 	KafkaClusterEncryptionInTransit interface{} `field:"required" json:"kafkaClusterEncryptionInTransit" yaml:"kafkaClusterEncryptionInTransit"`
-	// `AWS::KafkaConnect::Connector.KafkaConnectVersion`.
+	// The version of Kafka Connect.
+	//
+	// It has to be compatible with both the Apache Kafka cluster's version and the plugins.
 	KafkaConnectVersion *string `field:"required" json:"kafkaConnectVersion" yaml:"kafkaConnectVersion"`
-	// `AWS::KafkaConnect::Connector.Plugins`.
+	// Specifies which plugin to use for the connector.
+	//
+	// You must specify a single-element list. Amazon MSK Connect does not currently support specifying multiple plugins.
 	Plugins interface{} `field:"required" json:"plugins" yaml:"plugins"`
-	// `AWS::KafkaConnect::Connector.ServiceExecutionRoleArn`.
+	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon Web Services resources.
 	ServiceExecutionRoleArn *string `field:"required" json:"serviceExecutionRoleArn" yaml:"serviceExecutionRoleArn"`
-	// `AWS::KafkaConnect::Connector.ConnectorDescription`.
+	// The description of the connector.
 	ConnectorDescription *string `field:"optional" json:"connectorDescription" yaml:"connectorDescription"`
-	// `AWS::KafkaConnect::Connector.LogDelivery`.
+	// The settings for delivering connector logs to Amazon CloudWatch Logs.
 	LogDelivery interface{} `field:"optional" json:"logDelivery" yaml:"logDelivery"`
-	// `AWS::KafkaConnect::Connector.WorkerConfiguration`.
+	// The worker configurations that are in use with the connector.
 	WorkerConfiguration interface{} `field:"optional" json:"workerConfiguration" yaml:"workerConfiguration"`
 }
 

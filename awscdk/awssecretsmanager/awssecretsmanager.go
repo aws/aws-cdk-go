@@ -809,6 +809,7 @@ type CfnResourcePolicyProps struct {
 //   		rotationType: jsii.String("rotationType"),
 //
 //   		// the properties below are optional
+//   		excludeCharacters: jsii.String("excludeCharacters"),
 //   		kmsKeyArn: jsii.String("kmsKeyArn"),
 //   		masterSecretArn: jsii.String("masterSecretArn"),
 //   		masterSecretKmsKeyArn: jsii.String("masterSecretKmsKeyArn"),
@@ -1562,6 +1563,7 @@ func (c *jsiiProxy_CfnRotationSchedule) ValidateProperties(_properties interface
 //   	rotationType: jsii.String("rotationType"),
 //
 //   	// the properties below are optional
+//   	excludeCharacters: jsii.String("excludeCharacters"),
 //   	kmsKeyArn: jsii.String("kmsKeyArn"),
 //   	masterSecretArn: jsii.String("masterSecretArn"),
 //   	masterSecretKmsKeyArn: jsii.String("masterSecretKmsKeyArn"),
@@ -1590,6 +1592,8 @@ type CfnRotationSchedule_HostedRotationLambdaProperty struct {
 	// - `MongoDBSingleUser` to use the template [SecretsManagerMongoDBRotationSingleUser](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html#sar-template-mongodb-singleuser) .
 	// - `MongoDBMultiUser` to use the template [SecretsManagerMongoDBRotationMultiUser](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html#sar-template-mongodb-multiuser) .
 	RotationType *string `field:"required" json:"rotationType" yaml:"rotationType"`
+	// A string of the characters that you don't want in the password.
+	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// The ARN of the KMS key that Secrets Manager uses to encrypt the secret.
 	//
 	// If you don't specify this value, then Secrets Manager uses the key `aws/secretsmanager` . If `aws/secretsmanager` doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
@@ -1669,6 +1673,7 @@ type CfnRotationSchedule_RotationRulesProperty struct {
 //   		rotationType: jsii.String("rotationType"),
 //
 //   		// the properties below are optional
+//   		excludeCharacters: jsii.String("excludeCharacters"),
 //   		kmsKeyArn: jsii.String("kmsKeyArn"),
 //   		masterSecretArn: jsii.String("masterSecretArn"),
 //   		masterSecretKmsKeyArn: jsii.String("masterSecretKmsKeyArn"),
@@ -5037,6 +5042,8 @@ func (r *jsiiProxy_RotationSchedule) Validate() *[]*string {
 // Experimental.
 type RotationScheduleOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
+	//
+	// A value of zero will disable automatic rotation - `Duration.days(0)`.
 	// Experimental.
 	AutomaticallyAfter awscdk.Duration `field:"optional" json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// Hosted rotation.
@@ -5073,6 +5080,8 @@ type RotationScheduleOptions struct {
 // Experimental.
 type RotationScheduleProps struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
+	//
+	// A value of zero will disable automatic rotation - `Duration.days(0)`.
 	// Experimental.
 	AutomaticallyAfter awscdk.Duration `field:"optional" json:"automaticallyAfter" yaml:"automaticallyAfter"`
 	// Hosted rotation.

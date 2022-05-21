@@ -11,6 +11,28 @@ import (
 
 // A CloudFormation `AWS::Personalize::Dataset`.
 //
+// Creates an empty dataset and adds it to the specified dataset group. Use [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html) to import your training data to a dataset.
+//
+// There are three types of datasets:
+//
+// - Interactions
+// - Items
+// - Users
+//
+// Each dataset type has an associated schema with required field types. Only the `Interactions` dataset is required in order to train a model (also referred to as creating a solution).
+//
+// A dataset can be in one of the following states:
+//
+// - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+// - DELETE PENDING > DELETE IN_PROGRESS
+//
+// To get the status of the dataset, call [DescribeDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html) .
+//
+// **Related APIs** - [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html)
+// - [ListDatasets](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html)
+// - [DescribeDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html)
+// - [DeleteDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html)
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,6 +59,7 @@ import (
 type CfnDataset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the dataset.
 	AttrDatasetArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -50,13 +73,17 @@ type CfnDataset interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::Personalize::Dataset.DatasetGroupArn`.
+	// The Amazon Resource Name (ARN) of the dataset group.
 	DatasetGroupArn() *string
 	SetDatasetGroupArn(val *string)
-	// `AWS::Personalize::Dataset.DatasetImportJob`.
+	// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
 	DatasetImportJob() interface{}
 	SetDatasetImportJob(val interface{})
-	// `AWS::Personalize::Dataset.DatasetType`.
+	// One of the following values:.
+	//
+	// - Interactions
+	// - Items
+	// - Users.
 	DatasetType() *string
 	SetDatasetType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -70,7 +97,7 @@ type CfnDataset interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::Personalize::Dataset.Name`.
+	// The name of the dataset.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
@@ -82,7 +109,7 @@ type CfnDataset interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::Personalize::Dataset.SchemaArn`.
+	// The ARN of the associated schema.
 	SchemaArn() *string
 	SetSchemaArn(val *string)
 	// The stack in which this element is defined.
@@ -755,6 +782,14 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
+//
+// For more information, see [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html) .
+//
+// A dataset import job can be in one of the following states:
+//
+// - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -771,19 +806,23 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnDataset_DatasetImportJobProperty struct {
-	// `CfnDataset.DatasetImportJobProperty.DatasetArn`.
+	// The Amazon Resource Name (ARN) of the dataset that receives the imported data.
 	DatasetArn *string `field:"optional" json:"datasetArn" yaml:"datasetArn"`
-	// `CfnDataset.DatasetImportJobProperty.DatasetImportJobArn`.
+	// The ARN of the dataset import job.
 	DatasetImportJobArn *string `field:"optional" json:"datasetImportJobArn" yaml:"datasetImportJobArn"`
-	// `CfnDataset.DatasetImportJobProperty.DataSource`.
+	// The Amazon S3 bucket that contains the training data to import.
 	DataSource interface{} `field:"optional" json:"dataSource" yaml:"dataSource"`
-	// `CfnDataset.DatasetImportJobProperty.JobName`.
+	// The name of the import job.
 	JobName *string `field:"optional" json:"jobName" yaml:"jobName"`
-	// `CfnDataset.DatasetImportJobProperty.RoleArn`.
+	// The ARN of the IAM role that has permissions to read from the Amazon S3 data source.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::Personalize::DatasetGroup`.
+//
+// A dataset group is a collection of related datasets (Interactions, User, and Item). You create a dataset group by calling [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html) . You then create a dataset and add it to a dataset group by calling [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html) . The dataset group is used to create and train a solution by calling [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html) . A dataset group can contain only one of each type of dataset.
+//
+// You can specify an AWS Key Management Service (KMS) key to encrypt the datasets in the group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -802,6 +841,7 @@ type CfnDataset_DatasetImportJobProperty struct {
 type CfnDatasetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the dataset group.
 	AttrDatasetGroupArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -815,10 +855,10 @@ type CfnDatasetGroup interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::Personalize::DatasetGroup.Domain`.
+	// The domain of a Domain dataset group.
 	Domain() *string
 	SetDomain(val *string)
-	// `AWS::Personalize::DatasetGroup.KmsKeyArn`.
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to encrypt the datasets.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -832,7 +872,7 @@ type CfnDatasetGroup interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::Personalize::DatasetGroup.Name`.
+	// The name of the dataset group.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
@@ -844,7 +884,7 @@ type CfnDatasetGroup interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::Personalize::DatasetGroup.RoleArn`.
+	// The ARN of the IAM role that has permissions to create the dataset group.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -1516,13 +1556,13 @@ func (c *jsiiProxy_CfnDatasetGroup) ValidateProperties(_properties interface{}) 
 //   }
 //
 type CfnDatasetGroupProps struct {
-	// `AWS::Personalize::DatasetGroup.Name`.
+	// The name of the dataset group.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::Personalize::DatasetGroup.Domain`.
+	// The domain of a Domain dataset group.
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
-	// `AWS::Personalize::DatasetGroup.KmsKeyArn`.
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to encrypt the datasets.
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
-	// `AWS::Personalize::DatasetGroup.RoleArn`.
+	// The ARN of the IAM role that has permissions to create the dataset group.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 
@@ -1552,19 +1592,33 @@ type CfnDatasetGroupProps struct {
 //   }
 //
 type CfnDatasetProps struct {
-	// `AWS::Personalize::Dataset.DatasetGroupArn`.
+	// The Amazon Resource Name (ARN) of the dataset group.
 	DatasetGroupArn *string `field:"required" json:"datasetGroupArn" yaml:"datasetGroupArn"`
-	// `AWS::Personalize::Dataset.DatasetType`.
+	// One of the following values:.
+	//
+	// - Interactions
+	// - Items
+	// - Users.
 	DatasetType *string `field:"required" json:"datasetType" yaml:"datasetType"`
-	// `AWS::Personalize::Dataset.Name`.
+	// The name of the dataset.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::Personalize::Dataset.SchemaArn`.
+	// The ARN of the associated schema.
 	SchemaArn *string `field:"required" json:"schemaArn" yaml:"schemaArn"`
-	// `AWS::Personalize::Dataset.DatasetImportJob`.
+	// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
 	DatasetImportJob interface{} `field:"optional" json:"datasetImportJob" yaml:"datasetImportJob"`
 }
 
 // A CloudFormation `AWS::Personalize::Schema`.
+//
+// Creates an Amazon Personalize schema from the specified schema string. The schema you create must be in Avro JSON format.
+//
+// Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset type and has a set of required field and keywords. If you are creating a schema for a dataset in a Domain dataset group, you provide the domain of the Domain dataset group. You specify a schema when you call [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html) .
+//
+// For more information on schemas, see [Datasets and schemas](https://docs.aws.amazon.com/personalize/latest/dg/how-it-works-dataset-schema.html) .
+//
+// **Related APIs** - [ListSchemas](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSchemas.html)
+// - [DescribeSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html)
+// - [DeleteSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -1582,6 +1636,7 @@ type CfnDatasetProps struct {
 type CfnSchema interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the schema.
 	AttrSchemaArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -1595,7 +1650,7 @@ type CfnSchema interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::Personalize::Schema.Domain`.
+	// The domain of a schema that you created for a dataset in a Domain dataset group.
 	Domain() *string
 	SetDomain(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -1609,7 +1664,7 @@ type CfnSchema interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::Personalize::Schema.Name`.
+	// The name of the schema.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
@@ -1621,7 +1676,7 @@ type CfnSchema interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::Personalize::Schema.Schema`.
+	// The schema.
 	Schema() *string
 	SetSchema(val *string)
 	// The stack in which this element is defined.
@@ -2274,15 +2329,17 @@ func (c *jsiiProxy_CfnSchema) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnSchemaProps struct {
-	// `AWS::Personalize::Schema.Name`.
+	// The name of the schema.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::Personalize::Schema.Schema`.
+	// The schema.
 	Schema *string `field:"required" json:"schema" yaml:"schema"`
-	// `AWS::Personalize::Schema.Domain`.
+	// The domain of a schema that you created for a dataset in a Domain dataset group.
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
 }
 
 // A CloudFormation `AWS::Personalize::Solution`.
+//
+// An object that provides information about a solution. A solution is a trained model that can be deployed as a campaign.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -2317,6 +2374,7 @@ type CfnSchemaProps struct {
 type CfnSolution interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the solution.
 	AttrSolutionArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -2330,10 +2388,12 @@ type CfnSolution interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::Personalize::Solution.DatasetGroupArn`.
+	// The Amazon Resource Name (ARN) of the dataset group that provides the training data.
 	DatasetGroupArn() *string
 	SetDatasetGroupArn(val *string)
-	// `AWS::Personalize::Solution.EventType`.
+	// The event type (for example, 'click' or 'like') that is used for training the model.
+	//
+	// If no `eventType` is provided, Amazon Personalize uses all interactions for training with equal weight regardless of type.
 	EventType() *string
 	SetEventType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -2347,19 +2407,23 @@ type CfnSolution interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::Personalize::Solution.Name`.
+	// The name of the solution.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// `AWS::Personalize::Solution.PerformAutoML`.
+	// When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from the list specified in the solution configuration ( `recipeArn` must not be specified).
+	//
+	// When false (the default), Amazon Personalize uses `recipeArn` for training.
 	PerformAutoMl() interface{}
 	SetPerformAutoMl(val interface{})
-	// `AWS::Personalize::Solution.PerformHPO`.
+	// Whether to perform hyperparameter optimization (HPO) on the chosen recipe.
+	//
+	// The default is `false` .
 	PerformHpo() interface{}
 	SetPerformHpo(val interface{})
-	// `AWS::Personalize::Solution.RecipeArn`.
+	// The ARN of the recipe used to create the solution.
 	RecipeArn() *string
 	SetRecipeArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -2368,7 +2432,7 @@ type CfnSolution interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::Personalize::Solution.SolutionConfig`.
+	// Describes the configuration properties for the solution.
 	SolutionConfig() interface{}
 	SetSolutionConfig(val interface{})
 	// The stack in which this element is defined.
@@ -3077,6 +3141,8 @@ func (c *jsiiProxy_CfnSolution) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Describes the configuration properties for the solution.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -3098,15 +3164,15 @@ func (c *jsiiProxy_CfnSolution) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnSolution_SolutionConfigProperty struct {
-	// `CfnSolution.SolutionConfigProperty.AlgorithmHyperParameters`.
+	// Lists the hyperparameter names and ranges.
 	AlgorithmHyperParameters interface{} `field:"optional" json:"algorithmHyperParameters" yaml:"algorithmHyperParameters"`
-	// `CfnSolution.SolutionConfigProperty.AutoMLConfig`.
+	// The [AutoMLConfig](https://docs.aws.amazon.com/personalize/latest/dg/API_AutoMLConfig.html) object containing a list of recipes to search when AutoML is performed.
 	AutoMlConfig interface{} `field:"optional" json:"autoMlConfig" yaml:"autoMlConfig"`
-	// `CfnSolution.SolutionConfigProperty.EventValueThreshold`.
+	// Only events with a value greater than or equal to this threshold are used for training a model.
 	EventValueThreshold *string `field:"optional" json:"eventValueThreshold" yaml:"eventValueThreshold"`
-	// `CfnSolution.SolutionConfigProperty.FeatureTransformationParameters`.
+	// Lists the feature transformation parameters.
 	FeatureTransformationParameters interface{} `field:"optional" json:"featureTransformationParameters" yaml:"featureTransformationParameters"`
-	// `CfnSolution.SolutionConfigProperty.HpoConfig`.
+	// Describes the properties for hyperparameter optimization (HPO).
 	HpoConfig interface{} `field:"optional" json:"hpoConfig" yaml:"hpoConfig"`
 }
 
@@ -3143,19 +3209,25 @@ type CfnSolution_SolutionConfigProperty struct {
 //   }
 //
 type CfnSolutionProps struct {
-	// `AWS::Personalize::Solution.DatasetGroupArn`.
+	// The Amazon Resource Name (ARN) of the dataset group that provides the training data.
 	DatasetGroupArn *string `field:"required" json:"datasetGroupArn" yaml:"datasetGroupArn"`
-	// `AWS::Personalize::Solution.Name`.
+	// The name of the solution.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::Personalize::Solution.EventType`.
+	// The event type (for example, 'click' or 'like') that is used for training the model.
+	//
+	// If no `eventType` is provided, Amazon Personalize uses all interactions for training with equal weight regardless of type.
 	EventType *string `field:"optional" json:"eventType" yaml:"eventType"`
-	// `AWS::Personalize::Solution.PerformAutoML`.
+	// When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from the list specified in the solution configuration ( `recipeArn` must not be specified).
+	//
+	// When false (the default), Amazon Personalize uses `recipeArn` for training.
 	PerformAutoMl interface{} `field:"optional" json:"performAutoMl" yaml:"performAutoMl"`
-	// `AWS::Personalize::Solution.PerformHPO`.
+	// Whether to perform hyperparameter optimization (HPO) on the chosen recipe.
+	//
+	// The default is `false` .
 	PerformHpo interface{} `field:"optional" json:"performHpo" yaml:"performHpo"`
-	// `AWS::Personalize::Solution.RecipeArn`.
+	// The ARN of the recipe used to create the solution.
 	RecipeArn *string `field:"optional" json:"recipeArn" yaml:"recipeArn"`
-	// `AWS::Personalize::Solution.SolutionConfig`.
+	// Describes the configuration properties for the solution.
 	SolutionConfig interface{} `field:"optional" json:"solutionConfig" yaml:"solutionConfig"`
 }
 

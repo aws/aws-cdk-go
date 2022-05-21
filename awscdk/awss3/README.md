@@ -610,3 +610,45 @@ s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 	},
 })
 ```
+
+## Lifecycle Rule
+
+[Managing lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) can be configured transition or expiration actions.
+
+```go
+bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
+	lifecycleRules: []lifecycleRule{
+		&lifecycleRule{
+			abortIncompleteMultipartUploadAfter: cdk.duration.minutes(jsii.Number(30)),
+			enabled: jsii.Boolean(false),
+			expiration: cdk.*duration.days(jsii.Number(30)),
+			expirationDate: NewDate(),
+			expiredObjectDeleteMarker: jsii.Boolean(false),
+			id: jsii.String("id"),
+			noncurrentVersionExpiration: cdk.*duration.days(jsii.Number(30)),
+
+			// the properties below are optional
+			noncurrentVersionsToRetain: jsii.Number(123),
+			noncurrentVersionTransitions: []noncurrentVersionTransition{
+				&noncurrentVersionTransition{
+					storageClass: s3.storageClass_GLACIER(),
+					transitionAfter: cdk.*duration.days(jsii.Number(30)),
+
+					// the properties below are optional
+					noncurrentVersionsToRetain: jsii.Number(123),
+				},
+			},
+			prefix: jsii.String("prefix"),
+			transitions: []transition{
+				&transition{
+					storageClass: s3.*storageClass_GLACIER(),
+
+					// the properties below are optional
+					transitionAfter: cdk.*duration.days(jsii.Number(30)),
+					transitionDate: NewDate(),
+				},
+			},
+		},
+	},
+})
+```

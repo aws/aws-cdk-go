@@ -1198,7 +1198,7 @@ type CdkStageProps struct {
 //   		// Control Elastic Network Interface creation
 //   		vpc: vpc,
 //   		subnetSelection: &subnetSelection{
-//   			subnetType: ec2.subnetType_PRIVATE,
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   		},
 //   		securityGroups: []iSecurityGroup{
 //   			mySecurityGroup,
@@ -1301,6 +1301,9 @@ type CodeBuildOptions struct {
 // Experimental.
 type CodeBuildStep interface {
 	ShellStep
+	// Custom execution role to be used for the Code Build Action.
+	// Experimental.
+	ActionRole() awsiam.IRole
 	// Build environment.
 	// Experimental.
 	BuildEnvironment() *awscodebuild.BuildEnvironment
@@ -1460,6 +1463,16 @@ type CodeBuildStep interface {
 // The jsii proxy struct for CodeBuildStep
 type jsiiProxy_CodeBuildStep struct {
 	jsiiProxy_ShellStep
+}
+
+func (j *jsiiProxy_CodeBuildStep) ActionRole() awsiam.IRole {
+	var returns awsiam.IRole
+	_jsii_.Get(
+		j,
+		"actionRole",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CodeBuildStep) BuildEnvironment() *awscodebuild.BuildEnvironment {
@@ -1903,6 +1916,9 @@ type CodeBuildStepProps struct {
 	// will be treated as the primary output of this Step.
 	// Experimental.
 	PrimaryOutputDirectory *string `field:"optional" json:"primaryOutputDirectory" yaml:"primaryOutputDirectory"`
+	// Custom execution role to be used for the Code Build Action.
+	// Experimental.
+	ActionRole awsiam.IRole `field:"optional" json:"actionRole" yaml:"actionRole"`
 	// Changes to environment.
 	//
 	// This environment will be combined with the pipeline's default

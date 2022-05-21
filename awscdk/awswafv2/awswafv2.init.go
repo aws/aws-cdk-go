@@ -229,12 +229,24 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroup_AndStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnRuleGroup.BodyProperty",
+		reflect.TypeOf((*CfnRuleGroup_BodyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnRuleGroup.ByteMatchStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_ByteMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnRuleGroup.CaptchaConfigProperty",
 		reflect.TypeOf((*CfnRuleGroup_CaptchaConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnRuleGroup.CookieMatchPatternProperty",
+		reflect.TypeOf((*CfnRuleGroup_CookieMatchPatternProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnRuleGroup.CookiesProperty",
+		reflect.TypeOf((*CfnRuleGroup_CookiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnRuleGroup.CustomResponseBodyProperty",
@@ -251,6 +263,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnRuleGroup.GeoMatchStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_GeoMatchStatementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnRuleGroup.HeaderMatchPatternProperty",
+		reflect.TypeOf((*CfnRuleGroup_HeaderMatchPatternProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnRuleGroup.HeadersProperty",
+		reflect.TypeOf((*CfnRuleGroup_HeadersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnRuleGroup.IPSetForwardedIPConfigurationProperty",
@@ -408,6 +428,10 @@ func init() {
 		reflect.TypeOf((*CfnWebACL_BlockActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnWebACL.BodyProperty",
+		reflect.TypeOf((*CfnWebACL_BodyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.ByteMatchStatementProperty",
 		reflect.TypeOf((*CfnWebACL_ByteMatchStatementProperty)(nil)).Elem(),
 	)
@@ -418,6 +442,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.CaptchaConfigProperty",
 		reflect.TypeOf((*CfnWebACL_CaptchaConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnWebACL.CookieMatchPatternProperty",
+		reflect.TypeOf((*CfnWebACL_CookieMatchPatternProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnWebACL.CookiesProperty",
+		reflect.TypeOf((*CfnWebACL_CookiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.CountActionProperty",
@@ -462,6 +494,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.GeoMatchStatementProperty",
 		reflect.TypeOf((*CfnWebACL_GeoMatchStatementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnWebACL.HeaderMatchPatternProperty",
+		reflect.TypeOf((*CfnWebACL_HeaderMatchPatternProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnWebACL.HeadersProperty",
+		reflect.TypeOf((*CfnWebACL_HeadersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.IPSetForwardedIPConfigurationProperty",

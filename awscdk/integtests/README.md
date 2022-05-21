@@ -1,6 +1,55 @@
 # integ-tests
 
+## Overview
+
+This library is meant to be used in combination with the [integ-runner]() CLI
+to enable users to write and execute integration tests for AWS CDK Constructs.
+
+An integration test should be defined as a CDK application, and
+there should be a 1:1 relationship between an integration test and a CDK application.
+
+So for example, in order to create an integration test called `my-function`
+we would need to create a file to contain our integration test application.
+
+*test/integ.my-function.ts*
+
+```go
+app := awscdk.NewApp()
+stack := awscdk.NewStack()
+lambda.NewFunction(stack, jsii.String("MyFunction"), &functionProps{
+	runtime: lambda.runtime_NODEJS_12_X(),
+	handler: jsii.String("index.handler"),
+	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+})
+```
+
+This is a self contained CDK application which we could deploy by running
+
+```bash
+cdk deploy --app 'node test/integ.my-function.js'
+```
+
+In order to turn this into an integration test, all that is needed is to
+use the `IntegTest` construct.
+
+```go
+var app app
+var stack stack
+
+awscdk.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
+	testCases: []*stack{
+		stack,
+	},
+})
+```
+
+You will notice that the `stack` is registered to the `IntegTest` as a test case.
+Each integration test can contain multiple test cases, which are just instances
+of a stack. See the [Usage](#usage) section for more details.
+
 ## Usage
+
+### IntegTest
 
 Suppose you have a simple stack, that only encapsulates a Lambda function with a
 certain handler:
@@ -60,26 +109,14 @@ func newStackUnderTest(scope construct, id *string, props stackUnderTestProps) *
 // Beginning of the test suite
 app := awscdk.NewApp()
 
-stack := awscdk.Newstack(app, jsii.String("stack"))
-
-differentArchsCase := awscdk.NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
-	stacks: []*stack{
+awscdk.NewIntegTest(app, jsii.String("DifferentArchitectures"), &integTestProps{
+	testCases: []*stack{
 		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
 			architecture: lambda.*architecture_ARM_64(),
 		}),
 		NewStackUnderTest(app, jsii.String("Stack2"), &stackUnderTestProps{
 			architecture: lambda.*architecture_X86_64(),
 		}),
-	},
-})
-
-// There must be exactly one instance of TestCase per file
-// There must be exactly one instance of TestCase per file
-awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
-
-	// Register as many test cases as you want here
-	testCases: []integTestCase{
-		differentArchsCase,
 	},
 })
 ```
@@ -95,8 +132,8 @@ stackUnderTest := awscdk.NewStack(app, jsii.String("StackUnderTest"))
 
 stack := awscdk.NewStack(app, jsii.String("stack"))
 
-testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
-	stacks: []stack{
+testCase := awscdk.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &integTestProps{
+	testCases: []stack{
 		stackUnderTest,
 	},
 	diffAssets: jsii.Boolean(true),
@@ -115,10 +152,253 @@ testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWork
 		},
 	},
 })
+```
 
-awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
-	testCases: []integTestCase{
-		testCase,
+### IntegTestCaseStack
+
+In the majority of cases an integration test will contain a single `IntegTestCase`.
+By default when you create an `IntegTest` an `IntegTestCase` is created for you
+and all of your test cases are registered to this `IntegTestCase`. The `IntegTestCase`
+and `IntegTestCaseStack` constructs are only needed when it is necessary to
+defined different options for individual test cases.
+
+For example, you might want to have one test case where `diffAssets` is enabled.
+
+```go
+var app app
+var stackUnderTest stack
+
+testCaseWithAssets := awscdk.NewIntegTestCaseStack(app, jsii.String("TestCaseAssets"), &integTestCaseStackProps{
+	diffAssets: jsii.Boolean(true),
+})
+
+awscdk.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
+	testCases: []*stack{
+		stackUnderTest,
+		testCaseWithAssets,
 	},
 })
+```
+
+## Assertions
+
+This library also provides a utility to make assertions against the infrastructure that the integration test deploys.
+
+The easiest way to do this is to create a `TestCase` and then access the `DeployAssert` that is automatically created.
+
+```go
+var app app
+var stack stack
+
+
+integ := awscdk.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
+	testCases: []*stack{
+		stack,
+	},
+})
+integ.assert.awsApiCall(jsii.String("S3"), jsii.String("getObject"))
+```
+
+### DeployAssert
+
+Assertions are created by using the `DeployAssert` construct. This construct creates it's own `Stack` separate from
+any stacks that you create as part of your integration tests. This `Stack` is treated differently from other stacks
+by the `integ-runner` tool. For example, this stack will not be diffed by the `integ-runner`.
+
+Any assertions that you create should be created in the scope of `DeployAssert`. For example,
+
+```go
+var app app
+
+
+assert := awscdk.NewDeployAssert(app)
+awscdk.NewAwsApiCall(assert, jsii.String("GetObject"), &awsApiCallProps{
+	service: jsii.String("S3"),
+	api: jsii.String("getObject"),
+})
+```
+
+`DeployAssert` also provides utilities to register your own assertions.
+
+```go
+var myCustomResource customResource
+var app app
+
+assert := awscdk.NewDeployAssert(app)
+assert.assert(jsii.String("CustomAssertion"), awscdk.ExpectedResult.objectLike(map[string]interface{}{
+	"foo": jsii.String("bar"),
+}), awscdk.ActualResult.fromCustomResource(myCustomResource, jsii.String("data")))
+```
+
+In the above example an assertion is created that will trigger a user defined `CustomResource`
+and assert that the `data` attribute is equal to `{ foo: 'bar' }`.
+
+### AwsApiCall
+
+A common method to retrieve the "actual" results to compare with what is expected is to make an
+AWS API call to receive some data. This library does this by utilizing CloudFormation custom resources
+which means that CloudFormation will call out to a Lambda Function which will
+use the AWS JavaScript SDK to make the API call.
+
+This can be done by using the class directory:
+
+```go
+var assert deployAssert
+
+
+awscdk.NewAwsApiCall(assert, jsii.String("MyAssertion"), &awsApiCallProps{
+	service: jsii.String("SQS"),
+	api: jsii.String("receiveMessage"),
+	parameters: map[string]*string{
+		"QueueUrl": jsii.String("url"),
+	},
+})
+```
+
+Or by using the `awsApiCall` method on `DeployAssert`:
+
+```go
+var app app
+
+assert := awscdk.NewDeployAssert(app)
+assert.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]*string{
+	"QueueUrl": jsii.String("url"),
+})
+```
+
+### EqualsAssertion
+
+This library currently provides the ability to assert that two values are equal
+to one another by utilizing the `EqualsAssertion` class. This utilizes a Lambda
+backed `CustomResource` which in tern uses the [Match](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.assertions.Match.html) utility from the
+[@aws-cdk/assertions](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.assertions-readme.html) library.
+
+```go
+var app app
+var stack stack
+var queue queue
+var fn iFunction
+
+
+integ := awscdk.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
+	testCases: []*stack{
+		stack,
+	},
+})
+
+integ.assert.invokeFunction(&lambdaInvokeFunctionProps{
+	functionName: fn.functionName,
+	invocationType: awscdk.InvocationType_EVENT,
+	payload: jSON.stringify(map[string]*string{
+		"status": jsii.String("OK"),
+	}),
+})
+
+message := integ.assert.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]interface{}{
+	"QueueUrl": queue.queueUrl,
+	"WaitTimeSeconds": jsii.Number(20),
+})
+
+awscdk.NewEqualsAssertion(integ.assert, jsii.String("ReceiveMessage"), &equalsAssertionProps{
+	actual: awscdk.ActualResult.fromAwsApiCall(message, jsii.String("Messages.0.Body")),
+	expected: awscdk.ExpectedResult.objectLike(map[string]interface{}{
+		"requestContext": map[string]*string{
+			"condition": jsii.String("Success"),
+		},
+		"requestPayload": map[string]*string{
+			"status": jsii.String("OK"),
+		},
+		"responseContext": map[string]*f64{
+			"statusCode": jsii.Number(200),
+		},
+		"responsePayload": jsii.String("success"),
+	}),
+})
+```
+
+#### Match
+
+`integ-tests` also provides a `Match` utility similar to the `@aws-cdk/assertions` module. `Match`
+can be used to construct the `ExpectedResult`.
+
+```go
+var message awsApiCall
+var assert deployAssert
+
+
+message.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+	"Messages": awscdk.Match.arrayWith([]interface{}{
+		map[string]map[string]map[string][]interface{}{
+			"Body": map[string]map[string][]interface{}{
+				"Values": awscdk.Match.arrayWith([]interface{}{
+					map[string]*f64{
+						"Asdf": jsii.Number(3),
+					},
+				}),
+				"Message": awscdk.Match.stringLikeRegexp(jsii.String("message")),
+			},
+		},
+	}),
+}))
+```
+
+### Examples
+
+#### Invoke a Lambda Function
+
+In this example there is a Lambda Function that is invoked and
+we assert that the payload that is returned is equal to '200'.
+
+```go
+var lambdaFunction iFunction
+var app app
+
+
+stack := awscdk.NewStack(app, jsii.String("cdk-integ-lambda-bundling"))
+
+integ := awscdk.NewIntegTest(app, jsii.String("IntegTest"), &integTestProps{
+	testCases: []stack{
+		stack,
+	},
+})
+
+invoke := integ.assert.invokeFunction(&lambdaInvokeFunctionProps{
+	functionName: lambdaFunction.functionName,
+})
+invoke.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+	"Payload": jsii.String("200"),
+}))
+```
+
+#### Make an AWS API Call
+
+In this example there is a StepFunctions state machine that is executed
+and then we assert that the result of the execution is successful.
+
+```go
+var app app
+var stack stack
+var sm iStateMachine
+
+
+testCase := awscdk.NewIntegTest(app, jsii.String("IntegTest"), &integTestProps{
+	testCases: []*stack{
+		stack,
+	},
+})
+
+// Start an execution
+start := testCase.assert.awsApiCall(jsii.String("StepFunctions"), jsii.String("startExecution"), map[string]*string{
+	"stateMachineArn": sm.stateMachineArn,
+})
+
+// describe the results of the execution
+describe := testCase.assert.awsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
+	"executionArn": start.getAttString(jsii.String("executionArn")),
+})
+
+// assert the results
+describe.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+	"status": jsii.String("SUCCEEDED"),
+}))
 ```

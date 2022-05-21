@@ -88,27 +88,29 @@ type AddAutoScalingGroupCapacityOptions struct {
 //   var vpc vpc
 //
 //
+//   // Create an ECS cluster
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
 //   	vpc: vpc,
 //   })
 //
-//   // Either add default capacity
+//   // Add capacity to it
 //   cluster.addCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &addCapacityOptions{
 //   	instanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
 //   	desiredCapacity: jsii.Number(3),
 //   })
 //
-//   // Or add customized capacity. Be sure to start the Amazon ECS-optimized AMI.
-//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-//   	vpc: vpc,
-//   	instanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
-//   	machineImage: ecs.ecsOptimizedImage.amazonLinux(),
-//   	// Or use Amazon ECS-Optimized Amazon Linux 2 AMI
-//   	// machineImage: EcsOptimizedImage.amazonLinux2(),
-//   	desiredCapacity: jsii.Number(3),
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//
+//   taskDefinition.addContainer(jsii.String("DefaultContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	memoryLimitMiB: jsii.Number(512),
 //   })
 //
-//   cluster.addAutoScalingGroup(autoScalingGroup)
+//   // Instantiate an Amazon ECS Service
+//   ecsService := ecs.NewEc2Service(this, jsii.String("Service"), &ec2ServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   })
 //
 // Experimental.
 type AddCapacityOptions struct {
@@ -17294,7 +17296,10 @@ type EcsOptimizedAmiProps struct {
 //   	desiredCapacity: jsii.Number(3),
 //   })
 //
-//   cluster.addAutoScalingGroup(autoScalingGroup)
+//   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
+//   	autoScalingGroup: autoScalingGroup,
+//   })
+//   cluster.addAsgCapacityProvider(capacityProvider)
 //
 // Experimental.
 type EcsOptimizedImage interface {

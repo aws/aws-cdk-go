@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::MediaTailor::PlaybackConfiguration`.
 //
+// Adds a new playback configuration to AWS Elemental MediaTailor.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -39,7 +41,8 @@ import (
 //   	configurationAliases: map[string]interface{}{
 //   		"configurationAliasesKey": configurationAliases,
 //   	},
-//   	dashConfiguration: &dashConfigurationForPutProperty{
+//   	dashConfiguration: &dashConfigurationProperty{
+//   		manifestEndpointPrefix: jsii.String("manifestEndpointPrefix"),
 //   		mpdLocation: jsii.String("mpdLocation"),
 //   		originManifestType: jsii.String("originManifestType"),
 //   	},
@@ -53,7 +56,6 @@ import (
 //   		},
 //   	},
 //   	personalizationThresholdSeconds: jsii.Number(123),
-//   	sessionInitializationEndpointPrefix: jsii.String("sessionInitializationEndpointPrefix"),
 //   	slateAdUrl: jsii.String("slateAdUrl"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -67,16 +69,27 @@ import (
 type CfnPlaybackConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::MediaTailor::PlaybackConfiguration.AdDecisionServerUrl`.
+	// The URL for the ad decision server (ADS).
+	//
+	// This includes the specification of static parameters and placeholders for dynamic parameters. MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
 	AdDecisionServerUrl() *string
 	SetAdDecisionServerUrl(val *string)
-	// `AWS::MediaTailor::PlaybackConfiguration.AvailSuppression`.
+	AttrDashConfigurationManifestEndpointPrefix() *string
+	AttrHlsConfigurationManifestEndpointPrefix() *string
+	AttrPlaybackConfigurationArn() *string
+	AttrPlaybackEndpointPrefix() *string
+	AttrSessionInitializationEndpointPrefix() *string
+	// The configuration for avail suppression, also known as ad suppression.
+	//
+	// For more information about ad suppression, see [Ad Suppression](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html) .
 	AvailSuppression() interface{}
 	SetAvailSuppression(val interface{})
-	// `AWS::MediaTailor::PlaybackConfiguration.Bumper`.
+	// The configuration for bumpers.
+	//
+	// Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see [Bumpers](https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html) .
 	Bumper() interface{}
 	SetBumper(val interface{})
-	// `AWS::MediaTailor::PlaybackConfiguration.CdnConfiguration`.
+	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
 	CdnConfiguration() interface{}
 	SetCdnConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -86,7 +99,9 @@ type CfnPlaybackConfiguration interface {
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
-	// `AWS::MediaTailor::PlaybackConfiguration.ConfigurationAliases`.
+	// The player parameters and aliases used as dynamic variables during session initialization.
+	//
+	// For more information, see [Domain Variables](https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html) .
 	ConfigurationAliases() interface{}
 	SetConfigurationAliases(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -94,10 +109,10 @@ type CfnPlaybackConfiguration interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::MediaTailor::PlaybackConfiguration.DashConfiguration`.
+	// The configuration for DASH content.
 	DashConfiguration() interface{}
 	SetDashConfiguration(val interface{})
-	// `AWS::MediaTailor::PlaybackConfiguration.LivePreRollConfiguration`.
+	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration() interface{}
 	SetLivePreRollConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -111,16 +126,20 @@ type CfnPlaybackConfiguration interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::MediaTailor::PlaybackConfiguration.ManifestProcessingRules`.
+	// The configuration for manifest processing rules.
+	//
+	// Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
 	ManifestProcessingRules() interface{}
 	SetManifestProcessingRules(val interface{})
-	// `AWS::MediaTailor::PlaybackConfiguration.Name`.
+	// The identifier for the playback configuration.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// `AWS::MediaTailor::PlaybackConfiguration.PersonalizationThresholdSeconds`.
+	// Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break.
+	//
+	// If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to *ad replacement* in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see [Ad Behavior in MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html) .
 	PersonalizationThresholdSeconds() *float64
 	SetPersonalizationThresholdSeconds(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -129,10 +148,9 @@ type CfnPlaybackConfiguration interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::MediaTailor::PlaybackConfiguration.SessionInitializationEndpointPrefix`.
-	SessionInitializationEndpointPrefix() *string
-	SetSessionInitializationEndpointPrefix(val *string)
-	// `AWS::MediaTailor::PlaybackConfiguration.SlateAdUrl`.
+	// The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads.
+	//
+	// MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
 	SlateAdUrl() *string
 	SetSlateAdUrl(val *string)
 	// The stack in which this element is defined.
@@ -140,9 +158,11 @@ type CfnPlaybackConfiguration interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::MediaTailor::PlaybackConfiguration.Tags`.
+	// The tags to assign to the playback configuration.
 	Tags() awscdk.TagManager
-	// `AWS::MediaTailor::PlaybackConfiguration.TranscodeProfileName`.
+	// The name that is used to associate this playback configuration with a custom transcode profile.
+	//
+	// This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
 	TranscodeProfileName() *string
 	SetTranscodeProfileName(val *string)
 	// Return properties modified after initiation.
@@ -151,7 +171,9 @@ type CfnPlaybackConfiguration interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// `AWS::MediaTailor::PlaybackConfiguration.VideoContentSourceUrl`.
+	// The URL prefix for the parent manifest for the stream, minus the asset ID.
+	//
+	// The maximum length is 512 characters.
 	VideoContentSourceUrl() *string
 	SetVideoContentSourceUrl(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -336,6 +358,56 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) AdDecisionServerUrl() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPlaybackConfiguration) AttrDashConfigurationManifestEndpointPrefix() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDashConfigurationManifestEndpointPrefix",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration) AttrHlsConfigurationManifestEndpointPrefix() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrHlsConfigurationManifestEndpointPrefix",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration) AttrPlaybackConfigurationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPlaybackConfigurationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration) AttrPlaybackEndpointPrefix() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPlaybackEndpointPrefix",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration) AttrSessionInitializationEndpointPrefix() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrSessionInitializationEndpointPrefix",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPlaybackConfiguration) AvailSuppression() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -491,16 +563,6 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnPlaybackConfiguration) SessionInitializationEndpointPrefix() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"sessionInitializationEndpointPrefix",
 		&returns,
 	)
 	return returns
@@ -669,14 +731,6 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) SetPersonalizationThresholdSeconds(
 	_jsii_.Set(
 		j,
 		"personalizationThresholdSeconds",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnPlaybackConfiguration) SetSessionInitializationEndpointPrefix(val *string) {
-	_jsii_.Set(
-		j,
-		"sessionInitializationEndpointPrefix",
 		val,
 	)
 }
@@ -975,6 +1029,10 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) ValidateProperties(_properties inte
 	)
 }
 
+// For HLS, when set to `true` , MediaTailor passes through `EXT-X-CUE-IN` , `EXT-X-CUE-OUT` , and `EXT-X-SPLICEPOINT-SCTE35` ad markers from the origin manifest to the MediaTailor personalized manifest.
+//
+// No logic is applied to these ad markers. For example, if `EXT-X-CUE-OUT` has a value of `60` , but no ads are filled for that ad break, MediaTailor will not set the value to `0` .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -985,10 +1043,14 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) ValidateProperties(_properties inte
 //   }
 //
 type CfnPlaybackConfiguration_AdMarkerPassthroughProperty struct {
-	// `CfnPlaybackConfiguration.AdMarkerPassthroughProperty.Enabled`.
+	// Enables ad marker passthrough for your configuration.
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
+// The configuration for avail suppression, also known as ad suppression.
+//
+// For more information about ad suppression, see [Ad Suppression](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1000,12 +1062,20 @@ type CfnPlaybackConfiguration_AdMarkerPassthroughProperty struct {
 //   }
 //
 type CfnPlaybackConfiguration_AvailSuppressionProperty struct {
-	// `CfnPlaybackConfiguration.AvailSuppressionProperty.Mode`.
+	// Sets the ad suppression mode.
+	//
+	// By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
-	// `CfnPlaybackConfiguration.AvailSuppressionProperty.Value`.
+	// A live edge offset time in HH:MM:SS.
+	//
+	// MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge.
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
+// The configuration for bumpers.
+//
+// Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see [Bumpers](https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1017,12 +1087,14 @@ type CfnPlaybackConfiguration_AvailSuppressionProperty struct {
 //   }
 //
 type CfnPlaybackConfiguration_BumperProperty struct {
-	// `CfnPlaybackConfiguration.BumperProperty.EndUrl`.
+	// The URL for the end bumper asset.
 	EndUrl *string `field:"optional" json:"endUrl" yaml:"endUrl"`
-	// `CfnPlaybackConfiguration.BumperProperty.StartUrl`.
+	// The URL for the start bumper asset.
 	StartUrl *string `field:"optional" json:"startUrl" yaml:"startUrl"`
 }
 
+// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1034,29 +1106,64 @@ type CfnPlaybackConfiguration_BumperProperty struct {
 //   }
 //
 type CfnPlaybackConfiguration_CdnConfigurationProperty struct {
-	// `CfnPlaybackConfiguration.CdnConfigurationProperty.AdSegmentUrlPrefix`.
+	// A non-default content delivery network (CDN) to serve ad segments.
+	//
+	// By default, MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
 	AdSegmentUrlPrefix *string `field:"optional" json:"adSegmentUrlPrefix" yaml:"adSegmentUrlPrefix"`
-	// `CfnPlaybackConfiguration.CdnConfigurationProperty.ContentSegmentUrlPrefix`.
+	// A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server.
+	//
+	// First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When MediaTailor serves a manifest, it reports your CDN as the source for content segments.
 	ContentSegmentUrlPrefix *string `field:"optional" json:"contentSegmentUrlPrefix" yaml:"contentSegmentUrlPrefix"`
 }
 
+// The configuration for DASH content.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   dashConfigurationForPutProperty := &dashConfigurationForPutProperty{
+//   dashConfigurationProperty := &dashConfigurationProperty{
+//   	manifestEndpointPrefix: jsii.String("manifestEndpointPrefix"),
 //   	mpdLocation: jsii.String("mpdLocation"),
 //   	originManifestType: jsii.String("originManifestType"),
 //   }
 //
-type CfnPlaybackConfiguration_DashConfigurationForPutProperty struct {
-	// `CfnPlaybackConfiguration.DashConfigurationForPutProperty.MpdLocation`.
+type CfnPlaybackConfiguration_DashConfigurationProperty struct {
+	// The URL generated by MediaTailor to initiate a playback session.
+	//
+	// The session uses server-side reporting. This setting is ignored in PUT operations.
+	ManifestEndpointPrefix *string `field:"optional" json:"manifestEndpointPrefix" yaml:"manifestEndpointPrefix"`
+	// The setting that controls whether MediaTailor includes the Location tag in DASH manifests.
+	//
+	// MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value.
 	MpdLocation *string `field:"optional" json:"mpdLocation" yaml:"mpdLocation"`
-	// `CfnPlaybackConfiguration.DashConfigurationForPutProperty.OriginManifestType`.
+	// The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests.
+	//
+	// If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
 	OriginManifestType *string `field:"optional" json:"originManifestType" yaml:"originManifestType"`
 }
 
+// The configuration for HLS content.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   hlsConfigurationProperty := &hlsConfigurationProperty{
+//   	manifestEndpointPrefix: jsii.String("manifestEndpointPrefix"),
+//   }
+//
+type CfnPlaybackConfiguration_HlsConfigurationProperty struct {
+	// The URL that is used to initiate a playback session for devices that support Apple HLS.
+	//
+	// The session uses server-side reporting.
+	ManifestEndpointPrefix *string `field:"optional" json:"manifestEndpointPrefix" yaml:"manifestEndpointPrefix"`
+}
+
+// The configuration for pre-roll ad insertion.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1068,12 +1175,20 @@ type CfnPlaybackConfiguration_DashConfigurationForPutProperty struct {
 //   }
 //
 type CfnPlaybackConfiguration_LivePreRollConfigurationProperty struct {
-	// `CfnPlaybackConfiguration.LivePreRollConfigurationProperty.AdDecisionServerUrl`.
+	// The URL for the ad decision server (ADS) for pre-roll ads.
+	//
+	// This includes the specification of static parameters and placeholders for dynamic parameters. MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
 	AdDecisionServerUrl *string `field:"optional" json:"adDecisionServerUrl" yaml:"adDecisionServerUrl"`
-	// `CfnPlaybackConfiguration.LivePreRollConfigurationProperty.MaxDurationSeconds`.
+	// The maximum allowed duration for the pre-roll ad avail.
+	//
+	// MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.
 	MaxDurationSeconds *float64 `field:"optional" json:"maxDurationSeconds" yaml:"maxDurationSeconds"`
 }
 
+// The configuration for manifest processing rules.
+//
+// Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1086,7 +1201,9 @@ type CfnPlaybackConfiguration_LivePreRollConfigurationProperty struct {
 //   }
 //
 type CfnPlaybackConfiguration_ManifestProcessingRulesProperty struct {
-	// `CfnPlaybackConfiguration.ManifestProcessingRulesProperty.AdMarkerPassthrough`.
+	// For HLS, when set to `true` , MediaTailor passes through `EXT-X-CUE-IN` , `EXT-X-CUE-OUT` , and `EXT-X-SPLICEPOINT-SCTE35` ad markers from the origin manifest to the MediaTailor personalized manifest.
+	//
+	// No logic is applied to these ad markers. For example, if `EXT-X-CUE-OUT` has a value of `60` , but no ads are filled for that ad break, MediaTailor will not set the value to `0` .
 	AdMarkerPassthrough interface{} `field:"optional" json:"adMarkerPassthrough" yaml:"adMarkerPassthrough"`
 }
 
@@ -1120,7 +1237,8 @@ type CfnPlaybackConfiguration_ManifestProcessingRulesProperty struct {
 //   	configurationAliases: map[string]interface{}{
 //   		"configurationAliasesKey": configurationAliases,
 //   	},
-//   	dashConfiguration: &dashConfigurationForPutProperty{
+//   	dashConfiguration: &dashConfigurationProperty{
+//   		manifestEndpointPrefix: jsii.String("manifestEndpointPrefix"),
 //   		mpdLocation: jsii.String("mpdLocation"),
 //   		originManifestType: jsii.String("originManifestType"),
 //   	},
@@ -1134,7 +1252,6 @@ type CfnPlaybackConfiguration_ManifestProcessingRulesProperty struct {
 //   		},
 //   	},
 //   	personalizationThresholdSeconds: jsii.Number(123),
-//   	sessionInitializationEndpointPrefix: jsii.String("sessionInitializationEndpointPrefix"),
 //   	slateAdUrl: jsii.String("slateAdUrl"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -1146,35 +1263,51 @@ type CfnPlaybackConfiguration_ManifestProcessingRulesProperty struct {
 //   }
 //
 type CfnPlaybackConfigurationProps struct {
-	// `AWS::MediaTailor::PlaybackConfiguration.AdDecisionServerUrl`.
+	// The URL for the ad decision server (ADS).
+	//
+	// This includes the specification of static parameters and placeholders for dynamic parameters. MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
 	AdDecisionServerUrl *string `field:"required" json:"adDecisionServerUrl" yaml:"adDecisionServerUrl"`
-	// `AWS::MediaTailor::PlaybackConfiguration.Name`.
+	// The identifier for the playback configuration.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::MediaTailor::PlaybackConfiguration.VideoContentSourceUrl`.
+	// The URL prefix for the parent manifest for the stream, minus the asset ID.
+	//
+	// The maximum length is 512 characters.
 	VideoContentSourceUrl *string `field:"required" json:"videoContentSourceUrl" yaml:"videoContentSourceUrl"`
-	// `AWS::MediaTailor::PlaybackConfiguration.AvailSuppression`.
+	// The configuration for avail suppression, also known as ad suppression.
+	//
+	// For more information about ad suppression, see [Ad Suppression](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html) .
 	AvailSuppression interface{} `field:"optional" json:"availSuppression" yaml:"availSuppression"`
-	// `AWS::MediaTailor::PlaybackConfiguration.Bumper`.
+	// The configuration for bumpers.
+	//
+	// Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see [Bumpers](https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html) .
 	Bumper interface{} `field:"optional" json:"bumper" yaml:"bumper"`
-	// `AWS::MediaTailor::PlaybackConfiguration.CdnConfiguration`.
+	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
 	CdnConfiguration interface{} `field:"optional" json:"cdnConfiguration" yaml:"cdnConfiguration"`
-	// `AWS::MediaTailor::PlaybackConfiguration.ConfigurationAliases`.
+	// The player parameters and aliases used as dynamic variables during session initialization.
+	//
+	// For more information, see [Domain Variables](https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html) .
 	ConfigurationAliases interface{} `field:"optional" json:"configurationAliases" yaml:"configurationAliases"`
-	// `AWS::MediaTailor::PlaybackConfiguration.DashConfiguration`.
+	// The configuration for DASH content.
 	DashConfiguration interface{} `field:"optional" json:"dashConfiguration" yaml:"dashConfiguration"`
-	// `AWS::MediaTailor::PlaybackConfiguration.LivePreRollConfiguration`.
+	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration interface{} `field:"optional" json:"livePreRollConfiguration" yaml:"livePreRollConfiguration"`
-	// `AWS::MediaTailor::PlaybackConfiguration.ManifestProcessingRules`.
+	// The configuration for manifest processing rules.
+	//
+	// Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
 	ManifestProcessingRules interface{} `field:"optional" json:"manifestProcessingRules" yaml:"manifestProcessingRules"`
-	// `AWS::MediaTailor::PlaybackConfiguration.PersonalizationThresholdSeconds`.
+	// Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break.
+	//
+	// If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to *ad replacement* in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see [Ad Behavior in MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html) .
 	PersonalizationThresholdSeconds *float64 `field:"optional" json:"personalizationThresholdSeconds" yaml:"personalizationThresholdSeconds"`
-	// `AWS::MediaTailor::PlaybackConfiguration.SessionInitializationEndpointPrefix`.
-	SessionInitializationEndpointPrefix *string `field:"optional" json:"sessionInitializationEndpointPrefix" yaml:"sessionInitializationEndpointPrefix"`
-	// `AWS::MediaTailor::PlaybackConfiguration.SlateAdUrl`.
+	// The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads.
+	//
+	// MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
 	SlateAdUrl *string `field:"optional" json:"slateAdUrl" yaml:"slateAdUrl"`
-	// `AWS::MediaTailor::PlaybackConfiguration.Tags`.
+	// The tags to assign to the playback configuration.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::MediaTailor::PlaybackConfiguration.TranscodeProfileName`.
+	// The name that is used to associate this playback configuration with a custom transcode profile.
+	//
+	// This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
 	TranscodeProfileName *string `field:"optional" json:"transcodeProfileName" yaml:"transcodeProfileName"`
 }
 

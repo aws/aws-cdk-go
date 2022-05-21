@@ -1068,6 +1068,19 @@ func CloneRepository_FromCodeCommit(repository awscodecommit.IRepository, path *
 	return returns
 }
 
+// The connection type used for connecting to an Amazon EC2 environment.
+// Experimental.
+type ConnectionType string
+
+const (
+	// Conect through SSH.
+	// Experimental.
+	ConnectionType_CONNECT_SSH ConnectionType = "CONNECT_SSH"
+	// Connect through AWS Systems Manager.
+	// Experimental.
+	ConnectionType_CONNECT_SSM ConnectionType = "CONNECT_SSM"
+)
+
 // A Cloud9 Environment with Amazon EC2.
 //
 // Example:
@@ -1092,7 +1105,7 @@ func CloneRepository_FromCodeCommit(repository awscodecommit.IRepository, path *
 //   c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &ec2EnvironmentProps{
 //   	vpc: vpc,
 //   	subnetSelection: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE,
+//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   	},
 //   })
 //
@@ -1543,7 +1556,7 @@ func (e *jsiiProxy_Ec2Environment) Validate() *[]*string {
 //   c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &ec2EnvironmentProps{
 //   	vpc: vpc,
 //   	subnetSelection: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE,
+//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   	},
 //   })
 //
@@ -1561,6 +1574,11 @@ type Ec2EnvironmentProps struct {
 	// The AWS CodeCommit repository to be cloned.
 	// Experimental.
 	ClonedRepositories *[]CloneRepository `field:"optional" json:"clonedRepositories" yaml:"clonedRepositories"`
+	// The connection type used for connecting to an Amazon EC2 environment.
+	//
+	// Valid values are: CONNECT_SSH (default) and CONNECT_SSM (connected through AWS Systems Manager).
+	// Experimental.
+	ConnectionType ConnectionType `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// Description of the environment.
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`

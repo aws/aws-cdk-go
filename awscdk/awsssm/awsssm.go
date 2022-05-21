@@ -48,6 +48,7 @@ import (
 //   		"parametersKey": parameters,
 //   	},
 //   	scheduleExpression: jsii.String("scheduleExpression"),
+//   	scheduleOffset: jsii.Number(123),
 //   	syncCompliance: jsii.String("syncCompliance"),
 //   	targets: []interface{}{
 //   		&targetProperty{
@@ -169,6 +170,9 @@ type CfnAssociation interface {
 	// The schedule runs in Coordinated Universal Time (UTC).
 	ScheduleExpression() *string
 	SetScheduleExpression(val *string)
+	// Number of days to wait after the scheduled day to run an association.
+	ScheduleOffset() *float64
+	SetScheduleOffset(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -581,6 +585,16 @@ func (j *jsiiProxy_CfnAssociation) ScheduleExpression() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAssociation) ScheduleOffset() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"scheduleOffset",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAssociation) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -758,6 +772,14 @@ func (j *jsiiProxy_CfnAssociation) SetScheduleExpression(val *string) {
 	_jsii_.Set(
 		j,
 		"scheduleExpression",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAssociation) SetScheduleOffset(val *float64) {
+	_jsii_.Set(
+		j,
+		"scheduleOffset",
 		val,
 	)
 }
@@ -1160,6 +1182,7 @@ type CfnAssociation_TargetProperty struct {
 //   		"parametersKey": parameters,
 //   	},
 //   	scheduleExpression: jsii.String("scheduleExpression"),
+//   	scheduleOffset: jsii.Number(123),
 //   	syncCompliance: jsii.String("syncCompliance"),
 //   	targets: []interface{}{
 //   		&targetProperty{
@@ -1232,6 +1255,8 @@ type CfnAssociationProps struct {
 	//
 	// The schedule runs in Coordinated Universal Time (UTC).
 	ScheduleExpression *string `field:"optional" json:"scheduleExpression" yaml:"scheduleExpression"`
+	// Number of days to wait after the scheduled day to run an association.
+	ScheduleOffset *float64 `field:"optional" json:"scheduleOffset" yaml:"scheduleOffset"`
 	// The mode for generating association compliance.
 	//
 	// You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
@@ -1383,7 +1408,9 @@ type CfnDocument interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// `AWS::SSM::Document.UpdateMethod`.
+	// If the document resource you specify in your template already exists, this parameter determines whether a new version of the existing document is created, or the existing document is replaced.
+	//
+	// `Replace` is the default method. If you specify `NewVersion` for the `UpdateMethod` parameter, and the `Name` of the document does not match an existing resource, a new document is created. When you specify `NewVersion` , the default version of the document is changed to the newly created version.
 	UpdateMethod() *string
 	SetUpdateMethod(val *string)
 	// An optional field specifying the version of the artifact you are creating with the document.
@@ -2260,7 +2287,9 @@ type CfnDocumentProps struct {
 	//
 	// For example, to run a document on EC2 instances, specify the following value: `/AWS::EC2::Instance` . If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the *AWS CloudFormation User Guide* .
 	TargetType *string `field:"optional" json:"targetType" yaml:"targetType"`
-	// `AWS::SSM::Document.UpdateMethod`.
+	// If the document resource you specify in your template already exists, this parameter determines whether a new version of the existing document is created, or the existing document is replaced.
+	//
+	// `Replace` is the default method. If you specify `NewVersion` for the `UpdateMethod` parameter, and the `Name` of the document does not match an existing resource, a new document is created. When you specify `NewVersion` , the default version of the document is changed to the newly created version.
 	UpdateMethod *string `field:"optional" json:"updateMethod" yaml:"updateMethod"`
 	// An optional field specifying the version of the artifact you are creating with the document.
 	//

@@ -120,7 +120,7 @@ ec2.NewInterfaceVpcEndpoint(this, jsii.String("VPC Endpoint"), &interfaceVpcEndp
 	vpc: vpc,
 	service: ec2.NewInterfaceVpcEndpointService(jsii.String("com.amazonaws.vpce.us-east-1.vpce-svc-uuddlrlrbastrtsvc"), jsii.Number(443)),
 	subnets: &subnetSelection{
-		subnetType: ec2.subnetType_ISOLATED,
+		subnetType: ec2.subnetType_PRIVATE_ISOLATED,
 		availabilityZones: []*string{
 			jsii.String("us-east-1a"),
 			jsii.String("us-east-1c"),
@@ -339,7 +339,7 @@ vpc := ec2.NewVpc(this, jsii.String("VPC"), &vpcProps{
 			name: jsii.String("Public"),
 		},
 		&subnetConfiguration{
-			subnetType: ec2.*subnetType_ISOLATED,
+			subnetType: ec2.*subnetType_PRIVATE_ISOLATED,
 			name: jsii.String("Isolated"),
 		},
 	},
@@ -387,7 +387,7 @@ vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &vpcProps{
 		&subnetConfiguration{
 			cidrMask: jsii.Number(27),
 			name: jsii.String("Database"),
-			subnetType: ec2.*subnetType_ISOLATED,
+			subnetType: ec2.*subnetType_PRIVATE_ISOLATED,
 		},
 	},
 })

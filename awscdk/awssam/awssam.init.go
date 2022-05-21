@@ -374,6 +374,14 @@ func init() {
 		reflect.TypeOf((*CfnFunction_QueueSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sam.CfnFunction.RequestModelProperty",
+		reflect.TypeOf((*CfnFunction_RequestModelProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_sam.CfnFunction.RequestParameterProperty",
+		reflect.TypeOf((*CfnFunction_RequestParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sam.CfnFunction.S3EventProperty",
 		reflect.TypeOf((*CfnFunction_S3EventProperty)(nil)).Elem(),
 	)

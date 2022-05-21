@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::DataBrew::Dataset`.
 //
+// Specifies a new DataBrew dataset.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -143,13 +145,13 @@ type CfnDataset interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::DataBrew::Dataset.Format`.
+	// The file format of a dataset that is created from an Amazon S3 file or folder.
 	Format() *string
 	SetFormat(val *string)
-	// `AWS::DataBrew::Dataset.FormatOptions`.
+	// A set of options that define how DataBrew interprets the data in the dataset.
 	FormatOptions() interface{}
 	SetFormatOptions(val interface{})
-	// `AWS::DataBrew::Dataset.Input`.
+	// Information on how DataBrew can find the dataset, in either the AWS Glue Data Catalog or Amazon S3 .
 	Input() interface{}
 	SetInput(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -163,13 +165,13 @@ type CfnDataset interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::DataBrew::Dataset.Name`.
+	// The unique name of the dataset.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// `AWS::DataBrew::Dataset.PathOptions`.
+	// A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.
 	PathOptions() interface{}
 	SetPathOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -183,7 +185,7 @@ type CfnDataset interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::DataBrew::Dataset.Tags`.
+	// Metadata tags that have been applied to the dataset.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -850,6 +852,8 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Represents a set of options that define how DataBrew will read a comma-separated value (CSV) file when creating a dataset from that file.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -861,12 +865,16 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnDataset_CsvOptionsProperty struct {
-	// `CfnDataset.CsvOptionsProperty.Delimiter`.
+	// A single character that specifies the delimiter being used in the CSV file.
 	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
-	// `CfnDataset.CsvOptionsProperty.HeaderRow`.
+	// A variable that specifies whether the first row in the file is parsed as the header.
+	//
+	// If this value is false, column names are auto-generated.
 	HeaderRow interface{} `field:"optional" json:"headerRow" yaml:"headerRow"`
 }
 
+// Represents how metadata stored in the AWS Glue Data Catalog is defined in a DataBrew dataset.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -885,16 +893,20 @@ type CfnDataset_CsvOptionsProperty struct {
 //   }
 //
 type CfnDataset_DataCatalogInputDefinitionProperty struct {
-	// `CfnDataset.DataCatalogInputDefinitionProperty.CatalogId`.
+	// The unique identifier of the AWS account that holds the Data Catalog that stores the data.
 	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
-	// `CfnDataset.DataCatalogInputDefinitionProperty.DatabaseName`.
+	// The name of a database in the Data Catalog.
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
-	// `CfnDataset.DataCatalogInputDefinitionProperty.TableName`.
+	// The name of a database table in the Data Catalog.
+	//
+	// This table corresponds to a DataBrew dataset.
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
-	// `CfnDataset.DataCatalogInputDefinitionProperty.TempDirectory`.
+	// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
 	TempDirectory interface{} `field:"optional" json:"tempDirectory" yaml:"tempDirectory"`
 }
 
+// Connection information for dataset input files stored in a database.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -915,16 +927,20 @@ type CfnDataset_DataCatalogInputDefinitionProperty struct {
 //   }
 //
 type CfnDataset_DatabaseInputDefinitionProperty struct {
-	// `CfnDataset.DatabaseInputDefinitionProperty.GlueConnectionName`.
+	// The AWS Glue Connection that stores the connection information for the target database.
 	GlueConnectionName *string `field:"required" json:"glueConnectionName" yaml:"glueConnectionName"`
-	// `CfnDataset.DatabaseInputDefinitionProperty.DatabaseTableName`.
+	// The table within the target database.
 	DatabaseTableName *string `field:"optional" json:"databaseTableName" yaml:"databaseTableName"`
-	// `CfnDataset.DatabaseInputDefinitionProperty.QueryString`.
+	// Custom SQL to run against the provided AWS Glue connection.
+	//
+	// This SQL will be used as the input for DataBrew projects and jobs.
 	QueryString *string `field:"optional" json:"queryString" yaml:"queryString"`
-	// `CfnDataset.DatabaseInputDefinitionProperty.TempDirectory`.
+	// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
 	TempDirectory interface{} `field:"optional" json:"tempDirectory" yaml:"tempDirectory"`
 }
 
+// Represents a dataset paramater that defines type and conditions for a parameter in the Amazon S3 path of the dataset.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -955,18 +971,22 @@ type CfnDataset_DatabaseInputDefinitionProperty struct {
 //   }
 //
 type CfnDataset_DatasetParameterProperty struct {
-	// `CfnDataset.DatasetParameterProperty.Name`.
+	// The name of the parameter that is used in the dataset's Amazon S3 path.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `CfnDataset.DatasetParameterProperty.Type`.
+	// The type of the dataset parameter, can be one of a 'String', 'Number' or 'Datetime'.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnDataset.DatasetParameterProperty.CreateColumn`.
+	// Optional boolean value that defines whether the captured value of this parameter should be loaded as an additional column in the dataset.
 	CreateColumn interface{} `field:"optional" json:"createColumn" yaml:"createColumn"`
-	// `CfnDataset.DatasetParameterProperty.DatetimeOptions`.
+	// Additional parameter options such as a format and a timezone.
+	//
+	// Required for datetime parameters.
 	DatetimeOptions interface{} `field:"optional" json:"datetimeOptions" yaml:"datetimeOptions"`
-	// `CfnDataset.DatasetParameterProperty.Filter`.
+	// The optional filter expression structure to apply additional matching criteria to the parameter.
 	Filter interface{} `field:"optional" json:"filter" yaml:"filter"`
 }
 
+// Represents additional options for correct interpretation of datetime parameters used in the Amazon S3 path of a dataset.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -981,14 +1001,20 @@ type CfnDataset_DatasetParameterProperty struct {
 //   }
 //
 type CfnDataset_DatetimeOptionsProperty struct {
-	// `CfnDataset.DatetimeOptionsProperty.Format`.
+	// Required option, that defines the datetime format used for a date parameter in the Amazon S3 path.
+	//
+	// Should use only supported datetime specifiers and separation characters, all litera a-z or A-Z character should be escaped with single quotes. E.g. "MM.dd.yyyy-'at'-HH:mm".
 	Format *string `field:"required" json:"format" yaml:"format"`
-	// `CfnDataset.DatetimeOptionsProperty.LocaleCode`.
+	// Optional value for a non-US locale code, needed for correct interpretation of some date formats.
 	LocaleCode *string `field:"optional" json:"localeCode" yaml:"localeCode"`
-	// `CfnDataset.DatetimeOptionsProperty.TimezoneOffset`.
+	// Optional value for a timezone offset of the datetime parameter value in the Amazon S3 path.
+	//
+	// Shouldn't be used if Format for this parameter includes timezone fields. If no offset specified, UTC is assumed.
 	TimezoneOffset *string `field:"optional" json:"timezoneOffset" yaml:"timezoneOffset"`
 }
 
+// Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when creating a dataset from that file.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1005,14 +1031,18 @@ type CfnDataset_DatetimeOptionsProperty struct {
 //   }
 //
 type CfnDataset_ExcelOptionsProperty struct {
-	// `CfnDataset.ExcelOptionsProperty.HeaderRow`.
+	// A variable that specifies whether the first row in the file is parsed as the header.
+	//
+	// If this value is false, column names are auto-generated.
 	HeaderRow interface{} `field:"optional" json:"headerRow" yaml:"headerRow"`
-	// `CfnDataset.ExcelOptionsProperty.SheetIndexes`.
+	// One or more sheet numbers in the Excel file that will be included in the dataset.
 	SheetIndexes interface{} `field:"optional" json:"sheetIndexes" yaml:"sheetIndexes"`
-	// `CfnDataset.ExcelOptionsProperty.SheetNames`.
+	// One or more named sheets in the Excel file that will be included in the dataset.
 	SheetNames *[]*string `field:"optional" json:"sheetNames" yaml:"sheetNames"`
 }
 
+// Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected Amazon S3 path.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1027,14 +1057,20 @@ type CfnDataset_ExcelOptionsProperty struct {
 //   }
 //
 type CfnDataset_FilesLimitProperty struct {
-	// `CfnDataset.FilesLimitProperty.MaxFiles`.
+	// The number of Amazon S3 files to select.
 	MaxFiles *float64 `field:"required" json:"maxFiles" yaml:"maxFiles"`
-	// `CfnDataset.FilesLimitProperty.Order`.
+	// A criteria to use for Amazon S3 files sorting before their selection.
+	//
+	// By default uses DESCENDING order, i.e. most recent files are selected first. Anotherpossible value is ASCENDING.
 	Order *string `field:"optional" json:"order" yaml:"order"`
-	// `CfnDataset.FilesLimitProperty.OrderedBy`.
+	// A criteria to use for Amazon S3 files sorting before their selection.
+	//
+	// By default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it's the only allowed value.
 	OrderedBy *string `field:"optional" json:"orderedBy" yaml:"orderedBy"`
 }
 
+// Represents a structure for defining parameter conditions.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1051,12 +1087,18 @@ type CfnDataset_FilesLimitProperty struct {
 //   }
 //
 type CfnDataset_FilterExpressionProperty struct {
-	// `CfnDataset.FilterExpressionProperty.Expression`.
+	// The expression which includes condition names followed by substitution variables, possibly grouped and combined with other conditions.
+	//
+	// For example, "(starts_with :prefix1 or starts_with :prefix2) and (ends_with :suffix1 or ends_with :suffix2)". Substitution variables should start with ':' symbol.
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
-	// `CfnDataset.FilterExpressionProperty.ValuesMap`.
+	// The map of substitution variable names to their values used in this filter expression.
 	ValuesMap interface{} `field:"required" json:"valuesMap" yaml:"valuesMap"`
 }
 
+// Represents a single entry in the `ValuesMap` of a `FilterExpression` .
+//
+// A `FilterValue` associates the name of a substitution variable in an expression to its value.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1068,12 +1110,14 @@ type CfnDataset_FilterExpressionProperty struct {
 //   }
 //
 type CfnDataset_FilterValueProperty struct {
-	// `CfnDataset.FilterValueProperty.Value`.
+	// The value to be associated with the substitution variable.
 	Value *string `field:"required" json:"value" yaml:"value"`
-	// `CfnDataset.FilterValueProperty.ValueReference`.
+	// The substitution variable reference.
 	ValueReference *string `field:"required" json:"valueReference" yaml:"valueReference"`
 }
 
+// Represents a set of options that define the structure of either comma-separated value (CSV), Excel, or JSON input.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1099,14 +1143,16 @@ type CfnDataset_FilterValueProperty struct {
 //   }
 //
 type CfnDataset_FormatOptionsProperty struct {
-	// `CfnDataset.FormatOptionsProperty.Csv`.
+	// Options that define how CSV input is to be interpreted by DataBrew.
 	Csv interface{} `field:"optional" json:"csv" yaml:"csv"`
-	// `CfnDataset.FormatOptionsProperty.Excel`.
+	// Options that define how Excel input is to be interpreted by DataBrew.
 	Excel interface{} `field:"optional" json:"excel" yaml:"excel"`
-	// `CfnDataset.FormatOptionsProperty.Json`.
+	// Options that define how JSON input is to be interpreted by DataBrew.
 	Json interface{} `field:"optional" json:"json" yaml:"json"`
 }
 
+// Represents information on how DataBrew can find data, in either the AWS Glue Data Catalog or Amazon S3.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1149,16 +1195,18 @@ type CfnDataset_FormatOptionsProperty struct {
 //   }
 //
 type CfnDataset_InputProperty struct {
-	// `CfnDataset.InputProperty.DatabaseInputDefinition`.
+	// Connection information for dataset input files stored in a database.
 	DatabaseInputDefinition interface{} `field:"optional" json:"databaseInputDefinition" yaml:"databaseInputDefinition"`
-	// `CfnDataset.InputProperty.DataCatalogInputDefinition`.
+	// The AWS Glue Data Catalog parameters for the data.
 	DataCatalogInputDefinition interface{} `field:"optional" json:"dataCatalogInputDefinition" yaml:"dataCatalogInputDefinition"`
-	// `CfnDataset.InputProperty.Metadata`.
+	// Contains additional resource information needed for specific datasets.
 	Metadata interface{} `field:"optional" json:"metadata" yaml:"metadata"`
-	// `CfnDataset.InputProperty.S3InputDefinition`.
+	// The Amazon S3 location where the data is stored.
 	S3InputDefinition interface{} `field:"optional" json:"s3InputDefinition" yaml:"s3InputDefinition"`
 }
 
+// Represents the JSON-specific options that define how input is to be interpreted by AWS Glue DataBrew .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1169,10 +1217,12 @@ type CfnDataset_InputProperty struct {
 //   }
 //
 type CfnDataset_JsonOptionsProperty struct {
-	// `CfnDataset.JsonOptionsProperty.MultiLine`.
+	// A value that specifies whether JSON input contains embedded new line characters.
 	MultiLine interface{} `field:"optional" json:"multiLine" yaml:"multiLine"`
 }
 
+// Contains additional resource information needed for specific datasets.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1183,10 +1233,14 @@ type CfnDataset_JsonOptionsProperty struct {
 //   }
 //
 type CfnDataset_MetadataProperty struct {
-	// `CfnDataset.MetadataProperty.SourceArn`.
+	// The Amazon Resource Name (ARN) associated with the dataset.
+	//
+	// Currently, DataBrew only supports ARNs from Amazon AppFlow.
 	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
 }
 
+// Represents a set of options that define how DataBrew selects files for a given Amazon S3 path in a dataset.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1240,14 +1294,18 @@ type CfnDataset_MetadataProperty struct {
 //   }
 //
 type CfnDataset_PathOptionsProperty struct {
-	// `CfnDataset.PathOptionsProperty.FilesLimit`.
+	// If provided, this structure imposes a limit on a number of files that should be selected.
 	FilesLimit interface{} `field:"optional" json:"filesLimit" yaml:"filesLimit"`
-	// `CfnDataset.PathOptionsProperty.LastModifiedDateCondition`.
+	// If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
 	LastModifiedDateCondition interface{} `field:"optional" json:"lastModifiedDateCondition" yaml:"lastModifiedDateCondition"`
-	// `CfnDataset.PathOptionsProperty.Parameters`.
+	// A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 
+// Represents a single entry in the path parameters of a dataset.
+//
+// Each `PathParameter` consists of a name and a parameter definition.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1281,12 +1339,14 @@ type CfnDataset_PathOptionsProperty struct {
 //   }
 //
 type CfnDataset_PathParameterProperty struct {
-	// `CfnDataset.PathParameterProperty.DatasetParameter`.
+	// The path parameter definition.
 	DatasetParameter interface{} `field:"required" json:"datasetParameter" yaml:"datasetParameter"`
-	// `CfnDataset.PathParameterProperty.PathParameterName`.
+	// The name of the path parameter.
 	PathParameterName *string `field:"required" json:"pathParameterName" yaml:"pathParameterName"`
 }
 
+// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1300,9 +1360,9 @@ type CfnDataset_PathParameterProperty struct {
 //   }
 //
 type CfnDataset_S3LocationProperty struct {
-	// `CfnDataset.S3LocationProperty.Bucket`.
+	// The Amazon S3 bucket name.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// `CfnDataset.S3LocationProperty.Key`.
+	// The unique name of the object in the bucket.
 	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 
@@ -1426,21 +1486,23 @@ type CfnDataset_S3LocationProperty struct {
 //   }
 //
 type CfnDatasetProps struct {
-	// `AWS::DataBrew::Dataset.Input`.
+	// Information on how DataBrew can find the dataset, in either the AWS Glue Data Catalog or Amazon S3 .
 	Input interface{} `field:"required" json:"input" yaml:"input"`
-	// `AWS::DataBrew::Dataset.Name`.
+	// The unique name of the dataset.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::DataBrew::Dataset.Format`.
+	// The file format of a dataset that is created from an Amazon S3 file or folder.
 	Format *string `field:"optional" json:"format" yaml:"format"`
-	// `AWS::DataBrew::Dataset.FormatOptions`.
+	// A set of options that define how DataBrew interprets the data in the dataset.
 	FormatOptions interface{} `field:"optional" json:"formatOptions" yaml:"formatOptions"`
-	// `AWS::DataBrew::Dataset.PathOptions`.
+	// A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.
 	PathOptions interface{} `field:"optional" json:"pathOptions" yaml:"pathOptions"`
-	// `AWS::DataBrew::Dataset.Tags`.
+	// Metadata tags that have been applied to the dataset.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataBrew::Job`.
+//
+// Specifies a new DataBrew job.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -1641,22 +1703,29 @@ type CfnJob interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::DataBrew::Job.DatabaseOutputs`.
+	// Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
 	DatabaseOutputs() interface{}
 	SetDatabaseOutputs(val interface{})
-	// `AWS::DataBrew::Job.DataCatalogOutputs`.
+	// One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
 	DataCatalogOutputs() interface{}
 	SetDataCatalogOutputs(val interface{})
-	// `AWS::DataBrew::Job.DatasetName`.
+	// A dataset that the job is to process.
 	DatasetName() *string
 	SetDatasetName(val *string)
-	// `AWS::DataBrew::Job.EncryptionKeyArn`.
+	// The Amazon Resource Name (ARN) of an encryption key that is used to protect the job output.
+	//
+	// For more information, see [Encrypting data written by DataBrew jobs](https://docs.aws.amazon.com/databrew/latest/dg/encryption-security-configuration.html)
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
-	// `AWS::DataBrew::Job.EncryptionMode`.
+	// The encryption mode for the job, which can be one of the following:.
+	//
+	// - `SSE-KMS` - Server-side encryption with keys managed by AWS KMS .
+	// - `SSE-S3` - Server-side encryption with keys managed by Amazon S3.
 	EncryptionMode() *string
 	SetEncryptionMode(val *string)
-	// `AWS::DataBrew::Job.JobSample`.
+	// A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run.
+	//
+	// If a `JobSample` value isn't provided, the default value is used. The default value is CUSTOM_ROWS for the mode parameter and 20,000 for the size parameter.
 	JobSample() interface{}
 	SetJobSample(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -1670,16 +1739,16 @@ type CfnJob interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::DataBrew::Job.LogSubscription`.
+	// The current status of Amazon CloudWatch logging for the job.
 	LogSubscription() *string
 	SetLogSubscription(val *string)
-	// `AWS::DataBrew::Job.MaxCapacity`.
+	// The maximum number of nodes that can be consumed when the job processes data.
 	MaxCapacity() *float64
 	SetMaxCapacity(val *float64)
-	// `AWS::DataBrew::Job.MaxRetries`.
+	// The maximum number of times to retry the job after a job run fails.
 	MaxRetries() *float64
 	SetMaxRetries(val *float64)
-	// `AWS::DataBrew::Job.Name`.
+	// The unique name of the job.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
@@ -1688,16 +1757,18 @@ type CfnJob interface {
 	// `AWS::DataBrew::Job.OutputLocation`.
 	OutputLocation() interface{}
 	SetOutputLocation(val interface{})
-	// `AWS::DataBrew::Job.Outputs`.
+	// One or more artifacts that represent output from running the job.
 	Outputs() interface{}
 	SetOutputs(val interface{})
-	// `AWS::DataBrew::Job.ProfileConfiguration`.
+	// Configuration for profile jobs.
+	//
+	// Configuration can be used to select columns, do evaluations, and override default parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all supported columns.
 	ProfileConfiguration() interface{}
 	SetProfileConfiguration(val interface{})
-	// `AWS::DataBrew::Job.ProjectName`.
+	// The name of the project that the job is associated with.
 	ProjectName() *string
 	SetProjectName(val *string)
-	// `AWS::DataBrew::Job.Recipe`.
+	// A series of data transformation steps that the job runs.
 	Recipe() interface{}
 	SetRecipe(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -1706,7 +1777,7 @@ type CfnJob interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::DataBrew::Job.RoleArn`.
+	// The Amazon Resource Name (ARN) of the role to be assumed for this job.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -1714,12 +1785,17 @@ type CfnJob interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::DataBrew::Job.Tags`.
+	// Metadata tags that have been applied to the job.
 	Tags() awscdk.TagManager
-	// `AWS::DataBrew::Job.Timeout`.
+	// The job's timeout in minutes.
+	//
+	// A job that attempts to run longer than this timeout period ends with a status of `TIMEOUT` .
 	Timeout() *float64
 	SetTimeout(val *float64)
-	// `AWS::DataBrew::Job.Type`.
+	// The job type of the job, which must be one of the following:.
+	//
+	// - `PROFILE` - A job to analyze a dataset, to determine its size, data types, data distribution, and more.
+	// - `RECIPE` - A job to apply one or more transformations to a dataset.
 	Type() *string
 	SetType(val *string)
 	// Return properties modified after initiation.
@@ -1728,7 +1804,7 @@ type CfnJob interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// `AWS::DataBrew::Job.ValidationConfigurations`.
+	// List of validation configurations that are applied to the profile job.
 	ValidationConfigurations() interface{}
 	SetValidationConfigurations(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -2642,6 +2718,10 @@ func (c *jsiiProxy_CfnJob) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Configuration of statistics that are allowed to be run on columns that contain detected entities.
+//
+// When undefined, no statistics will be computed on columns that contain detected entities.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2654,10 +2734,14 @@ func (c *jsiiProxy_CfnJob) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnJob_AllowedStatisticsProperty struct {
-	// `CfnJob.AllowedStatisticsProperty.Statistics`.
+	// One or more column statistics to allow for columns that contain detected entities.
 	Statistics *[]*string `field:"required" json:"statistics" yaml:"statistics"`
 }
 
+// Selector of a column from a dataset for profile job configuration.
+//
+// One selector includes either a column name or a regular expression.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2669,12 +2753,16 @@ type CfnJob_AllowedStatisticsProperty struct {
 //   }
 //
 type CfnJob_ColumnSelectorProperty struct {
-	// `CfnJob.ColumnSelectorProperty.Name`.
+	// The name of a column from a dataset.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `CfnJob.ColumnSelectorProperty.Regex`.
+	// A regular expression for selecting a column from a dataset.
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 
+// Configuration for column evaluations for a profile job.
+//
+// ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2705,12 +2793,18 @@ type CfnJob_ColumnSelectorProperty struct {
 //   }
 //
 type CfnJob_ColumnStatisticsConfigurationProperty struct {
-	// `CfnJob.ColumnStatisticsConfigurationProperty.Statistics`.
+	// Configuration for evaluations.
+	//
+	// Statistics can be used to select evaluations and override parameters of evaluations.
 	Statistics interface{} `field:"required" json:"statistics" yaml:"statistics"`
-	// `CfnJob.ColumnStatisticsConfigurationProperty.Selectors`.
+	// List of column selectors.
+	//
+	// Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
 	Selectors interface{} `field:"optional" json:"selectors" yaml:"selectors"`
 }
 
+// Represents a set of options that define how DataBrew will write a comma-separated value (CSV) file.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2721,10 +2815,12 @@ type CfnJob_ColumnStatisticsConfigurationProperty struct {
 //   }
 //
 type CfnJob_CsvOutputOptionsProperty struct {
-	// `CfnJob.CsvOutputOptionsProperty.Delimiter`.
+	// A single character that specifies the delimiter used to create CSV job output.
 	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 }
 
+// Represents options that specify how and where in the AWS Glue Data Catalog DataBrew writes the output generated by recipe jobs.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2761,20 +2857,24 @@ type CfnJob_CsvOutputOptionsProperty struct {
 //   }
 //
 type CfnJob_DataCatalogOutputProperty struct {
-	// `CfnJob.DataCatalogOutputProperty.DatabaseName`.
+	// The name of a database in the Data Catalog.
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
-	// `CfnJob.DataCatalogOutputProperty.TableName`.
+	// The name of a table in the Data Catalog.
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
-	// `CfnJob.DataCatalogOutputProperty.CatalogId`.
+	// The unique identifier of the AWS account that holds the Data Catalog that stores the data.
 	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
-	// `CfnJob.DataCatalogOutputProperty.DatabaseOptions`.
+	// Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
 	DatabaseOptions interface{} `field:"optional" json:"databaseOptions" yaml:"databaseOptions"`
-	// `CfnJob.DataCatalogOutputProperty.Overwrite`.
+	// A value that, if true, means that any data in the location specified for output is overwritten with new output.
+	//
+	// Not supported with DatabaseOptions.
 	Overwrite interface{} `field:"optional" json:"overwrite" yaml:"overwrite"`
-	// `CfnJob.DataCatalogOutputProperty.S3Options`.
+	// Represents options that specify how and where DataBrew writes the Amazon S3 output generated by recipe jobs.
 	S3Options interface{} `field:"optional" json:"s3Options" yaml:"s3Options"`
 }
 
+// Represents a JDBC database output object which defines the output destination for a DataBrew recipe job to write into.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2800,14 +2900,18 @@ type CfnJob_DataCatalogOutputProperty struct {
 //   }
 //
 type CfnJob_DatabaseOutputProperty struct {
-	// `CfnJob.DatabaseOutputProperty.DatabaseOptions`.
+	// Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
 	DatabaseOptions interface{} `field:"required" json:"databaseOptions" yaml:"databaseOptions"`
-	// `CfnJob.DatabaseOutputProperty.GlueConnectionName`.
+	// The AWS Glue connection that stores the connection information for the target database.
 	GlueConnectionName *string `field:"required" json:"glueConnectionName" yaml:"glueConnectionName"`
-	// `CfnJob.DatabaseOutputProperty.DatabaseOutputMode`.
+	// The output mode to write into the database.
+	//
+	// Currently supported option: NEW_TABLE.
 	DatabaseOutputMode *string `field:"optional" json:"databaseOutputMode" yaml:"databaseOutputMode"`
 }
 
+// Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2827,12 +2931,16 @@ type CfnJob_DatabaseOutputProperty struct {
 //   }
 //
 type CfnJob_DatabaseTableOutputOptionsProperty struct {
-	// `CfnJob.DatabaseTableOutputOptionsProperty.TableName`.
+	// A prefix for the name of a table DataBrew will create in the database.
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
-	// `CfnJob.DatabaseTableOutputOptionsProperty.TempDirectory`.
+	// Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
 	TempDirectory interface{} `field:"optional" json:"tempDirectory" yaml:"tempDirectory"`
 }
 
+// Configuration of entity detection for a profile job.
+//
+// When undefined, entity detection is disabled.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2852,12 +2960,40 @@ type CfnJob_DatabaseTableOutputOptionsProperty struct {
 //   }
 //
 type CfnJob_EntityDetectorConfigurationProperty struct {
-	// `CfnJob.EntityDetectorConfigurationProperty.EntityTypes`.
+	// Entity types to detect. Can be any of the following:.
+	//
+	// - USA_SSN
+	// - EMAIL
+	// - USA_ITIN
+	// - USA_PASSPORT_NUMBER
+	// - PHONE_NUMBER
+	// - USA_DRIVING_LICENSE
+	// - BANK_ACCOUNT
+	// - CREDIT_CARD
+	// - IP_ADDRESS
+	// - MAC_ADDRESS
+	// - USA_DEA_NUMBER
+	// - USA_HCPCS_CODE
+	// - USA_NATIONAL_PROVIDER_IDENTIFIER
+	// - USA_NATIONAL_DRUG_CODE
+	// - USA_HEALTH_INSURANCE_CLAIM_NUMBER
+	// - USA_MEDICARE_BENEFICIARY_IDENTIFIER
+	// - USA_CPT_CODE
+	// - PERSON_NAME
+	// - DATE
+	//
+	// The Entity type group USA_ALL is also supported, and includes all of the above entity types except PERSON_NAME and DATE.
 	EntityTypes *[]*string `field:"required" json:"entityTypes" yaml:"entityTypes"`
-	// `CfnJob.EntityDetectorConfigurationProperty.AllowedStatistics`.
+	// Configuration of statistics that are allowed to be run on columns that contain detected entities.
+	//
+	// When undefined, no statistics will be computed on columns that contain detected entities.
 	AllowedStatistics interface{} `field:"optional" json:"allowedStatistics" yaml:"allowedStatistics"`
 }
 
+// A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run.
+//
+// If a `JobSample` value isn't provided, the default is used. The default value is CUSTOM_ROWS for the mode parameter and 20,000 for the size parameter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2869,12 +3005,23 @@ type CfnJob_EntityDetectorConfigurationProperty struct {
 //   }
 //
 type CfnJob_JobSampleProperty struct {
-	// `CfnJob.JobSampleProperty.Mode`.
+	// A value that determines whether the profile job is run on the entire dataset or a specified number of rows.
+	//
+	// This value must be one of the following:
+	//
+	// - FULL_DATASET - The profile job is run on the entire dataset.
+	// - CUSTOM_ROWS - The profile job is run on the number of rows specified in the `Size` parameter.
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
-	// `CfnJob.JobSampleProperty.Size`.
+	// The `Size` parameter is only required when the mode is CUSTOM_ROWS.
+	//
+	// The profile job is run on the specified number of rows. The maximum value for size is Long.MAX_VALUE.
+	//
+	// Long.MAX_VALUE = 9223372036854775807
 	Size *float64 `field:"optional" json:"size" yaml:"size"`
 }
 
+// Represents a set of options that define the structure of comma-separated (CSV) job output.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2887,10 +3034,12 @@ type CfnJob_JobSampleProperty struct {
 //   }
 //
 type CfnJob_OutputFormatOptionsProperty struct {
-	// `CfnJob.OutputFormatOptionsProperty.Csv`.
+	// Represents a set of options that define the structure of comma-separated value (CSV) job output.
 	Csv interface{} `field:"optional" json:"csv" yaml:"csv"`
 }
 
+// The location in Amazon S3 or AWS Glue Data Catalog where the job writes its output.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2905,14 +3054,16 @@ type CfnJob_OutputFormatOptionsProperty struct {
 //   }
 //
 type CfnJob_OutputLocationProperty struct {
-	// `CfnJob.OutputLocationProperty.Bucket`.
+	// The Amazon S3 bucket name.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// `CfnJob.OutputLocationProperty.BucketOwner`.
 	BucketOwner *string `field:"optional" json:"bucketOwner" yaml:"bucketOwner"`
-	// `CfnJob.OutputLocationProperty.Key`.
+	// The unique name of the object in the bucket.
 	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 
+// Represents options that specify how and where in Amazon S3 DataBrew writes the output generated by recipe jobs or profile jobs.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -2943,22 +3094,26 @@ type CfnJob_OutputLocationProperty struct {
 //   }
 //
 type CfnJob_OutputProperty struct {
-	// `CfnJob.OutputProperty.Location`.
+	// The location in Amazon S3 where the job writes its output.
 	Location interface{} `field:"required" json:"location" yaml:"location"`
-	// `CfnJob.OutputProperty.CompressionFormat`.
+	// The compression algorithm used to compress the output text of the job.
 	CompressionFormat *string `field:"optional" json:"compressionFormat" yaml:"compressionFormat"`
-	// `CfnJob.OutputProperty.Format`.
+	// The data format of the output of the job.
 	Format *string `field:"optional" json:"format" yaml:"format"`
-	// `CfnJob.OutputProperty.FormatOptions`.
+	// Represents options that define how DataBrew formats job output files.
 	FormatOptions interface{} `field:"optional" json:"formatOptions" yaml:"formatOptions"`
-	// `CfnJob.OutputProperty.MaxOutputFiles`.
+	// The maximum number of files to be generated by the job and written to the output folder.
 	MaxOutputFiles *float64 `field:"optional" json:"maxOutputFiles" yaml:"maxOutputFiles"`
-	// `CfnJob.OutputProperty.Overwrite`.
+	// A value that, if true, means that any data in the location specified for output is overwritten with new output.
 	Overwrite interface{} `field:"optional" json:"overwrite" yaml:"overwrite"`
-	// `CfnJob.OutputProperty.PartitionColumns`.
+	// The names of one or more partition columns for the output of the job.
 	PartitionColumns *[]*string `field:"optional" json:"partitionColumns" yaml:"partitionColumns"`
 }
 
+// Configuration for profile jobs.
+//
+// Configuration can be used to select columns, do evaluations, and override default parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all supported columns.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -3022,16 +3177,26 @@ type CfnJob_OutputProperty struct {
 //   }
 //
 type CfnJob_ProfileConfigurationProperty struct {
-	// `CfnJob.ProfileConfigurationProperty.ColumnStatisticsConfigurations`.
+	// List of configurations for column evaluations.
+	//
+	// ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
 	ColumnStatisticsConfigurations interface{} `field:"optional" json:"columnStatisticsConfigurations" yaml:"columnStatisticsConfigurations"`
-	// `CfnJob.ProfileConfigurationProperty.DatasetStatisticsConfiguration`.
+	// Configuration for inter-column evaluations.
+	//
+	// Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
 	DatasetStatisticsConfiguration interface{} `field:"optional" json:"datasetStatisticsConfiguration" yaml:"datasetStatisticsConfiguration"`
-	// `CfnJob.ProfileConfigurationProperty.EntityDetectorConfiguration`.
+	// Configuration of entity detection for a profile job.
+	//
+	// When undefined, entity detection is disabled.
 	EntityDetectorConfiguration interface{} `field:"optional" json:"entityDetectorConfiguration" yaml:"entityDetectorConfiguration"`
-	// `CfnJob.ProfileConfigurationProperty.ProfileColumns`.
+	// List of column selectors.
+	//
+	// ProfileColumns can be used to select columns from the dataset. When ProfileColumns is undefined, the profile job will profile all supported columns.
 	ProfileColumns interface{} `field:"optional" json:"profileColumns" yaml:"profileColumns"`
 }
 
+// Represents one or more actions to be performed on a DataBrew dataset.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -3045,12 +3210,14 @@ type CfnJob_ProfileConfigurationProperty struct {
 //   }
 //
 type CfnJob_RecipeProperty struct {
-	// `CfnJob.RecipeProperty.Name`.
+	// The unique name for the recipe.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `CfnJob.RecipeProperty.Version`.
+	// The identifier for the version for the recipe.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
+// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -3065,14 +3232,16 @@ type CfnJob_RecipeProperty struct {
 //   }
 //
 type CfnJob_S3LocationProperty struct {
-	// `CfnJob.S3LocationProperty.Bucket`.
+	// The Amazon S3 bucket name.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// `CfnJob.S3LocationProperty.BucketOwner`.
+	// The AWS account ID of the bucket owner.
 	BucketOwner *string `field:"optional" json:"bucketOwner" yaml:"bucketOwner"`
-	// `CfnJob.S3LocationProperty.Key`.
+	// The unique name of the object in the bucket.
 	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 
+// Represents options that specify how and where DataBrew writes the Amazon S3 output generated by recipe jobs.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -3089,10 +3258,12 @@ type CfnJob_S3LocationProperty struct {
 //   }
 //
 type CfnJob_S3TableOutputOptionsProperty struct {
-	// `CfnJob.S3TableOutputOptionsProperty.Location`.
+	// Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output from a job.
 	Location interface{} `field:"required" json:"location" yaml:"location"`
 }
 
+// Override of a particular evaluation for a profile job.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -3106,12 +3277,16 @@ type CfnJob_S3TableOutputOptionsProperty struct {
 //   }
 //
 type CfnJob_StatisticOverrideProperty struct {
-	// `CfnJob.StatisticOverrideProperty.Parameters`.
+	// A map that includes overrides of an evaluation’s parameters.
 	Parameters interface{} `field:"required" json:"parameters" yaml:"parameters"`
-	// `CfnJob.StatisticOverrideProperty.Statistic`.
+	// The name of an evaluation.
 	Statistic *string `field:"required" json:"statistic" yaml:"statistic"`
 }
 
+// Configuration of evaluations for a profile job.
+//
+// This configuration can be used to select evaluations and override the parameters of selected evaluations.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -3132,12 +3307,18 @@ type CfnJob_StatisticOverrideProperty struct {
 //   }
 //
 type CfnJob_StatisticsConfigurationProperty struct {
-	// `CfnJob.StatisticsConfigurationProperty.IncludedStatistics`.
+	// List of included evaluations.
+	//
+	// When the list is undefined, all supported evaluations will be included.
 	IncludedStatistics *[]*string `field:"optional" json:"includedStatistics" yaml:"includedStatistics"`
-	// `CfnJob.StatisticsConfigurationProperty.Overrides`.
+	// List of overrides for evaluations.
 	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
 }
 
+// Configuration for data quality validation.
+//
+// Used to select the Rulesets and Validation Mode to be used in the profile job. When ValidationConfiguration is null, the profile job will run without data quality validation.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -3151,9 +3332,13 @@ type CfnJob_StatisticsConfigurationProperty struct {
 //   }
 //
 type CfnJob_ValidationConfigurationProperty struct {
-	// `CfnJob.ValidationConfigurationProperty.RulesetArn`.
+	// The Amazon Resource Name (ARN) for the ruleset to be validated in the profile job.
+	//
+	// The TargetArn of the selected ruleset should be the same as the Amazon Resource Name (ARN) of the dataset that is associated with the profile job.
 	RulesetArn *string `field:"required" json:"rulesetArn" yaml:"rulesetArn"`
-	// `CfnJob.ValidationConfigurationProperty.ValidationMode`.
+	// Mode of data quality validation.
+	//
+	// Default mode is “CHECK_ALL” which verifies all rules defined in the selected ruleset.
 	ValidationMode *string `field:"optional" json:"validationMode" yaml:"validationMode"`
 }
 
@@ -3344,49 +3529,65 @@ type CfnJob_ValidationConfigurationProperty struct {
 //   }
 //
 type CfnJobProps struct {
-	// `AWS::DataBrew::Job.Name`.
+	// The unique name of the job.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::DataBrew::Job.RoleArn`.
+	// The Amazon Resource Name (ARN) of the role to be assumed for this job.
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// `AWS::DataBrew::Job.Type`.
+	// The job type of the job, which must be one of the following:.
+	//
+	// - `PROFILE` - A job to analyze a dataset, to determine its size, data types, data distribution, and more.
+	// - `RECIPE` - A job to apply one or more transformations to a dataset.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `AWS::DataBrew::Job.DatabaseOutputs`.
+	// Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
 	DatabaseOutputs interface{} `field:"optional" json:"databaseOutputs" yaml:"databaseOutputs"`
-	// `AWS::DataBrew::Job.DataCatalogOutputs`.
+	// One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
 	DataCatalogOutputs interface{} `field:"optional" json:"dataCatalogOutputs" yaml:"dataCatalogOutputs"`
-	// `AWS::DataBrew::Job.DatasetName`.
+	// A dataset that the job is to process.
 	DatasetName *string `field:"optional" json:"datasetName" yaml:"datasetName"`
-	// `AWS::DataBrew::Job.EncryptionKeyArn`.
+	// The Amazon Resource Name (ARN) of an encryption key that is used to protect the job output.
+	//
+	// For more information, see [Encrypting data written by DataBrew jobs](https://docs.aws.amazon.com/databrew/latest/dg/encryption-security-configuration.html)
 	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
-	// `AWS::DataBrew::Job.EncryptionMode`.
+	// The encryption mode for the job, which can be one of the following:.
+	//
+	// - `SSE-KMS` - Server-side encryption with keys managed by AWS KMS .
+	// - `SSE-S3` - Server-side encryption with keys managed by Amazon S3.
 	EncryptionMode *string `field:"optional" json:"encryptionMode" yaml:"encryptionMode"`
-	// `AWS::DataBrew::Job.JobSample`.
+	// A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run.
+	//
+	// If a `JobSample` value isn't provided, the default value is used. The default value is CUSTOM_ROWS for the mode parameter and 20,000 for the size parameter.
 	JobSample interface{} `field:"optional" json:"jobSample" yaml:"jobSample"`
-	// `AWS::DataBrew::Job.LogSubscription`.
+	// The current status of Amazon CloudWatch logging for the job.
 	LogSubscription *string `field:"optional" json:"logSubscription" yaml:"logSubscription"`
-	// `AWS::DataBrew::Job.MaxCapacity`.
+	// The maximum number of nodes that can be consumed when the job processes data.
 	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
-	// `AWS::DataBrew::Job.MaxRetries`.
+	// The maximum number of times to retry the job after a job run fails.
 	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// `AWS::DataBrew::Job.OutputLocation`.
 	OutputLocation interface{} `field:"optional" json:"outputLocation" yaml:"outputLocation"`
-	// `AWS::DataBrew::Job.Outputs`.
+	// One or more artifacts that represent output from running the job.
 	Outputs interface{} `field:"optional" json:"outputs" yaml:"outputs"`
-	// `AWS::DataBrew::Job.ProfileConfiguration`.
+	// Configuration for profile jobs.
+	//
+	// Configuration can be used to select columns, do evaluations, and override default parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all supported columns.
 	ProfileConfiguration interface{} `field:"optional" json:"profileConfiguration" yaml:"profileConfiguration"`
-	// `AWS::DataBrew::Job.ProjectName`.
+	// The name of the project that the job is associated with.
 	ProjectName *string `field:"optional" json:"projectName" yaml:"projectName"`
-	// `AWS::DataBrew::Job.Recipe`.
+	// A series of data transformation steps that the job runs.
 	Recipe interface{} `field:"optional" json:"recipe" yaml:"recipe"`
-	// `AWS::DataBrew::Job.Tags`.
+	// Metadata tags that have been applied to the job.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::DataBrew::Job.Timeout`.
+	// The job's timeout in minutes.
+	//
+	// A job that attempts to run longer than this timeout period ends with a status of `TIMEOUT` .
 	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
-	// `AWS::DataBrew::Job.ValidationConfigurations`.
+	// List of validation configurations that are applied to the profile job.
 	ValidationConfigurations interface{} `field:"optional" json:"validationConfigurations" yaml:"validationConfigurations"`
 }
 
 // A CloudFormation `AWS::DataBrew::Project`.
+//
+// Specifies a new AWS Glue DataBrew project.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -3429,7 +3630,7 @@ type CfnProject interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::DataBrew::Project.DatasetName`.
+	// The dataset that the project is to act upon.
 	DatasetName() *string
 	SetDatasetName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -3443,13 +3644,13 @@ type CfnProject interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::DataBrew::Project.Name`.
+	// The unique name of a project.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// `AWS::DataBrew::Project.RecipeName`.
+	// The name of a recipe that will be developed during a project session.
 	RecipeName() *string
 	SetRecipeName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -3458,10 +3659,12 @@ type CfnProject interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::DataBrew::Project.RoleArn`.
+	// The Amazon Resource Name (ARN) of the role that will be assumed for this project.
 	RoleArn() *string
 	SetRoleArn(val *string)
-	// `AWS::DataBrew::Project.Sample`.
+	// The sample size and sampling type to apply to the data.
+	//
+	// If this parameter isn't specified, then the sample consists of the first 500 rows from the dataset.
 	Sample() interface{}
 	SetSample(val interface{})
 	// The stack in which this element is defined.
@@ -3469,7 +3672,7 @@ type CfnProject interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::DataBrew::Project.Tags`.
+	// Metadata tags that have been applied to the project.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -4136,6 +4339,8 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Represents the sample size and sampling type for DataBrew to use for interactive data analysis.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -4149,9 +4354,9 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnProject_SampleProperty struct {
-	// `CfnProject.SampleProperty.Type`.
+	// The way in which DataBrew obtains rows from a dataset.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnProject.SampleProperty.Size`.
+	// The number of rows in the sample.
 	Size *float64 `field:"optional" json:"size" yaml:"size"`
 }
 
@@ -4184,21 +4389,25 @@ type CfnProject_SampleProperty struct {
 //   }
 //
 type CfnProjectProps struct {
-	// `AWS::DataBrew::Project.DatasetName`.
+	// The dataset that the project is to act upon.
 	DatasetName *string `field:"required" json:"datasetName" yaml:"datasetName"`
-	// `AWS::DataBrew::Project.Name`.
+	// The unique name of a project.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::DataBrew::Project.RecipeName`.
+	// The name of a recipe that will be developed during a project session.
 	RecipeName *string `field:"required" json:"recipeName" yaml:"recipeName"`
-	// `AWS::DataBrew::Project.RoleArn`.
+	// The Amazon Resource Name (ARN) of the role that will be assumed for this project.
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// `AWS::DataBrew::Project.Sample`.
+	// The sample size and sampling type to apply to the data.
+	//
+	// If this parameter isn't specified, then the sample consists of the first 500 rows from the dataset.
 	Sample interface{} `field:"optional" json:"sample" yaml:"sample"`
-	// `AWS::DataBrew::Project.Tags`.
+	// Metadata tags that have been applied to the project.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataBrew::Recipe`.
+//
+// Specifies a new AWS Glue DataBrew transformation recipe.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -4256,7 +4465,7 @@ type CfnRecipe interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::DataBrew::Recipe.Description`.
+	// The description of the recipe.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -4270,7 +4479,7 @@ type CfnRecipe interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::DataBrew::Recipe.Name`.
+	// The unique name for the recipe.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
@@ -4287,10 +4496,10 @@ type CfnRecipe interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::DataBrew::Recipe.Steps`.
+	// A list of steps that are defined by the recipe.
 	Steps() interface{}
 	SetSteps(val interface{})
-	// `AWS::DataBrew::Recipe.Tags`.
+	// Metadata tags that have been applied to the recipe.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -4921,6 +5130,8 @@ func (c *jsiiProxy_CfnRecipe) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Represents a transformation and associated parameters that are used to apply a change to an AWS Glue DataBrew dataset.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -4936,12 +5147,18 @@ func (c *jsiiProxy_CfnRecipe) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnRecipe_ActionProperty struct {
-	// `CfnRecipe.ActionProperty.Operation`.
+	// The name of a valid DataBrew transformation to be performed on the data.
 	Operation *string `field:"required" json:"operation" yaml:"operation"`
-	// `CfnRecipe.ActionProperty.Parameters`.
+	// Contextual parameters for the transformation.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 
+// Represents an individual condition that evaluates to true or false.
+//
+// Conditions are used with recipe actions. The action is only performed for column values where the condition evaluates to true.
+//
+// If a recipe requires more than one condition, then the recipe must specify multiple `ConditionExpression` elements. Each condition is applied to the rows in a dataset first, before the recipe action is performed.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -4956,14 +5173,18 @@ type CfnRecipe_ActionProperty struct {
 //   }
 //
 type CfnRecipe_ConditionExpressionProperty struct {
-	// `CfnRecipe.ConditionExpressionProperty.Condition`.
+	// A specific condition to apply to a recipe action.
+	//
+	// For more information, see [Recipe structure](https://docs.aws.amazon.com/databrew/latest/dg/recipe-structure.html) in the *AWS Glue DataBrew Developer Guide* .
 	Condition *string `field:"required" json:"condition" yaml:"condition"`
-	// `CfnRecipe.ConditionExpressionProperty.TargetColumn`.
+	// A column to apply this condition to.
 	TargetColumn *string `field:"required" json:"targetColumn" yaml:"targetColumn"`
-	// `CfnRecipe.ConditionExpressionProperty.Value`.
+	// A value that the condition must evaluate to for the condition to succeed.
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
+// Represents how metadata stored in the AWS Glue Data Catalog is defined in a DataBrew dataset.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -4982,16 +5203,22 @@ type CfnRecipe_ConditionExpressionProperty struct {
 //   }
 //
 type CfnRecipe_DataCatalogInputDefinitionProperty struct {
-	// `CfnRecipe.DataCatalogInputDefinitionProperty.CatalogId`.
+	// The unique identifier of the AWS account that holds the Data Catalog that stores the data.
 	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
-	// `CfnRecipe.DataCatalogInputDefinitionProperty.DatabaseName`.
+	// The name of a database in the Data Catalog.
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
-	// `CfnRecipe.DataCatalogInputDefinitionProperty.TableName`.
+	// The name of a database table in the Data Catalog.
+	//
+	// This table corresponds to a DataBrew dataset.
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
-	// `CfnRecipe.DataCatalogInputDefinitionProperty.TempDirectory`.
+	// Represents an Amazon location where DataBrew can store intermediate results.
 	TempDirectory interface{} `field:"optional" json:"tempDirectory" yaml:"tempDirectory"`
 }
 
+// Parameters that are used as inputs for various recipe actions.
+//
+// The parameters are specific to the context in which they're used.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -5128,210 +5355,230 @@ type CfnRecipe_DataCatalogInputDefinitionProperty struct {
 //   }
 //
 type CfnRecipe_RecipeParametersProperty struct {
-	// `CfnRecipe.RecipeParametersProperty.AggregateFunction`.
+	// The name of an aggregation function to apply.
 	AggregateFunction *string `field:"optional" json:"aggregateFunction" yaml:"aggregateFunction"`
-	// `CfnRecipe.RecipeParametersProperty.Base`.
+	// The number of digits used in a counting system.
 	Base *string `field:"optional" json:"base" yaml:"base"`
-	// `CfnRecipe.RecipeParametersProperty.CaseStatement`.
+	// A case statement associated with a recipe.
 	CaseStatement *string `field:"optional" json:"caseStatement" yaml:"caseStatement"`
-	// `CfnRecipe.RecipeParametersProperty.CategoryMap`.
+	// A category map used for one-hot encoding.
 	CategoryMap *string `field:"optional" json:"categoryMap" yaml:"categoryMap"`
-	// `CfnRecipe.RecipeParametersProperty.CharsToRemove`.
+	// Characters to remove from a step that applies one-hot encoding or tokenization.
 	CharsToRemove *string `field:"optional" json:"charsToRemove" yaml:"charsToRemove"`
-	// `CfnRecipe.RecipeParametersProperty.CollapseConsecutiveWhitespace`.
+	// Remove any non-word non-punctuation character.
 	CollapseConsecutiveWhitespace *string `field:"optional" json:"collapseConsecutiveWhitespace" yaml:"collapseConsecutiveWhitespace"`
-	// `CfnRecipe.RecipeParametersProperty.ColumnDataType`.
+	// The data type of the column.
 	ColumnDataType *string `field:"optional" json:"columnDataType" yaml:"columnDataType"`
-	// `CfnRecipe.RecipeParametersProperty.ColumnRange`.
+	// A range of columns to which a step is applied.
 	ColumnRange *string `field:"optional" json:"columnRange" yaml:"columnRange"`
-	// `CfnRecipe.RecipeParametersProperty.Count`.
+	// The number of times a string needs to be repeated.
 	Count *string `field:"optional" json:"count" yaml:"count"`
-	// `CfnRecipe.RecipeParametersProperty.CustomCharacters`.
+	// One or more characters that can be substituted or removed, depending on the context.
 	CustomCharacters *string `field:"optional" json:"customCharacters" yaml:"customCharacters"`
-	// `CfnRecipe.RecipeParametersProperty.CustomStopWords`.
+	// A list of words to ignore in a step that applies word tokenization.
 	CustomStopWords *string `field:"optional" json:"customStopWords" yaml:"customStopWords"`
-	// `CfnRecipe.RecipeParametersProperty.CustomValue`.
+	// A list of custom values to use in a step that requires that you provide a value to finish the operation.
 	CustomValue *string `field:"optional" json:"customValue" yaml:"customValue"`
-	// `CfnRecipe.RecipeParametersProperty.DatasetsColumns`.
+	// A list of the dataset columns included in a project.
 	DatasetsColumns *string `field:"optional" json:"datasetsColumns" yaml:"datasetsColumns"`
-	// `CfnRecipe.RecipeParametersProperty.DateAddValue`.
+	// A value that specifies how many units of time to add or subtract for a date math operation.
 	DateAddValue *string `field:"optional" json:"dateAddValue" yaml:"dateAddValue"`
-	// `CfnRecipe.RecipeParametersProperty.DateTimeFormat`.
+	// A date format to apply to a date.
 	DateTimeFormat *string `field:"optional" json:"dateTimeFormat" yaml:"dateTimeFormat"`
-	// `CfnRecipe.RecipeParametersProperty.DateTimeParameters`.
+	// A set of parameters associated with a datetime.
 	DateTimeParameters *string `field:"optional" json:"dateTimeParameters" yaml:"dateTimeParameters"`
-	// `CfnRecipe.RecipeParametersProperty.DeleteOtherRows`.
+	// Determines whether unmapped rows in a categorical mapping should be deleted.
 	DeleteOtherRows *string `field:"optional" json:"deleteOtherRows" yaml:"deleteOtherRows"`
-	// `CfnRecipe.RecipeParametersProperty.Delimiter`.
+	// The delimiter to use when parsing separated values in a text file.
 	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
-	// `CfnRecipe.RecipeParametersProperty.EndPattern`.
+	// The end pattern to locate.
 	EndPattern *string `field:"optional" json:"endPattern" yaml:"endPattern"`
-	// `CfnRecipe.RecipeParametersProperty.EndPosition`.
+	// The end position to locate.
 	EndPosition *string `field:"optional" json:"endPosition" yaml:"endPosition"`
-	// `CfnRecipe.RecipeParametersProperty.EndValue`.
+	// The end value to locate.
 	EndValue *string `field:"optional" json:"endValue" yaml:"endValue"`
-	// `CfnRecipe.RecipeParametersProperty.ExpandContractions`.
+	// A list of word contractions and what they expand to.
+	//
+	// For eample: *can't* ; *cannot* ; *can not* .
 	ExpandContractions *string `field:"optional" json:"expandContractions" yaml:"expandContractions"`
-	// `CfnRecipe.RecipeParametersProperty.Exponent`.
+	// The exponent to apply in an exponential operation.
 	Exponent *string `field:"optional" json:"exponent" yaml:"exponent"`
-	// `CfnRecipe.RecipeParametersProperty.FalseString`.
+	// A value that represents `FALSE` .
 	FalseString *string `field:"optional" json:"falseString" yaml:"falseString"`
-	// `CfnRecipe.RecipeParametersProperty.GroupByAggFunctionOptions`.
+	// Specifies options to apply to the `GROUP BY` used in an aggregation.
 	GroupByAggFunctionOptions *string `field:"optional" json:"groupByAggFunctionOptions" yaml:"groupByAggFunctionOptions"`
-	// `CfnRecipe.RecipeParametersProperty.GroupByColumns`.
+	// The columns to use in the `GROUP BY` clause.
 	GroupByColumns *string `field:"optional" json:"groupByColumns" yaml:"groupByColumns"`
-	// `CfnRecipe.RecipeParametersProperty.HiddenColumns`.
+	// A list of columns to hide.
 	HiddenColumns *string `field:"optional" json:"hiddenColumns" yaml:"hiddenColumns"`
-	// `CfnRecipe.RecipeParametersProperty.IgnoreCase`.
+	// Indicates that lower and upper case letters are treated equally.
 	IgnoreCase *string `field:"optional" json:"ignoreCase" yaml:"ignoreCase"`
-	// `CfnRecipe.RecipeParametersProperty.IncludeInSplit`.
+	// Indicates if this column is participating in a split transform.
 	IncludeInSplit *string `field:"optional" json:"includeInSplit" yaml:"includeInSplit"`
-	// `CfnRecipe.RecipeParametersProperty.Input`.
+	// The input location to load the dataset from - Amazon S3 or AWS Glue Data Catalog .
 	Input interface{} `field:"optional" json:"input" yaml:"input"`
-	// `CfnRecipe.RecipeParametersProperty.Interval`.
+	// The number of characters to split by.
 	Interval *string `field:"optional" json:"interval" yaml:"interval"`
-	// `CfnRecipe.RecipeParametersProperty.IsText`.
+	// Indicates if the content is text.
 	IsText *string `field:"optional" json:"isText" yaml:"isText"`
-	// `CfnRecipe.RecipeParametersProperty.JoinKeys`.
+	// The keys or columns involved in a join.
 	JoinKeys *string `field:"optional" json:"joinKeys" yaml:"joinKeys"`
-	// `CfnRecipe.RecipeParametersProperty.JoinType`.
+	// The type of join to use, for example, `INNER JOIN` , `OUTER JOIN` , and so on.
 	JoinType *string `field:"optional" json:"joinType" yaml:"joinType"`
-	// `CfnRecipe.RecipeParametersProperty.LeftColumns`.
+	// The columns on the left side of the join.
 	LeftColumns *string `field:"optional" json:"leftColumns" yaml:"leftColumns"`
-	// `CfnRecipe.RecipeParametersProperty.Limit`.
+	// The number of times to perform `split` or `replaceBy` in a string.
 	Limit *string `field:"optional" json:"limit" yaml:"limit"`
-	// `CfnRecipe.RecipeParametersProperty.LowerBound`.
+	// The lower boundary for a value.
 	LowerBound *string `field:"optional" json:"lowerBound" yaml:"lowerBound"`
-	// `CfnRecipe.RecipeParametersProperty.MapType`.
+	// The type of mappings to apply to construct a new dynamic frame.
 	MapType *string `field:"optional" json:"mapType" yaml:"mapType"`
-	// `CfnRecipe.RecipeParametersProperty.ModeType`.
+	// Determines the manner in which mode value is calculated, in case there is more than one mode value.
+	//
+	// Valid values: `NONE` | `AVERAGE` | `MINIMUM` | `MAXIMUM`.
 	ModeType *string `field:"optional" json:"modeType" yaml:"modeType"`
-	// `CfnRecipe.RecipeParametersProperty.MultiLine`.
+	// Specifies whether JSON input contains embedded new line characters.
 	MultiLine interface{} `field:"optional" json:"multiLine" yaml:"multiLine"`
-	// `CfnRecipe.RecipeParametersProperty.NumRows`.
+	// The number of rows to consider in a window.
 	NumRows *string `field:"optional" json:"numRows" yaml:"numRows"`
-	// `CfnRecipe.RecipeParametersProperty.NumRowsAfter`.
+	// The number of rows to consider after the current row in a window.
 	NumRowsAfter *string `field:"optional" json:"numRowsAfter" yaml:"numRowsAfter"`
-	// `CfnRecipe.RecipeParametersProperty.NumRowsBefore`.
+	// The number of rows to consider before the current row in a window.
 	NumRowsBefore *string `field:"optional" json:"numRowsBefore" yaml:"numRowsBefore"`
-	// `CfnRecipe.RecipeParametersProperty.OrderByColumn`.
+	// A column to sort the results by.
 	OrderByColumn *string `field:"optional" json:"orderByColumn" yaml:"orderByColumn"`
-	// `CfnRecipe.RecipeParametersProperty.OrderByColumns`.
+	// The columns to sort the results by.
 	OrderByColumns *string `field:"optional" json:"orderByColumns" yaml:"orderByColumns"`
-	// `CfnRecipe.RecipeParametersProperty.Other`.
+	// The value to assign to unmapped cells, in categorical mapping.
 	Other *string `field:"optional" json:"other" yaml:"other"`
-	// `CfnRecipe.RecipeParametersProperty.Pattern`.
+	// The pattern to locate.
 	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`
-	// `CfnRecipe.RecipeParametersProperty.PatternOption1`.
+	// The starting pattern to split between.
 	PatternOption1 *string `field:"optional" json:"patternOption1" yaml:"patternOption1"`
-	// `CfnRecipe.RecipeParametersProperty.PatternOption2`.
+	// The ending pattern to split between.
 	PatternOption2 *string `field:"optional" json:"patternOption2" yaml:"patternOption2"`
-	// `CfnRecipe.RecipeParametersProperty.PatternOptions`.
+	// For splitting by multiple delimiters: A JSON-encoded string that lists the patterns in the format.
+	//
+	// For example: `[{\"pattern\":\"1\",\"includeInSplit\":true}]`.
 	PatternOptions *string `field:"optional" json:"patternOptions" yaml:"patternOptions"`
-	// `CfnRecipe.RecipeParametersProperty.Period`.
+	// The size of the rolling window.
 	Period *string `field:"optional" json:"period" yaml:"period"`
-	// `CfnRecipe.RecipeParametersProperty.Position`.
+	// The character index within a string.
 	Position *string `field:"optional" json:"position" yaml:"position"`
-	// `CfnRecipe.RecipeParametersProperty.RemoveAllPunctuation`.
+	// If `true` , removes all of the following characters: `.` `.!` `.,` `.?`.
 	RemoveAllPunctuation *string `field:"optional" json:"removeAllPunctuation" yaml:"removeAllPunctuation"`
-	// `CfnRecipe.RecipeParametersProperty.RemoveAllQuotes`.
+	// If `true` , removes all single quotes and double quotes.
 	RemoveAllQuotes *string `field:"optional" json:"removeAllQuotes" yaml:"removeAllQuotes"`
-	// `CfnRecipe.RecipeParametersProperty.RemoveAllWhitespace`.
+	// If `true` , removes all whitespaces from the value.
 	RemoveAllWhitespace *string `field:"optional" json:"removeAllWhitespace" yaml:"removeAllWhitespace"`
-	// `CfnRecipe.RecipeParametersProperty.RemoveCustomCharacters`.
+	// If `true` , removes all chraracters specified by `CustomCharacters` .
 	RemoveCustomCharacters *string `field:"optional" json:"removeCustomCharacters" yaml:"removeCustomCharacters"`
-	// `CfnRecipe.RecipeParametersProperty.RemoveCustomValue`.
+	// If `true` , removes all chraracters specified by `CustomValue` .
 	RemoveCustomValue *string `field:"optional" json:"removeCustomValue" yaml:"removeCustomValue"`
-	// `CfnRecipe.RecipeParametersProperty.RemoveLeadingAndTrailingPunctuation`.
+	// If `true` , removes the following characters if they occur at the start or end of the value: `.` `!` `,` `?`.
 	RemoveLeadingAndTrailingPunctuation *string `field:"optional" json:"removeLeadingAndTrailingPunctuation" yaml:"removeLeadingAndTrailingPunctuation"`
-	// `CfnRecipe.RecipeParametersProperty.RemoveLeadingAndTrailingQuotes`.
+	// If `true` , removes single quotes and double quotes from the beginning and end of the value.
 	RemoveLeadingAndTrailingQuotes *string `field:"optional" json:"removeLeadingAndTrailingQuotes" yaml:"removeLeadingAndTrailingQuotes"`
-	// `CfnRecipe.RecipeParametersProperty.RemoveLeadingAndTrailingWhitespace`.
+	// If `true` , removes all whitespaces from the beginning and end of the value.
 	RemoveLeadingAndTrailingWhitespace *string `field:"optional" json:"removeLeadingAndTrailingWhitespace" yaml:"removeLeadingAndTrailingWhitespace"`
-	// `CfnRecipe.RecipeParametersProperty.RemoveLetters`.
+	// If `true` , removes all uppercase and lowercase alphabetic characters (A through Z;
+	//
+	// a through z).
 	RemoveLetters *string `field:"optional" json:"removeLetters" yaml:"removeLetters"`
-	// `CfnRecipe.RecipeParametersProperty.RemoveNumbers`.
+	// If `true` , removes all numeric characters (0 through 9).
 	RemoveNumbers *string `field:"optional" json:"removeNumbers" yaml:"removeNumbers"`
-	// `CfnRecipe.RecipeParametersProperty.RemoveSourceColumn`.
+	// If `true` , the source column will be removed after un-nesting that column.
+	//
+	// (Used with nested column types, such as Map, Struct, or Array.)
 	RemoveSourceColumn *string `field:"optional" json:"removeSourceColumn" yaml:"removeSourceColumn"`
-	// `CfnRecipe.RecipeParametersProperty.RemoveSpecialCharacters`.
+	// If `true` , removes all of the following characters: `!
+	//
+	// " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~`
 	RemoveSpecialCharacters *string `field:"optional" json:"removeSpecialCharacters" yaml:"removeSpecialCharacters"`
-	// `CfnRecipe.RecipeParametersProperty.RightColumns`.
+	// The columns on the right side of a join.
 	RightColumns *string `field:"optional" json:"rightColumns" yaml:"rightColumns"`
-	// `CfnRecipe.RecipeParametersProperty.SampleSize`.
+	// The number of rows in the sample.
 	SampleSize *string `field:"optional" json:"sampleSize" yaml:"sampleSize"`
-	// `CfnRecipe.RecipeParametersProperty.SampleType`.
+	// The sampling type to apply to the dataset.
+	//
+	// Valid values: `FIRST_N` | `LAST_N` | `RANDOM`.
 	SampleType *string `field:"optional" json:"sampleType" yaml:"sampleType"`
-	// `CfnRecipe.RecipeParametersProperty.SecondaryInputs`.
+	// A list of secondary inputs in a UNION transform.
 	SecondaryInputs interface{} `field:"optional" json:"secondaryInputs" yaml:"secondaryInputs"`
-	// `CfnRecipe.RecipeParametersProperty.SecondInput`.
+	// A object value to indicate the second dataset used in a join.
 	SecondInput *string `field:"optional" json:"secondInput" yaml:"secondInput"`
-	// `CfnRecipe.RecipeParametersProperty.SheetIndexes`.
+	// One or more sheet numbers in the Excel file, which will be included in a dataset.
 	SheetIndexes interface{} `field:"optional" json:"sheetIndexes" yaml:"sheetIndexes"`
-	// `CfnRecipe.RecipeParametersProperty.SheetNames`.
+	// Oone or more named sheets in the Excel file, which will be included in a dataset.
 	SheetNames *[]*string `field:"optional" json:"sheetNames" yaml:"sheetNames"`
-	// `CfnRecipe.RecipeParametersProperty.SourceColumn`.
+	// A source column needed for an operation, step, or transform.
 	SourceColumn *string `field:"optional" json:"sourceColumn" yaml:"sourceColumn"`
-	// `CfnRecipe.RecipeParametersProperty.SourceColumn1`.
+	// A source column needed for an operation, step, or transform.
 	SourceColumn1 *string `field:"optional" json:"sourceColumn1" yaml:"sourceColumn1"`
-	// `CfnRecipe.RecipeParametersProperty.SourceColumn2`.
+	// A source column needed for an operation, step, or transform.
 	SourceColumn2 *string `field:"optional" json:"sourceColumn2" yaml:"sourceColumn2"`
-	// `CfnRecipe.RecipeParametersProperty.SourceColumns`.
+	// A list of source columns needed for an operation, step, or transform.
 	SourceColumns *string `field:"optional" json:"sourceColumns" yaml:"sourceColumns"`
-	// `CfnRecipe.RecipeParametersProperty.StartColumnIndex`.
+	// The index number of the first column used by an operation, step, or transform.
 	StartColumnIndex *string `field:"optional" json:"startColumnIndex" yaml:"startColumnIndex"`
-	// `CfnRecipe.RecipeParametersProperty.StartPattern`.
+	// The starting pattern to locate.
 	StartPattern *string `field:"optional" json:"startPattern" yaml:"startPattern"`
-	// `CfnRecipe.RecipeParametersProperty.StartPosition`.
+	// The starting position to locate.
 	StartPosition *string `field:"optional" json:"startPosition" yaml:"startPosition"`
-	// `CfnRecipe.RecipeParametersProperty.StartValue`.
+	// The starting value to locate.
 	StartValue *string `field:"optional" json:"startValue" yaml:"startValue"`
-	// `CfnRecipe.RecipeParametersProperty.StemmingMode`.
+	// Indicates this operation uses stems and lemmas (base words) for word tokenization.
 	StemmingMode *string `field:"optional" json:"stemmingMode" yaml:"stemmingMode"`
-	// `CfnRecipe.RecipeParametersProperty.StepCount`.
+	// The total number of transforms in this recipe.
 	StepCount *string `field:"optional" json:"stepCount" yaml:"stepCount"`
-	// `CfnRecipe.RecipeParametersProperty.StepIndex`.
+	// The index ID of a step.
 	StepIndex *string `field:"optional" json:"stepIndex" yaml:"stepIndex"`
-	// `CfnRecipe.RecipeParametersProperty.StopWordsMode`.
+	// Indicates this operation uses stop words as part of word tokenization.
 	StopWordsMode *string `field:"optional" json:"stopWordsMode" yaml:"stopWordsMode"`
-	// `CfnRecipe.RecipeParametersProperty.Strategy`.
+	// The resolution strategy to apply in resolving ambiguities.
 	Strategy *string `field:"optional" json:"strategy" yaml:"strategy"`
-	// `CfnRecipe.RecipeParametersProperty.TargetColumn`.
+	// The column targeted by this operation.
 	TargetColumn *string `field:"optional" json:"targetColumn" yaml:"targetColumn"`
-	// `CfnRecipe.RecipeParametersProperty.TargetColumnNames`.
+	// The names to give columns altered by this operation.
 	TargetColumnNames *string `field:"optional" json:"targetColumnNames" yaml:"targetColumnNames"`
-	// `CfnRecipe.RecipeParametersProperty.TargetDateFormat`.
+	// The date format to convert to.
 	TargetDateFormat *string `field:"optional" json:"targetDateFormat" yaml:"targetDateFormat"`
-	// `CfnRecipe.RecipeParametersProperty.TargetIndex`.
+	// The index number of an object that is targeted by this operation.
 	TargetIndex *string `field:"optional" json:"targetIndex" yaml:"targetIndex"`
-	// `CfnRecipe.RecipeParametersProperty.TimeZone`.
+	// The current timezone that you want to use for dates.
 	TimeZone *string `field:"optional" json:"timeZone" yaml:"timeZone"`
-	// `CfnRecipe.RecipeParametersProperty.TokenizerPattern`.
+	// A regex expression to use when splitting text into terms, also called words or tokens.
 	TokenizerPattern *string `field:"optional" json:"tokenizerPattern" yaml:"tokenizerPattern"`
-	// `CfnRecipe.RecipeParametersProperty.TrueString`.
+	// A value to use to represent `TRUE` .
 	TrueString *string `field:"optional" json:"trueString" yaml:"trueString"`
-	// `CfnRecipe.RecipeParametersProperty.UdfLang`.
+	// The language that's used in the user-defined function.
 	UdfLang *string `field:"optional" json:"udfLang" yaml:"udfLang"`
-	// `CfnRecipe.RecipeParametersProperty.Units`.
+	// Specifies a unit of time.
+	//
+	// For example: `MINUTES` ; `SECONDS` ; `HOURS` ; etc.
 	Units *string `field:"optional" json:"units" yaml:"units"`
-	// `CfnRecipe.RecipeParametersProperty.UnpivotColumn`.
+	// Cast columns as rows, so that each value is a different row in a single column.
 	UnpivotColumn *string `field:"optional" json:"unpivotColumn" yaml:"unpivotColumn"`
-	// `CfnRecipe.RecipeParametersProperty.UpperBound`.
+	// The upper boundary for a value.
 	UpperBound *string `field:"optional" json:"upperBound" yaml:"upperBound"`
-	// `CfnRecipe.RecipeParametersProperty.UseNewDataFrame`.
+	// Create a new container to hold a dataset.
 	UseNewDataFrame *string `field:"optional" json:"useNewDataFrame" yaml:"useNewDataFrame"`
-	// `CfnRecipe.RecipeParametersProperty.Value`.
+	// A static value that can be used in a comparison, a substitution, or in another context-specific way.
+	//
+	// A `Value` can be a number, string, or other datatype, depending on the recipe action in which it's used.
 	Value *string `field:"optional" json:"value" yaml:"value"`
-	// `CfnRecipe.RecipeParametersProperty.Value1`.
+	// A value that's used by this operation.
 	Value1 *string `field:"optional" json:"value1" yaml:"value1"`
-	// `CfnRecipe.RecipeParametersProperty.Value2`.
+	// A value that's used by this operation.
 	Value2 *string `field:"optional" json:"value2" yaml:"value2"`
-	// `CfnRecipe.RecipeParametersProperty.ValueColumn`.
+	// The column that is provided as a value that's used by this operation.
 	ValueColumn *string `field:"optional" json:"valueColumn" yaml:"valueColumn"`
-	// `CfnRecipe.RecipeParametersProperty.ViewFrame`.
+	// The subset of rows currently available for viewing.
 	ViewFrame *string `field:"optional" json:"viewFrame" yaml:"viewFrame"`
 }
 
+// Represents a single step from a DataBrew recipe to be performed.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -5360,12 +5607,16 @@ type CfnRecipe_RecipeParametersProperty struct {
 //   }
 //
 type CfnRecipe_RecipeStepProperty struct {
-	// `CfnRecipe.RecipeStepProperty.Action`.
+	// The particular action to be performed in the recipe step.
 	Action interface{} `field:"required" json:"action" yaml:"action"`
-	// `CfnRecipe.RecipeStepProperty.ConditionExpressions`.
+	// One or more conditions that must be met for the recipe step to succeed.
+	//
+	// > All of the conditions in the array must be met. In other words, all of the conditions must be combined using a logical AND operation.
 	ConditionExpressions interface{} `field:"optional" json:"conditionExpressions" yaml:"conditionExpressions"`
 }
 
+// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -5379,12 +5630,14 @@ type CfnRecipe_RecipeStepProperty struct {
 //   }
 //
 type CfnRecipe_S3LocationProperty struct {
-	// `CfnRecipe.S3LocationProperty.Bucket`.
+	// The Amazon S3 bucket name.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// `CfnRecipe.S3LocationProperty.Key`.
+	// The unique name of the object in the bucket.
 	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 
+// Represents secondary inputs in a UNION transform.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -5411,9 +5664,9 @@ type CfnRecipe_S3LocationProperty struct {
 //   }
 //
 type CfnRecipe_SecondaryInputProperty struct {
-	// `CfnRecipe.SecondaryInputProperty.DataCatalogInputDefinition`.
+	// The AWS Glue Data Catalog parameters for the data.
 	DataCatalogInputDefinition interface{} `field:"optional" json:"dataCatalogInputDefinition" yaml:"dataCatalogInputDefinition"`
-	// `CfnRecipe.SecondaryInputProperty.S3InputDefinition`.
+	// The Amazon S3 location where the data is stored.
 	S3InputDefinition interface{} `field:"optional" json:"s3InputDefinition" yaml:"s3InputDefinition"`
 }
 
@@ -5461,17 +5714,19 @@ type CfnRecipe_SecondaryInputProperty struct {
 //   }
 //
 type CfnRecipeProps struct {
-	// `AWS::DataBrew::Recipe.Name`.
+	// The unique name for the recipe.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::DataBrew::Recipe.Steps`.
+	// A list of steps that are defined by the recipe.
 	Steps interface{} `field:"required" json:"steps" yaml:"steps"`
-	// `AWS::DataBrew::Recipe.Description`.
+	// The description of the recipe.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::DataBrew::Recipe.Tags`.
+	// Metadata tags that have been applied to the recipe.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataBrew::Ruleset`.
+//
+// Specifies a new ruleset that can be used in a profile job to validate the data quality of a dataset.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -5535,7 +5790,7 @@ type CfnRuleset interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::DataBrew::Ruleset.Description`.
+	// The description of the ruleset.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -5549,7 +5804,7 @@ type CfnRuleset interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::DataBrew::Ruleset.Name`.
+	// The name of the ruleset.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
@@ -5561,7 +5816,7 @@ type CfnRuleset interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::DataBrew::Ruleset.Rules`.
+	// Contains metadata about the ruleset.
 	Rules() interface{}
 	SetRules(val interface{})
 	// The stack in which this element is defined.
@@ -5569,9 +5824,11 @@ type CfnRuleset interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::DataBrew::Ruleset.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
-	// `AWS::DataBrew::Ruleset.TargetArn`.
+	// The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset is associated with.
 	TargetArn() *string
 	SetTargetArn(val *string)
 	// Return properties modified after initiation.
@@ -6221,6 +6478,10 @@ func (c *jsiiProxy_CfnRuleset) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Selector of a column from a dataset for profile job configuration.
+//
+// One selector includes either a column name or a regular expression.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -6232,12 +6493,14 @@ func (c *jsiiProxy_CfnRuleset) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnRuleset_ColumnSelectorProperty struct {
-	// `CfnRuleset.ColumnSelectorProperty.Name`.
+	// The name of a column from a dataset.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `CfnRuleset.ColumnSelectorProperty.Regex`.
+	// A regular expression for selecting a column from a dataset.
 	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 
+// Represents a single data quality requirement that should be validated in the scope of this dataset.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -6271,20 +6534,32 @@ type CfnRuleset_ColumnSelectorProperty struct {
 //   }
 //
 type CfnRuleset_RuleProperty struct {
-	// `CfnRuleset.RuleProperty.CheckExpression`.
+	// The expression which includes column references, condition names followed by variable references, possibly grouped and combined with other conditions.
+	//
+	// For example, `(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and (:col1 ends_with :suffix1 or :col1 ends_with :suffix2)` . Column and value references are substitution variables that should start with the ':' symbol. Depending on the context, substitution variables' values can be either an actual value or a column name. These values are defined in the SubstitutionMap. If a CheckExpression starts with a column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors has been defined, then there should be no columnn reference in the left side of a condition, for example, `is_between :val1 and :val2` .
 	CheckExpression *string `field:"required" json:"checkExpression" yaml:"checkExpression"`
-	// `CfnRuleset.RuleProperty.Name`.
+	// The name of the rule.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `CfnRuleset.RuleProperty.ColumnSelectors`.
+	// List of column selectors.
+	//
+	// Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
 	ColumnSelectors interface{} `field:"optional" json:"columnSelectors" yaml:"columnSelectors"`
-	// `CfnRuleset.RuleProperty.Disabled`.
+	// A value that specifies whether the rule is disabled.
+	//
+	// Once a rule is disabled, a profile job will not validate it during a job run. Default value is false.
 	Disabled interface{} `field:"optional" json:"disabled" yaml:"disabled"`
-	// `CfnRuleset.RuleProperty.SubstitutionMap`.
+	// The map of substitution variable names to their values used in a check expression.
+	//
+	// Variable names should start with a ':' (colon). Variable values can either be actual values or column names. To differentiate between the two, column names should be enclosed in backticks, for example, `":col1": "`Column A`".`
 	SubstitutionMap interface{} `field:"optional" json:"substitutionMap" yaml:"substitutionMap"`
-	// `CfnRuleset.RuleProperty.Threshold`.
+	// The threshold used with a non-aggregate check expression.
+	//
+	// Non-aggregate check expressions will be applied to each row in a specific column, and the threshold will be used to determine whether the validation succeeds.
 	Threshold interface{} `field:"optional" json:"threshold" yaml:"threshold"`
 }
 
+// A key-value pair to associate an expression's substitution variable names with their values.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -6296,12 +6571,16 @@ type CfnRuleset_RuleProperty struct {
 //   }
 //
 type CfnRuleset_SubstitutionValueProperty struct {
-	// `CfnRuleset.SubstitutionValueProperty.Value`.
+	// Value or column name.
 	Value *string `field:"required" json:"value" yaml:"value"`
-	// `CfnRuleset.SubstitutionValueProperty.ValueReference`.
+	// Variable name.
 	ValueReference *string `field:"required" json:"valueReference" yaml:"valueReference"`
 }
 
+// The threshold used with a non-aggregate check expression.
+//
+// The non-aggregate check expression will be applied to each row in a specific column. Then the threshold will be used to determine whether the validation succeeds.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -6316,11 +6595,15 @@ type CfnRuleset_SubstitutionValueProperty struct {
 //   }
 //
 type CfnRuleset_ThresholdProperty struct {
-	// `CfnRuleset.ThresholdProperty.Value`.
+	// The value of a threshold.
 	Value *float64 `field:"required" json:"value" yaml:"value"`
-	// `CfnRuleset.ThresholdProperty.Type`.
+	// The type of a threshold.
+	//
+	// Used for comparison of an actual count of rows that satisfy the rule to the threshold value.
 	Type *string `field:"optional" json:"type" yaml:"type"`
-	// `CfnRuleset.ThresholdProperty.Unit`.
+	// Unit of threshold value.
+	//
+	// Can be either a COUNT or PERCENTAGE of the full sample size used for validation.
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 
@@ -6374,19 +6657,23 @@ type CfnRuleset_ThresholdProperty struct {
 //   }
 //
 type CfnRulesetProps struct {
-	// `AWS::DataBrew::Ruleset.Name`.
+	// The name of the ruleset.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::DataBrew::Ruleset.Rules`.
+	// Contains metadata about the ruleset.
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
-	// `AWS::DataBrew::Ruleset.TargetArn`.
+	// The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset is associated with.
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
-	// `AWS::DataBrew::Ruleset.Description`.
+	// The description of the ruleset.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::DataBrew::Ruleset.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DataBrew::Schedule`.
+//
+// Specifies a new schedule for one or more AWS Glue DataBrew jobs. Jobs can be run at a specific date and time, or at regular intervals.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -6424,10 +6711,12 @@ type CfnSchedule interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::DataBrew::Schedule.CronExpression`.
+	// The dates and times when the job is to run.
+	//
+	// For more information, see [Working with cron expressions for recipe jobs](https://docs.aws.amazon.com/databrew/latest/dg/jobs.recipe.html#jobs.cron) in the *AWS Glue DataBrew Developer Guide* .
 	CronExpression() *string
 	SetCronExpression(val *string)
-	// `AWS::DataBrew::Schedule.JobNames`.
+	// A list of jobs to be run, according to the schedule.
 	JobNames() *[]*string
 	SetJobNames(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -6441,7 +6730,7 @@ type CfnSchedule interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::DataBrew::Schedule.Name`.
+	// The name of the schedule.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
@@ -6458,7 +6747,7 @@ type CfnSchedule interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::DataBrew::Schedule.Tags`.
+	// Metadata tags that have been applied to the schedule.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -7113,13 +7402,15 @@ func (c *jsiiProxy_CfnSchedule) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnScheduleProps struct {
-	// `AWS::DataBrew::Schedule.CronExpression`.
+	// The dates and times when the job is to run.
+	//
+	// For more information, see [Working with cron expressions for recipe jobs](https://docs.aws.amazon.com/databrew/latest/dg/jobs.recipe.html#jobs.cron) in the *AWS Glue DataBrew Developer Guide* .
 	CronExpression *string `field:"required" json:"cronExpression" yaml:"cronExpression"`
-	// `AWS::DataBrew::Schedule.Name`.
+	// The name of the schedule.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::DataBrew::Schedule.JobNames`.
+	// A list of jobs to be run, according to the schedule.
 	JobNames *[]*string `field:"optional" json:"jobNames" yaml:"jobNames"`
-	// `AWS::DataBrew::Schedule.Tags`.
+	// Metadata tags that have been applied to the schedule.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

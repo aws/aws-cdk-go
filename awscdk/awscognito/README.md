@@ -53,6 +53,17 @@ The default set up for the user pool is configured such that only administrators
 to create users. Features such as Multi-factor authentication (MFAs) and Lambda Triggers are not
 configured by default.
 
+Use the `grant()` method to add an IAM policy statement associated with the user pool to an
+IAM principal's policy.
+
+```go
+userPool := cognito.NewUserPool(this, jsii.String("myuserpool"))
+role := iam.NewRole(this, jsii.String("role"), &roleProps{
+	assumedBy: iam.NewServicePrincipal(jsii.String("foo")),
+})
+userPool.grant(role, jsii.String("cognito-idp:AdminCreateUser"))
+```
+
 ### Sign Up
 
 Users can either be signed up by the app's administrators or can sign themselves up. Once a user has signed up, their

@@ -720,7 +720,7 @@ type BucketCacheOptions struct {
 //   		// Control Elastic Network Interface creation
 //   		vpc: vpc,
 //   		subnetSelection: &subnetSelection{
-//   			subnetType: ec2.subnetType_PRIVATE,
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   		},
 //   		securityGroups: []iSecurityGroup{
 //   			mySecurityGroup,
@@ -5602,7 +5602,7 @@ type CommonProjectProps struct {
 //   	// Control Elastic Network Interface creation
 //   	vpc: vpc,
 //   	subnetSelection: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE,
+//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   	},
 //   	securityGroups: []iSecurityGroup{
 //   		mySecurityGroup,

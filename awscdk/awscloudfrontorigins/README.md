@@ -121,3 +121,20 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &distributionProps{
 	},
 })
 ```
+
+## From an API Gateway REST API
+
+Origins can be created from an API Gateway REST API. It is recommended to use a
+[regional API](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-endpoint-types.html) in this case.
+
+```go
+var api restApi
+
+cloudfront.NewDistribution(this, jsii.String("Distribution"), &distributionProps{
+	defaultBehavior: &behaviorOptions{
+		origin: origins.NewRestApiOrigin(api),
+	},
+})
+```
+
+The origin path will automatically be set as the stage name.

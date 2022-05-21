@@ -17738,16 +17738,22 @@ type PolicyDocument interface {
 	// Experimental.
 	ToString() *string
 	// Validate that all policy statements in the policy document satisfies the requirements for any policy.
+	//
+	// Returns: An array of validation error messages, or an empty array if the document is valid.
 	// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json
 	//
 	// Experimental.
 	ValidateForAnyPolicy() *[]*string
 	// Validate that all policy statements in the policy document satisfies the requirements for an identity-based policy.
+	//
+	// Returns: An array of validation error messages, or an empty array if the document is valid.
 	// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json
 	//
 	// Experimental.
 	ValidateForIdentityPolicy() *[]*string
 	// Validate that all policy statements in the policy document satisfies the requirements for a resource-based policy.
+	//
+	// Returns: An array of validation error messages, or an empty array if the document is valid.
 	// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json
 	//
 	// Experimental.
@@ -18222,12 +18228,18 @@ type PolicyStatement interface {
 	// Experimental.
 	ToString() *string
 	// Validate that the policy statement satisfies base requirements for a policy.
+	//
+	// Returns: An array of validation error messages, or an empty array if the statement is valid.
 	// Experimental.
 	ValidateForAnyPolicy() *[]*string
 	// Validate that the policy statement satisfies all requirements for an identity-based policy.
+	//
+	// Returns: An array of validation error messages, or an empty array if the statement is valid.
 	// Experimental.
 	ValidateForIdentityPolicy() *[]*string
 	// Validate that the policy statement satisfies all requirements for a resource-based policy.
+	//
+	// Returns: An array of validation error messages, or an empty array if the statement is valid.
 	// Experimental.
 	ValidateForResourcePolicy() *[]*string
 }

@@ -11,6 +11,20 @@ import (
 
 // A CloudFormation `AWS::Forecast::Dataset`.
 //
+// Creates an Amazon Forecast dataset. The information about the dataset that you provide helps Forecast understand how to consume the data for model training. This includes the following:
+//
+// - *`DataFrequency`* - How frequently your historical time-series data is collected.
+// - *`Domain`* and *`DatasetType`* - Each dataset has an associated dataset domain and a type within the domain. Amazon Forecast provides a list of predefined domains and types within each domain. For each unique dataset domain and type within the domain, Amazon Forecast requires your data to include a minimum set of predefined fields.
+// - *`Schema`* - A schema specifies the fields in the dataset, including the field name and data type.
+//
+// After creating a dataset, you import your training data into it and add the dataset to a dataset group. You use the dataset group to create a predictor. For more information, see [Importing datasets](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html) .
+//
+// To get a list of all your datasets, use the [ListDatasets](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html) operation.
+//
+// For example Forecast datasets, see the [Amazon Forecast Sample GitHub repository](https://docs.aws.amazon.com/https://github.com/aws-samples/amazon-forecast-samples) .
+//
+// > The `Status` of a dataset must be `ACTIVE` before you can import training data. Use the [DescribeDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html) operation to get the status.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,6 +51,7 @@ import (
 type CfnDataset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the dataset.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -50,19 +65,21 @@ type CfnDataset interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::Forecast::Dataset.DataFrequency`.
+	// The frequency of data collection. This parameter is required for RELATED_TIME_SERIES datasets.
+	//
+	// Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example, "D" indicates every day and "15min" indicates every 15 minutes.
 	DataFrequency() *string
 	SetDataFrequency(val *string)
-	// `AWS::Forecast::Dataset.DatasetName`.
+	// The name of the dataset.
 	DatasetName() *string
 	SetDatasetName(val *string)
-	// `AWS::Forecast::Dataset.DatasetType`.
+	// The dataset type.
 	DatasetType() *string
 	SetDatasetType(val *string)
-	// `AWS::Forecast::Dataset.Domain`.
+	// The domain associated with the dataset.
 	Domain() *string
 	SetDomain(val *string)
-	// `AWS::Forecast::Dataset.EncryptionConfig`.
+	// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 	EncryptionConfig() interface{}
 	SetEncryptionConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -85,7 +102,9 @@ type CfnDataset interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::Forecast::Dataset.Schema`.
+	// The schema for the dataset.
+	//
+	// The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
 	Schema() interface{}
 	SetSchema(val interface{})
 	// The stack in which this element is defined.
@@ -93,7 +112,9 @@ type CfnDataset interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::Forecast::Dataset.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() *[]interface{}
 	SetTags(val *[]interface{})
 	// Return properties modified after initiation.
@@ -799,6 +820,14 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 
 // A CloudFormation `AWS::Forecast::DatasetGroup`.
 //
+// Creates a dataset group, which holds a collection of related datasets. You can add datasets to the dataset group when you create the dataset group, or later by using the [UpdateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html) operation.
+//
+// After creating a dataset group and adding datasets, you use the dataset group when you create a predictor. For more information, see [Dataset groups](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html) .
+//
+// To get a list of all your datasets groups, use the [ListDatasetGroups](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html) operation.
+//
+// > The `Status` of a dataset group must be `ACTIVE` before you can use the dataset group to create a predictor. To get the status, use the [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html) operation.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -823,6 +852,7 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 type CfnDatasetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the dataset group.
 	AttrDatasetGroupArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -836,13 +866,17 @@ type CfnDatasetGroup interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::Forecast::DatasetGroup.DatasetArns`.
+	// An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.
 	DatasetArns() *[]*string
 	SetDatasetArns(val *[]*string)
-	// `AWS::Forecast::DatasetGroup.DatasetGroupName`.
+	// The name of the dataset group.
 	DatasetGroupName() *string
 	SetDatasetGroupName(val *string)
-	// `AWS::Forecast::DatasetGroup.Domain`.
+	// The domain associated with the dataset group.
+	//
+	// When you add a dataset to a dataset group, this value and the value specified for the `Domain` parameter of the [CreateDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html) operation must match.
+	//
+	// The `Domain` and `DatasetType` that you choose determine the fields that must be present in training data that you import to a dataset. For example, if you choose the `RETAIL` domain and `TARGET_TIME_SERIES` as the `DatasetType` , Amazon Forecast requires that `item_id` , `timestamp` , and `demand` fields are present in your data. For more information, see [Dataset groups](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html) .
 	Domain() *string
 	SetDomain(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -870,7 +904,9 @@ type CfnDatasetGroup interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::Forecast::DatasetGroup.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -1535,13 +1571,19 @@ func (c *jsiiProxy_CfnDatasetGroup) ValidateProperties(_properties interface{}) 
 //   }
 //
 type CfnDatasetGroupProps struct {
-	// `AWS::Forecast::DatasetGroup.DatasetGroupName`.
+	// The name of the dataset group.
 	DatasetGroupName *string `field:"required" json:"datasetGroupName" yaml:"datasetGroupName"`
-	// `AWS::Forecast::DatasetGroup.Domain`.
+	// The domain associated with the dataset group.
+	//
+	// When you add a dataset to a dataset group, this value and the value specified for the `Domain` parameter of the [CreateDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html) operation must match.
+	//
+	// The `Domain` and `DatasetType` that you choose determine the fields that must be present in training data that you import to a dataset. For example, if you choose the `RETAIL` domain and `TARGET_TIME_SERIES` as the `DatasetType` , Amazon Forecast requires that `item_id` , `timestamp` , and `demand` fields are present in your data. For more information, see [Dataset groups](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html) .
 	Domain *string `field:"required" json:"domain" yaml:"domain"`
-	// `AWS::Forecast::DatasetGroup.DatasetArns`.
+	// An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.
 	DatasetArns *[]*string `field:"optional" json:"datasetArns" yaml:"datasetArns"`
-	// `AWS::Forecast::DatasetGroup.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
@@ -1571,19 +1613,25 @@ type CfnDatasetGroupProps struct {
 //   }
 //
 type CfnDatasetProps struct {
-	// `AWS::Forecast::Dataset.DatasetName`.
+	// The name of the dataset.
 	DatasetName *string `field:"required" json:"datasetName" yaml:"datasetName"`
-	// `AWS::Forecast::Dataset.DatasetType`.
+	// The dataset type.
 	DatasetType *string `field:"required" json:"datasetType" yaml:"datasetType"`
-	// `AWS::Forecast::Dataset.Domain`.
+	// The domain associated with the dataset.
 	Domain *string `field:"required" json:"domain" yaml:"domain"`
-	// `AWS::Forecast::Dataset.Schema`.
+	// The schema for the dataset.
+	//
+	// The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
 	Schema interface{} `field:"required" json:"schema" yaml:"schema"`
-	// `AWS::Forecast::Dataset.DataFrequency`.
+	// The frequency of data collection. This parameter is required for RELATED_TIME_SERIES datasets.
+	//
+	// Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example, "D" indicates every day and "15min" indicates every 15 minutes.
 	DataFrequency *string `field:"optional" json:"dataFrequency" yaml:"dataFrequency"`
-	// `AWS::Forecast::Dataset.EncryptionConfig`.
+	// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 	EncryptionConfig interface{} `field:"optional" json:"encryptionConfig" yaml:"encryptionConfig"`
-	// `AWS::Forecast::Dataset.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 

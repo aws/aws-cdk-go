@@ -11,6 +11,10 @@ import (
 
 // A CloudFormation `AWS::KinesisVideo::SignalingChannel`.
 //
+// Specifies a signaling channel.
+//
+// `CreateSignalingChannel` is an asynchronous operation.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -31,6 +35,7 @@ import (
 type CfnSignalingChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the signaling channel.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -55,10 +60,12 @@ type CfnSignalingChannel interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::KinesisVideo::SignalingChannel.MessageTtlSeconds`.
+	// The period of time a signaling channel retains undelivered messages before they are discarded.
 	MessageTtlSeconds() *float64
 	SetMessageTtlSeconds(val *float64)
-	// `AWS::KinesisVideo::SignalingChannel.Name`.
+	// A name for the signaling channel that you are creating.
+	//
+	// It must be unique for each AWS account and AWS Region .
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
@@ -75,9 +82,13 @@ type CfnSignalingChannel interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::KinesisVideo::SignalingChannel.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
-	// `AWS::KinesisVideo::SignalingChannel.Type`.
+	// A type of the signaling channel that you are creating.
+	//
+	// Currently, `SINGLE_MASTER` is the only supported channel type.
 	Type() *string
 	SetType(val *string)
 	// Return properties modified after initiation.
@@ -739,17 +750,33 @@ func (c *jsiiProxy_CfnSignalingChannel) ValidateProperties(_properties interface
 //   }
 //
 type CfnSignalingChannelProps struct {
-	// `AWS::KinesisVideo::SignalingChannel.MessageTtlSeconds`.
+	// The period of time a signaling channel retains undelivered messages before they are discarded.
 	MessageTtlSeconds *float64 `field:"optional" json:"messageTtlSeconds" yaml:"messageTtlSeconds"`
-	// `AWS::KinesisVideo::SignalingChannel.Name`.
+	// A name for the signaling channel that you are creating.
+	//
+	// It must be unique for each AWS account and AWS Region .
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::KinesisVideo::SignalingChannel.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// `AWS::KinesisVideo::SignalingChannel.Type`.
+	// A type of the signaling channel that you are creating.
+	//
+	// Currently, `SINGLE_MASTER` is the only supported channel type.
 	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // A CloudFormation `AWS::KinesisVideo::Stream`.
+//
+// Specifies a new Kinesis video stream.
+//
+// When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream's metadata, Kinesis Video Streams updates the version.
+//
+// `CreateStream` is an asynchronous operation.
+//
+// For information about how the service works, see [How it Works](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html) .
+//
+// You must have permissions for the `KinesisVideo:CreateStream` action.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -773,6 +800,7 @@ type CfnSignalingChannelProps struct {
 type CfnStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the stream.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -786,13 +814,13 @@ type CfnStream interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::KinesisVideo::Stream.DataRetentionInHours`.
+	// How long the stream retains data, in hours.
 	DataRetentionInHours() *float64
 	SetDataRetentionInHours(val *float64)
-	// `AWS::KinesisVideo::Stream.DeviceName`.
+	// The name of the device that is associated with the stream.
 	DeviceName() *string
 	SetDeviceName(val *string)
-	// `AWS::KinesisVideo::Stream.KmsKeyId`.
+	// The ID of the AWS Key Management Service ( AWS KMS ) key that Kinesis Video Streams uses to encrypt data on the stream.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -806,10 +834,10 @@ type CfnStream interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::KinesisVideo::Stream.MediaType`.
+	// The `MediaType` of the stream.
 	MediaType() *string
 	SetMediaType(val *string)
-	// `AWS::KinesisVideo::Stream.Name`.
+	// The name of the stream.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
@@ -826,7 +854,9 @@ type CfnStream interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// `AWS::KinesisVideo::Stream.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -1525,17 +1555,19 @@ func (c *jsiiProxy_CfnStream) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnStreamProps struct {
-	// `AWS::KinesisVideo::Stream.DataRetentionInHours`.
+	// How long the stream retains data, in hours.
 	DataRetentionInHours *float64 `field:"optional" json:"dataRetentionInHours" yaml:"dataRetentionInHours"`
-	// `AWS::KinesisVideo::Stream.DeviceName`.
+	// The name of the device that is associated with the stream.
 	DeviceName *string `field:"optional" json:"deviceName" yaml:"deviceName"`
-	// `AWS::KinesisVideo::Stream.KmsKeyId`.
+	// The ID of the AWS Key Management Service ( AWS KMS ) key that Kinesis Video Streams uses to encrypt data on the stream.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
-	// `AWS::KinesisVideo::Stream.MediaType`.
+	// The `MediaType` of the stream.
 	MediaType *string `field:"optional" json:"mediaType" yaml:"mediaType"`
-	// `AWS::KinesisVideo::Stream.Name`.
+	// The name of the stream.
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// `AWS::KinesisVideo::Stream.Tags`.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

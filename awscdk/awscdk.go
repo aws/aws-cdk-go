@@ -22415,14 +22415,15 @@ type CopyOptions struct {
 //    a Lambda Function or SNS Topic by passing the ARN into `serviceToken`.
 //
 // Example:
-//   // use the provider framework from aws-cdk/custom-resources:
-//   provider := customresources.NewProvider(this, jsii.String("ResourceProvider"), &providerProps{
-//   	onEventHandler: onEventHandler,
-//   	isCompleteHandler: isCompleteHandler,
-//   })
+//   var myProvider customResourceProvider
 //
-//   awscdk.NewCustomResource(this, jsii.String("MyResource"), &customResourceProps{
-//   	serviceToken: provider.serviceToken,
+//
+//   awscdk.NewCustomResource(this, jsii.String("MyCustomResource"), &customResourceProps{
+//   	serviceToken: myProvider.serviceToken,
+//   	properties: map[string]interface{}{
+//   		"myPropertyOne": jsii.String("one"),
+//   		"myPropertyTwo": jsii.String("two"),
+//   	},
 //   })
 //
 // Experimental.
@@ -33015,26 +33016,14 @@ func (s *jsiiProxy_Stack) Validate() *[]*string {
 //   // Beginning of the test suite
 //   app := awscdk.NewApp()
 //
-//   stack := awscdk.Newstack(app, jsii.String("stack"))
-//
-//   differentArchsCase := awscdk.NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
-//   	stacks: []*stack{
+//   awscdk.NewIntegTest(app, jsii.String("DifferentArchitectures"), &integTestProps{
+//   	testCases: []*stack{
 //   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
 //   			architecture: lambda.*architecture_ARM_64(),
 //   		}),
 //   		NewStackUnderTest(app, jsii.String("Stack2"), &stackUnderTestProps{
 //   			architecture: lambda.*architecture_X86_64(),
 //   		}),
-//   	},
-//   })
-//
-//   // There must be exactly one instance of TestCase per file
-//   // There must be exactly one instance of TestCase per file
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
-//
-//   	// Register as many test cases as you want here
-//   	testCases: []integTestCase{
-//   		differentArchsCase,
 //   	},
 //   })
 //

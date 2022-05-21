@@ -6484,7 +6484,7 @@ type ClusterProps struct {
 	//
 	// ```ts
 	// const vpcSubnets = [
-	//    { subnetType: ec2.SubnetType.PRIVATE }
+	//    { subnetType: ec2.SubnetType.PRIVATE_WITH_NAT }
 	// ]
 	// ```.
 	// Experimental.

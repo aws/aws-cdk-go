@@ -14573,6 +14573,9 @@ type UserPool interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Adds an IAM policy statement associated with this user pool to an IAM principal's policy.
+	// Experimental.
+	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Perform final modifications before synthesis.
 	//
 	// This method can be implemented by derived constructs in order to perform
@@ -14908,6 +14911,24 @@ func (u *jsiiProxy_UserPool) GetResourceNameAttribute(nameAttr *string) *string 
 		u,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (u *jsiiProxy_UserPool) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	args := []interface{}{grantee}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		u,
+		"grant",
+		args,
 		&returns,
 	)
 

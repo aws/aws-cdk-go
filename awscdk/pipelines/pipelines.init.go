@@ -122,6 +122,7 @@ func init() {
 		"monocdk.pipelines.CodeBuildStep",
 		reflect.TypeOf((*CodeBuildStep)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionRole", GoGetter: "ActionRole"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependencyFileSet", GoMethod: "AddDependencyFileSet"},
 			_jsii_.MemberMethod{JsiiMethod: "addOutputDirectory", GoMethod: "AddOutputDirectory"},
 			_jsii_.MemberMethod{JsiiMethod: "addStepDependency", GoMethod: "AddStepDependency"},

@@ -38,7 +38,7 @@ cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &ec2EnvironmentProps{
 c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &ec2EnvironmentProps{
 	vpc: vpc,
 	subnetSelection: &subnetSelection{
-		subnetType: ec2.subnetType_PRIVATE,
+		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 	},
 })
 

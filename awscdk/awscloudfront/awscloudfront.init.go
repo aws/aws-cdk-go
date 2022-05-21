@@ -1306,6 +1306,10 @@ func init() {
 		reflect.TypeOf((*OriginFailoverConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudfront.OriginOptions",
+		reflect.TypeOf((*OriginOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_cloudfront.OriginProps",
 		reflect.TypeOf((*OriginProps)(nil)).Elem(),
 	)

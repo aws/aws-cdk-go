@@ -344,7 +344,7 @@ func AuroraEngineVersion_VER_10A() AuroraEngineVersion {
 //   		// optional , defaults to t3.medium
 //   		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_SMALL),
 //   		vpcSubnets: &subnetSelection{
-//   			subnetType: ec2.subnetType_PRIVATE,
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   		},
 //   		vpc: vpc,
 //   	},
@@ -372,7 +372,7 @@ type AuroraMysqlClusterEngineProps struct {
 //   		// optional , defaults to t3.medium
 //   		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_SMALL),
 //   		vpcSubnets: &subnetSelection{
-//   			subnetType: ec2.subnetType_PRIVATE,
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   		},
 //   		vpc: vpc,
 //   	},
@@ -29156,7 +29156,7 @@ type OracleEeInstanceEngineProps struct {
 //   	 // Optional - will default to 'admin' username and generated password
 //   	vpc: vpc,
 //   	vpcSubnets: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE,
+//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   	},
 //   })
 //
@@ -30166,7 +30166,7 @@ type OracleSe1InstanceEngineProps struct {
 //   	 // Optional - will default to 'admin' username and generated password
 //   	vpc: vpc,
 //   	vpcSubnets: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE,
+//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   	},
 //   })
 //
@@ -33604,24 +33604,29 @@ func SessionPinningFilter_EXCLUDE_VARIABLE_SETS() SessionPinningFilter {
 // Credentials to update the password for a ``DatabaseInstanceFromSnapshot``.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc vpc
 //
-//   var key key
+//   engine := rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
+//   	version: rds.postgresEngineVersion_VER_12_3(),
+//   })
+//   myKey := kms.NewKey(this, jsii.String("MyKey"))
 //
-//   snapshotCredentials := awscdk.Aws_rds.snapshotCredentials.fromGeneratedPassword(jsii.String("username"), &snapshotCredentialsFromGeneratedPasswordOptions{
-//   	encryptionKey: key,
-//   	excludeCharacters: jsii.String("excludeCharacters"),
-//   	replicaRegions: []replicaRegion{
-//   		&replicaRegion{
-//   			region: jsii.String("region"),
-//
-//   			// the properties below are optional
-//   			encryptionKey: key,
+//   rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("InstanceFromSnapshotWithCustomizedSecret"), &databaseInstanceFromSnapshotProps{
+//   	engine: engine,
+//   	vpc: vpc,
+//   	snapshotIdentifier: jsii.String("mySnapshot"),
+//   	credentials: rds.snapshotCredentials.fromGeneratedSecret(jsii.String("username"), &snapshotCredentialsFromGeneratedPasswordOptions{
+//   		encryptionKey: myKey,
+//   		excludeCharacters: jsii.String("!&*^#@()"),
+//   		replicaRegions: []replicaRegion{
+//   			&replicaRegion{
+//   				region: jsii.String("eu-west-1"),
+//   			},
+//   			&replicaRegion{
+//   				region: jsii.String("eu-west-2"),
+//   			},
 //   		},
-//   	},
+//   	}),
 //   })
 //
 // Experimental.
@@ -33843,25 +33848,30 @@ func SnapshotCredentials_FromSecret(secret awssecretsmanager.ISecret) SnapshotCr
 // Options used in the {@link SnapshotCredentials.fromGeneratedPassword} method.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc vpc
 //
-//   var key key
+//   engine := rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
+//   	version: rds.postgresEngineVersion_VER_12_3(),
+//   })
+//   myKey := kms.NewKey(this, jsii.String("MyKey"))
 //
-//   snapshotCredentialsFromGeneratedPasswordOptions := &snapshotCredentialsFromGeneratedPasswordOptions{
-//   	encryptionKey: key,
-//   	excludeCharacters: jsii.String("excludeCharacters"),
-//   	replicaRegions: []replicaRegion{
-//   		&replicaRegion{
-//   			region: jsii.String("region"),
-//
-//   			// the properties below are optional
-//   			encryptionKey: key,
+//   rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("InstanceFromSnapshotWithCustomizedSecret"), &databaseInstanceFromSnapshotProps{
+//   	engine: engine,
+//   	vpc: vpc,
+//   	snapshotIdentifier: jsii.String("mySnapshot"),
+//   	credentials: rds.snapshotCredentials.fromGeneratedSecret(jsii.String("username"), &snapshotCredentialsFromGeneratedPasswordOptions{
+//   		encryptionKey: myKey,
+//   		excludeCharacters: jsii.String("!&*^#@()"),
+//   		replicaRegions: []replicaRegion{
+//   			&replicaRegion{
+//   				region: jsii.String("eu-west-1"),
+//   			},
+//   			&replicaRegion{
+//   				region: jsii.String("eu-west-2"),
+//   			},
 //   		},
-//   	},
-//   }
+//   	}),
+//   })
 //
 // Experimental.
 type SnapshotCredentialsFromGeneratedPasswordOptions struct {

@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `Alexa::ASK::Skill`.
 //
+// The `Alexa::ASK::Skill` resource creates an Alexa skill that enables customers to access new abilities. For more information about developing a skill, see the  .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -41,7 +43,9 @@ import (
 type CfnSkill interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `Alexa::ASK::Skill.AuthenticationConfiguration`.
+	// Login with Amazon (LWA) configuration used to authenticate with the Alexa service.
+	//
+	// Only Login with Amazon clients created through the  are supported. The client ID, client secret, and refresh token are required.
 	AuthenticationConfiguration() interface{}
 	SetAuthenticationConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -76,7 +80,9 @@ type CfnSkill interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `Alexa::ASK::Skill.SkillPackage`.
+	// Configuration for the skill package that contains the components of the Alexa skill.
+	//
+	// Skill packages are retrieved from an Amazon S3 bucket and key and used to create and update the skill. For more information about the skill package format, see the  .
 	SkillPackage() interface{}
 	SetSkillPackage(val interface{})
 	// The stack in which this element is defined.
@@ -90,7 +96,9 @@ type CfnSkill interface {
 	// collect and return the properties object for this resource.
 	// Experimental.
 	UpdatedProperites() *map[string]interface{}
-	// `Alexa::ASK::Skill.VendorId`.
+	// The vendor ID associated with the Amazon developer account that will host the skill.
+	//
+	// Details for retrieving the vendor ID are in  . The provided LWA credentials must be linked to the developer account associated with this vendor ID.
 	VendorId() *string
 	SetVendorId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -706,6 +714,12 @@ func (c *jsiiProxy_CfnSkill) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// The `AuthenticationConfiguration` property type specifies the Login with Amazon (LWA) configuration used to authenticate with the Alexa service.
+//
+// Only Login with Amazon security profiles created through the  are supported for authentication. A client ID, client secret, and refresh token are required. You can generate a client ID and client secret by creating a new  on the Amazon Developer Portal or you can retrieve them from an existing profile. You can then retrieve the refresh token using the Alexa Skills Kit CLI. For instructions, see  in the  .
+//
+// `AuthenticationConfiguration` is a property of the `Alexa::ASK::Skill` resource.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -718,14 +732,22 @@ func (c *jsiiProxy_CfnSkill) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnSkill_AuthenticationConfigurationProperty struct {
-	// `CfnSkill.AuthenticationConfigurationProperty.ClientId`.
+	// Client ID from Login with Amazon (LWA).
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
-	// `CfnSkill.AuthenticationConfigurationProperty.ClientSecret`.
+	// Client secret from Login with Amazon (LWA).
 	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
-	// `CfnSkill.AuthenticationConfigurationProperty.RefreshToken`.
+	// Refresh token from Login with Amazon (LWA).
+	//
+	// This token is secret.
 	RefreshToken *string `field:"required" json:"refreshToken" yaml:"refreshToken"`
 }
 
+// The `Overrides` property type provides overrides to the skill package to apply when creating or updating the skill.
+//
+// Values provided here do not modify the contents of the original skill package. Currently, only overriding values inside of the skill manifest component of the package is supported.
+//
+// `Overrides` is a property of the `Alexa::ASK::Skill SkillPackage` property type.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -738,10 +760,18 @@ type CfnSkill_AuthenticationConfigurationProperty struct {
 //   }
 //
 type CfnSkill_OverridesProperty struct {
-	// `CfnSkill.OverridesProperty.Manifest`.
+	// Overrides to apply to the skill manifest inside of the skill package.
+	//
+	// The skill manifest contains metadata about the skill. For more information, see  .
 	Manifest interface{} `field:"optional" json:"manifest" yaml:"manifest"`
 }
 
+// The `SkillPackage` property type contains configuration details for the skill package that contains the components of the Alexa skill.
+//
+// Skill packages are retrieved from an Amazon S3 bucket and key and used to create and update the skill. More details about the skill package format are located in the  .
+//
+// `SkillPackage` is a property of the `Alexa::ASK::Skill` resource.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -762,15 +792,17 @@ type CfnSkill_OverridesProperty struct {
 //   }
 //
 type CfnSkill_SkillPackageProperty struct {
-	// `CfnSkill.SkillPackageProperty.S3Bucket`.
+	// The name of the Amazon S3 bucket where the .zip file that contains the skill package is stored.
 	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
-	// `CfnSkill.SkillPackageProperty.S3Key`.
+	// The location and name of the skill package .zip file.
 	S3Key *string `field:"required" json:"s3Key" yaml:"s3Key"`
-	// `CfnSkill.SkillPackageProperty.Overrides`.
+	// Overrides to the skill package to apply when creating or updating the skill.
+	//
+	// Values provided here do not modify the contents of the original skill package. Currently, only overriding values inside of the skill manifest component of the package is supported.
 	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
-	// `CfnSkill.SkillPackageProperty.S3BucketRole`.
+	// ARN of the IAM role that grants the Alexa service ( `alexa-appkit.amazon.com` ) permission to access the bucket and retrieve the skill package. This property is optional. If you do not provide it, the bucket must be publicly accessible or configured with a policy that allows this access. Otherwise, AWS CloudFormation cannot create the skill.
 	S3BucketRole *string `field:"optional" json:"s3BucketRole" yaml:"s3BucketRole"`
-	// `CfnSkill.SkillPackageProperty.S3ObjectVersion`.
+	// If you have S3 versioning enabled, the version ID of the skill package.zip file.
 	S3ObjectVersion *string `field:"optional" json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
 }
 
@@ -804,11 +836,17 @@ type CfnSkill_SkillPackageProperty struct {
 //   }
 //
 type CfnSkillProps struct {
-	// `Alexa::ASK::Skill.AuthenticationConfiguration`.
+	// Login with Amazon (LWA) configuration used to authenticate with the Alexa service.
+	//
+	// Only Login with Amazon clients created through the  are supported. The client ID, client secret, and refresh token are required.
 	AuthenticationConfiguration interface{} `field:"required" json:"authenticationConfiguration" yaml:"authenticationConfiguration"`
-	// `Alexa::ASK::Skill.SkillPackage`.
+	// Configuration for the skill package that contains the components of the Alexa skill.
+	//
+	// Skill packages are retrieved from an Amazon S3 bucket and key and used to create and update the skill. For more information about the skill package format, see the  .
 	SkillPackage interface{} `field:"required" json:"skillPackage" yaml:"skillPackage"`
-	// `Alexa::ASK::Skill.VendorId`.
+	// The vendor ID associated with the Amazon developer account that will host the skill.
+	//
+	// Details for retrieving the vendor ID are in  . The provided LWA credentials must be linked to the developer account associated with this vendor ID.
 	VendorId *string `field:"required" json:"vendorId" yaml:"vendorId"`
 }
 

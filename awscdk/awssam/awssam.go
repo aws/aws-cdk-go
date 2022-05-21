@@ -3786,6 +3786,17 @@ type CfnFunction_AlexaSkillEventProperty struct {
 //   			},
 //   		},
 //   	},
+//   	requestModel: &requestModelProperty{
+//   		model: jsii.String("model"),
+//
+//   		// the properties below are optional
+//   		required: jsii.Boolean(false),
+//   		validateBody: jsii.Boolean(false),
+//   		validateParameters: jsii.Boolean(false),
+//   	},
+//   	requestParameters: []interface{}{
+//   		jsii.String("requestParameters"),
+//   	},
 //   	restApiId: jsii.String("restApiId"),
 //   }
 //
@@ -3796,6 +3807,10 @@ type CfnFunction_ApiEventProperty struct {
 	Path *string `field:"required" json:"path" yaml:"path"`
 	// `CfnFunction.ApiEventProperty.Auth`.
 	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`
+	// `CfnFunction.ApiEventProperty.RequestModel`.
+	RequestModel interface{} `field:"optional" json:"requestModel" yaml:"requestModel"`
+	// `CfnFunction.ApiEventProperty.RequestParameters`.
+	RequestParameters interface{} `field:"optional" json:"requestParameters" yaml:"requestParameters"`
 	// `CfnFunction.ApiEventProperty.RestApiId`.
 	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
 }
@@ -4339,11 +4354,14 @@ type CfnFunction_HooksProperty struct {
 //
 //   iAMPolicyDocumentProperty := map[string]interface{}{
 //   	"statement": statement,
+//   	"version": jsii.String("version"),
 //   }
 //
 type CfnFunction_IAMPolicyDocumentProperty struct {
 	// `CfnFunction.IAMPolicyDocumentProperty.Statement`.
 	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
+	// `CfnFunction.IAMPolicyDocumentProperty.Version`.
+	Version *string `field:"required" json:"version" yaml:"version"`
 }
 
 // Example:
@@ -4496,6 +4514,48 @@ type CfnFunction_ProvisionedConcurrencyConfigProperty struct {
 type CfnFunction_QueueSAMPTProperty struct {
 	// `CfnFunction.QueueSAMPTProperty.QueueName`.
 	QueueName *string `field:"required" json:"queueName" yaml:"queueName"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   requestModelProperty := &requestModelProperty{
+//   	model: jsii.String("model"),
+//
+//   	// the properties below are optional
+//   	required: jsii.Boolean(false),
+//   	validateBody: jsii.Boolean(false),
+//   	validateParameters: jsii.Boolean(false),
+//   }
+//
+type CfnFunction_RequestModelProperty struct {
+	// `CfnFunction.RequestModelProperty.Model`.
+	Model *string `field:"required" json:"model" yaml:"model"`
+	// `CfnFunction.RequestModelProperty.Required`.
+	Required interface{} `field:"optional" json:"required" yaml:"required"`
+	// `CfnFunction.RequestModelProperty.ValidateBody`.
+	ValidateBody interface{} `field:"optional" json:"validateBody" yaml:"validateBody"`
+	// `CfnFunction.RequestModelProperty.ValidateParameters`.
+	ValidateParameters interface{} `field:"optional" json:"validateParameters" yaml:"validateParameters"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   requestParameterProperty := &requestParameterProperty{
+//   	caching: jsii.Boolean(false),
+//   	required: jsii.Boolean(false),
+//   }
+//
+type CfnFunction_RequestParameterProperty struct {
+	// `CfnFunction.RequestParameterProperty.Caching`.
+	Caching interface{} `field:"optional" json:"caching" yaml:"caching"`
+	// `CfnFunction.RequestParameterProperty.Required`.
+	Required interface{} `field:"optional" json:"required" yaml:"required"`
 }
 
 // Example:
@@ -9095,11 +9155,14 @@ type CfnStateMachine_FunctionSAMPTProperty struct {
 //
 //   iAMPolicyDocumentProperty := map[string]interface{}{
 //   	"statement": statement,
+//   	"version": jsii.String("version"),
 //   }
 //
 type CfnStateMachine_IAMPolicyDocumentProperty struct {
 	// `CfnStateMachine.IAMPolicyDocumentProperty.Statement`.
 	Statement interface{} `field:"required" json:"statement" yaml:"statement"`
+	// `CfnStateMachine.IAMPolicyDocumentProperty.Version`.
+	Version *string `field:"required" json:"version" yaml:"version"`
 }
 
 // Example:

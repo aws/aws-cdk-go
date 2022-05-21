@@ -3185,6 +3185,8 @@ type CfnMesh_EgressFilterProperty struct {
 	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
+// An object that represents the service discovery information for a service mesh.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

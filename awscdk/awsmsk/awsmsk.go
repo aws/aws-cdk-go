@@ -1803,7 +1803,7 @@ type CfnCluster_BrokerNodeGroupInfoProperty struct {
 	//
 	// Specify exactly two subnets if you are using the US West (N. California) Region. For other Regions where Amazon MSK is available, you can specify either two or three subnets. The subnets that you specify must be in distinct Availability Zones. When you create a cluster, Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
 	//
-	// Client subnets can't be in Availability Zone us-east-1e.
+	// Client subnets can't occupy the Availability Zone with ID `use1-az3` .
 	ClientSubnets *[]*string `field:"required" json:"clientSubnets" yaml:"clientSubnets"`
 	// The type of Amazon EC2 instances to use for brokers.
 	//

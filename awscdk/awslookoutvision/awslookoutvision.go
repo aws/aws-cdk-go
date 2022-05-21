@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::LookoutVision::Project`.
 //
+// The `AWS::LookoutVision::Project` type creates an Amazon Lookout for Vision project. A project is a grouping of the resources needed to create and manage an Amazon Lookout for Vision model.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -23,6 +25,7 @@ import (
 type CfnProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the Amazon Resource Name of the project.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -50,7 +53,7 @@ type CfnProject interface {
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// `AWS::LookoutVision::Project.ProjectName`.
+	// The name of the project.
 	ProjectName() *string
 	SetProjectName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -669,7 +672,7 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnProjectProps struct {
-	// `AWS::LookoutVision::Project.ProjectName`.
+	// The name of the project.
 	ProjectName *string `field:"required" json:"projectName" yaml:"projectName"`
 }
 

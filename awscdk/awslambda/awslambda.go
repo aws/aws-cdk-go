@@ -15915,32 +15915,25 @@ type FileSystemConfig struct {
 // library.
 //
 // Example:
-//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import signer "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &functionProps{
-//   	runtime: lambda.runtime_NODEJS_12_X(),
-//   	handler: jsii.String("index.handler"),
-//   	code: lambda.code.fromInline(jsii.String("exports.handler = handler.toString()")),
+//   signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &signingProfileProps{
+//   	platform: signer.platform_AWS_LAMBDA_SHA384_ECDSA(),
 //   })
 //
-//   rule := events.NewRule(this, jsii.String("rule"), &ruleProps{
-//   	eventPattern: &eventPattern{
-//   		source: []*string{
-//   			jsii.String("aws.ec2"),
-//   		},
+//   codeSigningConfig := lambda.NewCodeSigningConfig(this, jsii.String("CodeSigningConfig"), &codeSigningConfigProps{
+//   	signingProfiles: []iSigningProfile{
+//   		signingProfile,
 //   	},
 //   })
 //
-//   queue := sqs.NewQueue(this, jsii.String("Queue"))
-//
-//   rule.addTarget(targets.NewLambdaFunction(fn, &lambdaFunctionProps{
-//   	deadLetterQueue: queue,
-//   	 // Optional: add a dead letter queue
-//   	maxEventAge: cdk.duration.hours(jsii.Number(2)),
-//   	 // Optional: set the maxEventAge retry policy
-//   	retryAttempts: jsii.Number(2),
-//   }))
+//   lambda.NewFunction(this, jsii.String("Function"), &functionProps{
+//   	codeSigningConfig: codeSigningConfig,
+//   	runtime: lambda.runtime_NODEJS_16_X(),
+//   	handler: jsii.String("index.handler"),
+//   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+//   })
 //
 // Experimental.
 type Function interface {

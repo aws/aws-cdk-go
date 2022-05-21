@@ -12171,6 +12171,7 @@ const (
 //   	expiredObjectDeleteMarker: jsii.Boolean(false),
 //   	id: jsii.String("id"),
 //   	noncurrentVersionExpiration: duration,
+//   	noncurrentVersionsToRetain: jsii.Number(123),
 //   	noncurrentVersionTransitions: []noncurrentVersionTransition{
 //   		&noncurrentVersionTransition{
 //   			storageClass: storageClass,
@@ -12244,6 +12245,12 @@ type LifecycleRule struct {
 	// transition time.
 	// Experimental.
 	NoncurrentVersionExpiration awscdk.Duration `field:"optional" json:"noncurrentVersionExpiration" yaml:"noncurrentVersionExpiration"`
+	// Indicates a maximum number of noncurrent versions to retain.
+	//
+	// If there are this many more noncurrent versions,
+	// Amazon S3 permanently deletes them.
+	// Experimental.
+	NoncurrentVersionsToRetain *float64 `field:"optional" json:"noncurrentVersionsToRetain" yaml:"noncurrentVersionsToRetain"`
 	// One or more transition rules that specify when non-current objects transition to a specified storage class.
 	//
 	// Only for for buckets with versioning enabled (or suspended).
@@ -12662,11 +12669,41 @@ type RoutingRuleCondition struct {
 // Storage class to move an object to.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
+//   	lifecycleRules: []lifecycleRule{
+//   		&lifecycleRule{
+//   			abortIncompleteMultipartUploadAfter: cdk.duration.minutes(jsii.Number(30)),
+//   			enabled: jsii.Boolean(false),
+//   			expiration: cdk.*duration.days(jsii.Number(30)),
+//   			expirationDate: NewDate(),
+//   			expiredObjectDeleteMarker: jsii.Boolean(false),
+//   			id: jsii.String("id"),
+//   			noncurrentVersionExpiration: cdk.*duration.days(jsii.Number(30)),
 //
-//   storageClass := awscdk.Aws_s3.storageClass_DEEP_ARCHIVE()
+//   			// the properties below are optional
+//   			noncurrentVersionsToRetain: jsii.Number(123),
+//   			noncurrentVersionTransitions: []noncurrentVersionTransition{
+//   				&noncurrentVersionTransition{
+//   					storageClass: s3.storageClass_GLACIER(),
+//   					transitionAfter: cdk.*duration.days(jsii.Number(30)),
+//
+//   					// the properties below are optional
+//   					noncurrentVersionsToRetain: jsii.Number(123),
+//   				},
+//   			},
+//   			prefix: jsii.String("prefix"),
+//   			transitions: []transition{
+//   				&transition{
+//   					storageClass: s3.*storageClass_GLACIER(),
+//
+//   					// the properties below are optional
+//   					transitionAfter: cdk.*duration.days(jsii.Number(30)),
+//   					transitionDate: NewDate(),
+//   				},
+//   			},
+//   		},
+//   	},
+//   })
 //
 // Experimental.
 type StorageClass interface {

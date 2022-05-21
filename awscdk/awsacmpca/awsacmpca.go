@@ -1659,7 +1659,12 @@ type CfnCertificateAuthority interface {
 	//
 	// Default: FIPS_140_2_LEVEL_3_OR_HIGHER
 	//
-	// Note: `FIPS_140_2_LEVEL_3_OR_HIGHER` is not supported in Region ap-northeast-3. When creating a CA in the ap-northeast-3, you must provide `FIPS_140_2_LEVEL_2_OR_HIGHER` as the argument for `KeyStorageSecurityStandard` . Failure to do this results in an `InvalidArgsException` with the message, "A certificate authority cannot be created in this region with the specified security standard."
+	// *Note:* `FIPS_140_2_LEVEL_3_OR_HIGHER` is not supported in the following Regions:
+	//
+	// - ap-northeast-3
+	// - ap-southeast-3
+	//
+	// When creating a CA in these Regions, you must provide `FIPS_140_2_LEVEL_2_OR_HIGHER` as the argument for `KeyStorageSecurityStandard` . Failure to do this results in an `InvalidArgsException` with the message, "A certificate authority cannot be created in this region with the specified security standard."
 	KeyStorageSecurityStandard() *string
 	SetKeyStorageSecurityStandard(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -3738,7 +3743,12 @@ type CfnCertificateAuthorityProps struct {
 	//
 	// Default: FIPS_140_2_LEVEL_3_OR_HIGHER
 	//
-	// Note: `FIPS_140_2_LEVEL_3_OR_HIGHER` is not supported in Region ap-northeast-3. When creating a CA in the ap-northeast-3, you must provide `FIPS_140_2_LEVEL_2_OR_HIGHER` as the argument for `KeyStorageSecurityStandard` . Failure to do this results in an `InvalidArgsException` with the message, "A certificate authority cannot be created in this region with the specified security standard."
+	// *Note:* `FIPS_140_2_LEVEL_3_OR_HIGHER` is not supported in the following Regions:
+	//
+	// - ap-northeast-3
+	// - ap-southeast-3
+	//
+	// When creating a CA in these Regions, you must provide `FIPS_140_2_LEVEL_2_OR_HIGHER` as the argument for `KeyStorageSecurityStandard` . Failure to do this results in an `InvalidArgsException` with the message, "A certificate authority cannot be created in this region with the specified security standard."
 	KeyStorageSecurityStandard *string `field:"optional" json:"keyStorageSecurityStandard" yaml:"keyStorageSecurityStandard"`
 	// Information about the certificate revocation list (CRL) created and maintained by your private CA.
 	//

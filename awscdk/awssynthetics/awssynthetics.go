@@ -843,6 +843,7 @@ type CanaryProps struct {
 //   			kmsKeyArn: jsii.String("kmsKeyArn"),
 //   		},
 //   	},
+//   	deleteLambdaResourcesOnCanaryDeletion: jsii.Boolean(false),
 //   	failureRetentionPeriod: jsii.Number(123),
 //   	runConfig: &runConfigProperty{
 //   		activeTracing: jsii.Boolean(false),
@@ -921,6 +922,11 @@ type CfnCanary interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
+	// Specifies whether AWS CloudFormation is to also delete the Lambda functions and layers used by this canary, when the canary is deleted.
+	//
+	// The default is false.
+	DeleteLambdaResourcesOnCanaryDeletion() interface{}
+	SetDeleteLambdaResourcesOnCanaryDeletion(val interface{})
 	// The ARN of the IAM role to be used to run the canary.
 	//
 	// This role must already exist, and must include `lambda.amazonaws.com` as a principal in the trust policy. The role must also have the following permissions:
@@ -1272,6 +1278,16 @@ func (j *jsiiProxy_CfnCanary) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCanary) DeleteLambdaResourcesOnCanaryDeletion() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"deleteLambdaResourcesOnCanaryDeletion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCanary) ExecutionRoleArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1479,6 +1495,14 @@ func (j *jsiiProxy_CfnCanary) SetCode(val interface{}) {
 	_jsii_.Set(
 		j,
 		"code",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCanary) SetDeleteLambdaResourcesOnCanaryDeletion(val interface{}) {
+	_jsii_.Set(
+		j,
+		"deleteLambdaResourcesOnCanaryDeletion",
 		val,
 	)
 }
@@ -2124,6 +2148,7 @@ type CfnCanary_VisualReferenceProperty struct {
 //   			kmsKeyArn: jsii.String("kmsKeyArn"),
 //   		},
 //   	},
+//   	deleteLambdaResourcesOnCanaryDeletion: jsii.Boolean(false),
 //   	failureRetentionPeriod: jsii.Number(123),
 //   	runConfig: &runConfigProperty{
 //   		activeTracing: jsii.Boolean(false),
@@ -2207,6 +2232,10 @@ type CfnCanaryProps struct {
 	StartCanaryAfterCreation interface{} `field:"required" json:"startCanaryAfterCreation" yaml:"startCanaryAfterCreation"`
 	// A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.
 	ArtifactConfig interface{} `field:"optional" json:"artifactConfig" yaml:"artifactConfig"`
+	// Specifies whether AWS CloudFormation is to also delete the Lambda functions and layers used by this canary, when the canary is deleted.
+	//
+	// The default is false.
+	DeleteLambdaResourcesOnCanaryDeletion interface{} `field:"optional" json:"deleteLambdaResourcesOnCanaryDeletion" yaml:"deleteLambdaResourcesOnCanaryDeletion"`
 	// The number of days to retain data about failed runs of this canary.
 	//
 	// If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.

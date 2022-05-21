@@ -605,8 +605,8 @@ type CdkCommand struct {
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
-//   	stacks: []stack{
+//   testCase := awscdk.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &integTestProps{
+//   	testCases: []stack{
 //   		stackUnderTest,
 //   	},
 //   	diffAssets: jsii.Boolean(true),
@@ -623,12 +623,6 @@ type CdkCommand struct {
 //   				force: jsii.Boolean(true),
 //   			},
 //   		},
-//   	},
-//   })
-//
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
-//   	testCases: []integTestCase{
-//   		testCase,
 //   	},
 //   })
 //
@@ -885,8 +879,8 @@ type DefaultCdkOptions struct {
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
-//   	stacks: []stack{
+//   testCase := awscdk.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &integTestProps{
+//   	testCases: []stack{
 //   		stackUnderTest,
 //   	},
 //   	diffAssets: jsii.Boolean(true),
@@ -903,12 +897,6 @@ type DefaultCdkOptions struct {
 //   				force: jsii.Boolean(true),
 //   			},
 //   		},
-//   	},
-//   })
-//
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
-//   	testCases: []integTestCase{
-//   		testCase,
 //   	},
 //   })
 //
@@ -937,8 +925,8 @@ type DeployCommand struct {
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
-//   	stacks: []stack{
+//   testCase := awscdk.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &integTestProps{
+//   	testCases: []stack{
 //   		stackUnderTest,
 //   	},
 //   	diffAssets: jsii.Boolean(true),
@@ -955,12 +943,6 @@ type DeployCommand struct {
 //   				force: jsii.Boolean(true),
 //   			},
 //   		},
-//   	},
-//   })
-//
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
-//   	testCases: []integTestCase{
-//   		testCase,
 //   	},
 //   })
 //
@@ -1101,8 +1083,8 @@ type DeployOptions struct {
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
-//   	stacks: []stack{
+//   testCase := awscdk.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &integTestProps{
+//   	testCases: []stack{
 //   		stackUnderTest,
 //   	},
 //   	diffAssets: jsii.Boolean(true),
@@ -1119,12 +1101,6 @@ type DeployOptions struct {
 //   				force: jsii.Boolean(true),
 //   			},
 //   		},
-//   	},
-//   })
-//
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
-//   	testCases: []integTestCase{
-//   		testCase,
 //   	},
 //   })
 //
@@ -1153,8 +1129,8 @@ type DestroyCommand struct {
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
-//   	stacks: []stack{
+//   testCase := awscdk.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &integTestProps{
+//   	testCases: []stack{
 //   		stackUnderTest,
 //   	},
 //   	diffAssets: jsii.Boolean(true),
@@ -1171,12 +1147,6 @@ type DestroyCommand struct {
 //   				force: jsii.Boolean(true),
 //   			},
 //   		},
-//   	},
-//   })
-//
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
-//   	testCases: []integTestCase{
-//   		testCase,
 //   	},
 //   })
 //
@@ -1695,6 +1665,7 @@ type HostedZoneContextQuery struct {
 //   			"allowDestroy": []*string{
 //   				jsii.String("allowDestroy"),
 //   			},
+//   			"assertionStack": jsii.String("assertionStack"),
 //   			"cdkCommandOptions": &CdkCommands{
 //   				"deploy": &DeployCommand{
 //   					"args": &DeployOptions{
@@ -2341,8 +2312,8 @@ type PluginContextQuery struct {
 //
 //   stack := awscdk.NewStack(app, jsii.String("stack"))
 //
-//   testCase := awscdk.NewIntegTestCase(stack, jsii.String("CustomizedDeploymentWorkflow"), &integTestCaseProps{
-//   	stacks: []stack{
+//   testCase := awscdk.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &integTestProps{
+//   	testCases: []stack{
 //   		stackUnderTest,
 //   	},
 //   	diffAssets: jsii.Boolean(true),
@@ -2359,12 +2330,6 @@ type PluginContextQuery struct {
 //   				force: jsii.Boolean(true),
 //   			},
 //   		},
-//   	},
-//   })
-//
-//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
-//   	testCases: []integTestCase{
-//   		testCase,
 //   	},
 //   })
 //
@@ -2521,6 +2486,7 @@ type Tag struct {
 //   	allowDestroy: []*string{
 //   		jsii.String("allowDestroy"),
 //   	},
+//   	assertionStack: jsii.String("assertionStack"),
 //   	cdkCommandOptions: &cdkCommands{
 //   		deploy: &deployCommand{
 //   			args: &deployOptions{
@@ -2668,6 +2634,9 @@ type TestCase struct {
 	// Stacks that should be tested as part of this test case The stackNames will be passed as args to the cdk commands so dependent stacks will be automatically deployed unless `exclusively` is passed.
 	// Experimental.
 	Stacks *[]*string `field:"required" json:"stacks" yaml:"stacks"`
+	// The name of the stack that contains assertions.
+	// Experimental.
+	AssertionStack *string `field:"optional" json:"assertionStack" yaml:"assertionStack"`
 }
 
 // The set of options to control the workflow of the test runner.

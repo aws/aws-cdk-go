@@ -9110,6 +9110,18 @@ const (
 	// 5 years.
 	// Experimental.
 	RetentionDays_FIVE_YEARS RetentionDays = "FIVE_YEARS"
+	// 6 years.
+	// Experimental.
+	RetentionDays_SIX_YEARS RetentionDays = "SIX_YEARS"
+	// 7 years.
+	// Experimental.
+	RetentionDays_SEVEN_YEARS RetentionDays = "SEVEN_YEARS"
+	// 8 years.
+	// Experimental.
+	RetentionDays_EIGHT_YEARS RetentionDays = "EIGHT_YEARS"
+	// 9 years.
+	// Experimental.
+	RetentionDays_NINE_YEARS RetentionDays = "NINE_YEARS"
 	// 10 years.
 	// Experimental.
 	RetentionDays_TEN_YEARS RetentionDays = "TEN_YEARS"

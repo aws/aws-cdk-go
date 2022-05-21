@@ -11,6 +11,8 @@ import (
 
 // A CloudFormation `AWS::BillingConductor::BillingGroup`.
 //
+// Creates a billing group that resembles a consolidated billing family that AWS charges, based off of the predefined pricing plan computation.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -41,14 +43,24 @@ import (
 type CfnBillingGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// `AWS::BillingConductor::BillingGroup.AccountGrouping`.
+	// The set of accounts that will be under the billing group.
+	//
+	// The set of accounts resemble the linked accounts in a consolidated family.
 	AccountGrouping() interface{}
 	SetAccountGrouping(val interface{})
+	// The Amazon Resource Name (ARN) of the created billing group.
 	AttrArn() *string
+	// The time the billing group was created.
 	AttrCreationTime() *float64
+	// The most recent time the billing group was modified.
 	AttrLastModifiedTime() *float64
+	// The number of accounts in the particular billing group.
 	AttrSize() *float64
+	// The billing group status.
+	//
+	// Only one of the valid values can be used.
 	AttrStatus() *string
+	// The reason why the billing group is in its current status.
 	AttrStatusReason() *string
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -57,7 +69,7 @@ type CfnBillingGroup interface {
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
-	// `AWS::BillingConductor::BillingGroup.ComputationPreference`.
+	// The preferences and settings that will be used to compute the AWS charges for a billing group.
 	ComputationPreference() interface{}
 	SetComputationPreference(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -65,7 +77,7 @@ type CfnBillingGroup interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::BillingConductor::BillingGroup.Description`.
+	// The billing group description.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -79,13 +91,13 @@ type CfnBillingGroup interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::BillingConductor::BillingGroup.Name`.
+	// The billing group's name.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// `AWS::BillingConductor::BillingGroup.PrimaryAccountId`.
+	// The account ID that serves as the main account in a billing group.
 	PrimaryAccountId() *string
 	SetPrimaryAccountId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -826,6 +838,10 @@ func (c *jsiiProxy_CfnBillingGroup) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// The set of accounts that will be under the billing group.
+//
+// The set of accounts resemble the linked accounts in a consolidated family.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -838,10 +854,14 @@ func (c *jsiiProxy_CfnBillingGroup) ValidateProperties(_properties interface{}) 
 //   }
 //
 type CfnBillingGroup_AccountGroupingProperty struct {
-	// `CfnBillingGroup.AccountGroupingProperty.LinkedAccountIds`.
+	// The account IDs that make up the billing group.
+	//
+	// Account IDs must be a part of the consolidated billing family, and not associated with another billing group.
 	LinkedAccountIds *[]*string `field:"required" json:"linkedAccountIds" yaml:"linkedAccountIds"`
 }
 
+// The preferences and settings that will be used to compute the AWS charges for a billing group.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -852,7 +872,7 @@ type CfnBillingGroup_AccountGroupingProperty struct {
 //   }
 //
 type CfnBillingGroup_ComputationPreferenceProperty struct {
-	// `CfnBillingGroup.ComputationPreferenceProperty.PricingPlanArn`.
+	// The Amazon Resource Name (ARN) of the pricing plan used to compute the AWS charges for a billing group.
 	PricingPlanArn *string `field:"required" json:"pricingPlanArn" yaml:"pricingPlanArn"`
 }
 
@@ -886,21 +906,25 @@ type CfnBillingGroup_ComputationPreferenceProperty struct {
 //   }
 //
 type CfnBillingGroupProps struct {
-	// `AWS::BillingConductor::BillingGroup.AccountGrouping`.
+	// The set of accounts that will be under the billing group.
+	//
+	// The set of accounts resemble the linked accounts in a consolidated family.
 	AccountGrouping interface{} `field:"required" json:"accountGrouping" yaml:"accountGrouping"`
-	// `AWS::BillingConductor::BillingGroup.ComputationPreference`.
+	// The preferences and settings that will be used to compute the AWS charges for a billing group.
 	ComputationPreference interface{} `field:"required" json:"computationPreference" yaml:"computationPreference"`
-	// `AWS::BillingConductor::BillingGroup.Name`.
+	// The billing group's name.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::BillingConductor::BillingGroup.PrimaryAccountId`.
+	// The account ID that serves as the main account in a billing group.
 	PrimaryAccountId *string `field:"required" json:"primaryAccountId" yaml:"primaryAccountId"`
-	// `AWS::BillingConductor::BillingGroup.Description`.
+	// The billing group description.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::BillingConductor::BillingGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::BillingConductor::CustomLineItem`.
+//
+// Creates a custom line item that can be used to create a one-time fixed charge that can be applied to a single billing group for the current or previous billing period. The one-time fixed charge is either a fee or discount.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -944,16 +968,24 @@ type CfnBillingGroupProps struct {
 type CfnCustomLineItem interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) that references the billing group where the custom line item applies to.
 	AttrArn() *string
+	// The number of resources that are associated to the custom line item.
 	AttrAssociationSize() *float64
+	// The time created.
 	AttrCreationTime() *float64
+	// The custom line item's charge value currency.
+	//
+	// Only one of the valid values can be used.
 	AttrCurrencyCode() *string
+	// The most recent time the custom line item was modified.
 	AttrLastModifiedTime() *float64
+	// The product code associated with the custom line item.
 	AttrProductCode() *string
-	// `AWS::BillingConductor::CustomLineItem.BillingGroupArn`.
+	// The Amazon Resource Name (ARN) that references the billing group where the custom line item applies to.
 	BillingGroupArn() *string
 	SetBillingGroupArn(val *string)
-	// `AWS::BillingConductor::CustomLineItem.BillingPeriodRange`.
+	// A time range for which the custom line item is effective.
 	BillingPeriodRange() interface{}
 	SetBillingPeriodRange(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -968,10 +1000,14 @@ type CfnCustomLineItem interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::BillingConductor::CustomLineItem.CustomLineItemChargeDetails`.
+	// The charge details of a custom line item.
+	//
+	// It should contain only one of `Flat` or `Percentage` .
 	CustomLineItemChargeDetails() interface{}
 	SetCustomLineItemChargeDetails(val interface{})
-	// `AWS::BillingConductor::CustomLineItem.Description`.
+	// The custom line item's description.
+	//
+	// This is shown on the Bills page in association with the charge value.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -985,7 +1021,7 @@ type CfnCustomLineItem interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::BillingConductor::CustomLineItem.Name`.
+	// The custom line item's name.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
@@ -1729,6 +1765,8 @@ func (c *jsiiProxy_CfnCustomLineItem) ValidateProperties(_properties interface{}
 	)
 }
 
+// The billing period range in which the custom line item request will be applied.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1740,12 +1778,16 @@ func (c *jsiiProxy_CfnCustomLineItem) ValidateProperties(_properties interface{}
 //   }
 //
 type CfnCustomLineItem_BillingPeriodRangeProperty struct {
-	// `CfnCustomLineItem.BillingPeriodRangeProperty.ExclusiveEndBillingPeriod`.
+	// The inclusive end billing period that defines a billing period range where a custom line is applied.
 	ExclusiveEndBillingPeriod *string `field:"optional" json:"exclusiveEndBillingPeriod" yaml:"exclusiveEndBillingPeriod"`
-	// `CfnCustomLineItem.BillingPeriodRangeProperty.InclusiveStartBillingPeriod`.
+	// The inclusive start billing period that defines a billing period range where a custom line is applied.
 	InclusiveStartBillingPeriod *string `field:"optional" json:"inclusiveStartBillingPeriod" yaml:"inclusiveStartBillingPeriod"`
 }
 
+// The charge details of a custom line item.
+//
+// It should contain only one of `Flat` or `Percentage` .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1769,14 +1811,18 @@ type CfnCustomLineItem_BillingPeriodRangeProperty struct {
 //   }
 //
 type CfnCustomLineItem_CustomLineItemChargeDetailsProperty struct {
-	// `CfnCustomLineItem.CustomLineItemChargeDetailsProperty.Type`.
+	// The type of the custom line item that indicates whether the charge is a fee or credit.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `CfnCustomLineItem.CustomLineItemChargeDetailsProperty.Flat`.
+	// A `CustomLineItemFlatChargeDetails` that describes the charge details of a flat custom line item.
 	Flat interface{} `field:"optional" json:"flat" yaml:"flat"`
-	// `CfnCustomLineItem.CustomLineItemChargeDetailsProperty.Percentage`.
+	// A `CustomLineItemPercentageChargeDetails` that describes the charge details of a percentage custom line item.
 	Percentage interface{} `field:"optional" json:"percentage" yaml:"percentage"`
 }
 
+// The charge details of a custom line item.
+//
+// It should contain only one of `Flat` or `Percentage` .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1787,10 +1833,12 @@ type CfnCustomLineItem_CustomLineItemChargeDetailsProperty struct {
 //   }
 //
 type CfnCustomLineItem_CustomLineItemFlatChargeDetailsProperty struct {
-	// `CfnCustomLineItem.CustomLineItemFlatChargeDetailsProperty.ChargeValue`.
+	// The custom line item's fixed charge value in USD.
 	ChargeValue *float64 `field:"required" json:"chargeValue" yaml:"chargeValue"`
 }
 
+// A representation of the charge details associated with a percentage custom line item.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -1806,9 +1854,11 @@ type CfnCustomLineItem_CustomLineItemFlatChargeDetailsProperty struct {
 //   }
 //
 type CfnCustomLineItem_CustomLineItemPercentageChargeDetailsProperty struct {
-	// `CfnCustomLineItem.CustomLineItemPercentageChargeDetailsProperty.PercentageValue`.
+	// The custom line item's percentage value.
+	//
+	// This will be multiplied against the combined value of its associated resources to determine its charge value.
 	PercentageValue *float64 `field:"required" json:"percentageValue" yaml:"percentageValue"`
-	// `CfnCustomLineItem.CustomLineItemPercentageChargeDetailsProperty.ChildAssociatedResources`.
+	// A list of resource ARNs to associate to the percentage custom line item.
 	ChildAssociatedResources *[]*string `field:"optional" json:"childAssociatedResources" yaml:"childAssociatedResources"`
 }
 
@@ -1854,21 +1904,27 @@ type CfnCustomLineItem_CustomLineItemPercentageChargeDetailsProperty struct {
 //   }
 //
 type CfnCustomLineItemProps struct {
-	// `AWS::BillingConductor::CustomLineItem.BillingGroupArn`.
+	// The Amazon Resource Name (ARN) that references the billing group where the custom line item applies to.
 	BillingGroupArn *string `field:"required" json:"billingGroupArn" yaml:"billingGroupArn"`
-	// `AWS::BillingConductor::CustomLineItem.Name`.
+	// The custom line item's name.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::BillingConductor::CustomLineItem.BillingPeriodRange`.
+	// A time range for which the custom line item is effective.
 	BillingPeriodRange interface{} `field:"optional" json:"billingPeriodRange" yaml:"billingPeriodRange"`
-	// `AWS::BillingConductor::CustomLineItem.CustomLineItemChargeDetails`.
+	// The charge details of a custom line item.
+	//
+	// It should contain only one of `Flat` or `Percentage` .
 	CustomLineItemChargeDetails interface{} `field:"optional" json:"customLineItemChargeDetails" yaml:"customLineItemChargeDetails"`
-	// `AWS::BillingConductor::CustomLineItem.Description`.
+	// The custom line item's description.
+	//
+	// This is shown on the Bills page in association with the charge value.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::BillingConductor::CustomLineItem.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::BillingConductor::PricingPlan`.
+//
+// Creates a pricing plan that is used for computing AWS charges for billing groups.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -1894,9 +1950,13 @@ type CfnCustomLineItemProps struct {
 type CfnPricingPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the created pricing plan.
 	AttrArn() *string
+	// The time the pricing plan was created.
 	AttrCreationTime() *float64
+	// The most recent time the pricing plan was modified.
 	AttrLastModifiedTime() *float64
+	// The pricing rules count currently associated with this pricing plan list element.
 	AttrSize() *float64
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -1910,7 +1970,7 @@ type CfnPricingPlan interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::BillingConductor::PricingPlan.Description`.
+	// The pricing plan description.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -1924,13 +1984,13 @@ type CfnPricingPlan interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::BillingConductor::PricingPlan.Name`.
+	// The name of a pricing plan.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
-	// `AWS::BillingConductor::PricingPlan.PricingRuleArns`.
+	// The `PricingRuleArns` that are associated with the Pricing Plan.
 	PricingRuleArns() *[]*string
 	SetPricingRuleArns(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -2639,17 +2699,19 @@ func (c *jsiiProxy_CfnPricingPlan) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnPricingPlanProps struct {
-	// `AWS::BillingConductor::PricingPlan.Name`.
+	// The name of a pricing plan.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::BillingConductor::PricingPlan.Description`.
+	// The pricing plan description.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::BillingConductor::PricingPlan.PricingRuleArns`.
+	// The `PricingRuleArns` that are associated with the Pricing Plan.
 	PricingRuleArns *[]*string `field:"optional" json:"pricingRuleArns" yaml:"pricingRuleArns"`
 	// `AWS::BillingConductor::PricingPlan.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::BillingConductor::PricingRule`.
+//
+// Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -2676,9 +2738,13 @@ type CfnPricingPlanProps struct {
 type CfnPricingRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) used to uniquely identify a pricing rule.
 	AttrArn() *string
+	// The pricing plans count that this pricing rule is associated with.
 	AttrAssociatedPricingPlanCount() *float64
+	// The time the pricing rule was created.
 	AttrCreationTime() *float64
+	// The most recent time the pricing rule was modified.
 	AttrLastModifiedTime() *float64
 	// Options for this resource, such as condition, update policy etc.
 	// Experimental.
@@ -2692,7 +2758,7 @@ type CfnPricingRule interface {
 	// node +internal+ entries filtered.
 	// Experimental.
 	CreationStack() *[]*string
-	// `AWS::BillingConductor::PricingRule.Description`.
+	// The pricing rule description.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -2706,10 +2772,10 @@ type CfnPricingRule interface {
 	// resolved during synthesis.
 	// Experimental.
 	LogicalId() *string
-	// `AWS::BillingConductor::PricingRule.ModifierPercentage`.
+	// A percentage modifier applied on the public pricing rates.
 	ModifierPercentage() *float64
 	SetModifierPercentage(val *float64)
-	// `AWS::BillingConductor::PricingRule.Name`.
+	// The name of a pricing rule.
 	Name() *string
 	SetName(val *string)
 	// The construct tree node associated with this construct.
@@ -2721,10 +2787,10 @@ type CfnPricingRule interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// `AWS::BillingConductor::PricingRule.Scope`.
+	// The scope of pricing rule that indicates if it is globally applicable, or if it is service-specific.
 	Scope() *string
 	SetScope(val *string)
-	// `AWS::BillingConductor::PricingRule.Service`.
+	// If the `Scope` attribute is `SERVICE` , this attribute indicates which service the `PricingRule` is applicable for.
 	Service() *string
 	SetService(val *string)
 	// The stack in which this element is defined.
@@ -2734,7 +2800,7 @@ type CfnPricingRule interface {
 	Stack() awscdk.Stack
 	// `AWS::BillingConductor::PricingRule.Tags`.
 	Tags() awscdk.TagManager
-	// `AWS::BillingConductor::PricingRule.Type`.
+	// The type of pricing rule.
 	Type() *string
 	SetType(val *string)
 	// Return properties modified after initiation.
@@ -3485,17 +3551,17 @@ func (c *jsiiProxy_CfnPricingRule) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnPricingRuleProps struct {
-	// `AWS::BillingConductor::PricingRule.ModifierPercentage`.
+	// A percentage modifier applied on the public pricing rates.
 	ModifierPercentage *float64 `field:"required" json:"modifierPercentage" yaml:"modifierPercentage"`
-	// `AWS::BillingConductor::PricingRule.Name`.
+	// The name of a pricing rule.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// `AWS::BillingConductor::PricingRule.Scope`.
+	// The scope of pricing rule that indicates if it is globally applicable, or if it is service-specific.
 	Scope *string `field:"required" json:"scope" yaml:"scope"`
-	// `AWS::BillingConductor::PricingRule.Type`.
+	// The type of pricing rule.
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// `AWS::BillingConductor::PricingRule.Description`.
+	// The pricing rule description.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::BillingConductor::PricingRule.Service`.
+	// If the `Scope` attribute is `SERVICE` , this attribute indicates which service the `PricingRule` is applicable for.
 	Service *string `field:"optional" json:"service" yaml:"service"`
 	// `AWS::BillingConductor::PricingRule.Tags`.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

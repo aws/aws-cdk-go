@@ -6377,7 +6377,7 @@ type CfnNodegroupProps struct {
 //   	vpc: vpc,
 //   	vpcSubnets: []subnetSelection{
 //   		&subnetSelection{
-//   			subnetType: ec2.subnetType_PRIVATE,
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   		},
 //   	},
 //   })
@@ -7599,7 +7599,7 @@ type ClusterOptions struct {
 	//
 	// For example, to only select private subnets, supply the following:
 	//
-	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
+	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE_WITH_NAT }]`
 	// Experimental.
 	VpcSubnets *[]*awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Install the AWS Load Balancer Controller onto the cluster.
@@ -7712,7 +7712,7 @@ type ClusterOptions struct {
 //   	vpc: vpc,
 //   	vpcSubnets: []subnetSelection{
 //   		&subnetSelection{
-//   			subnetType: ec2.subnetType_PRIVATE,
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   		},
 //   	},
 //   })
@@ -7749,7 +7749,7 @@ type ClusterProps struct {
 	//
 	// For example, to only select private subnets, supply the following:
 	//
-	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
+	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE_WITH_NAT }]`
 	// Experimental.
 	VpcSubnets *[]*awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Install the AWS Load Balancer Controller onto the cluster.
@@ -7955,7 +7955,7 @@ type CommonClusterOptions struct {
 	//
 	// For example, to only select private subnets, supply the following:
 	//
-	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
+	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE_WITH_NAT }]`
 	// Experimental.
 	VpcSubnets *[]*awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
@@ -9192,7 +9192,7 @@ type FargateClusterProps struct {
 	//
 	// For example, to only select private subnets, supply the following:
 	//
-	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
+	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE_WITH_NAT }]`
 	// Experimental.
 	VpcSubnets *[]*awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Install the AWS Load Balancer Controller onto the cluster.

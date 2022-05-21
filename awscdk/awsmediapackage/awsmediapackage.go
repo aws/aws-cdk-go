@@ -3755,6 +3755,7 @@ type CfnOriginEndpointProps struct {
 //   				manifestName: jsii.String("manifestName"),
 //   				minBufferTimeSeconds: jsii.Number(123),
 //   				profile: jsii.String("profile"),
+//   				scteMarkersSource: jsii.String("scteMarkersSource"),
 //   				streamSelection: &streamSelectionProperty{
 //   					maxVideoBitsPerSecond: jsii.Number(123),
 //   					minVideoBitsPerSecond: jsii.Number(123),
@@ -4710,6 +4711,7 @@ type CfnPackagingConfiguration_DashEncryptionProperty struct {
 //   	manifestName: jsii.String("manifestName"),
 //   	minBufferTimeSeconds: jsii.Number(123),
 //   	profile: jsii.String("profile"),
+//   	scteMarkersSource: jsii.String("scteMarkersSource"),
 //   	streamSelection: &streamSelectionProperty{
 //   		maxVideoBitsPerSecond: jsii.Number(123),
 //   		minVideoBitsPerSecond: jsii.Number(123),
@@ -4730,6 +4732,10 @@ type CfnPackagingConfiguration_DashManifestProperty struct {
 	//
 	// When set to `HBBTV_1_5` , the content is compliant with HbbTV 1.5.
 	Profile *string `field:"optional" json:"profile" yaml:"profile"`
+	// The source of scte markers used.
+	//
+	// When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content. The MANIFEST value is compatible with source HLS playlists using the SCTE-35 Enhanced syntax (#EXT-OATCLS-SCTE35 tags). SCTE-35 Elemental and SCTE-35 Daterange syntaxes are not supported with this option.
+	ScteMarkersSource *string `field:"optional" json:"scteMarkersSource" yaml:"scteMarkersSource"`
 	// Limitations for outputs from the endpoint, based on the video bitrate.
 	StreamSelection interface{} `field:"optional" json:"streamSelection" yaml:"streamSelection"`
 }
@@ -4748,6 +4754,7 @@ type CfnPackagingConfiguration_DashManifestProperty struct {
 //   			manifestName: jsii.String("manifestName"),
 //   			minBufferTimeSeconds: jsii.Number(123),
 //   			profile: jsii.String("profile"),
+//   			scteMarkersSource: jsii.String("scteMarkersSource"),
 //   			streamSelection: &streamSelectionProperty{
 //   				maxVideoBitsPerSecond: jsii.Number(123),
 //   				minVideoBitsPerSecond: jsii.Number(123),
@@ -5129,6 +5136,7 @@ type CfnPackagingConfiguration_StreamSelectionProperty struct {
 //   				manifestName: jsii.String("manifestName"),
 //   				minBufferTimeSeconds: jsii.Number(123),
 //   				profile: jsii.String("profile"),
+//   				scteMarkersSource: jsii.String("scteMarkersSource"),
 //   				streamSelection: &streamSelectionProperty{
 //   					maxVideoBitsPerSecond: jsii.Number(123),
 //   					minVideoBitsPerSecond: jsii.Number(123),

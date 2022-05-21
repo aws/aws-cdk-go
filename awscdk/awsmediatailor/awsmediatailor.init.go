@@ -19,6 +19,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDashConfigurationManifestEndpointPrefix", GoGetter: "AttrDashConfigurationManifestEndpointPrefix"},
+			_jsii_.MemberProperty{JsiiProperty: "attrHlsConfigurationManifestEndpointPrefix", GoGetter: "AttrHlsConfigurationManifestEndpointPrefix"},
+			_jsii_.MemberProperty{JsiiProperty: "attrPlaybackConfigurationArn", GoGetter: "AttrPlaybackConfigurationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrPlaybackEndpointPrefix", GoGetter: "AttrPlaybackEndpointPrefix"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSessionInitializationEndpointPrefix", GoGetter: "AttrSessionInitializationEndpointPrefix"},
 			_jsii_.MemberProperty{JsiiProperty: "availSuppression", GoGetter: "AvailSuppression"},
 			_jsii_.MemberProperty{JsiiProperty: "bumper", GoGetter: "Bumper"},
 			_jsii_.MemberProperty{JsiiProperty: "cdnConfiguration", GoGetter: "CdnConfiguration"},
@@ -44,7 +49,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberProperty{JsiiProperty: "sessionInitializationEndpointPrefix", GoGetter: "SessionInitializationEndpointPrefix"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "slateAdUrl", GoGetter: "SlateAdUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -81,8 +85,12 @@ func init() {
 		reflect.TypeOf((*CfnPlaybackConfiguration_CdnConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediatailor.CfnPlaybackConfiguration.DashConfigurationForPutProperty",
-		reflect.TypeOf((*CfnPlaybackConfiguration_DashConfigurationForPutProperty)(nil)).Elem(),
+		"monocdk.aws_mediatailor.CfnPlaybackConfiguration.DashConfigurationProperty",
+		reflect.TypeOf((*CfnPlaybackConfiguration_DashConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_mediatailor.CfnPlaybackConfiguration.HlsConfigurationProperty",
+		reflect.TypeOf((*CfnPlaybackConfiguration_HlsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_mediatailor.CfnPlaybackConfiguration.LivePreRollConfigurationProperty",

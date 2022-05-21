@@ -49,6 +49,7 @@ import (
 //   	receiveMessageWaitTimeSeconds: jsii.Number(123),
 //   	redriveAllowPolicy: redriveAllowPolicy,
 //   	redrivePolicy: redrivePolicy,
+//   	sqsManagedSseEnabled: jsii.Boolean(false),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -203,6 +204,9 @@ type CfnQueue interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
+	// `AWS::SQS::Queue.SqsManagedSseEnabled`.
+	SqsManagedSseEnabled() interface{}
+	SetSqsManagedSseEnabled(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -629,6 +633,16 @@ func (j *jsiiProxy_CfnQueue) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQueue) SqsManagedSseEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sqsManagedSseEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueue) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -796,6 +810,14 @@ func (j *jsiiProxy_CfnQueue) SetRedrivePolicy(val interface{}) {
 	_jsii_.Set(
 		j,
 		"redrivePolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnQueue) SetSqsManagedSseEnabled(val interface{}) {
+	_jsii_.Set(
+		j,
+		"sqsManagedSseEnabled",
 		val,
 	)
 }
@@ -1798,6 +1820,7 @@ type CfnQueuePolicyProps struct {
 //   	receiveMessageWaitTimeSeconds: jsii.Number(123),
 //   	redriveAllowPolicy: redriveAllowPolicy,
 //   	redrivePolicy: redrivePolicy,
+//   	sqsManagedSseEnabled: jsii.Boolean(false),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -1896,6 +1919,8 @@ type CfnQueueProps struct {
 	//
 	// `maxReceiveCount : *Integer*`.
 	RedrivePolicy interface{} `field:"optional" json:"redrivePolicy" yaml:"redrivePolicy"`
+	// `AWS::SQS::Queue.SqsManagedSseEnabled`.
+	SqsManagedSseEnabled interface{} `field:"optional" json:"sqsManagedSseEnabled" yaml:"sqsManagedSseEnabled"`
 	// The tags that you attach to this queue.
 	//
 	// For more information, see [Resource tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .

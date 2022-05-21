@@ -80,6 +80,14 @@ func init() {
 			return &jsiiProxy_CloneRepository{}
 		},
 	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_cloud9.ConnectionType",
+		reflect.TypeOf((*ConnectionType)(nil)).Elem(),
+		map[string]interface{}{
+			"CONNECT_SSH": ConnectionType_CONNECT_SSH,
+			"CONNECT_SSM": ConnectionType_CONNECT_SSM,
+		},
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_cloud9.Ec2Environment",
 		reflect.TypeOf((*Ec2Environment)(nil)).Elem(),
