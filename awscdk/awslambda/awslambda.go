@@ -1463,6 +1463,7 @@ func (a *jsiiProxy_AssetCode) BindToResource(resource awscdk.CfnResource, option
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkMode networkMode
+//   var platform platform
 //
 //   assetImageCode := awscdk.Aws_lambda.NewAssetImageCode(jsii.String("directory"), &assetImageCodeProps{
 //   	buildArgs: map[string]*string{
@@ -1487,10 +1488,12 @@ func (a *jsiiProxy_AssetCode) BindToResource(resource awscdk.CfnResource, option
 //   		extraHash: jsii.Boolean(false),
 //   		file: jsii.Boolean(false),
 //   		networkMode: jsii.Boolean(false),
+//   		platform: jsii.Boolean(false),
 //   		repositoryName: jsii.Boolean(false),
 //   		target: jsii.Boolean(false),
 //   	},
 //   	networkMode: networkMode,
+//   	platform: platform,
 //   	repositoryName: jsii.String("repositoryName"),
 //   	target: jsii.String("target"),
 //   	workingDirectory: jsii.String("workingDirectory"),
@@ -1781,6 +1784,7 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, o
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkMode networkMode
+//   var platform platform
 //
 //   assetImageCodeProps := &assetImageCodeProps{
 //   	buildArgs: map[string]*string{
@@ -1805,10 +1809,12 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, o
 //   		extraHash: jsii.Boolean(false),
 //   		file: jsii.Boolean(false),
 //   		networkMode: jsii.Boolean(false),
+//   		platform: jsii.Boolean(false),
 //   		repositoryName: jsii.Boolean(false),
 //   		target: jsii.Boolean(false),
 //   	},
 //   	networkMode: networkMode,
+//   	platform: platform,
 //   	repositoryName: jsii.String("repositoryName"),
 //   	target: jsii.String("target"),
 //   	workingDirectory: jsii.String("workingDirectory"),
@@ -1849,6 +1855,11 @@ type AssetImageCodeProps struct {
 	// Support docker API 1.25+.
 	// Experimental.
 	NetworkMode awsecrassets.NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
+	// Platform to build for.
+	//
+	// _Requires Docker Buildx_.
+	// Experimental.
+	Platform awsecrassets.Platform `field:"optional" json:"platform" yaml:"platform"`
 	// ECR repository name.
 	//
 	// Specify this property if you need to statically address the image, e.g.

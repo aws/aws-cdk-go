@@ -4374,7 +4374,7 @@ type CfnRuleGroup_BodyProperty struct {
 
 // A rule statement that defines a string match search for AWS WAF to apply to web requests.
 //
-// The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
+// The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -6066,7 +6066,7 @@ type CfnRuleGroup_OrStatementProperty struct {
 // - An IP match statement with an IP set that specified the address 192.0.2.44.
 // - A string match statement that searches in the User-Agent header for the string BadBot.
 //
-// In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.
+// In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet the criteria of both of the nested statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet the criteria of both of the nested statements are not counted towards the rate limit and are not affected by this rule.
 //
 // You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement` . You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
 //
@@ -7244,7 +7244,7 @@ type CfnRuleGroup_RuleProperty struct {
 //
 // For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes.
 //
-// If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.
+// If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you could use a size constraint statement to block requests that have a request body greater than 8192 bytes.
 //
 // If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
 //
@@ -7335,9 +7335,9 @@ type CfnRuleGroup_SizeConstraintStatementProperty struct {
 	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 
-// Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database.
+// A rule statement that inspects for malicious SQL code.
 //
-// To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.
+// Attackers insert malicious SQL code into web requests to do things like modify your database or extract data from it.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -9454,7 +9454,7 @@ type CfnRuleGroup_StatementProperty struct {
 	AndStatement interface{} `field:"optional" json:"andStatement" yaml:"andStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests.
 	//
-	// The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
+	// The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 	ByteMatchStatement interface{} `field:"optional" json:"byteMatchStatement" yaml:"byteMatchStatement"`
 	// A rule statement used to identify web requests based on country of origin.
 	GeoMatchStatement interface{} `field:"optional" json:"geoMatchStatement" yaml:"geoMatchStatement"`
@@ -9489,7 +9489,7 @@ type CfnRuleGroup_StatementProperty struct {
 	// - An IP match statement with an IP set that specified the address 192.0.2.44.
 	// - A string match statement that searches in the User-Agent header for the string BadBot.
 	//
-	// In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.
+	// In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet the criteria of both of the nested statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet the criteria of both of the nested statements are not counted towards the rate limit and are not affected by this rule.
 	//
 	// You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement` . You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
 	RateBasedStatement interface{} `field:"optional" json:"rateBasedStatement" yaml:"rateBasedStatement"`
@@ -9505,17 +9505,17 @@ type CfnRuleGroup_StatementProperty struct {
 	//
 	// For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes.
 	//
-	// If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.
+	// If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you could use a size constraint statement to block requests that have a request body greater than 8192 bytes.
 	//
 	// If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
 	SizeConstraintStatement interface{} `field:"optional" json:"sizeConstraintStatement" yaml:"sizeConstraintStatement"`
-	// Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database.
+	// A rule statement that inspects for malicious SQL code.
 	//
-	// To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.
+	// Attackers insert malicious SQL code into web requests to do things like modify your database or extract data from it.
 	SqliMatchStatement interface{} `field:"optional" json:"sqliMatchStatement" yaml:"sqliMatchStatement"`
-	// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
+	// A rule statement that inspects for cross-site scripting (XSS) attacks.
 	//
-	// XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
+	// In XSS attacks, the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers.
 	XssMatchStatement interface{} `field:"optional" json:"xssMatchStatement" yaml:"xssMatchStatement"`
 }
 
@@ -9632,9 +9632,9 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 	SampledRequestsEnabled interface{} `field:"required" json:"sampledRequestsEnabled" yaml:"sampledRequestsEnabled"`
 }
 
-// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
+// A rule statement that inspects for cross-site scripting (XSS) attacks.
 //
-// XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
+// In XSS attacks, the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -12255,7 +12255,7 @@ type CfnWebACL_BodyProperty struct {
 
 // A rule statement that defines a string match search for AWS WAF to apply to web requests.
 //
-// The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
+// The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -14813,7 +14813,7 @@ type CfnWebACL_OverrideActionProperty struct {
 // - An IP match statement with an IP set that specified the address 192.0.2.44.
 // - A string match statement that searches in the User-Agent header for the string BadBot.
 //
-// In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.
+// In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet the criteria of both of the nested statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet the criteria of both of the nested statements are not counted towards the rate limit and are not affected by this rule.
 //
 // You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement` . You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
 //
@@ -16187,7 +16187,7 @@ type CfnWebACL_RuleProperty struct {
 //
 // For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes.
 //
-// If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.
+// If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you could use a size constraint statement to block requests that have a request body greater than 8192 bytes.
 //
 // If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
 //
@@ -16278,9 +16278,9 @@ type CfnWebACL_SizeConstraintStatementProperty struct {
 	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
 }
 
-// Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database.
+// A rule statement that inspects for malicious SQL code.
 //
-// To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.
+// Attackers insert malicious SQL code into web requests to do things like modify your database or extract data from it.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18989,7 +18989,7 @@ type CfnWebACL_StatementProperty struct {
 	AndStatement interface{} `field:"optional" json:"andStatement" yaml:"andStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests.
 	//
-	// The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.
+	// The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 	ByteMatchStatement interface{} `field:"optional" json:"byteMatchStatement" yaml:"byteMatchStatement"`
 	// A rule statement used to identify web requests based on country of origin.
 	GeoMatchStatement interface{} `field:"optional" json:"geoMatchStatement" yaml:"geoMatchStatement"`
@@ -19030,7 +19030,7 @@ type CfnWebACL_StatementProperty struct {
 	// - An IP match statement with an IP set that specified the address 192.0.2.44.
 	// - A string match statement that searches in the User-Agent header for the string BadBot.
 	//
-	// In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.
+	// In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet the criteria of both of the nested statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet the criteria of both of the nested statements are not counted towards the rate limit and are not affected by this rule.
 	//
 	// You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement` . You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
 	RateBasedStatement interface{} `field:"optional" json:"rateBasedStatement" yaml:"rateBasedStatement"`
@@ -19052,17 +19052,17 @@ type CfnWebACL_StatementProperty struct {
 	//
 	// For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes.
 	//
-	// If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.
+	// If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you could use a size constraint statement to block requests that have a request body greater than 8192 bytes.
 	//
 	// If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
 	SizeConstraintStatement interface{} `field:"optional" json:"sizeConstraintStatement" yaml:"sizeConstraintStatement"`
-	// Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database.
+	// A rule statement that inspects for malicious SQL code.
 	//
-	// To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.
+	// Attackers insert malicious SQL code into web requests to do things like modify your database or extract data from it.
 	SqliMatchStatement interface{} `field:"optional" json:"sqliMatchStatement" yaml:"sqliMatchStatement"`
-	// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
+	// A rule statement that inspects for cross-site scripting (XSS) attacks.
 	//
-	// XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
+	// In XSS attacks, the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers.
 	XssMatchStatement interface{} `field:"optional" json:"xssMatchStatement" yaml:"xssMatchStatement"`
 }
 
@@ -19179,9 +19179,9 @@ type CfnWebACL_VisibilityConfigProperty struct {
 	SampledRequestsEnabled interface{} `field:"required" json:"sampledRequestsEnabled" yaml:"sampledRequestsEnabled"`
 }
 
-// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
+// A rule statement that inspects for cross-site scripting (XSS) attacks.
 //
-// XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. The XSS match statement provides the location in requests that you want AWS WAF to search and text transformations to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings.
+// In XSS attacks, the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

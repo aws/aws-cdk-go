@@ -6222,19 +6222,17 @@ type CfnLocationNFSProps struct {
 type CfnLocationObjectStorage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Optional.
-	//
-	// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
+	// Specifies the access key (or user name) if credentials are required to access the object storage server.
 	AccessKey() *string
 	SetAccessKey(val *string)
-	// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+	// Specifies the Amazon Resource Names (ARNs) of the agents associated with the location.
 	AgentArns() *[]*string
 	SetAgentArns(val *[]*string)
 	// The Amazon Resource Name (ARN) of the specified object storage location.
 	AttrLocationArn() *string
 	// The URI of the specified object storage location.
 	AttrLocationUri() *string
-	// The bucket on the self-managed object storage server that is used to read data from.
+	// Specifies the name of the bucket that DataSync reads from or writes to.
 	BucketName() *string
 	SetBucketName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -6269,24 +6267,20 @@ type CfnLocationObjectStorage interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// Optional.
-	//
-	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
+	// Specifies the secret key (or password) if credentials are required to access the object storage server.
 	SecretKey() *string
 	SetSecretKey(val *string)
-	// The name of the self-managed object storage server.
+	// Specifies the domain name or IP address of the object storage server.
 	//
-	// This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this hostname to mount the object storage server in a network.
+	// A DataSync agent uses this hostname to mount the object storage server.
 	ServerHostname() *string
 	SetServerHostname(val *string)
-	// The port that your self-managed object storage server accepts inbound network traffic on.
+	// Specifies the port that your object storage server accepts inbound network traffic on.
 	//
-	// The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS). You can specify a custom port if your self-managed object storage server requires one.
+	// Set to port 80 (HTTP), 443 (HTTPS), or a custom port if needed.
 	ServerPort() *float64
 	SetServerPort(val *float64)
-	// The protocol that the object storage server uses to communicate.
-	//
-	// Valid values are HTTP or HTTPS.
+	// Specifies the protocol that your object storage server uses to communicate.
 	ServerProtocol() *string
 	SetServerProtocol(val *string)
 	// The stack in which this element is defined.
@@ -6294,12 +6288,12 @@ type CfnLocationObjectStorage interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	// Experimental.
 	Stack() awscdk.Stack
-	// The subdirectory in the self-managed object storage server that is used to read data from.
+	// Specifies the object prefix that DataSync reads from or writes to.
 	Subdirectory() *string
 	SetSubdirectory(val *string)
-	// The key-value pair that represents the tag that you want to add to the location.
+	// Specifies the key-value pair that represents the tag to help you manage, filter, and search for your location.
 	//
-	// The value can be an empty string. We recommend using tags to name your resources.
+	// We recommend using tags for naming your locations.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
 	//
@@ -7069,35 +7063,29 @@ func (c *jsiiProxy_CfnLocationObjectStorage) ValidateProperties(_properties inte
 //   }
 //
 type CfnLocationObjectStorageProps struct {
-	// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+	// Specifies the Amazon Resource Names (ARNs) of the agents associated with the location.
 	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`
-	// The bucket on the self-managed object storage server that is used to read data from.
+	// Specifies the name of the bucket that DataSync reads from or writes to.
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
-	// The name of the self-managed object storage server.
+	// Specifies the domain name or IP address of the object storage server.
 	//
-	// This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this hostname to mount the object storage server in a network.
+	// A DataSync agent uses this hostname to mount the object storage server.
 	ServerHostname *string `field:"required" json:"serverHostname" yaml:"serverHostname"`
-	// Optional.
-	//
-	// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
+	// Specifies the access key (or user name) if credentials are required to access the object storage server.
 	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
-	// Optional.
-	//
-	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
+	// Specifies the secret key (or password) if credentials are required to access the object storage server.
 	SecretKey *string `field:"optional" json:"secretKey" yaml:"secretKey"`
-	// The port that your self-managed object storage server accepts inbound network traffic on.
+	// Specifies the port that your object storage server accepts inbound network traffic on.
 	//
-	// The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS). You can specify a custom port if your self-managed object storage server requires one.
+	// Set to port 80 (HTTP), 443 (HTTPS), or a custom port if needed.
 	ServerPort *float64 `field:"optional" json:"serverPort" yaml:"serverPort"`
-	// The protocol that the object storage server uses to communicate.
-	//
-	// Valid values are HTTP or HTTPS.
+	// Specifies the protocol that your object storage server uses to communicate.
 	ServerProtocol *string `field:"optional" json:"serverProtocol" yaml:"serverProtocol"`
-	// The subdirectory in the self-managed object storage server that is used to read data from.
+	// Specifies the object prefix that DataSync reads from or writes to.
 	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
-	// The key-value pair that represents the tag that you want to add to the location.
+	// Specifies the key-value pair that represents the tag to help you manage, filter, and search for your location.
 	//
-	// The value can be an empty string. We recommend using tags to name your resources.
+	// We recommend using tags for naming your locations.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -12870,8 +12870,21 @@ type CfnTagOptionProps struct {
 // A Service Catalog Cloudformation Product.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//
+//   type s3BucketProduct struct {
+//   	productStack
+//   }
+//
+//   func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+//   	this := &s3BucketProduct{}
+//   	servicecatalog.NewProductStack_Override(this, scope, id)
+//
+//   	s3.NewBucket(this, jsii.String("BucketProduct"))
+//   	return this
+//   }
 //
 //   product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &cloudFormationProductProps{
 //   	productName: jsii.String("My Product"),
@@ -12879,11 +12892,7 @@ type CfnTagOptionProps struct {
 //   	productVersions: []cloudFormationProductVersion{
 //   		&cloudFormationProductVersion{
 //   			productVersionName: jsii.String("v1"),
-//   			cloudFormationTemplate: servicecatalog.cloudFormationTemplate.fromUrl(jsii.String("https://raw.githubusercontent.com/awslabs/aws-cloudformation-templates/master/aws/services/ServiceCatalog/Product.yaml")),
-//   		},
-//   		&cloudFormationProductVersion{
-//   			productVersionName: jsii.String("v2"),
-//   			cloudFormationTemplate: servicecatalog.*cloudFormationTemplate.fromAsset(path.join(__dirname, jsii.String("development-environment.template.json"))),
+//   			cloudFormationTemplate: servicecatalog.cloudFormationTemplate.fromProductStack(NewS3BucketProduct(this, jsii.String("S3BucketProduct"))),
 //   		},
 //   	},
 //   })
@@ -13281,8 +13290,21 @@ func (c *jsiiProxy_CloudFormationProduct) Validate() *[]*string {
 // Properties for a Cloudformation Product.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//
+//   type s3BucketProduct struct {
+//   	productStack
+//   }
+//
+//   func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+//   	this := &s3BucketProduct{}
+//   	servicecatalog.NewProductStack_Override(this, scope, id)
+//
+//   	s3.NewBucket(this, jsii.String("BucketProduct"))
+//   	return this
+//   }
 //
 //   product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &cloudFormationProductProps{
 //   	productName: jsii.String("My Product"),
@@ -13290,11 +13312,7 @@ func (c *jsiiProxy_CloudFormationProduct) Validate() *[]*string {
 //   	productVersions: []cloudFormationProductVersion{
 //   		&cloudFormationProductVersion{
 //   			productVersionName: jsii.String("v1"),
-//   			cloudFormationTemplate: servicecatalog.cloudFormationTemplate.fromUrl(jsii.String("https://raw.githubusercontent.com/awslabs/aws-cloudformation-templates/master/aws/services/ServiceCatalog/Product.yaml")),
-//   		},
-//   		&cloudFormationProductVersion{
-//   			productVersionName: jsii.String("v2"),
-//   			cloudFormationTemplate: servicecatalog.*cloudFormationTemplate.fromAsset(path.join(__dirname, jsii.String("development-environment.template.json"))),
+//   			cloudFormationTemplate: servicecatalog.cloudFormationTemplate.fromProductStack(NewS3BucketProduct(this, jsii.String("S3BucketProduct"))),
 //   		},
 //   	},
 //   })
@@ -15881,6 +15899,317 @@ func (p *jsiiProxy_ProductStack) Validate() *[]*string {
 	)
 
 	return returns
+}
+
+// A Construct that contains a Service Catalog product stack with its previous deployments maintained.
+//
+// Example:
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   type s3BucketProduct struct {
+//   	productStack
+//   }
+//
+//   func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+//   	this := &s3BucketProduct{}
+//   	servicecatalog.NewProductStack_Override(this, scope, id)
+//
+//   	s3.NewBucket(this, jsii.String("BucketProductV2"))
+//   	return this
+//   }
+//
+//   productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &productStackHistoryProps{
+//   	productStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
+//   	currentVersionName: jsii.String("v2"),
+//   	currentVersionLocked: jsii.Boolean(true),
+//   })
+//
+//   product := servicecatalog.NewCloudFormationProduct(this, jsii.String("MyFirstProduct"), &cloudFormationProductProps{
+//   	productName: jsii.String("My Product"),
+//   	owner: jsii.String("Product Owner"),
+//   	productVersions: []cloudFormationProductVersion{
+//   		productStackHistory.currentVersion(),
+//   	},
+//   })
+//
+// Experimental.
+type ProductStackHistory interface {
+	awscdk.Construct
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Retains product stack template as a snapshot when deployed and retrieves a CloudFormationProductVersion for the current product version.
+	// Experimental.
+	CurrentVersion() *CloudFormationProductVersion
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
+	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Retrieves a CloudFormationProductVersion from a previously deployed productVersionName.
+	// Experimental.
+	VersionFromSnapshot(productVersionName *string) *CloudFormationProductVersion
+}
+
+// The jsii proxy struct for ProductStackHistory
+type jsiiProxy_ProductStackHistory struct {
+	internal.Type__awscdkConstruct
+}
+
+func (j *jsiiProxy_ProductStackHistory) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewProductStackHistory(scope constructs.Construct, id *string, props *ProductStackHistoryProps) ProductStackHistory {
+	_init_.Initialize()
+
+	j := jsiiProxy_ProductStackHistory{}
+
+	_jsii_.Create(
+		"monocdk.aws_servicecatalog.ProductStackHistory",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewProductStackHistory_Override(p ProductStackHistory, scope constructs.Construct, id *string, props *ProductStackHistoryProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_servicecatalog.ProductStackHistory",
+		[]interface{}{scope, id, props},
+		p,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func ProductStackHistory_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_servicecatalog.ProductStackHistory",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_ProductStackHistory) CurrentVersion() *CloudFormationProductVersion {
+	var returns *CloudFormationProductVersion
+
+	_jsii_.Invoke(
+		p,
+		"currentVersion",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_ProductStackHistory) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (p *jsiiProxy_ProductStackHistory) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (p *jsiiProxy_ProductStackHistory) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_ProductStackHistory) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (p *jsiiProxy_ProductStackHistory) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+func (p *jsiiProxy_ProductStackHistory) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_ProductStackHistory) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_ProductStackHistory) VersionFromSnapshot(productVersionName *string) *CloudFormationProductVersion {
+	var returns *CloudFormationProductVersion
+
+	_jsii_.Invoke(
+		p,
+		"versionFromSnapshot",
+		[]interface{}{productVersionName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for a ProductStackHistory.
+//
+// Example:
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   type s3BucketProduct struct {
+//   	productStack
+//   }
+//
+//   func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+//   	this := &s3BucketProduct{}
+//   	servicecatalog.NewProductStack_Override(this, scope, id)
+//
+//   	s3.NewBucket(this, jsii.String("BucketProductV2"))
+//   	return this
+//   }
+//
+//   productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &productStackHistoryProps{
+//   	productStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
+//   	currentVersionName: jsii.String("v2"),
+//   	currentVersionLocked: jsii.Boolean(true),
+//   })
+//
+//   product := servicecatalog.NewCloudFormationProduct(this, jsii.String("MyFirstProduct"), &cloudFormationProductProps{
+//   	productName: jsii.String("My Product"),
+//   	owner: jsii.String("Product Owner"),
+//   	productVersions: []cloudFormationProductVersion{
+//   		productStackHistory.currentVersion(),
+//   	},
+//   })
+//
+// Experimental.
+type ProductStackHistoryProps struct {
+	// If this is set to true, the ProductStack will not be overwritten if a snapshot is found for the currentVersionName.
+	// Experimental.
+	CurrentVersionLocked *bool `field:"required" json:"currentVersionLocked" yaml:"currentVersionLocked"`
+	// The current version name of the ProductStack.
+	// Experimental.
+	CurrentVersionName *string `field:"required" json:"currentVersionName" yaml:"currentVersionName"`
+	// The ProductStack whose history will be retained as a snapshot.
+	// Experimental.
+	ProductStack ProductStack `field:"required" json:"productStack" yaml:"productStack"`
+	// The description of the product version.
+	// Experimental.
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The directory where template snapshots will be stored.
+	// Experimental.
+	Directory *string `field:"optional" json:"directory" yaml:"directory"`
+	// Whether the specified product template will be validated by CloudFormation.
+	//
+	// If turned off, an invalid template configuration can be stored.
+	// Experimental.
+	ValidateTemplate *bool `field:"optional" json:"validateTemplate" yaml:"validateTemplate"`
 }
 
 // Properties for deploying with Stackset, which creates a StackSet constraint.

@@ -7,3 +7,4 @@ type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__awscdkIResource = awscdk.IResource
 type Type__awscdkResource = awscdk.Resource
 type Type__awscdkStack = awscdk.Stack
+type Type__awscdkConstruct = awscdk.Construct

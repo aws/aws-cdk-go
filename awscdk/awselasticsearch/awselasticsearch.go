@@ -90,7 +90,7 @@ type CapacityConfig struct {
 
 // A CloudFormation `AWS::Elasticsearch::Domain`.
 //
-// The AWS::Elasticsearch::Domain resource creates an Amazon OpenSearch Service (successor to Amazon Elasticsearch Service) domain.
+// The AWS::Elasticsearch::Domain resource creates an Amazon OpenSearch Service domain.
 //
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and legacy Elasticsearch. For instructions to upgrade domains defined within CloudFormation from Elasticsearch to OpenSearch, see [Remarks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--remarks) .
 //
@@ -1196,10 +1196,16 @@ type CfnDomain_CognitoOptionsProperty struct {
 	// See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+	//
+	// Required if you enable Cognito authentication.
 	IdentityPoolId *string `field:"optional" json:"identityPoolId" yaml:"identityPoolId"`
 	// The `AmazonESCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
+	//
+	// Required if you enable Cognito authentication.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+	//
+	// Required if you enable Cognito authentication.
 	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 }
 
@@ -1242,8 +1248,12 @@ type CfnDomain_ColdStorageOptionsProperty struct {
 //
 type CfnDomain_DomainEndpointOptionsProperty struct {
 	// The fully qualified URL for your custom endpoint.
+	//
+	// Required if you enabled a custom endpoint for the domain.
 	CustomEndpoint *string `field:"optional" json:"customEndpoint" yaml:"customEndpoint"`
 	// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate.
+	//
+	// Required if you enabled a custom endpoint for the domain.
 	CustomEndpointCertificateArn *string `field:"optional" json:"customEndpointCertificateArn" yaml:"customEndpointCertificateArn"`
 	// True to enable a custom endpoint for the domain.
 	//
@@ -1340,10 +1350,14 @@ type CfnDomain_ElasticsearchClusterConfigProperty struct {
 	// The instance type for your data nodes, such as `m3.medium.elasticsearch` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The number of warm nodes in the cluster.
+	//
+	// Required if you enable warm storage.
 	WarmCount *float64 `field:"optional" json:"warmCount" yaml:"warmCount"`
 	// Whether to enable warm storage for the cluster.
 	WarmEnabled interface{} `field:"optional" json:"warmEnabled" yaml:"warmEnabled"`
 	// The instance type for the cluster's warm nodes.
+	//
+	// Required if you enable warm storage.
 	WarmType *string `field:"optional" json:"warmType" yaml:"warmType"`
 	// Specifies zone awareness configuration options.
 	//
@@ -1374,7 +1388,7 @@ type CfnDomain_EncryptionAtRestOptionsProperty struct {
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The KMS key ID.
 	//
-	// Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` .
+	// Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
@@ -1396,6 +1410,8 @@ type CfnDomain_EncryptionAtRestOptionsProperty struct {
 //
 type CfnDomain_LogPublishingOptionProperty struct {
 	// Specifies the CloudWatch log group to publish to.
+	//
+	// Required if you enable log publishing for the domain.
 	CloudWatchLogsLogGroupArn *string `field:"optional" json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
 	// If `true` , enables the publishing of logs to CloudWatch.
 	//
@@ -1403,7 +1419,7 @@ type CfnDomain_LogPublishingOptionProperty struct {
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
-// Specifies information about the master user.
+// Specifies information about the master user. Required if you enabled the internal user database.
 //
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
 //
@@ -1501,6 +1517,8 @@ type CfnDomain_VPCOptionsProperty struct {
 	// Provide one subnet ID for each Availability Zone that your domain uses.
 	//
 	// For example, you must specify three subnet IDs for a three Availability Zone domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+	//
+	// Required if you're creating your domain inside a VPC.
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 }
 

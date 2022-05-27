@@ -13,6 +13,7 @@ enables organizations to create and manage catalogs of products for their end us
 
   * [Creating a product from a local asset](#creating-a-product-from-local-asset)
   * [Creating a product from a stack](#creating-a-product-from-a-stack)
+  * [Creating a Product from a stack with a history of previous versions](#creating-a-product-from-a-stack-with-a-history-of-all-previous-versions)
   * [Adding a product to a portfolio](#adding-a-product-to-a-portfolio)
 * [TagOptions](#tag-options)
 * [Constraints](#constraints)
@@ -176,6 +177,120 @@ product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"),
 			productVersionName: jsii.String("v1"),
 			cloudFormationTemplate: servicecatalog.cloudFormationTemplate.fromProductStack(NewS3BucketProduct(this, jsii.String("S3BucketProduct"))),
 		},
+	},
+})
+```
+
+### Creating a Product from a stack with a history of previous versions
+
+The default behavior of Service Catalog is to overwrite each product version upon deployment.
+This applies to Product Stacks as well, where only the latest changes to your Product Stack will
+be deployed.
+To keep a history of the revisions of a ProductStack available in Service Catalog,
+you would need to define a ProductStack for each historical copy.
+
+You can instead create a `ProductStackHistory` to maintain snapshots of all previous versions.
+The `ProductStackHistory` can be created by passing the base `productStack`,
+a `currentVersionName` for your current version and a `locked` boolean.
+The `locked` boolean which when set to true will prevent your `currentVersionName`
+from being overwritten when there is an existing snapshot for that version.
+
+```go
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+
+type s3BucketProduct struct {
+	productStack
+}
+
+func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+	this := &s3BucketProduct{}
+	servicecatalog.NewProductStack_Override(this, scope, id)
+
+	s3.NewBucket(this, jsii.String("BucketProduct"))
+	return this
+}
+
+productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &productStackHistoryProps{
+	productStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
+	currentVersionName: jsii.String("v1"),
+	currentVersionLocked: jsii.Boolean(true),
+})
+```
+
+We can deploy the current version `v1` by using `productStackHistory.currentVersion()`
+
+```go
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+
+type s3BucketProduct struct {
+	productStack
+}
+
+func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+	this := &s3BucketProduct{}
+	servicecatalog.NewProductStack_Override(this, scope, id)
+
+	s3.NewBucket(this, jsii.String("BucketProductV2"))
+	return this
+}
+
+productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &productStackHistoryProps{
+	productStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
+	currentVersionName: jsii.String("v2"),
+	currentVersionLocked: jsii.Boolean(true),
+})
+
+product := servicecatalog.NewCloudFormationProduct(this, jsii.String("MyFirstProduct"), &cloudFormationProductProps{
+	productName: jsii.String("My Product"),
+	owner: jsii.String("Product Owner"),
+	productVersions: []cloudFormationProductVersion{
+		productStackHistory.currentVersion(),
+	},
+})
+```
+
+Using `ProductStackHistory` all deployed templates for the ProductStack will be written to disk,
+so that they will still be available in the future as the definition of the `ProductStack` subclass changes over time.
+**It is very important** that you commit these old versions to source control as these versions
+determine whether a version has already been deployed and can also be deployed themselves.
+
+After using `ProductStackHistory` to deploy version `v1` of your `ProductStack`, we
+make changes to the `ProductStack` and update the `currentVersionName` to `v2`.
+We still want our `v1` version to still be deployed, so we reference it by calling `productStackHistory.versionFromSnapshot('v1')`.
+
+```go
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+
+type s3BucketProduct struct {
+	productStack
+}
+
+func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+	this := &s3BucketProduct{}
+	servicecatalog.NewProductStack_Override(this, scope, id)
+
+	s3.NewBucket(this, jsii.String("BucketProductV2"))
+	return this
+}
+
+productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &productStackHistoryProps{
+	productStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
+	currentVersionName: jsii.String("v2"),
+	currentVersionLocked: jsii.Boolean(true),
+})
+
+product := servicecatalog.NewCloudFormationProduct(this, jsii.String("MyFirstProduct"), &cloudFormationProductProps{
+	productName: jsii.String("My Product"),
+	owner: jsii.String("Product Owner"),
+	productVersions: []cloudFormationProductVersion{
+		productStackHistory.currentVersion(),
+		productStackHistory.versionFromSnapshot(jsii.String("v1")),
 	},
 })
 ```

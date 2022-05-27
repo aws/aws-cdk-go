@@ -1294,6 +1294,7 @@ func (a *jsiiProxy_AssetImage) Bind(scope awscdk.Construct, containerDefinition 
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkMode networkMode
+//   var platform platform
 //
 //   assetImageProps := &assetImageProps{
 //   	buildArgs: map[string]*string{
@@ -1312,10 +1313,12 @@ func (a *jsiiProxy_AssetImage) Bind(scope awscdk.Construct, containerDefinition 
 //   		extraHash: jsii.Boolean(false),
 //   		file: jsii.Boolean(false),
 //   		networkMode: jsii.Boolean(false),
+//   		platform: jsii.Boolean(false),
 //   		repositoryName: jsii.Boolean(false),
 //   		target: jsii.Boolean(false),
 //   	},
 //   	networkMode: networkMode,
+//   	platform: platform,
 //   	repositoryName: jsii.String("repositoryName"),
 //   	target: jsii.String("target"),
 //   }
@@ -1355,6 +1358,11 @@ type AssetImageProps struct {
 	// Support docker API 1.25+.
 	// Experimental.
 	NetworkMode awsecrassets.NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
+	// Platform to build for.
+	//
+	// _Requires Docker Buildx_.
+	// Experimental.
+	Platform awsecrassets.Platform `field:"optional" json:"platform" yaml:"platform"`
 	// ECR repository name.
 	//
 	// Specify this property if you need to statically address the image, e.g.

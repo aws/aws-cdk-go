@@ -26878,7 +26878,7 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	EnclaveOptions interface{} `field:"optional" json:"enclaveOptions" yaml:"enclaveOptions"`
 	// Indicates whether an instance is enabled for hibernation.
 	//
-	// This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites) . For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide* .
+	// This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html) . For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	HibernationOptions interface{} `field:"optional" json:"hibernationOptions" yaml:"hibernationOptions"`
 	// The name or Amazon Resource Name (ARN) of an IAM instance profile.
 	IamInstanceProfile interface{} `field:"optional" json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
@@ -26896,7 +26896,7 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	//
 	// If you specify `InstanceRequirements` , you can't specify `InstanceTypes` .
 	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
-	// The instance type. For more information, see [Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide* .
+	// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	//
 	// If you specify `InstanceTypes` , you can't specify `InstanceRequirements` .
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
@@ -26930,7 +26930,7 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	PrivateDnsNameOptions interface{} `field:"optional" json:"privateDnsNameOptions" yaml:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	//
-	// > We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User Provided Kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide* .
+	// > We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	RamDiskId *string `field:"optional" json:"ramDiskId" yaml:"ramDiskId"`
 	// One or more security group IDs.
 	//
@@ -26946,7 +26946,7 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// The user data to make available to the instance.
 	//
-	// You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Running Commands on Your Linux Instance at Launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Adding User Data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data) (Windows).
+	// You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Work with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html) (Windows) in the *Amazon Elastic Compute Cloud User Guide* .
 	//
 	// If you are creating the launch template for use with AWS Batch , the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive) . For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *AWS Batch User Guide* .
 	UserData *string `field:"optional" json:"userData" yaml:"userData"`
@@ -53267,7 +53267,7 @@ type CfnTrafficMirrorSessionProps struct {
 //
 // A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.
 //
-// A Traffic Mirror target can be a network interface, or a Network Load Balancer.
+// A Traffic Mirror target can be a network interface, a Network Load Balancer, or a Gateway Load Balancer endpoint.
 //
 // To use the target in a Traffic Mirror session, use [AWS::EC2::TrafficMirrorSession](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html) .
 //
@@ -53307,7 +53307,7 @@ type CfnTrafficMirrorTarget interface {
 	// The description of the Traffic Mirror target.
 	Description() *string
 	SetDescription(val *string)
-	// `AWS::EC2::TrafficMirrorTarget.GatewayLoadBalancerEndpointId`.
+	// The ID of the Gateway Load Balancer endpoint.
 	GatewayLoadBalancerEndpointId() *string
 	SetGatewayLoadBalancerEndpointId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -54013,7 +54013,7 @@ func (c *jsiiProxy_CfnTrafficMirrorTarget) ValidateProperties(_properties interf
 type CfnTrafficMirrorTargetProps struct {
 	// The description of the Traffic Mirror target.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// `AWS::EC2::TrafficMirrorTarget.GatewayLoadBalancerEndpointId`.
+	// The ID of the Gateway Load Balancer endpoint.
 	GatewayLoadBalancerEndpointId *string `field:"optional" json:"gatewayLoadBalancerEndpointId" yaml:"gatewayLoadBalancerEndpointId"`
 	// The network interface ID that is associated with the target.
 	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
@@ -64128,23 +64128,25 @@ type CfnTransitGatewayVpcAttachmentProps struct {
 type CfnVPC interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The set of IP addresses for the VPC.
+	// The primary IPv4 CIDR block for the VPC.
 	//
-	// For example, `10.0.0.0/16` .
+	// For example, 10.0.0.0/16.
 	AttrCidrBlock() *string
-	// The IPv4 CIDR block association IDs for the VPC.
+	// The association IDs of the IPv4 CIDR blocks for the VPC.
 	//
-	// For example, `[ vpc-cidr-assoc-0280ab6b ]` .
+	// For example, [ vpc-cidr-assoc-0280ab6b ].
 	AttrCidrBlockAssociations() *[]*string
-	// The default network ACL ID that is associated with the VPC.
+	// The ID of the default network ACL for the VPC.
 	//
-	// For example, `acl-814dafe3` .
+	// For example, acl-814dafe3.
 	AttrDefaultNetworkAcl() *string
-	// The default security group ID that is associated with the VPC.
+	// The ID of the default security group for the VPC.
 	//
-	// For example, `sg-b178e0d3` .
+	// For example, sg-b178e0d3.
 	AttrDefaultSecurityGroup() *string
-	// The IPv6 CIDR blocks that are associated with the VPC, such as `[ 2001:db8:1234:1a00::/56 ]` .
+	// The IPv6 CIDR blocks for the VPC.
+	//
+	// For example, [ 2001:db8:1234:1a00::/56 ].
 	AttrIpv6CidrBlocks() *[]*string
 	AttrVpcId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -64180,10 +64182,10 @@ type CfnVPC interface {
 	SetEnableDnsSupport(val interface{})
 	// The allowed tenancy of instances launched into the VPC.
 	//
-	// - `"default"` : An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
-	// - `"dedicated"` : An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+	// - `default` : An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+	// - `dedicated` : An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of `host` during instance launch. You cannot specify a tenancy of `default` during instance launch.
 	//
-	// Updating `InstanceTenancy` requires no replacement only if you are updating its value from `"dedicated"` to `"default"` . Updating `InstanceTenancy` from `"default"` to `"dedicated"` requires replacement.
+	// Updating `InstanceTenancy` requires no replacement only if you are updating its value from `dedicated` to `default` . Updating `InstanceTenancy` from `default` to `dedicated` requires replacement.
 	InstanceTenancy() *string
 	SetInstanceTenancy(val *string)
 	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR.
@@ -71245,10 +71247,10 @@ type CfnVPCProps struct {
 	EnableDnsSupport interface{} `field:"optional" json:"enableDnsSupport" yaml:"enableDnsSupport"`
 	// The allowed tenancy of instances launched into the VPC.
 	//
-	// - `"default"` : An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
-	// - `"dedicated"` : An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+	// - `default` : An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+	// - `dedicated` : An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of `host` during instance launch. You cannot specify a tenancy of `default` during instance launch.
 	//
-	// Updating `InstanceTenancy` requires no replacement only if you are updating its value from `"dedicated"` to `"default"` . Updating `InstanceTenancy` from `"default"` to `"dedicated"` requires replacement.
+	// Updating `InstanceTenancy` requires no replacement only if you are updating its value from `dedicated` to `default` . Updating `InstanceTenancy` from `default` to `dedicated` requires replacement.
 	InstanceTenancy *string `field:"optional" json:"instanceTenancy" yaml:"instanceTenancy"`
 	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR.
 	//
@@ -95418,26 +95420,29 @@ type VolumeProps struct {
 // ```.
 //
 // Example:
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//
+//
 //   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
-//   	maxAzs: jsii.Number(1),
-//   })
-//   cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &clusterProps{
-//   	vpc: vpc,
-//   })
-//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("SG"), &securityGroupProps{
-//   	vpc: vpc,
+//   	cidr: jsii.String("10.0.0.0/16"),
 //   })
 //
-//   scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &scheduledFargateTaskProps{
-//   	cluster: cluster,
-//   	scheduledFargateTaskImageOptions: &scheduledFargateTaskImageOptions{
-//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   		memoryLimitMiB: jsii.Number(512),
-//   	},
-//   	schedule: appscaling.schedule.expression(jsii.String("rate(1 minute)")),
-//   	securityGroups: []iSecurityGroup{
-//   		securityGroup,
-//   	},
+//   vpcConnector := apprunner.NewVpcConnector(this, jsii.String("VpcConnector"), &vpcConnectorProps{
+//   	vpc: vpc,
+//   	vpcSubnets: vpc.selectSubnets(&subnetSelection{
+//   		subnetType: ec2.subnetType_PUBLIC,
+//   	}),
+//   	vpcConnectorName: jsii.String("MyVpcConnector"),
+//   })
+//
+//   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
+//   	source: apprunner.source.fromEcrPublic(&ecrPublicProps{
+//   		imageConfiguration: &imageConfiguration{
+//   			port: jsii.Number(8000),
+//   		},
+//   		imageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+//   	}),
+//   	vpcConnector: vpcConnector,
 //   })
 //
 // Experimental.
@@ -97303,35 +97308,29 @@ type VpcLookupOptions struct {
 // Configuration for Vpc.
 //
 // Example:
-//   // create a cloud9 ec2 environment in a new VPC
-//   vpc := ec2.NewVpc(this, jsii.String("VPC"), &vpcProps{
-//   	maxAzs: jsii.Number(3),
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
+//   	cidr: jsii.String("10.0.0.0/16"),
 //   })
-//   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env"), &ec2EnvironmentProps{
+//
+//   vpcConnector := apprunner.NewVpcConnector(this, jsii.String("VpcConnector"), &vpcConnectorProps{
 //   	vpc: vpc,
+//   	vpcSubnets: vpc.selectSubnets(&subnetSelection{
+//   		subnetType: ec2.subnetType_PUBLIC,
+//   	}),
+//   	vpcConnectorName: jsii.String("MyVpcConnector"),
 //   })
 //
-//   // or create the cloud9 environment in the default VPC with specific instanceType
-//   defaultVpc := ec2.vpc.fromLookup(this, jsii.String("DefaultVPC"), &vpcLookupOptions{
-//   	isDefault: jsii.Boolean(true),
-//   })
-//   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &ec2EnvironmentProps{
-//   	vpc: defaultVpc,
-//   	instanceType: ec2.NewInstanceType(jsii.String("t3.large")),
-//   })
-//
-//   // or specify in a different subnetSelection
-//   c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &ec2EnvironmentProps{
-//   	vpc: vpc,
-//   	subnetSelection: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
-//   	},
-//   })
-//
-//   // print the Cloud9 IDE URL in the output
-//   // print the Cloud9 IDE URL in the output
-//   awscdk.NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
-//   	value: c9env.ideUrl,
+//   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
+//   	source: apprunner.source.fromEcrPublic(&ecrPublicProps{
+//   		imageConfiguration: &imageConfiguration{
+//   			port: jsii.Number(8000),
+//   		},
+//   		imageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+//   	}),
+//   	vpcConnector: vpcConnector,
 //   })
 //
 // Experimental.

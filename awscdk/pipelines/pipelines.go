@@ -1991,10 +1991,12 @@ type CodeBuildStepProps struct {
 //
 // Experimental.
 type CodeCommitSourceOptions struct {
-	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
+	// If this is set, the next CodeBuild job clones the repository (instead of CodePipeline downloading the files).
 	//
-	// **Note**: if this option is true,
-	// then only CodeBuild actions can use the resulting {@link output}.
+	// This provides access to repository history, and retains symlinks (symlinks would otherwise be
+	// removed by CodePipeline).
+	//
+	// **Note**: if this option is true, only CodeBuild jobs can use the output artifact.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeCommit.html
 	//
 	// Experimental.
@@ -2831,6 +2833,9 @@ func NewCodePipelineSource_Override(c CodePipelineSource, id *string) {
 
 // Returns a CodeCommit source.
 //
+// If you need access to symlinks or the repository history, be sure to set
+// `codeBuildCloneOutput`.
+//
 // Example:
 //   var repository iRepository
 //
@@ -2869,7 +2874,10 @@ func CodePipelineSource_CodeCommit(repository awscodecommit.IRepository, branch 
 // pipelines.CodePipelineSource.connection('owner/repo', 'main', {
 //    connectionArn: 'arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41', // Created using the AWS console
 // });
-// ```.
+// ```
+//
+// If you need access to symlinks or the repository history, be sure to set
+// `codeBuildCloneOutput`.
 // See: https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html
 //
 // Experimental.
@@ -2931,7 +2939,10 @@ func CodePipelineSource_Ecr(repository awsecr.IRepository, props *ECRSourceOptio
 // The token should have these permissions:
 //
 // * **repo** - to read the repository
-// * **admin:repo_hook** - if you plan to use webhooks (true by default).
+// * **admin:repo_hook** - if you plan to use webhooks (true by default)
+//
+// If you need access to symlinks or the repository history, use a source of type
+// `connection` instead.
 // Experimental.
 func CodePipelineSource_GitHub(repoString *string, branch *string, props *GitHubSourceOptions) CodePipelineSource {
 	_init_.Initialize()
@@ -3352,10 +3363,12 @@ type ConnectionSourceOptions struct {
 	//
 	// Experimental.
 	ConnectionArn *string `field:"required" json:"connectionArn" yaml:"connectionArn"`
-	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
+	// If this is set, the next CodeBuild job clones the repository (instead of CodePipeline downloading the files).
 	//
-	// **Note**: if this option is true,
-	// then only CodeBuild actions can use the resulting {@link output}.
+	// This provides access to repository history, and retains symlinks (symlinks would otherwise be
+	// removed by CodePipeline).
+	//
+	// **Note**: if this option is true, only CodeBuild jobs can use the output artifact.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
 	//
 	// Experimental.

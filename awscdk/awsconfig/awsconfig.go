@@ -1322,9 +1322,9 @@ type CfnAggregationAuthorizationProps struct {
 //
 // If you are updating a rule that you added previously, you can specify the rule by `ConfigRuleName` , `ConfigRuleId` , or `ConfigRuleArn` in the `ConfigRule` data type that you use in this request.
 //
-// The maximum number of rules that AWS Config supports is 150.
+// The maximum number of rules that AWS Config supports is 400.
 //
-// For information about requesting a rule limit increase, see [AWS Config Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config) in the *AWS General Reference Guide* .
+// For information about requesting a rule limit increase, see [AWS Config endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/awsconfig.html) in the *AWS General Reference Guide* .
 //
 // For more information about developing and using AWS Config rules, see [Evaluating AWS Resource Configurations with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) in the *AWS Config Developer Guide* .
 //

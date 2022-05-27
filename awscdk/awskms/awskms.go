@@ -4447,6 +4447,9 @@ type ViaServicePrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement awsiam.PolicyStatement) *awsiam.AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -4570,6 +4573,19 @@ func (v *jsiiProxy_ViaServicePrincipal) AddToPrincipalPolicy(_statement awsiam.P
 		v,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_ViaServicePrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		v,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 

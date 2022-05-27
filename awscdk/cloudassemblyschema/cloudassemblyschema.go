@@ -323,6 +323,7 @@ type AssemblyManifest struct {
 //   					jsii.String("executable"),
 //   				},
 //   				"networkMode": jsii.String("networkMode"),
+//   				"platform": jsii.String("platform"),
 //   			},
 //   		},
 //   	},
@@ -658,6 +659,7 @@ type CdkCommands struct {
 //   	imageNameParameter: jsii.String("imageNameParameter"),
 //   	imageTag: jsii.String("imageTag"),
 //   	networkMode: jsii.String("networkMode"),
+//   	platform: jsii.String("platform"),
 //   	repositoryName: jsii.String("repositoryName"),
 //   	target: jsii.String("target"),
 //   }
@@ -696,6 +698,11 @@ type ContainerImageAssetMetadataEntry struct {
 	// Networking mode for the RUN commands during build.
 	// Experimental.
 	NetworkMode *string `field:"optional" json:"networkMode" yaml:"networkMode"`
+	// Platform to build for.
+	//
+	// _Requires Docker Buildx_.
+	// Experimental.
+	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// ECR repository name, if omitted a default name based on the asset's ID is used instead.
 	//
 	// Specify this property if you need to statically address the
@@ -1271,6 +1278,7 @@ type DestroyOptions struct {
 //   			jsii.String("executable"),
 //   		},
 //   		networkMode: jsii.String("networkMode"),
+//   		platform: jsii.String("platform"),
 //   	},
 //   }
 //
@@ -1338,6 +1346,7 @@ type DockerImageDestination struct {
 //   		jsii.String("executable"),
 //   	},
 //   	networkMode: jsii.String("networkMode"),
+//   	platform: jsii.String("platform"),
 //   }
 //
 // Experimental.
@@ -1370,6 +1379,11 @@ type DockerImageSource struct {
 	// Specify this property to build images on a specific networking mode.
 	// Experimental.
 	NetworkMode *string `field:"optional" json:"networkMode" yaml:"networkMode"`
+	// Platform to build for. _Requires Docker Buildx_.
+	//
+	// Specify this property to build images on a specific platform/architecture.
+	// Experimental.
+	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 }
 
 // Query to endpoint service context provider.

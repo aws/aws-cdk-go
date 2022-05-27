@@ -55,6 +55,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"monocdk.aws_ecr_assets.Platform",
+		reflect.TypeOf((*Platform)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "platform", GoGetter: "Platform"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Platform{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"monocdk.aws_ecr_assets.TarballImageAsset",
 		reflect.TypeOf((*TarballImageAsset)(nil)).Elem(),
 		[]_jsii_.Member{

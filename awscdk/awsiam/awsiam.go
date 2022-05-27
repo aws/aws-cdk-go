@@ -487,6 +487,9 @@ type AccountPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// A convenience method for adding a condition that the principal is part of the specified AWS Organization.
 	// Experimental.
 	InOrganization(organizationId *string) PrincipalBase
@@ -639,6 +642,19 @@ func (a *jsiiProxy_AccountPrincipal) AddToPrincipalPolicy(_statement PolicyState
 	return returns
 }
 
+func (a *jsiiProxy_AccountPrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"dedupeString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_AccountPrincipal) InOrganization(organizationId *string) PrincipalBase {
 	var returns PrincipalBase
 
@@ -758,6 +774,9 @@ type AccountRootPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// A convenience method for adding a condition that the principal is part of the specified AWS Organization.
 	// Experimental.
 	InOrganization(organizationId *string) PrincipalBase
@@ -904,6 +923,19 @@ func (a *jsiiProxy_AccountRootPrincipal) AddToPrincipalPolicy(_statement PolicyS
 		a,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AccountRootPrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -1094,6 +1126,9 @@ type AnyPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// A convenience method for adding a condition that the principal is part of the specified AWS Organization.
 	// Experimental.
 	InOrganization(organizationId *string) PrincipalBase
@@ -1236,6 +1271,19 @@ func (a *jsiiProxy_AnyPrincipal) AddToPrincipalPolicy(_statement PolicyStatement
 	return returns
 }
 
+func (a *jsiiProxy_AnyPrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"dedupeString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_AnyPrincipal) InOrganization(organizationId *string) PrincipalBase {
 	var returns PrincipalBase
 
@@ -1345,6 +1393,9 @@ type Anyone interface {
 	// Add to the policy of this principal.
 	// Deprecated: use `AnyPrincipal`.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Deprecated: use `AnyPrincipal`.
+	DedupeString() *string
 	// A convenience method for adding a condition that the principal is part of the specified AWS Organization.
 	// Deprecated: use `AnyPrincipal`.
 	InOrganization(organizationId *string) PrincipalBase
@@ -1487,6 +1538,19 @@ func (a *jsiiProxy_Anyone) AddToPrincipalPolicy(_statement PolicyStatement) *Add
 	return returns
 }
 
+func (a *jsiiProxy_Anyone) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"dedupeString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_Anyone) InOrganization(organizationId *string) PrincipalBase {
 	var returns PrincipalBase
 
@@ -1610,6 +1674,9 @@ type ArnPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// A convenience method for adding a condition that the principal is part of the specified AWS Organization.
 	// Experimental.
 	InOrganization(organizationId *string) PrincipalBase
@@ -1752,6 +1819,19 @@ func (a *jsiiProxy_ArnPrincipal) AddToPrincipalPolicy(_statement PolicyStatement
 	return returns
 }
 
+func (a *jsiiProxy_ArnPrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"dedupeString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_ArnPrincipal) InOrganization(organizationId *string) PrincipalBase {
 	var returns PrincipalBase
 
@@ -1872,6 +1952,9 @@ type CanonicalUserPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -2005,6 +2088,19 @@ func (c *jsiiProxy_CanonicalUserPrincipal) AddToPrincipalPolicy(_statement Polic
 		c,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CanonicalUserPrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -12678,6 +12774,84 @@ type CommonGrantOptions struct {
 	ResourceArns *[]*string `field:"required" json:"resourceArns" yaml:"resourceArns"`
 }
 
+// Helper class for working with `IComparablePrincipal`s.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   comparablePrincipal := awscdk.Aws_iam.NewComparablePrincipal()
+//
+// Experimental.
+type ComparablePrincipal interface {
+}
+
+// The jsii proxy struct for ComparablePrincipal
+type jsiiProxy_ComparablePrincipal struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewComparablePrincipal() ComparablePrincipal {
+	_init_.Initialize()
+
+	j := jsiiProxy_ComparablePrincipal{}
+
+	_jsii_.Create(
+		"monocdk.aws_iam.ComparablePrincipal",
+		nil, // no parameters
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewComparablePrincipal_Override(c ComparablePrincipal) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_iam.ComparablePrincipal",
+		nil, // no parameters
+		c,
+	)
+}
+
+// Return the dedupeString of the given principal, if available.
+// Experimental.
+func ComparablePrincipal_DedupeStringFor(x IPrincipal) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_iam.ComparablePrincipal",
+		"dedupeStringFor",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Whether or not the given principal is a comparable principal.
+// Experimental.
+func ComparablePrincipal_IsComparablePrincipal(x IPrincipal) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_iam.ComparablePrincipal",
+		"isComparablePrincipal",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Composite dependable.
 //
 // Not as simple as eagerly getting the dependency roots from the
@@ -12790,6 +12964,9 @@ type CompositePrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -12941,6 +13118,19 @@ func (c *jsiiProxy_CompositePrincipal) AddToPrincipalPolicy(_statement PolicySta
 		c,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CompositePrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -13102,6 +13292,9 @@ type FederatedPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -13245,6 +13438,19 @@ func (f *jsiiProxy_FederatedPrincipal) AddToPrincipalPolicy(_statement PolicySta
 		f,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FederatedPrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		f,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -14319,6 +14525,36 @@ func (i *jsiiProxy_IAssumeRolePrincipal) AddToAssumeRolePolicy(document PolicyDo
 	)
 }
 
+// Interface for principals that can be compared.
+//
+// This only needs to be implemented for principals that could potentially be value-equal.
+// Identity-equal principals will be handled correctly by default.
+// Experimental.
+type IComparablePrincipal interface {
+	IPrincipal
+	// Return a string format of this principal which should be identical if the two principals are the same.
+	// Experimental.
+	DedupeString() *string
+}
+
+// The jsii proxy for IComparablePrincipal
+type jsiiProxy_IComparablePrincipal struct {
+	jsiiProxy_IPrincipal
+}
+
+func (i *jsiiProxy_IComparablePrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		i,
+		"dedupeString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Any object that has an associated principal that a permission can be granted to.
 // Experimental.
 type IGrantable interface {
@@ -14746,6 +14982,9 @@ type IRole interface {
 	// Grant the actions defined in actions to the identity Principal on this resource.
 	// Experimental.
 	Grant(grantee IPrincipal, actions ...*string) Grant
+	// Grant permissions to the given principal to assume this role.
+	// Experimental.
+	GrantAssumeRole(grantee IPrincipal) Grant
 	// Grant permissions to the given principal to pass this role.
 	// Experimental.
 	GrantPassRole(grantee IPrincipal) Grant
@@ -14774,6 +15013,19 @@ func (i *jsiiProxy_IRole) Grant(grantee IPrincipal, actions ...*string) Grant {
 		i,
 		"grant",
 		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IRole) GrantAssumeRole(grantee IPrincipal) Grant {
+	var returns Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantAssumeRole",
+		[]interface{}{grantee},
 		&returns,
 	)
 
@@ -15027,6 +15279,9 @@ type LazyRole interface {
 	// Grant the actions defined in actions to the identity Principal on this resource.
 	// Experimental.
 	Grant(identity IPrincipal, actions ...*string) Grant
+	// Grant permissions to the given principal to assume this role.
+	// Experimental.
+	GrantAssumeRole(identity IPrincipal) Grant
 	// Grant permissions to the given principal to pass this role.
 	// Experimental.
 	GrantPassRole(identity IPrincipal) Grant
@@ -15361,6 +15616,19 @@ func (l *jsiiProxy_LazyRole) Grant(identity IPrincipal, actions ...*string) Gran
 		l,
 		"grant",
 		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LazyRole) GrantAssumeRole(identity IPrincipal) Grant {
+	var returns Grant
+
+	_jsii_.Invoke(
+		l,
+		"grantAssumeRole",
+		[]interface{}{identity},
 		&returns,
 	)
 
@@ -16264,6 +16532,9 @@ type OpenIdConnectPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -16407,6 +16678,19 @@ func (o *jsiiProxy_OpenIdConnectPrincipal) AddToPrincipalPolicy(_statement Polic
 		o,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (o *jsiiProxy_OpenIdConnectPrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		o,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -16968,6 +17252,9 @@ type OrganizationPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -17101,6 +17388,19 @@ func (o *jsiiProxy_OrganizationPrincipal) AddToPrincipalPolicy(_statement Policy
 		o,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (o *jsiiProxy_OrganizationPrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		o,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -18100,6 +18400,12 @@ type PolicyProps struct {
 //
 // Experimental.
 type PolicyStatement interface {
+	// The Actions added to this statement.
+	// Experimental.
+	Actions() *[]*string
+	// The conditions added to this statement.
+	// Experimental.
+	Conditions() interface{}
 	// Whether to allow or deny the actions in this statement.
 	// Experimental.
 	Effect() Effect
@@ -18111,9 +18417,21 @@ type PolicyStatement interface {
 	// Indicates if this permission has at least one resource associated with it.
 	// Experimental.
 	HasResource() *bool
-	// Expose principals to allow their ARNs to be replaced by account ID strings in policy statements for resources policies that don't allow full account ARNs, such as AWS::Logs::ResourcePolicy.
+	// The NotActions added to this statement.
+	// Experimental.
+	NotActions() *[]*string
+	// The NotPrincipals added to this statement.
+	// Experimental.
+	NotPrincipals() *[]IPrincipal
+	// The NotResources added to this statement.
+	// Experimental.
+	NotResources() *[]*string
+	// The Principals added to this statement.
 	// Experimental.
 	Principals() *[]IPrincipal
+	// The Resources added to this statement.
+	// Experimental.
+	Resources() *[]*string
 	// Statement ID for this statement.
 	// Experimental.
 	Sid() *string
@@ -18249,6 +18567,26 @@ type jsiiProxy_PolicyStatement struct {
 	_ byte // padding
 }
 
+func (j *jsiiProxy_PolicyStatement) Actions() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"actions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PolicyStatement) Conditions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"conditions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_PolicyStatement) Effect() Effect {
 	var returns Effect
 	_jsii_.Get(
@@ -18279,11 +18617,51 @@ func (j *jsiiProxy_PolicyStatement) HasResource() *bool {
 	return returns
 }
 
+func (j *jsiiProxy_PolicyStatement) NotActions() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"notActions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PolicyStatement) NotPrincipals() *[]IPrincipal {
+	var returns *[]IPrincipal
+	_jsii_.Get(
+		j,
+		"notPrincipals",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PolicyStatement) NotResources() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"notResources",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_PolicyStatement) Principals() *[]IPrincipal {
 	var returns *[]IPrincipal
 	_jsii_.Get(
 		j,
 		"principals",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PolicyStatement) Resources() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"resources",
 		&returns,
 	)
 	return returns
@@ -18704,6 +19082,7 @@ type PolicyStatementProps struct {
 // Experimental.
 type PrincipalBase interface {
 	IAssumeRolePrincipal
+	IComparablePrincipal
 	// When this Principal is used in an AssumeRole policy, the action to use.
 	// Experimental.
 	AssumeRoleAction() *string
@@ -18733,6 +19112,9 @@ type PrincipalBase interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -18759,6 +19141,7 @@ type PrincipalBase interface {
 // The jsii proxy struct for PrincipalBase
 type jsiiProxy_PrincipalBase struct {
 	jsiiProxy_IAssumeRolePrincipal
+	jsiiProxy_IComparablePrincipal
 }
 
 func (j *jsiiProxy_PrincipalBase) AssumeRoleAction() *string {
@@ -18841,6 +19224,19 @@ func (p *jsiiProxy_PrincipalBase) AddToPrincipalPolicy(_statement PolicyStatemen
 		p,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_PrincipalBase) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -19056,6 +19452,12 @@ type PrincipalWithConditions interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Append the given string to the wrapped principal's dedupe string (if available).
+	// Experimental.
+	AppendDedupe(append *string) *string
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -19205,6 +19607,32 @@ func (p *jsiiProxy_PrincipalWithConditions) AddToPrincipalPolicy(statement Polic
 		p,
 		"addToPrincipalPolicy",
 		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_PrincipalWithConditions) AppendDedupe(append *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"appendDedupe",
+		[]interface{}{append},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_PrincipalWithConditions) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -19390,6 +19818,9 @@ type Role interface {
 	// Grant the actions defined in actions to the identity Principal on this resource.
 	// Experimental.
 	Grant(grantee IPrincipal, actions ...*string) Grant
+	// Grant permissions to the given principal to assume this role.
+	// Experimental.
+	GrantAssumeRole(identity IPrincipal) Grant
 	// Grant permissions to the given principal to pass this role.
 	// Experimental.
 	GrantPassRole(identity IPrincipal) Grant
@@ -19803,6 +20234,19 @@ func (r *jsiiProxy_Role) Grant(grantee IPrincipal, actions ...*string) Grant {
 	return returns
 }
 
+func (r *jsiiProxy_Role) GrantAssumeRole(identity IPrincipal) Grant {
+	var returns Grant
+
+	_jsii_.Invoke(
+		r,
+		"grantAssumeRole",
+		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
 func (r *jsiiProxy_Role) GrantPassRole(identity IPrincipal) Grant {
 	var returns Grant
 
@@ -20051,6 +20495,9 @@ type SamlConsolePrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -20194,6 +20641,19 @@ func (s *jsiiProxy_SamlConsolePrincipal) AddToPrincipalPolicy(_statement PolicyS
 		s,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SamlConsolePrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -20384,6 +20844,9 @@ type SamlPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -20527,6 +20990,19 @@ func (s *jsiiProxy_SamlPrincipal) AddToPrincipalPolicy(_statement PolicyStatemen
 		s,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SamlPrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -21036,6 +21512,9 @@ type ServicePrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -21141,6 +21620,32 @@ func NewServicePrincipal_Override(s ServicePrincipal, service *string, opts *Ser
 	)
 }
 
+// Translate the given service principal name based on the region it's used in.
+//
+// For example, for Chinese regions this may (depending on whether that's necessary
+// for the given service principal) append `.cn` to the name.
+//
+// The `region-info` module is used to obtain this information.
+//
+// Example:
+//   principalName := iam.servicePrincipal.servicePrincipalName(jsii.String("ec2.amazonaws.com"))
+//
+// Experimental.
+func ServicePrincipal_ServicePrincipalName(service *string) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_iam.ServicePrincipal",
+		"servicePrincipalName",
+		[]interface{}{service},
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_ServicePrincipal) AddToAssumeRolePolicy(document PolicyDocument) {
 	_jsii_.InvokeVoid(
 		s,
@@ -21169,6 +21674,19 @@ func (s *jsiiProxy_ServicePrincipal) AddToPrincipalPolicy(_statement PolicyState
 		s,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServicePrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -21299,6 +21817,12 @@ type SessionTagsPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Append the given string to the wrapped principal's dedupe string (if available).
+	// Experimental.
+	AppendDedupe(append *string) *string
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -21428,6 +21952,32 @@ func (s *jsiiProxy_SessionTagsPrincipal) AddToPrincipalPolicy(statement PolicySt
 	return returns
 }
 
+func (s *jsiiProxy_SessionTagsPrincipal) AppendDedupe(append *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"appendDedupe",
+		[]interface{}{append},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SessionTagsPrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"dedupeString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_SessionTagsPrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -21527,6 +22077,9 @@ type StarPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -21650,6 +22203,19 @@ func (s *jsiiProxy_StarPrincipal) AddToPrincipalPolicy(_statement PolicyStatemen
 		s,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_StarPrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -22565,6 +23131,9 @@ type WebIdentityPrincipal interface {
 	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Return whether or not this principal is equal to the given principal.
+	// Experimental.
+	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
@@ -22708,6 +23277,19 @@ func (w *jsiiProxy_WebIdentityPrincipal) AddToPrincipalPolicy(_statement PolicyS
 		w,
 		"addToPrincipalPolicy",
 		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (w *jsiiProxy_WebIdentityPrincipal) DedupeString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		w,
+		"dedupeString",
+		nil, // no parameters
 		&returns,
 	)
 

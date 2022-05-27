@@ -3953,6 +3953,8 @@ type CfnEndpoint interface {
 	// Experimental.
 	Ref() *string
 	// Whether event replication was enabled or disabled for this endpoint.
+	//
+	// The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
 	ReplicationConfig() interface{}
 	SetReplicationConfig(val interface{})
 	// The ARN of the role used by event replication for the endpoint.
@@ -4848,6 +4850,8 @@ type CfnEndpointProps struct {
 	// A description for the endpoint.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Whether event replication was enabled or disabled for this endpoint.
+	//
+	// The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
 	ReplicationConfig interface{} `field:"optional" json:"replicationConfig" yaml:"replicationConfig"`
 	// The ARN of the role used by event replication for the endpoint.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`

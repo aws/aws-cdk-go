@@ -87,6 +87,19 @@ asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerIm
 })
 ```
 
+You can optionally pass an alternate platform to the `docker build` command by specifying
+the `platform` property:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
+	directory: path.join(__dirname, jsii.String("my-image")),
+	platform: awscdk.Platform_LINUX_ARM64(),
+})
+```
+
 ## Images from Tarball
 
 Images are loaded from a local tarball, uploaded to ECR by the CDK toolkit and/or your app's CI-CD pipeline, and can be

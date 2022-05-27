@@ -94,7 +94,7 @@ type CapacityConfig struct {
 
 // A CloudFormation `AWS::OpenSearchService::Domain`.
 //
-// The AWS::OpenSearchService::Domain resource creates an Amazon OpenSearch Service (successor to Amazon Elasticsearch Service) domain.
+// The AWS::OpenSearchService::Domain resource creates an Amazon OpenSearch Service domain.
 //
 // > The `AWS::OpenSearchService::Domain` resource replaces the legacy [AWS::Elasticsearch::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html) resource. While the Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and legacy Elasticsearch engines. For instructions to upgrade domains defined within CloudFormation from Elasticsearch to OpenSearch, see [Remarks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--remarks) .
 //

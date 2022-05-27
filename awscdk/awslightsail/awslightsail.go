@@ -8796,7 +8796,7 @@ type CfnInstanceProps struct {
 //
 // The `AWS::Lightsail::LoadBalancer` resource specifies a load balancer that can be used with Lightsail instances.
 //
-// > You cannot attach attach TLS certificates to a load balancer using the `AWS::Lightsail::LoadBalancer` resource type. Instead, use the `LoadBalancerTlsCertificate` resource type to create a certificate and attach it to a load balancer.
+// > You cannot attach a TLS certificate to a load balancer using the `AWS::Lightsail::LoadBalancer` resource type. Instead, use the `AWS::Lightsail::LoadBalancerTlsCertificate` resource type to create a certificate and attach it to a load balancer.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

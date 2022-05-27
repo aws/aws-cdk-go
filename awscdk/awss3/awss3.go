@@ -12181,6 +12181,7 @@ const (
 //   			noncurrentVersionsToRetain: jsii.Number(123),
 //   		},
 //   	},
+//   	objectSizeGreaterThan: jsii.Number(123),
 //   	prefix: jsii.String("prefix"),
 //   	tagFilters: map[string]interface{}{
 //   		"tagFiltersKey": tagFilters,
@@ -12259,6 +12260,9 @@ type LifecycleRule struct {
 	// must be later than the transition time.
 	// Experimental.
 	NoncurrentVersionTransitions *[]*NoncurrentVersionTransition `field:"optional" json:"noncurrentVersionTransitions" yaml:"noncurrentVersionTransitions"`
+	// Specifies the minimum object size in bytes for this rule to apply to.
+	// Experimental.
+	ObjectSizeGreaterThan *float64 `field:"optional" json:"objectSizeGreaterThan" yaml:"objectSizeGreaterThan"`
 	// Object key prefix that identifies one or more objects to which this rule applies.
 	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
@@ -12691,6 +12695,7 @@ type RoutingRuleCondition struct {
 //   					noncurrentVersionsToRetain: jsii.Number(123),
 //   				},
 //   			},
+//   			objectSizeGreaterThan: jsii.Number(500),
 //   			prefix: jsii.String("prefix"),
 //   			transitions: []transition{
 //   				&transition{

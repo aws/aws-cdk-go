@@ -65,8 +65,8 @@ func init() {
 		"monocdk.integ_tests.AwsApiCall",
 		reflect.TypeOf((*AwsApiCall)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "assert", GoMethod: "Assert"},
 			_jsii_.MemberMethod{JsiiMethod: "assertAtPath", GoMethod: "AssertAtPath"},
+			_jsii_.MemberMethod{JsiiMethod: "expect", GoMethod: "Expect"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getAttString", GoMethod: "GetAttString"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -82,6 +82,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_AwsApiCall{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAwsApiCall)
 			return &j
 		},
 	)
@@ -100,32 +101,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.integ_tests.AwsApiCallResult",
 		reflect.TypeOf((*AwsApiCallResult)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"monocdk.integ_tests.DeployAssert",
-		reflect.TypeOf((*DeployAssert)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "assert", GoMethod: "Assert"},
-			_jsii_.MemberMethod{JsiiMethod: "awsApiCall", GoMethod: "AwsApiCall"},
-			_jsii_.MemberMethod{JsiiMethod: "invokeFunction", GoMethod: "InvokeFunction"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
-		},
-		func() interface{} {
-			j := jsiiProxy_DeployAssert{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"monocdk.integ_tests.DeployAssertProps",
-		reflect.TypeOf((*DeployAssertProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.integ_tests.EqualsAssertion",
@@ -161,11 +136,39 @@ func init() {
 			return &jsiiProxy_ExpectedResult{}
 		},
 	)
+	_jsii_.RegisterInterface(
+		"monocdk.integ_tests.IAwsApiCall",
+		reflect.TypeOf((*IAwsApiCall)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "assertAtPath", GoMethod: "AssertAtPath"},
+			_jsii_.MemberMethod{JsiiMethod: "expect", GoMethod: "Expect"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getAttString", GoMethod: "GetAttString"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAwsApiCall{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"monocdk.integ_tests.IDeployAssert",
+		reflect.TypeOf((*IDeployAssert)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "awsApiCall", GoMethod: "AwsApiCall"},
+			_jsii_.MemberMethod{JsiiMethod: "expect", GoMethod: "Expect"},
+			_jsii_.MemberMethod{JsiiMethod: "invokeFunction", GoMethod: "InvokeFunction"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IDeployAssert{}
+		},
+	)
 	_jsii_.RegisterClass(
 		"monocdk.integ_tests.IntegTest",
 		reflect.TypeOf((*IntegTest)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "assert", GoGetter: "Assert"},
+			_jsii_.MemberProperty{JsiiProperty: "assertions", GoGetter: "Assertions"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
 			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
@@ -185,7 +188,7 @@ func init() {
 		"monocdk.integ_tests.IntegTestCase",
 		reflect.TypeOf((*IntegTestCase)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "assert", GoGetter: "Assert"},
+			_jsii_.MemberProperty{JsiiProperty: "assertions", GoGetter: "Assertions"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
@@ -217,7 +220,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addTransform", GoMethod: "AddTransform"},
 			_jsii_.MemberMethod{JsiiMethod: "allocateLogicalId", GoMethod: "AllocateLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "artifactId", GoGetter: "ArtifactId"},
-			_jsii_.MemberProperty{JsiiProperty: "assert", GoGetter: "Assert"},
+			_jsii_.MemberProperty{JsiiProperty: "assertions", GoGetter: "Assertions"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberProperty{JsiiProperty: "bundlingRequired", GoGetter: "BundlingRequired"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
@@ -285,8 +288,8 @@ func init() {
 		"monocdk.integ_tests.LambdaInvokeFunction",
 		reflect.TypeOf((*LambdaInvokeFunction)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "assert", GoMethod: "Assert"},
 			_jsii_.MemberMethod{JsiiMethod: "assertAtPath", GoMethod: "AssertAtPath"},
+			_jsii_.MemberMethod{JsiiMethod: "expect", GoMethod: "Expect"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getAttString", GoMethod: "GetAttString"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -324,14 +327,6 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_Match{}
 		},
-	)
-	_jsii_.RegisterStruct(
-		"monocdk.integ_tests.ResultsCollectionRequest",
-		reflect.TypeOf((*ResultsCollectionRequest)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"monocdk.integ_tests.ResultsCollectionResult",
-		reflect.TypeOf((*ResultsCollectionResult)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.integ_tests.Status",

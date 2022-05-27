@@ -184,7 +184,12 @@ awscdk.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
 
 This library also provides a utility to make assertions against the infrastructure that the integration test deploys.
 
-The easiest way to do this is to create a `TestCase` and then access the `DeployAssert` that is automatically created.
+There are two main scenarios in which assertions are created.
+
+* Part of an integration test using `integ-runner`
+
+In this case you would create an integration test using the `IntegTest` construct and then make assertions using the `assert` property.
+You should **not** utilize the assertion constructs directly, but should instead use the `methods` on `IntegTest.assert`.
 
 ```go
 var app app
@@ -196,7 +201,22 @@ integ := awscdk.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
 		stack,
 	},
 })
-integ.assert.awsApiCall(jsii.String("S3"), jsii.String("getObject"))
+integ.assertions.awsApiCall(jsii.String("S3"), jsii.String("getObject"))
+```
+
+* Part of a  normal CDK deployment
+
+In this case you may be using assertions as part of a normal CDK deployment in order to make an assertion on the infrastructure
+before the deployment is considered successful. In this case you can utilize the assertions constructs directly.
+
+```go
+var myAppStack stack
+
+
+awscdk.NewAwsApiCall(myAppStack, jsii.String("GetObject"), &awsApiCallProps{
+	service: jsii.String("S3"),
+	api: jsii.String("getObject"),
+})
 ```
 
 ### DeployAssert
@@ -205,27 +225,20 @@ Assertions are created by using the `DeployAssert` construct. This construct cre
 any stacks that you create as part of your integration tests. This `Stack` is treated differently from other stacks
 by the `integ-runner` tool. For example, this stack will not be diffed by the `integ-runner`.
 
-Any assertions that you create should be created in the scope of `DeployAssert`. For example,
-
-```go
-var app app
-
-
-assert := awscdk.NewDeployAssert(app)
-awscdk.NewAwsApiCall(assert, jsii.String("GetObject"), &awsApiCallProps{
-	service: jsii.String("S3"),
-	api: jsii.String("getObject"),
-})
-```
-
 `DeployAssert` also provides utilities to register your own assertions.
 
 ```go
 var myCustomResource customResource
+var stack stack
 var app app
 
-assert := awscdk.NewDeployAssert(app)
-assert.assert(jsii.String("CustomAssertion"), awscdk.ExpectedResult.objectLike(map[string]interface{}{
+
+integ := awscdk.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
+	testCases: []*stack{
+		stack,
+	},
+})
+integ.assertions.expect(jsii.String("CustomAssertion"), awscdk.ExpectedResult.objectLike(map[string]interface{}{
 	"foo": jsii.String("bar"),
 }), awscdk.ActualResult.fromCustomResource(myCustomResource, jsii.String("data")))
 ```
@@ -240,13 +253,13 @@ AWS API call to receive some data. This library does this by utilizing CloudForm
 which means that CloudFormation will call out to a Lambda Function which will
 use the AWS JavaScript SDK to make the API call.
 
-This can be done by using the class directory:
+This can be done by using the class directory (in the case of a normal deployment):
 
 ```go
-var assert deployAssert
+var stack stack
 
 
-awscdk.NewAwsApiCall(assert, jsii.String("MyAssertion"), &awsApiCallProps{
+awscdk.NewAwsApiCall(stack, jsii.String("MyAssertion"), &awsApiCallProps{
 	service: jsii.String("SQS"),
 	api: jsii.String("receiveMessage"),
 	parameters: map[string]*string{
@@ -255,13 +268,18 @@ awscdk.NewAwsApiCall(assert, jsii.String("MyAssertion"), &awsApiCallProps{
 })
 ```
 
-Or by using the `awsApiCall` method on `DeployAssert`:
+Or by using the `awsApiCall` method on `DeployAssert` (when writing integration tests):
 
 ```go
 var app app
+var stack stack
 
-assert := awscdk.NewDeployAssert(app)
-assert.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]*string{
+integ := awscdk.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
+	testCases: []*stack{
+		stack,
+	},
+})
+integ.assertions.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]*string{
 	"QueueUrl": jsii.String("url"),
 })
 ```
@@ -286,7 +304,7 @@ integ := awscdk.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
 	},
 })
 
-integ.assert.invokeFunction(&lambdaInvokeFunctionProps{
+integ.assertions.invokeFunction(&lambdaInvokeFunctionProps{
 	functionName: fn.functionName,
 	invocationType: awscdk.InvocationType_EVENT,
 	payload: jSON.stringify(map[string]*string{
@@ -294,26 +312,23 @@ integ.assert.invokeFunction(&lambdaInvokeFunctionProps{
 	}),
 })
 
-message := integ.assert.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]interface{}{
+message := integ.assertions.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]interface{}{
 	"QueueUrl": queue.queueUrl,
 	"WaitTimeSeconds": jsii.Number(20),
 })
 
-awscdk.NewEqualsAssertion(integ.assert, jsii.String("ReceiveMessage"), &equalsAssertionProps{
-	actual: awscdk.ActualResult.fromAwsApiCall(message, jsii.String("Messages.0.Body")),
-	expected: awscdk.ExpectedResult.objectLike(map[string]interface{}{
-		"requestContext": map[string]*string{
-			"condition": jsii.String("Success"),
-		},
-		"requestPayload": map[string]*string{
-			"status": jsii.String("OK"),
-		},
-		"responseContext": map[string]*f64{
-			"statusCode": jsii.Number(200),
-		},
-		"responsePayload": jsii.String("success"),
-	}),
-})
+message.assertAtPath(jsii.String("Messages.0.Body"), awscdk.ExpectedResult.objectLike(map[string]interface{}{
+	"requestContext": map[string]*string{
+		"condition": jsii.String("Success"),
+	},
+	"requestPayload": map[string]*string{
+		"status": jsii.String("OK"),
+	},
+	"responseContext": map[string]*f64{
+		"statusCode": jsii.Number(200),
+	},
+	"responsePayload": jsii.String("success"),
+}))
 ```
 
 #### Match
@@ -323,10 +338,9 @@ can be used to construct the `ExpectedResult`.
 
 ```go
 var message awsApiCall
-var assert deployAssert
 
 
-message.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+message.expect(awscdk.ExpectedResult.objectLike(map[string]interface{}{
 	"Messages": awscdk.Match.arrayWith([]interface{}{
 		map[string]map[string]map[string][]interface{}{
 			"Body": map[string]map[string][]interface{}{
@@ -362,10 +376,10 @@ integ := awscdk.NewIntegTest(app, jsii.String("IntegTest"), &integTestProps{
 	},
 })
 
-invoke := integ.assert.invokeFunction(&lambdaInvokeFunctionProps{
+invoke := integ.assertions.invokeFunction(&lambdaInvokeFunctionProps{
 	functionName: lambdaFunction.functionName,
 })
-invoke.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+invoke.expect(awscdk.ExpectedResult.objectLike(map[string]interface{}{
 	"Payload": jsii.String("200"),
 }))
 ```
@@ -388,17 +402,17 @@ testCase := awscdk.NewIntegTest(app, jsii.String("IntegTest"), &integTestProps{
 })
 
 // Start an execution
-start := testCase.assert.awsApiCall(jsii.String("StepFunctions"), jsii.String("startExecution"), map[string]*string{
+start := testCase.assertions.awsApiCall(jsii.String("StepFunctions"), jsii.String("startExecution"), map[string]*string{
 	"stateMachineArn": sm.stateMachineArn,
 })
 
 // describe the results of the execution
-describe := testCase.assert.awsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
+describe := testCase.assertions.awsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
 	"executionArn": start.getAttString(jsii.String("executionArn")),
 })
 
 // assert the results
-describe.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+describe.expect(awscdk.ExpectedResult.objectLike(map[string]interface{}{
 	"status": jsii.String("SUCCEEDED"),
 }))
 ```

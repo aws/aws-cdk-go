@@ -15,10 +15,16 @@ import (
 //
 // Example:
 //   var myCustomResource customResource
+//   var stack stack
 //   var app app
 //
-//   assert := awscdk.NewDeployAssert(app)
-//   assert.assert(jsii.String("CustomAssertion"), awscdk.ExpectedResult.objectLike(map[string]interface{}{
+//
+//   integ := awscdk.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
+//   	testCases: []*stack{
+//   		stack,
+//   	},
+//   })
+//   integ.assertions.expect(jsii.String("CustomAssertion"), awscdk.ExpectedResult.objectLike(map[string]interface{}{
 //   	"foo": jsii.String("bar"),
 //   }), awscdk.ActualResult.fromCustomResource(myCustomResource, jsii.String("data")))
 //
@@ -68,7 +74,7 @@ func (j *jsiiProxy_ActualResult) SetResult(val *string) {
 
 // Get the actual results from a AwsApiCall.
 // Experimental.
-func ActualResult_FromAwsApiCall(query AwsApiCall, attribute *string) ActualResult {
+func ActualResult_FromAwsApiCall(query IAwsApiCall, attribute *string) ActualResult {
 	_init_.Initialize()
 
 	var returns ActualResult
@@ -463,27 +469,18 @@ func (a *jsiiProxy_AssertionsProvider) Validate() *[]*string {
 // Construct that creates a custom resource that will perform a query using the AWS SDK.
 //
 // Example:
-//   var app app
+//   var myAppStack stack
 //
-//   assert := awscdk.NewDeployAssert(app)
-//   assert.awsApiCall(jsii.String("SQS"), jsii.String("sendMessage"), map[string]*string{
-//   	"QueueUrl": jsii.String("url"),
-//   	"MessageBody": jsii.String("hello"),
+//
+//   awscdk.NewAwsApiCall(myAppStack, jsii.String("GetObject"), &awsApiCallProps{
+//   	service: jsii.String("S3"),
+//   	api: jsii.String("getObject"),
 //   })
-//   message := assert.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]*string{
-//   	"QueueUrl": jsii.String("url"),
-//   })
-//   message.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
-//   	"Messages": []interface{}{
-//   		map[string]*string{
-//   			"Body": jsii.String("hello"),
-//   		},
-//   	},
-//   }))
 //
 // Experimental.
 type AwsApiCall interface {
 	awscdk.Construct
+	IAwsApiCall
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
@@ -491,69 +488,27 @@ type AwsApiCall interface {
 	Provider() AssertionsProvider
 	// Experimental.
 	SetProvider(val AssertionsProvider)
-	// Assert that the ExpectedResult is equal to the result of the AwsApiCall.
-	//
-	// Example:
-	//   var assert deployAssert
-	//
-	//   invoke := awscdk.NewLambdaInvokeFunction(assert, jsii.String("Invoke"), &lambdaInvokeFunctionProps{
-	//   	functionName: jsii.String("my-func"),
-	//   })
-	//   invoke.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
-	//   	"Payload": jsii.String("OK"),
-	//   }))
-	//
-	// Experimental.
-	Assert(expected ExpectedResult)
 	// Assert that the ExpectedResult is equal to the result of the AwsApiCall at the given path.
 	//
 	// For example the SQS.receiveMessage api response would look
 	// like:
 	//
 	// If you wanted to assert the value of `Body` you could do.
-	//
-	// Example:
-	//   var assert deployAssert
-	//   actual := map[string][]map[string]interface{}{
-	//   	"Messages": []map[string]interface{}{
-	//   		map[string]interface{}{
-	//   			"MessageId": jsii.String(""),
-	//   			"ReceiptHandle": jsii.String(""),
-	//   			"MD5OfBody": jsii.String(""),
-	//   			"Body": jsii.String("hello"),
-	//   			"Attributes": map[string]interface{}{
-	//   			},
-	//   			"MD5OfMessageAttributes": map[string]interface{}{
-	//   			},
-	//   			"MessageAttributes": map[string]interface{}{
-	//   			},
-	//   		},
-	//   	},
-	//   }
-	//   message := awscdk.NewAwsApiCall(assert, jsii.String("ReceiveMessage"), &awsApiCallProps{
-	//   	service: jsii.String("SQS"),
-	//   	api: jsii.String("receiveMessage"),
-	//   })
-	//
-	//   message.assertAtPath(jsii.String("Messages.0.Body"), awscdk.ExpectedResult.stringLikeRegexp(jsii.String("hello")))
-	//
 	// Experimental.
 	AssertAtPath(path *string, expected ExpectedResult)
+	// Assert that the ExpectedResult is equal to the result of the AwsApiCall.
+	// Experimental.
+	Expect(expected ExpectedResult)
 	// Returns the value of an attribute of the custom resource of an arbitrary type.
 	//
 	// Attributes are returned from the custom resource provider through the
 	// `Data` map where the key is the attribute name.
-	//
-	// Returns: a token for `Fn::GetAtt`. Use `Token.asXxx` to encode the returned `Reference` as a specific type or
-	// use the convenience `getAttString` for string attributes.
 	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Returns the value of an attribute of the custom resource of type string.
 	//
 	// Attributes are returned from the custom resource provider through the
 	// `Data` map where the key is the attribute name.
-	//
-	// Returns: a token for `Fn::GetAtt` encoded as a string.
 	// Experimental.
 	GetAttString(attributeName *string) *string
 	// Perform final modifications before synthesis.
@@ -612,6 +567,7 @@ type AwsApiCall interface {
 // The jsii proxy struct for AwsApiCall
 type jsiiProxy_AwsApiCall struct {
 	internal.Type__awscdkConstruct
+	jsiiProxy_IAwsApiCall
 }
 
 func (j *jsiiProxy_AwsApiCall) Node() awscdk.ConstructNode {
@@ -686,19 +642,19 @@ func AwsApiCall_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (a *jsiiProxy_AwsApiCall) Assert(expected ExpectedResult) {
-	_jsii_.InvokeVoid(
-		a,
-		"assert",
-		[]interface{}{expected},
-	)
-}
-
 func (a *jsiiProxy_AwsApiCall) AssertAtPath(path *string, expected ExpectedResult) {
 	_jsii_.InvokeVoid(
 		a,
 		"assertAtPath",
 		[]interface{}{path, expected},
+	)
+}
+
+func (a *jsiiProxy_AwsApiCall) Expect(expected ExpectedResult) {
+	_jsii_.InvokeVoid(
+		a,
+		"expect",
+		[]interface{}{expected},
 	)
 }
 
@@ -832,15 +788,12 @@ type AwsApiCallOptions struct {
 // Options for creating an SDKQuery provider.
 //
 // Example:
-//   var assert deployAssert
+//   var myAppStack stack
 //
 //
-//   awscdk.NewAwsApiCall(assert, jsii.String("MyAssertion"), &awsApiCallProps{
-//   	service: jsii.String("SQS"),
-//   	api: jsii.String("receiveMessage"),
-//   	parameters: map[string]*string{
-//   		"QueueUrl": jsii.String("url"),
-//   	},
+//   awscdk.NewAwsApiCall(myAppStack, jsii.String("GetObject"), &awsApiCallProps{
+//   	service: jsii.String("S3"),
+//   	api: jsii.String("getObject"),
 //   })
 //
 // Experimental.
@@ -921,386 +874,22 @@ type AwsApiCallResult struct {
 	ApiCallResponse interface{} `field:"required" json:"apiCallResponse" yaml:"apiCallResponse"`
 }
 
-// Construct that allows for registering a list of assertions that should be performed on a construct.
-//
-// Example:
-//   var app app
-//
-//   assert := awscdk.NewDeployAssert(app)
-//   invoke := assert.invokeFunction(&lambdaInvokeFunctionProps{
-//   	functionName: jsii.String("my-function"),
-//   })
-//   invoke.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
-//   	"Payload": jsii.String("200"),
-//   }))
-//
-// Experimental.
-type DeployAssert interface {
-	awscdk.Construct
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Assert that the ExpectedResult is equal to the ActualResult.
-	//
-	// Example:
-	//   var deployAssert deployAssert
-	//   var apiCall awsApiCall
-	//
-	//   deployAssert.assert(jsii.String("invoke"), awscdk.ExpectedResult.objectLike(map[string]interface{}{
-	//   	"Payload": jsii.String("OK"),
-	//   }), awscdk.ActualResult.fromAwsApiCall(apiCall, jsii.String("Body")))
-	//
-	// Experimental.
-	Assert(id *string, expected ExpectedResult, actual ActualResult)
-	// Query AWS using JavaScript SDK V2 API calls.
-	//
-	// This can be used to either
-	// trigger an action or to return a result that can then be asserted against
-	// an expected value.
-	//
-	// Example:
-	//   var app app
-	//
-	//   assert := awscdk.NewDeployAssert(app)
-	//   assert.awsApiCall(jsii.String("SQS"), jsii.String("sendMessage"), map[string]*string{
-	//   	"QueueUrl": jsii.String("url"),
-	//   	"MessageBody": jsii.String("hello"),
-	//   })
-	//   message := assert.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]*string{
-	//   	"QueueUrl": jsii.String("url"),
-	//   })
-	//   message.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
-	//   	"Messages": []interface{}{
-	//   		map[string]*string{
-	//   			"Body": jsii.String("hello"),
-	//   		},
-	//   	},
-	//   }))
-	//
-	// Experimental.
-	AwsApiCall(service *string, api *string, parameters interface{}) AwsApiCall
-	// Invoke a lambda function and return the response which can be asserted.
-	//
-	// Example:
-	//   var app app
-	//
-	//   assert := awscdk.NewDeployAssert(app)
-	//   invoke := assert.invokeFunction(&lambdaInvokeFunctionProps{
-	//   	functionName: jsii.String("my-function"),
-	//   })
-	//   invoke.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
-	//   	"Payload": jsii.String("200"),
-	//   }))
-	//
-	// Experimental.
-	InvokeFunction(props *LambdaInvokeFunctionProps) LambdaInvokeFunction
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
-	// Returns a string representation of this construct.
-	// Experimental.
-	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-}
-
-// The jsii proxy struct for DeployAssert
-type jsiiProxy_DeployAssert struct {
-	internal.Type__awscdkConstruct
-}
-
-func (j *jsiiProxy_DeployAssert) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-
-// Experimental.
-func NewDeployAssert(scope constructs.Construct) DeployAssert {
-	_init_.Initialize()
-
-	j := jsiiProxy_DeployAssert{}
-
-	_jsii_.Create(
-		"monocdk.integ_tests.DeployAssert",
-		[]interface{}{scope},
-		&j,
-	)
-
-	return &j
-}
-
-// Experimental.
-func NewDeployAssert_Override(d DeployAssert, scope constructs.Construct) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.integ_tests.DeployAssert",
-		[]interface{}{scope},
-		d,
-	)
-}
-
-// Return whether the given object is a Construct.
-// Experimental.
-func DeployAssert_IsConstruct(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"monocdk.integ_tests.DeployAssert",
-		"isConstruct",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Returns whether the construct is a DeployAssert construct.
-// Experimental.
-func DeployAssert_IsDeployAssert(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"monocdk.integ_tests.DeployAssert",
-		"isDeployAssert",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Finds a DeployAssert construct in the given scope.
-// Experimental.
-func DeployAssert_Of(construct constructs.IConstruct) DeployAssert {
-	_init_.Initialize()
-
-	var returns DeployAssert
-
-	_jsii_.StaticInvoke(
-		"monocdk.integ_tests.DeployAssert",
-		"of",
-		[]interface{}{construct},
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DeployAssert) Assert(id *string, expected ExpectedResult, actual ActualResult) {
-	_jsii_.InvokeVoid(
-		d,
-		"assert",
-		[]interface{}{id, expected, actual},
-	)
-}
-
-func (d *jsiiProxy_DeployAssert) AwsApiCall(service *string, api *string, parameters interface{}) AwsApiCall {
-	var returns AwsApiCall
-
-	_jsii_.Invoke(
-		d,
-		"awsApiCall",
-		[]interface{}{service, api, parameters},
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DeployAssert) InvokeFunction(props *LambdaInvokeFunctionProps) LambdaInvokeFunction {
-	var returns LambdaInvokeFunction
-
-	_jsii_.Invoke(
-		d,
-		"invokeFunction",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DeployAssert) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (d *jsiiProxy_DeployAssert) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (d *jsiiProxy_DeployAssert) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DeployAssert) Prepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (d *jsiiProxy_DeployAssert) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
-func (d *jsiiProxy_DeployAssert) ToString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		d,
-		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DeployAssert) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Options for DeployAssert.
+// Construct that creates a CustomResource to assert that two values are equal.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   deployAssertProps := &deployAssertProps{
-//   }
+//   var actualResult actualResult
+//   var expectedResult expectedResult
 //
-// Experimental.
-type DeployAssertProps struct {
-}
-
-// Construct that creates a CustomResource to assert that two values are equal.
+//   equalsAssertion := awscdk.Integ_tests.NewEqualsAssertion(this, jsii.String("MyEqualsAssertion"), &equalsAssertionProps{
+//   	actual: actualResult,
+//   	expected: expectedResult,
 //
-// Example:
-//   var app app
-//   var stack stack
-//   var queue queue
-//   var fn iFunction
-//
-//
-//   integ := awscdk.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
-//   	testCases: []*stack{
-//   		stack,
-//   	},
-//   })
-//
-//   integ.assert.invokeFunction(&lambdaInvokeFunctionProps{
-//   	functionName: fn.functionName,
-//   	invocationType: awscdk.InvocationType_EVENT,
-//   	payload: jSON.stringify(map[string]*string{
-//   		"status": jsii.String("OK"),
-//   	}),
-//   })
-//
-//   message := integ.assert.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]interface{}{
-//   	"QueueUrl": queue.queueUrl,
-//   	"WaitTimeSeconds": jsii.Number(20),
-//   })
-//
-//   awscdk.NewEqualsAssertion(integ.assert, jsii.String("ReceiveMessage"), &equalsAssertionProps{
-//   	actual: awscdk.ActualResult.fromAwsApiCall(message, jsii.String("Messages.0.Body")),
-//   	expected: awscdk.ExpectedResult.objectLike(map[string]interface{}{
-//   		"requestContext": map[string]*string{
-//   			"condition": jsii.String("Success"),
-//   		},
-//   		"requestPayload": map[string]*string{
-//   			"status": jsii.String("OK"),
-//   		},
-//   		"responseContext": map[string]*f64{
-//   			"statusCode": jsii.Number(200),
-//   		},
-//   		"responsePayload": jsii.String("success"),
-//   	}),
+//   	// the properties below are optional
+//   	failDeployment: jsii.Boolean(false),
 //   })
 //
 // Experimental.
@@ -1508,46 +1097,20 @@ func (e *jsiiProxy_EqualsAssertion) Validate() *[]*string {
 // Options for an EqualsAssertion.
 //
 // Example:
-//   var app app
-//   var stack stack
-//   var queue queue
-//   var fn iFunction
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var actualResult actualResult
+//   var expectedResult expectedResult
 //
-//   integ := awscdk.NewIntegTest(app, jsii.String("Integ"), &integTestProps{
-//   	testCases: []*stack{
-//   		stack,
-//   	},
-//   })
+//   equalsAssertionProps := &equalsAssertionProps{
+//   	actual: actualResult,
+//   	expected: expectedResult,
 //
-//   integ.assert.invokeFunction(&lambdaInvokeFunctionProps{
-//   	functionName: fn.functionName,
-//   	invocationType: awscdk.InvocationType_EVENT,
-//   	payload: jSON.stringify(map[string]*string{
-//   		"status": jsii.String("OK"),
-//   	}),
-//   })
-//
-//   message := integ.assert.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]interface{}{
-//   	"QueueUrl": queue.queueUrl,
-//   	"WaitTimeSeconds": jsii.Number(20),
-//   })
-//
-//   awscdk.NewEqualsAssertion(integ.assert, jsii.String("ReceiveMessage"), &equalsAssertionProps{
-//   	actual: awscdk.ActualResult.fromAwsApiCall(message, jsii.String("Messages.0.Body")),
-//   	expected: awscdk.ExpectedResult.objectLike(map[string]interface{}{
-//   		"requestContext": map[string]*string{
-//   			"condition": jsii.String("Success"),
-//   		},
-//   		"requestPayload": map[string]*string{
-//   			"status": jsii.String("OK"),
-//   		},
-//   		"responseContext": map[string]*f64{
-//   			"statusCode": jsii.Number(200),
-//   		},
-//   		"responsePayload": jsii.String("success"),
-//   	}),
-//   })
+//   	// the properties below are optional
+//   	failDeployment: jsii.Boolean(false),
+//   }
 //
 // Experimental.
 type EqualsAssertionProps struct {
@@ -1569,16 +1132,16 @@ type EqualsAssertionProps struct {
 //
 // Example:
 //   var app app
+//   var integ integTest
 //
-//   assert := awscdk.NewDeployAssert(app)
-//   assert.awsApiCall(jsii.String("SQS"), jsii.String("sendMessage"), map[string]*string{
+//   integ.assertions.awsApiCall(jsii.String("SQS"), jsii.String("sendMessage"), map[string]*string{
 //   	"QueueUrl": jsii.String("url"),
 //   	"MessageBody": jsii.String("hello"),
 //   })
-//   message := assert.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]*string{
+//   message := integ.assertions.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]*string{
 //   	"QueueUrl": jsii.String("url"),
 //   })
-//   message.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+//   message.expect(awscdk.ExpectedResult.objectLike(map[string]interface{}{
 //   	"Messages": []interface{}{
 //   		map[string]*string{
 //   			"Body": jsii.String("hello"),
@@ -1760,6 +1323,222 @@ func ExpectedResult_StringLikeRegexp(expected *string) ExpectedResult {
 	return returns
 }
 
+// Interface for creating a custom resource that will perform an API call using the AWS SDK.
+// Experimental.
+type IAwsApiCall interface {
+	awscdk.IConstruct
+	// Assert that the ExpectedResult is equal to the result of the AwsApiCall at the given path.
+	//
+	// For example the SQS.receiveMessage api response would look
+	// like:
+	//
+	// If you wanted to assert the value of `Body` you could do.
+	//
+	// Example:
+	//   var integ integTest
+	//   actual := map[string][]map[string]interface{}{
+	//   	"Messages": []map[string]interface{}{
+	//   		map[string]interface{}{
+	//   			"MessageId": jsii.String(""),
+	//   			"ReceiptHandle": jsii.String(""),
+	//   			"MD5OfBody": jsii.String(""),
+	//   			"Body": jsii.String("hello"),
+	//   			"Attributes": map[string]interface{}{
+	//   			},
+	//   			"MD5OfMessageAttributes": map[string]interface{}{
+	//   			},
+	//   			"MessageAttributes": map[string]interface{}{
+	//   			},
+	//   		},
+	//   	},
+	//   }
+	//   message := integ.assertions.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"))
+	//
+	//   message.assertAtPath(jsii.String("Messages.0.Body"), awscdk.ExpectedResult.stringLikeRegexp(jsii.String("hello")))
+	//
+	// Experimental.
+	AssertAtPath(path *string, expected ExpectedResult)
+	// Assert that the ExpectedResult is equal to the result of the AwsApiCall.
+	//
+	// Example:
+	//   var integ integTest
+	//
+	//   invoke := integ.assertions.invokeFunction(&lambdaInvokeFunctionProps{
+	//   	functionName: jsii.String("my-func"),
+	//   })
+	//   invoke.expect(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+	//   	"Payload": jsii.String("OK"),
+	//   }))
+	//
+	// Experimental.
+	Expect(expected ExpectedResult)
+	// Returns the value of an attribute of the custom resource of an arbitrary type.
+	//
+	// Attributes are returned from the custom resource provider through the
+	// `Data` map where the key is the attribute name.
+	//
+	// Returns: a token for `Fn::GetAtt`. Use `Token.asXxx` to encode the returned `Reference` as a specific type or
+	// use the convenience `getAttString` for string attributes.
+	// Experimental.
+	GetAtt(attributeName *string) awscdk.Reference
+	// Returns the value of an attribute of the custom resource of type string.
+	//
+	// Attributes are returned from the custom resource provider through the
+	// `Data` map where the key is the attribute name.
+	//
+	// Returns: a token for `Fn::GetAtt` encoded as a string.
+	// Experimental.
+	GetAttString(attributeName *string) *string
+}
+
+// The jsii proxy for IAwsApiCall
+type jsiiProxy_IAwsApiCall struct {
+	internal.Type__awscdkIConstruct
+}
+
+func (i *jsiiProxy_IAwsApiCall) AssertAtPath(path *string, expected ExpectedResult) {
+	_jsii_.InvokeVoid(
+		i,
+		"assertAtPath",
+		[]interface{}{path, expected},
+	)
+}
+
+func (i *jsiiProxy_IAwsApiCall) Expect(expected ExpectedResult) {
+	_jsii_.InvokeVoid(
+		i,
+		"expect",
+		[]interface{}{expected},
+	)
+}
+
+func (i *jsiiProxy_IAwsApiCall) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		i,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IAwsApiCall) GetAttString(attributeName *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		i,
+		"getAttString",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Interface that allows for registering a list of assertions that should be performed on a construct.
+//
+// This is only necessary
+// when writing integration tests.
+// Experimental.
+type IDeployAssert interface {
+	// Query AWS using JavaScript SDK V2 API calls.
+	//
+	// This can be used to either
+	// trigger an action or to return a result that can then be asserted against
+	// an expected value.
+	//
+	// Example:
+	//   var app app
+	//   var integ integTest
+	//
+	//   integ.assertions.awsApiCall(jsii.String("SQS"), jsii.String("sendMessage"), map[string]*string{
+	//   	"QueueUrl": jsii.String("url"),
+	//   	"MessageBody": jsii.String("hello"),
+	//   })
+	//   message := integ.assertions.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]*string{
+	//   	"QueueUrl": jsii.String("url"),
+	//   })
+	//   message.expect(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+	//   	"Messages": []interface{}{
+	//   		map[string]*string{
+	//   			"Body": jsii.String("hello"),
+	//   		},
+	//   	},
+	//   }))
+	//
+	// Experimental.
+	AwsApiCall(service *string, api *string, parameters interface{}) IAwsApiCall
+	// Assert that the ExpectedResult is equal to the ActualResult.
+	//
+	// Example:
+	//   var integ integTest
+	//   var apiCall awsApiCall
+	//
+	//   integ.assertions.expect(jsii.String("invoke"), awscdk.ExpectedResult.objectLike(map[string]interface{}{
+	//   	"Payload": jsii.String("OK"),
+	//   }), awscdk.ActualResult.fromAwsApiCall(apiCall, jsii.String("Body")))
+	//
+	// Experimental.
+	Expect(id *string, expected ExpectedResult, actual ActualResult)
+	// Invoke a lambda function and return the response which can be asserted.
+	//
+	// Example:
+	//   var app app
+	//   var integ integTest
+	//
+	//   invoke := integ.assertions.invokeFunction(&lambdaInvokeFunctionProps{
+	//   	functionName: jsii.String("my-function"),
+	//   })
+	//   invoke.expect(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+	//   	"Payload": jsii.String("200"),
+	//   }))
+	//
+	// Experimental.
+	InvokeFunction(props *LambdaInvokeFunctionProps) IAwsApiCall
+}
+
+// The jsii proxy for IDeployAssert
+type jsiiProxy_IDeployAssert struct {
+	_ byte // padding
+}
+
+func (i *jsiiProxy_IDeployAssert) AwsApiCall(service *string, api *string, parameters interface{}) IAwsApiCall {
+	var returns IAwsApiCall
+
+	_jsii_.Invoke(
+		i,
+		"awsApiCall",
+		[]interface{}{service, api, parameters},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IDeployAssert) Expect(id *string, expected ExpectedResult, actual ActualResult) {
+	_jsii_.InvokeVoid(
+		i,
+		"expect",
+		[]interface{}{id, expected, actual},
+	)
+}
+
+func (i *jsiiProxy_IDeployAssert) InvokeFunction(props *LambdaInvokeFunctionProps) IAwsApiCall {
+	var returns IAwsApiCall
+
+	_jsii_.Invoke(
+		i,
+		"invokeFunction",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
 // A collection of test cases.
 //
 // Each test case file should contain exactly one
@@ -1778,10 +1557,10 @@ func ExpectedResult_StringLikeRegexp(expected *string) ExpectedResult {
 //   	},
 //   })
 //
-//   invoke := integ.assert.invokeFunction(&lambdaInvokeFunctionProps{
+//   invoke := integ.assertions.invokeFunction(&lambdaInvokeFunctionProps{
 //   	functionName: lambdaFunction.functionName,
 //   })
-//   invoke.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+//   invoke.expect(awscdk.ExpectedResult.objectLike(map[string]interface{}{
 //   	"Payload": jsii.String("200"),
 //   }))
 //
@@ -1790,7 +1569,7 @@ type IntegTest interface {
 	awscdk.Construct
 	// Make assertions on resources in this test case.
 	// Experimental.
-	Assert() DeployAssert
+	Assertions() IDeployAssert
 	// The construct tree node associated with this construct.
 	// Experimental.
 	Node() awscdk.ConstructNode
@@ -1852,11 +1631,11 @@ type jsiiProxy_IntegTest struct {
 	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_IntegTest) Assert() DeployAssert {
-	var returns DeployAssert
+func (j *jsiiProxy_IntegTest) Assertions() IDeployAssert {
+	var returns IDeployAssert
 	_jsii_.Get(
 		j,
-		"assert",
+		"assertions",
 		&returns,
 	)
 	return returns
@@ -2127,7 +1906,7 @@ type IntegTestCase interface {
 	awscdk.Construct
 	// Make assertions on resources in this test case.
 	// Experimental.
-	Assert() DeployAssert
+	Assertions() IDeployAssert
 	// The integration test manifest for this test case.
 	//
 	// Manifests are used
@@ -2195,11 +1974,11 @@ type jsiiProxy_IntegTestCase struct {
 	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_IntegTestCase) Assert() DeployAssert {
-	var returns DeployAssert
+func (j *jsiiProxy_IntegTestCase) Assertions() IDeployAssert {
+	var returns IDeployAssert
 	_jsii_.Get(
 		j,
-		"assert",
+		"assertions",
 		&returns,
 	)
 	return returns
@@ -2558,7 +2337,7 @@ type IntegTestCaseStack interface {
 	ArtifactId() *string
 	// Make assertions on resources in this test case.
 	// Experimental.
-	Assert() DeployAssert
+	Assertions() IDeployAssert
 	// Returns the list of AZs that are available in the AWS environment (account/region) associated with this stack.
 	//
 	// If the stack is environment-agnostic (either account and/or region are
@@ -2980,11 +2759,11 @@ func (j *jsiiProxy_IntegTestCaseStack) ArtifactId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IntegTestCaseStack) Assert() DeployAssert {
-	var returns DeployAssert
+func (j *jsiiProxy_IntegTestCaseStack) Assertions() IDeployAssert {
+	var returns IDeployAssert
 	_jsii_.Get(
 		j,
-		"assert",
+		"assertions",
 		&returns,
 	)
 	return returns
@@ -3701,10 +3480,10 @@ type IntegTestCaseStackProps struct {
 //   	},
 //   })
 //
-//   invoke := integ.assert.invokeFunction(&lambdaInvokeFunctionProps{
+//   invoke := integ.assertions.invokeFunction(&lambdaInvokeFunctionProps{
 //   	functionName: lambdaFunction.functionName,
 //   })
-//   invoke.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+//   invoke.expect(awscdk.ExpectedResult.objectLike(map[string]interface{}{
 //   	"Payload": jsii.String("200"),
 //   }))
 //
@@ -3762,7 +3541,7 @@ type IntegTestProps struct {
 //   	},
 //   })
 //
-//   integ.assert.invokeFunction(&lambdaInvokeFunctionProps{
+//   integ.assertions.invokeFunction(&lambdaInvokeFunctionProps{
 //   	functionName: fn.functionName,
 //   	invocationType: awscdk.InvocationType_EVENT,
 //   	payload: jSON.stringify(map[string]*string{
@@ -3770,26 +3549,23 @@ type IntegTestProps struct {
 //   	}),
 //   })
 //
-//   message := integ.assert.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]interface{}{
+//   message := integ.assertions.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]interface{}{
 //   	"QueueUrl": queue.queueUrl,
 //   	"WaitTimeSeconds": jsii.Number(20),
 //   })
 //
-//   awscdk.NewEqualsAssertion(integ.assert, jsii.String("ReceiveMessage"), &equalsAssertionProps{
-//   	actual: awscdk.ActualResult.fromAwsApiCall(message, jsii.String("Messages.0.Body")),
-//   	expected: awscdk.ExpectedResult.objectLike(map[string]interface{}{
-//   		"requestContext": map[string]*string{
-//   			"condition": jsii.String("Success"),
-//   		},
-//   		"requestPayload": map[string]*string{
-//   			"status": jsii.String("OK"),
-//   		},
-//   		"responseContext": map[string]*f64{
-//   			"statusCode": jsii.Number(200),
-//   		},
-//   		"responsePayload": jsii.String("success"),
-//   	}),
-//   })
+//   message.assertAtPath(jsii.String("Messages.0.Body"), awscdk.ExpectedResult.objectLike(map[string]interface{}{
+//   	"requestContext": map[string]*string{
+//   		"condition": jsii.String("Success"),
+//   	},
+//   	"requestPayload": map[string]*string{
+//   		"status": jsii.String("OK"),
+//   	},
+//   	"responseContext": map[string]*f64{
+//   		"statusCode": jsii.Number(200),
+//   	},
+//   	"responsePayload": jsii.String("success"),
+//   }))
 //
 // Experimental.
 type InvocationType string
@@ -3820,15 +3596,18 @@ const (
 // the correct permissions to invoke the function.
 //
 // Example:
-//   var app app
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   assert := awscdk.NewDeployAssert(app)
-//   invoke := assert.invokeFunction(&lambdaInvokeFunctionProps{
-//   	functionName: jsii.String("my-function"),
+//   lambdaInvokeFunction := awscdk.Integ_tests.NewLambdaInvokeFunction(this, jsii.String("MyLambdaInvokeFunction"), &lambdaInvokeFunctionProps{
+//   	functionName: jsii.String("functionName"),
+//
+//   	// the properties below are optional
+//   	invocationType: awscdk.*Integ_tests.invocationType_EVENT,
+//   	logType: awscdk.*Integ_tests.logType_NONE,
+//   	payload: jsii.String("payload"),
 //   })
-//   invoke.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
-//   	"Payload": jsii.String("200"),
-//   }))
 //
 // Experimental.
 type LambdaInvokeFunction interface {
@@ -3840,63 +3619,27 @@ type LambdaInvokeFunction interface {
 	Provider() AssertionsProvider
 	// Experimental.
 	SetProvider(val AssertionsProvider)
-	// Assert that the ExpectedResult is equal to the result of the AwsApiCall.
-	//
-	// Example:
-	//   declare const assert: DeployAssert;
-	//   const invoke = new LambdaInvokeFunction(assert, 'Invoke', {
-	//     functionName: 'my-func',
-	//   });
-	//   invoke.assert(ExpectedResult.objectLike({ Payload: 'OK' }));
-	//
-	// Experimental.
-	Assert(expected ExpectedResult)
 	// Assert that the ExpectedResult is equal to the result of the AwsApiCall at the given path.
 	//
 	// For example the SQS.receiveMessage api response would look
 	// like:
 	//
 	// If you wanted to assert the value of `Body` you could do.
-	//
-	// Example:
-	//   const actual = {
-	//     Messages: [{
-	//       MessageId: '',
-	//       ReceiptHandle: '',
-	//       MD5OfBody: '',
-	//       Body: 'hello',
-	//       Attributes: {},
-	//       MD5OfMessageAttributes: {},
-	//       MessageAttributes: {}
-	//     }]
-	//   };
-	//
-	//
-	//   declare const assert: DeployAssert;
-	//   const message = new AwsApiCall(assert, 'ReceiveMessage', {
-	//     service:  'SQS',
-	//     api: 'receiveMessage'
-	//   });
-	//
-	//   message.assertAtPath('Messages.0.Body', ExpectedResult.stringLikeRegexp('hello'));
-	//
 	// Experimental.
 	AssertAtPath(path *string, expected ExpectedResult)
+	// Assert that the ExpectedResult is equal to the result of the AwsApiCall.
+	// Experimental.
+	Expect(expected ExpectedResult)
 	// Returns the value of an attribute of the custom resource of an arbitrary type.
 	//
 	// Attributes are returned from the custom resource provider through the
 	// `Data` map where the key is the attribute name.
-	//
-	// Returns: a token for `Fn::GetAtt`. Use `Token.asXxx` to encode the returned `Reference` as a specific type or
-	// use the convenience `getAttString` for string attributes.
 	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Returns the value of an attribute of the custom resource of type string.
 	//
 	// Attributes are returned from the custom resource provider through the
 	// `Data` map where the key is the attribute name.
-	//
-	// Returns: a token for `Fn::GetAtt` encoded as a string.
 	// Experimental.
 	GetAttString(attributeName *string) *string
 	// Perform final modifications before synthesis.
@@ -4029,19 +3772,19 @@ func LambdaInvokeFunction_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (l *jsiiProxy_LambdaInvokeFunction) Assert(expected ExpectedResult) {
-	_jsii_.InvokeVoid(
-		l,
-		"assert",
-		[]interface{}{expected},
-	)
-}
-
 func (l *jsiiProxy_LambdaInvokeFunction) AssertAtPath(path *string, expected ExpectedResult) {
 	_jsii_.InvokeVoid(
 		l,
 		"assertAtPath",
 		[]interface{}{path, expected},
+	)
+}
+
+func (l *jsiiProxy_LambdaInvokeFunction) Expect(expected ExpectedResult) {
+	_jsii_.InvokeVoid(
+		l,
+		"expect",
+		[]interface{}{expected},
 	)
 }
 
@@ -4157,10 +3900,10 @@ func (l *jsiiProxy_LambdaInvokeFunction) Validate() *[]*string {
 //   	},
 //   })
 //
-//   invoke := integ.assert.invokeFunction(&lambdaInvokeFunctionProps{
+//   invoke := integ.assertions.invokeFunction(&lambdaInvokeFunctionProps{
 //   	functionName: lambdaFunction.functionName,
 //   })
-//   invoke.assert(awscdk.ExpectedResult.objectLike(map[string]interface{}{
+//   invoke.expect(awscdk.ExpectedResult.objectLike(map[string]interface{}{
 //   	"Payload": jsii.String("200"),
 //   }))
 //
@@ -4269,49 +4012,6 @@ func Match_StringLikeRegexp(pattern *string) *map[string]*string {
 	)
 
 	return returns
-}
-
-// Represents a collection of assertion request results.
-//
-// Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   resultsCollectionRequest := &resultsCollectionRequest{
-//   	assertionResults: []assertionResultData{
-//   		&assertionResultData{
-//   			status: awscdk.Integ_tests.status_PASS,
-//
-//   			// the properties below are optional
-//   			message: jsii.String("message"),
-//   		},
-//   	},
-//   }
-//
-// Experimental.
-type ResultsCollectionRequest struct {
-	// The results of all the assertions that have been registered.
-	// Experimental.
-	AssertionResults *[]*AssertionResultData `field:"required" json:"assertionResults" yaml:"assertionResults"`
-}
-
-// The result of a results request.
-//
-// Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   resultsCollectionResult := &resultsCollectionResult{
-//   	message: jsii.String("message"),
-//   }
-//
-// Experimental.
-type ResultsCollectionResult struct {
-	// A message containing the results of the assertion.
-	// Experimental.
-	Message *string `field:"required" json:"message" yaml:"message"`
 }
 
 // The status of the assertion.

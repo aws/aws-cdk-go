@@ -33765,7 +33765,9 @@ func NewSnapshotCredentials_Override(s SnapshotCredentials) {
 //
 // Note - The username must match the existing master username of the snapshot.
 //
-// NOTE: use `fromGeneratedSecret()` for new Clusters and Instances.
+// NOTE: use `fromGeneratedSecret()` for new Clusters and Instances. Switching from
+// `fromGeneratedPassword()` to `fromGeneratedSecret()` for already deployed Clusters
+// or Instances will update their master password.
 // Experimental.
 func SnapshotCredentials_FromGeneratedPassword(username *string, options *SnapshotCredentialsFromGeneratedPasswordOptions) SnapshotCredentials {
 	_init_.Initialize()

@@ -58,6 +58,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberMethod{JsiiMethod: "inOrganization", GoMethod: "InOrganization"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
@@ -83,6 +84,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberMethod{JsiiMethod: "inOrganization", GoMethod: "InOrganization"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
@@ -115,6 +117,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberMethod{JsiiMethod: "inOrganization", GoMethod: "InOrganization"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
@@ -139,6 +142,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberMethod{JsiiMethod: "inOrganization", GoMethod: "InOrganization"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
@@ -163,6 +167,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberMethod{JsiiMethod: "inOrganization", GoMethod: "InOrganization"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
@@ -187,6 +192,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberProperty{JsiiProperty: "canonicalUserId", GoGetter: "CanonicalUserId"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
@@ -891,6 +897,14 @@ func init() {
 		reflect.TypeOf((*CommonGrantOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"monocdk.aws_iam.ComparablePrincipal",
+		reflect.TypeOf((*ComparablePrincipal)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_ComparablePrincipal{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"monocdk.aws_iam.CompositeDependable",
 		reflect.TypeOf((*CompositeDependable)(nil)).Elem(),
 		nil, // no members
@@ -909,6 +923,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
@@ -940,6 +955,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberProperty{JsiiProperty: "conditions", GoGetter: "Conditions"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "federated", GoGetter: "Federated"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
@@ -1060,6 +1076,24 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAssumeRolePrincipal{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPrincipal)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"monocdk.aws_iam.IComparablePrincipal",
+		reflect.TypeOf((*IComparablePrincipal)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
+			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IComparablePrincipal{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPrincipal)
 			return &j
 		},
@@ -1211,6 +1245,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "attachInlinePolicy", GoMethod: "AttachInlinePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantAssumeRole", GoMethod: "GrantAssumeRole"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPassRole", GoMethod: "GrantPassRole"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1283,6 +1318,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantAssumeRole", GoMethod: "GrantAssumeRole"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPassRole", GoMethod: "GrantPassRole"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1361,6 +1397,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberProperty{JsiiProperty: "conditions", GoGetter: "Conditions"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "federated", GoGetter: "Federated"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
@@ -1417,6 +1454,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "organizationId", GoGetter: "OrganizationId"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
@@ -1509,6 +1547,7 @@ func init() {
 		"monocdk.aws_iam.PolicyStatement",
 		reflect.TypeOf((*PolicyStatement)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actions", GoGetter: "Actions"},
 			_jsii_.MemberMethod{JsiiMethod: "addAccountCondition", GoMethod: "AddAccountCondition"},
 			_jsii_.MemberMethod{JsiiMethod: "addAccountRootPrincipal", GoMethod: "AddAccountRootPrincipal"},
 			_jsii_.MemberMethod{JsiiMethod: "addActions", GoMethod: "AddActions"},
@@ -1526,11 +1565,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPrincipals", GoMethod: "AddPrincipals"},
 			_jsii_.MemberMethod{JsiiMethod: "addResources", GoMethod: "AddResources"},
 			_jsii_.MemberMethod{JsiiMethod: "addServicePrincipal", GoMethod: "AddServicePrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "conditions", GoGetter: "Conditions"},
 			_jsii_.MemberMethod{JsiiMethod: "copy", GoMethod: "Copy"},
 			_jsii_.MemberProperty{JsiiProperty: "effect", GoGetter: "Effect"},
 			_jsii_.MemberProperty{JsiiProperty: "hasPrincipal", GoGetter: "HasPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "hasResource", GoGetter: "HasResource"},
+			_jsii_.MemberProperty{JsiiProperty: "notActions", GoGetter: "NotActions"},
+			_jsii_.MemberProperty{JsiiProperty: "notPrincipals", GoGetter: "NotPrincipals"},
+			_jsii_.MemberProperty{JsiiProperty: "notResources", GoGetter: "NotResources"},
 			_jsii_.MemberProperty{JsiiProperty: "principals", GoGetter: "Principals"},
+			_jsii_.MemberProperty{JsiiProperty: "resources", GoGetter: "Resources"},
 			_jsii_.MemberProperty{JsiiProperty: "sid", GoGetter: "Sid"},
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toStatementJson", GoMethod: "ToStatementJson"},
@@ -1555,6 +1599,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
@@ -1566,6 +1611,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_PrincipalBase{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAssumeRolePrincipal)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IComparablePrincipal)
 			return &j
 		},
 	)
@@ -1589,8 +1635,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "appendDedupe", GoMethod: "AppendDedupe"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberProperty{JsiiProperty: "conditions", GoGetter: "Conditions"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
@@ -1621,6 +1669,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantAssumeRole", GoMethod: "GrantAssumeRole"},
 			_jsii_.MemberMethod{JsiiMethod: "grantPassRole", GoMethod: "GrantPassRole"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1661,6 +1710,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberProperty{JsiiProperty: "conditions", GoGetter: "Conditions"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "federated", GoGetter: "Federated"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
@@ -1695,6 +1745,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberProperty{JsiiProperty: "conditions", GoGetter: "Conditions"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "federated", GoGetter: "Federated"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
@@ -1750,6 +1801,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
@@ -1776,7 +1828,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "appendDedupe", GoMethod: "AppendDedupe"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
@@ -1799,6 +1853,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
 			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
@@ -1890,6 +1945,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberProperty{JsiiProperty: "conditions", GoGetter: "Conditions"},
+			_jsii_.MemberMethod{JsiiMethod: "dedupeString", GoMethod: "DedupeString"},
 			_jsii_.MemberProperty{JsiiProperty: "federated", GoGetter: "Federated"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},

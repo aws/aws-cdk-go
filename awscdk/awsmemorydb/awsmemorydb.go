@@ -3665,6 +3665,10 @@ type CfnUser interface {
 	// *Valid values* : `active` | `modifying` | `deleting`.
 	AttrStatus() *string
 	// Denotes whether the user requires a password to authenticate.
+	//
+	// *Example:*
+	//
+	// `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`.
 	AuthenticationMode() interface{}
 	SetAuthenticationMode(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -4387,6 +4391,10 @@ type CfnUserProps struct {
 	// Access permissions string used for this user.
 	AccessString *string `field:"required" json:"accessString" yaml:"accessString"`
 	// Denotes whether the user requires a password to authenticate.
+	//
+	// *Example:*
+	//
+	// `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`.
 	AuthenticationMode interface{} `field:"required" json:"authenticationMode" yaml:"authenticationMode"`
 	// The name of the user.
 	UserName *string `field:"required" json:"userName" yaml:"userName"`

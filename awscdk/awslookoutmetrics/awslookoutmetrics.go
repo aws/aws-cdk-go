@@ -2067,13 +2067,13 @@ type CfnAnomalyDetector_MetricSetProperty struct {
 //   }
 //
 type CfnAnomalyDetector_MetricSourceProperty struct {
-	// An object containing information about the AppFlow configuration.
+	// Details about an AppFlow datasource.
 	AppFlowConfig interface{} `field:"optional" json:"appFlowConfig" yaml:"appFlowConfig"`
-	// An object containing information about the Amazon CloudWatch monitoring configuration.
+	// Details about an Amazon CloudWatch monitoring datasource.
 	CloudwatchConfig interface{} `field:"optional" json:"cloudwatchConfig" yaml:"cloudwatchConfig"`
-	// An object containing information about the Amazon Relational Database Service (RDS) configuration.
+	// Details about an Amazon Relational Database Service (RDS) datasource.
 	RdsSourceConfig interface{} `field:"optional" json:"rdsSourceConfig" yaml:"rdsSourceConfig"`
-	// An object containing information about the Amazon Redshift database configuration.
+	// Details about an Amazon Redshift database datasource.
 	RedshiftSourceConfig interface{} `field:"optional" json:"redshiftSourceConfig" yaml:"redshiftSourceConfig"`
 	// Contains information about the configuration of the S3 bucket that contains source files.
 	S3SourceConfig interface{} `field:"optional" json:"s3SourceConfig" yaml:"s3SourceConfig"`

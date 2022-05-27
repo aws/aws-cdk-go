@@ -11,7 +11,7 @@ import (
 
 // A CloudFormation `AWS::VoiceID::Domain`.
 //
-// Creates a domain that contains all Voice ID data, such as speakers, fraudsters, customer audio, and voiceprints.
+// Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters, customer audio, and voiceprints.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -77,7 +77,7 @@ type CfnDomain interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	// Experimental.
 	Ref() *string
-	// The server-side encryption configuration containing the KMS Key Identifier you want VoiceID to use to encrypt your data.
+	// The server-side encryption configuration containing the KMS Key Identifier you want Voice ID to use to encrypt your data.
 	ServerSideEncryptionConfiguration() interface{}
 	SetServerSideEncryptionConfiguration(val interface{})
 	// The stack in which this element is defined.
@@ -738,7 +738,7 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnDomain_ServerSideEncryptionConfigurationProperty struct {
-	// The identifier of the KMS Key you want VoiceID to use to encrypt your data.
+	// The identifier of the KMS Key you want Voice ID to use to encrypt your data.
 	KmsKeyId *string `field:"required" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
@@ -768,7 +768,7 @@ type CfnDomain_ServerSideEncryptionConfigurationProperty struct {
 type CfnDomainProps struct {
 	// The client-provided name for the domain.
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The server-side encryption configuration containing the KMS Key Identifier you want VoiceID to use to encrypt your data.
+	// The server-side encryption configuration containing the KMS Key Identifier you want Voice ID to use to encrypt your data.
 	ServerSideEncryptionConfiguration interface{} `field:"required" json:"serverSideEncryptionConfiguration" yaml:"serverSideEncryptionConfiguration"`
 	// The client-provided description of the domain.
 	Description *string `field:"optional" json:"description" yaml:"description"`

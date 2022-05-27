@@ -24354,6 +24354,7 @@ type DockerImageAssetLocation struct {
 //   		jsii.String("executable"),
 //   	},
 //   	networkMode: jsii.String("networkMode"),
+//   	platform: jsii.String("platform"),
 //   	repositoryName: jsii.String("repositoryName"),
 //   }
 //
@@ -24401,6 +24402,11 @@ type DockerImageAssetSource struct {
 	// Specify this property to build images on a specific networking mode.
 	// Experimental.
 	NetworkMode *string `field:"optional" json:"networkMode" yaml:"networkMode"`
+	// Platform to build for. _Requires Docker Buildx_.
+	//
+	// Specify this property to build images on a specific platform.
+	// Experimental.
+	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// ECR repository name.
 	//
 	// Specify this property if you need to statically address the image, e.g.

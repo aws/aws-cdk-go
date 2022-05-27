@@ -348,6 +348,9 @@ type DockerImageAssetInvalidationOptions struct {
 	// Use `networkMode` while calculating the asset hash.
 	// Experimental.
 	NetworkMode *bool `field:"optional" json:"networkMode" yaml:"networkMode"`
+	// Use `platform` while calculating the asset hash.
+	// Experimental.
+	Platform *bool `field:"optional" json:"platform" yaml:"platform"`
 	// Use `repositoryName` while calculating the asset hash.
 	// Experimental.
 	RepositoryName *bool `field:"optional" json:"repositoryName" yaml:"repositoryName"`
@@ -366,6 +369,7 @@ type DockerImageAssetInvalidationOptions struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkMode networkMode
+//   var platform platform
 //
 //   dockerImageAssetOptions := &dockerImageAssetOptions{
 //   	buildArgs: map[string]*string{
@@ -384,10 +388,12 @@ type DockerImageAssetInvalidationOptions struct {
 //   		extraHash: jsii.Boolean(false),
 //   		file: jsii.Boolean(false),
 //   		networkMode: jsii.Boolean(false),
+//   		platform: jsii.Boolean(false),
 //   		repositoryName: jsii.Boolean(false),
 //   		target: jsii.Boolean(false),
 //   	},
 //   	networkMode: networkMode,
+//   	platform: platform,
 //   	repositoryName: jsii.String("repositoryName"),
 //   	target: jsii.String("target"),
 //   }
@@ -427,6 +433,11 @@ type DockerImageAssetOptions struct {
 	// Support docker API 1.25+.
 	// Experimental.
 	NetworkMode NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
+	// Platform to build for.
+	//
+	// _Requires Docker Buildx_.
+	// Experimental.
+	Platform Platform `field:"optional" json:"platform" yaml:"platform"`
 	// ECR repository name.
 	//
 	// Specify this property if you need to statically address the image, e.g.
@@ -492,6 +503,11 @@ type DockerImageAssetProps struct {
 	// Support docker API 1.25+.
 	// Experimental.
 	NetworkMode NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
+	// Platform to build for.
+	//
+	// _Requires Docker Buildx_.
+	// Experimental.
+	Platform Platform `field:"optional" json:"platform" yaml:"platform"`
 	// ECR repository name.
 	//
 	// Specify this property if you need to statically address the image, e.g.
@@ -607,6 +623,79 @@ func NetworkMode_NONE() NetworkMode {
 	_jsii_.StaticGet(
 		"monocdk.aws_ecr_assets.NetworkMode",
 		"NONE",
+		&returns,
+	)
+	return returns
+}
+
+// platform supported by docker.
+//
+// Example:
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
+//   	directory: path.join(__dirname, jsii.String("my-image")),
+//   	platform: awscdk.Platform_LINUX_ARM64(),
+//   })
+//
+// Experimental.
+type Platform interface {
+	// The platform to use for docker build.
+	// Experimental.
+	Platform() *string
+}
+
+// The jsii proxy struct for Platform
+type jsiiProxy_Platform struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_Platform) Platform() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"platform",
+		&returns,
+	)
+	return returns
+}
+
+
+// Used to specify a custom platform Use this if the platform name is not yet supported by the CDK.
+// Experimental.
+func Platform_Custom(platform *string) Platform {
+	_init_.Initialize()
+
+	var returns Platform
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecr_assets.Platform",
+		"custom",
+		[]interface{}{platform},
+		&returns,
+	)
+
+	return returns
+}
+
+func Platform_LINUX_AMD64() Platform {
+	_init_.Initialize()
+	var returns Platform
+	_jsii_.StaticGet(
+		"monocdk.aws_ecr_assets.Platform",
+		"LINUX_AMD64",
+		&returns,
+	)
+	return returns
+}
+
+func Platform_LINUX_ARM64() Platform {
+	_init_.Initialize()
+	var returns Platform
+	_jsii_.StaticGet(
+		"monocdk.aws_ecr_assets.Platform",
+		"LINUX_ARM64",
 		&returns,
 	)
 	return returns

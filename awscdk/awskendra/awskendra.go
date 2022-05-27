@@ -6804,9 +6804,9 @@ type CfnIndex_SearchProperty struct {
 //   }
 //
 type CfnIndex_ServerSideEncryptionConfigurationProperty struct {
-	// The identifier of the AWS KMS customer master key (CMK).
+	// The identifier of the AWS KMS key .
 	//
-	// Amazon Kendra doesn't support asymmetric CMKs.
+	// Amazon Kendra doesn't support asymmetric keys.
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 

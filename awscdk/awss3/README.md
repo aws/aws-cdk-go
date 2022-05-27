@@ -638,6 +638,7 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 					noncurrentVersionsToRetain: jsii.Number(123),
 				},
 			},
+			objectSizeGreaterThan: jsii.Number(500),
 			prefix: jsii.String("prefix"),
 			transitions: []transition{
 				&transition{

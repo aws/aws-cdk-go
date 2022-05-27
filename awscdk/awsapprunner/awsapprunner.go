@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk"
 	"github.com/aws/aws-cdk-go/awscdk/awsapprunner/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/awsecr"
 	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
 	"github.com/aws/aws-cdk-go/awscdk/awsiam"
@@ -4274,19 +4275,121 @@ func (j *jsiiProxy_IService) ServiceName() *string {
 	return returns
 }
 
+// Represents the App Runner VPC Connector.
+// Experimental.
+type IVpcConnector interface {
+	awsec2.IConnectable
+	awscdk.IResource
+	// The ARN of the VPC connector.
+	// Experimental.
+	VpcConnectorArn() *string
+	// The Name of the VPC connector.
+	// Experimental.
+	VpcConnectorName() *string
+	// The revision of the VPC connector.
+	// Experimental.
+	VpcConnectorRevision() *float64
+}
+
+// The jsii proxy for IVpcConnector
+type jsiiProxy_IVpcConnector struct {
+	internal.Type__awsec2IConnectable
+	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IVpcConnector) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (j *jsiiProxy_IVpcConnector) VpcConnectorArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpcConnectorArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVpcConnector) VpcConnectorName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpcConnectorName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVpcConnector) VpcConnectorRevision() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"vpcConnectorRevision",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVpcConnector) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVpcConnector) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVpcConnector) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVpcConnector) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
 // Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
 //
 // Example:
-//   import ecr "github.com/aws/aws-cdk-go/awscdk"
+//   import assets "github.com/aws/aws-cdk-go/awscdk"
 //
 //
+//   imageAsset := assets.NewDockerImageAsset(this, jsii.String("ImageAssets"), &dockerImageAssetProps{
+//   	directory: path.join(__dirname, jsii.String("./docker.assets")),
+//   })
 //   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-//   	source: apprunner.source.fromEcr(&ecrProps{
+//   	source: apprunner.source.fromAsset(&assetProps{
 //   		imageConfiguration: &imageConfiguration{
-//   			port: jsii.Number(80),
+//   			port: jsii.Number(8000),
 //   		},
-//   		repository: ecr.repository.fromRepositoryName(this, jsii.String("NginxRepository"), jsii.String("nginx")),
-//   		tagOrDigest: jsii.String("latest"),
+//   		asset: imageAsset,
 //   	}),
 //   })
 //
@@ -4536,12 +4639,18 @@ func Runtime_PYTHON_3() Runtime {
 // The App Runner Service.
 //
 // Example:
+//   import assets "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   imageAsset := assets.NewDockerImageAsset(this, jsii.String("ImageAssets"), &dockerImageAssetProps{
+//   	directory: path.join(__dirname, jsii.String("./docker.assets")),
+//   })
 //   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-//   	source: apprunner.source.fromGitHub(&githubRepositoryProps{
-//   		repositoryUrl: jsii.String("https://github.com/aws-containers/hello-app-runner"),
-//   		branch: jsii.String("main"),
-//   		configurationSource: apprunner.configurationSourceType_REPOSITORY,
-//   		connection: apprunner.gitHubConnection.fromConnectionArn(jsii.String("CONNECTION_ARN")),
+//   	source: apprunner.source.fromAsset(&assetProps{
+//   		imageConfiguration: &imageConfiguration{
+//   			port: jsii.Number(8000),
+//   		},
+//   		asset: imageAsset,
 //   	}),
 //   })
 //
@@ -5010,12 +5119,18 @@ type ServiceAttributes struct {
 // Properties of the AppRunner Service.
 //
 // Example:
+//   import assets "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   imageAsset := assets.NewDockerImageAsset(this, jsii.String("ImageAssets"), &dockerImageAssetProps{
+//   	directory: path.join(__dirname, jsii.String("./docker.assets")),
+//   })
 //   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-//   	source: apprunner.source.fromGitHub(&githubRepositoryProps{
-//   		repositoryUrl: jsii.String("https://github.com/aws-containers/hello-app-runner"),
-//   		branch: jsii.String("main"),
-//   		configurationSource: apprunner.configurationSourceType_REPOSITORY,
-//   		connection: apprunner.gitHubConnection.fromConnectionArn(jsii.String("CONNECTION_ARN")),
+//   	source: apprunner.source.fromAsset(&assetProps{
+//   		imageConfiguration: &imageConfiguration{
+//   			port: jsii.Number(8000),
+//   		},
+//   		asset: imageAsset,
 //   	}),
 //   })
 //
@@ -5051,17 +5166,26 @@ type ServiceProps struct {
 	// Name of the service.
 	// Experimental.
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
+	// Settings for an App Runner VPC connector to associate with the service.
+	// Experimental.
+	VpcConnector IVpcConnector `field:"optional" json:"vpcConnector" yaml:"vpcConnector"`
 }
 
 // Represents the App Runner service source.
 //
 // Example:
+//   import assets "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   imageAsset := assets.NewDockerImageAsset(this, jsii.String("ImageAssets"), &dockerImageAssetProps{
+//   	directory: path.join(__dirname, jsii.String("./docker.assets")),
+//   })
 //   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-//   	source: apprunner.source.fromGitHub(&githubRepositoryProps{
-//   		repositoryUrl: jsii.String("https://github.com/aws-containers/hello-app-runner"),
-//   		branch: jsii.String("main"),
-//   		configurationSource: apprunner.configurationSourceType_REPOSITORY,
-//   		connection: apprunner.gitHubConnection.fromConnectionArn(jsii.String("CONNECTION_ARN")),
+//   	source: apprunner.source.fromAsset(&assetProps{
+//   		imageConfiguration: &imageConfiguration{
+//   			port: jsii.Number(8000),
+//   		},
+//   		asset: imageAsset,
 //   	}),
 //   })
 //
@@ -5257,5 +5381,516 @@ type SourceConfig struct {
 	// The image repository configuration (mutually exclusive  with `codeRepository`).
 	// Experimental.
 	ImageRepository *ImageRepository `field:"optional" json:"imageRepository" yaml:"imageRepository"`
+}
+
+// The App Runner VPC Connector.
+//
+// Example:
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
+//   	cidr: jsii.String("10.0.0.0/16"),
+//   })
+//
+//   vpcConnector := apprunner.NewVpcConnector(this, jsii.String("VpcConnector"), &vpcConnectorProps{
+//   	vpc: vpc,
+//   	vpcSubnets: vpc.selectSubnets(&subnetSelection{
+//   		subnetType: ec2.subnetType_PUBLIC,
+//   	}),
+//   	vpcConnectorName: jsii.String("MyVpcConnector"),
+//   })
+//
+//   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
+//   	source: apprunner.source.fromEcrPublic(&ecrPublicProps{
+//   		imageConfiguration: &imageConfiguration{
+//   			port: jsii.Number(8000),
+//   		},
+//   		imageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+//   	}),
+//   	vpcConnector: vpcConnector,
+//   })
+//
+// Experimental.
+type VpcConnector interface {
+	awscdk.Resource
+	IVpcConnector
+	// Allows specifying security group connections for the VPC connector.
+	// Experimental.
+	Connections() awsec2.Connections
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	// Experimental.
+	Env() *awscdk.ResourceEnvironment
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	// Experimental.
+	PhysicalName() *string
+	// The stack in which this resource is defined.
+	// Experimental.
+	Stack() awscdk.Stack
+	// The ARN of the VPC connector.
+	// Experimental.
+	VpcConnectorArn() *string
+	// The name of the VPC connector.
+	// Experimental.
+	VpcConnectorName() *string
+	// The revision of the VPC connector.
+	// Experimental.
+	VpcConnectorRevision() *float64
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
+	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	// Experimental.
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	// Experimental.
+	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
+	// Returns a string representation of this construct.
+	// Experimental.
+	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for VpcConnector
+type jsiiProxy_VpcConnector struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IVpcConnector
+}
+
+func (j *jsiiProxy_VpcConnector) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcConnector) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcConnector) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcConnector) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcConnector) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcConnector) VpcConnectorArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpcConnectorArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcConnector) VpcConnectorName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpcConnectorName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcConnector) VpcConnectorRevision() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"vpcConnectorRevision",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewVpcConnector(scope constructs.Construct, id *string, props *VpcConnectorProps) VpcConnector {
+	_init_.Initialize()
+
+	j := jsiiProxy_VpcConnector{}
+
+	_jsii_.Create(
+		"monocdk.aws_apprunner.VpcConnector",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewVpcConnector_Override(v VpcConnector, scope constructs.Construct, id *string, props *VpcConnectorProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_apprunner.VpcConnector",
+		[]interface{}{scope, id, props},
+		v,
+	)
+}
+
+// Import from VPC connector attributes.
+// Experimental.
+func VpcConnector_FromVpcConnectorAttributes(scope constructs.Construct, id *string, attrs *VpcConnectorAttributes) IVpcConnector {
+	_init_.Initialize()
+
+	var returns IVpcConnector
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_apprunner.VpcConnector",
+		"fromVpcConnectorAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func VpcConnector_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_apprunner.VpcConnector",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+// Experimental.
+func VpcConnector_IsResource(construct awscdk.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_apprunner.VpcConnector",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_VpcConnector) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		v,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (v *jsiiProxy_VpcConnector) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		v,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_VpcConnector) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		v,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_VpcConnector) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		v,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_VpcConnector) OnPrepare() {
+	_jsii_.InvokeVoid(
+		v,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (v *jsiiProxy_VpcConnector) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		v,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (v *jsiiProxy_VpcConnector) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		v,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_VpcConnector) Prepare() {
+	_jsii_.InvokeVoid(
+		v,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (v *jsiiProxy_VpcConnector) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		v,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+func (v *jsiiProxy_VpcConnector) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		v,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_VpcConnector) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		v,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Attributes for the App Runner VPC Connector.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var securityGroup securityGroup
+//
+//   vpcConnectorAttributes := &vpcConnectorAttributes{
+//   	securityGroups: []iSecurityGroup{
+//   		securityGroup,
+//   	},
+//   	vpcConnectorArn: jsii.String("vpcConnectorArn"),
+//   	vpcConnectorName: jsii.String("vpcConnectorName"),
+//   	vpcConnectorRevision: jsii.Number(123),
+//   }
+//
+// Experimental.
+type VpcConnectorAttributes struct {
+	// The security groups associated with the VPC connector.
+	// Experimental.
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"required" json:"securityGroups" yaml:"securityGroups"`
+	// The ARN of the VPC connector.
+	// Experimental.
+	VpcConnectorArn *string `field:"required" json:"vpcConnectorArn" yaml:"vpcConnectorArn"`
+	// The name of the VPC connector.
+	// Experimental.
+	VpcConnectorName *string `field:"required" json:"vpcConnectorName" yaml:"vpcConnectorName"`
+	// The revision of the VPC connector.
+	// Experimental.
+	VpcConnectorRevision *float64 `field:"required" json:"vpcConnectorRevision" yaml:"vpcConnectorRevision"`
+}
+
+// Properties of the AppRunner VPC Connector.
+//
+// Example:
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
+//   	cidr: jsii.String("10.0.0.0/16"),
+//   })
+//
+//   vpcConnector := apprunner.NewVpcConnector(this, jsii.String("VpcConnector"), &vpcConnectorProps{
+//   	vpc: vpc,
+//   	vpcSubnets: vpc.selectSubnets(&subnetSelection{
+//   		subnetType: ec2.subnetType_PUBLIC,
+//   	}),
+//   	vpcConnectorName: jsii.String("MyVpcConnector"),
+//   })
+//
+//   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
+//   	source: apprunner.source.fromEcrPublic(&ecrPublicProps{
+//   		imageConfiguration: &imageConfiguration{
+//   			port: jsii.Number(8000),
+//   		},
+//   		imageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+//   	}),
+//   	vpcConnector: vpcConnector,
+//   })
+//
+// Experimental.
+type VpcConnectorProps struct {
+	// The VPC for the VPC Connector.
+	// Experimental.
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
+	// A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets.
+	// Experimental.
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// The name for the VpcConnector.
+	// Experimental.
+	VpcConnectorName *string `field:"optional" json:"vpcConnectorName" yaml:"vpcConnectorName"`
+	// Where to place the VPC Connector within the VPC.
+	// Experimental.
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

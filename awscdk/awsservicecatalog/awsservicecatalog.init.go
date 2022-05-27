@@ -1106,6 +1106,31 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_servicecatalog.ProductStackHistory",
+		reflect.TypeOf((*ProductStackHistory)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "currentVersion", GoMethod: "CurrentVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "versionFromSnapshot", GoMethod: "VersionFromSnapshot"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ProductStackHistory{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_servicecatalog.ProductStackHistoryProps",
+		reflect.TypeOf((*ProductStackHistoryProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_servicecatalog.StackSetsConstraintOptions",
 		reflect.TypeOf((*StackSetsConstraintOptions)(nil)).Elem(),
