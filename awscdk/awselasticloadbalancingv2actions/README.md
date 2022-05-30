@@ -15,7 +15,7 @@ import cognito "github.com/aws/aws-cdk-go/awscdk"
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/constructs-go/constructs"
+import "github.com/aws-samples/dummy/constructs"
 import actions "github.com/aws/aws-cdk-go/awscdk"
 
 cognitoStack struct {

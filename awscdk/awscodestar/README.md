@@ -1,25 +1,30 @@
 # AWS::CodeStar Construct Library
 
-## GitHub Repository
-
-To create a new GitHub Repository and commit the assets from S3 bucket into the repository after it is created:
+This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.
 
 ```go
 import codestar "github.com/aws/aws-cdk-go/awscdk"
-import s3 "github.com/aws/aws-cdk-go/awscdk"
-
-
-codestar.NewGitHubRepository(this, jsii.String("GitHubRepo"), &gitHubRepositoryProps{
-	owner: jsii.String("aws"),
-	repositoryName: jsii.String("aws-cdk"),
-	accessToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token"), &secretsManagerSecretOptions{
-		jsonField: jsii.String("token"),
-	}),
-	contentsBucket: s3.bucket.fromBucketName(this, jsii.String("Bucket"), jsii.String("bucket-name")),
-	contentsKey: jsii.String("import.zip"),
-})
 ```
 
-## Update or Delete the GitHubRepository
+<!--BEGIN CFNONLY DISCLAIMER-->
 
-At this moment, updates to the `GitHubRepository` are not supported and the repository will not be deleted upon the deletion of the CloudFormation stack. You will need to update or delete the GitHub repository manually.
+There are no official hand-written ([L2](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_lib)) constructs for this service yet. Here are some suggestions on how to proceed:
+
+* Search [Construct Hub for CodeStar construct libraries](https://constructs.dev/search?q=codestar)
+* Use the automatically generated [L1](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_l1_using) constructs, in the same way you would use [the CloudFormation AWS::CodeStar resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStar.html) directly.
+
+> An experimental construct library for this service is available in preview. Since it is not stable yet, it is distributed
+> as a separate package so that you can pin its version independently of the rest of the CDK. See the package:
+>
+> <span class="package-reference">@aws-cdk/aws-codestar-alpha</span>
+
+<!--BEGIN CFNONLY DISCLAIMER-->
+
+There are no hand-written ([L2](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_lib)) constructs for this service yet.
+However, you can still use the automatically generated [L1](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_l1_using) constructs, and use this service exactly as you would using CloudFormation directly.
+
+For more information on the resources and properties available for this service, see the [CloudFormation documentation for AWS::CodeStar](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStar.html).
+
+(Read the [CDK Contributing Guide](https://github.com/aws/aws-cdk/blob/master/CONTRIBUTING.md) and submit an RFC if you are interested in contributing to this construct library.)
+
+<!--END CFNONLY DISCLAIMER-->
