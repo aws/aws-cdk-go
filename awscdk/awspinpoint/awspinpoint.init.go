@@ -411,6 +411,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customDeliveryConfiguration", GoGetter: "CustomDeliveryConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -432,6 +433,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "templateConfiguration", GoGetter: "TemplateConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "treatmentDescription", GoGetter: "TreatmentDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "treatmentName", GoGetter: "TreatmentName"},
@@ -448,6 +450,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pinpoint.CfnCampaign.AttributeDimensionProperty",
 		reflect.TypeOf((*CfnCampaign_AttributeDimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pinpoint.CfnCampaign.CampaignCustomMessageProperty",
+		reflect.TypeOf((*CfnCampaign_CampaignCustomMessageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pinpoint.CfnCampaign.CampaignEmailMessageProperty",
@@ -468,6 +474,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pinpoint.CfnCampaign.CampaignSmsMessageProperty",
 		reflect.TypeOf((*CfnCampaign_CampaignSmsMessageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pinpoint.CfnCampaign.CustomDeliveryConfigurationProperty",
+		reflect.TypeOf((*CfnCampaign_CustomDeliveryConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pinpoint.CfnCampaign.DefaultButtonConfigurationProperty",
@@ -524,6 +534,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pinpoint.CfnCampaign.SetDimensionProperty",
 		reflect.TypeOf((*CfnCampaign_SetDimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pinpoint.CfnCampaign.TemplateConfigurationProperty",
+		reflect.TypeOf((*CfnCampaign_TemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pinpoint.CfnCampaign.TemplateProperty",
+		reflect.TypeOf((*CfnCampaign_TemplateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pinpoint.CfnCampaign.WriteTreatmentResourceProperty",

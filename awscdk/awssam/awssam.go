@@ -31,6 +31,7 @@ import (
 //   		format: jsii.String("format"),
 //   	},
 //   	auth: &authProperty{
+//   		addDefaultAuthorizerToCorsPreflight: jsii.Boolean(false),
 //   		authorizers: authorizers,
 //   		defaultAuthorizer: jsii.String("defaultAuthorizer"),
 //   	},
@@ -1059,11 +1060,14 @@ type CfnApi_AccessLogSettingProperty struct {
 //   var authorizers interface{}
 //
 //   authProperty := &authProperty{
+//   	addDefaultAuthorizerToCorsPreflight: jsii.Boolean(false),
 //   	authorizers: authorizers,
 //   	defaultAuthorizer: jsii.String("defaultAuthorizer"),
 //   }
 //
 type CfnApi_AuthProperty struct {
+	// `CfnApi.AuthProperty.AddDefaultAuthorizerToCorsPreflight`.
+	AddDefaultAuthorizerToCorsPreflight interface{} `field:"optional" json:"addDefaultAuthorizerToCorsPreflight" yaml:"addDefaultAuthorizerToCorsPreflight"`
 	// `CfnApi.AuthProperty.Authorizers`.
 	Authorizers interface{} `field:"optional" json:"authorizers" yaml:"authorizers"`
 	// `CfnApi.AuthProperty.DefaultAuthorizer`.
@@ -1275,6 +1279,7 @@ type CfnApi_S3LocationProperty struct {
 //   		format: jsii.String("format"),
 //   	},
 //   	auth: &authProperty{
+//   		addDefaultAuthorizerToCorsPreflight: jsii.Boolean(false),
 //   		authorizers: authorizers,
 //   		defaultAuthorizer: jsii.String("defaultAuthorizer"),
 //   	},

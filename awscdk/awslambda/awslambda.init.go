@@ -1123,6 +1123,18 @@ func init() {
 		reflect.TypeOf((*FunctionUrlProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.FunctionVersionUpgrade",
+		reflect.TypeOf((*FunctionVersionUpgrade)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "visit", GoMethod: "Visit"},
+		},
+		func() interface{} {
+			j := jsiiProxy_FunctionVersionUpgrade{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIAspect)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda.Handler",
 		reflect.TypeOf((*Handler)(nil)).Elem(),
 		nil, // no members

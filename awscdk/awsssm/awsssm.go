@@ -1280,7 +1280,7 @@ type CfnDocument interface {
 	SetUpdateMethod(val *string)
 	// An optional field specifying the version of the artifact you are creating with the document.
 	//
-	// For example, "Release 12, Update 6". This value is unique across all versions of a document, and can't be changed.
+	// For example, `Release12.1` . This value is unique across all versions of a document, and can't be changed.
 	VersionName() *string
 	SetVersionName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -2039,7 +2039,7 @@ type CfnDocumentProps struct {
 	UpdateMethod *string `field:"optional" json:"updateMethod" yaml:"updateMethod"`
 	// An optional field specifying the version of the artifact you are creating with the document.
 	//
-	// For example, "Release 12, Update 6". This value is unique across all versions of a document, and can't be changed.
+	// For example, `Release12.1` . This value is unique across all versions of a document, and can't be changed.
 	VersionName *string `field:"optional" json:"versionName" yaml:"versionName"`
 }
 

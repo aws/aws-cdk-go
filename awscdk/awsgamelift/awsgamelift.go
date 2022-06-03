@@ -1402,9 +1402,11 @@ type CfnFleet interface {
 	SetBuildId(val *string)
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet.
 	//
-	// TLS certificates are used for encrypting traffic between game clients and the game servers that are running on GameLift. By default, the `CertificateConfiguration` is set to `DISABLED` . This property cannot be changed after the fleet is created.
+	// GameLift uses the certificates to encrypt traffic between game clients and the game servers running on GameLift. By default, the `CertificateConfiguration` is `DISABLED` . You can't change this property after you create the fleet.
 	//
-	// Note: This feature requires the AWS Certificate Manager (ACM) service, which is not available in all AWS regions. When working in a region that does not support this feature, a fleet creation request with certificate generation fails with a 4xx error.
+	// AWS Certificate Manager (ACM) certificates expire after 13 months. Certificate expiration can cause fleets to fail, preventing players from connecting to instances in the fleet. We recommend you replace fleets before 13 months, consider using fleet aliases for a smooth transition.
+	//
+	// > ACM isn't available in all AWS regions. A fleet creation request with certificate generation enabled in an unsupported Region, fails with a 4xx error. For more information about the supported Regions, see [Supported Regions](https://docs.aws.amazon.com/acm/latest/userguide/acm-regions.html) in the *AWS Certificate Manager User Guide* .
 	CertificateConfiguration() interface{}
 	SetCertificateConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -2614,9 +2616,11 @@ type CfnFleetProps struct {
 	BuildId *string `field:"optional" json:"buildId" yaml:"buildId"`
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet.
 	//
-	// TLS certificates are used for encrypting traffic between game clients and the game servers that are running on GameLift. By default, the `CertificateConfiguration` is set to `DISABLED` . This property cannot be changed after the fleet is created.
+	// GameLift uses the certificates to encrypt traffic between game clients and the game servers running on GameLift. By default, the `CertificateConfiguration` is `DISABLED` . You can't change this property after you create the fleet.
 	//
-	// Note: This feature requires the AWS Certificate Manager (ACM) service, which is not available in all AWS regions. When working in a region that does not support this feature, a fleet creation request with certificate generation fails with a 4xx error.
+	// AWS Certificate Manager (ACM) certificates expire after 13 months. Certificate expiration can cause fleets to fail, preventing players from connecting to instances in the fleet. We recommend you replace fleets before 13 months, consider using fleet aliases for a smooth transition.
+	//
+	// > ACM isn't available in all AWS regions. A fleet creation request with certificate generation enabled in an unsupported Region, fails with a 4xx error. For more information about the supported Regions, see [Supported Regions](https://docs.aws.amazon.com/acm/latest/userguide/acm-regions.html) in the *AWS Certificate Manager User Guide* .
 	CertificateConfiguration interface{} `field:"optional" json:"certificateConfiguration" yaml:"certificateConfiguration"`
 	// A human-readable description of the fleet.
 	Description *string `field:"optional" json:"description" yaml:"description"`

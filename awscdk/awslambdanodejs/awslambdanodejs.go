@@ -70,7 +70,7 @@ type BundlingOptions struct {
 	// This image should have esbuild installed globally. If you plan to use `nodeModules`
 	// it should also have `npm` or `yarn` depending on the lock file you're using.
 	//
-	// See https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-lambda-nodejs/lib/Dockerfile
+	// See https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-lambda-nodejs/lib/Dockerfile
 	// for the default image provided by @aws-cdk/aws-lambda-nodejs.
 	DockerImage awscdk.DockerImage `field:"optional" json:"dockerImage" yaml:"dockerImage"`
 	// Environment variables defined when bundling runs.

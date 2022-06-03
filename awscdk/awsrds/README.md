@@ -582,7 +582,7 @@ instance.addRotationSingleUser(&rotationSingleUserOptions{
 })
 ```
 
-See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
+See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
 
 ## IAM Authentication
 

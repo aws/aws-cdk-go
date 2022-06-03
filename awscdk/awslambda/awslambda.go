@@ -15708,6 +15708,60 @@ type FunctionUrlProps struct {
 	Function IFunction `field:"required" json:"function" yaml:"function"`
 }
 
+// Aspect for upgrading function versions when the feature flag provided feature flag present.
+//
+// This can be necessary when the feature flag
+// changes the function hash, as such changes must be associated with a new
+// version. This aspect will change the function description in these cases,
+// which "validates" the new function hash.
+//
+// Example:
+//   stack := awscdk.Newstack()
+//   awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(awscdklibcxapi.LAMBDA_RECOGNIZE_VERSION_PROPS))
+//
+type FunctionVersionUpgrade interface {
+	awscdk.IAspect
+	// All aspects can visit an IConstruct.
+	Visit(node constructs.IConstruct)
+}
+
+// The jsii proxy struct for FunctionVersionUpgrade
+type jsiiProxy_FunctionVersionUpgrade struct {
+	internal.Type__awscdkIAspect
+}
+
+func NewFunctionVersionUpgrade(featureFlag *string, enabled *bool) FunctionVersionUpgrade {
+	_init_.Initialize()
+
+	j := jsiiProxy_FunctionVersionUpgrade{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_lambda.FunctionVersionUpgrade",
+		[]interface{}{featureFlag, enabled},
+		&j,
+	)
+
+	return &j
+}
+
+func NewFunctionVersionUpgrade_Override(f FunctionVersionUpgrade, featureFlag *string, enabled *bool) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_lambda.FunctionVersionUpgrade",
+		[]interface{}{featureFlag, enabled},
+		f,
+	)
+}
+
+func (f *jsiiProxy_FunctionVersionUpgrade) Visit(node constructs.IConstruct) {
+	_jsii_.InvokeVoid(
+		f,
+		"visit",
+		[]interface{}{node},
+	)
+}
+
 // Lambda function handler.
 type Handler interface {
 }
@@ -16767,6 +16821,17 @@ func LambdaInsightsVersion_VERSION_1_0_119_0() LambdaInsightsVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_119_0",
+		&returns,
+	)
+	return returns
+}
+
+func LambdaInsightsVersion_VERSION_1_0_135_0() LambdaInsightsVersion {
+	_init_.Initialize()
+	var returns LambdaInsightsVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
+		"VERSION_1_0_135_0",
 		&returns,
 	)
 	return returns

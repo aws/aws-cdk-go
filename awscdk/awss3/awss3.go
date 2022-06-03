@@ -6095,11 +6095,11 @@ type CfnBucket_RuleProperty struct {
 	NoncurrentVersionTransitions interface{} `field:"optional" json:"noncurrentVersionTransitions" yaml:"noncurrentVersionTransitions"`
 	// Specifies the minimum object size in bytes for this rule to apply to.
 	//
-	// For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+	// Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
 	ObjectSizeGreaterThan *float64 `field:"optional" json:"objectSizeGreaterThan" yaml:"objectSizeGreaterThan"`
 	// Specifies the maximum object size in bytes for this rule to apply to.
 	//
-	// For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+	// Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
 	ObjectSizeLessThan *float64 `field:"optional" json:"objectSizeLessThan" yaml:"objectSizeLessThan"`
 	// Object key prefix that identifies one or more objects to which this rule applies.
 	//
@@ -6116,6 +6116,8 @@ type CfnBucket_RuleProperty struct {
 }
 
 // A container for object key name prefix and suffix filtering rules.
+//
+// For more information about object key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide* .
 //
 // > The same type of filter rule cannot be used more than once. For example, you cannot specify two prefix rules.
 //
@@ -10459,6 +10461,7 @@ const (
 //   		},
 //   	},
 //   	objectSizeGreaterThan: jsii.Number(123),
+//   	objectSizeLessThan: jsii.Number(123),
 //   	prefix: jsii.String("prefix"),
 //   	tagFilters: map[string]interface{}{
 //   		"tagFiltersKey": tagFilters,
@@ -10529,6 +10532,8 @@ type LifecycleRule struct {
 	NoncurrentVersionTransitions *[]*NoncurrentVersionTransition `field:"optional" json:"noncurrentVersionTransitions" yaml:"noncurrentVersionTransitions"`
 	// Specifies the minimum object size in bytes for this rule to apply to.
 	ObjectSizeGreaterThan *float64 `field:"optional" json:"objectSizeGreaterThan" yaml:"objectSizeGreaterThan"`
+	// Specifies the maximum object size in bytes for this rule to apply to.
+	ObjectSizeLessThan *float64 `field:"optional" json:"objectSizeLessThan" yaml:"objectSizeLessThan"`
 	// Object key prefix that identifies one or more objects to which this rule applies.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// The TagFilter property type specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
@@ -10925,6 +10930,7 @@ type RoutingRuleCondition struct {
 //   			},
 //   			objectSizeGreaterThan: jsii.Number(500),
 //   			prefix: jsii.String("prefix"),
+//   			objectSizeLessThan: jsii.Number(10000),
 //   			transitions: []transition{
 //   				&transition{
 //   					storageClass: s3.*storageClass_GLACIER(),

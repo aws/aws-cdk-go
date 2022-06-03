@@ -111,6 +111,14 @@ func init() {
 		reflect.TypeOf((*CfnResponsePlan_ChatChannelProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ssmincidents.CfnResponsePlan.DynamicSsmParameterProperty",
+		reflect.TypeOf((*CfnResponsePlan_DynamicSsmParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ssmincidents.CfnResponsePlan.DynamicSsmParameterValueProperty",
+		reflect.TypeOf((*CfnResponsePlan_DynamicSsmParameterValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ssmincidents.CfnResponsePlan.IncidentTemplateProperty",
 		reflect.TypeOf((*CfnResponsePlan_IncidentTemplateProperty)(nil)).Elem(),
 	)

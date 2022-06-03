@@ -2294,6 +2294,9 @@ type CfnGatewayRouteProps struct {
 //   		egressFilter: &egressFilterProperty{
 //   			type: jsii.String("type"),
 //   		},
+//   		serviceDiscovery: &meshServiceDiscoveryProperty{
+//   			ipPreference: jsii.String("ipPreference"),
+//   		},
 //   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -2927,9 +2930,12 @@ type CfnMesh_EgressFilterProperty struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   meshServiceDiscoveryProperty := &meshServiceDiscoveryProperty{
+//   	ipPreference: jsii.String("ipPreference"),
 //   }
 //
 type CfnMesh_MeshServiceDiscoveryProperty struct {
+	// The IP version to use to control traffic within the mesh.
+	IpPreference *string `field:"optional" json:"ipPreference" yaml:"ipPreference"`
 }
 
 // An object that represents the specification of a service mesh.
@@ -2943,11 +2949,16 @@ type CfnMesh_MeshServiceDiscoveryProperty struct {
 //   	egressFilter: &egressFilterProperty{
 //   		type: jsii.String("type"),
 //   	},
+//   	serviceDiscovery: &meshServiceDiscoveryProperty{
+//   		ipPreference: jsii.String("ipPreference"),
+//   	},
 //   }
 //
 type CfnMesh_MeshSpecProperty struct {
 	// The egress filter rules for the service mesh.
 	EgressFilter interface{} `field:"optional" json:"egressFilter" yaml:"egressFilter"`
+	// An object that represents the service discovery information for a service mesh.
+	ServiceDiscovery interface{} `field:"optional" json:"serviceDiscovery" yaml:"serviceDiscovery"`
 }
 
 // Properties for defining a `CfnMesh`.
@@ -2962,6 +2973,9 @@ type CfnMesh_MeshSpecProperty struct {
 //   	spec: &meshSpecProperty{
 //   		egressFilter: &egressFilterProperty{
 //   			type: jsii.String("type"),
+//   		},
+//   		serviceDiscovery: &meshServiceDiscoveryProperty{
+//   			ipPreference: jsii.String("ipPreference"),
 //   		},
 //   	},
 //   	tags: []cfnTag{
@@ -7498,11 +7512,13 @@ type CfnVirtualGatewayProps struct {
 //   						value: jsii.String("value"),
 //   					},
 //   				},
+//   				ipPreference: jsii.String("ipPreference"),
 //   			},
 //   			dns: &dnsServiceDiscoveryProperty{
 //   				hostname: jsii.String("hostname"),
 //
 //   				// the properties below are optional
+//   				ipPreference: jsii.String("ipPreference"),
 //   				responseType: jsii.String("responseType"),
 //   			},
 //   		},
@@ -8236,6 +8252,7 @@ type CfnVirtualNode_AwsCloudMapInstanceAttributeProperty struct {
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	ipPreference: jsii.String("ipPreference"),
 //   }
 //
 type CfnVirtualNode_AwsCloudMapServiceDiscoveryProperty struct {
@@ -8247,6 +8264,10 @@ type CfnVirtualNode_AwsCloudMapServiceDiscoveryProperty struct {
 	//
 	// Only instances that match all of the specified key/value pairs will be returned.
 	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
+	// The preferred IP version that this virtual node uses.
+	//
+	// Setting the IP preference on the virtual node only overrides the IP preference set for the mesh on this specific node.
+	IpPreference *string `field:"optional" json:"ipPreference" yaml:"ipPreference"`
 }
 
 // An object that represents the default properties for a backend.
@@ -8525,12 +8546,17 @@ type CfnVirtualNode_ClientTlsCertificateProperty struct {
 //   	hostname: jsii.String("hostname"),
 //
 //   	// the properties below are optional
+//   	ipPreference: jsii.String("ipPreference"),
 //   	responseType: jsii.String("responseType"),
 //   }
 //
 type CfnVirtualNode_DnsServiceDiscoveryProperty struct {
 	// Specifies the DNS service discovery hostname for the virtual node.
 	Hostname *string `field:"required" json:"hostname" yaml:"hostname"`
+	// The preferred IP version that this virtual node uses.
+	//
+	// Setting the IP preference on the virtual node only overrides the IP preference set for the mesh on this specific node.
+	IpPreference *string `field:"optional" json:"ipPreference" yaml:"ipPreference"`
 	// Specifies the DNS response type for the virtual node.
 	ResponseType *string `field:"optional" json:"responseType" yaml:"responseType"`
 }
@@ -9169,11 +9195,13 @@ type CfnVirtualNode_PortMappingProperty struct {
 //   				value: jsii.String("value"),
 //   			},
 //   		},
+//   		ipPreference: jsii.String("ipPreference"),
 //   	},
 //   	dns: &dnsServiceDiscoveryProperty{
 //   		hostname: jsii.String("hostname"),
 //
 //   		// the properties below are optional
+//   		ipPreference: jsii.String("ipPreference"),
 //   		responseType: jsii.String("responseType"),
 //   	},
 //   }
@@ -9706,11 +9734,13 @@ type CfnVirtualNode_VirtualNodeHttpConnectionPoolProperty struct {
 //   					value: jsii.String("value"),
 //   				},
 //   			},
+//   			ipPreference: jsii.String("ipPreference"),
 //   		},
 //   		dns: &dnsServiceDiscoveryProperty{
 //   			hostname: jsii.String("hostname"),
 //
 //   			// the properties below are optional
+//   			ipPreference: jsii.String("ipPreference"),
 //   			responseType: jsii.String("responseType"),
 //   		},
 //   	},
@@ -10062,11 +10092,13 @@ type CfnVirtualNode_VirtualServiceBackendProperty struct {
 //   						value: jsii.String("value"),
 //   					},
 //   				},
+//   				ipPreference: jsii.String("ipPreference"),
 //   			},
 //   			dns: &dnsServiceDiscoveryProperty{
 //   				hostname: jsii.String("hostname"),
 //
 //   				// the properties below are optional
+//   				ipPreference: jsii.String("ipPreference"),
 //   				responseType: jsii.String("responseType"),
 //   			},
 //   		},
@@ -16761,11 +16793,13 @@ func (s *jsiiProxy_ServiceDiscovery) Bind(scope constructs.Construct) *ServiceDi
 //   				value: jsii.String("value"),
 //   			},
 //   		},
+//   		ipPreference: jsii.String("ipPreference"),
 //   	},
 //   	dns: &dnsServiceDiscoveryProperty{
 //   		hostname: jsii.String("hostname"),
 //
 //   		// the properties below are optional
+//   		ipPreference: jsii.String("ipPreference"),
 //   		responseType: jsii.String("responseType"),
 //   	},
 //   }

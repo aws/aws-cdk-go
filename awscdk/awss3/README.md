@@ -677,6 +677,7 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 			},
 			objectSizeGreaterThan: jsii.Number(500),
 			prefix: jsii.String("prefix"),
+			objectSizeLessThan: jsii.Number(10000),
 			transitions: []transition{
 				&transition{
 					storageClass: s3.*storageClass_GLACIER(),

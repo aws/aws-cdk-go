@@ -1984,6 +1984,11 @@ type CfnIdentityPoolRoleAttachmentProps struct {
 //   		snsRegion: jsii.String("snsRegion"),
 //   	},
 //   	smsVerificationMessage: jsii.String("smsVerificationMessage"),
+//   	userAttributeUpdateSettings: &userAttributeUpdateSettingsProperty{
+//   		attributesRequireVerificationBeforeUpdate: []*string{
+//   			jsii.String("attributesRequireVerificationBeforeUpdate"),
+//   		},
+//   	},
 //   	usernameAttributes: []*string{
 //   		jsii.String("usernameAttributes"),
 //   	},
@@ -2134,6 +2139,13 @@ type CfnUserPool interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// The settings for updates to user attributes.
+	//
+	// These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
+	// a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
+	// more information, see [Verifying updates to to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
+	UserAttributeUpdateSettings() interface{}
+	SetUserAttributeUpdateSettings(val interface{})
 	// Determines whether email addresses or phone numbers can be specified as user names when a user signs up.
 	//
 	// Possible values: `phone_number` or `email` .
@@ -2558,6 +2570,16 @@ func (j *jsiiProxy_CfnUserPool) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserPool) UserAttributeUpdateSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"userAttributeUpdateSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPool) UsernameAttributes() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -2759,6 +2781,14 @@ func (j *jsiiProxy_CfnUserPool) SetSmsVerificationMessage(val *string) {
 	_jsii_.Set(
 		j,
 		"smsVerificationMessage",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserPool) SetUserAttributeUpdateSettings(val interface{}) {
+	_jsii_.Set(
+		j,
+		"userAttributeUpdateSettings",
 		val,
 	)
 }
@@ -3481,6 +3511,34 @@ type CfnUserPool_StringAttributeConstraintsProperty struct {
 	MinLength *string `field:"optional" json:"minLength" yaml:"minLength"`
 }
 
+// The settings for updates to user attributes.
+//
+// These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
+// a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
+// more information, see [Verifying updates to to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   userAttributeUpdateSettingsProperty := &userAttributeUpdateSettingsProperty{
+//   	attributesRequireVerificationBeforeUpdate: []*string{
+//   		jsii.String("attributesRequireVerificationBeforeUpdate"),
+//   	},
+//   }
+//
+type CfnUserPool_UserAttributeUpdateSettingsProperty struct {
+	// Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute.
+	//
+	// When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
+	//
+	// You can verify an updated email address or phone number with a [VerifyUserAttribute](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html) API request. You can also call the [UpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html) or [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) API and set `email_verified` or `phone_number_verified` to true.
+	//
+	// When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
+	AttributesRequireVerificationBeforeUpdate *[]*string `field:"required" json:"attributesRequireVerificationBeforeUpdate" yaml:"attributesRequireVerificationBeforeUpdate"`
+}
+
 // The user pool add-ons type.
 //
 // Example:
@@ -3714,6 +3772,9 @@ type CfnUserPoolClient interface {
 	// App callback URLs such as myapp://example are also supported.
 	DefaultRedirectUri() *string
 	SetDefaultRedirectUri(val *string)
+	// `AWS::Cognito::UserPoolClient.EnablePropagateAdditionalUserContextData`.
+	EnablePropagateAdditionalUserContextData() interface{}
+	SetEnablePropagateAdditionalUserContextData(val interface{})
 	// Activates or deactivates token revocation. For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
 	//
 	// If you don't include this parameter, token revocation is automatically activated for the new user pool client.
@@ -4063,6 +4124,16 @@ func (j *jsiiProxy_CfnUserPoolClient) DefaultRedirectUri() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserPoolClient) EnablePropagateAdditionalUserContextData() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enablePropagateAdditionalUserContextData",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPoolClient) EnableTokenRevocation() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -4320,6 +4391,14 @@ func (j *jsiiProxy_CfnUserPoolClient) SetDefaultRedirectUri(val *string) {
 	_jsii_.Set(
 		j,
 		"defaultRedirectUri",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserPoolClient) SetEnablePropagateAdditionalUserContextData(val interface{}) {
+	_jsii_.Set(
+		j,
+		"enablePropagateAdditionalUserContextData",
 		val,
 	)
 }
@@ -4719,6 +4798,7 @@ type CfnUserPoolClient_TokenValidityUnitsProperty struct {
 //   	},
 //   	clientName: jsii.String("clientName"),
 //   	defaultRedirectUri: jsii.String("defaultRedirectUri"),
+//   	enablePropagateAdditionalUserContextData: jsii.Boolean(false),
 //   	enableTokenRevocation: jsii.Boolean(false),
 //   	explicitAuthFlows: []*string{
 //   		jsii.String("explicitAuthFlows"),
@@ -4803,6 +4883,8 @@ type CfnUserPoolClientProps struct {
 	//
 	// App callback URLs such as myapp://example are also supported.
 	DefaultRedirectUri *string `field:"optional" json:"defaultRedirectUri" yaml:"defaultRedirectUri"`
+	// `AWS::Cognito::UserPoolClient.EnablePropagateAdditionalUserContextData`.
+	EnablePropagateAdditionalUserContextData interface{} `field:"optional" json:"enablePropagateAdditionalUserContextData" yaml:"enablePropagateAdditionalUserContextData"`
 	// Activates or deactivates token revocation. For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
 	//
 	// If you don't include this parameter, token revocation is automatically activated for the new user pool client.
@@ -6981,6 +7063,11 @@ type CfnUserPoolIdentityProviderProps struct {
 //   		snsRegion: jsii.String("snsRegion"),
 //   	},
 //   	smsVerificationMessage: jsii.String("smsVerificationMessage"),
+//   	userAttributeUpdateSettings: &userAttributeUpdateSettingsProperty{
+//   		attributesRequireVerificationBeforeUpdate: []*string{
+//   			jsii.String("attributesRequireVerificationBeforeUpdate"),
+//   		},
+//   	},
 //   	usernameAttributes: []*string{
 //   		jsii.String("usernameAttributes"),
 //   	},
@@ -7068,6 +7155,12 @@ type CfnUserPoolProps struct {
 	SmsConfiguration interface{} `field:"optional" json:"smsConfiguration" yaml:"smsConfiguration"`
 	// A string representing the SMS verification message.
 	SmsVerificationMessage *string `field:"optional" json:"smsVerificationMessage" yaml:"smsVerificationMessage"`
+	// The settings for updates to user attributes.
+	//
+	// These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
+	// a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
+	// more information, see [Verifying updates to to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
+	UserAttributeUpdateSettings interface{} `field:"optional" json:"userAttributeUpdateSettings" yaml:"userAttributeUpdateSettings"`
 	// Determines whether email addresses or phone numbers can be specified as user names when a user signs up.
 	//
 	// Possible values: `phone_number` or `email` .
@@ -11805,6 +11898,41 @@ type OAuthSettings struct {
 	Scopes *[]OAuthScope `field:"optional" json:"scopes" yaml:"scopes"`
 }
 
+// The method to use to request attributes.
+type OidcAttributeRequestMethod string
+
+const (
+	// GET.
+	OidcAttributeRequestMethod_GET OidcAttributeRequestMethod = "GET"
+	// POST.
+	OidcAttributeRequestMethod_POST OidcAttributeRequestMethod = "POST"
+)
+
+// OpenID Connect endpoints.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   oidcEndpoints := &oidcEndpoints{
+//   	authorization: jsii.String("authorization"),
+//   	jwksUri: jsii.String("jwksUri"),
+//   	token: jsii.String("token"),
+//   	userInfo: jsii.String("userInfo"),
+//   }
+//
+type OidcEndpoints struct {
+	// Authorization endpoint.
+	Authorization *string `field:"required" json:"authorization" yaml:"authorization"`
+	// Jwks_uri endpoint.
+	JwksUri *string `field:"required" json:"jwksUri" yaml:"jwksUri"`
+	// Token endpoint.
+	Token *string `field:"required" json:"token" yaml:"token"`
+	// UserInfo endpoint.
+	UserInfo *string `field:"required" json:"userInfo" yaml:"userInfo"`
+}
+
 // Password policy for User Pools.
 //
 // Example:
@@ -15557,6 +15685,385 @@ type UserPoolIdentityProviderGoogleProps struct {
 	// The list of google permissions to obtain for getting access to the google profile.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in
 	//
+	Scopes *[]*string `field:"optional" json:"scopes" yaml:"scopes"`
+}
+
+// Represents a identity provider that integrates with OpenID Connect.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var providerAttribute providerAttribute
+//   var userPool userPool
+//
+//   userPoolIdentityProviderOidc := awscdk.Aws_cognito.NewUserPoolIdentityProviderOidc(this, jsii.String("MyUserPoolIdentityProviderOidc"), &userPoolIdentityProviderOidcProps{
+//   	clientId: jsii.String("clientId"),
+//   	clientSecret: jsii.String("clientSecret"),
+//   	issuerUrl: jsii.String("issuerUrl"),
+//   	userPool: userPool,
+//
+//   	// the properties below are optional
+//   	attributeMapping: &attributeMapping{
+//   		address: providerAttribute,
+//   		birthdate: providerAttribute,
+//   		custom: map[string]*providerAttribute{
+//   			"customKey": providerAttribute,
+//   		},
+//   		email: providerAttribute,
+//   		familyName: providerAttribute,
+//   		fullname: providerAttribute,
+//   		gender: providerAttribute,
+//   		givenName: providerAttribute,
+//   		lastUpdateTime: providerAttribute,
+//   		locale: providerAttribute,
+//   		middleName: providerAttribute,
+//   		nickname: providerAttribute,
+//   		phoneNumber: providerAttribute,
+//   		preferredUsername: providerAttribute,
+//   		profilePage: providerAttribute,
+//   		profilePicture: providerAttribute,
+//   		timezone: providerAttribute,
+//   		website: providerAttribute,
+//   	},
+//   	attributeRequestMethod: awscdk.*Aws_cognito.oidcAttributeRequestMethod_GET,
+//   	endpoints: &oidcEndpoints{
+//   		authorization: jsii.String("authorization"),
+//   		jwksUri: jsii.String("jwksUri"),
+//   		token: jsii.String("token"),
+//   		userInfo: jsii.String("userInfo"),
+//   	},
+//   	identifiers: []*string{
+//   		jsii.String("identifiers"),
+//   	},
+//   	name: jsii.String("name"),
+//   	scopes: []*string{
+//   		jsii.String("scopes"),
+//   	},
+//   })
+//
+type UserPoolIdentityProviderOidc interface {
+	awscdk.Resource
+	IUserPoolIdentityProvider
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	Env() *awscdk.ResourceEnvironment
+	// The tree node.
+	Node() constructs.Node
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	PhysicalName() *string
+	// The primary identifier of this identity provider.
+	ProviderName() *string
+	// The stack in which this resource is defined.
+	Stack() awscdk.Stack
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	ConfigureAttributeMapping() interface{}
+	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	GetResourceNameAttribute(nameAttr *string) *string
+	// Returns a string representation of this construct.
+	ToString() *string
+}
+
+// The jsii proxy struct for UserPoolIdentityProviderOidc
+type jsiiProxy_UserPoolIdentityProviderOidc struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IUserPoolIdentityProvider
+}
+
+func (j *jsiiProxy_UserPoolIdentityProviderOidc) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UserPoolIdentityProviderOidc) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UserPoolIdentityProviderOidc) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UserPoolIdentityProviderOidc) ProviderName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"providerName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UserPoolIdentityProviderOidc) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewUserPoolIdentityProviderOidc(scope constructs.Construct, id *string, props *UserPoolIdentityProviderOidcProps) UserPoolIdentityProviderOidc {
+	_init_.Initialize()
+
+	j := jsiiProxy_UserPoolIdentityProviderOidc{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderOidc",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewUserPoolIdentityProviderOidc_Override(u UserPoolIdentityProviderOidc, scope constructs.Construct, id *string, props *UserPoolIdentityProviderOidcProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderOidc",
+		[]interface{}{scope, id, props},
+		u,
+	)
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead.
+func UserPoolIdentityProviderOidc_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderOidc",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func UserPoolIdentityProviderOidc_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderOidc",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+func (u *jsiiProxy_UserPoolIdentityProviderOidc) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		u,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (u *jsiiProxy_UserPoolIdentityProviderOidc) ConfigureAttributeMapping() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		u,
+		"configureAttributeMapping",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (u *jsiiProxy_UserPoolIdentityProviderOidc) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		u,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (u *jsiiProxy_UserPoolIdentityProviderOidc) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		u,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+func (u *jsiiProxy_UserPoolIdentityProviderOidc) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		u,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (u *jsiiProxy_UserPoolIdentityProviderOidc) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		u,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties to initialize UserPoolIdentityProviderOidc.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var providerAttribute providerAttribute
+//   var userPool userPool
+//
+//   userPoolIdentityProviderOidcProps := &userPoolIdentityProviderOidcProps{
+//   	clientId: jsii.String("clientId"),
+//   	clientSecret: jsii.String("clientSecret"),
+//   	issuerUrl: jsii.String("issuerUrl"),
+//   	userPool: userPool,
+//
+//   	// the properties below are optional
+//   	attributeMapping: &attributeMapping{
+//   		address: providerAttribute,
+//   		birthdate: providerAttribute,
+//   		custom: map[string]*providerAttribute{
+//   			"customKey": providerAttribute,
+//   		},
+//   		email: providerAttribute,
+//   		familyName: providerAttribute,
+//   		fullname: providerAttribute,
+//   		gender: providerAttribute,
+//   		givenName: providerAttribute,
+//   		lastUpdateTime: providerAttribute,
+//   		locale: providerAttribute,
+//   		middleName: providerAttribute,
+//   		nickname: providerAttribute,
+//   		phoneNumber: providerAttribute,
+//   		preferredUsername: providerAttribute,
+//   		profilePage: providerAttribute,
+//   		profilePicture: providerAttribute,
+//   		timezone: providerAttribute,
+//   		website: providerAttribute,
+//   	},
+//   	attributeRequestMethod: awscdk.Aws_cognito.oidcAttributeRequestMethod_GET,
+//   	endpoints: &oidcEndpoints{
+//   		authorization: jsii.String("authorization"),
+//   		jwksUri: jsii.String("jwksUri"),
+//   		token: jsii.String("token"),
+//   		userInfo: jsii.String("userInfo"),
+//   	},
+//   	identifiers: []*string{
+//   		jsii.String("identifiers"),
+//   	},
+//   	name: jsii.String("name"),
+//   	scopes: []*string{
+//   		jsii.String("scopes"),
+//   	},
+//   }
+//
+type UserPoolIdentityProviderOidcProps struct {
+	// The user pool to which this construct provides identities.
+	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
+	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
+	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
+	// The client id.
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
+	// The client secret.
+	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
+	// Issuer URL.
+	IssuerUrl *string `field:"required" json:"issuerUrl" yaml:"issuerUrl"`
+	// The method to use to request attributes.
+	AttributeRequestMethod OidcAttributeRequestMethod `field:"optional" json:"attributeRequestMethod" yaml:"attributeRequestMethod"`
+	// OpenID connect endpoints.
+	Endpoints *OidcEndpoints `field:"optional" json:"endpoints" yaml:"endpoints"`
+	// Identifiers.
+	//
+	// Identifiers can be used to redirect users to the correct IdP in multitenant apps.
+	Identifiers *[]*string `field:"optional" json:"identifiers" yaml:"identifiers"`
+	// The name of the provider.
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The OAuth 2.0 scopes that you will request from OpenID Connect. Scopes are groups of OpenID Connect user attributes to exchange with your app.
 	Scopes *[]*string `field:"optional" json:"scopes" yaml:"scopes"`
 }
 

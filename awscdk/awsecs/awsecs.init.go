@@ -49,6 +49,7 @@ func init() {
 		reflect.TypeOf((*AsgCapacityProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingGroup", GoGetter: "AutoScalingGroup"},
+			_jsii_.MemberProperty{JsiiProperty: "canContainersAccessInstanceRole", GoGetter: "CanContainersAccessInstanceRole"},
 			_jsii_.MemberProperty{JsiiProperty: "capacityProviderName", GoGetter: "CapacityProviderName"},
 			_jsii_.MemberProperty{JsiiProperty: "enableManagedTerminationProtection", GoGetter: "EnableManagedTerminationProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "machineImageType", GoGetter: "MachineImageType"},

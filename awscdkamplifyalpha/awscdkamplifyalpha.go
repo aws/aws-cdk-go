@@ -725,7 +725,7 @@ type BasicAuthProps struct {
 //   var amplifyApp app
 //
 //
-//   master := amplifyApp.addBranch(jsii.String("master")) // `id` will be used as repo branch name
+//   main := amplifyApp.addBranch(jsii.String("main")) // `id` will be used as repo branch name
 //   dev := amplifyApp.addBranch(jsii.String("dev"), &branchOptions{
 //   	performanceMode: jsii.Boolean(true),
 //   })
@@ -1030,7 +1030,7 @@ func (b *jsiiProxy_Branch) ToString() *string {
 //   var amplifyApp app
 //
 //
-//   master := amplifyApp.addBranch(jsii.String("master")) // `id` will be used as repo branch name
+//   main := amplifyApp.addBranch(jsii.String("main")) // `id` will be used as repo branch name
 //   dev := amplifyApp.addBranch(jsii.String("dev"), &branchOptions{
 //   	performanceMode: jsii.Boolean(true),
 //   })
@@ -1455,7 +1455,7 @@ type CustomRuleOptions struct {
 //
 // Example:
 //   var amplifyApp app
-//   var master branch
+//   var main branch
 //   var dev branch
 //
 //
@@ -1467,8 +1467,8 @@ type CustomRuleOptions struct {
 //   		jsii.String("pr*"),
 //   	},
 //   })
-//   domain.mapRoot(master) // map master branch to domain root
-//   domain.mapSubDomain(master, jsii.String("www"))
+//   domain.mapRoot(main) // map main branch to domain root
+//   domain.mapSubDomain(main, jsii.String("www"))
 //   domain.mapSubDomain(dev)
 //
 // Experimental.
@@ -1840,7 +1840,7 @@ func (d *jsiiProxy_Domain) ToString() *string {
 //
 // Example:
 //   var amplifyApp app
-//   var master branch
+//   var main branch
 //   var dev branch
 //
 //
@@ -1852,8 +1852,8 @@ func (d *jsiiProxy_Domain) ToString() *string {
 //   		jsii.String("pr*"),
 //   	},
 //   })
-//   domain.mapRoot(master) // map master branch to domain root
-//   domain.mapSubDomain(master, jsii.String("www"))
+//   domain.mapRoot(main) // map main branch to domain root
+//   domain.mapSubDomain(main, jsii.String("www"))
 //   domain.mapSubDomain(dev)
 //
 // Experimental.

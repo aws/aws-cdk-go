@@ -812,6 +812,7 @@ type CfnAccessPolicyProps struct {
 //   	assetName: jsii.String("assetName"),
 //
 //   	// the properties below are optional
+//   	assetDescription: jsii.String("assetDescription"),
 //   	assetHierarchies: []interface{}{
 //   		&assetHierarchyProperty{
 //   			childAssetId: jsii.String("childAssetId"),
@@ -838,6 +839,9 @@ type CfnAccessPolicyProps struct {
 type CfnAsset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// `AWS::IoTSiteWise::Asset.AssetDescription`.
+	AssetDescription() *string
+	SetAssetDescription(val *string)
 	// A list of asset hierarchies that each contain a `hierarchyLogicalId` .
 	//
 	// A hierarchy specifies allowed parent/child asset relationships.
@@ -1008,6 +1012,16 @@ type CfnAsset interface {
 type jsiiProxy_CfnAsset struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnAsset) AssetDescription() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"assetDescription",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnAsset) AssetHierarchies() interface{} {
@@ -1194,6 +1208,14 @@ func NewCfnAsset_Override(c CfnAsset, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_iotsitewise.CfnAsset",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnAsset) SetAssetDescription(val *string) {
+	_jsii_.Set(
+		j,
+		"assetDescription",
+		val,
 	)
 }
 
@@ -2993,6 +3015,7 @@ type CfnAssetModelProps struct {
 //   	assetName: jsii.String("assetName"),
 //
 //   	// the properties below are optional
+//   	assetDescription: jsii.String("assetDescription"),
 //   	assetHierarchies: []interface{}{
 //   		&assetHierarchyProperty{
 //   			childAssetId: jsii.String("childAssetId"),
@@ -3023,6 +3046,8 @@ type CfnAssetProps struct {
 	//
 	// The maximum length is 256 characters with the pattern `[^\ u0000-\ u001F\ u007F]+` .
 	AssetName *string `field:"required" json:"assetName" yaml:"assetName"`
+	// `AWS::IoTSiteWise::Asset.AssetDescription`.
+	AssetDescription *string `field:"optional" json:"assetDescription" yaml:"assetDescription"`
 	// A list of asset hierarchies that each contain a `hierarchyLogicalId` .
 	//
 	// A hierarchy specifies allowed parent/child asset relationships.

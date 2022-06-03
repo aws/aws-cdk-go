@@ -231,7 +231,7 @@ type BucketDeploymentProps struct {
 	//
 	// NOTICE: Configuring this to "false" might have operational implications. Please
 	// visit to the package documentation referred below to make sure you fully understand those implications.
-	// See: https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-s3-deployment#retain-on-delete
+	// See: https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-s3-deployment#retain-on-delete
 	//
 	RetainOnDelete *bool `field:"optional" json:"retainOnDelete" yaml:"retainOnDelete"`
 	// Execution role associated with this function.

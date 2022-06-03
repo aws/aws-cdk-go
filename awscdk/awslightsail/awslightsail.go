@@ -7805,6 +7805,7 @@ type CfnInstanceProps struct {
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	tlsPolicyName: jsii.String("tlsPolicyName"),
 //   })
 //
 type CfnLoadBalancer interface {
@@ -7879,6 +7880,9 @@ type CfnLoadBalancer interface {
 	//
 	// > The `Value` of `Tags` is optional for Lightsail resources.
 	Tags() awscdk.TagManager
+	// The name of the TLS security policy for the load balancer.
+	TlsPolicyName() *string
+	SetTlsPolicyName(val *string)
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
@@ -8165,6 +8169,16 @@ func (j *jsiiProxy_CfnLoadBalancer) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLoadBalancer) TlsPolicyName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tlsPolicyName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLoadBalancer) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -8254,6 +8268,14 @@ func (j *jsiiProxy_CfnLoadBalancer) SetSessionStickinessLbCookieDurationSeconds(
 	_jsii_.Set(
 		j,
 		"sessionStickinessLbCookieDurationSeconds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLoadBalancer) SetTlsPolicyName(val *string) {
+	_jsii_.Set(
+		j,
+		"tlsPolicyName",
 		val,
 	)
 }
@@ -8495,6 +8517,7 @@ func (c *jsiiProxy_CfnLoadBalancer) ValidateProperties(_properties interface{}) 
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	tlsPolicyName: jsii.String("tlsPolicyName"),
 //   }
 //
 type CfnLoadBalancerProps struct {
@@ -8528,6 +8551,8 @@ type CfnLoadBalancerProps struct {
 	//
 	// > The `Value` of `Tags` is optional for Lightsail resources.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The name of the TLS security policy for the load balancer.
+	TlsPolicyName *string `field:"optional" json:"tlsPolicyName" yaml:"tlsPolicyName"`
 }
 
 // A CloudFormation `AWS::Lightsail::LoadBalancerTlsCertificate`.
@@ -8548,6 +8573,7 @@ type CfnLoadBalancerProps struct {
 //   	certificateAlternativeNames: []*string{
 //   		jsii.String("certificateAlternativeNames"),
 //   	},
+//   	httpsRedirectionEnabled: jsii.Boolean(false),
 //   	isAttached: jsii.Boolean(false),
 //   })
 //
@@ -8582,6 +8608,9 @@ type CfnLoadBalancerTlsCertificate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// A Boolean value indicating whether HTTPS redirection is enabled for the load balancer that the TLS certificate is attached to.
+	HttpsRedirectionEnabled() interface{}
+	SetHttpsRedirectionEnabled(val interface{})
 	// A Boolean value indicating whether the SSL/TLS certificate is attached to a Lightsail load balancer.
 	IsAttached() interface{}
 	SetIsAttached(val interface{})
@@ -8815,6 +8844,16 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) HttpsRedirectionEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"httpsRedirectionEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) IsAttached() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -8932,6 +8971,14 @@ func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetCertificateName(val *string
 	_jsii_.Set(
 		j,
 		"certificateName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLoadBalancerTlsCertificate) SetHttpsRedirectionEnabled(val interface{}) {
+	_jsii_.Set(
+		j,
+		"httpsRedirectionEnabled",
 		val,
 	)
 }
@@ -9180,6 +9227,7 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) ValidateProperties(_properties
 //   	certificateAlternativeNames: []*string{
 //   		jsii.String("certificateAlternativeNames"),
 //   	},
+//   	httpsRedirectionEnabled: jsii.Boolean(false),
 //   	isAttached: jsii.Boolean(false),
 //   }
 //
@@ -9196,6 +9244,8 @@ type CfnLoadBalancerTlsCertificateProps struct {
 	//
 	// In addition to the primary domain name, you can have up to nine alternative domain names. Wildcards (such as `*.example.com` ) are not supported.
 	CertificateAlternativeNames *[]*string `field:"optional" json:"certificateAlternativeNames" yaml:"certificateAlternativeNames"`
+	// A Boolean value indicating whether HTTPS redirection is enabled for the load balancer that the TLS certificate is attached to.
+	HttpsRedirectionEnabled interface{} `field:"optional" json:"httpsRedirectionEnabled" yaml:"httpsRedirectionEnabled"`
 	// A Boolean value indicating whether the SSL/TLS certificate is attached to a Lightsail load balancer.
 	IsAttached interface{} `field:"optional" json:"isAttached" yaml:"isAttached"`
 }

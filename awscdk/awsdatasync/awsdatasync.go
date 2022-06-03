@@ -7594,6 +7594,7 @@ type CfnLocationSMBProps struct {
 //   		gid: jsii.String("gid"),
 //   		logLevel: jsii.String("logLevel"),
 //   		mtime: jsii.String("mtime"),
+//   		objectTags: jsii.String("objectTags"),
 //   		overwriteMode: jsii.String("overwriteMode"),
 //   		posixPermissions: jsii.String("posixPermissions"),
 //   		preserveDeletedFiles: jsii.String("preserveDeletedFiles"),
@@ -8405,6 +8406,7 @@ type CfnTask_FilterRuleProperty struct {
 //   	gid: jsii.String("gid"),
 //   	logLevel: jsii.String("logLevel"),
 //   	mtime: jsii.String("mtime"),
+//   	objectTags: jsii.String("objectTags"),
 //   	overwriteMode: jsii.String("overwriteMode"),
 //   	posixPermissions: jsii.String("posixPermissions"),
 //   	preserveDeletedFiles: jsii.String("preserveDeletedFiles"),
@@ -8463,6 +8465,12 @@ type CfnTask_OptionsProperty struct {
 	// >
 	// > If `Mtime` is set to `NONE` , `Atime` must also be set to `NONE` .
 	Mtime *string `field:"optional" json:"mtime" yaml:"mtime"`
+	// Specifies whether object tags are maintained when transferring between object storage systems.
+	//
+	// If you want your DataSync task to ignore object tags, specify the `NONE` value.
+	//
+	// Default Value: `PRESERVE`.
+	ObjectTags *string `field:"optional" json:"objectTags" yaml:"objectTags"`
 	// A value that determines whether files at the destination should be overwritten or preserved when copying files.
 	//
 	// If set to `NEVER` a destination file will not be replaced by a source file, even if the destination file differs from the source file. If you modify files in the destination and you sync the files, you can use this value to protect against overwriting those changes.
@@ -8612,6 +8620,7 @@ type CfnTask_TaskScheduleProperty struct {
 //   		gid: jsii.String("gid"),
 //   		logLevel: jsii.String("logLevel"),
 //   		mtime: jsii.String("mtime"),
+//   		objectTags: jsii.String("objectTags"),
 //   		overwriteMode: jsii.String("overwriteMode"),
 //   		posixPermissions: jsii.String("posixPermissions"),
 //   		preserveDeletedFiles: jsii.String("preserveDeletedFiles"),

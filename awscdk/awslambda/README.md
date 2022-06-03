@@ -288,11 +288,20 @@ This has been fixed in the AWS CDK but *existing* users need to opt-in via a
 [feature flag](https://docs.aws.amazon.com/cdk/latest/guide/featureflags.html). Users who have run `cdk init` since this fix will be opted in,
 by default.
 
-Existing users will need to enable the [feature flag](https://docs.aws.amazon.com/cdk/latest/guide/featureflags.html)
+Otherwise, you will need to enable the [feature flag](https://docs.aws.amazon.com/cdk/latest/guide/featureflags.html)
 `@aws-cdk/aws-lambda:recognizeVersionProps`. Since CloudFormation does not
-allow duplicate versions, they will also need to make some modification to
-their function so that a new version can be created. Any trivial change such as
-a whitespace change in the code or a no-op environment variable will suffice.
+allow duplicate versions, you will also need to make some modification to
+your function so that a new version can be created. To efficiently and trivially
+modify all your lambda functions at once, you can attach the
+`FunctionVersionUpgrade` aspect to the stack, which slightly alters the
+function description. This aspect is intended for one-time use to upgrade the
+version of all your functions at the same time, and can safely be removed after
+deploying once.
+
+```go
+stack := awscdk.Newstack()
+awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(awscdklibcxapi.LAMBDA_RECOGNIZE_VERSION_PROPS))
+```
 
 When the new logic is in effect, you may rarely come across the following error:
 `The following properties are not recognized as version properties`. This will
@@ -303,6 +312,32 @@ To overcome this error, use the API `Function.classifyVersionProperty()` to
 record whether a new version should be generated when this property is changed.
 This can be typically determined by checking whether the property can be
 modified using the *[UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionConfiguration.html)* API or not.
+
+### `currentVersion`: Updated hashing logic for layer versions
+
+An additional update to the hashing logic fixes two issues surrounding layers.
+Prior to this change, updating the lambda layer version would have no effect on
+the function version. Also, the order of lambda layers provided to the function
+was unnecessarily baked into the hash.
+
+This has been fixed in the AWS CDK starting with version 2.27. If you ran
+`cdk init` with an earlier version, you will need to opt-in via a [feature flag](https://docs.aws.amazon.com/cdk/latest/guide/featureflags.html).
+If you run `cdk init` with v2.27 or later, this fix will be opted in, by default.
+
+Existing users will need to enable the [feature flag](https://docs.aws.amazon.com/cdk/latest/guide/featureflags.html)
+`@aws-cdk/aws-lambda:recognizeLayerVersion`. Since CloudFormation does not
+allow duplicate versions, they will also need to make some modification to
+their function so that a new version can be created. To efficiently and trivially
+modify all your lambda functions at once, users can attach the
+`FunctionVersionUpgrade` aspect to the stack, which slightly alters the
+function description. This aspect is intended for one-time use to upgrade the
+version of all your functions at the same time, and can safely be removed after
+deploying once.
+
+```go
+stack := awscdk.Newstack()
+awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(awscdklibcxapi.LAMBDA_RECOGNIZE_LAYER_VERSION))
+```
 
 ## Aliases
 
@@ -755,6 +790,7 @@ as.scaleOnSchedule(jsii.String("ScaleUpInTheMorning"), &scalingSchedule{
 ```go
 import appscaling "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws-samples/dummy/cxapi"
 import lambda "github.com/aws/aws-cdk-go/awscdk"
 
 /**
@@ -816,7 +852,11 @@ func newTestStack(scope app, id *string) *testStack {
 
 app := cdk.NewApp()
 
-NewTestStack(app, jsii.String("aws-lambda-autoscaling"))
+stack := NewTestStack(app, jsii.String("aws-lambda-autoscaling"))
+
+// Changes the function description when the feature flag is present
+// to validate the changed function hash.
+cdk.aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(cxapi.LAMBDA_RECOGNIZE_LAYER_VERSION))
 
 app.synth()
 ```
@@ -982,8 +1022,8 @@ lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 
 Language-specific higher level constructs are provided in separate modules:
 
-* `@aws-cdk/aws-lambda-nodejs`: [Github](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-lambda-nodejs) & [CDK Docs](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-nodejs-readme.html)
-* `@aws-cdk/aws-lambda-python`: [Github](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-lambda-python) & [CDK Docs](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-python-readme.html)
+* `@aws-cdk/aws-lambda-nodejs`: [Github](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-lambda-nodejs) & [CDK Docs](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-nodejs-readme.html)
+* `@aws-cdk/aws-lambda-python`: [Github](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-lambda-python) & [CDK Docs](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-python-readme.html)
 
 ## Code Signing
 

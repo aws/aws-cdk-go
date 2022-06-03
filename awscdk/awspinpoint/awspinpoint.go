@@ -5598,156 +5598,6 @@ type CfnBaiduChannelProps struct {
 //
 //   cfnCampaign := awscdk.Aws_pinpoint.NewCfnCampaign(this, jsii.String("MyCfnCampaign"), &cfnCampaignProps{
 //   	applicationId: jsii.String("applicationId"),
-//   	messageConfiguration: &messageConfigurationProperty{
-//   		admMessage: &messageProperty{
-//   			action: jsii.String("action"),
-//   			body: jsii.String("body"),
-//   			imageIconUrl: jsii.String("imageIconUrl"),
-//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
-//   			imageUrl: jsii.String("imageUrl"),
-//   			jsonBody: jsii.String("jsonBody"),
-//   			mediaUrl: jsii.String("mediaUrl"),
-//   			rawContent: jsii.String("rawContent"),
-//   			silentPush: jsii.Boolean(false),
-//   			timeToLive: jsii.Number(123),
-//   			title: jsii.String("title"),
-//   			url: jsii.String("url"),
-//   		},
-//   		apnsMessage: &messageProperty{
-//   			action: jsii.String("action"),
-//   			body: jsii.String("body"),
-//   			imageIconUrl: jsii.String("imageIconUrl"),
-//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
-//   			imageUrl: jsii.String("imageUrl"),
-//   			jsonBody: jsii.String("jsonBody"),
-//   			mediaUrl: jsii.String("mediaUrl"),
-//   			rawContent: jsii.String("rawContent"),
-//   			silentPush: jsii.Boolean(false),
-//   			timeToLive: jsii.Number(123),
-//   			title: jsii.String("title"),
-//   			url: jsii.String("url"),
-//   		},
-//   		baiduMessage: &messageProperty{
-//   			action: jsii.String("action"),
-//   			body: jsii.String("body"),
-//   			imageIconUrl: jsii.String("imageIconUrl"),
-//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
-//   			imageUrl: jsii.String("imageUrl"),
-//   			jsonBody: jsii.String("jsonBody"),
-//   			mediaUrl: jsii.String("mediaUrl"),
-//   			rawContent: jsii.String("rawContent"),
-//   			silentPush: jsii.Boolean(false),
-//   			timeToLive: jsii.Number(123),
-//   			title: jsii.String("title"),
-//   			url: jsii.String("url"),
-//   		},
-//   		defaultMessage: &messageProperty{
-//   			action: jsii.String("action"),
-//   			body: jsii.String("body"),
-//   			imageIconUrl: jsii.String("imageIconUrl"),
-//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
-//   			imageUrl: jsii.String("imageUrl"),
-//   			jsonBody: jsii.String("jsonBody"),
-//   			mediaUrl: jsii.String("mediaUrl"),
-//   			rawContent: jsii.String("rawContent"),
-//   			silentPush: jsii.Boolean(false),
-//   			timeToLive: jsii.Number(123),
-//   			title: jsii.String("title"),
-//   			url: jsii.String("url"),
-//   		},
-//   		emailMessage: &campaignEmailMessageProperty{
-//   			body: jsii.String("body"),
-//   			fromAddress: jsii.String("fromAddress"),
-//   			htmlBody: jsii.String("htmlBody"),
-//   			title: jsii.String("title"),
-//   		},
-//   		gcmMessage: &messageProperty{
-//   			action: jsii.String("action"),
-//   			body: jsii.String("body"),
-//   			imageIconUrl: jsii.String("imageIconUrl"),
-//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
-//   			imageUrl: jsii.String("imageUrl"),
-//   			jsonBody: jsii.String("jsonBody"),
-//   			mediaUrl: jsii.String("mediaUrl"),
-//   			rawContent: jsii.String("rawContent"),
-//   			silentPush: jsii.Boolean(false),
-//   			timeToLive: jsii.Number(123),
-//   			title: jsii.String("title"),
-//   			url: jsii.String("url"),
-//   		},
-//   		inAppMessage: &campaignInAppMessageProperty{
-//   			content: []interface{}{
-//   				&inAppMessageContentProperty{
-//   					backgroundColor: jsii.String("backgroundColor"),
-//   					bodyConfig: &inAppMessageBodyConfigProperty{
-//   						alignment: jsii.String("alignment"),
-//   						body: jsii.String("body"),
-//   						textColor: jsii.String("textColor"),
-//   					},
-//   					headerConfig: &inAppMessageHeaderConfigProperty{
-//   						alignment: jsii.String("alignment"),
-//   						header: jsii.String("header"),
-//   						textColor: jsii.String("textColor"),
-//   					},
-//   					imageUrl: jsii.String("imageUrl"),
-//   					primaryBtn: &inAppMessageButtonProperty{
-//   						android: &overrideButtonConfigurationProperty{
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   						},
-//   						defaultConfig: &defaultButtonConfigurationProperty{
-//   							backgroundColor: jsii.String("backgroundColor"),
-//   							borderRadius: jsii.Number(123),
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   							text: jsii.String("text"),
-//   							textColor: jsii.String("textColor"),
-//   						},
-//   						ios: &overrideButtonConfigurationProperty{
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   						},
-//   						web: &overrideButtonConfigurationProperty{
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   						},
-//   					},
-//   					secondaryBtn: &inAppMessageButtonProperty{
-//   						android: &overrideButtonConfigurationProperty{
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   						},
-//   						defaultConfig: &defaultButtonConfigurationProperty{
-//   							backgroundColor: jsii.String("backgroundColor"),
-//   							borderRadius: jsii.Number(123),
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   							text: jsii.String("text"),
-//   							textColor: jsii.String("textColor"),
-//   						},
-//   						ios: &overrideButtonConfigurationProperty{
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   						},
-//   						web: &overrideButtonConfigurationProperty{
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   						},
-//   					},
-//   				},
-//   			},
-//   			customConfig: customConfig,
-//   			layout: jsii.String("layout"),
-//   		},
-//   		smsMessage: &campaignSmsMessageProperty{
-//   			body: jsii.String("body"),
-//   			entityId: jsii.String("entityId"),
-//   			messageType: jsii.String("messageType"),
-//   			originationNumber: jsii.String("originationNumber"),
-//   			senderId: jsii.String("senderId"),
-//   			templateId: jsii.String("templateId"),
-//   		},
-//   	},
 //   	name: jsii.String("name"),
 //   	schedule: &scheduleProperty{
 //   		endTime: jsii.String("endTime"),
@@ -5778,6 +5628,12 @@ type CfnBaiduChannelProps struct {
 //   	// the properties below are optional
 //   	additionalTreatments: []interface{}{
 //   		&writeTreatmentResourceProperty{
+//   			customDeliveryConfiguration: &customDeliveryConfigurationProperty{
+//   				deliveryUri: jsii.String("deliveryUri"),
+//   				endpointTypes: []*string{
+//   					jsii.String("endpointTypes"),
+//   				},
+//   			},
 //   			messageConfiguration: &messageConfigurationProperty{
 //   				admMessage: &messageProperty{
 //   					action: jsii.String("action"),
@@ -5820,6 +5676,9 @@ type CfnBaiduChannelProps struct {
 //   					timeToLive: jsii.Number(123),
 //   					title: jsii.String("title"),
 //   					url: jsii.String("url"),
+//   				},
+//   				customMessage: &campaignCustomMessageProperty{
+//   					data: jsii.String("data"),
 //   				},
 //   				defaultMessage: &messageProperty{
 //   					action: jsii.String("action"),
@@ -5953,6 +5812,24 @@ type CfnBaiduChannelProps struct {
 //   				timeZone: jsii.String("timeZone"),
 //   			},
 //   			sizePercent: jsii.Number(123),
+//   			templateConfiguration: &templateConfigurationProperty{
+//   				emailTemplate: &templateProperty{
+//   					name: jsii.String("name"),
+//   					version: jsii.String("version"),
+//   				},
+//   				pushTemplate: &templateProperty{
+//   					name: jsii.String("name"),
+//   					version: jsii.String("version"),
+//   				},
+//   				smsTemplate: &templateProperty{
+//   					name: jsii.String("name"),
+//   					version: jsii.String("version"),
+//   				},
+//   				voiceTemplate: &templateProperty{
+//   					name: jsii.String("name"),
+//   					version: jsii.String("version"),
+//   				},
+//   			},
 //   			treatmentDescription: jsii.String("treatmentDescription"),
 //   			treatmentName: jsii.String("treatmentName"),
 //   		},
@@ -5961,6 +5838,12 @@ type CfnBaiduChannelProps struct {
 //   		lambdaFunctionName: jsii.String("lambdaFunctionName"),
 //   		mode: jsii.String("mode"),
 //   		webUrl: jsii.String("webUrl"),
+//   	},
+//   	customDeliveryConfiguration: &customDeliveryConfigurationProperty{
+//   		deliveryUri: jsii.String("deliveryUri"),
+//   		endpointTypes: []*string{
+//   			jsii.String("endpointTypes"),
+//   		},
 //   	},
 //   	description: jsii.String("description"),
 //   	holdoutPercent: jsii.Number(123),
@@ -5972,9 +5855,180 @@ type CfnBaiduChannelProps struct {
 //   		session: jsii.Number(123),
 //   		total: jsii.Number(123),
 //   	},
+//   	messageConfiguration: &messageConfigurationProperty{
+//   		admMessage: &messageProperty{
+//   			action: jsii.String("action"),
+//   			body: jsii.String("body"),
+//   			imageIconUrl: jsii.String("imageIconUrl"),
+//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
+//   			imageUrl: jsii.String("imageUrl"),
+//   			jsonBody: jsii.String("jsonBody"),
+//   			mediaUrl: jsii.String("mediaUrl"),
+//   			rawContent: jsii.String("rawContent"),
+//   			silentPush: jsii.Boolean(false),
+//   			timeToLive: jsii.Number(123),
+//   			title: jsii.String("title"),
+//   			url: jsii.String("url"),
+//   		},
+//   		apnsMessage: &messageProperty{
+//   			action: jsii.String("action"),
+//   			body: jsii.String("body"),
+//   			imageIconUrl: jsii.String("imageIconUrl"),
+//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
+//   			imageUrl: jsii.String("imageUrl"),
+//   			jsonBody: jsii.String("jsonBody"),
+//   			mediaUrl: jsii.String("mediaUrl"),
+//   			rawContent: jsii.String("rawContent"),
+//   			silentPush: jsii.Boolean(false),
+//   			timeToLive: jsii.Number(123),
+//   			title: jsii.String("title"),
+//   			url: jsii.String("url"),
+//   		},
+//   		baiduMessage: &messageProperty{
+//   			action: jsii.String("action"),
+//   			body: jsii.String("body"),
+//   			imageIconUrl: jsii.String("imageIconUrl"),
+//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
+//   			imageUrl: jsii.String("imageUrl"),
+//   			jsonBody: jsii.String("jsonBody"),
+//   			mediaUrl: jsii.String("mediaUrl"),
+//   			rawContent: jsii.String("rawContent"),
+//   			silentPush: jsii.Boolean(false),
+//   			timeToLive: jsii.Number(123),
+//   			title: jsii.String("title"),
+//   			url: jsii.String("url"),
+//   		},
+//   		customMessage: &campaignCustomMessageProperty{
+//   			data: jsii.String("data"),
+//   		},
+//   		defaultMessage: &messageProperty{
+//   			action: jsii.String("action"),
+//   			body: jsii.String("body"),
+//   			imageIconUrl: jsii.String("imageIconUrl"),
+//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
+//   			imageUrl: jsii.String("imageUrl"),
+//   			jsonBody: jsii.String("jsonBody"),
+//   			mediaUrl: jsii.String("mediaUrl"),
+//   			rawContent: jsii.String("rawContent"),
+//   			silentPush: jsii.Boolean(false),
+//   			timeToLive: jsii.Number(123),
+//   			title: jsii.String("title"),
+//   			url: jsii.String("url"),
+//   		},
+//   		emailMessage: &campaignEmailMessageProperty{
+//   			body: jsii.String("body"),
+//   			fromAddress: jsii.String("fromAddress"),
+//   			htmlBody: jsii.String("htmlBody"),
+//   			title: jsii.String("title"),
+//   		},
+//   		gcmMessage: &messageProperty{
+//   			action: jsii.String("action"),
+//   			body: jsii.String("body"),
+//   			imageIconUrl: jsii.String("imageIconUrl"),
+//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
+//   			imageUrl: jsii.String("imageUrl"),
+//   			jsonBody: jsii.String("jsonBody"),
+//   			mediaUrl: jsii.String("mediaUrl"),
+//   			rawContent: jsii.String("rawContent"),
+//   			silentPush: jsii.Boolean(false),
+//   			timeToLive: jsii.Number(123),
+//   			title: jsii.String("title"),
+//   			url: jsii.String("url"),
+//   		},
+//   		inAppMessage: &campaignInAppMessageProperty{
+//   			content: []interface{}{
+//   				&inAppMessageContentProperty{
+//   					backgroundColor: jsii.String("backgroundColor"),
+//   					bodyConfig: &inAppMessageBodyConfigProperty{
+//   						alignment: jsii.String("alignment"),
+//   						body: jsii.String("body"),
+//   						textColor: jsii.String("textColor"),
+//   					},
+//   					headerConfig: &inAppMessageHeaderConfigProperty{
+//   						alignment: jsii.String("alignment"),
+//   						header: jsii.String("header"),
+//   						textColor: jsii.String("textColor"),
+//   					},
+//   					imageUrl: jsii.String("imageUrl"),
+//   					primaryBtn: &inAppMessageButtonProperty{
+//   						android: &overrideButtonConfigurationProperty{
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   						},
+//   						defaultConfig: &defaultButtonConfigurationProperty{
+//   							backgroundColor: jsii.String("backgroundColor"),
+//   							borderRadius: jsii.Number(123),
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   							text: jsii.String("text"),
+//   							textColor: jsii.String("textColor"),
+//   						},
+//   						ios: &overrideButtonConfigurationProperty{
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   						},
+//   						web: &overrideButtonConfigurationProperty{
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   						},
+//   					},
+//   					secondaryBtn: &inAppMessageButtonProperty{
+//   						android: &overrideButtonConfigurationProperty{
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   						},
+//   						defaultConfig: &defaultButtonConfigurationProperty{
+//   							backgroundColor: jsii.String("backgroundColor"),
+//   							borderRadius: jsii.Number(123),
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   							text: jsii.String("text"),
+//   							textColor: jsii.String("textColor"),
+//   						},
+//   						ios: &overrideButtonConfigurationProperty{
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   						},
+//   						web: &overrideButtonConfigurationProperty{
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			customConfig: customConfig,
+//   			layout: jsii.String("layout"),
+//   		},
+//   		smsMessage: &campaignSmsMessageProperty{
+//   			body: jsii.String("body"),
+//   			entityId: jsii.String("entityId"),
+//   			messageType: jsii.String("messageType"),
+//   			originationNumber: jsii.String("originationNumber"),
+//   			senderId: jsii.String("senderId"),
+//   			templateId: jsii.String("templateId"),
+//   		},
+//   	},
 //   	priority: jsii.Number(123),
 //   	segmentVersion: jsii.Number(123),
 //   	tags: tags,
+//   	templateConfiguration: &templateConfigurationProperty{
+//   		emailTemplate: &templateProperty{
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   		pushTemplate: &templateProperty{
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   		smsTemplate: &templateProperty{
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   		voiceTemplate: &templateProperty{
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   	},
 //   	treatmentDescription: jsii.String("treatmentDescription"),
 //   	treatmentName: jsii.String("treatmentName"),
 //   })
@@ -6004,6 +6058,11 @@ type CfnCampaign interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The delivery configuration settings for sending the treatment through a custom channel.
+	//
+	// This object is required if the `MessageConfiguration` object for the treatment specifies a `CustomMessage` object.
+	CustomDeliveryConfiguration() interface{}
+	SetCustomDeliveryConfiguration(val interface{})
 	// A custom description of the campaign.
 	Description() *string
 	SetDescription(val *string)
@@ -6063,6 +6122,9 @@ type CfnCampaign interface {
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
+	// The message template to use for the treatment.
+	TemplateConfiguration() interface{}
+	SetTemplateConfiguration(val interface{})
 	// A custom description of the default treatment for the campaign.
 	TreatmentDescription() *string
 	SetTreatmentDescription(val *string)
@@ -6277,6 +6339,16 @@ func (j *jsiiProxy_CfnCampaign) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCampaign) CustomDeliveryConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"customDeliveryConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCampaign) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -6427,6 +6499,16 @@ func (j *jsiiProxy_CfnCampaign) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCampaign) TemplateConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"templateConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCampaign) TreatmentDescription() *string {
 	var returns *string
 	_jsii_.Get(
@@ -6508,6 +6590,14 @@ func (j *jsiiProxy_CfnCampaign) SetCampaignHook(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnCampaign) SetCustomDeliveryConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"customDeliveryConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCampaign) SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -6584,6 +6674,14 @@ func (j *jsiiProxy_CfnCampaign) SetSegmentVersion(val *float64) {
 	_jsii_.Set(
 		j,
 		"segmentVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCampaign) SetTemplateConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"templateConfiguration",
 		val,
 	)
 }
@@ -6847,6 +6945,24 @@ type CfnCampaign_AttributeDimensionProperty struct {
 	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
+// Specifies the contents of a message that's sent through a custom channel to recipients of a campaign.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   campaignCustomMessageProperty := &campaignCustomMessageProperty{
+//   	data: jsii.String("data"),
+//   }
+//
+type CfnCampaign_CampaignCustomMessageProperty struct {
+	// The raw, JSON-formatted string to use as the payload for the message.
+	//
+	// The maximum size is 5 KB.
+	Data *string `field:"optional" json:"data" yaml:"data"`
+}
+
 // Specifies the content and "From" address for an email message that's sent to recipients of a campaign.
 //
 // Example:
@@ -7057,6 +7173,34 @@ type CfnCampaign_CampaignSmsMessageProperty struct {
 	SenderId *string `field:"optional" json:"senderId" yaml:"senderId"`
 	// The template ID received from the regulatory body for sending SMS in your country.
 	TemplateId *string `field:"optional" json:"templateId" yaml:"templateId"`
+}
+
+// Specifies the delivery configuration settings for sending a campaign or campaign treatment through a custom channel.
+//
+// This object is required if you use the `CampaignCustomMessage` object to define the message to send for the campaign or campaign treatment.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   customDeliveryConfigurationProperty := &customDeliveryConfigurationProperty{
+//   	deliveryUri: jsii.String("deliveryUri"),
+//   	endpointTypes: []*string{
+//   		jsii.String("endpointTypes"),
+//   	},
+//   }
+//
+type CfnCampaign_CustomDeliveryConfigurationProperty struct {
+	// The destination to send the campaign or treatment to. This value can be one of the following:.
+	//
+	// - The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the campaign or treatment.
+	// - The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.
+	DeliveryUri *string `field:"optional" json:"deliveryUri" yaml:"deliveryUri"`
+	// The types of endpoints to send the campaign or treatment to.
+	//
+	// Each valid value maps to a type of channel that you can associate with an endpoint by using the `ChannelType` property of an endpoint.
+	EndpointTypes *[]*string `field:"optional" json:"endpointTypes" yaml:"endpointTypes"`
 }
 
 // Specifies the default behavior for a button that appears in an in-app message.
@@ -7392,6 +7536,9 @@ type CfnCampaign_LimitsProperty struct {
 //   		title: jsii.String("title"),
 //   		url: jsii.String("url"),
 //   	},
+//   	customMessage: &campaignCustomMessageProperty{
+//   		data: jsii.String("data"),
+//   	},
 //   	defaultMessage: &messageProperty{
 //   		action: jsii.String("action"),
 //   		body: jsii.String("body"),
@@ -7513,6 +7660,10 @@ type CfnCampaign_MessageConfigurationProperty struct {
 	//
 	// If specified, this message overrides the default message.
 	BaiduMessage interface{} `field:"optional" json:"baiduMessage" yaml:"baiduMessage"`
+	// The message that the campaign sends through a custom channel, as specified by the delivery configuration ( `CustomDeliveryConfiguration` ) settings for the campaign.
+	//
+	// If specified, this message overrides the default message.
+	CustomMessage interface{} `field:"optional" json:"customMessage" yaml:"customMessage"`
 	// The default message that the campaign sends through all the channels that are configured for the campaign.
 	DefaultMessage interface{} `field:"optional" json:"defaultMessage" yaml:"defaultMessage"`
 	// The message that the campaign sends through the email channel.
@@ -7758,6 +7909,70 @@ type CfnCampaign_SetDimensionProperty struct {
 	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
+// Specifies the message template to use for the message, for each type of channel.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   templateConfigurationProperty := &templateConfigurationProperty{
+//   	emailTemplate: &templateProperty{
+//   		name: jsii.String("name"),
+//   		version: jsii.String("version"),
+//   	},
+//   	pushTemplate: &templateProperty{
+//   		name: jsii.String("name"),
+//   		version: jsii.String("version"),
+//   	},
+//   	smsTemplate: &templateProperty{
+//   		name: jsii.String("name"),
+//   		version: jsii.String("version"),
+//   	},
+//   	voiceTemplate: &templateProperty{
+//   		name: jsii.String("name"),
+//   		version: jsii.String("version"),
+//   	},
+//   }
+//
+type CfnCampaign_TemplateConfigurationProperty struct {
+	// The email template to use for the message.
+	EmailTemplate interface{} `field:"optional" json:"emailTemplate" yaml:"emailTemplate"`
+	// The push notification template to use for the message.
+	PushTemplate interface{} `field:"optional" json:"pushTemplate" yaml:"pushTemplate"`
+	// The SMS template to use for the message.
+	SmsTemplate interface{} `field:"optional" json:"smsTemplate" yaml:"smsTemplate"`
+	// The voice template to use for the message.
+	//
+	// This object isn't supported for campaigns.
+	VoiceTemplate interface{} `field:"optional" json:"voiceTemplate" yaml:"voiceTemplate"`
+}
+
+// Specifies the name and version of the message template to use for the message.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   templateProperty := &templateProperty{
+//   	name: jsii.String("name"),
+//   	version: jsii.String("version"),
+//   }
+//
+type CfnCampaign_TemplateProperty struct {
+	// The name of the message template to use for the message.
+	//
+	// If specified, this value must match the name of an existing message template.
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The unique identifier for the version of the message template to use for the message.
+	//
+	// If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the Template Versions resource.
+	//
+	// If you don't specify a value for this property, Amazon Pinpoint uses the *active version* of the template. The *active version* is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.
+	Version *string `field:"optional" json:"version" yaml:"version"`
+}
+
 // Specifies the settings for a campaign treatment.
 //
 // A *treatment* is a variation of a campaign that's used for A/B testing of a campaign.
@@ -7772,6 +7987,12 @@ type CfnCampaign_SetDimensionProperty struct {
 //   var metrics interface{}
 //
 //   writeTreatmentResourceProperty := &writeTreatmentResourceProperty{
+//   	customDeliveryConfiguration: &customDeliveryConfigurationProperty{
+//   		deliveryUri: jsii.String("deliveryUri"),
+//   		endpointTypes: []*string{
+//   			jsii.String("endpointTypes"),
+//   		},
+//   	},
 //   	messageConfiguration: &messageConfigurationProperty{
 //   		admMessage: &messageProperty{
 //   			action: jsii.String("action"),
@@ -7814,6 +8035,9 @@ type CfnCampaign_SetDimensionProperty struct {
 //   			timeToLive: jsii.Number(123),
 //   			title: jsii.String("title"),
 //   			url: jsii.String("url"),
+//   		},
+//   		customMessage: &campaignCustomMessageProperty{
+//   			data: jsii.String("data"),
 //   		},
 //   		defaultMessage: &messageProperty{
 //   			action: jsii.String("action"),
@@ -7947,17 +8171,41 @@ type CfnCampaign_SetDimensionProperty struct {
 //   		timeZone: jsii.String("timeZone"),
 //   	},
 //   	sizePercent: jsii.Number(123),
+//   	templateConfiguration: &templateConfigurationProperty{
+//   		emailTemplate: &templateProperty{
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   		pushTemplate: &templateProperty{
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   		smsTemplate: &templateProperty{
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   		voiceTemplate: &templateProperty{
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   	},
 //   	treatmentDescription: jsii.String("treatmentDescription"),
 //   	treatmentName: jsii.String("treatmentName"),
 //   }
 //
 type CfnCampaign_WriteTreatmentResourceProperty struct {
+	// The delivery configuration settings for sending the treatment through a custom channel.
+	//
+	// This object is required if the `MessageConfiguration` object for the treatment specifies a `CustomMessage` object.
+	CustomDeliveryConfiguration interface{} `field:"optional" json:"customDeliveryConfiguration" yaml:"customDeliveryConfiguration"`
 	// The message configuration settings for the treatment.
 	MessageConfiguration interface{} `field:"optional" json:"messageConfiguration" yaml:"messageConfiguration"`
 	// The schedule settings for the treatment.
 	Schedule interface{} `field:"optional" json:"schedule" yaml:"schedule"`
 	// The allocated percentage of users (segment members) to send the treatment to.
 	SizePercent *float64 `field:"optional" json:"sizePercent" yaml:"sizePercent"`
+	// The message template to use for the treatment.
+	TemplateConfiguration interface{} `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 	// A custom description of the treatment.
 	TreatmentDescription *string `field:"optional" json:"treatmentDescription" yaml:"treatmentDescription"`
 	// A custom name for the treatment.
@@ -7978,156 +8226,6 @@ type CfnCampaign_WriteTreatmentResourceProperty struct {
 //
 //   cfnCampaignProps := &cfnCampaignProps{
 //   	applicationId: jsii.String("applicationId"),
-//   	messageConfiguration: &messageConfigurationProperty{
-//   		admMessage: &messageProperty{
-//   			action: jsii.String("action"),
-//   			body: jsii.String("body"),
-//   			imageIconUrl: jsii.String("imageIconUrl"),
-//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
-//   			imageUrl: jsii.String("imageUrl"),
-//   			jsonBody: jsii.String("jsonBody"),
-//   			mediaUrl: jsii.String("mediaUrl"),
-//   			rawContent: jsii.String("rawContent"),
-//   			silentPush: jsii.Boolean(false),
-//   			timeToLive: jsii.Number(123),
-//   			title: jsii.String("title"),
-//   			url: jsii.String("url"),
-//   		},
-//   		apnsMessage: &messageProperty{
-//   			action: jsii.String("action"),
-//   			body: jsii.String("body"),
-//   			imageIconUrl: jsii.String("imageIconUrl"),
-//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
-//   			imageUrl: jsii.String("imageUrl"),
-//   			jsonBody: jsii.String("jsonBody"),
-//   			mediaUrl: jsii.String("mediaUrl"),
-//   			rawContent: jsii.String("rawContent"),
-//   			silentPush: jsii.Boolean(false),
-//   			timeToLive: jsii.Number(123),
-//   			title: jsii.String("title"),
-//   			url: jsii.String("url"),
-//   		},
-//   		baiduMessage: &messageProperty{
-//   			action: jsii.String("action"),
-//   			body: jsii.String("body"),
-//   			imageIconUrl: jsii.String("imageIconUrl"),
-//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
-//   			imageUrl: jsii.String("imageUrl"),
-//   			jsonBody: jsii.String("jsonBody"),
-//   			mediaUrl: jsii.String("mediaUrl"),
-//   			rawContent: jsii.String("rawContent"),
-//   			silentPush: jsii.Boolean(false),
-//   			timeToLive: jsii.Number(123),
-//   			title: jsii.String("title"),
-//   			url: jsii.String("url"),
-//   		},
-//   		defaultMessage: &messageProperty{
-//   			action: jsii.String("action"),
-//   			body: jsii.String("body"),
-//   			imageIconUrl: jsii.String("imageIconUrl"),
-//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
-//   			imageUrl: jsii.String("imageUrl"),
-//   			jsonBody: jsii.String("jsonBody"),
-//   			mediaUrl: jsii.String("mediaUrl"),
-//   			rawContent: jsii.String("rawContent"),
-//   			silentPush: jsii.Boolean(false),
-//   			timeToLive: jsii.Number(123),
-//   			title: jsii.String("title"),
-//   			url: jsii.String("url"),
-//   		},
-//   		emailMessage: &campaignEmailMessageProperty{
-//   			body: jsii.String("body"),
-//   			fromAddress: jsii.String("fromAddress"),
-//   			htmlBody: jsii.String("htmlBody"),
-//   			title: jsii.String("title"),
-//   		},
-//   		gcmMessage: &messageProperty{
-//   			action: jsii.String("action"),
-//   			body: jsii.String("body"),
-//   			imageIconUrl: jsii.String("imageIconUrl"),
-//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
-//   			imageUrl: jsii.String("imageUrl"),
-//   			jsonBody: jsii.String("jsonBody"),
-//   			mediaUrl: jsii.String("mediaUrl"),
-//   			rawContent: jsii.String("rawContent"),
-//   			silentPush: jsii.Boolean(false),
-//   			timeToLive: jsii.Number(123),
-//   			title: jsii.String("title"),
-//   			url: jsii.String("url"),
-//   		},
-//   		inAppMessage: &campaignInAppMessageProperty{
-//   			content: []interface{}{
-//   				&inAppMessageContentProperty{
-//   					backgroundColor: jsii.String("backgroundColor"),
-//   					bodyConfig: &inAppMessageBodyConfigProperty{
-//   						alignment: jsii.String("alignment"),
-//   						body: jsii.String("body"),
-//   						textColor: jsii.String("textColor"),
-//   					},
-//   					headerConfig: &inAppMessageHeaderConfigProperty{
-//   						alignment: jsii.String("alignment"),
-//   						header: jsii.String("header"),
-//   						textColor: jsii.String("textColor"),
-//   					},
-//   					imageUrl: jsii.String("imageUrl"),
-//   					primaryBtn: &inAppMessageButtonProperty{
-//   						android: &overrideButtonConfigurationProperty{
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   						},
-//   						defaultConfig: &defaultButtonConfigurationProperty{
-//   							backgroundColor: jsii.String("backgroundColor"),
-//   							borderRadius: jsii.Number(123),
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   							text: jsii.String("text"),
-//   							textColor: jsii.String("textColor"),
-//   						},
-//   						ios: &overrideButtonConfigurationProperty{
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   						},
-//   						web: &overrideButtonConfigurationProperty{
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   						},
-//   					},
-//   					secondaryBtn: &inAppMessageButtonProperty{
-//   						android: &overrideButtonConfigurationProperty{
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   						},
-//   						defaultConfig: &defaultButtonConfigurationProperty{
-//   							backgroundColor: jsii.String("backgroundColor"),
-//   							borderRadius: jsii.Number(123),
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   							text: jsii.String("text"),
-//   							textColor: jsii.String("textColor"),
-//   						},
-//   						ios: &overrideButtonConfigurationProperty{
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   						},
-//   						web: &overrideButtonConfigurationProperty{
-//   							buttonAction: jsii.String("buttonAction"),
-//   							link: jsii.String("link"),
-//   						},
-//   					},
-//   				},
-//   			},
-//   			customConfig: customConfig,
-//   			layout: jsii.String("layout"),
-//   		},
-//   		smsMessage: &campaignSmsMessageProperty{
-//   			body: jsii.String("body"),
-//   			entityId: jsii.String("entityId"),
-//   			messageType: jsii.String("messageType"),
-//   			originationNumber: jsii.String("originationNumber"),
-//   			senderId: jsii.String("senderId"),
-//   			templateId: jsii.String("templateId"),
-//   		},
-//   	},
 //   	name: jsii.String("name"),
 //   	schedule: &scheduleProperty{
 //   		endTime: jsii.String("endTime"),
@@ -8158,6 +8256,12 @@ type CfnCampaign_WriteTreatmentResourceProperty struct {
 //   	// the properties below are optional
 //   	additionalTreatments: []interface{}{
 //   		&writeTreatmentResourceProperty{
+//   			customDeliveryConfiguration: &customDeliveryConfigurationProperty{
+//   				deliveryUri: jsii.String("deliveryUri"),
+//   				endpointTypes: []*string{
+//   					jsii.String("endpointTypes"),
+//   				},
+//   			},
 //   			messageConfiguration: &messageConfigurationProperty{
 //   				admMessage: &messageProperty{
 //   					action: jsii.String("action"),
@@ -8200,6 +8304,9 @@ type CfnCampaign_WriteTreatmentResourceProperty struct {
 //   					timeToLive: jsii.Number(123),
 //   					title: jsii.String("title"),
 //   					url: jsii.String("url"),
+//   				},
+//   				customMessage: &campaignCustomMessageProperty{
+//   					data: jsii.String("data"),
 //   				},
 //   				defaultMessage: &messageProperty{
 //   					action: jsii.String("action"),
@@ -8333,6 +8440,24 @@ type CfnCampaign_WriteTreatmentResourceProperty struct {
 //   				timeZone: jsii.String("timeZone"),
 //   			},
 //   			sizePercent: jsii.Number(123),
+//   			templateConfiguration: &templateConfigurationProperty{
+//   				emailTemplate: &templateProperty{
+//   					name: jsii.String("name"),
+//   					version: jsii.String("version"),
+//   				},
+//   				pushTemplate: &templateProperty{
+//   					name: jsii.String("name"),
+//   					version: jsii.String("version"),
+//   				},
+//   				smsTemplate: &templateProperty{
+//   					name: jsii.String("name"),
+//   					version: jsii.String("version"),
+//   				},
+//   				voiceTemplate: &templateProperty{
+//   					name: jsii.String("name"),
+//   					version: jsii.String("version"),
+//   				},
+//   			},
 //   			treatmentDescription: jsii.String("treatmentDescription"),
 //   			treatmentName: jsii.String("treatmentName"),
 //   		},
@@ -8341,6 +8466,12 @@ type CfnCampaign_WriteTreatmentResourceProperty struct {
 //   		lambdaFunctionName: jsii.String("lambdaFunctionName"),
 //   		mode: jsii.String("mode"),
 //   		webUrl: jsii.String("webUrl"),
+//   	},
+//   	customDeliveryConfiguration: &customDeliveryConfigurationProperty{
+//   		deliveryUri: jsii.String("deliveryUri"),
+//   		endpointTypes: []*string{
+//   			jsii.String("endpointTypes"),
+//   		},
 //   	},
 //   	description: jsii.String("description"),
 //   	holdoutPercent: jsii.Number(123),
@@ -8352,9 +8483,180 @@ type CfnCampaign_WriteTreatmentResourceProperty struct {
 //   		session: jsii.Number(123),
 //   		total: jsii.Number(123),
 //   	},
+//   	messageConfiguration: &messageConfigurationProperty{
+//   		admMessage: &messageProperty{
+//   			action: jsii.String("action"),
+//   			body: jsii.String("body"),
+//   			imageIconUrl: jsii.String("imageIconUrl"),
+//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
+//   			imageUrl: jsii.String("imageUrl"),
+//   			jsonBody: jsii.String("jsonBody"),
+//   			mediaUrl: jsii.String("mediaUrl"),
+//   			rawContent: jsii.String("rawContent"),
+//   			silentPush: jsii.Boolean(false),
+//   			timeToLive: jsii.Number(123),
+//   			title: jsii.String("title"),
+//   			url: jsii.String("url"),
+//   		},
+//   		apnsMessage: &messageProperty{
+//   			action: jsii.String("action"),
+//   			body: jsii.String("body"),
+//   			imageIconUrl: jsii.String("imageIconUrl"),
+//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
+//   			imageUrl: jsii.String("imageUrl"),
+//   			jsonBody: jsii.String("jsonBody"),
+//   			mediaUrl: jsii.String("mediaUrl"),
+//   			rawContent: jsii.String("rawContent"),
+//   			silentPush: jsii.Boolean(false),
+//   			timeToLive: jsii.Number(123),
+//   			title: jsii.String("title"),
+//   			url: jsii.String("url"),
+//   		},
+//   		baiduMessage: &messageProperty{
+//   			action: jsii.String("action"),
+//   			body: jsii.String("body"),
+//   			imageIconUrl: jsii.String("imageIconUrl"),
+//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
+//   			imageUrl: jsii.String("imageUrl"),
+//   			jsonBody: jsii.String("jsonBody"),
+//   			mediaUrl: jsii.String("mediaUrl"),
+//   			rawContent: jsii.String("rawContent"),
+//   			silentPush: jsii.Boolean(false),
+//   			timeToLive: jsii.Number(123),
+//   			title: jsii.String("title"),
+//   			url: jsii.String("url"),
+//   		},
+//   		customMessage: &campaignCustomMessageProperty{
+//   			data: jsii.String("data"),
+//   		},
+//   		defaultMessage: &messageProperty{
+//   			action: jsii.String("action"),
+//   			body: jsii.String("body"),
+//   			imageIconUrl: jsii.String("imageIconUrl"),
+//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
+//   			imageUrl: jsii.String("imageUrl"),
+//   			jsonBody: jsii.String("jsonBody"),
+//   			mediaUrl: jsii.String("mediaUrl"),
+//   			rawContent: jsii.String("rawContent"),
+//   			silentPush: jsii.Boolean(false),
+//   			timeToLive: jsii.Number(123),
+//   			title: jsii.String("title"),
+//   			url: jsii.String("url"),
+//   		},
+//   		emailMessage: &campaignEmailMessageProperty{
+//   			body: jsii.String("body"),
+//   			fromAddress: jsii.String("fromAddress"),
+//   			htmlBody: jsii.String("htmlBody"),
+//   			title: jsii.String("title"),
+//   		},
+//   		gcmMessage: &messageProperty{
+//   			action: jsii.String("action"),
+//   			body: jsii.String("body"),
+//   			imageIconUrl: jsii.String("imageIconUrl"),
+//   			imageSmallIconUrl: jsii.String("imageSmallIconUrl"),
+//   			imageUrl: jsii.String("imageUrl"),
+//   			jsonBody: jsii.String("jsonBody"),
+//   			mediaUrl: jsii.String("mediaUrl"),
+//   			rawContent: jsii.String("rawContent"),
+//   			silentPush: jsii.Boolean(false),
+//   			timeToLive: jsii.Number(123),
+//   			title: jsii.String("title"),
+//   			url: jsii.String("url"),
+//   		},
+//   		inAppMessage: &campaignInAppMessageProperty{
+//   			content: []interface{}{
+//   				&inAppMessageContentProperty{
+//   					backgroundColor: jsii.String("backgroundColor"),
+//   					bodyConfig: &inAppMessageBodyConfigProperty{
+//   						alignment: jsii.String("alignment"),
+//   						body: jsii.String("body"),
+//   						textColor: jsii.String("textColor"),
+//   					},
+//   					headerConfig: &inAppMessageHeaderConfigProperty{
+//   						alignment: jsii.String("alignment"),
+//   						header: jsii.String("header"),
+//   						textColor: jsii.String("textColor"),
+//   					},
+//   					imageUrl: jsii.String("imageUrl"),
+//   					primaryBtn: &inAppMessageButtonProperty{
+//   						android: &overrideButtonConfigurationProperty{
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   						},
+//   						defaultConfig: &defaultButtonConfigurationProperty{
+//   							backgroundColor: jsii.String("backgroundColor"),
+//   							borderRadius: jsii.Number(123),
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   							text: jsii.String("text"),
+//   							textColor: jsii.String("textColor"),
+//   						},
+//   						ios: &overrideButtonConfigurationProperty{
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   						},
+//   						web: &overrideButtonConfigurationProperty{
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   						},
+//   					},
+//   					secondaryBtn: &inAppMessageButtonProperty{
+//   						android: &overrideButtonConfigurationProperty{
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   						},
+//   						defaultConfig: &defaultButtonConfigurationProperty{
+//   							backgroundColor: jsii.String("backgroundColor"),
+//   							borderRadius: jsii.Number(123),
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   							text: jsii.String("text"),
+//   							textColor: jsii.String("textColor"),
+//   						},
+//   						ios: &overrideButtonConfigurationProperty{
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   						},
+//   						web: &overrideButtonConfigurationProperty{
+//   							buttonAction: jsii.String("buttonAction"),
+//   							link: jsii.String("link"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			customConfig: customConfig,
+//   			layout: jsii.String("layout"),
+//   		},
+//   		smsMessage: &campaignSmsMessageProperty{
+//   			body: jsii.String("body"),
+//   			entityId: jsii.String("entityId"),
+//   			messageType: jsii.String("messageType"),
+//   			originationNumber: jsii.String("originationNumber"),
+//   			senderId: jsii.String("senderId"),
+//   			templateId: jsii.String("templateId"),
+//   		},
+//   	},
 //   	priority: jsii.Number(123),
 //   	segmentVersion: jsii.Number(123),
 //   	tags: tags,
+//   	templateConfiguration: &templateConfigurationProperty{
+//   		emailTemplate: &templateProperty{
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   		pushTemplate: &templateProperty{
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   		smsTemplate: &templateProperty{
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   		voiceTemplate: &templateProperty{
+//   			name: jsii.String("name"),
+//   			version: jsii.String("version"),
+//   		},
+//   	},
 //   	treatmentDescription: jsii.String("treatmentDescription"),
 //   	treatmentName: jsii.String("treatmentName"),
 //   }
@@ -8362,8 +8664,6 @@ type CfnCampaign_WriteTreatmentResourceProperty struct {
 type CfnCampaignProps struct {
 	// The unique identifier for the Amazon Pinpoint application that the campaign is associated with.
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
-	// The message configuration settings for the campaign.
-	MessageConfiguration interface{} `field:"required" json:"messageConfiguration" yaml:"messageConfiguration"`
 	// The name of the campaign.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The schedule settings for the campaign.
@@ -8374,6 +8674,10 @@ type CfnCampaignProps struct {
 	AdditionalTreatments interface{} `field:"optional" json:"additionalTreatments" yaml:"additionalTreatments"`
 	// Specifies the Lambda function to use as a code hook for a campaign.
 	CampaignHook interface{} `field:"optional" json:"campaignHook" yaml:"campaignHook"`
+	// The delivery configuration settings for sending the treatment through a custom channel.
+	//
+	// This object is required if the `MessageConfiguration` object for the treatment specifies a `CustomMessage` object.
+	CustomDeliveryConfiguration interface{} `field:"optional" json:"customDeliveryConfiguration" yaml:"customDeliveryConfiguration"`
 	// A custom description of the campaign.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
@@ -8384,6 +8688,8 @@ type CfnCampaignProps struct {
 	IsPaused interface{} `field:"optional" json:"isPaused" yaml:"isPaused"`
 	// The messaging limits for the campaign.
 	Limits interface{} `field:"optional" json:"limits" yaml:"limits"`
+	// The message configuration settings for the campaign.
+	MessageConfiguration interface{} `field:"optional" json:"messageConfiguration" yaml:"messageConfiguration"`
 	// An integer between 1 and 5, inclusive, that represents the priority of the in-app message campaign, where 1 is the highest priority and 5 is the lowest.
 	//
 	// If there are multiple messages scheduled to be displayed at the same time, the priority determines the order in which those messages are displayed.
@@ -8394,6 +8700,8 @@ type CfnCampaignProps struct {
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
+	// The message template to use for the treatment.
+	TemplateConfiguration interface{} `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 	// A custom description of the default treatment for the campaign.
 	TreatmentDescription *string `field:"optional" json:"treatmentDescription" yaml:"treatmentDescription"`
 	// A custom name of the default treatment for the campaign, if the campaign has multiple treatments.

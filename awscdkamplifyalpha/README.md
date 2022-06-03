@@ -93,7 +93,7 @@ Add branches:
 var amplifyApp app
 
 
-master := amplifyApp.addBranch(jsii.String("master")) // `id` will be used as repo branch name
+main := amplifyApp.addBranch(jsii.String("main")) // `id` will be used as repo branch name
 dev := amplifyApp.addBranch(jsii.String("dev"), &branchOptions{
 	performanceMode: jsii.Boolean(true),
 })
@@ -131,7 +131,7 @@ Add a domain and map sub domains to branches:
 
 ```go
 var amplifyApp app
-var master branch
+var main branch
 var dev branch
 
 
@@ -143,8 +143,8 @@ domain := amplifyApp.addDomain(jsii.String("example.com"), &domainOptions{
 		jsii.String("pr*"),
 	},
 })
-domain.mapRoot(master) // map master branch to domain root
-domain.mapSubDomain(master, jsii.String("www"))
+domain.mapRoot(main) // map main branch to domain root
+domain.mapSubDomain(main, jsii.String("www"))
 domain.mapSubDomain(dev)
 ```
 

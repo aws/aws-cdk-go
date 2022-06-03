@@ -16745,6 +16745,12 @@ type DatabaseClusterFromSnapshotProps struct {
 	// Whether to copy tags to the snapshot when a snapshot is created.
 	CopyTagsToSnapshot *bool `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Credentials for the administrative user.
+	//
+	// Note - using this prop only works with `Credentials.fromPassword()` with the
+	// username of the snapshot, `Credentials.fromUsername()` with the username and
+	// password of the snapshot or `Credentials.fromSecret()` with a secret containing
+	// the username and password of the snapshot.
+	// Deprecated: use `snapshotCredentials` which allows to generate a new password.
 	Credentials Credentials `field:"optional" json:"credentials" yaml:"credentials"`
 	// Name of a database which is automatically created inside the cluster.
 	DefaultDatabaseName *string `field:"optional" json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
@@ -16817,6 +16823,11 @@ type DatabaseClusterFromSnapshotProps struct {
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
 	S3ImportRole awsiam.IRole `field:"optional" json:"s3ImportRole" yaml:"s3ImportRole"`
+	// Master user credentials.
+	//
+	// Note - It is not possible to change the master username for a snapshot;
+	// however, it is possible to provide (or generate) a new password.
+	SnapshotCredentials SnapshotCredentials `field:"optional" json:"snapshotCredentials" yaml:"snapshotCredentials"`
 	// Whether to enable storage encryption.
 	StorageEncrypted *bool `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The KMS key for storage encryption.

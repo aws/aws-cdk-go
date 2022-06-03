@@ -666,6 +666,14 @@ type CfnReplicationSetProps struct {
 //
 //   				// the properties below are optional
 //   				documentVersion: jsii.String("documentVersion"),
+//   				dynamicParameters: []interface{}{
+//   					&dynamicSsmParameterProperty{
+//   						key: jsii.String("key"),
+//   						value: &dynamicSsmParameterValueProperty{
+//   							variable: jsii.String("variable"),
+//   						},
+//   					},
+//   				},
 //   				parameters: []interface{}{
 //   					&ssmParameterProperty{
 //   						key: jsii.String("key"),
@@ -1338,6 +1346,14 @@ func (c *jsiiProxy_CfnResponsePlan) ValidateProperties(_properties interface{}) 
 //
 //   		// the properties below are optional
 //   		documentVersion: jsii.String("documentVersion"),
+//   		dynamicParameters: []interface{}{
+//   			&dynamicSsmParameterProperty{
+//   				key: jsii.String("key"),
+//   				value: &dynamicSsmParameterValueProperty{
+//   					variable: jsii.String("variable"),
+//   				},
+//   			},
+//   		},
 //   		parameters: []interface{}{
 //   			&ssmParameterProperty{
 //   				key: jsii.String("key"),
@@ -1373,6 +1389,39 @@ type CfnResponsePlan_ChatChannelProperty struct {
 	//
 	// You can also make updates to the incident through the chat channel by using the SNS topics.
 	ChatbotSns *[]*string `field:"optional" json:"chatbotSns" yaml:"chatbotSns"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   dynamicSsmParameterProperty := &dynamicSsmParameterProperty{
+//   	key: jsii.String("key"),
+//   	value: &dynamicSsmParameterValueProperty{
+//   		variable: jsii.String("variable"),
+//   	},
+//   }
+//
+type CfnResponsePlan_DynamicSsmParameterProperty struct {
+	// `CfnResponsePlan.DynamicSsmParameterProperty.Key`.
+	Key *string `field:"required" json:"key" yaml:"key"`
+	// `CfnResponsePlan.DynamicSsmParameterProperty.Value`.
+	Value interface{} `field:"required" json:"value" yaml:"value"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   dynamicSsmParameterValueProperty := &dynamicSsmParameterValueProperty{
+//   	variable: jsii.String("variable"),
+//   }
+//
+type CfnResponsePlan_DynamicSsmParameterValueProperty struct {
+	// `CfnResponsePlan.DynamicSsmParameterValueProperty.Variable`.
+	Variable *string `field:"optional" json:"variable" yaml:"variable"`
 }
 
 // The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
@@ -1446,6 +1495,14 @@ type CfnResponsePlan_NotificationTargetItemProperty struct {
 //
 //   	// the properties below are optional
 //   	documentVersion: jsii.String("documentVersion"),
+//   	dynamicParameters: []interface{}{
+//   		&dynamicSsmParameterProperty{
+//   			key: jsii.String("key"),
+//   			value: &dynamicSsmParameterValueProperty{
+//   				variable: jsii.String("variable"),
+//   			},
+//   		},
+//   	},
 //   	parameters: []interface{}{
 //   		&ssmParameterProperty{
 //   			key: jsii.String("key"),
@@ -1464,6 +1521,8 @@ type CfnResponsePlan_SsmAutomationProperty struct {
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The automation document's version to use when running.
 	DocumentVersion *string `field:"optional" json:"documentVersion" yaml:"documentVersion"`
+	// `CfnResponsePlan.SsmAutomationProperty.DynamicParameters`.
+	DynamicParameters interface{} `field:"optional" json:"dynamicParameters" yaml:"dynamicParameters"`
 	// The key-value pair parameters to use when running the automation document.
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The account that the automation document will be run in.
@@ -1525,6 +1584,14 @@ type CfnResponsePlan_SsmParameterProperty struct {
 //
 //   				// the properties below are optional
 //   				documentVersion: jsii.String("documentVersion"),
+//   				dynamicParameters: []interface{}{
+//   					&dynamicSsmParameterProperty{
+//   						key: jsii.String("key"),
+//   						value: &dynamicSsmParameterValueProperty{
+//   							variable: jsii.String("variable"),
+//   						},
+//   					},
+//   				},
 //   				parameters: []interface{}{
 //   					&ssmParameterProperty{
 //   						key: jsii.String("key"),

@@ -213,6 +213,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "userAttributeUpdateSettings", GoGetter: "UserAttributeUpdateSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "usernameAttributes", GoGetter: "UsernameAttributes"},
 			_jsii_.MemberProperty{JsiiProperty: "usernameConfiguration", GoGetter: "UsernameConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolAddOns", GoGetter: "UserPoolAddOns"},
@@ -288,6 +289,10 @@ func init() {
 		reflect.TypeOf((*CfnUserPool_StringAttributeConstraintsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.CfnUserPool.UserAttributeUpdateSettingsProperty",
+		reflect.TypeOf((*CfnUserPool_UserAttributeUpdateSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnUserPool.UserPoolAddOnsProperty",
 		reflect.TypeOf((*CfnUserPool_UserPoolAddOnsProperty)(nil)).Elem(),
 	)
@@ -324,6 +329,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "clientName", GoGetter: "ClientName"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultRedirectUri", GoGetter: "DefaultRedirectUri"},
+			_jsii_.MemberProperty{JsiiProperty: "enablePropagateAdditionalUserContextData", GoGetter: "EnablePropagateAdditionalUserContextData"},
 			_jsii_.MemberProperty{JsiiProperty: "enableTokenRevocation", GoGetter: "EnableTokenRevocation"},
 			_jsii_.MemberProperty{JsiiProperty: "explicitAuthFlows", GoGetter: "ExplicitAuthFlows"},
 			_jsii_.MemberProperty{JsiiProperty: "generateSecret", GoGetter: "GenerateSecret"},
@@ -969,6 +975,18 @@ func init() {
 		"aws-cdk-lib.aws_cognito.OAuthSettings",
 		reflect.TypeOf((*OAuthSettings)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cognito.OidcAttributeRequestMethod",
+		reflect.TypeOf((*OidcAttributeRequestMethod)(nil)).Elem(),
+		map[string]interface{}{
+			"GET": OidcAttributeRequestMethod_GET,
+			"POST": OidcAttributeRequestMethod_POST,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.OidcEndpoints",
+		reflect.TypeOf((*OidcEndpoints)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.PasswordPolicy",
 		reflect.TypeOf((*PasswordPolicy)(nil)).Elem(),
@@ -1272,6 +1290,33 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderGoogleProps",
 		reflect.TypeOf((*UserPoolIdentityProviderGoogleProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderOidc",
+		reflect.TypeOf((*UserPoolIdentityProviderOidc)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "configureAttributeMapping", GoMethod: "ConfigureAttributeMapping"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "providerName", GoGetter: "ProviderName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_UserPoolIdentityProviderOidc{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUserPoolIdentityProvider)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderOidcProps",
+		reflect.TypeOf((*UserPoolIdentityProviderOidcProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderProps",

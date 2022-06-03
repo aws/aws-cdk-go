@@ -17531,8 +17531,11 @@ type CustomResourceProps struct {
 //   	codeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
 //   	runtime: awscdk.CustomResourceProviderRuntime_NODEJS_12_X,
 //   })
-//
-//   roleArn := provider.roleArn
+//   provider.addToRolePolicy(map[string]*string{
+//   	"Effect": jsii.String("Allow"),
+//   	"Action": jsii.String("s3:GetObject"),
+//   	"Resource": jsii.String("*"),
+//   })
 //
 type CustomResourceProvider interface {
 	constructs.Construct
@@ -17556,6 +17559,23 @@ type CustomResourceProvider interface {
 	//   })
 	//
 	ServiceToken() *string
+	// Add an IAM policy statement to the inline policy of the provider's lambda function's role.
+	//
+	// **Please note**: this is a direct IAM JSON policy blob, *not* a `iam.PolicyStatement`
+	// object like you will see in the rest of the CDK.
+	//
+	// Example:
+	//   // Example automatically generated from non-compiling source. May contain errors.
+	//   var myProvider customResourceProvider
+	//
+	//
+	//   myProvider.addToRolePolicy(map[string]*string{
+	//   	"Effect": jsii.String("Allow"),
+	//   	"Action": jsii.String("s3:GetObject"),
+	//   	"Resources": jsii.String("*"),
+	//   })
+	//
+	AddToRolePolicy(statement interface{})
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -17677,6 +17697,14 @@ func CustomResourceProvider_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CustomResourceProvider) AddToRolePolicy(statement interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addToRolePolicy",
+		[]interface{}{statement},
+	)
+}
+
 func (c *jsiiProxy_CustomResourceProvider) ToString() *string {
 	var returns *string
 
@@ -17697,13 +17725,11 @@ func (c *jsiiProxy_CustomResourceProvider) ToString() *string {
 //   provider := awscdk.CustomResourceProvider.getOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &customResourceProviderProps{
 //   	codeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
 //   	runtime: awscdk.CustomResourceProviderRuntime_NODEJS_12_X,
-//   	policyStatements: []interface{}{
-//   		map[string]*string{
-//   			"Effect": jsii.String("Allow"),
-//   			"Action": jsii.String("s3:PutObject*"),
-//   			"Resource": jsii.String("*"),
-//   		},
-//   	},
+//   })
+//   provider.addToRolePolicy(map[string]*string{
+//   	"Effect": jsii.String("Allow"),
+//   	"Action": jsii.String("s3:GetObject"),
+//   	"Resource": jsii.String("*"),
 //   })
 //
 type CustomResourceProviderProps struct {
@@ -17757,13 +17783,11 @@ type CustomResourceProviderProps struct {
 //   provider := awscdk.CustomResourceProvider.getOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &customResourceProviderProps{
 //   	codeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
 //   	runtime: awscdk.CustomResourceProviderRuntime_NODEJS_12_X,
-//   	policyStatements: []interface{}{
-//   		map[string]*string{
-//   			"Effect": jsii.String("Allow"),
-//   			"Action": jsii.String("s3:PutObject*"),
-//   			"Resource": jsii.String("*"),
-//   		},
-//   	},
+//   })
+//   provider.addToRolePolicy(map[string]*string{
+//   	"Effect": jsii.String("Allow"),
+//   	"Action": jsii.String("s3:GetObject"),
+//   	"Resource": jsii.String("*"),
 //   })
 //
 type CustomResourceProviderRuntime string

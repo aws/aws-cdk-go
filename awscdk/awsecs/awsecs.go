@@ -504,6 +504,8 @@ type AsgCapacityProvider interface {
 	constructs.Construct
 	// Auto Scaling Group.
 	AutoScalingGroup() awsautoscaling.AutoScalingGroup
+	// Specifies whether the containers can access the container instance role.
+	CanContainersAccessInstanceRole() *bool
 	// Capacity provider name.
 	CapacityProviderName() *string
 	// Whether managed termination protection is enabled.
@@ -526,6 +528,16 @@ func (j *jsiiProxy_AsgCapacityProvider) AutoScalingGroup() awsautoscaling.AutoSc
 	_jsii_.Get(
 		j,
 		"autoScalingGroup",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AsgCapacityProvider) CanContainersAccessInstanceRole() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"canContainersAccessInstanceRole",
 		&returns,
 	)
 	return returns
@@ -9414,7 +9426,7 @@ type CfnTaskDefinition_ResourceRequirementProperty struct {
 type CfnTaskDefinition_RuntimePlatformProperty struct {
 	// The CPU architecture.
 	//
-	// You can run your Linux tasks on an ARM-based platform by setting the value to `ARM64` . This option is avaiable for tasks that run on Linuc Amazon EC2 instance or Linux containers on Fargate.
+	// You can run your Linux tasks on an ARM-based platform by setting the value to `ARM64` . This option is avaiable for tasks that run on Linux Amazon EC2 instance or Linux containers on Fargate.
 	CpuArchitecture *string `field:"optional" json:"cpuArchitecture" yaml:"cpuArchitecture"`
 	// The operating system.
 	OperatingSystemFamily *string `field:"optional" json:"operatingSystemFamily" yaml:"operatingSystemFamily"`
@@ -13613,7 +13625,7 @@ func Ec2Service_FromEc2ServiceArn(scope constructs.Construct, id *string, ec2Ser
 	return returns
 }
 
-// Imports from the specified service attrributes.
+// Imports from the specified service attributes.
 func Ec2Service_FromEc2ServiceAttributes(scope constructs.Construct, id *string, attrs *Ec2ServiceAttributes) IBaseService {
 	_init_.Initialize()
 
@@ -15733,7 +15745,7 @@ func ExternalService_FromExternalServiceArn(scope constructs.Construct, id *stri
 	return returns
 }
 
-// Imports from the specified service attrributes.
+// Imports from the specified service attributes.
 func ExternalService_FromExternalServiceAttributes(scope constructs.Construct, id *string, attrs *ExternalServiceAttributes) IBaseService {
 	_init_.Initialize()
 
@@ -17240,7 +17252,7 @@ func FargateService_FromFargateServiceArn(scope constructs.Construct, id *string
 	return returns
 }
 
-// Imports from the specified service attrributes.
+// Imports from the specified service attributes.
 func FargateService_FromFargateServiceAttributes(scope constructs.Construct, id *string, attrs *FargateServiceAttributes) IBaseService {
 	_init_.Initialize()
 

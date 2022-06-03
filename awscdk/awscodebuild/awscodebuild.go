@@ -5088,7 +5088,7 @@ type EfsFileSystemLocationProps struct {
 //   	webhookTriggersBatchBuild: jsii.Boolean(true),
 //   	 // optional, default is false
 //   	webhookFilters: []filterGroup{
-//   		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("master")).andCommitMessageIs(jsii.String("the commit message")),
+//   		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("main")).andCommitMessageIs(jsii.String("the commit message")),
 //   	},
 //   })
 //
@@ -5218,7 +5218,7 @@ func FileSystemLocation_Efs(props *EfsFileSystemLocationProps) IFileSystemLocati
 //   	webhookTriggersBatchBuild: jsii.Boolean(true),
 //   	 // optional, default is false
 //   	webhookFilters: []filterGroup{
-//   		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("master")).andCommitMessageIs(jsii.String("the commit message")),
+//   		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("main")).andCommitMessageIs(jsii.String("the commit message")),
 //   	},
 //   })
 //
@@ -6096,7 +6096,7 @@ type GitHubSourceCredentialsProps struct {
 //   	webhookTriggersBatchBuild: jsii.Boolean(true),
 //   	 // optional, default is false
 //   	webhookFilters: []filterGroup{
-//   		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("master")).andCommitMessageIs(jsii.String("the commit message")),
+//   		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("main")).andCommitMessageIs(jsii.String("the commit message")),
 //   	},
 //   })
 //
@@ -10163,7 +10163,7 @@ type S3SourceProps struct {
 //   	webhookTriggersBatchBuild: jsii.Boolean(true),
 //   	 // optional, default is false
 //   	webhookFilters: []filterGroup{
-//   		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("master")).andCommitMessageIs(jsii.String("the commit message")),
+//   		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("main")).andCommitMessageIs(jsii.String("the commit message")),
 //   	},
 //   })
 //

@@ -1533,12 +1533,14 @@ type CfnConnectPeerProps struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policyDocument interface{}
+//
 //   cfnCoreNetwork := awscdk.Aws_networkmanager.NewCfnCoreNetwork(this, jsii.String("MyCfnCoreNetwork"), &cfnCoreNetworkProps{
 //   	globalNetworkId: jsii.String("globalNetworkId"),
 //
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
-//   	policyDocument: jsii.String("policyDocument"),
+//   	policyDocument: policyDocument,
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -1593,8 +1595,8 @@ type CfnCoreNetwork interface {
 	// Describes a core network policy.
 	//
 	// If you update the policy document, CloudFormation will apply the core network change set generated from the updated policy document, and then set it as the LIVE policy.
-	PolicyDocument() *string
-	SetPolicyDocument(val *string)
+	PolicyDocument() interface{}
+	SetPolicyDocument(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -1872,8 +1874,8 @@ func (j *jsiiProxy_CfnCoreNetwork) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCoreNetwork) PolicyDocument() *string {
-	var returns *string
+func (j *jsiiProxy_CfnCoreNetwork) PolicyDocument() interface{} {
+	var returns interface{}
 	_jsii_.Get(
 		j,
 		"policyDocument",
@@ -1965,7 +1967,7 @@ func (j *jsiiProxy_CfnCoreNetwork) SetGlobalNetworkId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCoreNetwork) SetPolicyDocument(val *string) {
+func (j *jsiiProxy_CfnCoreNetwork) SetPolicyDocument(val interface{}) {
 	_jsii_.Set(
 		j,
 		"policyDocument",
@@ -2244,12 +2246,14 @@ type CfnCoreNetwork_CoreNetworkSegmentProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policyDocument interface{}
+//
 //   cfnCoreNetworkProps := &cfnCoreNetworkProps{
 //   	globalNetworkId: jsii.String("globalNetworkId"),
 //
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
-//   	policyDocument: jsii.String("policyDocument"),
+//   	policyDocument: policyDocument,
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -2266,7 +2270,7 @@ type CfnCoreNetworkProps struct {
 	// Describes a core network policy.
 	//
 	// If you update the policy document, CloudFormation will apply the core network change set generated from the updated policy document, and then set it as the LIVE policy.
-	PolicyDocument *string `field:"optional" json:"policyDocument" yaml:"policyDocument"`
+	PolicyDocument interface{} `field:"optional" json:"policyDocument" yaml:"policyDocument"`
 	// The tags associated with a core network.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }

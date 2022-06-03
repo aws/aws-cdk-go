@@ -23232,6 +23232,7 @@ type CfnLaunchTemplate_Ipv6PrefixSpecificationProperty struct {
 //   	creditSpecification: &creditSpecificationProperty{
 //   		cpuCredits: jsii.String("cpuCredits"),
 //   	},
+//   	disableApiStop: jsii.Boolean(false),
 //   	disableApiTermination: jsii.Boolean(false),
 //   	ebsOptimized: jsii.Boolean(false),
 //   	elasticGpuSpecifications: []interface{}{
@@ -23442,6 +23443,8 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	//
 	// Valid for T2, T3, or T3a instances only.
 	CreditSpecification interface{} `field:"optional" json:"creditSpecification" yaml:"creditSpecification"`
+	// `CfnLaunchTemplate.LaunchTemplateDataProperty.DisableApiStop`.
+	DisableApiStop interface{} `field:"optional" json:"disableApiStop" yaml:"disableApiStop"`
 	// If you set this parameter to `true` , you can't terminate the instance using the Amazon EC2 console, CLI, or API;
 	//
 	// otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html) . Alternatively, if you set `InstanceInitiatedShutdownBehavior` to `terminate` , you can terminate the instance by running the shutdown command from the instance.
@@ -33527,6 +33530,7 @@ type CfnNetworkInterfaceProps struct {
 type CfnPlacementGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrGroupName() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -33674,6 +33678,16 @@ type CfnPlacementGroup interface {
 type jsiiProxy_CfnPlacementGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnPlacementGroup) AttrGroupName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrGroupName",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnPlacementGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -47848,6 +47862,8 @@ func (c *jsiiProxy_CfnTransitGateway) ValidateProperties(_properties interface{}
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var options interface{}
+//
 //   cfnTransitGatewayAttachment := awscdk.Aws_ec2.NewCfnTransitGatewayAttachment(this, jsii.String("MyCfnTransitGatewayAttachment"), &cfnTransitGatewayAttachmentProps{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -47856,6 +47872,7 @@ func (c *jsiiProxy_CfnTransitGateway) ValidateProperties(_properties interface{}
 //   	vpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
+//   	options: options,
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -47889,6 +47906,9 @@ type CfnTransitGatewayAttachment interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// `AWS::EC2::TransitGatewayAttachment.Options`.
+	Options() interface{}
+	SetOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -48097,6 +48117,16 @@ func (j *jsiiProxy_CfnTransitGatewayAttachment) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGatewayAttachment) Options() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"options",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayAttachment) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -48191,6 +48221,14 @@ func NewCfnTransitGatewayAttachment_Override(c CfnTransitGatewayAttachment, scop
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayAttachment",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayAttachment) SetOptions(val interface{}) {
+	_jsii_.Set(
+		j,
+		"options",
+		val,
 	)
 }
 
@@ -48437,6 +48475,8 @@ func (c *jsiiProxy_CfnTransitGatewayAttachment) ValidateProperties(_properties i
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var options interface{}
+//
 //   cfnTransitGatewayAttachmentProps := &cfnTransitGatewayAttachmentProps{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -48445,6 +48485,7 @@ func (c *jsiiProxy_CfnTransitGatewayAttachment) ValidateProperties(_properties i
 //   	vpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
+//   	options: options,
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -48462,6 +48503,8 @@ type CfnTransitGatewayAttachmentProps struct {
 	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The ID of the VPC.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
+	// `AWS::EC2::TransitGatewayAttachment.Options`.
+	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// The tags for the attachment.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
@@ -60794,6 +60837,7 @@ type CfnVPCGatewayAttachmentProps struct {
 type CfnVPCPeeringConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -60963,6 +61007,16 @@ type CfnVPCPeeringConnection interface {
 type jsiiProxy_CfnVPCPeeringConnection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnVPCPeeringConnection) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnVPCPeeringConnection) CfnOptions() awscdk.ICfnResourceOptions {

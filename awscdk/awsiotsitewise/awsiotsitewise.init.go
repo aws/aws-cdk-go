@@ -91,6 +91,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "assetDescription", GoGetter: "AssetDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "assetHierarchies", GoGetter: "AssetHierarchies"},
 			_jsii_.MemberProperty{JsiiProperty: "assetModelId", GoGetter: "AssetModelId"},
 			_jsii_.MemberProperty{JsiiProperty: "assetName", GoGetter: "AssetName"},

@@ -47,11 +47,11 @@ type CfnLedger interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The flag that prevents a ledger from being deleted by any user.
+	// Specifies whether the ledger is protected from being deleted by any user.
 	//
-	// If not provided on ledger creation, this feature is enabled ( `true` ) by default.
+	// If not defined during ledger creation, this feature is enabled ( `true` ) by default.
 	//
-	// If deletion protection is enabled, you must first disable it before you can delete the ledger. You can disable it by calling the `UpdateLedger` operation to set the flag to `false` .
+	// If deletion protection is enabled, you must first disable it before you can delete the ledger. You can disable it by calling the `UpdateLedger` operation to set the parameter to `false` .
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
 	// The key in AWS Key Management Service ( AWS KMS ) to use for encryption of data at rest in the ledger.
@@ -62,7 +62,7 @@ type CfnLedger interface {
 	//
 	// - `AWS_OWNED_KMS_KEY` : Use an AWS KMS key that is owned and managed by AWS on your behalf.
 	// - *Undefined* : By default, use an AWS owned KMS key.
-	// - *A valid symmetric customer managed KMS key* : Use the specified KMS key in your account that you create, own, and manage.
+	// - *A valid symmetric customer managed KMS key* : Use the specified symmetric encryption KMS key in your account that you create, own, and manage.
 	//
 	// Amazon QLDB does not support asymmetric keys. For more information, see [Using symmetric and asymmetric keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the *AWS Key Management Service Developer Guide* .
 	//
@@ -687,11 +687,11 @@ type CfnLedgerProps struct {
 	//
 	// > We strongly recommend using the `STANDARD` permissions mode to maximize the security of your ledger data.
 	PermissionsMode *string `field:"required" json:"permissionsMode" yaml:"permissionsMode"`
-	// The flag that prevents a ledger from being deleted by any user.
+	// Specifies whether the ledger is protected from being deleted by any user.
 	//
-	// If not provided on ledger creation, this feature is enabled ( `true` ) by default.
+	// If not defined during ledger creation, this feature is enabled ( `true` ) by default.
 	//
-	// If deletion protection is enabled, you must first disable it before you can delete the ledger. You can disable it by calling the `UpdateLedger` operation to set the flag to `false` .
+	// If deletion protection is enabled, you must first disable it before you can delete the ledger. You can disable it by calling the `UpdateLedger` operation to set the parameter to `false` .
 	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// The key in AWS Key Management Service ( AWS KMS ) to use for encryption of data at rest in the ledger.
 	//
@@ -701,7 +701,7 @@ type CfnLedgerProps struct {
 	//
 	// - `AWS_OWNED_KMS_KEY` : Use an AWS KMS key that is owned and managed by AWS on your behalf.
 	// - *Undefined* : By default, use an AWS owned KMS key.
-	// - *A valid symmetric customer managed KMS key* : Use the specified KMS key in your account that you create, own, and manage.
+	// - *A valid symmetric customer managed KMS key* : Use the specified symmetric encryption KMS key in your account that you create, own, and manage.
 	//
 	// Amazon QLDB does not support asymmetric keys. For more information, see [Using symmetric and asymmetric keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the *AWS Key Management Service Developer Guide* .
 	//
