@@ -506,7 +506,7 @@ machine as a subclass of this, it will be convenient to use:
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws-samples/dummy/constructs"
+import "github.com/aws/constructs-go/constructs"
 import sfn "github.com/aws/aws-cdk-go/awscdk"
 
 type myJobProps struct {

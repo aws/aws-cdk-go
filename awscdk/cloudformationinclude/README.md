@@ -430,7 +430,7 @@ If you have templates like that,
 you can use the `CfnInclude` class to vend them as CDK Constructs:
 
 ```go
-import "github.com/aws-samples/dummy/constructs"
+import "github.com/aws/constructs-go/constructs"
 import cfn_inc "github.com/aws/aws-cdk-go/awscdk"
 import path "github.com/aws-samples/dummy/path"
 

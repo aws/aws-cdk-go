@@ -198,25 +198,24 @@ You can optionally attach a
 to the target.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 import batch "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 
-jobQueue := batch.NewJobQueue(this, jsii.String("MyQueue"), map[string][]map[string]interface{}{
-	"computeEnvironments": []map[string]interface{}{
-		map[string]interface{}{
-			"computeEnvironment": batch.NewComputeEnvironment(this, jsii.String("ComputeEnvironment"), map[string]*bool{
-				"managed": jsii.Boolean(false),
+jobQueue := batch.NewJobQueue(this, jsii.String("MyQueue"), &jobQueueProps{
+	computeEnvironments: []jobQueueComputeEnvironment{
+		&jobQueueComputeEnvironment{
+			computeEnvironment: batch.NewComputeEnvironment(this, jsii.String("ComputeEnvironment"), &computeEnvironmentProps{
+				managed: jsii.Boolean(false),
 			}),
-			"order": jsii.Number(1),
+			order: jsii.Number(1),
 		},
 	},
 })
 
-jobDefinition := batch.NewJobDefinition(this, jsii.String("MyJob"), map[string]map[string]repositoryImage{
-	"container": map[string]repositoryImage{
-		"image": awscdk.ContainerImage.fromRegistry(jsii.String("test-repo")),
+jobDefinition := batch.NewJobDefinition(this, jsii.String("MyJob"), &jobDefinitionProps{
+	container: &jobDefinitionContainer{
+		image: awscdk.ContainerImage.fromRegistry(jsii.String("test-repo")),
 	},
 })
 

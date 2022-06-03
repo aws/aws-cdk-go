@@ -101,7 +101,7 @@ gitHubSource := codebuild.source.gitHub(&gitHubSourceProps{
 	webhookTriggersBatchBuild: jsii.Boolean(true),
 	 // optional, default is false
 	webhookFilters: []filterGroup{
-		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("main")).andCommitMessageIs(jsii.String("the commit message")),
+		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("master")).andCommitMessageIs(jsii.String("the commit message")),
 	},
 })
 ```

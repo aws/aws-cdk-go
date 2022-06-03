@@ -56,7 +56,7 @@ resources under `goodbye` will be provisioned:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-import "github.com/aws-samples/dummy/constructs"
+import "github.com/aws/constructs-go/constructs"
 import triggers "github.com/aws/aws-cdk-go/awscdk"
 
 var myTrigger trigger
