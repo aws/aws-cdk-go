@@ -590,7 +590,7 @@ have to define your models and mappings for the request, response, and integrati
 
 ```go
 hello := lambda.NewFunction(this, jsii.String("hello"), &functionProps{
-	runtime: lambda.runtime_NODEJS_12_X(),
+	runtime: lambda.runtime_NODEJS_14_X(),
 	handler: jsii.String("hello.handler"),
 	code: lambda.code.fromAsset(jsii.String("lambda")),
 })

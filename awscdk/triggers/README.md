@@ -23,7 +23,7 @@ var stack stack
 
 
 triggers.NewTriggerFunction(stack, jsii.String("MyTrigger"), &triggerFunctionProps{
-	runtime: lambda.runtime_NODEJS_12_X(),
+	runtime: lambda.runtime_NODEJS_14_X(),
 	handler: jsii.String("index.handler"),
 	code: lambda.code.fromAsset(jsii.String(__dirname + "/my-trigger")),
 })

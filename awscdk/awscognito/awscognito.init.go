@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cognito.AccountRecovery",
+		"aws-cdk-lib.aws_cognito.AccountRecovery",
 		reflect.TypeOf((*AccountRecovery)(nil)).Elem(),
 		map[string]interface{}{
 			"EMAIL_AND_PHONE_WITHOUT_MFA": AccountRecovery_EMAIL_AND_PHONE_WITHOUT_MFA,
@@ -20,23 +20,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.AttributeMapping",
+		"aws-cdk-lib.aws_cognito.AttributeMapping",
 		reflect.TypeOf((*AttributeMapping)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.AuthFlow",
+		"aws-cdk-lib.aws_cognito.AuthFlow",
 		reflect.TypeOf((*AuthFlow)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.AutoVerifiedAttrs",
+		"aws-cdk-lib.aws_cognito.AutoVerifiedAttrs",
 		reflect.TypeOf((*AutoVerifiedAttrs)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.BaseUrlOptions",
+		"aws-cdk-lib.aws_cognito.BaseUrlOptions",
 		reflect.TypeOf((*BaseUrlOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.BooleanAttribute",
+		"aws-cdk-lib.aws_cognito.BooleanAttribute",
 		reflect.TypeOf((*BooleanAttribute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -48,7 +48,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		reflect.TypeOf((*CfnIdentityPool)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -75,12 +75,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "openIdConnectProviderArns", GoGetter: "OpenIdConnectProviderArns"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "pushSync", GoGetter: "PushSync"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -88,10 +84,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "supportedLoginProviders", GoGetter: "SupportedLoginProviders"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -102,23 +96,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnIdentityPool.CognitoIdentityProviderProperty",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool.CognitoIdentityProviderProperty",
 		reflect.TypeOf((*CfnIdentityPool_CognitoIdentityProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnIdentityPool.CognitoStreamsProperty",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool.CognitoStreamsProperty",
 		reflect.TypeOf((*CfnIdentityPool_CognitoStreamsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnIdentityPool.PushSyncProperty",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool.PushSyncProperty",
 		reflect.TypeOf((*CfnIdentityPool_PushSyncProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnIdentityPoolProps",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolProps",
 		reflect.TypeOf((*CfnIdentityPoolProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		reflect.TypeOf((*CfnIdentityPoolRoleAttachment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -138,21 +132,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roleMappings", GoGetter: "RoleMappings"},
 			_jsii_.MemberProperty{JsiiProperty: "roles", GoGetter: "Roles"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -163,23 +151,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment.MappingRuleProperty",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment.MappingRuleProperty",
 		reflect.TypeOf((*CfnIdentityPoolRoleAttachment_MappingRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment.RoleMappingProperty",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment.RoleMappingProperty",
 		reflect.TypeOf((*CfnIdentityPoolRoleAttachment_RoleMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment.RulesConfigurationTypeProperty",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment.RulesConfigurationTypeProperty",
 		reflect.TypeOf((*CfnIdentityPoolRoleAttachment_RulesConfigurationTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachmentProps",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachmentProps",
 		reflect.TypeOf((*CfnIdentityPoolRoleAttachmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		reflect.TypeOf((*CfnUserPool)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accountRecoverySetting", GoGetter: "AccountRecoverySetting"},
@@ -212,12 +200,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "mfaConfiguration", GoGetter: "MfaConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policies", GoGetter: "Policies"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "schema", GoGetter: "Schema"},
@@ -226,7 +210,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "smsConfiguration", GoGetter: "SmsConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "smsVerificationMessage", GoGetter: "SmsVerificationMessage"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
@@ -235,7 +218,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "usernameConfiguration", GoGetter: "UsernameConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolAddOns", GoGetter: "UserPoolAddOns"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolName", GoGetter: "UserPoolName"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "verificationMessageTemplate", GoGetter: "VerificationMessageTemplate"},
 		},
@@ -247,83 +229,83 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.AccountRecoverySettingProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.AccountRecoverySettingProperty",
 		reflect.TypeOf((*CfnUserPool_AccountRecoverySettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.AdminCreateUserConfigProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.AdminCreateUserConfigProperty",
 		reflect.TypeOf((*CfnUserPool_AdminCreateUserConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.CustomEmailSenderProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.CustomEmailSenderProperty",
 		reflect.TypeOf((*CfnUserPool_CustomEmailSenderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.CustomSMSSenderProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.CustomSMSSenderProperty",
 		reflect.TypeOf((*CfnUserPool_CustomSMSSenderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.DeviceConfigurationProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.DeviceConfigurationProperty",
 		reflect.TypeOf((*CfnUserPool_DeviceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.EmailConfigurationProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.EmailConfigurationProperty",
 		reflect.TypeOf((*CfnUserPool_EmailConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.InviteMessageTemplateProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.InviteMessageTemplateProperty",
 		reflect.TypeOf((*CfnUserPool_InviteMessageTemplateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.LambdaConfigProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.LambdaConfigProperty",
 		reflect.TypeOf((*CfnUserPool_LambdaConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.NumberAttributeConstraintsProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.NumberAttributeConstraintsProperty",
 		reflect.TypeOf((*CfnUserPool_NumberAttributeConstraintsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.PasswordPolicyProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.PasswordPolicyProperty",
 		reflect.TypeOf((*CfnUserPool_PasswordPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.PoliciesProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.PoliciesProperty",
 		reflect.TypeOf((*CfnUserPool_PoliciesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.RecoveryOptionProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.RecoveryOptionProperty",
 		reflect.TypeOf((*CfnUserPool_RecoveryOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.SchemaAttributeProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.SchemaAttributeProperty",
 		reflect.TypeOf((*CfnUserPool_SchemaAttributeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.SmsConfigurationProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.SmsConfigurationProperty",
 		reflect.TypeOf((*CfnUserPool_SmsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.StringAttributeConstraintsProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.StringAttributeConstraintsProperty",
 		reflect.TypeOf((*CfnUserPool_StringAttributeConstraintsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.UserAttributeUpdateSettingsProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.UserAttributeUpdateSettingsProperty",
 		reflect.TypeOf((*CfnUserPool_UserAttributeUpdateSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.UserPoolAddOnsProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.UserPoolAddOnsProperty",
 		reflect.TypeOf((*CfnUserPool_UserPoolAddOnsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.UsernameConfigurationProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.UsernameConfigurationProperty",
 		reflect.TypeOf((*CfnUserPool_UsernameConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPool.VerificationMessageTemplateProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPool.VerificationMessageTemplateProperty",
 		reflect.TypeOf((*CfnUserPool_VerificationMessageTemplateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		reflect.TypeOf((*CfnUserPoolClient)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessTokenValidity", GoGetter: "AccessTokenValidity"},
@@ -358,11 +340,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "logoutUrLs", GoGetter: "LogoutUrLs"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "preventUserExistenceErrors", GoGetter: "PreventUserExistenceErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "readAttributes", GoGetter: "ReadAttributes"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
@@ -371,12 +349,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "supportedIdentityProviders", GoGetter: "SupportedIdentityProviders"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tokenValidityUnits", GoGetter: "TokenValidityUnits"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "writeAttributes", GoGetter: "WriteAttributes"},
 		},
@@ -388,19 +364,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolClient.AnalyticsConfigurationProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient.AnalyticsConfigurationProperty",
 		reflect.TypeOf((*CfnUserPoolClient_AnalyticsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolClient.TokenValidityUnitsProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient.TokenValidityUnitsProperty",
 		reflect.TypeOf((*CfnUserPoolClient_TokenValidityUnitsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolClientProps",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClientProps",
 		reflect.TypeOf((*CfnUserPoolClientProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		reflect.TypeOf((*CfnUserPoolDomain)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -421,20 +397,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -445,15 +415,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolDomain.CustomDomainConfigTypeProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain.CustomDomainConfigTypeProperty",
 		reflect.TypeOf((*CfnUserPoolDomain_CustomDomainConfigTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolDomainProps",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomainProps",
 		reflect.TypeOf((*CfnUserPoolDomainProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		reflect.TypeOf((*CfnUserPoolGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -474,22 +444,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "precedence", GoGetter: "Precedence"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -500,11 +464,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolGroupProps",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroupProps",
 		reflect.TypeOf((*CfnUserPoolGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		reflect.TypeOf((*CfnUserPoolIdentityProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -525,11 +489,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "providerDetails", GoGetter: "ProviderDetails"},
 			_jsii_.MemberProperty{JsiiProperty: "providerName", GoGetter: "ProviderName"},
 			_jsii_.MemberProperty{JsiiProperty: "providerType", GoGetter: "ProviderType"},
@@ -537,11 +497,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -552,15 +510,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProviderProps",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProviderProps",
 		reflect.TypeOf((*CfnUserPoolIdentityProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolProps",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolProps",
 		reflect.TypeOf((*CfnUserPoolProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		reflect.TypeOf((*CfnUserPoolResourceServer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -581,21 +539,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "scopes", GoGetter: "Scopes"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -606,15 +558,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer.ResourceServerScopeTypeProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer.ResourceServerScopeTypeProperty",
 		reflect.TypeOf((*CfnUserPoolResourceServer_ResourceServerScopeTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolResourceServerProps",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServerProps",
 		reflect.TypeOf((*CfnUserPoolResourceServerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		reflect.TypeOf((*CfnUserPoolRiskConfigurationAttachment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accountTakeoverRiskConfiguration", GoGetter: "AccountTakeoverRiskConfiguration"},
@@ -636,21 +588,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "riskExceptionConfiguration", GoGetter: "RiskExceptionConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -661,43 +607,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment.AccountTakeoverActionTypeProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment.AccountTakeoverActionTypeProperty",
 		reflect.TypeOf((*CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment.AccountTakeoverActionsTypeProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment.AccountTakeoverActionsTypeProperty",
 		reflect.TypeOf((*CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionsTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment.AccountTakeoverRiskConfigurationTypeProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment.AccountTakeoverRiskConfigurationTypeProperty",
 		reflect.TypeOf((*CfnUserPoolRiskConfigurationAttachment_AccountTakeoverRiskConfigurationTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsTypeProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsTypeProperty",
 		reflect.TypeOf((*CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsActionsTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfigurationTypeProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfigurationTypeProperty",
 		reflect.TypeOf((*CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsRiskConfigurationTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment.NotifyConfigurationTypeProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment.NotifyConfigurationTypeProperty",
 		reflect.TypeOf((*CfnUserPoolRiskConfigurationAttachment_NotifyConfigurationTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment.NotifyEmailTypeProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment.NotifyEmailTypeProperty",
 		reflect.TypeOf((*CfnUserPoolRiskConfigurationAttachment_NotifyEmailTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment.RiskExceptionConfigurationTypeProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment.RiskExceptionConfigurationTypeProperty",
 		reflect.TypeOf((*CfnUserPoolRiskConfigurationAttachment_RiskExceptionConfigurationTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachmentProps",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachmentProps",
 		reflect.TypeOf((*CfnUserPoolRiskConfigurationAttachmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		reflect.TypeOf((*CfnUserPoolUICustomizationAttachment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -718,20 +664,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -742,11 +682,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachmentProps",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachmentProps",
 		reflect.TypeOf((*CfnUserPoolUICustomizationAttachmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		reflect.TypeOf((*CfnUserPoolUser)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -769,22 +709,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "messageAction", GoGetter: "MessageAction"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "userAttributes", GoGetter: "UserAttributes"},
 			_jsii_.MemberProperty{JsiiProperty: "username", GoGetter: "Username"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "validationData", GoGetter: "ValidationData"},
 		},
@@ -796,15 +730,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolUser.AttributeTypeProperty",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser.AttributeTypeProperty",
 		reflect.TypeOf((*CfnUserPoolUser_AttributeTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolUserProps",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserProps",
 		reflect.TypeOf((*CfnUserPoolUserProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		reflect.TypeOf((*CfnUserPoolUserToGroupAttachment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -824,21 +758,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "username", GoGetter: "Username"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -849,11 +777,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachmentProps",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachmentProps",
 		reflect.TypeOf((*CfnUserPoolUserToGroupAttachmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.ClientAttributes",
+		"aws-cdk-lib.aws_cognito.ClientAttributes",
 		reflect.TypeOf((*ClientAttributes)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attributes", GoMethod: "Attributes"},
@@ -865,23 +793,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CognitoDomainOptions",
+		"aws-cdk-lib.aws_cognito.CognitoDomainOptions",
 		reflect.TypeOf((*CognitoDomainOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CustomAttributeConfig",
+		"aws-cdk-lib.aws_cognito.CustomAttributeConfig",
 		reflect.TypeOf((*CustomAttributeConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CustomAttributeProps",
+		"aws-cdk-lib.aws_cognito.CustomAttributeProps",
 		reflect.TypeOf((*CustomAttributeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.CustomDomainOptions",
+		"aws-cdk-lib.aws_cognito.CustomDomainOptions",
 		reflect.TypeOf((*CustomDomainOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.DateTimeAttribute",
+		"aws-cdk-lib.aws_cognito.DateTimeAttribute",
 		reflect.TypeOf((*DateTimeAttribute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -893,15 +821,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.DeviceTracking",
+		"aws-cdk-lib.aws_cognito.DeviceTracking",
 		reflect.TypeOf((*DeviceTracking)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.EmailSettings",
+		"aws-cdk-lib.aws_cognito.EmailSettings",
 		reflect.TypeOf((*EmailSettings)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cognito.ICustomAttribute",
+		"aws-cdk-lib.aws_cognito.ICustomAttribute",
 		reflect.TypeOf((*ICustomAttribute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -911,7 +839,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cognito.IUserPool",
+		"aws-cdk-lib.aws_cognito.IUserPool",
 		reflect.TypeOf((*IUserPool)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addClient", GoMethod: "AddClient"},
@@ -933,7 +861,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cognito.IUserPoolClient",
+		"aws-cdk-lib.aws_cognito.IUserPoolClient",
 		reflect.TypeOf((*IUserPoolClient)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -949,7 +877,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cognito.IUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.IUserPoolDomain",
 		reflect.TypeOf((*IUserPoolDomain)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -965,7 +893,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cognito.IUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.IUserPoolIdentityProvider",
 		reflect.TypeOf((*IUserPoolIdentityProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -981,7 +909,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_cognito.IUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.IUserPoolResourceServer",
 		reflect.TypeOf((*IUserPoolResourceServer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -997,7 +925,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cognito.Mfa",
+		"aws-cdk-lib.aws_cognito.Mfa",
 		reflect.TypeOf((*Mfa)(nil)).Elem(),
 		map[string]interface{}{
 			"OFF": Mfa_OFF,
@@ -1006,11 +934,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.MfaSecondFactor",
+		"aws-cdk-lib.aws_cognito.MfaSecondFactor",
 		reflect.TypeOf((*MfaSecondFactor)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.NumberAttribute",
+		"aws-cdk-lib.aws_cognito.NumberAttribute",
 		reflect.TypeOf((*NumberAttribute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1022,19 +950,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.NumberAttributeConstraints",
+		"aws-cdk-lib.aws_cognito.NumberAttributeConstraints",
 		reflect.TypeOf((*NumberAttributeConstraints)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.NumberAttributeProps",
+		"aws-cdk-lib.aws_cognito.NumberAttributeProps",
 		reflect.TypeOf((*NumberAttributeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.OAuthFlows",
+		"aws-cdk-lib.aws_cognito.OAuthFlows",
 		reflect.TypeOf((*OAuthFlows)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		reflect.TypeOf((*OAuthScope)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "scopeName", GoGetter: "ScopeName"},
@@ -1044,11 +972,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.OAuthSettings",
+		"aws-cdk-lib.aws_cognito.OAuthSettings",
 		reflect.TypeOf((*OAuthSettings)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cognito.OidcAttributeRequestMethod",
+		"aws-cdk-lib.aws_cognito.OidcAttributeRequestMethod",
 		reflect.TypeOf((*OidcAttributeRequestMethod)(nil)).Elem(),
 		map[string]interface{}{
 			"GET": OidcAttributeRequestMethod_GET,
@@ -1056,15 +984,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.OidcEndpoints",
+		"aws-cdk-lib.aws_cognito.OidcEndpoints",
 		reflect.TypeOf((*OidcEndpoints)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.PasswordPolicy",
+		"aws-cdk-lib.aws_cognito.PasswordPolicy",
 		reflect.TypeOf((*PasswordPolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		reflect.TypeOf((*ProviderAttribute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "attributeName", GoGetter: "AttributeName"},
@@ -1074,7 +1002,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.ResourceServerScope",
+		"aws-cdk-lib.aws_cognito.ResourceServerScope",
 		reflect.TypeOf((*ResourceServerScope)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "scopeDescription", GoGetter: "ScopeDescription"},
@@ -1085,31 +1013,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.ResourceServerScopeProps",
+		"aws-cdk-lib.aws_cognito.ResourceServerScopeProps",
 		reflect.TypeOf((*ResourceServerScopeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.SignInAliases",
+		"aws-cdk-lib.aws_cognito.SignInAliases",
 		reflect.TypeOf((*SignInAliases)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.SignInUrlOptions",
+		"aws-cdk-lib.aws_cognito.SignInUrlOptions",
 		reflect.TypeOf((*SignInUrlOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.StandardAttribute",
+		"aws-cdk-lib.aws_cognito.StandardAttribute",
 		reflect.TypeOf((*StandardAttribute)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.StandardAttributes",
+		"aws-cdk-lib.aws_cognito.StandardAttributes",
 		reflect.TypeOf((*StandardAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.StandardAttributesMask",
+		"aws-cdk-lib.aws_cognito.StandardAttributesMask",
 		reflect.TypeOf((*StandardAttributesMask)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.StringAttribute",
+		"aws-cdk-lib.aws_cognito.StringAttribute",
 		reflect.TypeOf((*StringAttribute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1121,19 +1049,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.StringAttributeConstraints",
+		"aws-cdk-lib.aws_cognito.StringAttributeConstraints",
 		reflect.TypeOf((*StringAttributeConstraints)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.StringAttributeProps",
+		"aws-cdk-lib.aws_cognito.StringAttributeProps",
 		reflect.TypeOf((*StringAttributeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserInvitationConfig",
+		"aws-cdk-lib.aws_cognito.UserInvitationConfig",
 		reflect.TypeOf((*UserInvitationConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		reflect.TypeOf((*UserPool)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addClient", GoMethod: "AddClient"},
@@ -1148,20 +1076,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberProperty{JsiiProperty: "identityProviders", GoGetter: "IdentityProviders"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "registerIdentityProvider", GoMethod: "RegisterIdentityProvider"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolArn", GoGetter: "UserPoolArn"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolProviderName", GoGetter: "UserPoolProviderName"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolProviderUrl", GoGetter: "UserPoolProviderUrl"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_UserPool{}
@@ -1171,7 +1093,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPoolClient",
+		"aws-cdk-lib.aws_cognito.UserPoolClient",
 		reflect.TypeOf((*UserPoolClient)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1181,17 +1103,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "oAuthFlows", GoGetter: "OAuthFlows"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolClientId", GoGetter: "UserPoolClientId"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolClientName", GoGetter: "UserPoolClientName"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_UserPoolClient{}
@@ -1201,7 +1117,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		reflect.TypeOf((*UserPoolClientIdentityProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -1211,15 +1127,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolClientOptions",
+		"aws-cdk-lib.aws_cognito.UserPoolClientOptions",
 		reflect.TypeOf((*UserPoolClientOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolClientProps",
+		"aws-cdk-lib.aws_cognito.UserPoolClientProps",
 		reflect.TypeOf((*UserPoolClientProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPoolDomain",
+		"aws-cdk-lib.aws_cognito.UserPoolDomain",
 		reflect.TypeOf((*UserPoolDomain)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1231,16 +1147,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "signInUrl", GoMethod: "SignInUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_UserPoolDomain{}
@@ -1250,15 +1160,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolDomainOptions",
+		"aws-cdk-lib.aws_cognito.UserPoolDomainOptions",
 		reflect.TypeOf((*UserPoolDomainOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolDomainProps",
+		"aws-cdk-lib.aws_cognito.UserPoolDomainProps",
 		reflect.TypeOf((*UserPoolDomainProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPoolEmail",
+		"aws-cdk-lib.aws_cognito.UserPoolEmail",
 		reflect.TypeOf((*UserPoolEmail)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -1266,7 +1176,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProvider",
 		reflect.TypeOf((*UserPoolIdentityProvider)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -1274,7 +1184,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPoolIdentityProviderAmazon",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderAmazon",
 		reflect.TypeOf((*UserPoolIdentityProviderAmazon)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1284,16 +1194,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "providerName", GoGetter: "ProviderName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_UserPoolIdentityProviderAmazon{}
@@ -1303,11 +1207,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolIdentityProviderAmazonProps",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderAmazonProps",
 		reflect.TypeOf((*UserPoolIdentityProviderAmazonProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPoolIdentityProviderApple",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderApple",
 		reflect.TypeOf((*UserPoolIdentityProviderApple)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1317,16 +1221,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "providerName", GoGetter: "ProviderName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_UserPoolIdentityProviderApple{}
@@ -1336,11 +1234,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolIdentityProviderAppleProps",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderAppleProps",
 		reflect.TypeOf((*UserPoolIdentityProviderAppleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPoolIdentityProviderFacebook",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderFacebook",
 		reflect.TypeOf((*UserPoolIdentityProviderFacebook)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1350,16 +1248,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "providerName", GoGetter: "ProviderName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_UserPoolIdentityProviderFacebook{}
@@ -1369,11 +1261,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolIdentityProviderFacebookProps",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderFacebookProps",
 		reflect.TypeOf((*UserPoolIdentityProviderFacebookProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPoolIdentityProviderGoogle",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderGoogle",
 		reflect.TypeOf((*UserPoolIdentityProviderGoogle)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1383,16 +1275,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "providerName", GoGetter: "ProviderName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_UserPoolIdentityProviderGoogle{}
@@ -1402,11 +1288,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolIdentityProviderGoogleProps",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderGoogleProps",
 		reflect.TypeOf((*UserPoolIdentityProviderGoogleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPoolIdentityProviderOidc",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderOidc",
 		reflect.TypeOf((*UserPoolIdentityProviderOidc)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1416,16 +1302,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "providerName", GoGetter: "ProviderName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_UserPoolIdentityProviderOidc{}
@@ -1435,15 +1315,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolIdentityProviderOidcProps",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderOidcProps",
 		reflect.TypeOf((*UserPoolIdentityProviderOidcProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolIdentityProviderProps",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderProps",
 		reflect.TypeOf((*UserPoolIdentityProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		reflect.TypeOf((*UserPoolOperation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "operationName", GoGetter: "OperationName"},
@@ -1453,11 +1333,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolProps",
+		"aws-cdk-lib.aws_cognito.UserPoolProps",
 		reflect.TypeOf((*UserPoolProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_cognito.UserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServer",
 		reflect.TypeOf((*UserPoolResourceServer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -1466,16 +1346,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolResourceServerId", GoGetter: "UserPoolResourceServerId"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_UserPoolResourceServer{}
@@ -1485,27 +1359,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolResourceServerOptions",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServerOptions",
 		reflect.TypeOf((*UserPoolResourceServerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolResourceServerProps",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServerProps",
 		reflect.TypeOf((*UserPoolResourceServerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolSESOptions",
+		"aws-cdk-lib.aws_cognito.UserPoolSESOptions",
 		reflect.TypeOf((*UserPoolSESOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserPoolTriggers",
+		"aws-cdk-lib.aws_cognito.UserPoolTriggers",
 		reflect.TypeOf((*UserPoolTriggers)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_cognito.UserVerificationConfig",
+		"aws-cdk-lib.aws_cognito.UserVerificationConfig",
 		reflect.TypeOf((*UserVerificationConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_cognito.VerificationEmailStyle",
+		"aws-cdk-lib.aws_cognito.VerificationEmailStyle",
 		reflect.TypeOf((*VerificationEmailStyle)(nil)).Elem(),
 		map[string]interface{}{
 			"CODE": VerificationEmailStyle_CODE,

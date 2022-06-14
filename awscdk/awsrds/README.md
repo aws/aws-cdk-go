@@ -218,7 +218,7 @@ cloudwatch.NewAlarm(this, jsii.String("HighCPU"), &alarmProps{
 fn := lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 	code: lambda.code.fromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 	handler: jsii.String("index.handler"),
-	runtime: lambda.runtime_NODEJS_12_X(),
+	runtime: lambda.runtime_NODEJS_14_X(),
 })
 
 availabilityRule := instance.onEvent(jsii.String("Availability"), &onEventOptions{
@@ -313,7 +313,7 @@ cloudwatch.NewAlarm(this, jsii.String("HighCPU"), &alarmProps{
 fn := lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 	code: lambda.code.fromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 	handler: jsii.String("index.handler"),
-	runtime: lambda.runtime_NODEJS_12_X(),
+	runtime: lambda.runtime_NODEJS_14_X(),
 })
 
 availabilityRule := instance.onEvent(jsii.String("Availability"), &onEventOptions{
@@ -582,7 +582,7 @@ instance.addRotationSingleUser(&rotationSingleUserOptions{
 })
 ```
 
-See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
+See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
 
 ## IAM Authentication
 
@@ -958,7 +958,7 @@ cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &server
 	enableDataApi: jsii.Boolean(true),
 })
 fn := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_12_X(),
+	runtime: lambda.runtime_NODEJS_14_X(),
 	handler: jsii.String("index.handler"),
 	code: code,
 	environment: map[string]*string{

@@ -711,9 +711,9 @@ awscli/aws
 ```
 
 See more information in the
-[Dockerfile](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/lambda-layer-awscli/layer) for @aws-cdk/lambda-layer-awscli
+[Dockerfile](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/lambda-layer-awscli/layer) for @aws-cdk/lambda-layer-awscli
 and the
-[Dockerfile](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/lambda-layer-kubectl/layer) for @aws-cdk/lambda-layer-kubectl.
+[Dockerfile](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/lambda-layer-kubectl/layer) for @aws-cdk/lambda-layer-kubectl.
 
 ```go
 layer := lambda.NewLayerVersion(this, jsii.String("KubectlLayer"), &layerVersionProps{
@@ -992,7 +992,7 @@ bucket.grantReadWrite(serviceAccount)
 
 Note that adding service accounts requires running `kubectl` commands against the cluster.
 This means you must also pass the `kubectlRoleArn` when importing the cluster.
-See [Using existing Clusters](https://github.com/aws/aws-cdk/tree/master/packages/@aws-cdk/aws-eks#using-existing-clusters).
+See [Using existing Clusters](https://github.com/aws/aws-cdk/tree/main/packages/@aws-cdk/aws-eks#using-existing-clusters).
 
 ## Applying Kubernetes Resources
 
@@ -1323,6 +1323,7 @@ For this reason, to avoid possible confusion, we will create the chart in a sepa
 `+ my-chart.ts`
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 import constructs "github.com/aws/constructs-go/constructs"
 import cdk8s "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
@@ -1357,6 +1358,7 @@ func NewMyChart(scope construct, id *string, props myChartProps) *MyChart {
 Then, in your AWS CDK app:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var cluster cluster
 
 
