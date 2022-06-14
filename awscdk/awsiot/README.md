@@ -1,30 +1,81 @@
 # AWS IoT Construct Library
 
-This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.
+AWS IoT Core lets you connect billions of IoT devices and route trillions of
+messages to AWS services without managing infrastructure.
+
+## Installation
+
+Install the module:
+
+```console
+$ npm i @aws-cdk/aws-iot
+```
+
+Import it into your code:
 
 ```go
 import iot "github.com/aws/aws-cdk-go/awscdk"
+import actions "github.com/aws/aws-cdk-go/awscdk"
 ```
 
-<!--BEGIN CFNONLY DISCLAIMER-->
+## `TopicRule`
 
-There are no official hand-written ([L2](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_lib)) constructs for this service yet. Here are some suggestions on how to proceed:
+Create a topic rule that give your devices the ability to interact with AWS services.
+You can create a topic rule with an action that invoke the Lambda action as following:
 
-* Search [Construct Hub for IoT construct libraries](https://constructs.dev/search?q=iot)
-* Use the automatically generated [L1](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_l1_using) constructs, in the same way you would use [the CloudFormation AWS::IoT resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoT.html) directly.
+```go
+func := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
+	runtime: lambda.runtime_NODEJS_14_X(),
+	handler: jsii.String("index.handler"),
+	code: lambda.code.fromInline(jsii.String("\n    exports.handler = (event) => {\n      console.log(\"It is test for lambda action of AWS IoT Rule.\", event);\n    };")),
+})
 
-> An experimental construct library for this service is available in preview. Since it is not stable yet, it is distributed
-> as a separate package so that you can pin its version independently of the rest of the CDK. See the package:
->
-> <span class="package-reference">@aws-cdk/aws-iot-alpha</span>
+iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
+	topicRuleName: jsii.String("MyTopicRule"),
+	 // optional
+	description: jsii.String("invokes the lambda function"),
+	 // optional
+	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
+	actions: []iAction{
+		actions.NewLambdaFunctionAction(func),
+	},
+})
+```
 
-<!--BEGIN CFNONLY DISCLAIMER-->
+Or, you can add an action after constructing the `TopicRule` instance as following:
 
-There are no hand-written ([L2](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_lib)) constructs for this service yet.
-However, you can still use the automatically generated [L1](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_l1_using) constructs, and use this service exactly as you would using CloudFormation directly.
+```go
+var func function
 
-For more information on the resources and properties available for this service, see the [CloudFormation documentation for AWS::IoT](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoT.html).
 
-(Read the [CDK Contributing Guide](https://github.com/aws/aws-cdk/blob/main/CONTRIBUTING.md) and submit an RFC if you are interested in contributing to this construct library.)
+topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
+	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
+})
+topicRule.addAction(actions.NewLambdaFunctionAction(func))
+```
 
-<!--END CFNONLY DISCLAIMER-->
+You can also supply `errorAction` as following,
+and the IoT Rule will trigger it if a rule's action is unable to perform:
+
+```go
+import logs "github.com/aws/aws-cdk-go/awscdk"
+
+
+logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"))
+
+iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
+	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
+	errorAction: actions.NewCloudWatchLogsAction(logGroup),
+})
+```
+
+If you wanna make the topic rule disable, add property `enabled: false` as following:
+
+```go
+iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
+	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, timestamp() as timestamp FROM 'device/+/data'")),
+	enabled: jsii.Boolean(false),
+})
+```
+
+See also [@aws-cdk/aws-iot-actions](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-iot-actions-readme.html) for other actions.
