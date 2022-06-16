@@ -300,7 +300,7 @@ deploying once.
 
 ```go
 stack := awscdk.Newstack()
-awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(monocdkcxapi.LAMBDA_RECOGNIZE_VERSION_PROPS))
+awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(awscdklibcxapi.LAMBDA_RECOGNIZE_VERSION_PROPS))
 ```
 
 When the new logic is in effect, you may rarely come across the following error:
@@ -336,7 +336,7 @@ deploying once.
 
 ```go
 stack := awscdk.Newstack()
-awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(monocdkcxapi.LAMBDA_RECOGNIZE_LAYER_VERSION))
+awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(awscdklibcxapi.LAMBDA_RECOGNIZE_LAYER_VERSION))
 ```
 
 ## Aliases
@@ -1022,8 +1022,8 @@ lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 
 Language-specific higher level constructs are provided in separate modules:
 
-* `@aws-cdk/aws-lambda-nodejs`: [Github](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-lambda-nodejs) & [CDK Docs](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-nodejs-readme.html)
-* `@aws-cdk/aws-lambda-python`: [Github](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-lambda-python) & [CDK Docs](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-python-readme.html)
+* `@aws-cdk/aws-lambda-nodejs`: [Github](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-lambda-nodejs) & [CDK Docs](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-nodejs-readme.html)
+* `@aws-cdk/aws-lambda-python`: [Github](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-lambda-python) & [CDK Docs](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-python-readme.html)
 
 ## Code Signing
 
