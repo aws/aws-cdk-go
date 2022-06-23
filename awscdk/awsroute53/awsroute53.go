@@ -285,6 +285,12 @@ type ARecordProps struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
@@ -565,6 +571,12 @@ type AaaaRecordProps struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
@@ -610,6 +622,7 @@ type AliasRecordTargetConfig struct {
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   })
@@ -870,6 +883,7 @@ func (c *jsiiProxy_CaaAmazonRecord) ToString() *string {
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   }
@@ -879,6 +893,12 @@ type CaaAmazonRecordProps struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
@@ -907,6 +927,7 @@ type CaaAmazonRecordProps struct {
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   })
@@ -1174,6 +1195,7 @@ func (c *jsiiProxy_CaaRecord) ToString() *string {
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   }
@@ -1183,6 +1205,12 @@ type CaaRecordProps struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
@@ -7048,6 +7076,12 @@ type CnameRecordProps struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
@@ -7521,6 +7555,12 @@ type DsRecordProps struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
@@ -7750,7 +7790,8 @@ func HostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string,
 
 // Import a Route 53 hosted zone defined either outside the CDK, or in a different CDK stack.
 //
-// Use when hosted zone ID is known. Hosted zone name becomes unavailable through this query.
+// Use when hosted zone ID is known. If a HostedZone is imported with this method the zoneName cannot be referenced.
+// If the zoneName is needed then the HostedZone should be imported with `fromHostedZoneAttributes()` or `fromLookup()`.
 func HostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZoneId *string) IHostedZone {
 	_init_.Initialize()
 
@@ -8148,6 +8189,7 @@ func (j *jsiiProxy_IRecordSet) DomainName() *string {
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   })
@@ -8414,6 +8456,7 @@ func (m *jsiiProxy_MxRecord) ToString() *string {
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   }
@@ -8423,6 +8466,12 @@ type MxRecordProps struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
@@ -8728,6 +8777,12 @@ type NsRecordProps struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
@@ -8957,7 +9012,8 @@ func PrivateHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *
 
 // Import a Route 53 hosted zone defined either outside the CDK, or in a different CDK stack.
 //
-// Use when hosted zone ID is known. Hosted zone name becomes unavailable through this query.
+// Use when hosted zone ID is known. If a HostedZone is imported with this method the zoneName cannot be referenced.
+// If the zoneName is needed then the HostedZone should be imported with `fromHostedZoneAttributes()` or `fromLookup()`.
 func PrivateHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZoneId *string) IHostedZone {
 	_init_.Initialize()
 
@@ -8996,6 +9052,9 @@ func PrivateHostedZone_FromLookup(scope constructs.Construct, id *string, query 
 }
 
 // Import a Route 53 private hosted zone defined either outside the CDK, or in a different CDK stack.
+//
+// Use when hosted zone ID is known. If a HostedZone is imported with this method the zoneName cannot be referenced.
+// If the zoneName is needed then you cannot import a PrivateHostedZone.
 func PrivateHostedZone_FromPrivateHostedZoneId(scope constructs.Construct, id *string, privateHostedZoneId *string) IPrivateHostedZone {
 	_init_.Initialize()
 
@@ -9387,7 +9446,8 @@ func PublicHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *s
 
 // Import a Route 53 hosted zone defined either outside the CDK, or in a different CDK stack.
 //
-// Use when hosted zone ID is known. Hosted zone name becomes unavailable through this query.
+// Use when hosted zone ID is known. If a HostedZone is imported with this method the zoneName cannot be referenced.
+// If the zoneName is needed then the HostedZone should be imported with `fromHostedZoneAttributes()` or `fromLookup()`.
 func PublicHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZoneId *string) IHostedZone {
 	_init_.Initialize()
 
@@ -9444,6 +9504,9 @@ func PublicHostedZone_FromPublicHostedZoneAttributes(scope constructs.Construct,
 }
 
 // Import a Route 53 public hosted zone defined either outside the CDK, or in a different CDK stack.
+//
+// Use when hosted zone ID is known. If a PublicHostedZone is imported with this method the zoneName cannot be referenced.
+// If the zoneName is needed then the PublicHostedZone should be imported with `fromPublicHostedZoneAttributes()`.
 func PublicHostedZone_FromPublicHostedZoneId(scope constructs.Construct, id *string, publicHostedZoneId *string) IPublicHostedZone {
 	_init_.Initialize()
 
@@ -9646,6 +9709,7 @@ type PublicHostedZoneProps struct {
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   })
@@ -9908,6 +9972,7 @@ func (r *jsiiProxy_RecordSet) ToString() *string {
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   }
@@ -9917,6 +9982,12 @@ type RecordSetOptions struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
@@ -9941,6 +10012,7 @@ type RecordSetOptions struct {
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   }
@@ -9950,6 +10022,12 @@ type RecordSetProps struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
@@ -9963,14 +10041,15 @@ type RecordSetProps struct {
 // Type union for a record that accepts multiple types of target.
 //
 // Example:
-//   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
+//   import apigw "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myZone hostedZone
-//   var distribution cloudFrontWebDistribution
+//   var zone hostedZone
+//   var restApi lambdaRestApi
 //
-//   route53.NewAaaaRecord(this, jsii.String("Alias"), &aaaaRecordProps{
-//   	zone: myZone,
-//   	target: route53.recordTarget.fromAlias(targets.NewCloudFrontTarget(distribution)),
+//
+//   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
+//   	zone: zone,
+//   	target: route53.recordTarget.fromAlias(targets.NewApiGateway(restApi)),
 //   })
 //
 type RecordTarget interface {
@@ -10176,6 +10255,7 @@ const (
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   })
@@ -10444,6 +10524,7 @@ func (s *jsiiProxy_SrvRecord) ToString() *string {
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   }
@@ -10453,6 +10534,12 @@ type SrvRecordProps struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
@@ -10772,6 +10859,12 @@ type TxtRecordProps struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
@@ -10977,6 +11070,7 @@ type ZoneDelegationOptions struct {
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   })
@@ -11240,6 +11334,7 @@ func (z *jsiiProxy_ZoneDelegationRecord) ToString() *string {
 //
 //   	// the properties below are optional
 //   	comment: jsii.String("comment"),
+//   	deleteExisting: jsii.Boolean(false),
 //   	recordName: jsii.String("recordName"),
 //   	ttl: cdk.duration.minutes(jsii.Number(30)),
 //   }
@@ -11249,6 +11344,12 @@ type ZoneDelegationRecordProps struct {
 	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// Whether to delete the same record set in the hosted zone if it already exists.
+	//
+	// This allows to deploy a new record set while minimizing the downtime because the
+	// new record set will be created immediately after the existing one is deleted. It
+	// also avoids "manual" actions to delete existing record sets.
+	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The domain name for this record.
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).

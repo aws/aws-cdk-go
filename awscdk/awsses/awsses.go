@@ -190,7 +190,25 @@ type BounceActionConfig struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnConfigurationSet := awscdk.Aws_ses.NewCfnConfigurationSet(this, jsii.String("MyCfnConfigurationSet"), &cfnConfigurationSetProps{
+//   	deliveryOptions: &deliveryOptionsProperty{
+//   		sendingPoolName: jsii.String("sendingPoolName"),
+//   		tlsPolicy: jsii.String("tlsPolicy"),
+//   	},
 //   	name: jsii.String("name"),
+//   	reputationOptions: &reputationOptionsProperty{
+//   		reputationMetricsEnabled: jsii.Boolean(false),
+//   	},
+//   	sendingOptions: &sendingOptionsProperty{
+//   		sendingEnabled: jsii.Boolean(false),
+//   	},
+//   	suppressionOptions: &suppressionOptionsProperty{
+//   		suppressedReasons: []*string{
+//   			jsii.String("suppressedReasons"),
+//   		},
+//   	},
+//   	trackingOptions: &trackingOptionsProperty{
+//   		customRedirectDomain: jsii.String("customRedirectDomain"),
+//   	},
 //   })
 //
 type CfnConfigurationSet interface {
@@ -205,6 +223,9 @@ type CfnConfigurationSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// `AWS::SES::ConfigurationSet.DeliveryOptions`.
+	DeliveryOptions() interface{}
+	SetDeliveryOptions(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -228,10 +249,22 @@ type CfnConfigurationSet interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// `AWS::SES::ConfigurationSet.ReputationOptions`.
+	ReputationOptions() interface{}
+	SetReputationOptions(val interface{})
+	// `AWS::SES::ConfigurationSet.SendingOptions`.
+	SendingOptions() interface{}
+	SetSendingOptions(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// `AWS::SES::ConfigurationSet.SuppressionOptions`.
+	SuppressionOptions() interface{}
+	SetSuppressionOptions(val interface{})
+	// `AWS::SES::ConfigurationSet.TrackingOptions`.
+	TrackingOptions() interface{}
+	SetTrackingOptions(val interface{})
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
@@ -393,6 +426,16 @@ func (j *jsiiProxy_CfnConfigurationSet) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfigurationSet) DeliveryOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"deliveryOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfigurationSet) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -433,11 +476,51 @@ func (j *jsiiProxy_CfnConfigurationSet) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfigurationSet) ReputationOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"reputationOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) SendingOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sendingOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfigurationSet) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) SuppressionOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"suppressionOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) TrackingOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"trackingOptions",
 		&returns,
 	)
 	return returns
@@ -480,10 +563,50 @@ func NewCfnConfigurationSet_Override(c CfnConfigurationSet, scope constructs.Con
 	)
 }
 
+func (j *jsiiProxy_CfnConfigurationSet) SetDeliveryOptions(val interface{}) {
+	_jsii_.Set(
+		j,
+		"deliveryOptions",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnConfigurationSet) SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) SetReputationOptions(val interface{}) {
+	_jsii_.Set(
+		j,
+		"reputationOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) SetSendingOptions(val interface{}) {
+	_jsii_.Set(
+		j,
+		"sendingOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) SetSuppressionOptions(val interface{}) {
+	_jsii_.Set(
+		j,
+		"suppressionOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) SetTrackingOptions(val interface{}) {
+	_jsii_.Set(
+		j,
+		"trackingOptions",
 		val,
 	)
 }
@@ -713,6 +836,81 @@ func (c *jsiiProxy_CfnConfigurationSet) ValidateProperties(_properties interface
 	)
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   deliveryOptionsProperty := &deliveryOptionsProperty{
+//   	sendingPoolName: jsii.String("sendingPoolName"),
+//   	tlsPolicy: jsii.String("tlsPolicy"),
+//   }
+//
+type CfnConfigurationSet_DeliveryOptionsProperty struct {
+	// `CfnConfigurationSet.DeliveryOptionsProperty.SendingPoolName`.
+	SendingPoolName *string `field:"optional" json:"sendingPoolName" yaml:"sendingPoolName"`
+	// `CfnConfigurationSet.DeliveryOptionsProperty.TlsPolicy`.
+	TlsPolicy *string `field:"optional" json:"tlsPolicy" yaml:"tlsPolicy"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   reputationOptionsProperty := &reputationOptionsProperty{
+//   	reputationMetricsEnabled: jsii.Boolean(false),
+//   }
+//
+type CfnConfigurationSet_ReputationOptionsProperty struct {
+	// `CfnConfigurationSet.ReputationOptionsProperty.ReputationMetricsEnabled`.
+	ReputationMetricsEnabled interface{} `field:"optional" json:"reputationMetricsEnabled" yaml:"reputationMetricsEnabled"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   sendingOptionsProperty := &sendingOptionsProperty{
+//   	sendingEnabled: jsii.Boolean(false),
+//   }
+//
+type CfnConfigurationSet_SendingOptionsProperty struct {
+	// `CfnConfigurationSet.SendingOptionsProperty.SendingEnabled`.
+	SendingEnabled interface{} `field:"optional" json:"sendingEnabled" yaml:"sendingEnabled"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   suppressionOptionsProperty := &suppressionOptionsProperty{
+//   	suppressedReasons: []*string{
+//   		jsii.String("suppressedReasons"),
+//   	},
+//   }
+//
+type CfnConfigurationSet_SuppressionOptionsProperty struct {
+	// `CfnConfigurationSet.SuppressionOptionsProperty.SuppressedReasons`.
+	SuppressedReasons *[]*string `field:"optional" json:"suppressedReasons" yaml:"suppressedReasons"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   trackingOptionsProperty := &trackingOptionsProperty{
+//   	customRedirectDomain: jsii.String("customRedirectDomain"),
+//   }
+//
+type CfnConfigurationSet_TrackingOptionsProperty struct {
+	// `CfnConfigurationSet.TrackingOptionsProperty.CustomRedirectDomain`.
+	CustomRedirectDomain *string `field:"optional" json:"customRedirectDomain" yaml:"customRedirectDomain"`
+}
+
 // A CloudFormation `AWS::SES::ConfigurationSetEventDestination`.
 //
 // Specifies a configuration set event destination. An event destination is an AWS service that Amazon SES publishes email sending events to. When you specify an event destination, you provide one, and only one, destination. You can send event data to Amazon CloudWatch or Amazon Kinesis Data Firehose.
@@ -747,6 +945,9 @@ func (c *jsiiProxy_CfnConfigurationSet) ValidateProperties(_properties interface
 //   			iamRoleArn: jsii.String("iamRoleArn"),
 //   		},
 //   		name: jsii.String("name"),
+//   		snsDestination: &snsDestinationProperty{
+//   			topicArn: jsii.String("topicArn"),
+//   		},
 //   	},
 //   })
 //
@@ -1391,6 +1592,9 @@ type CfnConfigurationSetEventDestination_DimensionConfigurationProperty struct {
 //   		iamRoleArn: jsii.String("iamRoleArn"),
 //   	},
 //   	name: jsii.String("name"),
+//   	snsDestination: &snsDestinationProperty{
+//   		topicArn: jsii.String("topicArn"),
+//   	},
 //   }
 //
 type CfnConfigurationSetEventDestination_EventDestinationProperty struct {
@@ -1418,6 +1622,8 @@ type CfnConfigurationSetEventDestination_EventDestinationProperty struct {
 	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
 	// - Contain 64 characters or fewer.
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// `CfnConfigurationSetEventDestination.EventDestinationProperty.SnsDestination`.
+	SnsDestination interface{} `field:"optional" json:"snsDestination" yaml:"snsDestination"`
 }
 
 // Contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
@@ -1439,6 +1645,20 @@ type CfnConfigurationSetEventDestination_KinesisFirehoseDestinationProperty stru
 	DeliveryStreamArn *string `field:"required" json:"deliveryStreamArn" yaml:"deliveryStreamArn"`
 	// The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
 	IamRoleArn *string `field:"required" json:"iamRoleArn" yaml:"iamRoleArn"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   snsDestinationProperty := &snsDestinationProperty{
+//   	topicArn: jsii.String("topicArn"),
+//   }
+//
+type CfnConfigurationSetEventDestination_SnsDestinationProperty struct {
+	// `CfnConfigurationSetEventDestination.SnsDestinationProperty.TopicARN`.
+	TopicArn *string `field:"required" json:"topicArn" yaml:"topicArn"`
 }
 
 // Properties for defining a `CfnConfigurationSetEventDestination`.
@@ -1471,6 +1691,9 @@ type CfnConfigurationSetEventDestination_KinesisFirehoseDestinationProperty stru
 //   			iamRoleArn: jsii.String("iamRoleArn"),
 //   		},
 //   		name: jsii.String("name"),
+//   		snsDestination: &snsDestinationProperty{
+//   			topicArn: jsii.String("topicArn"),
+//   		},
 //   	},
 //   }
 //
@@ -1489,15 +1712,43 @@ type CfnConfigurationSetEventDestinationProps struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnConfigurationSetProps := &cfnConfigurationSetProps{
+//   	deliveryOptions: &deliveryOptionsProperty{
+//   		sendingPoolName: jsii.String("sendingPoolName"),
+//   		tlsPolicy: jsii.String("tlsPolicy"),
+//   	},
 //   	name: jsii.String("name"),
+//   	reputationOptions: &reputationOptionsProperty{
+//   		reputationMetricsEnabled: jsii.Boolean(false),
+//   	},
+//   	sendingOptions: &sendingOptionsProperty{
+//   		sendingEnabled: jsii.Boolean(false),
+//   	},
+//   	suppressionOptions: &suppressionOptionsProperty{
+//   		suppressedReasons: []*string{
+//   			jsii.String("suppressedReasons"),
+//   		},
+//   	},
+//   	trackingOptions: &trackingOptionsProperty{
+//   		customRedirectDomain: jsii.String("customRedirectDomain"),
+//   	},
 //   }
 //
 type CfnConfigurationSetProps struct {
+	// `AWS::SES::ConfigurationSet.DeliveryOptions`.
+	DeliveryOptions interface{} `field:"optional" json:"deliveryOptions" yaml:"deliveryOptions"`
 	// The name of the configuration set. The name must meet the following requirements:.
 	//
 	// - Contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
 	// - Contain 64 characters or fewer.
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// `AWS::SES::ConfigurationSet.ReputationOptions`.
+	ReputationOptions interface{} `field:"optional" json:"reputationOptions" yaml:"reputationOptions"`
+	// `AWS::SES::ConfigurationSet.SendingOptions`.
+	SendingOptions interface{} `field:"optional" json:"sendingOptions" yaml:"sendingOptions"`
+	// `AWS::SES::ConfigurationSet.SuppressionOptions`.
+	SuppressionOptions interface{} `field:"optional" json:"suppressionOptions" yaml:"suppressionOptions"`
+	// `AWS::SES::ConfigurationSet.TrackingOptions`.
+	TrackingOptions interface{} `field:"optional" json:"trackingOptions" yaml:"trackingOptions"`
 }
 
 // A CloudFormation `AWS::SES::ContactList`.

@@ -27,7 +27,7 @@ EventBridge.
 
 ## Event retry policy and using dead-letter queues
 
-The Codebuild, CodePipeline, Lambda, StepFunctions, LogGroup and SQSQueue targets support attaching a [dead letter queue and setting retry policies](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html). See the [lambda example](#invoke-a-lambda-function).
+The Codebuild, CodePipeline, Lambda, StepFunctions, LogGroup, SQSQueue and SNSTopic targets support attaching a [dead letter queue and setting retry policies](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html). See the [lambda example](#invoke-a-lambda-function).
 Use [escape hatches](https://docs.aws.amazon.com/cdk/latest/guide/cfn_layer.html) for the other target types.
 
 ## Invoke a Lambda function
@@ -91,6 +91,43 @@ rule := events.NewRule(this, jsii.String("rule"), &ruleProps{
 })
 
 rule.addTarget(targets.NewCloudWatchLogGroup(logGroup))
+```
+
+A rule target input can also be specified to modify the event that is sent to the log group.
+Unlike other event targets, CloudWatchLogs requires a specific input template format.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import logs "github.com/aws/aws-cdk-go/awscdk"
+var logGroup logGroup
+var rule rule
+
+
+rule.addTarget(targets.NewCloudWatchLogGroup(logGroup, &logGroupProps{
+	logEvent: targets.logGroupTargetInput(map[string]interface{}{
+		"timestamp": events.EventField.from(jsii.String("$.time")),
+		"message": events.EventField.from(jsii.String("$.detail-type")),
+	}),
+}))
+```
+
+If you want to use static values to overwrite the `message` make sure that you provide a `string`
+value.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import logs "github.com/aws/aws-cdk-go/awscdk"
+var logGroup logGroup
+var rule rule
+
+
+rule.addTarget(targets.NewCloudWatchLogGroup(logGroup, &logGroupProps{
+	logEvent: targets.logGroupTargetInput(map[string]*string{
+		"message": JSON.stringify(map[string]*string{
+			"CustomField": jsii.String("CustomValue"),
+		}),
+	}),
+}))
 ```
 
 ## Start a CodeBuild build

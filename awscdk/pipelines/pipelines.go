@@ -176,6 +176,8 @@ const (
 type CodeBuildOptions struct {
 	// Partial build environment, will be combined with other build environments that apply.
 	BuildEnvironment *awscodebuild.BuildEnvironment `field:"optional" json:"buildEnvironment" yaml:"buildEnvironment"`
+	// Caching strategy to use.
+	Cache awscodebuild.Cache `field:"optional" json:"cache" yaml:"cache"`
 	// Partial buildspec, will be combined with other buildspecs that apply.
 	//
 	// The BuildSpec must be available inline--it cannot reference a file
@@ -250,6 +252,8 @@ type CodeBuildStep interface {
 	ActionRole() awsiam.IRole
 	// Build environment.
 	BuildEnvironment() *awscodebuild.BuildEnvironment
+	// Caching strategy to use.
+	Cache() awscodebuild.Cache
 	// Commands to run.
 	Commands() *[]*string
 	// Return the steps this step depends on, based on the FileSets it requires.
@@ -394,6 +398,16 @@ func (j *jsiiProxy_CodeBuildStep) BuildEnvironment() *awscodebuild.BuildEnvironm
 	_jsii_.Get(
 		j,
 		"buildEnvironment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CodeBuildStep) Cache() awscodebuild.Cache {
+	var returns awscodebuild.Cache
+	_jsii_.Get(
+		j,
+		"cache",
 		&returns,
 	)
 	return returns
@@ -826,6 +840,8 @@ type CodeBuildStepProps struct {
 	// This environment will be combined with the pipeline's default
 	// environment.
 	BuildEnvironment *awscodebuild.BuildEnvironment `field:"optional" json:"buildEnvironment" yaml:"buildEnvironment"`
+	// Caching strategy to use.
+	Cache awscodebuild.Cache `field:"optional" json:"cache" yaml:"cache"`
 	// Additional configuration that can only be configured via BuildSpec.
 	//
 	// You should not use this to specify output artifacts; those
@@ -3071,6 +3087,7 @@ type PipelineBaseProps struct {
 //   var bucket bucket
 //   var buildImage iBuildImage
 //   var buildSpec buildSpec
+//   var cache cache
 //   var codePipeline codePipeline
 //   var construct construct
 //   var policyStatement policyStatement
@@ -3107,6 +3124,7 @@ type PipelineBaseProps struct {
 //   			},
 //   			privileged: jsii.Boolean(false),
 //   		},
+//   		cache: cache,
 //   		partialBuildSpec: buildSpec,
 //   		rolePolicy: []*policyStatement{
 //   			policyStatement,

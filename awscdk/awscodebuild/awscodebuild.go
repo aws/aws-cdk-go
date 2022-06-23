@@ -5084,6 +5084,9 @@ type CommonProjectProps struct {
 //   		mySecurityGroup,
 //   	},
 //
+//   	// Control caching
+//   	cache: codebuild.cache.bucket(s3.NewBucket(this, jsii.String("Cache"))),
+//
 //   	// Additional policy statements for the execution role
 //   	rolePolicyStatements: []policyStatement{
 //   		iam.NewPolicyStatement(&policyStatementProps{

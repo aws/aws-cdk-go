@@ -18047,7 +18047,7 @@ type CustomResourceProvider interface {
 	//   myProvider.addToRolePolicy(map[string]*string{
 	//   	"Effect": jsii.String("Allow"),
 	//   	"Action": jsii.String("s3:GetObject"),
-	//   	"Resources": jsii.String("*"),
+	//   	"Resource": jsii.String("*"),
 	//   })
 	//
 	AddToRolePolicy(statement interface{})
@@ -23030,7 +23030,8 @@ func Names_NodeUniqueId(node constructs.Node) *string {
 // Returns a CloudFormation-compatible unique identifier for a construct based on its path.
 //
 // The identifier includes a human readable portion rendered
-// from the path components and a hash suffix.
+// from the path components and a hash suffix. uniqueId is not unique if multiple
+// copies of the stack are deployed. Prefer using uniqueResourceName().
 //
 // Returns: a unique id based on the construct path.
 func Names_UniqueId(construct constructs.IConstruct) *string {
@@ -23042,6 +23043,32 @@ func Names_UniqueId(construct constructs.IConstruct) *string {
 		"aws-cdk-lib.Names",
 		"uniqueId",
 		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a CloudFormation-compatible unique identifier for a construct based on its path.
+//
+// This function finds the stackName of the parent stack (non-nested)
+// to the construct, and the ids of the components in the construct path.
+//
+// The user can define allowed special characters, a separator between the elements,
+// and the maximum length of the resource name. The name includes a human readable portion rendered
+// from the path components, with or without user defined separators, and a hash suffix.
+// If the resource name is longer than the maximum length, it is trimmed in the middle.
+//
+// Returns: a unique resource name based on the construct path.
+func Names_UniqueResourceName(construct constructs.IConstruct, options *UniqueResourceNameOptions) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.Names",
+		"uniqueResourceName",
+		[]interface{}{construct, options},
 		&returns,
 	)
 
@@ -28338,6 +28365,28 @@ func (t *jsiiProxy_TreeInspector) AddAttribute(key *string, value interface{}) {
 		"addAttribute",
 		[]interface{}{key, value},
 	)
+}
+
+// Options for creating a unique resource name.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   uniqueResourceNameOptions := &uniqueResourceNameOptions{
+//   	allowedSpecialCharacters: jsii.String("allowedSpecialCharacters"),
+//   	maxLength: jsii.Number(123),
+//   	separator: jsii.String("separator"),
+//   }
+//
+type UniqueResourceNameOptions struct {
+	// Non-alphanumeric characters allowed in the unique resource name.
+	AllowedSpecialCharacters *string `field:"optional" json:"allowedSpecialCharacters" yaml:"allowedSpecialCharacters"`
+	// The maximum length of the unique resource name.
+	MaxLength *float64 `field:"optional" json:"maxLength" yaml:"maxLength"`
+	// The separator used between the path components.
+	Separator *string `field:"optional" json:"separator" yaml:"separator"`
 }
 
 // Representation of validation results.

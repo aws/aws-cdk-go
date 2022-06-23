@@ -3729,6 +3729,7 @@ func (j *jsiiProxy_ISecretTargetAttachment) SecretTargetAttachmentSecretArn() *s
 //   	masterSecret: secret,
 //
 //   	// the properties below are optional
+//   	excludeCharacters: jsii.String("excludeCharacters"),
 //   	functionName: jsii.String("functionName"),
 //   	securityGroups: []iSecurityGroup{
 //   		securityGroup,
@@ -3751,6 +3752,8 @@ func (j *jsiiProxy_ISecretTargetAttachment) SecretTargetAttachmentSecretArn() *s
 //   }
 //
 type MultiUserHostedRotationOptions struct {
+	// A string of the characters that you don't want in the password.
+	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A name for the Lambda created to rotate the secret.
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// A list of security groups for the Lambda created to rotate the secret.
@@ -4434,6 +4437,8 @@ type Secret interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// The string of the characters that are excluded in this secret when it is generated.
+	ExcludeCharacters() *string
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -4553,6 +4558,16 @@ func (j *jsiiProxy_Secret) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Secret) ExcludeCharacters() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"excludeCharacters",
 		&returns,
 	)
 	return returns
@@ -4766,6 +4781,22 @@ func Secret_IsResource(construct constructs.IConstruct) *bool {
 		"aws-cdk-lib.aws_secretsmanager.Secret",
 		"isResource",
 		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Secret.
+func Secret_IsSecret(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_secretsmanager.Secret",
+		"isSecret",
+		[]interface{}{x},
 		&returns,
 	)
 
@@ -6164,6 +6195,8 @@ type SecretTargetAttachmentProps struct {
 //   dbConnections.allowDefaultPortFrom(myHostedRotation)
 //
 type SingleUserHostedRotationOptions struct {
+	// A string of the characters that you don't want in the password.
+	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// A name for the Lambda created to rotate the secret.
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// A list of security groups for the Lambda created to rotate the secret.

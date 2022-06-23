@@ -4712,6 +4712,8 @@ type DatabaseSecret interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// The string of the characters that are excluded in this secret when it is generated.
+	ExcludeCharacters() *string
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -4830,6 +4832,16 @@ func (j *jsiiProxy_DatabaseSecret) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseSecret) ExcludeCharacters() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"excludeCharacters",
 		&returns,
 	)
 	return returns
@@ -5043,6 +5055,22 @@ func DatabaseSecret_IsResource(construct constructs.IConstruct) *bool {
 		"aws-cdk-lib.aws_docdb.DatabaseSecret",
 		"isResource",
 		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Secret.
+func DatabaseSecret_IsSecret(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_docdb.DatabaseSecret",
+		"isSecret",
+		[]interface{}{x},
 		&returns,
 	)
 

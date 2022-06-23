@@ -2522,6 +2522,10 @@ func init() {
 			return &jsiiProxy_TreeInspector{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.UniqueResourceNameOptions",
+		reflect.TypeOf((*UniqueResourceNameOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.ValidationResult",
 		reflect.TypeOf((*ValidationResult)(nil)).Elem(),

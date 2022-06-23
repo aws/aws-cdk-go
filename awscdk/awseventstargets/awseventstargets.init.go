@@ -210,6 +210,20 @@ func init() {
 		reflect.TypeOf((*LogGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_events_targets.LogGroupTargetInput",
+		reflect.TypeOf((*LogGroupTargetInput)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_LogGroupTargetInput{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events_targets.LogGroupTargetInputOptions",
+		reflect.TypeOf((*LogGroupTargetInputOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events_targets.SfnStateMachine",
 		reflect.TypeOf((*SfnStateMachine)(nil)).Elem(),
 		[]_jsii_.Member{

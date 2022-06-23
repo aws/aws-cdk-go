@@ -866,6 +866,10 @@ func init() {
 		"aws-cdk-lib.aws_iam.FromRoleArnOptions",
 		reflect.TypeOf((*FromRoleArnOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iam.FromRoleNameOptions",
+		reflect.TypeOf((*FromRoleNameOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_iam.Grant",
 		reflect.TypeOf((*Grant)(nil)).Elem(),

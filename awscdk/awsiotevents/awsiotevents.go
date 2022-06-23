@@ -86,6 +86,10 @@ import (
 //   					},
 //   				},
 //   				iotSiteWise: &iotSiteWiseProperty{
+//   					assetId: jsii.String("assetId"),
+//   					entryId: jsii.String("entryId"),
+//   					propertyAlias: jsii.String("propertyAlias"),
+//   					propertyId: jsii.String("propertyId"),
 //   					propertyValue: &assetPropertyValueProperty{
 //   						value: &assetPropertyVariantProperty{
 //   							booleanValue: jsii.String("booleanValue"),
@@ -103,12 +107,6 @@ import (
 //   							offsetInNanos: jsii.String("offsetInNanos"),
 //   						},
 //   					},
-//
-//   					// the properties below are optional
-//   					assetId: jsii.String("assetId"),
-//   					entryId: jsii.String("entryId"),
-//   					propertyAlias: jsii.String("propertyAlias"),
-//   					propertyId: jsii.String("propertyId"),
 //   				},
 //   				iotTopicPublish: &iotTopicPublishProperty{
 //   					mqttTopic: jsii.String("mqttTopic"),
@@ -918,6 +916,10 @@ type CfnAlarmModel_AcknowledgeFlowProperty struct {
 //   		},
 //   	},
 //   	iotSiteWise: &iotSiteWiseProperty{
+//   		assetId: jsii.String("assetId"),
+//   		entryId: jsii.String("entryId"),
+//   		propertyAlias: jsii.String("propertyAlias"),
+//   		propertyId: jsii.String("propertyId"),
 //   		propertyValue: &assetPropertyValueProperty{
 //   			value: &assetPropertyVariantProperty{
 //   				booleanValue: jsii.String("booleanValue"),
@@ -935,12 +937,6 @@ type CfnAlarmModel_AcknowledgeFlowProperty struct {
 //   				offsetInNanos: jsii.String("offsetInNanos"),
 //   			},
 //   		},
-//
-//   		// the properties below are optional
-//   		assetId: jsii.String("assetId"),
-//   		entryId: jsii.String("entryId"),
-//   		propertyAlias: jsii.String("propertyAlias"),
-//   		propertyId: jsii.String("propertyId"),
 //   	},
 //   	iotTopicPublish: &iotTopicPublishProperty{
 //   		mqttTopic: jsii.String("mqttTopic"),
@@ -1139,6 +1135,10 @@ type CfnAlarmModel_AlarmCapabilitiesProperty struct {
 //   				},
 //   			},
 //   			iotSiteWise: &iotSiteWiseProperty{
+//   				assetId: jsii.String("assetId"),
+//   				entryId: jsii.String("entryId"),
+//   				propertyAlias: jsii.String("propertyAlias"),
+//   				propertyId: jsii.String("propertyId"),
 //   				propertyValue: &assetPropertyValueProperty{
 //   					value: &assetPropertyVariantProperty{
 //   						booleanValue: jsii.String("booleanValue"),
@@ -1156,12 +1156,6 @@ type CfnAlarmModel_AlarmCapabilitiesProperty struct {
 //   						offsetInNanos: jsii.String("offsetInNanos"),
 //   					},
 //   				},
-//
-//   				// the properties below are optional
-//   				assetId: jsii.String("assetId"),
-//   				entryId: jsii.String("entryId"),
-//   				propertyAlias: jsii.String("propertyAlias"),
-//   				propertyId: jsii.String("propertyId"),
 //   			},
 //   			iotTopicPublish: &iotTopicPublishProperty{
 //   				mqttTopic: jsii.String("mqttTopic"),
@@ -1595,6 +1589,10 @@ type CfnAlarmModel_IotEventsProperty struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   iotSiteWiseProperty := &iotSiteWiseProperty{
+//   	assetId: jsii.String("assetId"),
+//   	entryId: jsii.String("entryId"),
+//   	propertyAlias: jsii.String("propertyAlias"),
+//   	propertyId: jsii.String("propertyId"),
 //   	propertyValue: &assetPropertyValueProperty{
 //   		value: &assetPropertyVariantProperty{
 //   			booleanValue: jsii.String("booleanValue"),
@@ -1612,19 +1610,9 @@ type CfnAlarmModel_IotEventsProperty struct {
 //   			offsetInNanos: jsii.String("offsetInNanos"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	assetId: jsii.String("assetId"),
-//   	entryId: jsii.String("entryId"),
-//   	propertyAlias: jsii.String("propertyAlias"),
-//   	propertyId: jsii.String("propertyId"),
 //   }
 //
 type CfnAlarmModel_IotSiteWiseProperty struct {
-	// The value to send to the asset property.
-	//
-	// This value contains timestamp, quality, and value (TQV) information.
-	PropertyValue interface{} `field:"required" json:"propertyValue" yaml:"propertyValue"`
 	// The ID of the asset that has the specified property.
 	AssetId *string `field:"optional" json:"assetId" yaml:"assetId"`
 	// A unique identifier for this entry.
@@ -1635,6 +1623,10 @@ type CfnAlarmModel_IotSiteWiseProperty struct {
 	PropertyAlias *string `field:"optional" json:"propertyAlias" yaml:"propertyAlias"`
 	// The ID of the asset property.
 	PropertyId *string `field:"optional" json:"propertyId" yaml:"propertyId"`
+	// The value to send to the asset property.
+	//
+	// This value contains timestamp, quality, and value (TQV) information.
+	PropertyValue interface{} `field:"optional" json:"propertyValue" yaml:"propertyValue"`
 }
 
 // Information required to publish the MQTT message through the AWS IoT message broker.
@@ -1864,6 +1856,10 @@ type CfnAlarmModel_SqsProperty struct {
 //   					},
 //   				},
 //   				iotSiteWise: &iotSiteWiseProperty{
+//   					assetId: jsii.String("assetId"),
+//   					entryId: jsii.String("entryId"),
+//   					propertyAlias: jsii.String("propertyAlias"),
+//   					propertyId: jsii.String("propertyId"),
 //   					propertyValue: &assetPropertyValueProperty{
 //   						value: &assetPropertyVariantProperty{
 //   							booleanValue: jsii.String("booleanValue"),
@@ -1881,12 +1877,6 @@ type CfnAlarmModel_SqsProperty struct {
 //   							offsetInNanos: jsii.String("offsetInNanos"),
 //   						},
 //   					},
-//
-//   					// the properties below are optional
-//   					assetId: jsii.String("assetId"),
-//   					entryId: jsii.String("entryId"),
-//   					propertyAlias: jsii.String("propertyAlias"),
-//   					propertyId: jsii.String("propertyId"),
 //   				},
 //   				iotTopicPublish: &iotTopicPublishProperty{
 //   					mqttTopic: jsii.String("mqttTopic"),

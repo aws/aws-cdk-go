@@ -8523,6 +8523,21 @@ type EventBusProps struct {
 }
 
 // Represents a field in the event pattern.
+//
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   var logGroup logGroup
+//   var rule rule
+//
+//
+//   rule.addTarget(targets.NewCloudWatchLogGroup(logGroup, &logGroupProps{
+//   	logEvent: targets.logGroupTargetInput(map[string]interface{}{
+//   		"timestamp": events.EventField.from(jsii.String("$.time")),
+//   		"message": events.EventField.from(jsii.String("$.detail-type")),
+//   	}),
+//   }))
+//
 type EventField interface {
 	awscdk.IResolvable
 	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
@@ -9613,27 +9628,26 @@ type RuleProps struct {
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The event bus to associate with this rule.
 	EventBus IEventBus `field:"optional" json:"eventBus" yaml:"eventBus"`
-	// Describes which events EventBridge routes to the specified target.
-	//
-	// These routed events are matched events. For more information, see Events
-	// and Event Patterns in the Amazon EventBridge User Guide.
-	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
+	// Describes which events EventBridge routes to the specified target. These routed events are matched events.
 	//
 	// You must specify this property (either via props or via
 	// `addEventPattern`), the `scheduleExpression` property, or both. The
 	// method `addEventPattern` can be used to add filter values to the event
 	// pattern.
 	//
+	// For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
+	//
 	EventPattern *EventPattern `field:"optional" json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// The schedule or rate (frequency) that determines when EventBridge runs the rule.
 	//
+	// You must specify this property, the `eventPattern` property, or both.
+	//
 	// For more information, see Schedule Expression Syntax for
 	// Rules in the Amazon EventBridge User Guide.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/scheduled-events.html
-	//
-	// You must specify this property, the `eventPattern` property, or both.
 	//
 	Schedule Schedule `field:"optional" json:"schedule" yaml:"schedule"`
 	// Targets to invoke when this rule matches an event.
@@ -9974,6 +9988,8 @@ type RuleTargetInputProperties struct {
 
 // Schedule for scheduled event rules.
 //
+// Note that rates cannot be defined in fractions of minutes.
+//
 // Example:
 //   connection := events.NewConnection(this, jsii.String("Connection"), &connectionProps{
 //   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), awscdk.SecretValue.secretsManager(jsii.String("ApiSecretName"))),
@@ -9992,6 +10008,8 @@ type RuleTargetInputProperties struct {
 //   		targets.NewApiDestination(destination),
 //   	},
 //   })
+//
+// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/scheduled-events.html
 //
 type Schedule interface {
 	// Retrieve the expression for this schedule.
@@ -10057,6 +10075,8 @@ func Schedule_Expression(expression *string) Schedule {
 }
 
 // Construct a schedule from an interval and a time unit.
+//
+// Rates may be defined with any unit of time, but when converted into minutes, the duration must be a positive whole number of minutes.
 func Schedule_Rate(duration awscdk.Duration) Schedule {
 	_init_.Initialize()
 

@@ -796,6 +796,9 @@ type CfnAgentProps struct {
 //   	efsFilesystemArn: jsii.String("efsFilesystemArn"),
 //
 //   	// the properties below are optional
+//   	accessPointArn: jsii.String("accessPointArn"),
+//   	fileSystemAccessRoleArn: jsii.String("fileSystemAccessRoleArn"),
+//   	inTransitEncryption: jsii.String("inTransitEncryption"),
 //   	subdirectory: jsii.String("subdirectory"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -808,6 +811,9 @@ type CfnAgentProps struct {
 type CfnLocationEFS interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// `AWS::DataSync::LocationEFS.AccessPointArn`.
+	AccessPointArn() *string
+	SetAccessPointArn(val *string)
 	// The Amazon Resource Name (ARN) of the Amazon EFS file system.
 	AttrLocationArn() *string
 	// The URI of the Amazon EFS file system.
@@ -836,6 +842,12 @@ type CfnLocationEFS interface {
 	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
 	EfsFilesystemArn() *string
 	SetEfsFilesystemArn(val *string)
+	// `AWS::DataSync::LocationEFS.FileSystemAccessRoleArn`.
+	FileSystemAccessRoleArn() *string
+	SetFileSystemAccessRoleArn(val *string)
+	// `AWS::DataSync::LocationEFS.InTransitEncryption`.
+	InTransitEncryption() *string
+	SetInTransitEncryption(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -989,6 +1001,16 @@ type jsiiProxy_CfnLocationEFS struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnLocationEFS) AccessPointArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"accessPointArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationEFS) AttrLocationArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1064,6 +1086,26 @@ func (j *jsiiProxy_CfnLocationEFS) EfsFilesystemArn() *string {
 	_jsii_.Get(
 		j,
 		"efsFilesystemArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationEFS) FileSystemAccessRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fileSystemAccessRoleArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationEFS) InTransitEncryption() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"inTransitEncryption",
 		&returns,
 	)
 	return returns
@@ -1166,6 +1208,14 @@ func NewCfnLocationEFS_Override(c CfnLocationEFS, scope constructs.Construct, id
 	)
 }
 
+func (j *jsiiProxy_CfnLocationEFS) SetAccessPointArn(val *string) {
+	_jsii_.Set(
+		j,
+		"accessPointArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnLocationEFS) SetEc2Config(val interface{}) {
 	_jsii_.Set(
 		j,
@@ -1178,6 +1228,22 @@ func (j *jsiiProxy_CfnLocationEFS) SetEfsFilesystemArn(val *string) {
 	_jsii_.Set(
 		j,
 		"efsFilesystemArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationEFS) SetFileSystemAccessRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"fileSystemAccessRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationEFS) SetInTransitEncryption(val *string) {
+	_jsii_.Set(
+		j,
+		"inTransitEncryption",
 		val,
 	)
 }
@@ -1457,6 +1523,9 @@ type CfnLocationEFS_Ec2ConfigProperty struct {
 //   	efsFilesystemArn: jsii.String("efsFilesystemArn"),
 //
 //   	// the properties below are optional
+//   	accessPointArn: jsii.String("accessPointArn"),
+//   	fileSystemAccessRoleArn: jsii.String("fileSystemAccessRoleArn"),
+//   	inTransitEncryption: jsii.String("inTransitEncryption"),
 //   	subdirectory: jsii.String("subdirectory"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -1480,6 +1549,12 @@ type CfnLocationEFSProps struct {
 	Ec2Config interface{} `field:"required" json:"ec2Config" yaml:"ec2Config"`
 	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
 	EfsFilesystemArn *string `field:"required" json:"efsFilesystemArn" yaml:"efsFilesystemArn"`
+	// `AWS::DataSync::LocationEFS.AccessPointArn`.
+	AccessPointArn *string `field:"optional" json:"accessPointArn" yaml:"accessPointArn"`
+	// `AWS::DataSync::LocationEFS.FileSystemAccessRoleArn`.
+	FileSystemAccessRoleArn *string `field:"optional" json:"fileSystemAccessRoleArn" yaml:"fileSystemAccessRoleArn"`
+	// `AWS::DataSync::LocationEFS.InTransitEncryption`.
+	InTransitEncryption *string `field:"optional" json:"inTransitEncryption" yaml:"inTransitEncryption"`
 	// A subdirectory in the location’s path.
 	//
 	// This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination. By default, AWS DataSync uses the root directory.

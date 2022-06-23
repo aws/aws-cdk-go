@@ -20540,14 +20540,15 @@ func (l *jsiiProxy_LambdaIntegration) Bind(method Method) *IntegrationConfig {
 }
 
 // Example:
-//   var getBookHandler function
-//   var getBookIntegration lambdaIntegration
+//   var backend function
 //
 //
-//   getBookIntegration := apigateway.NewLambdaIntegration(getBookHandler, &lambdaIntegrationOptions{
-//   	contentHandling: apigateway.contentHandling_CONVERT_TO_TEXT,
-//   	 // convert to base64
-//   	credentialsPassthrough: jsii.Boolean(true),
+//   api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &lambdaRestApiProps{
+//   	handler: backend,
+//   	integrationOptions: &lambdaIntegrationOptions{
+//   		allowTestInvoke: jsii.Boolean(false),
+//   		timeout: awscdk.Duration.seconds(jsii.Number(1)),
+//   	},
 //   })
 //
 type LambdaIntegrationOptions struct {
@@ -21426,6 +21427,8 @@ type LambdaRestApiProps struct {
 	// This handler will be used as a the default integration for all methods in
 	// this API, unless specified otherwise in `addMethod`.
 	Handler awslambda.IFunction `field:"required" json:"handler" yaml:"handler"`
+	// Specific Lambda integration options.
+	IntegrationOptions *LambdaIntegrationOptions `field:"optional" json:"integrationOptions" yaml:"integrationOptions"`
 	// If true, route all requests to the Lambda Function.
 	//
 	// If set to false, you will need to explicitly define the API model using

@@ -1379,7 +1379,7 @@ type TriggerFunctionProps struct {
 	// For valid values, see the Runtime property in the AWS Lambda Developer
 	// Guide.
 	//
-	// Use `Runtime.FROM_IMAGE` when when defining a function from a Docker image.
+	// Use `Runtime.FROM_IMAGE` when defining a function from a Docker image.
 	Runtime awslambda.Runtime `field:"required" json:"runtime" yaml:"runtime"`
 	// Adds trigger dependencies. Execute this trigger only after these construct scopes have been provisioned.
 	//

@@ -2897,6 +2897,7 @@ type CfnDBCluster_ScalingConfigurationProperty struct {
 type CfnDBClusterParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrDbClusterParameterGroupName() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -3069,6 +3070,16 @@ type CfnDBClusterParameterGroup interface {
 type jsiiProxy_CfnDBClusterParameterGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnDBClusterParameterGroup) AttrDbClusterParameterGroupName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDbClusterParameterGroupName",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDBClusterParameterGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -6990,14 +7001,14 @@ type CfnDBInstanceProps struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var parameters interface{}
+//
 //   cfnDBParameterGroup := awscdk.Aws_rds.NewCfnDBParameterGroup(this, jsii.String("MyCfnDBParameterGroup"), &cfnDBParameterGroupProps{
 //   	description: jsii.String("description"),
 //   	family: jsii.String("family"),
 //
 //   	// the properties below are optional
-//   	parameters: map[string]*string{
-//   		"parametersKey": jsii.String("parameters"),
-//   	},
+//   	parameters: parameters,
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -7009,6 +7020,7 @@ type CfnDBInstanceProps struct {
 type CfnDBParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrDbParameterGroupName() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -7189,6 +7201,16 @@ type CfnDBParameterGroup interface {
 type jsiiProxy_CfnDBParameterGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnDBParameterGroup) AttrDbParameterGroupName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDbParameterGroupName",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDBParameterGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -7604,14 +7626,14 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var parameters interface{}
+//
 //   cfnDBParameterGroupProps := &cfnDBParameterGroupProps{
 //   	description: jsii.String("description"),
 //   	family: jsii.String("family"),
 //
 //   	// the properties below are optional
-//   	parameters: map[string]*string{
-//   		"parametersKey": jsii.String("parameters"),
-//   	},
+//   	parameters: parameters,
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -21826,6 +21848,8 @@ type DatabaseSecret interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// The string of the characters that are excluded in this secret when it is generated.
+	ExcludeCharacters() *string
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -21944,6 +21968,16 @@ func (j *jsiiProxy_DatabaseSecret) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseSecret) ExcludeCharacters() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"excludeCharacters",
 		&returns,
 	)
 	return returns
@@ -22157,6 +22191,22 @@ func DatabaseSecret_IsResource(construct constructs.IConstruct) *bool {
 		"aws-cdk-lib.aws_rds.DatabaseSecret",
 		"isResource",
 		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Secret.
+func DatabaseSecret_IsSecret(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"isSecret",
+		[]interface{}{x},
 		&returns,
 	)
 

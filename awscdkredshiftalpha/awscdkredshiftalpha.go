@@ -1320,6 +1320,9 @@ type DatabaseSecret interface {
 	// that might be different than the stack they were imported into.
 	// Experimental.
 	Env() *awscdk.ResourceEnvironment
+	// The string of the characters that are excluded in this secret when it is generated.
+	// Experimental.
+	ExcludeCharacters() *string
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -1458,6 +1461,16 @@ func (j *jsiiProxy_DatabaseSecret) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseSecret) ExcludeCharacters() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"excludeCharacters",
 		&returns,
 	)
 	return returns
@@ -1679,6 +1692,23 @@ func DatabaseSecret_IsResource(construct constructs.IConstruct) *bool {
 		"@aws-cdk/aws-redshift-alpha.DatabaseSecret",
 		"isResource",
 		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Secret.
+// Experimental.
+func DatabaseSecret_IsSecret(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-redshift-alpha.DatabaseSecret",
+		"isSecret",
+		[]interface{}{x},
 		&returns,
 	)
 

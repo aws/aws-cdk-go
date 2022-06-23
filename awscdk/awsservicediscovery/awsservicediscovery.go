@@ -6599,6 +6599,8 @@ type PrivateDnsNamespace interface {
 	Env() *awscdk.ResourceEnvironment
 	// Namespace Arn of the namespace.
 	NamespaceArn() *string
+	// ID of hosted zone created by namespace.
+	NamespaceHostedZoneId() *string
 	// Namespace Id of the PrivateDnsNamespace.
 	NamespaceId() *string
 	// The name of the PrivateDnsNamespace.
@@ -6671,6 +6673,16 @@ func (j *jsiiProxy_PrivateDnsNamespace) NamespaceArn() *string {
 	_jsii_.Get(
 		j,
 		"namespaceArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PrivateDnsNamespace) NamespaceHostedZoneId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"namespaceHostedZoneId",
 		&returns,
 	)
 	return returns
@@ -7025,6 +7037,8 @@ type PublicDnsNamespace interface {
 	Env() *awscdk.ResourceEnvironment
 	// Namespace Arn for the namespace.
 	NamespaceArn() *string
+	// ID of hosted zone created by namespace.
+	NamespaceHostedZoneId() *string
 	// Namespace Id for the namespace.
 	NamespaceId() *string
 	// A name for the namespace.
@@ -7097,6 +7111,16 @@ func (j *jsiiProxy_PublicDnsNamespace) NamespaceArn() *string {
 	_jsii_.Get(
 		j,
 		"namespaceArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PublicDnsNamespace) NamespaceHostedZoneId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"namespaceHostedZoneId",
 		&returns,
 	)
 	return returns

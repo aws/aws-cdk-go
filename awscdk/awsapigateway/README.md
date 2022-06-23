@@ -102,6 +102,22 @@ item.addMethod(jsii.String("GET")) // GET /items/{item}
 item.addMethod(jsii.String("DELETE"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")))
 ```
 
+Additionally, `integrationOptions` can be supplied to explicitly define
+options of the Lambda integration:
+
+```go
+var backend function
+
+
+api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &lambdaRestApiProps{
+	handler: backend,
+	integrationOptions: &lambdaIntegrationOptions{
+		allowTestInvoke: jsii.Boolean(false),
+		timeout: awscdk.Duration.seconds(jsii.Number(1)),
+	},
+})
+```
+
 ## AWS StepFunctions backed APIs
 
 You can use Amazon API Gateway with AWS Step Functions as the backend integration, specifically Synchronous Express Workflows.

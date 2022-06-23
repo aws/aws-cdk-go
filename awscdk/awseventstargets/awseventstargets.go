@@ -681,22 +681,19 @@ type BatchJobProps struct {
 // Use an AWS CloudWatch LogGroup as an event rule target.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   var logGroup logGroup
+//   var rule rule
 //
 //
-//   logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"), &logGroupProps{
-//   	logGroupName: jsii.String("MyLogGroup"),
-//   })
-//
-//   rule := events.NewRule(this, jsii.String("rule"), &ruleProps{
-//   	eventPattern: &eventPattern{
-//   		source: []*string{
-//   			jsii.String("aws.ec2"),
-//   		},
-//   	},
-//   })
-//
-//   rule.addTarget(targets.NewCloudWatchLogGroup(logGroup))
+//   rule.addTarget(targets.NewCloudWatchLogGroup(logGroup, &logGroupProps{
+//   	logEvent: targets.logGroupTargetInput(map[string]*string{
+//   		"message": JSON.stringify(map[string]*string{
+//   			"CustomField": jsii.String("CustomValue"),
+//   		}),
+//   	}),
+//   }))
 //
 type CloudWatchLogGroup interface {
 	awsevents.IRuleTarget
@@ -1557,22 +1554,18 @@ type LambdaFunctionProps struct {
 // Customize the CloudWatch LogGroup Event Target.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   var logGroup logGroup
+//   var rule rule
 //
-//   var queue queue
-//   var ruleTargetInput ruleTargetInput
 //
-//   logGroupProps := &logGroupProps{
-//   	deadLetterQueue: queue,
-//   	event: ruleTargetInput,
-//   	maxEventAge: cdk.duration.minutes(jsii.Number(30)),
-//   	retryAttempts: jsii.Number(123),
-//   }
+//   rule.addTarget(targets.NewCloudWatchLogGroup(logGroup, &logGroupProps{
+//   	logEvent: targets.logGroupTargetInput(map[string]interface{}{
+//   		"timestamp": events.EventField.from(jsii.String("$.time")),
+//   		"message": events.EventField.from(jsii.String("$.detail-type")),
+//   	}),
+//   }))
 //
 type LogGroupProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -1594,7 +1587,108 @@ type LogGroupProps struct {
 	// The event to send to the CloudWatch LogGroup.
 	//
 	// This will be the event logged into the CloudWatch LogGroup.
+	// Deprecated: use logEvent instead.
 	Event awsevents.RuleTargetInput `field:"optional" json:"event" yaml:"event"`
+	// The event to send to the CloudWatch LogGroup.
+	//
+	// This will be the event logged into the CloudWatch LogGroup.
+	LogEvent LogGroupTargetInput `field:"optional" json:"logEvent" yaml:"logEvent"`
+}
+
+// The input to send to the CloudWatch LogGroup target.
+//
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   var logGroup logGroup
+//   var rule rule
+//
+//
+//   rule.addTarget(targets.NewCloudWatchLogGroup(logGroup, &logGroupProps{
+//   	logEvent: targets.logGroupTargetInput(map[string]interface{}{
+//   		"timestamp": events.EventField.from(jsii.String("$.time")),
+//   		"message": events.EventField.from(jsii.String("$.detail-type")),
+//   	}),
+//   }))
+//
+type LogGroupTargetInput interface {
+	// Return the input properties for this input object.
+	Bind(rule awsevents.IRule) *awsevents.RuleTargetInputProperties
+}
+
+// The jsii proxy struct for LogGroupTargetInput
+type jsiiProxy_LogGroupTargetInput struct {
+	_ byte // padding
+}
+
+func NewLogGroupTargetInput_Override(l LogGroupTargetInput) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_events_targets.LogGroupTargetInput",
+		nil, // no parameters
+		l,
+	)
+}
+
+// Pass a JSON object to the the log group event target.
+//
+// May contain strings returned by `EventField.from()` to substitute in parts of the
+// matched event.
+func LogGroupTargetInput_FromObject(options *LogGroupTargetInputOptions) awsevents.RuleTargetInput {
+	_init_.Initialize()
+
+	var returns awsevents.RuleTargetInput
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events_targets.LogGroupTargetInput",
+		"fromObject",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LogGroupTargetInput) Bind(rule awsevents.IRule) *awsevents.RuleTargetInputProperties {
+	var returns *awsevents.RuleTargetInputProperties
+
+	_jsii_.Invoke(
+		l,
+		"bind",
+		[]interface{}{rule},
+		&returns,
+	)
+
+	return returns
+}
+
+// Options used when creating a target input template.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var message interface{}
+//   var timestamp interface{}
+//
+//   logGroupTargetInputOptions := &logGroupTargetInputOptions{
+//   	message: message,
+//   	timestamp: timestamp,
+//   }
+//
+type LogGroupTargetInputOptions struct {
+	// The value provided here will be used in the Log "message" field.
+	//
+	// This field must be a string. If an object is passed (e.g. JSON data)
+	// it will not throw an error, but the message that makes it to
+	// CloudWatch logs will be incorrect. This is a likely scenario if
+	// doing something like: EventField.fromPath('$.detail') since in most cases
+	// the `detail` field contains JSON data.
+	Message interface{} `field:"optional" json:"message" yaml:"message"`
+	// The timestamp that will appear in the CloudWatch Logs record.
+	Timestamp interface{} `field:"optional" json:"timestamp" yaml:"timestamp"`
 }
 
 // Use a StepFunctions state machine as a target for Amazon EventBridge rules.
@@ -1826,6 +1920,22 @@ func (s *jsiiProxy_SnsTopic) Bind(_rule awsevents.IRule, _id *string) *awsevents
 //   }))
 //
 type SnsTopicProps struct {
+	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
+	//
+	// The events not successfully delivered are automatically retried for a specified period of time,
+	// depending on the retry policy of the target.
+	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	// The maximum age of a request that Lambda sends to a function for processing.
+	//
+	// Minimum value of 60.
+	// Maximum value of 86400.
+	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
+	// The maximum number of times to retry when the function returns an error.
+	//
+	// Minimum value of 0.
+	// Maximum value of 185.
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// The message to send to the topic.
 	Message awsevents.RuleTargetInput `field:"optional" json:"message" yaml:"message"`
 }

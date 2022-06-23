@@ -15587,7 +15587,7 @@ type FunctionProps struct {
 	// For valid values, see the Runtime property in the AWS Lambda Developer
 	// Guide.
 	//
-	// Use `Runtime.FROM_IMAGE` when when defining a function from a Docker image.
+	// Use `Runtime.FROM_IMAGE` when defining a function from a Docker image.
 	Runtime Runtime `field:"required" json:"runtime" yaml:"runtime"`
 }
 
@@ -16819,7 +16819,7 @@ func (j *jsiiProxy_IVersion) Version() *string {
 	return returns
 }
 
-// Lambda code from an inline string (limited to 4KiB).
+// Lambda code from an inline string.
 //
 // Example:
 //   layer := lambda.NewLayerVersion(stack, jsii.String("MyLayer"), &layerVersionProps{
@@ -20107,7 +20107,7 @@ type SingletonFunctionProps struct {
 	// For valid values, see the Runtime property in the AWS Lambda Developer
 	// Guide.
 	//
-	// Use `Runtime.FROM_IMAGE` when when defining a function from a Docker image.
+	// Use `Runtime.FROM_IMAGE` when defining a function from a Docker image.
 	Runtime Runtime `field:"required" json:"runtime" yaml:"runtime"`
 	// A unique identifier to identify this lambda.
 	//

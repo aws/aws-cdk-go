@@ -5020,6 +5020,8 @@ type CfnApplicationReferenceDataSourceV2Props struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var propertyMap interface{}
+//
 //   cfnApplicationV2 := awscdk.Aws_kinesisanalytics.NewCfnApplicationV2(this, jsii.String("MyCfnApplicationV2"), &cfnApplicationV2Props{
 //   	runtimeEnvironment: jsii.String("runtimeEnvironment"),
 //   	serviceExecutionRole: jsii.String("serviceExecutionRole"),
@@ -5031,8 +5033,6 @@ type CfnApplicationReferenceDataSourceV2Props struct {
 //   				s3ContentLocation: &s3ContentLocationProperty{
 //   					bucketArn: jsii.String("bucketArn"),
 //   					fileKey: jsii.String("fileKey"),
-//
-//   					// the properties below are optional
 //   					objectVersion: jsii.String("objectVersion"),
 //   				},
 //   				textContent: jsii.String("textContent"),
@@ -5047,9 +5047,7 @@ type CfnApplicationReferenceDataSourceV2Props struct {
 //   			propertyGroups: []interface{}{
 //   				&propertyGroupProperty{
 //   					propertyGroupId: jsii.String("propertyGroupId"),
-//   					propertyMap: map[string]*string{
-//   						"propertyMapKey": jsii.String("propertyMap"),
-//   					},
+//   					propertyMap: propertyMap,
 //   				},
 //   			},
 //   		},
@@ -5148,18 +5146,14 @@ type CfnApplicationReferenceDataSourceV2Props struct {
 //   					s3ContentLocation: &s3ContentLocationProperty{
 //   						bucketArn: jsii.String("bucketArn"),
 //   						fileKey: jsii.String("fileKey"),
-//
-//   						// the properties below are optional
 //   						objectVersion: jsii.String("objectVersion"),
 //   					},
 //   				},
 //   			},
 //   			deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
 //   				s3ContentLocation: &s3ContentBaseLocationProperty{
-//   					bucketArn: jsii.String("bucketArn"),
-//
-//   					// the properties below are optional
 //   					basePath: jsii.String("basePath"),
+//   					bucketArn: jsii.String("bucketArn"),
 //   				},
 //   			},
 //   			monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
@@ -5828,8 +5822,6 @@ func (c *jsiiProxy_CfnApplicationV2) ValidateProperties(_properties interface{})
 //   		s3ContentLocation: &s3ContentLocationProperty{
 //   			bucketArn: jsii.String("bucketArn"),
 //   			fileKey: jsii.String("fileKey"),
-//
-//   			// the properties below are optional
 //   			objectVersion: jsii.String("objectVersion"),
 //   		},
 //   		textContent: jsii.String("textContent"),
@@ -5852,14 +5844,14 @@ type CfnApplicationV2_ApplicationCodeConfigurationProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var propertyMap interface{}
+//
 //   applicationConfigurationProperty := &applicationConfigurationProperty{
 //   	applicationCodeConfiguration: &applicationCodeConfigurationProperty{
 //   		codeContent: &codeContentProperty{
 //   			s3ContentLocation: &s3ContentLocationProperty{
 //   				bucketArn: jsii.String("bucketArn"),
 //   				fileKey: jsii.String("fileKey"),
-//
-//   				// the properties below are optional
 //   				objectVersion: jsii.String("objectVersion"),
 //   			},
 //   			textContent: jsii.String("textContent"),
@@ -5874,9 +5866,7 @@ type CfnApplicationV2_ApplicationCodeConfigurationProperty struct {
 //   		propertyGroups: []interface{}{
 //   			&propertyGroupProperty{
 //   				propertyGroupId: jsii.String("propertyGroupId"),
-//   				propertyMap: map[string]*string{
-//   					"propertyMapKey": jsii.String("propertyMap"),
-//   				},
+//   				propertyMap: propertyMap,
 //   			},
 //   		},
 //   	},
@@ -5975,18 +5965,14 @@ type CfnApplicationV2_ApplicationCodeConfigurationProperty struct {
 //   				s3ContentLocation: &s3ContentLocationProperty{
 //   					bucketArn: jsii.String("bucketArn"),
 //   					fileKey: jsii.String("fileKey"),
-//
-//   					// the properties below are optional
 //   					objectVersion: jsii.String("objectVersion"),
 //   				},
 //   			},
 //   		},
 //   		deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
 //   			s3ContentLocation: &s3ContentBaseLocationProperty{
-//   				bucketArn: jsii.String("bucketArn"),
-//
-//   				// the properties below are optional
 //   				basePath: jsii.String("basePath"),
+//   				bucketArn: jsii.String("bucketArn"),
 //   			},
 //   		},
 //   		monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
@@ -6133,8 +6119,6 @@ type CfnApplicationV2_CheckpointConfigurationProperty struct {
 //   	s3ContentLocation: &s3ContentLocationProperty{
 //   		bucketArn: jsii.String("bucketArn"),
 //   		fileKey: jsii.String("fileKey"),
-//
-//   		// the properties below are optional
 //   		objectVersion: jsii.String("objectVersion"),
 //   	},
 //   	textContent: jsii.String("textContent"),
@@ -6169,8 +6153,6 @@ type CfnApplicationV2_CodeContentProperty struct {
 //   	s3ContentLocation: &s3ContentLocationProperty{
 //   		bucketArn: jsii.String("bucketArn"),
 //   		fileKey: jsii.String("fileKey"),
-//
-//   		// the properties below are optional
 //   		objectVersion: jsii.String("objectVersion"),
 //   	},
 //   }
@@ -6195,10 +6177,8 @@ type CfnApplicationV2_CustomArtifactConfigurationProperty struct {
 //
 //   deployAsApplicationConfigurationProperty := &deployAsApplicationConfigurationProperty{
 //   	s3ContentLocation: &s3ContentBaseLocationProperty{
-//   		bucketArn: jsii.String("bucketArn"),
-//
-//   		// the properties below are optional
 //   		basePath: jsii.String("basePath"),
+//   		bucketArn: jsii.String("bucketArn"),
 //   	},
 //   }
 //
@@ -6214,13 +6194,13 @@ type CfnApplicationV2_DeployAsApplicationConfigurationProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var propertyMap interface{}
+//
 //   environmentPropertiesProperty := &environmentPropertiesProperty{
 //   	propertyGroups: []interface{}{
 //   		&propertyGroupProperty{
 //   			propertyGroupId: jsii.String("propertyGroupId"),
-//   			propertyMap: map[string]*string{
-//   				"propertyMapKey": jsii.String("propertyMap"),
-//   			},
+//   			propertyMap: propertyMap,
 //   		},
 //   	},
 //   }
@@ -6637,11 +6617,11 @@ type CfnApplicationV2_ParallelismConfigurationProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var propertyMap interface{}
+//
 //   propertyGroupProperty := &propertyGroupProperty{
 //   	propertyGroupId: jsii.String("propertyGroupId"),
-//   	propertyMap: map[string]*string{
-//   		"propertyMapKey": jsii.String("propertyMap"),
-//   	},
+//   	propertyMap: propertyMap,
 //   }
 //
 type CfnApplicationV2_PropertyGroupProperty struct {
@@ -6714,17 +6694,15 @@ type CfnApplicationV2_RecordFormatProperty struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   s3ContentBaseLocationProperty := &s3ContentBaseLocationProperty{
-//   	bucketArn: jsii.String("bucketArn"),
-//
-//   	// the properties below are optional
 //   	basePath: jsii.String("basePath"),
+//   	bucketArn: jsii.String("bucketArn"),
 //   }
 //
 type CfnApplicationV2_S3ContentBaseLocationProperty struct {
+	// The base path for the S3 bucket.
+	BasePath *string `field:"required" json:"basePath" yaml:"basePath"`
 	// The Amazon Resource Name (ARN) of the S3 bucket.
 	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
-	// The base path for the S3 bucket.
-	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 }
 
 // The location of an application or a custom artifact.
@@ -6737,16 +6715,14 @@ type CfnApplicationV2_S3ContentBaseLocationProperty struct {
 //   s3ContentLocationProperty := &s3ContentLocationProperty{
 //   	bucketArn: jsii.String("bucketArn"),
 //   	fileKey: jsii.String("fileKey"),
-//
-//   	// the properties below are optional
 //   	objectVersion: jsii.String("objectVersion"),
 //   }
 //
 type CfnApplicationV2_S3ContentLocationProperty struct {
 	// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
-	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
+	BucketArn *string `field:"optional" json:"bucketArn" yaml:"bucketArn"`
 	// The file key for the object containing the application code.
-	FileKey *string `field:"required" json:"fileKey" yaml:"fileKey"`
+	FileKey *string `field:"optional" json:"fileKey" yaml:"fileKey"`
 	// The version of the object containing the application code.
 	ObjectVersion *string `field:"optional" json:"objectVersion" yaml:"objectVersion"`
 }
@@ -6841,18 +6817,14 @@ type CfnApplicationV2_SqlApplicationConfigurationProperty struct {
 //   			s3ContentLocation: &s3ContentLocationProperty{
 //   				bucketArn: jsii.String("bucketArn"),
 //   				fileKey: jsii.String("fileKey"),
-//
-//   				// the properties below are optional
 //   				objectVersion: jsii.String("objectVersion"),
 //   			},
 //   		},
 //   	},
 //   	deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
 //   		s3ContentLocation: &s3ContentBaseLocationProperty{
-//   			bucketArn: jsii.String("bucketArn"),
-//
-//   			// the properties below are optional
 //   			basePath: jsii.String("basePath"),
+//   			bucketArn: jsii.String("bucketArn"),
 //   		},
 //   	},
 //   	monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
@@ -6898,6 +6870,8 @@ type CfnApplicationV2_ZeppelinMonitoringConfigurationProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var propertyMap interface{}
+//
 //   cfnApplicationV2Props := &cfnApplicationV2Props{
 //   	runtimeEnvironment: jsii.String("runtimeEnvironment"),
 //   	serviceExecutionRole: jsii.String("serviceExecutionRole"),
@@ -6909,8 +6883,6 @@ type CfnApplicationV2_ZeppelinMonitoringConfigurationProperty struct {
 //   				s3ContentLocation: &s3ContentLocationProperty{
 //   					bucketArn: jsii.String("bucketArn"),
 //   					fileKey: jsii.String("fileKey"),
-//
-//   					// the properties below are optional
 //   					objectVersion: jsii.String("objectVersion"),
 //   				},
 //   				textContent: jsii.String("textContent"),
@@ -6925,9 +6897,7 @@ type CfnApplicationV2_ZeppelinMonitoringConfigurationProperty struct {
 //   			propertyGroups: []interface{}{
 //   				&propertyGroupProperty{
 //   					propertyGroupId: jsii.String("propertyGroupId"),
-//   					propertyMap: map[string]*string{
-//   						"propertyMapKey": jsii.String("propertyMap"),
-//   					},
+//   					propertyMap: propertyMap,
 //   				},
 //   			},
 //   		},
@@ -7026,18 +6996,14 @@ type CfnApplicationV2_ZeppelinMonitoringConfigurationProperty struct {
 //   					s3ContentLocation: &s3ContentLocationProperty{
 //   						bucketArn: jsii.String("bucketArn"),
 //   						fileKey: jsii.String("fileKey"),
-//
-//   						// the properties below are optional
 //   						objectVersion: jsii.String("objectVersion"),
 //   					},
 //   				},
 //   			},
 //   			deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
 //   				s3ContentLocation: &s3ContentBaseLocationProperty{
-//   					bucketArn: jsii.String("bucketArn"),
-//
-//   					// the properties below are optional
 //   					basePath: jsii.String("basePath"),
+//   					bucketArn: jsii.String("bucketArn"),
 //   				},
 //   			},
 //   			monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
