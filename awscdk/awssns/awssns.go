@@ -1,17 +1,17 @@
 package awssns
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awssns/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Between condition for a numeric attribute.
@@ -56,13 +56,10 @@ import (
 //   	},
 //   }))
 //
-// Experimental.
 type BetweenCondition struct {
 	// The start value.
-	// Experimental.
 	Start *float64 `field:"required" json:"start" yaml:"start"`
 	// The stop value.
-	// Experimental.
 	Stop *float64 `field:"required" json:"stop" yaml:"stop"`
 }
 
@@ -97,16 +94,13 @@ type CfnSubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The delivery policy JSON assigned to the subscription.
 	//
@@ -132,11 +126,9 @@ type CfnSubscription interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The subscription's protocol.
 	//
 	// For more information, see the `Protocol` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon SNS API Reference* .
@@ -158,7 +150,6 @@ type CfnSubscription interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// For cross-region subscriptions, the region in which the topic resides.
 	//
@@ -173,7 +164,6 @@ type CfnSubscription interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// This property applies only to Amazon Kinesis Data Firehose delivery stream subscriptions.
 	//
@@ -192,16 +182,13 @@ type CfnSubscription interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -210,7 +197,6 @@ type CfnSubscription interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -255,15 +241,12 @@ type CfnSubscription interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -273,14 +256,17 @@ type CfnSubscription interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -289,74 +275,21 @@ type CfnSubscription interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -446,8 +379,8 @@ func (j *jsiiProxy_CfnSubscription) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscription) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnSubscription) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -548,13 +481,13 @@ func (j *jsiiProxy_CfnSubscription) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::SNS::Subscription`.
-func NewCfnSubscription(scope awscdk.Construct, id *string, props *CfnSubscriptionProps) CfnSubscription {
+func NewCfnSubscription(scope constructs.Construct, id *string, props *CfnSubscriptionProps) CfnSubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns.CfnSubscription",
+		"aws-cdk-lib.aws_sns.CfnSubscription",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -563,11 +496,11 @@ func NewCfnSubscription(scope awscdk.Construct, id *string, props *CfnSubscripti
 }
 
 // Create a new `AWS::SNS::Subscription`.
-func NewCfnSubscription_Override(c CfnSubscription, scope awscdk.Construct, id *string, props *CfnSubscriptionProps) {
+func NewCfnSubscription_Override(c CfnSubscription, scope constructs.Construct, id *string, props *CfnSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns.CfnSubscription",
+		"aws-cdk-lib.aws_sns.CfnSubscription",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -651,14 +584,13 @@ func (j *jsiiProxy_CfnSubscription) SetTopicArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSubscription_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.CfnSubscription",
+		"aws-cdk-lib.aws_sns.CfnSubscription",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -668,14 +600,13 @@ func CfnSubscription_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSubscription_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.CfnSubscription",
+		"aws-cdk-lib.aws_sns.CfnSubscription",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -684,15 +615,30 @@ func CfnSubscription_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnSubscription_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.CfnSubscription",
+		"aws-cdk-lib.aws_sns.CfnSubscription",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -705,7 +651,7 @@ func CfnSubscription_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sns.CfnSubscription",
+		"aws-cdk-lib.aws_sns.CfnSubscription",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -802,48 +748,11 @@ func (c *jsiiProxy_CfnSubscription) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnSubscription) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnSubscription) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnSubscription) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnSubscription) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnSubscription) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -873,33 +782,12 @@ func (c *jsiiProxy_CfnSubscription) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnSubscription) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnSubscription) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnSubscription) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1026,11 +914,9 @@ type CfnTopic interface {
 	// Returns the name of an Amazon SNS topic.
 	AttrTopicName() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Enables content-based deduplication for FIFO topics.
 	//
@@ -1043,7 +929,6 @@ type CfnTopic interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName() *string
@@ -1067,21 +952,17 @@ type CfnTopic interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The Amazon SNS subscriptions (endpoints) for this topic.
 	Subscription() interface{}
@@ -1103,16 +984,13 @@ type CfnTopic interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1121,7 +999,6 @@ type CfnTopic interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1166,15 +1043,12 @@ type CfnTopic interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1184,14 +1058,17 @@ type CfnTopic interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1200,74 +1077,21 @@ type CfnTopic interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -1377,8 +1201,8 @@ func (j *jsiiProxy_CfnTopic) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopic) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnTopic) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1449,13 +1273,13 @@ func (j *jsiiProxy_CfnTopic) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::SNS::Topic`.
-func NewCfnTopic(scope awscdk.Construct, id *string, props *CfnTopicProps) CfnTopic {
+func NewCfnTopic(scope constructs.Construct, id *string, props *CfnTopicProps) CfnTopic {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTopic{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns.CfnTopic",
+		"aws-cdk-lib.aws_sns.CfnTopic",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1464,11 +1288,11 @@ func NewCfnTopic(scope awscdk.Construct, id *string, props *CfnTopicProps) CfnTo
 }
 
 // Create a new `AWS::SNS::Topic`.
-func NewCfnTopic_Override(c CfnTopic, scope awscdk.Construct, id *string, props *CfnTopicProps) {
+func NewCfnTopic_Override(c CfnTopic, scope constructs.Construct, id *string, props *CfnTopicProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns.CfnTopic",
+		"aws-cdk-lib.aws_sns.CfnTopic",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1528,14 +1352,13 @@ func (j *jsiiProxy_CfnTopic) SetTopicName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnTopic_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.CfnTopic",
+		"aws-cdk-lib.aws_sns.CfnTopic",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1545,14 +1368,13 @@ func CfnTopic_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnTopic_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.CfnTopic",
+		"aws-cdk-lib.aws_sns.CfnTopic",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1561,15 +1383,30 @@ func CfnTopic_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnTopic_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.CfnTopic",
+		"aws-cdk-lib.aws_sns.CfnTopic",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1582,7 +1419,7 @@ func CfnTopic_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sns.CfnTopic",
+		"aws-cdk-lib.aws_sns.CfnTopic",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1679,48 +1516,11 @@ func (c *jsiiProxy_CfnTopic) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnTopic) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnTopic) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnTopic) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnTopic) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnTopic) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1750,33 +1550,12 @@ func (c *jsiiProxy_CfnTopic) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnTopic) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnTopic) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnTopic) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1839,16 +1618,13 @@ type CfnTopicPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -1859,11 +1635,9 @@ type CfnTopicPolicy interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// A policy document that contains permissions to add to the specified SNS topics.
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
@@ -1871,12 +1645,10 @@ type CfnTopicPolicy interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy.
 	//
@@ -1887,16 +1659,13 @@ type CfnTopicPolicy interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1905,7 +1674,6 @@ type CfnTopicPolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -1950,15 +1718,12 @@ type CfnTopicPolicy interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -1968,14 +1733,17 @@ type CfnTopicPolicy interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1984,74 +1752,21 @@ type CfnTopicPolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2111,8 +1826,8 @@ func (j *jsiiProxy_CfnTopicPolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTopicPolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnTopicPolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2173,13 +1888,13 @@ func (j *jsiiProxy_CfnTopicPolicy) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::SNS::TopicPolicy`.
-func NewCfnTopicPolicy(scope awscdk.Construct, id *string, props *CfnTopicPolicyProps) CfnTopicPolicy {
+func NewCfnTopicPolicy(scope constructs.Construct, id *string, props *CfnTopicPolicyProps) CfnTopicPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTopicPolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns.CfnTopicPolicy",
+		"aws-cdk-lib.aws_sns.CfnTopicPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2188,11 +1903,11 @@ func NewCfnTopicPolicy(scope awscdk.Construct, id *string, props *CfnTopicPolicy
 }
 
 // Create a new `AWS::SNS::TopicPolicy`.
-func NewCfnTopicPolicy_Override(c CfnTopicPolicy, scope awscdk.Construct, id *string, props *CfnTopicPolicyProps) {
+func NewCfnTopicPolicy_Override(c CfnTopicPolicy, scope constructs.Construct, id *string, props *CfnTopicPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns.CfnTopicPolicy",
+		"aws-cdk-lib.aws_sns.CfnTopicPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2220,14 +1935,13 @@ func (j *jsiiProxy_CfnTopicPolicy) SetTopics(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnTopicPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.CfnTopicPolicy",
+		"aws-cdk-lib.aws_sns.CfnTopicPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2237,14 +1951,13 @@ func CfnTopicPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnTopicPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.CfnTopicPolicy",
+		"aws-cdk-lib.aws_sns.CfnTopicPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2253,15 +1966,30 @@ func CfnTopicPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnTopicPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.CfnTopicPolicy",
+		"aws-cdk-lib.aws_sns.CfnTopicPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2274,7 +2002,7 @@ func CfnTopicPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_sns.CfnTopicPolicy",
+		"aws-cdk-lib.aws_sns.CfnTopicPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2371,48 +2099,11 @@ func (c *jsiiProxy_CfnTopicPolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnTopicPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnTopicPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnTopicPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnTopicPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnTopicPolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2442,33 +2133,12 @@ func (c *jsiiProxy_CfnTopicPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnTopicPolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnTopicPolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnTopicPolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2571,81 +2241,64 @@ type CfnTopicProps struct {
 }
 
 // Represents an SNS topic.
-// Experimental.
 type ITopic interface {
 	awscodestarnotifications.INotificationRuleTarget
 	awscdk.IResource
 	// Subscribe some endpoint to this topic.
-	// Experimental.
 	AddSubscription(subscription ITopicSubscription)
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
 	// will be automatically created upon the first call to `addToPolicy`. If
 	// the topic is imported (`Topic.import`), then this is a no-op.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Grant topic publishing permissions to the given identity.
-	// Experimental.
 	GrantPublish(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Topic.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages published to your Amazon SNS topics.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfMessagesPublished(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages successfully delivered from your Amazon SNS topics to subscribing endpoints.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsDelivered(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that Amazon SNS failed to deliver.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that were rejected by subscription filter policies.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFilteredOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that were rejected by subscription filter policies because the messages' attributes are invalid.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFilteredOutInvalidAttributes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that were rejected by subscription filter policies because the messages have no attributes.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFilteredOutNoMessageAttributes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the size of messages published through this topic.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricPublishSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The charges you have accrued since the start of the current calendar month for sending SMS messages.
 	//
 	// Maximum over 5 minutes.
-	// Experimental.
 	MetricSMSMonthToDateSpentUSD(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The rate of successful SMS message deliveries.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricSMSSuccessRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Whether this topic is an Amazon SNS FIFO queue.
 	//
 	// If false, this is a standard topic.
-	// Experimental.
 	Fifo() *bool
 	// The ARN of the topic.
-	// Experimental.
 	TopicArn() *string
 	// The name of the topic.
-	// Experimental.
 	TopicName() *string
 }
 
@@ -2880,8 +2533,8 @@ func (j *jsiiProxy_ITopic) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ITopic) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ITopic) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2901,10 +2554,8 @@ func (j *jsiiProxy_ITopic) Stack() awscdk.Stack {
 }
 
 // Topic subscription.
-// Experimental.
 type ITopicSubscription interface {
 	// Returns a configuration used to subscribe to an SNS topic.
-	// Experimental.
 	Bind(topic ITopic) *TopicSubscriptionConfig
 }
 
@@ -2968,32 +2619,21 @@ func (i *jsiiProxy_ITopicSubscription) Bind(topic ITopic) *TopicSubscriptionConf
 //   	},
 //   }))
 //
-// Experimental.
 type NumericConditions struct {
 	// Match one or more values.
-	// Experimental.
 	Allowlist *[]*float64 `field:"optional" json:"allowlist" yaml:"allowlist"`
 	// Match values that are between the specified values.
-	// Experimental.
 	Between *BetweenCondition `field:"optional" json:"between" yaml:"between"`
 	// Match values that are strictly between the specified values.
-	// Experimental.
 	BetweenStrict *BetweenCondition `field:"optional" json:"betweenStrict" yaml:"betweenStrict"`
 	// Match values that are greater than the specified value.
-	// Experimental.
 	GreaterThan *float64 `field:"optional" json:"greaterThan" yaml:"greaterThan"`
 	// Match values that are greater than or equal to the specified value.
-	// Experimental.
 	GreaterThanOrEqualTo *float64 `field:"optional" json:"greaterThanOrEqualTo" yaml:"greaterThanOrEqualTo"`
 	// Match values that are less than the specified value.
-	// Experimental.
 	LessThan *float64 `field:"optional" json:"lessThan" yaml:"lessThan"`
 	// Match values that are less than or equal to the specified value.
-	// Experimental.
 	LessThanOrEqualTo *float64 `field:"optional" json:"lessThanOrEqualTo" yaml:"lessThanOrEqualTo"`
-	// Match one or more values.
-	// Deprecated: use `allowlist`.
-	Whitelist *[]*float64 `field:"optional" json:"whitelist" yaml:"whitelist"`
 }
 
 // Conditions that can be applied to string attributes.
@@ -3038,23 +2678,13 @@ type NumericConditions struct {
 //   	},
 //   }))
 //
-// Experimental.
 type StringConditions struct {
 	// Match one or more values.
-	// Experimental.
 	Allowlist *[]*string `field:"optional" json:"allowlist" yaml:"allowlist"`
 	// Match any value that doesn't include any of the specified values.
-	// Deprecated: use `denylist`.
-	Blacklist *[]*string `field:"optional" json:"blacklist" yaml:"blacklist"`
-	// Match any value that doesn't include any of the specified values.
-	// Experimental.
 	Denylist *[]*string `field:"optional" json:"denylist" yaml:"denylist"`
 	// Matches values that begins with the specified prefixes.
-	// Experimental.
 	MatchPrefixes *[]*string `field:"optional" json:"matchPrefixes" yaml:"matchPrefixes"`
-	// Match one or more values.
-	// Deprecated: use `allowlist`.
-	Whitelist *[]*string `field:"optional" json:"whitelist" yaml:"whitelist"`
 }
 
 // A new subscription.
@@ -3063,8 +2693,9 @@ type StringConditions struct {
 // this class.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   var stream deliveryStream
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import "github.com/aws-samples/dummy/awscdklibawskinesisfirehose"
+//   var stream DeliveryStream
 //
 //
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
@@ -3076,11 +2707,9 @@ type StringConditions struct {
 //   	subscriptionRoleArn: jsii.String("SAMPLE_ARN"),
 //   })
 //
-// Experimental.
 type Subscription interface {
 	awscdk.Resource
 	// The DLQ associated with this subscription if present.
-	// Experimental.
 	DeadLetterQueue() awssqs.IQueue
 	// The environment this resource belongs to.
 	//
@@ -3090,11 +2719,9 @@ type Subscription interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -3102,10 +2729,8 @@ type Subscription interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -3116,9 +2741,7 @@ type Subscription interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -3126,66 +2749,15 @@ type Subscription interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Subscription
@@ -3213,8 +2785,8 @@ func (j *jsiiProxy_Subscription) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_Subscription) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Subscription) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3244,14 +2816,13 @@ func (j *jsiiProxy_Subscription) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewSubscription(scope constructs.Construct, id *string, props *SubscriptionProps) Subscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_Subscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns.Subscription",
+		"aws-cdk-lib.aws_sns.Subscription",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3259,26 +2830,40 @@ func NewSubscription(scope constructs.Construct, id *string, props *Subscription
 	return &j
 }
 
-// Experimental.
 func NewSubscription_Override(s Subscription, scope constructs.Construct, id *string, props *SubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns.Subscription",
+		"aws-cdk-lib.aws_sns.Subscription",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func Subscription_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.Subscription",
+		"aws-cdk-lib.aws_sns.Subscription",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3288,14 +2873,13 @@ func Subscription_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func Subscription_IsResource(construct awscdk.IConstruct) *bool {
+func Subscription_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.Subscription",
+		"aws-cdk-lib.aws_sns.Subscription",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -3351,70 +2935,12 @@ func (s *jsiiProxy_Subscription) GetResourceNameAttribute(nameAttr *string) *str
 	return returns
 }
 
-func (s *jsiiProxy_Subscription) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_Subscription) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_Subscription) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_Subscription) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_Subscription) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_Subscription) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_Subscription) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3464,10 +2990,8 @@ func (s *jsiiProxy_Subscription) Validate() *[]*string {
 //   	},
 //   }))
 //
-// Experimental.
 type SubscriptionFilter interface {
 	// conditions that specify the message attributes that should be included, excluded, matched, etc.
-	// Experimental.
 	Conditions() *[]interface{}
 }
 
@@ -3487,14 +3011,13 @@ func (j *jsiiProxy_SubscriptionFilter) Conditions() *[]interface{} {
 }
 
 
-// Experimental.
 func NewSubscriptionFilter(conditions *[]interface{}) SubscriptionFilter {
 	_init_.Initialize()
 
 	j := jsiiProxy_SubscriptionFilter{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns.SubscriptionFilter",
+		"aws-cdk-lib.aws_sns.SubscriptionFilter",
 		[]interface{}{conditions},
 		&j,
 	)
@@ -3502,26 +3025,24 @@ func NewSubscriptionFilter(conditions *[]interface{}) SubscriptionFilter {
 	return &j
 }
 
-// Experimental.
 func NewSubscriptionFilter_Override(s SubscriptionFilter, conditions *[]interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns.SubscriptionFilter",
+		"aws-cdk-lib.aws_sns.SubscriptionFilter",
 		[]interface{}{conditions},
 		s,
 	)
 }
 
 // Returns a subscription filter for attribute key matching.
-// Experimental.
 func SubscriptionFilter_ExistsFilter() SubscriptionFilter {
 	_init_.Initialize()
 
 	var returns SubscriptionFilter
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.SubscriptionFilter",
+		"aws-cdk-lib.aws_sns.SubscriptionFilter",
 		"existsFilter",
 		nil, // no parameters
 		&returns,
@@ -3531,14 +3052,13 @@ func SubscriptionFilter_ExistsFilter() SubscriptionFilter {
 }
 
 // Returns a subscription filter for a numeric attribute.
-// Experimental.
 func SubscriptionFilter_NumericFilter(numericConditions *NumericConditions) SubscriptionFilter {
 	_init_.Initialize()
 
 	var returns SubscriptionFilter
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.SubscriptionFilter",
+		"aws-cdk-lib.aws_sns.SubscriptionFilter",
 		"numericFilter",
 		[]interface{}{numericConditions},
 		&returns,
@@ -3548,14 +3068,13 @@ func SubscriptionFilter_NumericFilter(numericConditions *NumericConditions) Subs
 }
 
 // Returns a subscription filter for a string attribute.
-// Experimental.
 func SubscriptionFilter_StringFilter(stringConditions *StringConditions) SubscriptionFilter {
 	_init_.Initialize()
 
 	var returns SubscriptionFilter
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.SubscriptionFilter",
+		"aws-cdk-lib.aws_sns.SubscriptionFilter",
 		"stringFilter",
 		[]interface{}{stringConditions},
 		&returns,
@@ -3589,46 +3108,39 @@ func SubscriptionFilter_StringFilter(stringConditions *StringConditions) Subscri
 //   	subscriptionRoleArn: jsii.String("subscriptionRoleArn"),
 //   }
 //
-// Experimental.
 type SubscriptionOptions struct {
 	// The subscription endpoint.
 	//
 	// The meaning of this value depends on the value for 'protocol'.
-	// Experimental.
 	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// What type of subscription to add.
-	// Experimental.
 	Protocol SubscriptionProtocol `field:"required" json:"protocol" yaml:"protocol"`
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	// Experimental.
 	FilterPolicy *map[string]SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 	// true if raw message delivery is enabled for the subscription.
 	//
 	// Raw messages are free of JSON formatting and can be
 	// sent to HTTP/S and Amazon SQS endpoints. For more information, see GetSubscriptionAttributes in the Amazon Simple
 	// Notification Service API Reference.
-	// Experimental.
 	RawMessageDelivery *bool `field:"optional" json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 	// The region where the topic resides, in the case of cross-region subscriptions.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Arn of role allowing access to firehose delivery stream.
 	//
 	// Required for a firehose subscription protocol.
-	// Experimental.
 	SubscriptionRoleArn *string `field:"optional" json:"subscriptionRoleArn" yaml:"subscriptionRoleArn"`
 }
 
 // Properties for creating a new subscription.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   var stream deliveryStream
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import "github.com/aws-samples/dummy/awscdklibawskinesisfirehose"
+//   var stream DeliveryStream
 //
 //
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
@@ -3640,49 +3152,41 @@ type SubscriptionOptions struct {
 //   	subscriptionRoleArn: jsii.String("SAMPLE_ARN"),
 //   })
 //
-// Experimental.
 type SubscriptionProps struct {
 	// The subscription endpoint.
 	//
 	// The meaning of this value depends on the value for 'protocol'.
-	// Experimental.
 	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// What type of subscription to add.
-	// Experimental.
 	Protocol SubscriptionProtocol `field:"required" json:"protocol" yaml:"protocol"`
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	// Experimental.
 	FilterPolicy *map[string]SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 	// true if raw message delivery is enabled for the subscription.
 	//
 	// Raw messages are free of JSON formatting and can be
 	// sent to HTTP/S and Amazon SQS endpoints. For more information, see GetSubscriptionAttributes in the Amazon Simple
 	// Notification Service API Reference.
-	// Experimental.
 	RawMessageDelivery *bool `field:"optional" json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 	// The region where the topic resides, in the case of cross-region subscriptions.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Arn of role allowing access to firehose delivery stream.
 	//
 	// Required for a firehose subscription protocol.
-	// Experimental.
 	SubscriptionRoleArn *string `field:"optional" json:"subscriptionRoleArn" yaml:"subscriptionRoleArn"`
 	// The topic to subscribe to.
-	// Experimental.
 	Topic ITopic `field:"required" json:"topic" yaml:"topic"`
 }
 
 // The type of subscription, controlling the type of the endpoint parameter.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   var stream deliveryStream
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import "github.com/aws-samples/dummy/awscdklibawskinesisfirehose"
+//   var stream DeliveryStream
 //
 //
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
@@ -3694,36 +3198,26 @@ type SubscriptionProps struct {
 //   	subscriptionRoleArn: jsii.String("SAMPLE_ARN"),
 //   })
 //
-// Experimental.
 type SubscriptionProtocol string
 
 const (
 	// JSON-encoded message is POSTED to an HTTP url.
-	// Experimental.
 	SubscriptionProtocol_HTTP SubscriptionProtocol = "HTTP"
 	// JSON-encoded message is POSTed to an HTTPS url.
-	// Experimental.
 	SubscriptionProtocol_HTTPS SubscriptionProtocol = "HTTPS"
 	// Notifications are sent via email.
-	// Experimental.
 	SubscriptionProtocol_EMAIL SubscriptionProtocol = "EMAIL"
 	// Notifications are JSON-encoded and sent via mail.
-	// Experimental.
 	SubscriptionProtocol_EMAIL_JSON SubscriptionProtocol = "EMAIL_JSON"
 	// Notification is delivered by SMS.
-	// Experimental.
 	SubscriptionProtocol_SMS SubscriptionProtocol = "SMS"
 	// Notifications are enqueued into an SQS queue.
-	// Experimental.
 	SubscriptionProtocol_SQS SubscriptionProtocol = "SQS"
 	// JSON-encoded notifications are sent to a mobile app endpoint.
-	// Experimental.
 	SubscriptionProtocol_APPLICATION SubscriptionProtocol = "APPLICATION"
 	// Notifications trigger a Lambda function.
-	// Experimental.
 	SubscriptionProtocol_LAMBDA SubscriptionProtocol = "LAMBDA"
 	// Notifications put records into a firehose delivery stream.
-	// Experimental.
 	SubscriptionProtocol_FIREHOSE SubscriptionProtocol = "FIREHOSE"
 )
 
@@ -3744,13 +3238,11 @@ const (
 //   	},
 //   })
 //
-// Experimental.
 type Topic interface {
 	TopicBase
 	// Controls automatic creation of policy objects.
 	//
 	// Set by subclasses.
-	// Experimental.
 	AutoCreatePolicy() *bool
 	// The environment this resource belongs to.
 	//
@@ -3760,16 +3252,13 @@ type Topic interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// Whether this topic is an Amazon SNS FIFO queue.
 	//
 	// If false, this is a standard topic.
-	// Experimental.
 	Fifo() *bool
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -3777,26 +3266,20 @@ type Topic interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// The ARN of the topic.
-	// Experimental.
 	TopicArn() *string
 	// The name of the topic.
-	// Experimental.
 	TopicName() *string
 	// Subscribe some endpoint to this topic.
-	// Experimental.
 	AddSubscription(subscription ITopicSubscription)
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
 	// will be automatically created upon the first call to `addToPolicy`. If
 	// the topic is imported (`Topic.import`), then this is a no-op.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
@@ -3807,12 +3290,9 @@ type Topic interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Represents a notification target That allows SNS topic to associate with this rule target.
-	// Experimental.
 	BindAsNotificationRuleTarget(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -3820,115 +3300,55 @@ type Topic interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant topic publishing permissions to the given identity.
-	// Experimental.
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Topic.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages published to your Amazon SNS topics.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfMessagesPublished(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages successfully delivered from your Amazon SNS topics to subscribing endpoints.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsDelivered(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that Amazon SNS failed to deliver.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that were rejected by subscription filter policies.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFilteredOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that were rejected by subscription filter policies because the messages' attributes are invalid.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFilteredOutInvalidAttributes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that were rejected by subscription filter policies because the messages have no attributes.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFilteredOutNoMessageAttributes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the size of messages published through this topic.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricPublishSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The charges you have accrued since the start of the current calendar month for sending SMS messages.
 	//
 	// Maximum over 5 minutes.
-	// Experimental.
 	MetricSMSMonthToDateSpentUSD(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The rate of successful SMS message deliveries.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricSMSSuccessRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Topic
@@ -3966,8 +3386,8 @@ func (j *jsiiProxy_Topic) Fifo() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_Topic) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Topic) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4017,14 +3437,13 @@ func (j *jsiiProxy_Topic) TopicName() *string {
 }
 
 
-// Experimental.
 func NewTopic(scope constructs.Construct, id *string, props *TopicProps) Topic {
 	_init_.Initialize()
 
 	j := jsiiProxy_Topic{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns.Topic",
+		"aws-cdk-lib.aws_sns.Topic",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4032,26 +3451,24 @@ func NewTopic(scope constructs.Construct, id *string, props *TopicProps) Topic {
 	return &j
 }
 
-// Experimental.
 func NewTopic_Override(t Topic, scope constructs.Construct, id *string, props *TopicProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns.Topic",
+		"aws-cdk-lib.aws_sns.Topic",
 		[]interface{}{scope, id, props},
 		t,
 	)
 }
 
 // Import an existing SNS topic provided an ARN.
-// Experimental.
 func Topic_FromTopicArn(scope constructs.Construct, id *string, topicArn *string) ITopic {
 	_init_.Initialize()
 
 	var returns ITopic
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.Topic",
+		"aws-cdk-lib.aws_sns.Topic",
 		"fromTopicArn",
 		[]interface{}{scope, id, topicArn},
 		&returns,
@@ -4060,15 +3477,30 @@ func Topic_FromTopicArn(scope constructs.Construct, id *string, topicArn *string
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func Topic_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.Topic",
+		"aws-cdk-lib.aws_sns.Topic",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4078,14 +3510,13 @@ func Topic_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func Topic_IsResource(construct awscdk.IConstruct) *bool {
+func Topic_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.Topic",
+		"aws-cdk-lib.aws_sns.Topic",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4318,51 +3749,6 @@ func (t *jsiiProxy_Topic) MetricSMSSuccessRate(props *awscloudwatch.MetricOption
 	return returns
 }
 
-func (t *jsiiProxy_Topic) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (t *jsiiProxy_Topic) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (t *jsiiProxy_Topic) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (t *jsiiProxy_Topic) Prepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (t *jsiiProxy_Topic) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (t *jsiiProxy_Topic) ToString() *string {
 	var returns *string
 
@@ -4376,28 +3762,13 @@ func (t *jsiiProxy_Topic) ToString() *string {
 	return returns
 }
 
-func (t *jsiiProxy_Topic) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Either a new or imported Topic.
-// Experimental.
 type TopicBase interface {
 	awscdk.Resource
 	ITopic
 	// Controls automatic creation of policy objects.
 	//
 	// Set by subclasses.
-	// Experimental.
 	AutoCreatePolicy() *bool
 	// The environment this resource belongs to.
 	//
@@ -4407,16 +3778,13 @@ type TopicBase interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// Whether this topic is an Amazon SNS FIFO queue.
 	//
 	// If false, this is a standard topic.
-	// Experimental.
 	Fifo() *bool
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -4424,26 +3792,20 @@ type TopicBase interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// The ARN of the topic.
-	// Experimental.
 	TopicArn() *string
 	// The name of the topic.
-	// Experimental.
 	TopicName() *string
 	// Subscribe some endpoint to this topic.
-	// Experimental.
 	AddSubscription(subscription ITopicSubscription)
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
 	// will be automatically created upon the first call to `addToPolicy`. If
 	// the topic is imported (`Topic.import`), then this is a no-op.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
@@ -4454,12 +3816,9 @@ type TopicBase interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Represents a notification target That allows SNS topic to associate with this rule target.
-	// Experimental.
 	BindAsNotificationRuleTarget(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -4467,115 +3826,55 @@ type TopicBase interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant topic publishing permissions to the given identity.
-	// Experimental.
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Topic.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages published to your Amazon SNS topics.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfMessagesPublished(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages successfully delivered from your Amazon SNS topics to subscribing endpoints.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsDelivered(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that Amazon SNS failed to deliver.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that were rejected by subscription filter policies.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFilteredOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that were rejected by subscription filter policies because the messages' attributes are invalid.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFilteredOutInvalidAttributes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that were rejected by subscription filter policies because the messages have no attributes.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFilteredOutNoMessageAttributes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the size of messages published through this topic.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricPublishSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The charges you have accrued since the start of the current calendar month for sending SMS messages.
 	//
 	// Maximum over 5 minutes.
-	// Experimental.
 	MetricSMSMonthToDateSpentUSD(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The rate of successful SMS message deliveries.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricSMSSuccessRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for TopicBase
@@ -4614,8 +3913,8 @@ func (j *jsiiProxy_TopicBase) Fifo() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_TopicBase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_TopicBase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4665,26 +3964,40 @@ func (j *jsiiProxy_TopicBase) TopicName() *string {
 }
 
 
-// Experimental.
 func NewTopicBase_Override(t TopicBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns.TopicBase",
+		"aws-cdk-lib.aws_sns.TopicBase",
 		[]interface{}{scope, id, props},
 		t,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func TopicBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.TopicBase",
+		"aws-cdk-lib.aws_sns.TopicBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4694,14 +4007,13 @@ func TopicBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func TopicBase_IsResource(construct awscdk.IConstruct) *bool {
+func TopicBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.TopicBase",
+		"aws-cdk-lib.aws_sns.TopicBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4934,70 +4246,12 @@ func (t *jsiiProxy_TopicBase) MetricSMSSuccessRate(props *awscloudwatch.MetricOp
 	return returns
 }
 
-func (t *jsiiProxy_TopicBase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (t *jsiiProxy_TopicBase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (t *jsiiProxy_TopicBase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (t *jsiiProxy_TopicBase) Prepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (t *jsiiProxy_TopicBase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (t *jsiiProxy_TopicBase) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		t,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (t *jsiiProxy_TopicBase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5038,11 +4292,9 @@ func (t *jsiiProxy_TopicBase) Validate() *[]*string {
 //   	},
 //   }))
 //
-// Experimental.
 type TopicPolicy interface {
 	awscdk.Resource
 	// The IAM policy document for this policy.
-	// Experimental.
 	Document() awsiam.PolicyDocument
 	// The environment this resource belongs to.
 	//
@@ -5052,11 +4304,9 @@ type TopicPolicy interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -5064,10 +4314,8 @@ type TopicPolicy interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -5078,9 +4326,7 @@ type TopicPolicy interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -5088,66 +4334,15 @@ type TopicPolicy interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for TopicPolicy
@@ -5175,8 +4370,8 @@ func (j *jsiiProxy_TopicPolicy) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_TopicPolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_TopicPolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5206,14 +4401,13 @@ func (j *jsiiProxy_TopicPolicy) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewTopicPolicy(scope constructs.Construct, id *string, props *TopicPolicyProps) TopicPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_TopicPolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns.TopicPolicy",
+		"aws-cdk-lib.aws_sns.TopicPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5221,26 +4415,40 @@ func NewTopicPolicy(scope constructs.Construct, id *string, props *TopicPolicyPr
 	return &j
 }
 
-// Experimental.
 func NewTopicPolicy_Override(t TopicPolicy, scope constructs.Construct, id *string, props *TopicPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns.TopicPolicy",
+		"aws-cdk-lib.aws_sns.TopicPolicy",
 		[]interface{}{scope, id, props},
 		t,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func TopicPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.TopicPolicy",
+		"aws-cdk-lib.aws_sns.TopicPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5250,14 +4458,13 @@ func TopicPolicy_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func TopicPolicy_IsResource(construct awscdk.IConstruct) *bool {
+func TopicPolicy_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_sns.TopicPolicy",
+		"aws-cdk-lib.aws_sns.TopicPolicy",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5313,70 +4520,12 @@ func (t *jsiiProxy_TopicPolicy) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
-func (t *jsiiProxy_TopicPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (t *jsiiProxy_TopicPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (t *jsiiProxy_TopicPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (t *jsiiProxy_TopicPolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (t *jsiiProxy_TopicPolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (t *jsiiProxy_TopicPolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		t,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (t *jsiiProxy_TopicPolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5406,13 +4555,10 @@ func (t *jsiiProxy_TopicPolicy) Validate() *[]*string {
 //   	},
 //   }))
 //
-// Experimental.
 type TopicPolicyProps struct {
 	// The set of topics this policy applies to.
-	// Experimental.
 	Topics *[]ITopic `field:"required" json:"topics" yaml:"topics"`
 	// IAM policy document to apply to topic(s).
-	// Experimental.
 	PolicyDocument awsiam.PolicyDocument `field:"optional" json:"policyDocument" yaml:"policyDocument"`
 }
 
@@ -5423,26 +4569,20 @@ type TopicPolicyProps struct {
 //   	displayName: jsii.String("Customer subscription topic"),
 //   })
 //
-// Experimental.
 type TopicProps struct {
 	// Enables content-based deduplication for FIFO topics.
-	// Experimental.
 	ContentBasedDeduplication *bool `field:"optional" json:"contentBasedDeduplication" yaml:"contentBasedDeduplication"`
 	// A developer-defined string that can be used to identify this SNS topic.
-	// Experimental.
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// Set to true to create a FIFO topic.
-	// Experimental.
 	Fifo *bool `field:"optional" json:"fifo" yaml:"fifo"`
 	// A KMS Key, either managed by this CDK app, or imported.
-	// Experimental.
 	MasterKey awskms.IKey `field:"optional" json:"masterKey" yaml:"masterKey"`
 	// A name for the topic.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique
 	// physical ID and uses that ID for the topic name. For more information,
 	// see Name Type.
-	// Experimental.
 	TopicName *string `field:"optional" json:"topicName" yaml:"topicName"`
 }
 
@@ -5451,9 +4591,9 @@ type TopicProps struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import constructs "github.com/aws/constructs-go/constructs"
 //
 //   var construct construct
 //   var queue queue
@@ -5475,45 +4615,36 @@ type TopicProps struct {
 //   	subscriptionRoleArn: jsii.String("subscriptionRoleArn"),
 //   }
 //
-// Experimental.
 type TopicSubscriptionConfig struct {
 	// The subscription endpoint.
 	//
 	// The meaning of this value depends on the value for 'protocol'.
-	// Experimental.
 	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// What type of subscription to add.
-	// Experimental.
 	Protocol SubscriptionProtocol `field:"required" json:"protocol" yaml:"protocol"`
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	// Experimental.
 	FilterPolicy *map[string]SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 	// true if raw message delivery is enabled for the subscription.
 	//
 	// Raw messages are free of JSON formatting and can be
 	// sent to HTTP/S and Amazon SQS endpoints. For more information, see GetSubscriptionAttributes in the Amazon Simple
 	// Notification Service API Reference.
-	// Experimental.
 	RawMessageDelivery *bool `field:"optional" json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 	// The region where the topic resides, in the case of cross-region subscriptions.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Arn of role allowing access to firehose delivery stream.
 	//
 	// Required for a firehose subscription protocol.
-	// Experimental.
 	SubscriptionRoleArn *string `field:"optional" json:"subscriptionRoleArn" yaml:"subscriptionRoleArn"`
 	// The id of the SNS subscription resource created under `scope`.
 	//
 	// In most
 	// cases, it is recommended to use the `uniqueId` of the topic you are
 	// subscribing to.
-	// Experimental.
 	SubscriberId *string `field:"required" json:"subscriberId" yaml:"subscriberId"`
 	// The scope in which to create the SNS subscription resource.
 	//
@@ -5523,7 +4654,6 @@ type TopicSubscriptionConfig struct {
 	// queue policy). Otherwise, it will cause a cyclic reference.
 	//
 	// If this is undefined, the subscription will be created on the topic's stack.
-	// Experimental.
-	SubscriberScope awscdk.Construct `field:"optional" json:"subscriberScope" yaml:"subscriberScope"`
+	SubscriberScope constructs.Construct `field:"optional" json:"subscriberScope" yaml:"subscriberScope"`
 }
 

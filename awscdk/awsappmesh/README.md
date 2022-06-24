@@ -11,6 +11,7 @@ For further information on **AWS App Mesh**, visit the [AWS App Mesh Documentati
 ## Create the App and Stack
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 app := cdk.NewApp()
 stack := cdk.NewStack(app, jsii.String("stack"))
 ```
@@ -24,6 +25,7 @@ After you create your service mesh, you can create virtual services, virtual nod
 The following example creates the `AppMesh` service mesh with the default egress filter of `DROP_ALL`. See [the AWS CloudFormation `EgressFilter` resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-egressfilter.html) for more info on egress filters.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 mesh := appmesh.NewMesh(this, jsii.String("AppMesh"), &meshProps{
 	meshName: jsii.String("myAwsMesh"),
 })
@@ -32,6 +34,7 @@ mesh := appmesh.NewMesh(this, jsii.String("AppMesh"), &meshProps{
 The mesh can instead be created with the `ALLOW_ALL` egress filter by providing the `egressFilter` property.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 mesh := appmesh.NewMesh(this, jsii.String("AppMesh"), &meshProps{
 	meshName: jsii.String("myAwsMesh"),
 	egressFilter: appmesh.meshFilterType_ALLOW_ALL,
@@ -46,6 +49,7 @@ Virtual routers handle traffic for one or more virtual services within your mesh
 After you create a virtual router, you can create and associate routes to your virtual router that direct incoming requests to different virtual nodes.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var mesh mesh
 
 router := mesh.addVirtualRouter(jsii.String("router"), &virtualRouterBaseProps{
@@ -61,6 +65,7 @@ The router can also be created using the `VirtualRouter` constructor (passing in
 This is particularly useful when splitting your resources between many stacks: for example, defining the mesh itself as part of an infrastructure stack, but defining the other resources, such as routers, in the application stack:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var infraStack stack
 var appStack stack
 
@@ -102,6 +107,7 @@ When creating a virtual service:
 Adding a virtual router as the provider:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var router virtualRouter
 
 
@@ -115,6 +121,7 @@ appmesh.NewVirtualService(this, jsii.String("virtual-service"), &virtualServiceP
 Adding a virtual node as the provider:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var node virtualNode
 
 
@@ -137,6 +144,7 @@ The response metadata for your new virtual node contains the Amazon Resource Nam
 > If you require your Envoy stats or tracing to use a different name, you can override the `node.cluster` value that is set by `APPMESH_VIRTUAL_NODE_NAME` with the `APPMESH_VIRTUAL_NODE_CLUSTER` environment variable.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var mesh mesh
 vpc := ec2.NewVpc(this, jsii.String("vpc"))
 namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
@@ -167,6 +175,7 @@ node := mesh.addVirtualNode(jsii.String("virtual-node"), &virtualNodeBaseProps{
 Create a `VirtualNode` with the constructor and add tags.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var mesh mesh
 var service service
 
@@ -205,6 +214,7 @@ cdk.tags.of(node).add(jsii.String("Environment"), jsii.String("Dev"))
 Create a `VirtualNode` with the constructor and add backend virtual service.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var mesh mesh
 var router virtualRouter
 var service service
@@ -248,6 +258,7 @@ The `backendDefaults` property is added to the node while creating the virtual n
 The `VirtualNode.addBackend()` method is especially useful if you want to create a circular traffic flow by having a Virtual Service as a backend whose provider is that same Virtual Node:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var mesh mesh
 
 
@@ -274,6 +285,7 @@ Provide the TLS certificate to the proxy in one of the following ways:
 * A certificate provided by a Secrets Discovery Service (SDS) endpoint over local Unix Domain Socket (specify its `secretName`).
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 // A Virtual Node with listener TLS from an ACM provided certificate
 var cert certificate
 var mesh mesh
@@ -338,6 +350,7 @@ To enable mutual TLS authentication, add the `mutualTlsCertificate` property to 
 > Currently, a certificate from AWS Certificate Manager (ACM) cannot be used for mutual TLS authentication.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var mesh mesh
 
 
@@ -388,6 +401,7 @@ The `outlierDetection` property adds outlier detection to a Virtual Node listene
 `baseEjectionDuration`, `interval`, `maxEjectionPercent`, and `maxServerErrors` are required.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var mesh mesh
 // Cloud Map service discovery is currently required for host ejection by outlier detection
 vpc := ec2.NewVpc(this, jsii.String("vpc"))
@@ -416,6 +430,7 @@ node := mesh.addVirtualNode(jsii.String("virtual-node"), &virtualNodeBaseProps{
 The `connectionPool` property can be added to a Virtual Node listener or Virtual Gateway listener to add a request connection pool. Each listener protocol type has its own connection pool properties.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 // A Virtual Node with a gRPC listener with a connection pool set
 var mesh mesh
 
@@ -469,6 +484,7 @@ When specifying the method name, the service name must also be specified.
 For example, here's how to add an HTTP route that matches based on a prefix of the URL path:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var router virtualRouter
 var node virtualNode
 
@@ -491,6 +507,7 @@ router.addRoute(jsii.String("route-http"), &routeBaseProps{
 Add an HTTP2 route that matches based on exact path, method, scheme, headers, and query parameters:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var router virtualRouter
 var node virtualNode
 
@@ -521,6 +538,7 @@ router.addRoute(jsii.String("route-http2"), &routeBaseProps{
 Add a single route with two targets and split traffic 50/50:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var router virtualRouter
 var node virtualNode
 
@@ -547,6 +565,7 @@ router.addRoute(jsii.String("route-http"), &routeBaseProps{
 Add an http2 route with retries:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var router virtualRouter
 var node virtualNode
 
@@ -579,6 +598,7 @@ router.addRoute(jsii.String("route-http2-retry"), &routeBaseProps{
 Add a gRPC route with retries:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var router virtualRouter
 var node virtualNode
 
@@ -617,6 +637,7 @@ router.addRoute(jsii.String("route-grpc-retry"), &routeBaseProps{
 Add an gRPC route that matches based on method name and metadata:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var router virtualRouter
 var node virtualNode
 
@@ -644,6 +665,7 @@ router.addRoute(jsii.String("route-grpc-retry"), &routeBaseProps{
 Add a gRPC route with timeout:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var router virtualRouter
 var node virtualNode
 
@@ -679,6 +701,7 @@ using rules defined in gateway routes which can be added to your virtual gateway
 Create a virtual gateway with the constructor:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var mesh mesh
 
 certificateAuthorityArn := "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012"
@@ -714,6 +737,7 @@ gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &virtualGatew
 Add a virtual gateway directly to the mesh:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var mesh mesh
 
 
@@ -745,6 +769,7 @@ path (prefix, exact, or regex), HTTP method, host name, HTTP headers, and query 
 By default, HTTP-based gateway routes match all requests.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var gateway virtualGateway
 var virtualService virtualService
 
@@ -762,6 +787,7 @@ gateway.addGatewayRoute(jsii.String("gateway-route-http"), &gatewayRouteBaseProp
 For gRPC-based gateway routes, the `match` field can be used to match on service name, host name, and metadata.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var gateway virtualGateway
 var virtualService virtualService
 
@@ -780,6 +806,7 @@ For HTTP based gateway routes, App Mesh automatically rewrites the matched prefi
 This automatic rewrite configuration can be overwritten in following ways:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var gateway virtualGateway
 var virtualService virtualService
 
@@ -810,6 +837,7 @@ If matching other path (exact or regex), only specific rewrite path can be speci
 Unlike `startsWith()` method above, no default rewrite is performed.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var gateway virtualGateway
 var virtualService virtualService
 
@@ -830,6 +858,7 @@ the original request received at the Virtual Gateway to the destination Virtual 
 This default host name rewrite can be configured by specifying the rewrite rule as one of the `match` property:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var gateway virtualGateway
 var virtualService virtualService
 
@@ -852,11 +881,13 @@ Each App Mesh resource class comes with two static methods, `from<Resource>Arn` 
 These imported resources can be used with other resources in your mesh as if they were defined directly in your CDK application.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 arn := "arn:aws:appmesh:us-east-1:123456789012:mesh/testMesh/virtualNode/testNode"
 appmesh.virtualNode.fromVirtualNodeArn(this, jsii.String("importedVirtualNode"), arn)
 ```
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 virtualNodeName := "my-virtual-node"
 appmesh.virtualNode.fromVirtualNodeAttributes(this, jsii.String("imported-virtual-node"), &virtualNodeAttributes{
 	mesh: appmesh.mesh.fromMeshName(this, jsii.String("Mesh"), jsii.String("testMesh")),
@@ -867,11 +898,13 @@ appmesh.virtualNode.fromVirtualNodeAttributes(this, jsii.String("imported-virtua
 To import a mesh, again there are two static methods, `fromMeshArn` and `fromMeshName`.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 arn := "arn:aws:appmesh:us-east-1:123456789012:mesh/testMesh"
 appmesh.mesh.fromMeshArn(this, jsii.String("imported-mesh"), arn)
 ```
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 appmesh.mesh.fromMeshName(this, jsii.String("imported-mesh"), jsii.String("abc"))
 ```
 
@@ -881,6 +914,7 @@ appmesh.mesh.fromMeshName(this, jsii.String("imported-mesh"), jsii.String("abc")
 Envoy access to stream generated config from App Mesh.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 var mesh mesh
 
 gateway := appmesh.NewVirtualGateway(this, jsii.String("testGateway"), &virtualGatewayProps{
@@ -899,6 +933,7 @@ gateway.grantStreamAggregatedResources(envoyUser)
 A shared mesh allows resources created by different accounts to communicate with each other in the same mesh:
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 // This is the ARN for the mesh from different AWS IAM account ID.
 // Ensure mesh is properly shared with your account. For more details, see: https://github.com/aws/aws-cdk/issues/15404
 arn := "arn:aws:appmesh:us-east-1:123456789012:mesh/testMesh"
