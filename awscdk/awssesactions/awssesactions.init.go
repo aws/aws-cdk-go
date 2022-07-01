@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ses_actions.AddHeader",
+		"monocdk.aws_ses_actions.AddHeader",
 		reflect.TypeOf((*AddHeader)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -20,11 +20,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses_actions.AddHeaderProps",
+		"monocdk.aws_ses_actions.AddHeaderProps",
 		reflect.TypeOf((*AddHeaderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ses_actions.Bounce",
+		"monocdk.aws_ses_actions.Bounce",
 		reflect.TypeOf((*Bounce)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -36,11 +36,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses_actions.BounceProps",
+		"monocdk.aws_ses_actions.BounceProps",
 		reflect.TypeOf((*BounceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
+		"monocdk.aws_ses_actions.BounceTemplate",
 		reflect.TypeOf((*BounceTemplate)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
@@ -50,11 +50,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses_actions.BounceTemplateProps",
+		"monocdk.aws_ses_actions.BounceTemplateProps",
 		reflect.TypeOf((*BounceTemplateProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ses_actions.EmailEncoding",
+		"monocdk.aws_ses_actions.EmailEncoding",
 		reflect.TypeOf((*EmailEncoding)(nil)).Elem(),
 		map[string]interface{}{
 			"BASE64": EmailEncoding_BASE64,
@@ -62,7 +62,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ses_actions.Lambda",
+		"monocdk.aws_ses_actions.Lambda",
 		reflect.TypeOf((*Lambda)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -74,7 +74,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_ses_actions.LambdaInvocationType",
+		"monocdk.aws_ses_actions.LambdaInvocationType",
 		reflect.TypeOf((*LambdaInvocationType)(nil)).Elem(),
 		map[string]interface{}{
 			"EVENT": LambdaInvocationType_EVENT,
@@ -82,11 +82,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses_actions.LambdaProps",
+		"monocdk.aws_ses_actions.LambdaProps",
 		reflect.TypeOf((*LambdaProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ses_actions.S3",
+		"monocdk.aws_ses_actions.S3",
 		reflect.TypeOf((*S3)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -98,11 +98,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses_actions.S3Props",
+		"monocdk.aws_ses_actions.S3Props",
 		reflect.TypeOf((*S3Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ses_actions.Sns",
+		"monocdk.aws_ses_actions.Sns",
 		reflect.TypeOf((*Sns)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -114,11 +114,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses_actions.SnsProps",
+		"monocdk.aws_ses_actions.SnsProps",
 		reflect.TypeOf((*SnsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ses_actions.Stop",
+		"monocdk.aws_ses_actions.Stop",
 		reflect.TypeOf((*Stop)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -130,7 +130,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses_actions.StopProps",
+		"monocdk.aws_ses_actions.StopProps",
 		reflect.TypeOf((*StopProps)(nil)).Elem(),
 	)
 }
