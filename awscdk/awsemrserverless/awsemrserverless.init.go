@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_emrserverless.CfnApplication",
+		"aws-cdk-lib.aws_emrserverless.CfnApplication",
 		reflect.TypeOf((*CfnApplication)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -35,22 +35,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "networkConfiguration", GoGetter: "NetworkConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "releaseLabel", GoGetter: "ReleaseLabel"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -61,35 +55,35 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_emrserverless.CfnApplication.AutoStartConfigurationProperty",
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.AutoStartConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_AutoStartConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_emrserverless.CfnApplication.AutoStopConfigurationProperty",
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.AutoStopConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_AutoStopConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_emrserverless.CfnApplication.InitialCapacityConfigKeyValuePairProperty",
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.InitialCapacityConfigKeyValuePairProperty",
 		reflect.TypeOf((*CfnApplication_InitialCapacityConfigKeyValuePairProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_emrserverless.CfnApplication.InitialCapacityConfigProperty",
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.InitialCapacityConfigProperty",
 		reflect.TypeOf((*CfnApplication_InitialCapacityConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_emrserverless.CfnApplication.MaximumAllowedResourcesProperty",
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.MaximumAllowedResourcesProperty",
 		reflect.TypeOf((*CfnApplication_MaximumAllowedResourcesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_emrserverless.CfnApplication.NetworkConfigurationProperty",
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.NetworkConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_NetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_emrserverless.CfnApplication.WorkerConfigurationProperty",
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.WorkerConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_WorkerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_emrserverless.CfnApplicationProps",
+		"aws-cdk-lib.aws_emrserverless.CfnApplicationProps",
 		reflect.TypeOf((*CfnApplicationProps)(nil)).Elem(),
 	)
 }

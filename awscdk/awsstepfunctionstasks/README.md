@@ -340,6 +340,7 @@ tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Endpoint"), &callApiGa
 The `CallApiGatewayHttpApiEndpoint` calls the HTTP API endpoint.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
 
 httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
@@ -459,9 +460,10 @@ Step Functions supports [Batch](https://docs.aws.amazon.com/step-functions/lates
 The [SubmitJob](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html) API submits an AWS Batch job from a job definition.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import batch "github.com/aws/aws-cdk-go/awscdk"
-var batchJobDefinition jobDefinition
-var batchQueue jobQueue
+var batchJobDefinition batch.JobDefinition
+var batchQueue batch.JobQueue
 
 
 task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &batchSubmitJobProps{

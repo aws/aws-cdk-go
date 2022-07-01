@@ -151,6 +151,11 @@ secret.addRotationSchedule(jsii.String("RotationSchedule"), &rotationScheduleOpt
 dbConnections.allowDefaultPortFrom(myHostedRotation)
 ```
 
+Use the `excludeCharacters` option to customize the characters excluded from
+the generated password when it is rotated. By default, the rotation excludes
+the same characters as the ones excluded for the secret. If none are defined
+then the following set is used: `% +~`#$&*()|[]{}:;<>?!'/@"\`.
+
 See also [Automating secret creation in AWS CloudFormation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_cloudformation.html).
 
 ## Rotating database credentials
@@ -209,7 +214,7 @@ secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &secretRot
 })
 ```
 
-See also [aws-rds](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-rds/README.md) where
+See also [aws-rds](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-rds/README.md) where
 credentials generation and rotation is integrated.
 
 ## Importing Secrets
