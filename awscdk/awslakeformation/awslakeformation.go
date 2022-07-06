@@ -9,6 +9,761 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+// A CloudFormation `AWS::LakeFormation::DataCellsFilter`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var allRowsWildcard interface{}
+//
+//   cfnDataCellsFilter := awscdk.Aws_lakeformation.NewCfnDataCellsFilter(this, jsii.String("MyCfnDataCellsFilter"), &cfnDataCellsFilterProps{
+//   	databaseName: jsii.String("databaseName"),
+//   	name: jsii.String("name"),
+//   	tableCatalogId: jsii.String("tableCatalogId"),
+//   	tableName: jsii.String("tableName"),
+//
+//   	// the properties below are optional
+//   	columnNames: []*string{
+//   		jsii.String("columnNames"),
+//   	},
+//   	columnWildcard: &columnWildcardProperty{
+//   		excludedColumnNames: []*string{
+//   			jsii.String("excludedColumnNames"),
+//   		},
+//   	},
+//   	rowFilter: &rowFilterProperty{
+//   		allRowsWildcard: allRowsWildcard,
+//   		filterExpression: jsii.String("filterExpression"),
+//   	},
+//   })
+//
+type CfnDataCellsFilter interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	// Options for this resource, such as condition, update policy etc.
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	CfnResourceType() *string
+	// `AWS::LakeFormation::DataCellsFilter.ColumnNames`.
+	ColumnNames() *[]*string
+	SetColumnNames(val *[]*string)
+	// `AWS::LakeFormation::DataCellsFilter.ColumnWildcard`.
+	ColumnWildcard() interface{}
+	SetColumnWildcard(val interface{})
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	CreationStack() *[]*string
+	// `AWS::LakeFormation::DataCellsFilter.DatabaseName`.
+	DatabaseName() *string
+	SetDatabaseName(val *string)
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	LogicalId() *string
+	// `AWS::LakeFormation::DataCellsFilter.Name`.
+	Name() *string
+	SetName(val *string)
+	// The tree node.
+	Node() constructs.Node
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	Ref() *string
+	// `AWS::LakeFormation::DataCellsFilter.RowFilter`.
+	RowFilter() interface{}
+	SetRowFilter(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	Stack() awscdk.Stack
+	// `AWS::LakeFormation::DataCellsFilter.TableCatalogId`.
+	TableCatalogId() *string
+	SetTableCatalogId(val *string)
+	// `AWS::LakeFormation::DataCellsFilter.TableName`.
+	TableName() *string
+	SetTableName(val *string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
+	Inspect(inspector awscdk.TreeInspector)
+	// Overrides the auto-generated logical ID with a specific ID.
+	OverrideLogicalId(newLogicalId *string)
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	ShouldSynthesize() *bool
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	ToString() *string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnDataCellsFilter
+type jsiiProxy_CfnDataCellsFilter struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) ColumnNames() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"columnNames",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) ColumnWildcard() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"columnWildcard",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) DatabaseName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"databaseName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) RowFilter() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"rowFilter",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) TableCatalogId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tableCatalogId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) TableName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tableName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::LakeFormation::DataCellsFilter`.
+func NewCfnDataCellsFilter(scope constructs.Construct, id *string, props *CfnDataCellsFilterProps) CfnDataCellsFilter {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnDataCellsFilter{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_lakeformation.CfnDataCellsFilter",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::LakeFormation::DataCellsFilter`.
+func NewCfnDataCellsFilter_Override(c CfnDataCellsFilter, scope constructs.Construct, id *string, props *CfnDataCellsFilterProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_lakeformation.CfnDataCellsFilter",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) SetColumnNames(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"columnNames",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) SetColumnWildcard(val interface{}) {
+	_jsii_.Set(
+		j,
+		"columnWildcard",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) SetDatabaseName(val *string) {
+	_jsii_.Set(
+		j,
+		"databaseName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) SetName(val *string) {
+	_jsii_.Set(
+		j,
+		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) SetRowFilter(val interface{}) {
+	_jsii_.Set(
+		j,
+		"rowFilter",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) SetTableCatalogId(val *string) {
+	_jsii_.Set(
+		j,
+		"tableCatalogId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataCellsFilter) SetTableName(val *string) {
+	_jsii_.Set(
+		j,
+		"tableName",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+func CfnDataCellsFilter_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lakeformation.CfnDataCellsFilter",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+func CfnDataCellsFilter_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lakeformation.CfnDataCellsFilter",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func CfnDataCellsFilter_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lakeformation.CfnDataCellsFilter",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnDataCellsFilter_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lakeformation.CfnDataCellsFilter",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnDataCellsFilter) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   columnWildcardProperty := &columnWildcardProperty{
+//   	excludedColumnNames: []*string{
+//   		jsii.String("excludedColumnNames"),
+//   	},
+//   }
+//
+type CfnDataCellsFilter_ColumnWildcardProperty struct {
+	// `CfnDataCellsFilter.ColumnWildcardProperty.ExcludedColumnNames`.
+	ExcludedColumnNames *[]*string `field:"optional" json:"excludedColumnNames" yaml:"excludedColumnNames"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var allRowsWildcard interface{}
+//
+//   rowFilterProperty := &rowFilterProperty{
+//   	allRowsWildcard: allRowsWildcard,
+//   	filterExpression: jsii.String("filterExpression"),
+//   }
+//
+type CfnDataCellsFilter_RowFilterProperty struct {
+	// `CfnDataCellsFilter.RowFilterProperty.AllRowsWildcard`.
+	AllRowsWildcard interface{} `field:"optional" json:"allRowsWildcard" yaml:"allRowsWildcard"`
+	// `CfnDataCellsFilter.RowFilterProperty.FilterExpression`.
+	FilterExpression *string `field:"optional" json:"filterExpression" yaml:"filterExpression"`
+}
+
+// Properties for defining a `CfnDataCellsFilter`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var allRowsWildcard interface{}
+//
+//   cfnDataCellsFilterProps := &cfnDataCellsFilterProps{
+//   	databaseName: jsii.String("databaseName"),
+//   	name: jsii.String("name"),
+//   	tableCatalogId: jsii.String("tableCatalogId"),
+//   	tableName: jsii.String("tableName"),
+//
+//   	// the properties below are optional
+//   	columnNames: []*string{
+//   		jsii.String("columnNames"),
+//   	},
+//   	columnWildcard: &columnWildcardProperty{
+//   		excludedColumnNames: []*string{
+//   			jsii.String("excludedColumnNames"),
+//   		},
+//   	},
+//   	rowFilter: &rowFilterProperty{
+//   		allRowsWildcard: allRowsWildcard,
+//   		filterExpression: jsii.String("filterExpression"),
+//   	},
+//   }
+//
+type CfnDataCellsFilterProps struct {
+	// `AWS::LakeFormation::DataCellsFilter.DatabaseName`.
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
+	// `AWS::LakeFormation::DataCellsFilter.Name`.
+	Name *string `field:"required" json:"name" yaml:"name"`
+	// `AWS::LakeFormation::DataCellsFilter.TableCatalogId`.
+	TableCatalogId *string `field:"required" json:"tableCatalogId" yaml:"tableCatalogId"`
+	// `AWS::LakeFormation::DataCellsFilter.TableName`.
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
+	// `AWS::LakeFormation::DataCellsFilter.ColumnNames`.
+	ColumnNames *[]*string `field:"optional" json:"columnNames" yaml:"columnNames"`
+	// `AWS::LakeFormation::DataCellsFilter.ColumnWildcard`.
+	ColumnWildcard interface{} `field:"optional" json:"columnWildcard" yaml:"columnWildcard"`
+	// `AWS::LakeFormation::DataCellsFilter.RowFilter`.
+	RowFilter interface{} `field:"optional" json:"rowFilter" yaml:"rowFilter"`
+}
+
 // A CloudFormation `AWS::LakeFormation::DataLakeSettings`.
 //
 // The `AWS::LakeFormation::DataLakeSettings` resource is an AWS Lake Formation resource type that manages the data lake settings for your account. Note that the CloudFormation template only supports updating the `Admins` list. It does not support updating the [CreateDatabaseDefaultPermissions](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-settings.html#aws-lake-formation-api-aws-lake-formation-api-settings-DataLakeSettings) or [CreateTableDefaultPermissions](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-settings.html#aws-lake-formation-api-aws-lake-formation-api-settings-DataLakeSettings) . Those permissions can only be edited in the DataLakeSettings resource via the API.
@@ -1519,6 +2274,1113 @@ type CfnPermissionsProps struct {
 	PermissionsWithGrantOption *[]*string `field:"optional" json:"permissionsWithGrantOption" yaml:"permissionsWithGrantOption"`
 }
 
+// A CloudFormation `AWS::LakeFormation::PrincipalPermissions`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var catalog interface{}
+//   var tableWildcard interface{}
+//
+//   cfnPrincipalPermissions := awscdk.Aws_lakeformation.NewCfnPrincipalPermissions(this, jsii.String("MyCfnPrincipalPermissions"), &cfnPrincipalPermissionsProps{
+//   	permissions: []*string{
+//   		jsii.String("permissions"),
+//   	},
+//   	permissionsWithGrantOption: []*string{
+//   		jsii.String("permissionsWithGrantOption"),
+//   	},
+//   	principal: &dataLakePrincipalProperty{
+//   		dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
+//   	},
+//   	resource: &resourceProperty{
+//   		catalog: catalog,
+//   		database: &databaseResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			name: jsii.String("name"),
+//   		},
+//   		dataCellsFilter: &dataCellsFilterResourceProperty{
+//   			databaseName: jsii.String("databaseName"),
+//   			name: jsii.String("name"),
+//   			tableCatalogId: jsii.String("tableCatalogId"),
+//   			tableName: jsii.String("tableName"),
+//   		},
+//   		dataLocation: &dataLocationResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			resourceArn: jsii.String("resourceArn"),
+//   		},
+//   		lfTag: &lFTagKeyResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			tagKey: jsii.String("tagKey"),
+//   			tagValues: []*string{
+//   				jsii.String("tagValues"),
+//   			},
+//   		},
+//   		lfTagPolicy: &lFTagPolicyResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			expression: []interface{}{
+//   				&lFTagProperty{
+//   					tagKey: jsii.String("tagKey"),
+//   					tagValues: []*string{
+//   						jsii.String("tagValues"),
+//   					},
+//   				},
+//   			},
+//   			resourceType: jsii.String("resourceType"),
+//   		},
+//   		table: &tableResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			databaseName: jsii.String("databaseName"),
+//
+//   			// the properties below are optional
+//   			name: jsii.String("name"),
+//   			tableWildcard: tableWildcard,
+//   		},
+//   		tableWithColumns: &tableWithColumnsResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			databaseName: jsii.String("databaseName"),
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			columnNames: []*string{
+//   				jsii.String("columnNames"),
+//   			},
+//   			columnWildcard: &columnWildcardProperty{
+//   				excludedColumnNames: []*string{
+//   					jsii.String("excludedColumnNames"),
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	catalog: jsii.String("catalog"),
+//   })
+//
+type CfnPrincipalPermissions interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	AttrPrincipalIdentifier() *string
+	AttrResourceIdentifier() *string
+	// `AWS::LakeFormation::PrincipalPermissions.Catalog`.
+	Catalog() *string
+	SetCatalog(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	LogicalId() *string
+	// The tree node.
+	Node() constructs.Node
+	// `AWS::LakeFormation::PrincipalPermissions.Permissions`.
+	Permissions() *[]*string
+	SetPermissions(val *[]*string)
+	// `AWS::LakeFormation::PrincipalPermissions.PermissionsWithGrantOption`.
+	PermissionsWithGrantOption() *[]*string
+	SetPermissionsWithGrantOption(val *[]*string)
+	// `AWS::LakeFormation::PrincipalPermissions.Principal`.
+	Principal() interface{}
+	SetPrincipal(val interface{})
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	Ref() *string
+	// `AWS::LakeFormation::PrincipalPermissions.Resource`.
+	Resource() interface{}
+	SetResource(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
+	Inspect(inspector awscdk.TreeInspector)
+	// Overrides the auto-generated logical ID with a specific ID.
+	OverrideLogicalId(newLogicalId *string)
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	ShouldSynthesize() *bool
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	ToString() *string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnPrincipalPermissions
+type jsiiProxy_CfnPrincipalPermissions struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) AttrPrincipalIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPrincipalIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) AttrResourceIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrResourceIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) Catalog() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"catalog",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) Permissions() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"permissions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) PermissionsWithGrantOption() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"permissionsWithGrantOption",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) Principal() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"principal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) Resource() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::LakeFormation::PrincipalPermissions`.
+func NewCfnPrincipalPermissions(scope constructs.Construct, id *string, props *CfnPrincipalPermissionsProps) CfnPrincipalPermissions {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnPrincipalPermissions{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::LakeFormation::PrincipalPermissions`.
+func NewCfnPrincipalPermissions_Override(c CfnPrincipalPermissions, scope constructs.Construct, id *string, props *CfnPrincipalPermissionsProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) SetCatalog(val *string) {
+	_jsii_.Set(
+		j,
+		"catalog",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) SetPermissions(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"permissions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) SetPermissionsWithGrantOption(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"permissionsWithGrantOption",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) SetPrincipal(val interface{}) {
+	_jsii_.Set(
+		j,
+		"principal",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPrincipalPermissions) SetResource(val interface{}) {
+	_jsii_.Set(
+		j,
+		"resource",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+func CfnPrincipalPermissions_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+func CfnPrincipalPermissions_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func CfnPrincipalPermissions_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnPrincipalPermissions_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lakeformation.CfnPrincipalPermissions",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnPrincipalPermissions) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   columnWildcardProperty := &columnWildcardProperty{
+//   	excludedColumnNames: []*string{
+//   		jsii.String("excludedColumnNames"),
+//   	},
+//   }
+//
+type CfnPrincipalPermissions_ColumnWildcardProperty struct {
+	// `CfnPrincipalPermissions.ColumnWildcardProperty.ExcludedColumnNames`.
+	ExcludedColumnNames *[]*string `field:"optional" json:"excludedColumnNames" yaml:"excludedColumnNames"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   dataCellsFilterResourceProperty := &dataCellsFilterResourceProperty{
+//   	databaseName: jsii.String("databaseName"),
+//   	name: jsii.String("name"),
+//   	tableCatalogId: jsii.String("tableCatalogId"),
+//   	tableName: jsii.String("tableName"),
+//   }
+//
+type CfnPrincipalPermissions_DataCellsFilterResourceProperty struct {
+	// `CfnPrincipalPermissions.DataCellsFilterResourceProperty.DatabaseName`.
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
+	// `CfnPrincipalPermissions.DataCellsFilterResourceProperty.Name`.
+	Name *string `field:"required" json:"name" yaml:"name"`
+	// `CfnPrincipalPermissions.DataCellsFilterResourceProperty.TableCatalogId`.
+	TableCatalogId *string `field:"required" json:"tableCatalogId" yaml:"tableCatalogId"`
+	// `CfnPrincipalPermissions.DataCellsFilterResourceProperty.TableName`.
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   dataLakePrincipalProperty := &dataLakePrincipalProperty{
+//   	dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
+//   }
+//
+type CfnPrincipalPermissions_DataLakePrincipalProperty struct {
+	// `CfnPrincipalPermissions.DataLakePrincipalProperty.DataLakePrincipalIdentifier`.
+	DataLakePrincipalIdentifier *string `field:"optional" json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   dataLocationResourceProperty := &dataLocationResourceProperty{
+//   	catalogId: jsii.String("catalogId"),
+//   	resourceArn: jsii.String("resourceArn"),
+//   }
+//
+type CfnPrincipalPermissions_DataLocationResourceProperty struct {
+	// `CfnPrincipalPermissions.DataLocationResourceProperty.CatalogId`.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// `CfnPrincipalPermissions.DataLocationResourceProperty.ResourceArn`.
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   databaseResourceProperty := &databaseResourceProperty{
+//   	catalogId: jsii.String("catalogId"),
+//   	name: jsii.String("name"),
+//   }
+//
+type CfnPrincipalPermissions_DatabaseResourceProperty struct {
+	// `CfnPrincipalPermissions.DatabaseResourceProperty.CatalogId`.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// `CfnPrincipalPermissions.DatabaseResourceProperty.Name`.
+	Name *string `field:"required" json:"name" yaml:"name"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   lFTagKeyResourceProperty := &lFTagKeyResourceProperty{
+//   	catalogId: jsii.String("catalogId"),
+//   	tagKey: jsii.String("tagKey"),
+//   	tagValues: []*string{
+//   		jsii.String("tagValues"),
+//   	},
+//   }
+//
+type CfnPrincipalPermissions_LFTagKeyResourceProperty struct {
+	// `CfnPrincipalPermissions.LFTagKeyResourceProperty.CatalogId`.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// `CfnPrincipalPermissions.LFTagKeyResourceProperty.TagKey`.
+	TagKey *string `field:"required" json:"tagKey" yaml:"tagKey"`
+	// `CfnPrincipalPermissions.LFTagKeyResourceProperty.TagValues`.
+	TagValues *[]*string `field:"required" json:"tagValues" yaml:"tagValues"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   lFTagPolicyResourceProperty := &lFTagPolicyResourceProperty{
+//   	catalogId: jsii.String("catalogId"),
+//   	expression: []interface{}{
+//   		&lFTagProperty{
+//   			tagKey: jsii.String("tagKey"),
+//   			tagValues: []*string{
+//   				jsii.String("tagValues"),
+//   			},
+//   		},
+//   	},
+//   	resourceType: jsii.String("resourceType"),
+//   }
+//
+type CfnPrincipalPermissions_LFTagPolicyResourceProperty struct {
+	// `CfnPrincipalPermissions.LFTagPolicyResourceProperty.CatalogId`.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// `CfnPrincipalPermissions.LFTagPolicyResourceProperty.Expression`.
+	Expression interface{} `field:"required" json:"expression" yaml:"expression"`
+	// `CfnPrincipalPermissions.LFTagPolicyResourceProperty.ResourceType`.
+	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   lFTagProperty := &lFTagProperty{
+//   	tagKey: jsii.String("tagKey"),
+//   	tagValues: []*string{
+//   		jsii.String("tagValues"),
+//   	},
+//   }
+//
+type CfnPrincipalPermissions_LFTagProperty struct {
+	// `CfnPrincipalPermissions.LFTagProperty.TagKey`.
+	TagKey *string `field:"optional" json:"tagKey" yaml:"tagKey"`
+	// `CfnPrincipalPermissions.LFTagProperty.TagValues`.
+	TagValues *[]*string `field:"optional" json:"tagValues" yaml:"tagValues"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var catalog interface{}
+//   var tableWildcard interface{}
+//
+//   resourceProperty := &resourceProperty{
+//   	catalog: catalog,
+//   	database: &databaseResourceProperty{
+//   		catalogId: jsii.String("catalogId"),
+//   		name: jsii.String("name"),
+//   	},
+//   	dataCellsFilter: &dataCellsFilterResourceProperty{
+//   		databaseName: jsii.String("databaseName"),
+//   		name: jsii.String("name"),
+//   		tableCatalogId: jsii.String("tableCatalogId"),
+//   		tableName: jsii.String("tableName"),
+//   	},
+//   	dataLocation: &dataLocationResourceProperty{
+//   		catalogId: jsii.String("catalogId"),
+//   		resourceArn: jsii.String("resourceArn"),
+//   	},
+//   	lfTag: &lFTagKeyResourceProperty{
+//   		catalogId: jsii.String("catalogId"),
+//   		tagKey: jsii.String("tagKey"),
+//   		tagValues: []*string{
+//   			jsii.String("tagValues"),
+//   		},
+//   	},
+//   	lfTagPolicy: &lFTagPolicyResourceProperty{
+//   		catalogId: jsii.String("catalogId"),
+//   		expression: []interface{}{
+//   			&lFTagProperty{
+//   				tagKey: jsii.String("tagKey"),
+//   				tagValues: []*string{
+//   					jsii.String("tagValues"),
+//   				},
+//   			},
+//   		},
+//   		resourceType: jsii.String("resourceType"),
+//   	},
+//   	table: &tableResourceProperty{
+//   		catalogId: jsii.String("catalogId"),
+//   		databaseName: jsii.String("databaseName"),
+//
+//   		// the properties below are optional
+//   		name: jsii.String("name"),
+//   		tableWildcard: tableWildcard,
+//   	},
+//   	tableWithColumns: &tableWithColumnsResourceProperty{
+//   		catalogId: jsii.String("catalogId"),
+//   		databaseName: jsii.String("databaseName"),
+//   		name: jsii.String("name"),
+//
+//   		// the properties below are optional
+//   		columnNames: []*string{
+//   			jsii.String("columnNames"),
+//   		},
+//   		columnWildcard: &columnWildcardProperty{
+//   			excludedColumnNames: []*string{
+//   				jsii.String("excludedColumnNames"),
+//   			},
+//   		},
+//   	},
+//   }
+//
+type CfnPrincipalPermissions_ResourceProperty struct {
+	// `CfnPrincipalPermissions.ResourceProperty.Catalog`.
+	Catalog interface{} `field:"optional" json:"catalog" yaml:"catalog"`
+	// `CfnPrincipalPermissions.ResourceProperty.Database`.
+	Database interface{} `field:"optional" json:"database" yaml:"database"`
+	// `CfnPrincipalPermissions.ResourceProperty.DataCellsFilter`.
+	DataCellsFilter interface{} `field:"optional" json:"dataCellsFilter" yaml:"dataCellsFilter"`
+	// `CfnPrincipalPermissions.ResourceProperty.DataLocation`.
+	DataLocation interface{} `field:"optional" json:"dataLocation" yaml:"dataLocation"`
+	// `CfnPrincipalPermissions.ResourceProperty.LFTag`.
+	LfTag interface{} `field:"optional" json:"lfTag" yaml:"lfTag"`
+	// `CfnPrincipalPermissions.ResourceProperty.LFTagPolicy`.
+	LfTagPolicy interface{} `field:"optional" json:"lfTagPolicy" yaml:"lfTagPolicy"`
+	// `CfnPrincipalPermissions.ResourceProperty.Table`.
+	Table interface{} `field:"optional" json:"table" yaml:"table"`
+	// `CfnPrincipalPermissions.ResourceProperty.TableWithColumns`.
+	TableWithColumns interface{} `field:"optional" json:"tableWithColumns" yaml:"tableWithColumns"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var tableWildcard interface{}
+//
+//   tableResourceProperty := &tableResourceProperty{
+//   	catalogId: jsii.String("catalogId"),
+//   	databaseName: jsii.String("databaseName"),
+//
+//   	// the properties below are optional
+//   	name: jsii.String("name"),
+//   	tableWildcard: tableWildcard,
+//   }
+//
+type CfnPrincipalPermissions_TableResourceProperty struct {
+	// `CfnPrincipalPermissions.TableResourceProperty.CatalogId`.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// `CfnPrincipalPermissions.TableResourceProperty.DatabaseName`.
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
+	// `CfnPrincipalPermissions.TableResourceProperty.Name`.
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	// `CfnPrincipalPermissions.TableResourceProperty.TableWildcard`.
+	TableWildcard interface{} `field:"optional" json:"tableWildcard" yaml:"tableWildcard"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   tableWithColumnsResourceProperty := &tableWithColumnsResourceProperty{
+//   	catalogId: jsii.String("catalogId"),
+//   	databaseName: jsii.String("databaseName"),
+//   	name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	columnNames: []*string{
+//   		jsii.String("columnNames"),
+//   	},
+//   	columnWildcard: &columnWildcardProperty{
+//   		excludedColumnNames: []*string{
+//   			jsii.String("excludedColumnNames"),
+//   		},
+//   	},
+//   }
+//
+type CfnPrincipalPermissions_TableWithColumnsResourceProperty struct {
+	// `CfnPrincipalPermissions.TableWithColumnsResourceProperty.CatalogId`.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// `CfnPrincipalPermissions.TableWithColumnsResourceProperty.DatabaseName`.
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
+	// `CfnPrincipalPermissions.TableWithColumnsResourceProperty.Name`.
+	Name *string `field:"required" json:"name" yaml:"name"`
+	// `CfnPrincipalPermissions.TableWithColumnsResourceProperty.ColumnNames`.
+	ColumnNames *[]*string `field:"optional" json:"columnNames" yaml:"columnNames"`
+	// `CfnPrincipalPermissions.TableWithColumnsResourceProperty.ColumnWildcard`.
+	ColumnWildcard interface{} `field:"optional" json:"columnWildcard" yaml:"columnWildcard"`
+}
+
+// Properties for defining a `CfnPrincipalPermissions`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var catalog interface{}
+//   var tableWildcard interface{}
+//
+//   cfnPrincipalPermissionsProps := &cfnPrincipalPermissionsProps{
+//   	permissions: []*string{
+//   		jsii.String("permissions"),
+//   	},
+//   	permissionsWithGrantOption: []*string{
+//   		jsii.String("permissionsWithGrantOption"),
+//   	},
+//   	principal: &dataLakePrincipalProperty{
+//   		dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
+//   	},
+//   	resource: &resourceProperty{
+//   		catalog: catalog,
+//   		database: &databaseResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			name: jsii.String("name"),
+//   		},
+//   		dataCellsFilter: &dataCellsFilterResourceProperty{
+//   			databaseName: jsii.String("databaseName"),
+//   			name: jsii.String("name"),
+//   			tableCatalogId: jsii.String("tableCatalogId"),
+//   			tableName: jsii.String("tableName"),
+//   		},
+//   		dataLocation: &dataLocationResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			resourceArn: jsii.String("resourceArn"),
+//   		},
+//   		lfTag: &lFTagKeyResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			tagKey: jsii.String("tagKey"),
+//   			tagValues: []*string{
+//   				jsii.String("tagValues"),
+//   			},
+//   		},
+//   		lfTagPolicy: &lFTagPolicyResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			expression: []interface{}{
+//   				&lFTagProperty{
+//   					tagKey: jsii.String("tagKey"),
+//   					tagValues: []*string{
+//   						jsii.String("tagValues"),
+//   					},
+//   				},
+//   			},
+//   			resourceType: jsii.String("resourceType"),
+//   		},
+//   		table: &tableResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			databaseName: jsii.String("databaseName"),
+//
+//   			// the properties below are optional
+//   			name: jsii.String("name"),
+//   			tableWildcard: tableWildcard,
+//   		},
+//   		tableWithColumns: &tableWithColumnsResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			databaseName: jsii.String("databaseName"),
+//   			name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			columnNames: []*string{
+//   				jsii.String("columnNames"),
+//   			},
+//   			columnWildcard: &columnWildcardProperty{
+//   				excludedColumnNames: []*string{
+//   					jsii.String("excludedColumnNames"),
+//   				},
+//   			},
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	catalog: jsii.String("catalog"),
+//   }
+//
+type CfnPrincipalPermissionsProps struct {
+	// `AWS::LakeFormation::PrincipalPermissions.Permissions`.
+	Permissions *[]*string `field:"required" json:"permissions" yaml:"permissions"`
+	// `AWS::LakeFormation::PrincipalPermissions.PermissionsWithGrantOption`.
+	PermissionsWithGrantOption *[]*string `field:"required" json:"permissionsWithGrantOption" yaml:"permissionsWithGrantOption"`
+	// `AWS::LakeFormation::PrincipalPermissions.Principal`.
+	Principal interface{} `field:"required" json:"principal" yaml:"principal"`
+	// `AWS::LakeFormation::PrincipalPermissions.Resource`.
+	Resource interface{} `field:"required" json:"resource" yaml:"resource"`
+	// `AWS::LakeFormation::PrincipalPermissions.Catalog`.
+	Catalog *string `field:"optional" json:"catalog" yaml:"catalog"`
+}
+
 // A CloudFormation `AWS::LakeFormation::Resource`.
 //
 // The `AWS::LakeFormation::Resource` represents the data (Amazon S3 buckets and folders) that is being registered with AWS Lake Formation . When a `Resource` type CloudFormation template is uploaded, an AWS Lake Formation [`RegisterResource`](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-credential-vending.html#aws-lake-formation-api-credential-vending-RegisterResource) API call is made to register the resource. When a `Resource` type CloudFormation template is removed, the AWS Lake Formation [`DeregisterResource`](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-credential-vending.html#aws-lake-formation-api-credential-vending-DeregisterResource) API is called.
@@ -2117,5 +3979,1398 @@ type CfnResourceProps struct {
 	UseServiceLinkedRole interface{} `field:"required" json:"useServiceLinkedRole" yaml:"useServiceLinkedRole"`
 	// The IAM role that registered a resource.
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+}
+
+// A CloudFormation `AWS::LakeFormation::Tag`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTag := awscdk.Aws_lakeformation.NewCfnTag(this, jsii.String("MyCfnTag"), &cfnTagProps{
+//   	tagKey: jsii.String("tagKey"),
+//   	tagValues: []*string{
+//   		jsii.String("tagValues"),
+//   	},
+//
+//   	// the properties below are optional
+//   	catalogId: jsii.String("catalogId"),
+//   })
+//
+type CfnTag interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	// `AWS::LakeFormation::Tag.CatalogId`.
+	CatalogId() *string
+	SetCatalogId(val *string)
+	// Options for this resource, such as condition, update policy etc.
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	CreationStack() *[]*string
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	LogicalId() *string
+	// The tree node.
+	Node() constructs.Node
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	Ref() *string
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	Stack() awscdk.Stack
+	// `AWS::LakeFormation::Tag.TagKey`.
+	TagKey() *string
+	SetTagKey(val *string)
+	// `AWS::LakeFormation::Tag.TagValues`.
+	TagValues() *[]*string
+	SetTagValues(val *[]*string)
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
+	Inspect(inspector awscdk.TreeInspector)
+	// Overrides the auto-generated logical ID with a specific ID.
+	OverrideLogicalId(newLogicalId *string)
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	ShouldSynthesize() *bool
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	ToString() *string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnTag
+type jsiiProxy_CfnTag struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnTag) CatalogId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"catalogId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTag) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTag) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTag) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTag) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTag) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTag) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTag) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTag) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTag) TagKey() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tagKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTag) TagValues() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"tagValues",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTag) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::LakeFormation::Tag`.
+func NewCfnTag(scope constructs.Construct, id *string, props *CfnTagProps) CfnTag {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnTag{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_lakeformation.CfnTag",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::LakeFormation::Tag`.
+func NewCfnTag_Override(c CfnTag, scope constructs.Construct, id *string, props *CfnTagProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_lakeformation.CfnTag",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTag) SetCatalogId(val *string) {
+	_jsii_.Set(
+		j,
+		"catalogId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTag) SetTagKey(val *string) {
+	_jsii_.Set(
+		j,
+		"tagKey",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTag) SetTagValues(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"tagValues",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+func CfnTag_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lakeformation.CfnTag",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+func CfnTag_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lakeformation.CfnTag",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func CfnTag_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lakeformation.CfnTag",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnTag_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lakeformation.CfnTag",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnTag) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+func (c *jsiiProxy_CfnTag) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+func (c *jsiiProxy_CfnTag) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+func (c *jsiiProxy_CfnTag) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+func (c *jsiiProxy_CfnTag) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+func (c *jsiiProxy_CfnTag) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnTag) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+func (c *jsiiProxy_CfnTag) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTag) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTag) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+func (c *jsiiProxy_CfnTag) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnTag) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTag) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTag) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTag) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// A CloudFormation `AWS::LakeFormation::TagAssociation`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var catalog interface{}
+//   var tableWildcard interface{}
+//
+//   cfnTagAssociation := awscdk.Aws_lakeformation.NewCfnTagAssociation(this, jsii.String("MyCfnTagAssociation"), &cfnTagAssociationProps{
+//   	lfTags: []interface{}{
+//   		&lFTagPairProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			tagKey: jsii.String("tagKey"),
+//   			tagValues: []*string{
+//   				jsii.String("tagValues"),
+//   			},
+//   		},
+//   	},
+//   	resource: &resourceProperty{
+//   		catalog: catalog,
+//   		database: &databaseResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			name: jsii.String("name"),
+//   		},
+//   		table: &tableResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			databaseName: jsii.String("databaseName"),
+//
+//   			// the properties below are optional
+//   			name: jsii.String("name"),
+//   			tableWildcard: tableWildcard,
+//   		},
+//   		tableWithColumns: &tableWithColumnsResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			columnNames: []*string{
+//   				jsii.String("columnNames"),
+//   			},
+//   			databaseName: jsii.String("databaseName"),
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   })
+//
+type CfnTagAssociation interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	AttrResourceIdentifier() *string
+	AttrTagsIdentifier() *string
+	// Options for this resource, such as condition, update policy etc.
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	// AWS resource type.
+	CfnResourceType() *string
+	// Returns: the stack trace of the point where this Resource was created from, sourced
+	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
+	// node +internal+ entries filtered.
+	CreationStack() *[]*string
+	// `AWS::LakeFormation::TagAssociation.LFTags`.
+	LfTags() interface{}
+	SetLfTags(val interface{})
+	// The logical ID for this CloudFormation stack element.
+	//
+	// The logical ID of the element
+	// is calculated from the path of the resource node in the construct tree.
+	//
+	// To override this value, use `overrideLogicalId(newLogicalId)`.
+	//
+	// Returns: the logical ID as a stringified token. This value will only get
+	// resolved during synthesis.
+	LogicalId() *string
+	// The tree node.
+	Node() constructs.Node
+	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+	//
+	// If, by any chance, the intrinsic reference of a resource is not a string, you could
+	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	Ref() *string
+	// `AWS::LakeFormation::TagAssociation.Resource`.
+	Resource() interface{}
+	SetResource(val interface{})
+	// The stack in which this element is defined.
+	//
+	// CfnElements must be defined within a stack scope (directly or indirectly).
+	Stack() awscdk.Stack
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
+	// Syntactic sugar for `addOverride(path, undefined)`.
+	AddDeletionOverride(path *string)
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	AddDependsOn(target awscdk.CfnResource)
+	// Add a value to the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	AddMetadata(key *string, value interface{})
+	// Adds an override to the synthesized CloudFormation resource.
+	//
+	// To add a
+	// property override, either use `addPropertyOverride` or prefix `path` with
+	// "Properties." (i.e. `Properties.TopicName`).
+	//
+	// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+	// If there is an array as part of the nesting, specify the index in the path.
+	//
+	// To include a literal `.` in the property name, prefix with a `\`. In most
+	// programming languages you will need to write this as `"\\."` because the
+	// `\` itself will need to be escaped.
+	//
+	// For example,
+	// ```typescript
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+	// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+	// ```
+	// would add the overrides
+	// ```json
+	// "Properties": {
+	//    "GlobalSecondaryIndexes": [
+	//      {
+	//        "Projection": {
+	//          "NonKeyAttributes": [ "myattribute" ]
+	//          ...
+	//        }
+	//        ...
+	//      },
+	//      {
+	//        "ProjectionType": "INCLUDE"
+	//        ...
+	//      },
+	//    ]
+	//    ...
+	// }
+	// ```
+	//
+	// The `value` argument to `addOverride` will not be processed or translated
+	// in any way. Pass raw JSON values in here with the correct capitalization
+	// for CloudFormation. If you pass CDK classes or structs, they will be
+	// rendered with lowercased key names, and CloudFormation will reject the
+	// template.
+	AddOverride(path *string, value interface{})
+	// Adds an override that deletes the value of a property from the resource definition.
+	AddPropertyDeletionOverride(propertyPath *string)
+	// Adds an override to a resource property.
+	//
+	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the deletion policy of the resource based on the removal policy specified.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Returns a token for an runtime attribute of this resource.
+	//
+	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+	// in case there is no generated attribute.
+	GetAtt(attributeName *string) awscdk.Reference
+	// Retrieve a value value from the CloudFormation Resource Metadata.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+	//
+	// Note that this is a different set of metadata from CDK node metadata; this
+	// metadata ends up in the stack template under the resource, whereas CDK
+	// node metadata ends up in the Cloud Assembly.
+	//
+	GetMetadata(key *string) interface{}
+	// Examines the CloudFormation resource and discloses attributes.
+	Inspect(inspector awscdk.TreeInspector)
+	// Overrides the auto-generated logical ID with a specific ID.
+	OverrideLogicalId(newLogicalId *string)
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+	//
+	// Returns: `true` if the resource should be included or `false` is the resource
+	// should be omitted.
+	ShouldSynthesize() *bool
+	// Returns a string representation of this construct.
+	//
+	// Returns: a string representation of this resource.
+	ToString() *string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnTagAssociation
+type jsiiProxy_CfnTagAssociation struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnTagAssociation) AttrResourceIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrResourceIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagAssociation) AttrTagsIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrTagsIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagAssociation) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagAssociation) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagAssociation) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagAssociation) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagAssociation) LfTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"lfTags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagAssociation) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagAssociation) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagAssociation) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagAssociation) Resource() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagAssociation) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTagAssociation) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::LakeFormation::TagAssociation`.
+func NewCfnTagAssociation(scope constructs.Construct, id *string, props *CfnTagAssociationProps) CfnTagAssociation {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnTagAssociation{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_lakeformation.CfnTagAssociation",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::LakeFormation::TagAssociation`.
+func NewCfnTagAssociation_Override(c CfnTagAssociation, scope constructs.Construct, id *string, props *CfnTagAssociationProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_lakeformation.CfnTagAssociation",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTagAssociation) SetLfTags(val interface{}) {
+	_jsii_.Set(
+		j,
+		"lfTags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTagAssociation) SetResource(val interface{}) {
+	_jsii_.Set(
+		j,
+		"resource",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+func CfnTagAssociation_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lakeformation.CfnTagAssociation",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+func CfnTagAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lakeformation.CfnTagAssociation",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func CfnTagAssociation_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lakeformation.CfnTagAssociation",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnTagAssociation_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lakeformation.CfnTagAssociation",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnTagAssociation) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+func (c *jsiiProxy_CfnTagAssociation) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+func (c *jsiiProxy_CfnTagAssociation) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+func (c *jsiiProxy_CfnTagAssociation) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+func (c *jsiiProxy_CfnTagAssociation) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+func (c *jsiiProxy_CfnTagAssociation) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnTagAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+func (c *jsiiProxy_CfnTagAssociation) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTagAssociation) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTagAssociation) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+func (c *jsiiProxy_CfnTagAssociation) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnTagAssociation) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTagAssociation) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTagAssociation) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnTagAssociation) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   databaseResourceProperty := &databaseResourceProperty{
+//   	catalogId: jsii.String("catalogId"),
+//   	name: jsii.String("name"),
+//   }
+//
+type CfnTagAssociation_DatabaseResourceProperty struct {
+	// `CfnTagAssociation.DatabaseResourceProperty.CatalogId`.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// `CfnTagAssociation.DatabaseResourceProperty.Name`.
+	Name *string `field:"required" json:"name" yaml:"name"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   lFTagPairProperty := &lFTagPairProperty{
+//   	catalogId: jsii.String("catalogId"),
+//   	tagKey: jsii.String("tagKey"),
+//   	tagValues: []*string{
+//   		jsii.String("tagValues"),
+//   	},
+//   }
+//
+type CfnTagAssociation_LFTagPairProperty struct {
+	// `CfnTagAssociation.LFTagPairProperty.CatalogId`.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// `CfnTagAssociation.LFTagPairProperty.TagKey`.
+	TagKey *string `field:"required" json:"tagKey" yaml:"tagKey"`
+	// `CfnTagAssociation.LFTagPairProperty.TagValues`.
+	TagValues *[]*string `field:"required" json:"tagValues" yaml:"tagValues"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var catalog interface{}
+//   var tableWildcard interface{}
+//
+//   resourceProperty := &resourceProperty{
+//   	catalog: catalog,
+//   	database: &databaseResourceProperty{
+//   		catalogId: jsii.String("catalogId"),
+//   		name: jsii.String("name"),
+//   	},
+//   	table: &tableResourceProperty{
+//   		catalogId: jsii.String("catalogId"),
+//   		databaseName: jsii.String("databaseName"),
+//
+//   		// the properties below are optional
+//   		name: jsii.String("name"),
+//   		tableWildcard: tableWildcard,
+//   	},
+//   	tableWithColumns: &tableWithColumnsResourceProperty{
+//   		catalogId: jsii.String("catalogId"),
+//   		columnNames: []*string{
+//   			jsii.String("columnNames"),
+//   		},
+//   		databaseName: jsii.String("databaseName"),
+//   		name: jsii.String("name"),
+//   	},
+//   }
+//
+type CfnTagAssociation_ResourceProperty struct {
+	// `CfnTagAssociation.ResourceProperty.Catalog`.
+	Catalog interface{} `field:"optional" json:"catalog" yaml:"catalog"`
+	// `CfnTagAssociation.ResourceProperty.Database`.
+	Database interface{} `field:"optional" json:"database" yaml:"database"`
+	// `CfnTagAssociation.ResourceProperty.Table`.
+	Table interface{} `field:"optional" json:"table" yaml:"table"`
+	// `CfnTagAssociation.ResourceProperty.TableWithColumns`.
+	TableWithColumns interface{} `field:"optional" json:"tableWithColumns" yaml:"tableWithColumns"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var tableWildcard interface{}
+//
+//   tableResourceProperty := &tableResourceProperty{
+//   	catalogId: jsii.String("catalogId"),
+//   	databaseName: jsii.String("databaseName"),
+//
+//   	// the properties below are optional
+//   	name: jsii.String("name"),
+//   	tableWildcard: tableWildcard,
+//   }
+//
+type CfnTagAssociation_TableResourceProperty struct {
+	// `CfnTagAssociation.TableResourceProperty.CatalogId`.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// `CfnTagAssociation.TableResourceProperty.DatabaseName`.
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
+	// `CfnTagAssociation.TableResourceProperty.Name`.
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	// `CfnTagAssociation.TableResourceProperty.TableWildcard`.
+	TableWildcard interface{} `field:"optional" json:"tableWildcard" yaml:"tableWildcard"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   tableWithColumnsResourceProperty := &tableWithColumnsResourceProperty{
+//   	catalogId: jsii.String("catalogId"),
+//   	columnNames: []*string{
+//   		jsii.String("columnNames"),
+//   	},
+//   	databaseName: jsii.String("databaseName"),
+//   	name: jsii.String("name"),
+//   }
+//
+type CfnTagAssociation_TableWithColumnsResourceProperty struct {
+	// `CfnTagAssociation.TableWithColumnsResourceProperty.CatalogId`.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// `CfnTagAssociation.TableWithColumnsResourceProperty.ColumnNames`.
+	ColumnNames *[]*string `field:"required" json:"columnNames" yaml:"columnNames"`
+	// `CfnTagAssociation.TableWithColumnsResourceProperty.DatabaseName`.
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
+	// `CfnTagAssociation.TableWithColumnsResourceProperty.Name`.
+	Name *string `field:"required" json:"name" yaml:"name"`
+}
+
+// Properties for defining a `CfnTagAssociation`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var catalog interface{}
+//   var tableWildcard interface{}
+//
+//   cfnTagAssociationProps := &cfnTagAssociationProps{
+//   	lfTags: []interface{}{
+//   		&lFTagPairProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			tagKey: jsii.String("tagKey"),
+//   			tagValues: []*string{
+//   				jsii.String("tagValues"),
+//   			},
+//   		},
+//   	},
+//   	resource: &resourceProperty{
+//   		catalog: catalog,
+//   		database: &databaseResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			name: jsii.String("name"),
+//   		},
+//   		table: &tableResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			databaseName: jsii.String("databaseName"),
+//
+//   			// the properties below are optional
+//   			name: jsii.String("name"),
+//   			tableWildcard: tableWildcard,
+//   		},
+//   		tableWithColumns: &tableWithColumnsResourceProperty{
+//   			catalogId: jsii.String("catalogId"),
+//   			columnNames: []*string{
+//   				jsii.String("columnNames"),
+//   			},
+//   			databaseName: jsii.String("databaseName"),
+//   			name: jsii.String("name"),
+//   		},
+//   	},
+//   }
+//
+type CfnTagAssociationProps struct {
+	// `AWS::LakeFormation::TagAssociation.LFTags`.
+	LfTags interface{} `field:"required" json:"lfTags" yaml:"lfTags"`
+	// `AWS::LakeFormation::TagAssociation.Resource`.
+	Resource interface{} `field:"required" json:"resource" yaml:"resource"`
+}
+
+// Properties for defining a `CfnTag`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTagProps := &cfnTagProps{
+//   	tagKey: jsii.String("tagKey"),
+//   	tagValues: []*string{
+//   		jsii.String("tagValues"),
+//   	},
+//
+//   	// the properties below are optional
+//   	catalogId: jsii.String("catalogId"),
+//   }
+//
+type CfnTagProps struct {
+	// `AWS::LakeFormation::Tag.TagKey`.
+	TagKey *string `field:"required" json:"tagKey" yaml:"tagKey"`
+	// `AWS::LakeFormation::Tag.TagValues`.
+	TagValues *[]*string `field:"required" json:"tagValues" yaml:"tagValues"`
+	// `AWS::LakeFormation::Tag.CatalogId`.
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 }
 

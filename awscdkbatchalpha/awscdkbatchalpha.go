@@ -1273,14 +1273,14 @@ func (j *jsiiProxy_JobDefinition) ToString() *string {
 // Properties of a job definition container.
 //
 // Example:
-//   import ecr "github.com/aws/aws-cdk-go/awscdk"
+//   dbSecret := secretsmanager.NewSecret(this, jsii.String("secret"))
 //
-//
-//   repo := ecr.repository.fromRepositoryName(this, jsii.String("batch-job-repo"), jsii.String("todo-list"))
-//
-//   batch.NewJobDefinition(this, jsii.String("batch-job-def-from-ecr"), &jobDefinitionProps{
+//   batch.NewJobDefinition(this, jsii.String("batch-job-def-secrets"), &jobDefinitionProps{
 //   	container: &jobDefinitionContainer{
-//   		image: ecs.NewEcrImage(repo, jsii.String("latest")),
+//   		image: ecs.ecrImage.fromRegistry(jsii.String("docker/whalesay")),
+//   		secrets: map[string]secret{
+//   			"PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
+//   		},
 //   	},
 //   })
 //
@@ -1347,6 +1347,9 @@ type JobDefinitionContainer struct {
 	// When this parameter is true, the container is given read-only access to its root file system.
 	// Experimental.
 	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
+	// The environment variables from secrets manager or ssm parameter store.
+	// Experimental.
+	Secrets *map[string]awsecs.Secret `field:"optional" json:"secrets" yaml:"secrets"`
 	// A list of ulimits to set in the container.
 	// Experimental.
 	Ulimits *[]*awsecs.Ulimit `field:"optional" json:"ulimits" yaml:"ulimits"`
@@ -1367,14 +1370,14 @@ type JobDefinitionContainer struct {
 // Construction properties of the {@link JobDefinition} construct.
 //
 // Example:
-//   import ecr "github.com/aws/aws-cdk-go/awscdk"
+//   dbSecret := secretsmanager.NewSecret(this, jsii.String("secret"))
 //
-//
-//   repo := ecr.repository.fromRepositoryName(this, jsii.String("batch-job-repo"), jsii.String("todo-list"))
-//
-//   batch.NewJobDefinition(this, jsii.String("batch-job-def-from-ecr"), &jobDefinitionProps{
+//   batch.NewJobDefinition(this, jsii.String("batch-job-def-secrets"), &jobDefinitionProps{
 //   	container: &jobDefinitionContainer{
-//   		image: ecs.NewEcrImage(repo, jsii.String("latest")),
+//   		image: ecs.ecrImage.fromRegistry(jsii.String("docker/whalesay")),
+//   		secrets: map[string]secret{
+//   			"PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
+//   		},
 //   	},
 //   })
 //

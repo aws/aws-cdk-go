@@ -308,6 +308,23 @@ batch.NewJobDefinition(this, jsii.String("job-def"), &jobDefinitionProps{
 })
 ```
 
+### Using the secret on secrets manager
+
+You can set the environment variables from secrets manager.
+
+```go
+dbSecret := secretsmanager.NewSecret(this, jsii.String("secret"))
+
+batch.NewJobDefinition(this, jsii.String("batch-job-def-secrets"), &jobDefinitionProps{
+	container: &jobDefinitionContainer{
+		image: ecs.ecrImage.fromRegistry(jsii.String("docker/whalesay")),
+		secrets: map[string]secret{
+			"PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
+		},
+	},
+})
+```
+
 ### Importing an existing Job Definition
 
 #### From ARN

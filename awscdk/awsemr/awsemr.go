@@ -326,6 +326,151 @@ import (
 //   			availabilityZone: jsii.String("availabilityZone"),
 //   		},
 //   		serviceAccessSecurityGroup: jsii.String("serviceAccessSecurityGroup"),
+//   		taskInstanceFleets: []interface{}{
+//   			&instanceFleetConfigProperty{
+//   				instanceTypeConfigs: []interface{}{
+//   					&instanceTypeConfigProperty{
+//   						instanceType: jsii.String("instanceType"),
+//
+//   						// the properties below are optional
+//   						bidPrice: jsii.String("bidPrice"),
+//   						bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   						configurations: []interface{}{
+//   							&configurationProperty{
+//   								classification: jsii.String("classification"),
+//   								configurationProperties: map[string]*string{
+//   									"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   								},
+//   								configurations: []interface{}{
+//   									configurationProperty_,
+//   								},
+//   							},
+//   						},
+//   						customAmiId: jsii.String("customAmiId"),
+//   						ebsConfiguration: &ebsConfigurationProperty{
+//   							ebsBlockDeviceConfigs: []interface{}{
+//   								&ebsBlockDeviceConfigProperty{
+//   									volumeSpecification: &volumeSpecificationProperty{
+//   										sizeInGb: jsii.Number(123),
+//   										volumeType: jsii.String("volumeType"),
+//
+//   										// the properties below are optional
+//   										iops: jsii.Number(123),
+//   									},
+//
+//   									// the properties below are optional
+//   									volumesPerInstance: jsii.Number(123),
+//   								},
+//   							},
+//   							ebsOptimized: jsii.Boolean(false),
+//   						},
+//   						weightedCapacity: jsii.Number(123),
+//   					},
+//   				},
+//   				launchSpecifications: &instanceFleetProvisioningSpecificationsProperty{
+//   					onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   						allocationStrategy: jsii.String("allocationStrategy"),
+//   					},
+//   					spotSpecification: &spotProvisioningSpecificationProperty{
+//   						timeoutAction: jsii.String("timeoutAction"),
+//   						timeoutDurationMinutes: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						allocationStrategy: jsii.String("allocationStrategy"),
+//   						blockDurationMinutes: jsii.Number(123),
+//   					},
+//   				},
+//   				name: jsii.String("name"),
+//   				targetOnDemandCapacity: jsii.Number(123),
+//   				targetSpotCapacity: jsii.Number(123),
+//   			},
+//   		},
+//   		taskInstanceGroups: []interface{}{
+//   			&instanceGroupConfigProperty{
+//   				instanceCount: jsii.Number(123),
+//   				instanceType: jsii.String("instanceType"),
+//
+//   				// the properties below are optional
+//   				autoScalingPolicy: &autoScalingPolicyProperty{
+//   					constraints: &scalingConstraintsProperty{
+//   						maxCapacity: jsii.Number(123),
+//   						minCapacity: jsii.Number(123),
+//   					},
+//   					rules: []interface{}{
+//   						&scalingRuleProperty{
+//   							action: &scalingActionProperty{
+//   								simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   									scalingAdjustment: jsii.Number(123),
+//
+//   									// the properties below are optional
+//   									adjustmentType: jsii.String("adjustmentType"),
+//   									coolDown: jsii.Number(123),
+//   								},
+//
+//   								// the properties below are optional
+//   								market: jsii.String("market"),
+//   							},
+//   							name: jsii.String("name"),
+//   							trigger: &scalingTriggerProperty{
+//   								cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   									comparisonOperator: jsii.String("comparisonOperator"),
+//   									metricName: jsii.String("metricName"),
+//   									period: jsii.Number(123),
+//   									threshold: jsii.Number(123),
+//
+//   									// the properties below are optional
+//   									dimensions: []interface{}{
+//   										&metricDimensionProperty{
+//   											key: jsii.String("key"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									evaluationPeriods: jsii.Number(123),
+//   									namespace: jsii.String("namespace"),
+//   									statistic: jsii.String("statistic"),
+//   									unit: jsii.String("unit"),
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							description: jsii.String("description"),
+//   						},
+//   					},
+//   				},
+//   				bidPrice: jsii.String("bidPrice"),
+//   				configurations: []interface{}{
+//   					&configurationProperty{
+//   						classification: jsii.String("classification"),
+//   						configurationProperties: map[string]*string{
+//   							"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   						},
+//   						configurations: []interface{}{
+//   							configurationProperty_,
+//   						},
+//   					},
+//   				},
+//   				customAmiId: jsii.String("customAmiId"),
+//   				ebsConfiguration: &ebsConfigurationProperty{
+//   					ebsBlockDeviceConfigs: []interface{}{
+//   						&ebsBlockDeviceConfigProperty{
+//   							volumeSpecification: &volumeSpecificationProperty{
+//   								sizeInGb: jsii.Number(123),
+//   								volumeType: jsii.String("volumeType"),
+//
+//   								// the properties below are optional
+//   								iops: jsii.Number(123),
+//   							},
+//
+//   							// the properties below are optional
+//   							volumesPerInstance: jsii.Number(123),
+//   						},
+//   					},
+//   					ebsOptimized: jsii.Boolean(false),
+//   				},
+//   				market: jsii.String("market"),
+//   				name: jsii.String("name"),
+//   			},
+//   		},
 //   		terminationProtected: jsii.Boolean(false),
 //   	},
 //   	jobFlowRole: jsii.String("jobFlowRole"),
@@ -347,6 +492,9 @@ import (
 //   		},
 //   	},
 //   	autoScalingRole: jsii.String("autoScalingRole"),
+//   	autoTerminationPolicy: &autoTerminationPolicyProperty{
+//   		idleTimeout: jsii.Number(123),
+//   	},
 //   	bootstrapActions: []interface{}{
 //   		&bootstrapActionConfigProperty{
 //   			name: jsii.String("name"),
@@ -447,6 +595,9 @@ type CfnCluster interface {
 	// The default role is `EMR_AutoScaling_DefaultRole` . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoScalingRole() *string
 	SetAutoScalingRole(val *string)
+	// `AWS::EMR::Cluster.AutoTerminationPolicy`.
+	AutoTerminationPolicy() interface{}
+	SetAutoTerminationPolicy(val interface{})
 	// A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
 	BootstrapActions() interface{}
 	SetBootstrapActions(val interface{})
@@ -709,6 +860,16 @@ func (j *jsiiProxy_CfnCluster) AutoScalingRole() *string {
 	_jsii_.Get(
 		j,
 		"autoScalingRole",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AutoTerminationPolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"autoTerminationPolicy",
 		&returns,
 	)
 	return returns
@@ -1041,6 +1202,14 @@ func (j *jsiiProxy_CfnCluster) SetAutoScalingRole(val *string) {
 	_jsii_.Set(
 		j,
 		"autoScalingRole",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetAutoTerminationPolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"autoTerminationPolicy",
 		val,
 	)
 }
@@ -1514,6 +1683,20 @@ type CfnCluster_AutoScalingPolicyProperty struct {
 	Constraints interface{} `field:"required" json:"constraints" yaml:"constraints"`
 	// The scale-in and scale-out rules that comprise the automatic scaling policy.
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   autoTerminationPolicyProperty := &autoTerminationPolicyProperty{
+//   	idleTimeout: jsii.Number(123),
+//   }
+//
+type CfnCluster_AutoTerminationPolicyProperty struct {
+	// `CfnCluster.AutoTerminationPolicyProperty.IdleTimeout`.
+	IdleTimeout *float64 `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 }
 
 // `BootstrapActionConfig` is a property of `AWS::EMR::Cluster` that can be used to run bootstrap actions on EMR clusters.
@@ -2418,6 +2601,151 @@ type CfnCluster_InstanceTypeConfigProperty struct {
 //   		availabilityZone: jsii.String("availabilityZone"),
 //   	},
 //   	serviceAccessSecurityGroup: jsii.String("serviceAccessSecurityGroup"),
+//   	taskInstanceFleets: []interface{}{
+//   		&instanceFleetConfigProperty{
+//   			instanceTypeConfigs: []interface{}{
+//   				&instanceTypeConfigProperty{
+//   					instanceType: jsii.String("instanceType"),
+//
+//   					// the properties below are optional
+//   					bidPrice: jsii.String("bidPrice"),
+//   					bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   					configurations: []interface{}{
+//   						&configurationProperty{
+//   							classification: jsii.String("classification"),
+//   							configurationProperties: map[string]*string{
+//   								"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   							},
+//   							configurations: []interface{}{
+//   								configurationProperty_,
+//   							},
+//   						},
+//   					},
+//   					customAmiId: jsii.String("customAmiId"),
+//   					ebsConfiguration: &ebsConfigurationProperty{
+//   						ebsBlockDeviceConfigs: []interface{}{
+//   							&ebsBlockDeviceConfigProperty{
+//   								volumeSpecification: &volumeSpecificationProperty{
+//   									sizeInGb: jsii.Number(123),
+//   									volumeType: jsii.String("volumeType"),
+//
+//   									// the properties below are optional
+//   									iops: jsii.Number(123),
+//   								},
+//
+//   								// the properties below are optional
+//   								volumesPerInstance: jsii.Number(123),
+//   							},
+//   						},
+//   						ebsOptimized: jsii.Boolean(false),
+//   					},
+//   					weightedCapacity: jsii.Number(123),
+//   				},
+//   			},
+//   			launchSpecifications: &instanceFleetProvisioningSpecificationsProperty{
+//   				onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   					allocationStrategy: jsii.String("allocationStrategy"),
+//   				},
+//   				spotSpecification: &spotProvisioningSpecificationProperty{
+//   					timeoutAction: jsii.String("timeoutAction"),
+//   					timeoutDurationMinutes: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					allocationStrategy: jsii.String("allocationStrategy"),
+//   					blockDurationMinutes: jsii.Number(123),
+//   				},
+//   			},
+//   			name: jsii.String("name"),
+//   			targetOnDemandCapacity: jsii.Number(123),
+//   			targetSpotCapacity: jsii.Number(123),
+//   		},
+//   	},
+//   	taskInstanceGroups: []interface{}{
+//   		&instanceGroupConfigProperty{
+//   			instanceCount: jsii.Number(123),
+//   			instanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			autoScalingPolicy: &autoScalingPolicyProperty{
+//   				constraints: &scalingConstraintsProperty{
+//   					maxCapacity: jsii.Number(123),
+//   					minCapacity: jsii.Number(123),
+//   				},
+//   				rules: []interface{}{
+//   					&scalingRuleProperty{
+//   						action: &scalingActionProperty{
+//   							simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   								scalingAdjustment: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								adjustmentType: jsii.String("adjustmentType"),
+//   								coolDown: jsii.Number(123),
+//   							},
+//
+//   							// the properties below are optional
+//   							market: jsii.String("market"),
+//   						},
+//   						name: jsii.String("name"),
+//   						trigger: &scalingTriggerProperty{
+//   							cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   								comparisonOperator: jsii.String("comparisonOperator"),
+//   								metricName: jsii.String("metricName"),
+//   								period: jsii.Number(123),
+//   								threshold: jsii.Number(123),
+//
+//   								// the properties below are optional
+//   								dimensions: []interface{}{
+//   									&metricDimensionProperty{
+//   										key: jsii.String("key"),
+//   										value: jsii.String("value"),
+//   									},
+//   								},
+//   								evaluationPeriods: jsii.Number(123),
+//   								namespace: jsii.String("namespace"),
+//   								statistic: jsii.String("statistic"),
+//   								unit: jsii.String("unit"),
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						description: jsii.String("description"),
+//   					},
+//   				},
+//   			},
+//   			bidPrice: jsii.String("bidPrice"),
+//   			configurations: []interface{}{
+//   				&configurationProperty{
+//   					classification: jsii.String("classification"),
+//   					configurationProperties: map[string]*string{
+//   						"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   					},
+//   					configurations: []interface{}{
+//   						configurationProperty_,
+//   					},
+//   				},
+//   			},
+//   			customAmiId: jsii.String("customAmiId"),
+//   			ebsConfiguration: &ebsConfigurationProperty{
+//   				ebsBlockDeviceConfigs: []interface{}{
+//   					&ebsBlockDeviceConfigProperty{
+//   						volumeSpecification: &volumeSpecificationProperty{
+//   							sizeInGb: jsii.Number(123),
+//   							volumeType: jsii.String("volumeType"),
+//
+//   							// the properties below are optional
+//   							iops: jsii.Number(123),
+//   						},
+//
+//   						// the properties below are optional
+//   						volumesPerInstance: jsii.Number(123),
+//   					},
+//   				},
+//   				ebsOptimized: jsii.Boolean(false),
+//   			},
+//   			market: jsii.String("market"),
+//   			name: jsii.String("name"),
+//   		},
+//   	},
 //   	terminationProtected: jsii.Boolean(false),
 //   }
 //
@@ -2464,6 +2792,10 @@ type CfnCluster_JobFlowInstancesConfigProperty struct {
 	Placement interface{} `field:"optional" json:"placement" yaml:"placement"`
 	// The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
 	ServiceAccessSecurityGroup *string `field:"optional" json:"serviceAccessSecurityGroup" yaml:"serviceAccessSecurityGroup"`
+	// `CfnCluster.JobFlowInstancesConfigProperty.TaskInstanceFleets`.
+	TaskInstanceFleets interface{} `field:"optional" json:"taskInstanceFleets" yaml:"taskInstanceFleets"`
+	// `CfnCluster.JobFlowInstancesConfigProperty.TaskInstanceGroups`.
+	TaskInstanceGroups interface{} `field:"optional" json:"taskInstanceGroups" yaml:"taskInstanceGroups"`
 	// Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
 	TerminationProtected interface{} `field:"optional" json:"terminationProtected" yaml:"terminationProtected"`
 }
@@ -3253,6 +3585,151 @@ type CfnCluster_VolumeSpecificationProperty struct {
 //   			availabilityZone: jsii.String("availabilityZone"),
 //   		},
 //   		serviceAccessSecurityGroup: jsii.String("serviceAccessSecurityGroup"),
+//   		taskInstanceFleets: []interface{}{
+//   			&instanceFleetConfigProperty{
+//   				instanceTypeConfigs: []interface{}{
+//   					&instanceTypeConfigProperty{
+//   						instanceType: jsii.String("instanceType"),
+//
+//   						// the properties below are optional
+//   						bidPrice: jsii.String("bidPrice"),
+//   						bidPriceAsPercentageOfOnDemandPrice: jsii.Number(123),
+//   						configurations: []interface{}{
+//   							&configurationProperty{
+//   								classification: jsii.String("classification"),
+//   								configurationProperties: map[string]*string{
+//   									"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   								},
+//   								configurations: []interface{}{
+//   									configurationProperty_,
+//   								},
+//   							},
+//   						},
+//   						customAmiId: jsii.String("customAmiId"),
+//   						ebsConfiguration: &ebsConfigurationProperty{
+//   							ebsBlockDeviceConfigs: []interface{}{
+//   								&ebsBlockDeviceConfigProperty{
+//   									volumeSpecification: &volumeSpecificationProperty{
+//   										sizeInGb: jsii.Number(123),
+//   										volumeType: jsii.String("volumeType"),
+//
+//   										// the properties below are optional
+//   										iops: jsii.Number(123),
+//   									},
+//
+//   									// the properties below are optional
+//   									volumesPerInstance: jsii.Number(123),
+//   								},
+//   							},
+//   							ebsOptimized: jsii.Boolean(false),
+//   						},
+//   						weightedCapacity: jsii.Number(123),
+//   					},
+//   				},
+//   				launchSpecifications: &instanceFleetProvisioningSpecificationsProperty{
+//   					onDemandSpecification: &onDemandProvisioningSpecificationProperty{
+//   						allocationStrategy: jsii.String("allocationStrategy"),
+//   					},
+//   					spotSpecification: &spotProvisioningSpecificationProperty{
+//   						timeoutAction: jsii.String("timeoutAction"),
+//   						timeoutDurationMinutes: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						allocationStrategy: jsii.String("allocationStrategy"),
+//   						blockDurationMinutes: jsii.Number(123),
+//   					},
+//   				},
+//   				name: jsii.String("name"),
+//   				targetOnDemandCapacity: jsii.Number(123),
+//   				targetSpotCapacity: jsii.Number(123),
+//   			},
+//   		},
+//   		taskInstanceGroups: []interface{}{
+//   			&instanceGroupConfigProperty{
+//   				instanceCount: jsii.Number(123),
+//   				instanceType: jsii.String("instanceType"),
+//
+//   				// the properties below are optional
+//   				autoScalingPolicy: &autoScalingPolicyProperty{
+//   					constraints: &scalingConstraintsProperty{
+//   						maxCapacity: jsii.Number(123),
+//   						minCapacity: jsii.Number(123),
+//   					},
+//   					rules: []interface{}{
+//   						&scalingRuleProperty{
+//   							action: &scalingActionProperty{
+//   								simpleScalingPolicyConfiguration: &simpleScalingPolicyConfigurationProperty{
+//   									scalingAdjustment: jsii.Number(123),
+//
+//   									// the properties below are optional
+//   									adjustmentType: jsii.String("adjustmentType"),
+//   									coolDown: jsii.Number(123),
+//   								},
+//
+//   								// the properties below are optional
+//   								market: jsii.String("market"),
+//   							},
+//   							name: jsii.String("name"),
+//   							trigger: &scalingTriggerProperty{
+//   								cloudWatchAlarmDefinition: &cloudWatchAlarmDefinitionProperty{
+//   									comparisonOperator: jsii.String("comparisonOperator"),
+//   									metricName: jsii.String("metricName"),
+//   									period: jsii.Number(123),
+//   									threshold: jsii.Number(123),
+//
+//   									// the properties below are optional
+//   									dimensions: []interface{}{
+//   										&metricDimensionProperty{
+//   											key: jsii.String("key"),
+//   											value: jsii.String("value"),
+//   										},
+//   									},
+//   									evaluationPeriods: jsii.Number(123),
+//   									namespace: jsii.String("namespace"),
+//   									statistic: jsii.String("statistic"),
+//   									unit: jsii.String("unit"),
+//   								},
+//   							},
+//
+//   							// the properties below are optional
+//   							description: jsii.String("description"),
+//   						},
+//   					},
+//   				},
+//   				bidPrice: jsii.String("bidPrice"),
+//   				configurations: []interface{}{
+//   					&configurationProperty{
+//   						classification: jsii.String("classification"),
+//   						configurationProperties: map[string]*string{
+//   							"configurationPropertiesKey": jsii.String("configurationProperties"),
+//   						},
+//   						configurations: []interface{}{
+//   							configurationProperty_,
+//   						},
+//   					},
+//   				},
+//   				customAmiId: jsii.String("customAmiId"),
+//   				ebsConfiguration: &ebsConfigurationProperty{
+//   					ebsBlockDeviceConfigs: []interface{}{
+//   						&ebsBlockDeviceConfigProperty{
+//   							volumeSpecification: &volumeSpecificationProperty{
+//   								sizeInGb: jsii.Number(123),
+//   								volumeType: jsii.String("volumeType"),
+//
+//   								// the properties below are optional
+//   								iops: jsii.Number(123),
+//   							},
+//
+//   							// the properties below are optional
+//   							volumesPerInstance: jsii.Number(123),
+//   						},
+//   					},
+//   					ebsOptimized: jsii.Boolean(false),
+//   				},
+//   				market: jsii.String("market"),
+//   				name: jsii.String("name"),
+//   			},
+//   		},
 //   		terminationProtected: jsii.Boolean(false),
 //   	},
 //   	jobFlowRole: jsii.String("jobFlowRole"),
@@ -3274,6 +3751,9 @@ type CfnCluster_VolumeSpecificationProperty struct {
 //   		},
 //   	},
 //   	autoScalingRole: jsii.String("autoScalingRole"),
+//   	autoTerminationPolicy: &autoTerminationPolicyProperty{
+//   		idleTimeout: jsii.Number(123),
+//   	},
 //   	bootstrapActions: []interface{}{
 //   		&bootstrapActionConfigProperty{
 //   			name: jsii.String("name"),
@@ -3377,6 +3857,8 @@ type CfnClusterProps struct {
 	//
 	// The default role is `EMR_AutoScaling_DefaultRole` . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoScalingRole *string `field:"optional" json:"autoScalingRole" yaml:"autoScalingRole"`
+	// `AWS::EMR::Cluster.AutoTerminationPolicy`.
+	AutoTerminationPolicy interface{} `field:"optional" json:"autoTerminationPolicy" yaml:"autoTerminationPolicy"`
 	// A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
 	BootstrapActions interface{} `field:"optional" json:"bootstrapActions" yaml:"bootstrapActions"`
 	// Applies only to Amazon EMR releases 4.x and later. The list of Configurations supplied to the EMR cluster.

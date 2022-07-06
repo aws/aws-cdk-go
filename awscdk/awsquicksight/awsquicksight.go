@@ -2556,6 +2556,10 @@ type CfnDashboardProps struct {
 //   		},
 //   	},
 //   	dataSetId: jsii.String("dataSetId"),
+//   	dataSetUsageConfiguration: &dataSetUsageConfigurationProperty{
+//   		disableUseAsDirectQuerySource: jsii.Boolean(false),
+//   		disableUseAsImportedSource: jsii.Boolean(false),
+//   	},
 //   	fieldFolders: map[string]interface{}{
 //   		"fieldFoldersKey": &FieldFolderProperty{
 //   			"columns": []*string{
@@ -2573,6 +2577,7 @@ type CfnDashboardProps struct {
 //   		"logicalTableMapKey": &LogicalTableProperty{
 //   			"alias": jsii.String("alias"),
 //   			"source": &LogicalTableSourceProperty{
+//   				"dataSetArn": jsii.String("dataSetArn"),
 //   				"joinInstruction": &JoinInstructionProperty{
 //   					"leftOperand": jsii.String("leftOperand"),
 //   					"onClause": jsii.String("onClause"),
@@ -2744,6 +2749,9 @@ type CfnDataSet interface {
 	// This ID is unique per AWS Region for each AWS account.
 	DataSetId() *string
 	SetDataSetId(val *string)
+	// `AWS::QuickSight::DataSet.DataSetUsageConfiguration`.
+	DataSetUsageConfiguration() interface{}
+	SetDataSetUsageConfiguration(val interface{})
 	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders() interface{}
 	SetFieldFolders(val interface{})
@@ -3044,6 +3052,16 @@ func (j *jsiiProxy_CfnDataSet) DataSetId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSet) DataSetUsageConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dataSetUsageConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSet) FieldFolders() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -3239,6 +3257,14 @@ func (j *jsiiProxy_CfnDataSet) SetDataSetId(val *string) {
 	_jsii_.Set(
 		j,
 		"dataSetId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetDataSetUsageConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"dataSetUsageConfiguration",
 		val,
 	)
 }
@@ -3722,6 +3748,23 @@ type CfnDataSet_CustomSqlProperty struct {
 	SqlQuery *string `field:"required" json:"sqlQuery" yaml:"sqlQuery"`
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   dataSetUsageConfigurationProperty := &dataSetUsageConfigurationProperty{
+//   	disableUseAsDirectQuerySource: jsii.Boolean(false),
+//   	disableUseAsImportedSource: jsii.Boolean(false),
+//   }
+//
+type CfnDataSet_DataSetUsageConfigurationProperty struct {
+	// `CfnDataSet.DataSetUsageConfigurationProperty.DisableUseAsDirectQuerySource`.
+	DisableUseAsDirectQuerySource interface{} `field:"optional" json:"disableUseAsDirectQuerySource" yaml:"disableUseAsDirectQuerySource"`
+	// `CfnDataSet.DataSetUsageConfigurationProperty.DisableUseAsImportedSource`.
+	DisableUseAsImportedSource interface{} `field:"optional" json:"disableUseAsImportedSource" yaml:"disableUseAsImportedSource"`
+}
+
 // A FieldFolder element is a folder that contains fields and nested subfolders.
 //
 // Example:
@@ -3900,6 +3943,7 @@ type CfnDataSet_JoinKeyPropertiesProperty struct {
 //   logicalTableProperty := &logicalTableProperty{
 //   	alias: jsii.String("alias"),
 //   	source: &logicalTableSourceProperty{
+//   		dataSetArn: jsii.String("dataSetArn"),
 //   		joinInstruction: &joinInstructionProperty{
 //   			leftOperand: jsii.String("leftOperand"),
 //   			onClause: jsii.String("onClause"),
@@ -3982,6 +4026,7 @@ type CfnDataSet_LogicalTableProperty struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   logicalTableSourceProperty := &logicalTableSourceProperty{
+//   	dataSetArn: jsii.String("dataSetArn"),
 //   	joinInstruction: &joinInstructionProperty{
 //   		leftOperand: jsii.String("leftOperand"),
 //   		onClause: jsii.String("onClause"),
@@ -4000,6 +4045,8 @@ type CfnDataSet_LogicalTableProperty struct {
 //   }
 //
 type CfnDataSet_LogicalTableSourceProperty struct {
+	// `CfnDataSet.LogicalTableSourceProperty.DataSetArn`.
+	DataSetArn *string `field:"optional" json:"dataSetArn" yaml:"dataSetArn"`
 	// Specifies the result of a join of two logical tables.
 	JoinInstruction interface{} `field:"optional" json:"joinInstruction" yaml:"joinInstruction"`
 	// Physical table ID.
@@ -4424,6 +4471,10 @@ type CfnDataSet_UploadSettingsProperty struct {
 //   		},
 //   	},
 //   	dataSetId: jsii.String("dataSetId"),
+//   	dataSetUsageConfiguration: &dataSetUsageConfigurationProperty{
+//   		disableUseAsDirectQuerySource: jsii.Boolean(false),
+//   		disableUseAsImportedSource: jsii.Boolean(false),
+//   	},
 //   	fieldFolders: map[string]interface{}{
 //   		"fieldFoldersKey": &FieldFolderProperty{
 //   			"columns": []*string{
@@ -4441,6 +4492,7 @@ type CfnDataSet_UploadSettingsProperty struct {
 //   		"logicalTableMapKey": &LogicalTableProperty{
 //   			"alias": jsii.String("alias"),
 //   			"source": &LogicalTableSourceProperty{
+//   				"dataSetArn": jsii.String("dataSetArn"),
 //   				"joinInstruction": &JoinInstructionProperty{
 //   					"leftOperand": jsii.String("leftOperand"),
 //   					"onClause": jsii.String("onClause"),
@@ -4589,6 +4641,8 @@ type CfnDataSetProps struct {
 	//
 	// This ID is unique per AWS Region for each AWS account.
 	DataSetId *string `field:"optional" json:"dataSetId" yaml:"dataSetId"`
+	// `AWS::QuickSight::DataSet.DataSetUsageConfiguration`.
+	DataSetUsageConfiguration interface{} `field:"optional" json:"dataSetUsageConfiguration" yaml:"dataSetUsageConfiguration"`
 	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders interface{} `field:"optional" json:"fieldFolders" yaml:"fieldFolders"`
 	// Indicates whether you want to import the data into SPICE.

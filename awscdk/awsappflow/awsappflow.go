@@ -20,8 +20,10 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var basicAuthCredentials interface{}
+//   var credentialsMap interface{}
 //   var oAuthCredentials interface{}
+//   var profileProperties interface{}
+//   var tokenUrlCustomProperties interface{}
 //
 //   cfnConnectorProfile := awscdk.Aws_appflow.NewCfnConnectorProfile(this, jsii.String("MyCfnConnectorProfile"), &cfnConnectorProfileProps{
 //   	connectionMode: jsii.String("connectionMode"),
@@ -29,11 +31,43 @@ import (
 //   	connectorType: jsii.String("connectorType"),
 //
 //   	// the properties below are optional
+//   	connectorLabel: jsii.String("connectorLabel"),
 //   	connectorProfileConfig: &connectorProfileConfigProperty{
 //   		connectorProfileCredentials: &connectorProfileCredentialsProperty{
 //   			amplitude: &amplitudeConnectorProfileCredentialsProperty{
 //   				apiKey: jsii.String("apiKey"),
 //   				secretKey: jsii.String("secretKey"),
+//   			},
+//   			customConnector: &customConnectorProfileCredentialsProperty{
+//   				authenticationType: jsii.String("authenticationType"),
+//
+//   				// the properties below are optional
+//   				apiKey: &apiKeyCredentialsProperty{
+//   					apiKey: jsii.String("apiKey"),
+//
+//   					// the properties below are optional
+//   					apiSecretKey: jsii.String("apiSecretKey"),
+//   				},
+//   				basic: &basicAuthCredentialsProperty{
+//   					password: jsii.String("password"),
+//   					username: jsii.String("username"),
+//   				},
+//   				custom: &customAuthCredentialsProperty{
+//   					customAuthenticationType: jsii.String("customAuthenticationType"),
+//
+//   					// the properties below are optional
+//   					credentialsMap: credentialsMap,
+//   				},
+//   				oauth2: &oAuth2CredentialsProperty{
+//   					accessToken: jsii.String("accessToken"),
+//   					clientId: jsii.String("clientId"),
+//   					clientSecret: jsii.String("clientSecret"),
+//   					oAuthRequest: &connectorOAuthRequestProperty{
+//   						authCode: jsii.String("authCode"),
+//   						redirectUri: jsii.String("redirectUri"),
+//   					},
+//   					refreshToken: jsii.String("refreshToken"),
+//   				},
 //   			},
 //   			datadog: &datadogConnectorProfileCredentialsProperty{
 //   				apiKey: jsii.String("apiKey"),
@@ -85,7 +119,10 @@ import (
 //   				refreshToken: jsii.String("refreshToken"),
 //   			},
 //   			sapoData: &sAPODataConnectorProfileCredentialsProperty{
-//   				basicAuthCredentials: basicAuthCredentials,
+//   				basicAuthCredentials: &basicAuthCredentialsProperty{
+//   					password: jsii.String("password"),
+//   					username: jsii.String("username"),
+//   				},
 //   				oAuthCredentials: oAuthCredentials,
 //   			},
 //   			serviceNow: &serviceNowConnectorProfileCredentialsProperty{
@@ -132,6 +169,14 @@ import (
 //
 //   		// the properties below are optional
 //   		connectorProfileProperties: &connectorProfilePropertiesProperty{
+//   			customConnector: &customConnectorProfilePropertiesProperty{
+//   				oAuth2Properties: &oAuth2PropertiesProperty{
+//   					oAuth2GrantType: jsii.String("oAuth2GrantType"),
+//   					tokenUrl: jsii.String("tokenUrl"),
+//   					tokenUrlCustomProperties: tokenUrlCustomProperties,
+//   				},
+//   				profileProperties: profileProperties,
+//   			},
 //   			datadog: &datadogConnectorProfilePropertiesProperty{
 //   				instanceUrl: jsii.String("instanceUrl"),
 //   			},
@@ -214,6 +259,9 @@ type CfnConnectorProfile interface {
 	// Indicates the connection mode and if it is public or private.
 	ConnectionMode() *string
 	SetConnectionMode(val *string)
+	// `AWS::AppFlow::ConnectorProfile.ConnectorLabel`.
+	ConnectorLabel() *string
+	SetConnectorLabel(val *string)
 	// Defines the connector-specific configuration and credentials.
 	ConnectorProfileConfig() interface{}
 	SetConnectorProfileConfig(val interface{})
@@ -436,6 +484,16 @@ func (j *jsiiProxy_CfnConnectorProfile) ConnectionMode() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnectorProfile) ConnectorLabel() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"connectorLabel",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnectorProfile) ConnectorProfileConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -567,6 +625,14 @@ func (j *jsiiProxy_CfnConnectorProfile) SetConnectionMode(val *string) {
 	_jsii_.Set(
 		j,
 		"connectionMode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnectorProfile) SetConnectorLabel(val *string) {
+	_jsii_.Set(
+		j,
+		"connectorLabel",
 		val,
 	)
 }
@@ -847,6 +913,42 @@ type CfnConnectorProfile_AmplitudeConnectorProfileCredentialsProperty struct {
 	SecretKey *string `field:"required" json:"secretKey" yaml:"secretKey"`
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   apiKeyCredentialsProperty := &apiKeyCredentialsProperty{
+//   	apiKey: jsii.String("apiKey"),
+//
+//   	// the properties below are optional
+//   	apiSecretKey: jsii.String("apiSecretKey"),
+//   }
+//
+type CfnConnectorProfile_ApiKeyCredentialsProperty struct {
+	// `CfnConnectorProfile.ApiKeyCredentialsProperty.ApiKey`.
+	ApiKey *string `field:"required" json:"apiKey" yaml:"apiKey"`
+	// `CfnConnectorProfile.ApiKeyCredentialsProperty.ApiSecretKey`.
+	ApiSecretKey *string `field:"optional" json:"apiSecretKey" yaml:"apiSecretKey"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   basicAuthCredentialsProperty := &basicAuthCredentialsProperty{
+//   	password: jsii.String("password"),
+//   	username: jsii.String("username"),
+//   }
+//
+type CfnConnectorProfile_BasicAuthCredentialsProperty struct {
+	// `CfnConnectorProfile.BasicAuthCredentialsProperty.Password`.
+	Password *string `field:"required" json:"password" yaml:"password"`
+	// `CfnConnectorProfile.BasicAuthCredentialsProperty.Username`.
+	Username *string `field:"required" json:"username" yaml:"username"`
+}
+
 // Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
 //
 // Example:
@@ -873,14 +975,47 @@ type CfnConnectorProfile_ConnectorOAuthRequestProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var basicAuthCredentials interface{}
+//   var credentialsMap interface{}
 //   var oAuthCredentials interface{}
+//   var profileProperties interface{}
+//   var tokenUrlCustomProperties interface{}
 //
 //   connectorProfileConfigProperty := &connectorProfileConfigProperty{
 //   	connectorProfileCredentials: &connectorProfileCredentialsProperty{
 //   		amplitude: &amplitudeConnectorProfileCredentialsProperty{
 //   			apiKey: jsii.String("apiKey"),
 //   			secretKey: jsii.String("secretKey"),
+//   		},
+//   		customConnector: &customConnectorProfileCredentialsProperty{
+//   			authenticationType: jsii.String("authenticationType"),
+//
+//   			// the properties below are optional
+//   			apiKey: &apiKeyCredentialsProperty{
+//   				apiKey: jsii.String("apiKey"),
+//
+//   				// the properties below are optional
+//   				apiSecretKey: jsii.String("apiSecretKey"),
+//   			},
+//   			basic: &basicAuthCredentialsProperty{
+//   				password: jsii.String("password"),
+//   				username: jsii.String("username"),
+//   			},
+//   			custom: &customAuthCredentialsProperty{
+//   				customAuthenticationType: jsii.String("customAuthenticationType"),
+//
+//   				// the properties below are optional
+//   				credentialsMap: credentialsMap,
+//   			},
+//   			oauth2: &oAuth2CredentialsProperty{
+//   				accessToken: jsii.String("accessToken"),
+//   				clientId: jsii.String("clientId"),
+//   				clientSecret: jsii.String("clientSecret"),
+//   				oAuthRequest: &connectorOAuthRequestProperty{
+//   					authCode: jsii.String("authCode"),
+//   					redirectUri: jsii.String("redirectUri"),
+//   				},
+//   				refreshToken: jsii.String("refreshToken"),
+//   			},
 //   		},
 //   		datadog: &datadogConnectorProfileCredentialsProperty{
 //   			apiKey: jsii.String("apiKey"),
@@ -932,7 +1067,10 @@ type CfnConnectorProfile_ConnectorOAuthRequestProperty struct {
 //   			refreshToken: jsii.String("refreshToken"),
 //   		},
 //   		sapoData: &sAPODataConnectorProfileCredentialsProperty{
-//   			basicAuthCredentials: basicAuthCredentials,
+//   			basicAuthCredentials: &basicAuthCredentialsProperty{
+//   				password: jsii.String("password"),
+//   				username: jsii.String("username"),
+//   			},
 //   			oAuthCredentials: oAuthCredentials,
 //   		},
 //   		serviceNow: &serviceNowConnectorProfileCredentialsProperty{
@@ -979,6 +1117,14 @@ type CfnConnectorProfile_ConnectorOAuthRequestProperty struct {
 //
 //   	// the properties below are optional
 //   	connectorProfileProperties: &connectorProfilePropertiesProperty{
+//   		customConnector: &customConnectorProfilePropertiesProperty{
+//   			oAuth2Properties: &oAuth2PropertiesProperty{
+//   				oAuth2GrantType: jsii.String("oAuth2GrantType"),
+//   				tokenUrl: jsii.String("tokenUrl"),
+//   				tokenUrlCustomProperties: tokenUrlCustomProperties,
+//   			},
+//   			profileProperties: profileProperties,
+//   		},
 //   		datadog: &datadogConnectorProfilePropertiesProperty{
 //   			instanceUrl: jsii.String("instanceUrl"),
 //   		},
@@ -1058,13 +1204,44 @@ type CfnConnectorProfile_ConnectorProfileConfigProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var basicAuthCredentials interface{}
+//   var credentialsMap interface{}
 //   var oAuthCredentials interface{}
 //
 //   connectorProfileCredentialsProperty := &connectorProfileCredentialsProperty{
 //   	amplitude: &amplitudeConnectorProfileCredentialsProperty{
 //   		apiKey: jsii.String("apiKey"),
 //   		secretKey: jsii.String("secretKey"),
+//   	},
+//   	customConnector: &customConnectorProfileCredentialsProperty{
+//   		authenticationType: jsii.String("authenticationType"),
+//
+//   		// the properties below are optional
+//   		apiKey: &apiKeyCredentialsProperty{
+//   			apiKey: jsii.String("apiKey"),
+//
+//   			// the properties below are optional
+//   			apiSecretKey: jsii.String("apiSecretKey"),
+//   		},
+//   		basic: &basicAuthCredentialsProperty{
+//   			password: jsii.String("password"),
+//   			username: jsii.String("username"),
+//   		},
+//   		custom: &customAuthCredentialsProperty{
+//   			customAuthenticationType: jsii.String("customAuthenticationType"),
+//
+//   			// the properties below are optional
+//   			credentialsMap: credentialsMap,
+//   		},
+//   		oauth2: &oAuth2CredentialsProperty{
+//   			accessToken: jsii.String("accessToken"),
+//   			clientId: jsii.String("clientId"),
+//   			clientSecret: jsii.String("clientSecret"),
+//   			oAuthRequest: &connectorOAuthRequestProperty{
+//   				authCode: jsii.String("authCode"),
+//   				redirectUri: jsii.String("redirectUri"),
+//   			},
+//   			refreshToken: jsii.String("refreshToken"),
+//   		},
 //   	},
 //   	datadog: &datadogConnectorProfileCredentialsProperty{
 //   		apiKey: jsii.String("apiKey"),
@@ -1116,7 +1293,10 @@ type CfnConnectorProfile_ConnectorProfileConfigProperty struct {
 //   		refreshToken: jsii.String("refreshToken"),
 //   	},
 //   	sapoData: &sAPODataConnectorProfileCredentialsProperty{
-//   		basicAuthCredentials: basicAuthCredentials,
+//   		basicAuthCredentials: &basicAuthCredentialsProperty{
+//   			password: jsii.String("password"),
+//   			username: jsii.String("username"),
+//   		},
 //   		oAuthCredentials: oAuthCredentials,
 //   	},
 //   	serviceNow: &serviceNowConnectorProfileCredentialsProperty{
@@ -1164,6 +1344,8 @@ type CfnConnectorProfile_ConnectorProfileConfigProperty struct {
 type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	// The connector-specific credentials required when using Amplitude.
 	Amplitude interface{} `field:"optional" json:"amplitude" yaml:"amplitude"`
+	// `CfnConnectorProfile.ConnectorProfileCredentialsProperty.CustomConnector`.
+	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The connector-specific credentials required when using Datadog.
 	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`
 	// The connector-specific credentials required when using Dynatrace.
@@ -1203,7 +1385,18 @@ type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var profileProperties interface{}
+//   var tokenUrlCustomProperties interface{}
+//
 //   connectorProfilePropertiesProperty := &connectorProfilePropertiesProperty{
+//   	customConnector: &customConnectorProfilePropertiesProperty{
+//   		oAuth2Properties: &oAuth2PropertiesProperty{
+//   			oAuth2GrantType: jsii.String("oAuth2GrantType"),
+//   			tokenUrl: jsii.String("tokenUrl"),
+//   			tokenUrlCustomProperties: tokenUrlCustomProperties,
+//   		},
+//   		profileProperties: profileProperties,
+//   	},
 //   	datadog: &datadogConnectorProfilePropertiesProperty{
 //   		instanceUrl: jsii.String("instanceUrl"),
 //   	},
@@ -1269,6 +1462,8 @@ type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 //   }
 //
 type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
+	// `CfnConnectorProfile.ConnectorProfilePropertiesProperty.CustomConnector`.
+	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The connector-specific properties required by Datadog.
 	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`
 	// The connector-specific properties required by Dynatrace.
@@ -1293,6 +1488,103 @@ type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 	Veeva interface{} `field:"optional" json:"veeva" yaml:"veeva"`
 	// The connector-specific properties required by Zendesk.
 	Zendesk interface{} `field:"optional" json:"zendesk" yaml:"zendesk"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var credentialsMap interface{}
+//
+//   customAuthCredentialsProperty := &customAuthCredentialsProperty{
+//   	customAuthenticationType: jsii.String("customAuthenticationType"),
+//
+//   	// the properties below are optional
+//   	credentialsMap: credentialsMap,
+//   }
+//
+type CfnConnectorProfile_CustomAuthCredentialsProperty struct {
+	// `CfnConnectorProfile.CustomAuthCredentialsProperty.CustomAuthenticationType`.
+	CustomAuthenticationType *string `field:"required" json:"customAuthenticationType" yaml:"customAuthenticationType"`
+	// `CfnConnectorProfile.CustomAuthCredentialsProperty.CredentialsMap`.
+	CredentialsMap interface{} `field:"optional" json:"credentialsMap" yaml:"credentialsMap"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var credentialsMap interface{}
+//
+//   customConnectorProfileCredentialsProperty := &customConnectorProfileCredentialsProperty{
+//   	authenticationType: jsii.String("authenticationType"),
+//
+//   	// the properties below are optional
+//   	apiKey: &apiKeyCredentialsProperty{
+//   		apiKey: jsii.String("apiKey"),
+//
+//   		// the properties below are optional
+//   		apiSecretKey: jsii.String("apiSecretKey"),
+//   	},
+//   	basic: &basicAuthCredentialsProperty{
+//   		password: jsii.String("password"),
+//   		username: jsii.String("username"),
+//   	},
+//   	custom: &customAuthCredentialsProperty{
+//   		customAuthenticationType: jsii.String("customAuthenticationType"),
+//
+//   		// the properties below are optional
+//   		credentialsMap: credentialsMap,
+//   	},
+//   	oauth2: &oAuth2CredentialsProperty{
+//   		accessToken: jsii.String("accessToken"),
+//   		clientId: jsii.String("clientId"),
+//   		clientSecret: jsii.String("clientSecret"),
+//   		oAuthRequest: &connectorOAuthRequestProperty{
+//   			authCode: jsii.String("authCode"),
+//   			redirectUri: jsii.String("redirectUri"),
+//   		},
+//   		refreshToken: jsii.String("refreshToken"),
+//   	},
+//   }
+//
+type CfnConnectorProfile_CustomConnectorProfileCredentialsProperty struct {
+	// `CfnConnectorProfile.CustomConnectorProfileCredentialsProperty.AuthenticationType`.
+	AuthenticationType *string `field:"required" json:"authenticationType" yaml:"authenticationType"`
+	// `CfnConnectorProfile.CustomConnectorProfileCredentialsProperty.ApiKey`.
+	ApiKey interface{} `field:"optional" json:"apiKey" yaml:"apiKey"`
+	// `CfnConnectorProfile.CustomConnectorProfileCredentialsProperty.Basic`.
+	Basic interface{} `field:"optional" json:"basic" yaml:"basic"`
+	// `CfnConnectorProfile.CustomConnectorProfileCredentialsProperty.Custom`.
+	Custom interface{} `field:"optional" json:"custom" yaml:"custom"`
+	// `CfnConnectorProfile.CustomConnectorProfileCredentialsProperty.Oauth2`.
+	Oauth2 interface{} `field:"optional" json:"oauth2" yaml:"oauth2"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var profileProperties interface{}
+//   var tokenUrlCustomProperties interface{}
+//
+//   customConnectorProfilePropertiesProperty := &customConnectorProfilePropertiesProperty{
+//   	oAuth2Properties: &oAuth2PropertiesProperty{
+//   		oAuth2GrantType: jsii.String("oAuth2GrantType"),
+//   		tokenUrl: jsii.String("tokenUrl"),
+//   		tokenUrlCustomProperties: tokenUrlCustomProperties,
+//   	},
+//   	profileProperties: profileProperties,
+//   }
+//
+type CfnConnectorProfile_CustomConnectorProfilePropertiesProperty struct {
+	// `CfnConnectorProfile.CustomConnectorProfilePropertiesProperty.OAuth2Properties`.
+	OAuth2Properties interface{} `field:"optional" json:"oAuth2Properties" yaml:"oAuth2Properties"`
+	// `CfnConnectorProfile.CustomConnectorProfilePropertiesProperty.ProfileProperties`.
+	ProfileProperties interface{} `field:"optional" json:"profileProperties" yaml:"profileProperties"`
 }
 
 // The connector-specific credentials required by Datadog.
@@ -1486,6 +1778,57 @@ type CfnConnectorProfile_MarketoConnectorProfilePropertiesProperty struct {
 	InstanceUrl *string `field:"required" json:"instanceUrl" yaml:"instanceUrl"`
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   oAuth2CredentialsProperty := &oAuth2CredentialsProperty{
+//   	accessToken: jsii.String("accessToken"),
+//   	clientId: jsii.String("clientId"),
+//   	clientSecret: jsii.String("clientSecret"),
+//   	oAuthRequest: &connectorOAuthRequestProperty{
+//   		authCode: jsii.String("authCode"),
+//   		redirectUri: jsii.String("redirectUri"),
+//   	},
+//   	refreshToken: jsii.String("refreshToken"),
+//   }
+//
+type CfnConnectorProfile_OAuth2CredentialsProperty struct {
+	// `CfnConnectorProfile.OAuth2CredentialsProperty.AccessToken`.
+	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
+	// `CfnConnectorProfile.OAuth2CredentialsProperty.ClientId`.
+	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
+	// `CfnConnectorProfile.OAuth2CredentialsProperty.ClientSecret`.
+	ClientSecret *string `field:"optional" json:"clientSecret" yaml:"clientSecret"`
+	// `CfnConnectorProfile.OAuth2CredentialsProperty.OAuthRequest`.
+	OAuthRequest interface{} `field:"optional" json:"oAuthRequest" yaml:"oAuthRequest"`
+	// `CfnConnectorProfile.OAuth2CredentialsProperty.RefreshToken`.
+	RefreshToken *string `field:"optional" json:"refreshToken" yaml:"refreshToken"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var tokenUrlCustomProperties interface{}
+//
+//   oAuth2PropertiesProperty := &oAuth2PropertiesProperty{
+//   	oAuth2GrantType: jsii.String("oAuth2GrantType"),
+//   	tokenUrl: jsii.String("tokenUrl"),
+//   	tokenUrlCustomProperties: tokenUrlCustomProperties,
+//   }
+//
+type CfnConnectorProfile_OAuth2PropertiesProperty struct {
+	// `CfnConnectorProfile.OAuth2PropertiesProperty.OAuth2GrantType`.
+	OAuth2GrantType *string `field:"optional" json:"oAuth2GrantType" yaml:"oAuth2GrantType"`
+	// `CfnConnectorProfile.OAuth2PropertiesProperty.TokenUrl`.
+	TokenUrl *string `field:"optional" json:"tokenUrl" yaml:"tokenUrl"`
+	// `CfnConnectorProfile.OAuth2PropertiesProperty.TokenUrlCustomProperties`.
+	TokenUrlCustomProperties interface{} `field:"optional" json:"tokenUrlCustomProperties" yaml:"tokenUrlCustomProperties"`
+}
+
 // The OAuth properties required for OAuth type authentication.
 //
 // Example:
@@ -1563,11 +1906,13 @@ type CfnConnectorProfile_RedshiftConnectorProfilePropertiesProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var basicAuthCredentials interface{}
 //   var oAuthCredentials interface{}
 //
 //   sAPODataConnectorProfileCredentialsProperty := &sAPODataConnectorProfileCredentialsProperty{
-//   	basicAuthCredentials: basicAuthCredentials,
+//   	basicAuthCredentials: &basicAuthCredentialsProperty{
+//   		password: jsii.String("password"),
+//   		username: jsii.String("username"),
+//   	},
 //   	oAuthCredentials: oAuthCredentials,
 //   }
 //
@@ -1923,8 +2268,10 @@ type CfnConnectorProfile_ZendeskConnectorProfilePropertiesProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var basicAuthCredentials interface{}
+//   var credentialsMap interface{}
 //   var oAuthCredentials interface{}
+//   var profileProperties interface{}
+//   var tokenUrlCustomProperties interface{}
 //
 //   cfnConnectorProfileProps := &cfnConnectorProfileProps{
 //   	connectionMode: jsii.String("connectionMode"),
@@ -1932,11 +2279,43 @@ type CfnConnectorProfile_ZendeskConnectorProfilePropertiesProperty struct {
 //   	connectorType: jsii.String("connectorType"),
 //
 //   	// the properties below are optional
+//   	connectorLabel: jsii.String("connectorLabel"),
 //   	connectorProfileConfig: &connectorProfileConfigProperty{
 //   		connectorProfileCredentials: &connectorProfileCredentialsProperty{
 //   			amplitude: &amplitudeConnectorProfileCredentialsProperty{
 //   				apiKey: jsii.String("apiKey"),
 //   				secretKey: jsii.String("secretKey"),
+//   			},
+//   			customConnector: &customConnectorProfileCredentialsProperty{
+//   				authenticationType: jsii.String("authenticationType"),
+//
+//   				// the properties below are optional
+//   				apiKey: &apiKeyCredentialsProperty{
+//   					apiKey: jsii.String("apiKey"),
+//
+//   					// the properties below are optional
+//   					apiSecretKey: jsii.String("apiSecretKey"),
+//   				},
+//   				basic: &basicAuthCredentialsProperty{
+//   					password: jsii.String("password"),
+//   					username: jsii.String("username"),
+//   				},
+//   				custom: &customAuthCredentialsProperty{
+//   					customAuthenticationType: jsii.String("customAuthenticationType"),
+//
+//   					// the properties below are optional
+//   					credentialsMap: credentialsMap,
+//   				},
+//   				oauth2: &oAuth2CredentialsProperty{
+//   					accessToken: jsii.String("accessToken"),
+//   					clientId: jsii.String("clientId"),
+//   					clientSecret: jsii.String("clientSecret"),
+//   					oAuthRequest: &connectorOAuthRequestProperty{
+//   						authCode: jsii.String("authCode"),
+//   						redirectUri: jsii.String("redirectUri"),
+//   					},
+//   					refreshToken: jsii.String("refreshToken"),
+//   				},
 //   			},
 //   			datadog: &datadogConnectorProfileCredentialsProperty{
 //   				apiKey: jsii.String("apiKey"),
@@ -1988,7 +2367,10 @@ type CfnConnectorProfile_ZendeskConnectorProfilePropertiesProperty struct {
 //   				refreshToken: jsii.String("refreshToken"),
 //   			},
 //   			sapoData: &sAPODataConnectorProfileCredentialsProperty{
-//   				basicAuthCredentials: basicAuthCredentials,
+//   				basicAuthCredentials: &basicAuthCredentialsProperty{
+//   					password: jsii.String("password"),
+//   					username: jsii.String("username"),
+//   				},
 //   				oAuthCredentials: oAuthCredentials,
 //   			},
 //   			serviceNow: &serviceNowConnectorProfileCredentialsProperty{
@@ -2035,6 +2417,14 @@ type CfnConnectorProfile_ZendeskConnectorProfilePropertiesProperty struct {
 //
 //   		// the properties below are optional
 //   		connectorProfileProperties: &connectorProfilePropertiesProperty{
+//   			customConnector: &customConnectorProfilePropertiesProperty{
+//   				oAuth2Properties: &oAuth2PropertiesProperty{
+//   					oAuth2GrantType: jsii.String("oAuth2GrantType"),
+//   					tokenUrl: jsii.String("tokenUrl"),
+//   					tokenUrlCustomProperties: tokenUrlCustomProperties,
+//   				},
+//   				profileProperties: profileProperties,
+//   			},
 //   			datadog: &datadogConnectorProfilePropertiesProperty{
 //   				instanceUrl: jsii.String("instanceUrl"),
 //   			},
@@ -2111,6 +2501,8 @@ type CfnConnectorProfileProps struct {
 	ConnectorProfileName *string `field:"required" json:"connectorProfileName" yaml:"connectorProfileName"`
 	// The type of connector, such as Salesforce, Amplitude, and so on.
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
+	// `AWS::AppFlow::ConnectorProfile.ConnectorLabel`.
+	ConnectorLabel *string `field:"optional" json:"connectorLabel" yaml:"connectorLabel"`
 	// Defines the connector-specific configuration and credentials.
 	ConnectorProfileConfig interface{} `field:"optional" json:"connectorProfileConfig" yaml:"connectorProfileConfig"`
 	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption.
@@ -2130,11 +2522,28 @@ type CfnConnectorProfileProps struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var customProperties interface{}
+//
 //   cfnFlow := awscdk.Aws_appflow.NewCfnFlow(this, jsii.String("MyCfnFlow"), &cfnFlowProps{
 //   	destinationFlowConfigList: []interface{}{
 //   		&destinationFlowConfigProperty{
 //   			connectorType: jsii.String("connectorType"),
 //   			destinationConnectorProperties: &destinationConnectorPropertiesProperty{
+//   				customConnector: &customConnectorDestinationPropertiesProperty{
+//   					entityName: jsii.String("entityName"),
+//
+//   					// the properties below are optional
+//   					customProperties: customProperties,
+//   					errorHandlingConfig: &errorHandlingConfigProperty{
+//   						bucketName: jsii.String("bucketName"),
+//   						bucketPrefix: jsii.String("bucketPrefix"),
+//   						failOnFirstError: jsii.Boolean(false),
+//   					},
+//   					idFieldNames: []*string{
+//   						jsii.String("idFieldNames"),
+//   					},
+//   					writeOperationType: jsii.String("writeOperationType"),
+//   				},
 //   				eventBridge: &eventBridgeDestinationPropertiesProperty{
 //   					object: jsii.String("object"),
 //
@@ -2184,6 +2593,7 @@ type CfnConnectorProfileProps struct {
 //   							prefixFormat: jsii.String("prefixFormat"),
 //   							prefixType: jsii.String("prefixType"),
 //   						},
+//   						preserveSourceDataTyping: jsii.Boolean(false),
 //   					},
 //   				},
 //   				salesforce: &salesforceDestinationPropertiesProperty{
@@ -2265,6 +2675,7 @@ type CfnConnectorProfileProps struct {
 //   			},
 //
 //   			// the properties below are optional
+//   			apiVersion: jsii.String("apiVersion"),
 //   			connectorProfileName: jsii.String("connectorProfileName"),
 //   		},
 //   	},
@@ -2274,6 +2685,12 @@ type CfnConnectorProfileProps struct {
 //   		sourceConnectorProperties: &sourceConnectorPropertiesProperty{
 //   			amplitude: &amplitudeSourcePropertiesProperty{
 //   				object: jsii.String("object"),
+//   			},
+//   			customConnector: &customConnectorSourcePropertiesProperty{
+//   				entityName: jsii.String("entityName"),
+//
+//   				// the properties below are optional
+//   				customProperties: customProperties,
 //   			},
 //   			datadog: &datadogSourcePropertiesProperty{
 //   				object: jsii.String("object"),
@@ -2336,6 +2753,7 @@ type CfnConnectorProfileProps struct {
 //   		},
 //
 //   		// the properties below are optional
+//   		apiVersion: jsii.String("apiVersion"),
 //   		connectorProfileName: jsii.String("connectorProfileName"),
 //   		incrementalPullConfig: &incrementalPullConfigProperty{
 //   			datetimeTypeFieldName: jsii.String("datetimeTypeFieldName"),
@@ -2351,6 +2769,7 @@ type CfnConnectorProfileProps struct {
 //   			// the properties below are optional
 //   			connectorOperator: &connectorOperatorProperty{
 //   				amplitude: jsii.String("amplitude"),
+//   				customConnector: jsii.String("customConnector"),
 //   				datadog: jsii.String("datadog"),
 //   				dynatrace: jsii.String("dynatrace"),
 //   				googleAnalytics: jsii.String("googleAnalytics"),
@@ -2384,6 +2803,7 @@ type CfnConnectorProfileProps struct {
 //
 //   			// the properties below are optional
 //   			dataPullMode: jsii.String("dataPullMode"),
+//   			flowErrorDeactivationThreshold: jsii.Number(123),
 //   			scheduleEndTime: jsii.Number(123),
 //   			scheduleOffset: jsii.Number(123),
 //   			scheduleStartTime: jsii.Number(123),
@@ -3114,6 +3534,7 @@ type CfnFlow_AmplitudeSourcePropertiesProperty struct {
 //
 //   connectorOperatorProperty := &connectorOperatorProperty{
 //   	amplitude: jsii.String("amplitude"),
+//   	customConnector: jsii.String("customConnector"),
 //   	datadog: jsii.String("datadog"),
 //   	dynatrace: jsii.String("dynatrace"),
 //   	googleAnalytics: jsii.String("googleAnalytics"),
@@ -3133,6 +3554,8 @@ type CfnFlow_AmplitudeSourcePropertiesProperty struct {
 type CfnFlow_ConnectorOperatorProperty struct {
 	// The operation to be performed on the provided Amplitude source fields.
 	Amplitude *string `field:"optional" json:"amplitude" yaml:"amplitude"`
+	// `CfnFlow.ConnectorOperatorProperty.CustomConnector`.
+	CustomConnector *string `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The operation to be performed on the provided Datadog source fields.
 	Datadog *string `field:"optional" json:"datadog" yaml:"datadog"`
 	// The operation to be performed on the provided Dynatrace source fields.
@@ -3163,6 +3586,63 @@ type CfnFlow_ConnectorOperatorProperty struct {
 	Zendesk *string `field:"optional" json:"zendesk" yaml:"zendesk"`
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var customProperties interface{}
+//
+//   customConnectorDestinationPropertiesProperty := &customConnectorDestinationPropertiesProperty{
+//   	entityName: jsii.String("entityName"),
+//
+//   	// the properties below are optional
+//   	customProperties: customProperties,
+//   	errorHandlingConfig: &errorHandlingConfigProperty{
+//   		bucketName: jsii.String("bucketName"),
+//   		bucketPrefix: jsii.String("bucketPrefix"),
+//   		failOnFirstError: jsii.Boolean(false),
+//   	},
+//   	idFieldNames: []*string{
+//   		jsii.String("idFieldNames"),
+//   	},
+//   	writeOperationType: jsii.String("writeOperationType"),
+//   }
+//
+type CfnFlow_CustomConnectorDestinationPropertiesProperty struct {
+	// `CfnFlow.CustomConnectorDestinationPropertiesProperty.EntityName`.
+	EntityName *string `field:"required" json:"entityName" yaml:"entityName"`
+	// `CfnFlow.CustomConnectorDestinationPropertiesProperty.CustomProperties`.
+	CustomProperties interface{} `field:"optional" json:"customProperties" yaml:"customProperties"`
+	// `CfnFlow.CustomConnectorDestinationPropertiesProperty.ErrorHandlingConfig`.
+	ErrorHandlingConfig interface{} `field:"optional" json:"errorHandlingConfig" yaml:"errorHandlingConfig"`
+	// `CfnFlow.CustomConnectorDestinationPropertiesProperty.IdFieldNames`.
+	IdFieldNames *[]*string `field:"optional" json:"idFieldNames" yaml:"idFieldNames"`
+	// `CfnFlow.CustomConnectorDestinationPropertiesProperty.WriteOperationType`.
+	WriteOperationType *string `field:"optional" json:"writeOperationType" yaml:"writeOperationType"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var customProperties interface{}
+//
+//   customConnectorSourcePropertiesProperty := &customConnectorSourcePropertiesProperty{
+//   	entityName: jsii.String("entityName"),
+//
+//   	// the properties below are optional
+//   	customProperties: customProperties,
+//   }
+//
+type CfnFlow_CustomConnectorSourcePropertiesProperty struct {
+	// `CfnFlow.CustomConnectorSourcePropertiesProperty.EntityName`.
+	EntityName *string `field:"required" json:"entityName" yaml:"entityName"`
+	// `CfnFlow.CustomConnectorSourcePropertiesProperty.CustomProperties`.
+	CustomProperties interface{} `field:"optional" json:"customProperties" yaml:"customProperties"`
+}
+
 // The properties that are applied when Datadog is being used as a source.
 //
 // Example:
@@ -3186,7 +3666,24 @@ type CfnFlow_DatadogSourcePropertiesProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var customProperties interface{}
+//
 //   destinationConnectorPropertiesProperty := &destinationConnectorPropertiesProperty{
+//   	customConnector: &customConnectorDestinationPropertiesProperty{
+//   		entityName: jsii.String("entityName"),
+//
+//   		// the properties below are optional
+//   		customProperties: customProperties,
+//   		errorHandlingConfig: &errorHandlingConfigProperty{
+//   			bucketName: jsii.String("bucketName"),
+//   			bucketPrefix: jsii.String("bucketPrefix"),
+//   			failOnFirstError: jsii.Boolean(false),
+//   		},
+//   		idFieldNames: []*string{
+//   			jsii.String("idFieldNames"),
+//   		},
+//   		writeOperationType: jsii.String("writeOperationType"),
+//   	},
 //   	eventBridge: &eventBridgeDestinationPropertiesProperty{
 //   		object: jsii.String("object"),
 //
@@ -3236,6 +3733,7 @@ type CfnFlow_DatadogSourcePropertiesProperty struct {
 //   				prefixFormat: jsii.String("prefixFormat"),
 //   				prefixType: jsii.String("prefixType"),
 //   			},
+//   			preserveSourceDataTyping: jsii.Boolean(false),
 //   		},
 //   	},
 //   	salesforce: &salesforceDestinationPropertiesProperty{
@@ -3317,6 +3815,8 @@ type CfnFlow_DatadogSourcePropertiesProperty struct {
 //   }
 //
 type CfnFlow_DestinationConnectorPropertiesProperty struct {
+	// `CfnFlow.DestinationConnectorPropertiesProperty.CustomConnector`.
+	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// The properties required to query Amazon EventBridge.
 	EventBridge interface{} `field:"optional" json:"eventBridge" yaml:"eventBridge"`
 	// The properties required to query Amazon Lookout for Metrics.
@@ -3346,9 +3846,26 @@ type CfnFlow_DestinationConnectorPropertiesProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var customProperties interface{}
+//
 //   destinationFlowConfigProperty := &destinationFlowConfigProperty{
 //   	connectorType: jsii.String("connectorType"),
 //   	destinationConnectorProperties: &destinationConnectorPropertiesProperty{
+//   		customConnector: &customConnectorDestinationPropertiesProperty{
+//   			entityName: jsii.String("entityName"),
+//
+//   			// the properties below are optional
+//   			customProperties: customProperties,
+//   			errorHandlingConfig: &errorHandlingConfigProperty{
+//   				bucketName: jsii.String("bucketName"),
+//   				bucketPrefix: jsii.String("bucketPrefix"),
+//   				failOnFirstError: jsii.Boolean(false),
+//   			},
+//   			idFieldNames: []*string{
+//   				jsii.String("idFieldNames"),
+//   			},
+//   			writeOperationType: jsii.String("writeOperationType"),
+//   		},
 //   		eventBridge: &eventBridgeDestinationPropertiesProperty{
 //   			object: jsii.String("object"),
 //
@@ -3398,6 +3915,7 @@ type CfnFlow_DestinationConnectorPropertiesProperty struct {
 //   					prefixFormat: jsii.String("prefixFormat"),
 //   					prefixType: jsii.String("prefixType"),
 //   				},
+//   				preserveSourceDataTyping: jsii.Boolean(false),
 //   			},
 //   		},
 //   		salesforce: &salesforceDestinationPropertiesProperty{
@@ -3479,6 +3997,7 @@ type CfnFlow_DestinationConnectorPropertiesProperty struct {
 //   	},
 //
 //   	// the properties below are optional
+//   	apiVersion: jsii.String("apiVersion"),
 //   	connectorProfileName: jsii.String("connectorProfileName"),
 //   }
 //
@@ -3489,6 +4008,8 @@ type CfnFlow_DestinationFlowConfigProperty struct {
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// This stores the information that is required to query a particular connector.
 	DestinationConnectorProperties interface{} `field:"required" json:"destinationConnectorProperties" yaml:"destinationConnectorProperties"`
+	// `CfnFlow.DestinationFlowConfigProperty.ApiVersion`.
+	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// The name of the connector profile.
 	//
 	// This name must be unique for each connector profile in the AWS account .
@@ -3742,6 +4263,7 @@ type CfnFlow_RedshiftDestinationPropertiesProperty struct {
 //   			prefixFormat: jsii.String("prefixFormat"),
 //   			prefixType: jsii.String("prefixType"),
 //   		},
+//   		preserveSourceDataTyping: jsii.Boolean(false),
 //   	},
 //   }
 //
@@ -3786,6 +4308,7 @@ type CfnFlow_S3InputFormatConfigProperty struct {
 //   		prefixFormat: jsii.String("prefixFormat"),
 //   		prefixType: jsii.String("prefixType"),
 //   	},
+//   	preserveSourceDataTyping: jsii.Boolean(false),
 //   }
 //
 type CfnFlow_S3OutputFormatConfigProperty struct {
@@ -3797,6 +4320,8 @@ type CfnFlow_S3OutputFormatConfigProperty struct {
 	//
 	// You can name folders according to the flow frequency and date.
 	PrefixConfig interface{} `field:"optional" json:"prefixConfig" yaml:"prefixConfig"`
+	// `CfnFlow.S3OutputFormatConfigProperty.PreserveSourceDataTyping`.
+	PreserveSourceDataTyping interface{} `field:"optional" json:"preserveSourceDataTyping" yaml:"preserveSourceDataTyping"`
 }
 
 // The properties that are applied when Amazon S3 is being used as the flow source.
@@ -3961,6 +4486,7 @@ type CfnFlow_SalesforceSourcePropertiesProperty struct {
 //
 //   	// the properties below are optional
 //   	dataPullMode: jsii.String("dataPullMode"),
+//   	flowErrorDeactivationThreshold: jsii.Number(123),
 //   	scheduleEndTime: jsii.Number(123),
 //   	scheduleOffset: jsii.Number(123),
 //   	scheduleStartTime: jsii.Number(123),
@@ -3972,6 +4498,8 @@ type CfnFlow_ScheduledTriggerPropertiesProperty struct {
 	ScheduleExpression *string `field:"required" json:"scheduleExpression" yaml:"scheduleExpression"`
 	// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
 	DataPullMode *string `field:"optional" json:"dataPullMode" yaml:"dataPullMode"`
+	// `CfnFlow.ScheduledTriggerPropertiesProperty.FlowErrorDeactivationThreshold`.
+	FlowErrorDeactivationThreshold *float64 `field:"optional" json:"flowErrorDeactivationThreshold" yaml:"flowErrorDeactivationThreshold"`
 	// The time at which the scheduled flow ends.
 	//
 	// The time is formatted as a timestamp that follows the ISO 8601 standard, such as `2022-04-27T13:00:00-07:00` .
@@ -4078,9 +4606,17 @@ type CfnFlow_SnowflakeDestinationPropertiesProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var customProperties interface{}
+//
 //   sourceConnectorPropertiesProperty := &sourceConnectorPropertiesProperty{
 //   	amplitude: &amplitudeSourcePropertiesProperty{
 //   		object: jsii.String("object"),
+//   	},
+//   	customConnector: &customConnectorSourcePropertiesProperty{
+//   		entityName: jsii.String("entityName"),
+//
+//   		// the properties below are optional
+//   		customProperties: customProperties,
 //   	},
 //   	datadog: &datadogSourcePropertiesProperty{
 //   		object: jsii.String("object"),
@@ -4145,6 +4681,8 @@ type CfnFlow_SnowflakeDestinationPropertiesProperty struct {
 type CfnFlow_SourceConnectorPropertiesProperty struct {
 	// Specifies the information that is required for querying Amplitude.
 	Amplitude interface{} `field:"optional" json:"amplitude" yaml:"amplitude"`
+	// `CfnFlow.SourceConnectorPropertiesProperty.CustomConnector`.
+	CustomConnector interface{} `field:"optional" json:"customConnector" yaml:"customConnector"`
 	// Specifies the information that is required for querying Datadog.
 	Datadog interface{} `field:"optional" json:"datadog" yaml:"datadog"`
 	// Specifies the information that is required for querying Dynatrace.
@@ -4182,11 +4720,19 @@ type CfnFlow_SourceConnectorPropertiesProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var customProperties interface{}
+//
 //   sourceFlowConfigProperty := &sourceFlowConfigProperty{
 //   	connectorType: jsii.String("connectorType"),
 //   	sourceConnectorProperties: &sourceConnectorPropertiesProperty{
 //   		amplitude: &amplitudeSourcePropertiesProperty{
 //   			object: jsii.String("object"),
+//   		},
+//   		customConnector: &customConnectorSourcePropertiesProperty{
+//   			entityName: jsii.String("entityName"),
+//
+//   			// the properties below are optional
+//   			customProperties: customProperties,
 //   		},
 //   		datadog: &datadogSourcePropertiesProperty{
 //   			object: jsii.String("object"),
@@ -4249,6 +4795,7 @@ type CfnFlow_SourceConnectorPropertiesProperty struct {
 //   	},
 //
 //   	// the properties below are optional
+//   	apiVersion: jsii.String("apiVersion"),
 //   	connectorProfileName: jsii.String("connectorProfileName"),
 //   	incrementalPullConfig: &incrementalPullConfigProperty{
 //   		datetimeTypeFieldName: jsii.String("datetimeTypeFieldName"),
@@ -4262,6 +4809,8 @@ type CfnFlow_SourceFlowConfigProperty struct {
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// Specifies the information that is required to query a particular source connector.
 	SourceConnectorProperties interface{} `field:"required" json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`
+	// `CfnFlow.SourceFlowConfigProperty.ApiVersion`.
+	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// The name of the connector profile.
 	//
 	// This name must be unique for each connector profile in the AWS account .
@@ -4334,6 +4883,7 @@ type CfnFlow_TaskPropertiesObjectProperty struct {
 //   	// the properties below are optional
 //   	connectorOperator: &connectorOperatorProperty{
 //   		amplitude: jsii.String("amplitude"),
+//   		customConnector: jsii.String("customConnector"),
 //   		datadog: jsii.String("datadog"),
 //   		dynatrace: jsii.String("dynatrace"),
 //   		googleAnalytics: jsii.String("googleAnalytics"),
@@ -4407,6 +4957,7 @@ type CfnFlow_TrendmicroSourcePropertiesProperty struct {
 //
 //   		// the properties below are optional
 //   		dataPullMode: jsii.String("dataPullMode"),
+//   		flowErrorDeactivationThreshold: jsii.Number(123),
 //   		scheduleEndTime: jsii.Number(123),
 //   		scheduleOffset: jsii.Number(123),
 //   		scheduleStartTime: jsii.Number(123),
@@ -4581,11 +5132,28 @@ type CfnFlow_ZendeskSourcePropertiesProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var customProperties interface{}
+//
 //   cfnFlowProps := &cfnFlowProps{
 //   	destinationFlowConfigList: []interface{}{
 //   		&destinationFlowConfigProperty{
 //   			connectorType: jsii.String("connectorType"),
 //   			destinationConnectorProperties: &destinationConnectorPropertiesProperty{
+//   				customConnector: &customConnectorDestinationPropertiesProperty{
+//   					entityName: jsii.String("entityName"),
+//
+//   					// the properties below are optional
+//   					customProperties: customProperties,
+//   					errorHandlingConfig: &errorHandlingConfigProperty{
+//   						bucketName: jsii.String("bucketName"),
+//   						bucketPrefix: jsii.String("bucketPrefix"),
+//   						failOnFirstError: jsii.Boolean(false),
+//   					},
+//   					idFieldNames: []*string{
+//   						jsii.String("idFieldNames"),
+//   					},
+//   					writeOperationType: jsii.String("writeOperationType"),
+//   				},
 //   				eventBridge: &eventBridgeDestinationPropertiesProperty{
 //   					object: jsii.String("object"),
 //
@@ -4635,6 +5203,7 @@ type CfnFlow_ZendeskSourcePropertiesProperty struct {
 //   							prefixFormat: jsii.String("prefixFormat"),
 //   							prefixType: jsii.String("prefixType"),
 //   						},
+//   						preserveSourceDataTyping: jsii.Boolean(false),
 //   					},
 //   				},
 //   				salesforce: &salesforceDestinationPropertiesProperty{
@@ -4716,6 +5285,7 @@ type CfnFlow_ZendeskSourcePropertiesProperty struct {
 //   			},
 //
 //   			// the properties below are optional
+//   			apiVersion: jsii.String("apiVersion"),
 //   			connectorProfileName: jsii.String("connectorProfileName"),
 //   		},
 //   	},
@@ -4725,6 +5295,12 @@ type CfnFlow_ZendeskSourcePropertiesProperty struct {
 //   		sourceConnectorProperties: &sourceConnectorPropertiesProperty{
 //   			amplitude: &amplitudeSourcePropertiesProperty{
 //   				object: jsii.String("object"),
+//   			},
+//   			customConnector: &customConnectorSourcePropertiesProperty{
+//   				entityName: jsii.String("entityName"),
+//
+//   				// the properties below are optional
+//   				customProperties: customProperties,
 //   			},
 //   			datadog: &datadogSourcePropertiesProperty{
 //   				object: jsii.String("object"),
@@ -4787,6 +5363,7 @@ type CfnFlow_ZendeskSourcePropertiesProperty struct {
 //   		},
 //
 //   		// the properties below are optional
+//   		apiVersion: jsii.String("apiVersion"),
 //   		connectorProfileName: jsii.String("connectorProfileName"),
 //   		incrementalPullConfig: &incrementalPullConfigProperty{
 //   			datetimeTypeFieldName: jsii.String("datetimeTypeFieldName"),
@@ -4802,6 +5379,7 @@ type CfnFlow_ZendeskSourcePropertiesProperty struct {
 //   			// the properties below are optional
 //   			connectorOperator: &connectorOperatorProperty{
 //   				amplitude: jsii.String("amplitude"),
+//   				customConnector: jsii.String("customConnector"),
 //   				datadog: jsii.String("datadog"),
 //   				dynatrace: jsii.String("dynatrace"),
 //   				googleAnalytics: jsii.String("googleAnalytics"),
@@ -4835,6 +5413,7 @@ type CfnFlow_ZendeskSourcePropertiesProperty struct {
 //
 //   			// the properties below are optional
 //   			dataPullMode: jsii.String("dataPullMode"),
+//   			flowErrorDeactivationThreshold: jsii.Number(123),
 //   			scheduleEndTime: jsii.Number(123),
 //   			scheduleOffset: jsii.Number(123),
 //   			scheduleStartTime: jsii.Number(123),

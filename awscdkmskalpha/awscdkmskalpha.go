@@ -18,25 +18,19 @@ import (
 // Configuration details related to broker logs.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import msk_alpha "github.com/aws/aws-cdk-go/awscdkmskalpha"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc vpc
+//   var bucket iBucket
 //
-//   var bucket bucket
-//   var logGroup logGroup
-//
-//   brokerLogging := &brokerLogging{
-//   	cloudwatchLogGroup: logGroup,
-//   	firehoseDeliveryStreamName: jsii.String("firehoseDeliveryStreamName"),
-//   	s3: &s3LoggingConfiguration{
-//   		bucket: bucket,
-//
-//   		// the properties below are optional
-//   		prefix: jsii.String("prefix"),
+//   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
+//   	clusterName: jsii.String("myCluster"),
+//   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
+//   	vpc: vpc,
+//   	logging: &brokerLogging{
+//   		s3: &s3LoggingConfiguration{
+//   			bucket: bucket,
+//   		},
 //   	},
-//   }
+//   })
 //
 // Experimental.
 type BrokerLogging struct {
@@ -1110,19 +1104,19 @@ type MonitoringConfiguration struct {
 // Details of the Amazon S3 destination for broker logs.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import msk_alpha "github.com/aws/aws-cdk-go/awscdkmskalpha"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc vpc
+//   var bucket iBucket
 //
-//   var bucket bucket
-//
-//   s3LoggingConfiguration := &s3LoggingConfiguration{
-//   	bucket: bucket,
-//
-//   	// the properties below are optional
-//   	prefix: jsii.String("prefix"),
-//   }
+//   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
+//   	clusterName: jsii.String("myCluster"),
+//   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
+//   	vpc: vpc,
+//   	logging: &brokerLogging{
+//   		s3: &s3LoggingConfiguration{
+//   			bucket: bucket,
+//   		},
+//   	},
+//   })
 //
 // Experimental.
 type S3LoggingConfiguration struct {

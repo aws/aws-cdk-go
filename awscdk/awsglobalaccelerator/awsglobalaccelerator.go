@@ -408,6 +408,7 @@ type CfnAccelerator interface {
 	AttrAcceleratorArn() *string
 	// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
 	AttrDnsName() *string
+	AttrIpv4Addresses() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -602,6 +603,16 @@ func (j *jsiiProxy_CfnAccelerator) AttrDnsName() *string {
 	_jsii_.Get(
 		j,
 		"attrDnsName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccelerator) AttrIpv4Addresses() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrIpv4Addresses",
 		&returns,
 	)
 	return returns

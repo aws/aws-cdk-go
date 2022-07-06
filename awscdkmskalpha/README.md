@@ -146,3 +146,40 @@ cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
 	}),
 })
 ```
+
+## Logging
+
+You can deliver Apache Kafka broker logs to one or more of the following destination types:
+Amazon CloudWatch Logs, Amazon S3, Amazon Kinesis Data Firehose.
+
+To configure logs to be sent to an S3 bucket, provide a bucket in the `logging` config.
+
+```go
+var vpc vpc
+var bucket iBucket
+
+cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
+	clusterName: jsii.String("myCluster"),
+	kafkaVersion: msk.kafkaVersion_V2_8_1(),
+	vpc: vpc,
+	logging: &brokerLogging{
+		s3: &s3LoggingConfiguration{
+			bucket: bucket,
+		},
+	},
+})
+```
+
+When the S3 destination is configured, AWS will automatically create an S3 bucket policy
+that allows the service to write logs to the bucket. This makes it impossible to later update
+that bucket policy. To have CDK create the bucket policy so that future updates can be made,
+the `@aws-cdk/aws-s3:createDefaultLoggingPolicy` [feature flag](https://docs.aws.amazon.com/cdk/v2/guide/featureflags.html) can be used. This can be set
+in the `cdk.json` file.
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-s3:createDefaultLoggingPolicy": true
+  }
+}
+```

@@ -236,6 +236,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "columnLevelPermissionRules", GoGetter: "ColumnLevelPermissionRules"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "dataSetId", GoGetter: "DataSetId"},
+			_jsii_.MemberProperty{JsiiProperty: "dataSetUsageConfiguration", GoGetter: "DataSetUsageConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "fieldFolders", GoGetter: "FieldFolders"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -297,6 +298,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.CustomSqlProperty",
 		reflect.TypeOf((*CfnDataSet_CustomSqlProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetUsageConfigurationProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetUsageConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.FieldFolderProperty",

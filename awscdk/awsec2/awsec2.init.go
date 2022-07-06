@@ -193,6 +193,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAvailabilityZone", GoGetter: "AttrAvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAvailableInstanceCount", GoGetter: "AttrAvailableInstanceCount"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrInstanceType", GoGetter: "AttrInstanceType"},
 			_jsii_.MemberProperty{JsiiProperty: "attrTenancy", GoGetter: "AttrTenancy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrTotalInstanceCount", GoGetter: "AttrTotalInstanceCount"},
@@ -575,6 +576,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCustomerGatewayId", GoGetter: "AttrCustomerGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "bgpAsn", GoGetter: "BgpAsn"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -810,6 +812,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceId", GoGetter: "InstanceId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "networkBorderGroup", GoGetter: "NetworkBorderGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "publicIpv4Pool", GoGetter: "PublicIpv4Pool"},
@@ -4426,6 +4429,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "amazonSideAsn", GoGetter: "AmazonSideAsn"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpnGatewayId", GoGetter: "AttrVpnGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -4791,6 +4795,10 @@ func init() {
 			"DEFAULT": DefaultInstanceTenancy_DEFAULT,
 			"DEDICATED": DefaultInstanceTenancy_DEDICATED,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.DestinationOptions",
+		reflect.TypeOf((*DestinationOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.EbsDeviceOptions",
@@ -5688,6 +5696,8 @@ func init() {
 			"R5": InstanceClass_R5,
 			"MEMORY6_INTEL": InstanceClass_MEMORY6_INTEL,
 			"R6I": InstanceClass_R6I,
+			"MEMORY6_INTEL_NVME_DRIVE": InstanceClass_MEMORY6_INTEL_NVME_DRIVE,
+			"R6ID": InstanceClass_R6ID,
 			"MEMORY5_HIGH_PERFORMANCE": InstanceClass_MEMORY5_HIGH_PERFORMANCE,
 			"R5N": InstanceClass_R5N,
 			"MEMORY5_NVME_DRIVE": InstanceClass_MEMORY5_NVME_DRIVE,
@@ -5697,6 +5707,8 @@ func init() {
 			"MEMORY5_AMD": InstanceClass_MEMORY5_AMD,
 			"R5A": InstanceClass_R5A,
 			"MEMORY5_AMD_NVME_DRIVE": InstanceClass_MEMORY5_AMD_NVME_DRIVE,
+			"HIGH_MEMORY_3TB_1": InstanceClass_HIGH_MEMORY_3TB_1,
+			"U_3TB1": InstanceClass_U_3TB1,
 			"HIGH_MEMORY_6TB_1": InstanceClass_HIGH_MEMORY_6TB_1,
 			"U_6TB1": InstanceClass_U_6TB1,
 			"HIGH_MEMORY_9TB_1": InstanceClass_HIGH_MEMORY_9TB_1,
@@ -5730,6 +5742,8 @@ func init() {
 			"C5N": InstanceClass_C5N,
 			"COMPUTE6_INTEL": InstanceClass_COMPUTE6_INTEL,
 			"C6I": InstanceClass_C6I,
+			"COMPUTE6_INTEL_NVME_DRIVE": InstanceClass_COMPUTE6_INTEL_NVME_DRIVE,
+			"C6ID": InstanceClass_C6ID,
 			"COMPUTE6_AMD": InstanceClass_COMPUTE6_AMD,
 			"C6A": InstanceClass_C6A,
 			"COMPUTE6_GRAVITON2": InstanceClass_COMPUTE6_GRAVITON2,
@@ -5783,6 +5797,8 @@ func init() {
 			"X2IEZN": InstanceClass_X2IEZN,
 			"FPGA1": InstanceClass_FPGA1,
 			"F1": InstanceClass_F1,
+			"GRAPHICS3_SMALL": InstanceClass_GRAPHICS3_SMALL,
+			"G3S": InstanceClass_G3S,
 			"GRAPHICS3": InstanceClass_GRAPHICS3,
 			"G3": InstanceClass_G3,
 			"GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE": InstanceClass_GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE,
@@ -5797,6 +5813,8 @@ func init() {
 			"P2": InstanceClass_P2,
 			"PARALLEL3": InstanceClass_PARALLEL3,
 			"P3": InstanceClass_P3,
+			"PARALLEL3_NVME_DRIVE_HIGH_PERFORMANCE": InstanceClass_PARALLEL3_NVME_DRIVE_HIGH_PERFORMANCE,
+			"P3DN": InstanceClass_P3DN,
 			"PARALLEL4": InstanceClass_PARALLEL4,
 			"P4D": InstanceClass_P4D,
 			"ARM1": InstanceClass_ARM1,
@@ -5805,6 +5823,8 @@ func init() {
 			"M6G": InstanceClass_M6G,
 			"STANDARD6_INTEL": InstanceClass_STANDARD6_INTEL,
 			"M6I": InstanceClass_M6I,
+			"STANDARD6_INTEL_NVME_DRIVE": InstanceClass_STANDARD6_INTEL_NVME_DRIVE,
+			"M6ID": InstanceClass_M6ID,
 			"STANDARD6_AMD": InstanceClass_STANDARD6_AMD,
 			"M6A": InstanceClass_M6A,
 			"STANDARD6_GRAVITON2_NVME_DRIVE": InstanceClass_STANDARD6_GRAVITON2_NVME_DRIVE,
@@ -5819,6 +5839,8 @@ func init() {
 			"VT1": InstanceClass_VT1,
 			"HIGH_PERFORMANCE_COMPUTING6_AMD": InstanceClass_HIGH_PERFORMANCE_COMPUTING6_AMD,
 			"HPC6A": InstanceClass_HPC6A,
+			"DEEP_LEARNING1": InstanceClass_DEEP_LEARNING1,
+			"DL1": InstanceClass_DL1,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -6514,6 +6536,10 @@ func init() {
 			"VPC_PEERING_CONNECTION": RouterType_VPC_PEERING_CONNECTION,
 			"VPC_ENDPOINT": RouterType_VPC_ENDPOINT,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.S3DestinationOptions",
+		reflect.TypeOf((*S3DestinationOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.S3DownloadOptions",

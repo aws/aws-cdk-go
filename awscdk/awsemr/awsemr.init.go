@@ -22,6 +22,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrMasterPublicDns", GoGetter: "AttrMasterPublicDns"},
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingRole", GoGetter: "AutoScalingRole"},
+			_jsii_.MemberProperty{JsiiProperty: "autoTerminationPolicy", GoGetter: "AutoTerminationPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "bootstrapActions", GoGetter: "BootstrapActions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -73,6 +74,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.AutoScalingPolicyProperty",
 		reflect.TypeOf((*CfnCluster_AutoScalingPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnCluster.AutoTerminationPolicyProperty",
+		reflect.TypeOf((*CfnCluster_AutoTerminationPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.BootstrapActionConfigProperty",

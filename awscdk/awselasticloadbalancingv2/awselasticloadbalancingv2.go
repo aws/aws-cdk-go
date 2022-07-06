@@ -3888,7 +3888,6 @@ type BaseTargetGroupProps struct {
 //   			authenticateOidcConfig: &authenticateOidcConfigProperty{
 //   				authorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   				clientId: jsii.String("clientId"),
-//   				clientSecret: jsii.String("clientSecret"),
 //   				issuer: jsii.String("issuer"),
 //   				tokenEndpoint: jsii.String("tokenEndpoint"),
 //   				userInfoEndpoint: jsii.String("userInfoEndpoint"),
@@ -3897,10 +3896,12 @@ type BaseTargetGroupProps struct {
 //   				authenticationRequestExtraParams: map[string]*string{
 //   					"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
 //   				},
+//   				clientSecret: jsii.String("clientSecret"),
 //   				onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
 //   				scope: jsii.String("scope"),
 //   				sessionCookieName: jsii.String("sessionCookieName"),
 //   				sessionTimeout: jsii.String("sessionTimeout"),
+//   				useExistingClientSecret: jsii.Boolean(false),
 //   			},
 //   			fixedResponseConfig: &fixedResponseConfigProperty{
 //   				statusCode: jsii.String("statusCode"),
@@ -4646,7 +4647,6 @@ func (c *jsiiProxy_CfnListener) ValidateProperties(_properties interface{}) {
 //   	authenticateOidcConfig: &authenticateOidcConfigProperty{
 //   		authorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   		clientId: jsii.String("clientId"),
-//   		clientSecret: jsii.String("clientSecret"),
 //   		issuer: jsii.String("issuer"),
 //   		tokenEndpoint: jsii.String("tokenEndpoint"),
 //   		userInfoEndpoint: jsii.String("userInfoEndpoint"),
@@ -4655,10 +4655,12 @@ func (c *jsiiProxy_CfnListener) ValidateProperties(_properties interface{}) {
 //   		authenticationRequestExtraParams: map[string]*string{
 //   			"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
 //   		},
+//   		clientSecret: jsii.String("clientSecret"),
 //   		onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
 //   		scope: jsii.String("scope"),
 //   		sessionCookieName: jsii.String("sessionCookieName"),
 //   		sessionTimeout: jsii.String("sessionTimeout"),
+//   		useExistingClientSecret: jsii.Boolean(false),
 //   	},
 //   	fixedResponseConfig: &fixedResponseConfigProperty{
 //   		statusCode: jsii.String("statusCode"),
@@ -4787,7 +4789,6 @@ type CfnListener_AuthenticateCognitoConfigProperty struct {
 //   authenticateOidcConfigProperty := &authenticateOidcConfigProperty{
 //   	authorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   	clientId: jsii.String("clientId"),
-//   	clientSecret: jsii.String("clientSecret"),
 //   	issuer: jsii.String("issuer"),
 //   	tokenEndpoint: jsii.String("tokenEndpoint"),
 //   	userInfoEndpoint: jsii.String("userInfoEndpoint"),
@@ -4796,10 +4797,12 @@ type CfnListener_AuthenticateCognitoConfigProperty struct {
 //   	authenticationRequestExtraParams: map[string]*string{
 //   		"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
 //   	},
+//   	clientSecret: jsii.String("clientSecret"),
 //   	onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
 //   	scope: jsii.String("scope"),
 //   	sessionCookieName: jsii.String("sessionCookieName"),
 //   	sessionTimeout: jsii.String("sessionTimeout"),
+//   	useExistingClientSecret: jsii.Boolean(false),
 //   }
 //
 type CfnListener_AuthenticateOidcConfigProperty struct {
@@ -4809,8 +4812,6 @@ type CfnListener_AuthenticateOidcConfigProperty struct {
 	AuthorizationEndpoint *string `field:"required" json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
-	// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set `UseExistingClientSecret` to true.
-	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The OIDC issuer identifier of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
@@ -4825,6 +4826,8 @@ type CfnListener_AuthenticateOidcConfigProperty struct {
 	UserInfoEndpoint *string `field:"required" json:"userInfoEndpoint" yaml:"userInfoEndpoint"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	AuthenticationRequestExtraParams interface{} `field:"optional" json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
+	// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set `UseExistingClientSecret` to true.
+	ClientSecret *string `field:"optional" json:"clientSecret" yaml:"clientSecret"`
 	// The behavior if the user is not authenticated. The following are possible values:.
 	//
 	// - deny `` - Return an HTTP 401 Unauthorized error.
@@ -4843,6 +4846,8 @@ type CfnListener_AuthenticateOidcConfigProperty struct {
 	//
 	// The default is 604800 seconds (7 days).
 	SessionTimeout *string `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
+	// `CfnListener.AuthenticateOidcConfigProperty.UseExistingClientSecret`.
+	UseExistingClientSecret interface{} `field:"optional" json:"useExistingClientSecret" yaml:"useExistingClientSecret"`
 }
 
 // Specifies an SSL server certificate to use as the default certificate for a secure listener.
@@ -5644,7 +5649,6 @@ type CfnListenerCertificateProps struct {
 //   			authenticateOidcConfig: &authenticateOidcConfigProperty{
 //   				authorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   				clientId: jsii.String("clientId"),
-//   				clientSecret: jsii.String("clientSecret"),
 //   				issuer: jsii.String("issuer"),
 //   				tokenEndpoint: jsii.String("tokenEndpoint"),
 //   				userInfoEndpoint: jsii.String("userInfoEndpoint"),
@@ -5653,10 +5657,12 @@ type CfnListenerCertificateProps struct {
 //   				authenticationRequestExtraParams: map[string]*string{
 //   					"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
 //   				},
+//   				clientSecret: jsii.String("clientSecret"),
 //   				onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
 //   				scope: jsii.String("scope"),
 //   				sessionCookieName: jsii.String("sessionCookieName"),
 //   				sessionTimeout: jsii.String("sessionTimeout"),
+//   				useExistingClientSecret: jsii.Boolean(false),
 //   			},
 //   			fixedResponseConfig: &fixedResponseConfigProperty{
 //   				statusCode: jsii.String("statusCode"),
@@ -5770,7 +5776,6 @@ type CfnListenerProps struct {
 //   			authenticateOidcConfig: &authenticateOidcConfigProperty{
 //   				authorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   				clientId: jsii.String("clientId"),
-//   				clientSecret: jsii.String("clientSecret"),
 //   				issuer: jsii.String("issuer"),
 //   				tokenEndpoint: jsii.String("tokenEndpoint"),
 //   				userInfoEndpoint: jsii.String("userInfoEndpoint"),
@@ -5779,6 +5784,7 @@ type CfnListenerProps struct {
 //   				authenticationRequestExtraParams: map[string]*string{
 //   					"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
 //   				},
+//   				clientSecret: jsii.String("clientSecret"),
 //   				onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
 //   				scope: jsii.String("scope"),
 //   				sessionCookieName: jsii.String("sessionCookieName"),
@@ -6502,7 +6508,6 @@ func (c *jsiiProxy_CfnListenerRule) ValidateProperties(_properties interface{}) 
 //   	authenticateOidcConfig: &authenticateOidcConfigProperty{
 //   		authorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   		clientId: jsii.String("clientId"),
-//   		clientSecret: jsii.String("clientSecret"),
 //   		issuer: jsii.String("issuer"),
 //   		tokenEndpoint: jsii.String("tokenEndpoint"),
 //   		userInfoEndpoint: jsii.String("userInfoEndpoint"),
@@ -6511,6 +6516,7 @@ func (c *jsiiProxy_CfnListenerRule) ValidateProperties(_properties interface{}) 
 //   		authenticationRequestExtraParams: map[string]*string{
 //   			"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
 //   		},
+//   		clientSecret: jsii.String("clientSecret"),
 //   		onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
 //   		scope: jsii.String("scope"),
 //   		sessionCookieName: jsii.String("sessionCookieName"),
@@ -6644,7 +6650,6 @@ type CfnListenerRule_AuthenticateCognitoConfigProperty struct {
 //   authenticateOidcConfigProperty := &authenticateOidcConfigProperty{
 //   	authorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   	clientId: jsii.String("clientId"),
-//   	clientSecret: jsii.String("clientSecret"),
 //   	issuer: jsii.String("issuer"),
 //   	tokenEndpoint: jsii.String("tokenEndpoint"),
 //   	userInfoEndpoint: jsii.String("userInfoEndpoint"),
@@ -6653,6 +6658,7 @@ type CfnListenerRule_AuthenticateCognitoConfigProperty struct {
 //   	authenticationRequestExtraParams: map[string]*string{
 //   		"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
 //   	},
+//   	clientSecret: jsii.String("clientSecret"),
 //   	onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
 //   	scope: jsii.String("scope"),
 //   	sessionCookieName: jsii.String("sessionCookieName"),
@@ -6667,8 +6673,6 @@ type CfnListenerRule_AuthenticateOidcConfigProperty struct {
 	AuthorizationEndpoint *string `field:"required" json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
-	// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set `UseExistingClientSecret` to true.
-	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The OIDC issuer identifier of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
@@ -6683,6 +6687,8 @@ type CfnListenerRule_AuthenticateOidcConfigProperty struct {
 	UserInfoEndpoint *string `field:"required" json:"userInfoEndpoint" yaml:"userInfoEndpoint"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	AuthenticationRequestExtraParams interface{} `field:"optional" json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
+	// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set `UseExistingClientSecret` to true.
+	ClientSecret *string `field:"optional" json:"clientSecret" yaml:"clientSecret"`
 	// The behavior if the user is not authenticated. The following are possible values:.
 	//
 	// - deny `` - Return an HTTP 401 Unauthorized error.
@@ -7163,7 +7169,6 @@ type CfnListenerRule_TargetGroupTupleProperty struct {
 //   			authenticateOidcConfig: &authenticateOidcConfigProperty{
 //   				authorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   				clientId: jsii.String("clientId"),
-//   				clientSecret: jsii.String("clientSecret"),
 //   				issuer: jsii.String("issuer"),
 //   				tokenEndpoint: jsii.String("tokenEndpoint"),
 //   				userInfoEndpoint: jsii.String("userInfoEndpoint"),
@@ -7172,6 +7177,7 @@ type CfnListenerRule_TargetGroupTupleProperty struct {
 //   				authenticationRequestExtraParams: map[string]*string{
 //   					"authenticationRequestExtraParamsKey": jsii.String("authenticationRequestExtraParams"),
 //   				},
+//   				clientSecret: jsii.String("clientSecret"),
 //   				onUnauthenticatedRequest: jsii.String("onUnauthenticatedRequest"),
 //   				scope: jsii.String("scope"),
 //   				sessionCookieName: jsii.String("sessionCookieName"),
@@ -12641,6 +12647,7 @@ func (n *jsiiProxy_NetworkTargetGroup) ValidateTargetGroup() *[]*string {
 //   	port: jsii.Number(123),
 //
 //   	// the properties below are optional
+//   	connectionTermination: jsii.Boolean(false),
 //   	deregistrationDelay: cdk.duration.minutes(jsii.Number(30)),
 //   	healthCheck: &healthCheck{
 //   		enabled: jsii.Boolean(false),
@@ -12692,6 +12699,8 @@ type NetworkTargetGroupProps struct {
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// The port on which the listener listens for requests.
 	Port *float64 `field:"required" json:"port" yaml:"port"`
+	// Indicates whether the load balancer terminates connections at the end of the deregistration timeout.
+	ConnectionTermination *bool `field:"optional" json:"connectionTermination" yaml:"connectionTermination"`
 	// Indicates whether client IP preservation is enabled.
 	PreserveClientIp *bool `field:"optional" json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Protocol for target group, expects TCP, TLS, UDP, or TCP_UDP.

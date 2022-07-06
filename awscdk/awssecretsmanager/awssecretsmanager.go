@@ -4404,14 +4404,16 @@ type RotationScheduleProps struct {
 // Creates a new secret in AWS SecretsManager.
 //
 // Example:
-//   var role role
+//   dbSecret := secretsmanager.NewSecret(this, jsii.String("secret"))
 //
-//   key := kms.NewKey(this, jsii.String("KMS"))
-//   secret := secretsmanager.NewSecret(this, jsii.String("Secret"), &secretProps{
-//   	encryptionKey: key,
+//   batch.NewJobDefinition(this, jsii.String("batch-job-def-secrets"), &jobDefinitionProps{
+//   	container: &jobDefinitionContainer{
+//   		image: ecs.ecrImage.fromRegistry(jsii.String("docker/whalesay")),
+//   		secrets: map[string]secret{
+//   			"PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
+//   		},
+//   	},
 //   })
-//   secret.grantRead(role)
-//   secret.grantWrite(role)
 //
 type Secret interface {
 	awscdk.Resource

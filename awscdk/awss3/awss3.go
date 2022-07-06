@@ -317,6 +317,18 @@ type Bucket interface {
 	//
 	// arnForObjects(`home/${team}/${user}/*`).
 	ArnForObjects(keyPattern *string) *string
+	// Enables event bridge notification, causing all events below to be sent to EventBridge:.
+	//
+	// - Object Deleted (DeleteObject)
+	// - Object Deleted (Lifecycle expiration)
+	// - Object Restore Initiated
+	// - Object Restore Completed
+	// - Object Restore Expired
+	// - Object Storage Class Changed
+	// - Object Access Tier Changed
+	// - Object ACL Updated
+	// - Object Tags Added
+	// - Object Tags Deleted.
 	EnableEventBridgeNotification()
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
@@ -1402,6 +1414,18 @@ type BucketBase interface {
 	//
 	// arnForObjects(`home/${team}/${user}/*`).
 	ArnForObjects(keyPattern *string) *string
+	// Enables event bridge notification, causing all events below to be sent to EventBridge:.
+	//
+	// - Object Deleted (DeleteObject)
+	// - Object Deleted (Lifecycle expiration)
+	// - Object Restore Initiated
+	// - Object Restore Completed
+	// - Object Restore Expired
+	// - Object Storage Class Changed
+	// - Object Access Tier Changed
+	// - Object ACL Updated
+	// - Object Tags Added
+	// - Object Tags Deleted.
 	EnableEventBridgeNotification()
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
@@ -7217,6 +7241,9 @@ type CfnBucketProps struct {
 //   	regions: []interface{}{
 //   		&regionProperty{
 //   			bucket: jsii.String("bucket"),
+//
+//   			// the properties below are optional
+//   			accountId: jsii.String("accountId"),
 //   		},
 //   	},
 //
@@ -7873,11 +7900,16 @@ type CfnMultiRegionAccessPoint_PublicAccessBlockConfigurationProperty struct {
 //
 //   regionProperty := &regionProperty{
 //   	bucket: jsii.String("bucket"),
+//
+//   	// the properties below are optional
+//   	accountId: jsii.String("accountId"),
 //   }
 //
 type CfnMultiRegionAccessPoint_RegionProperty struct {
 	// The name of the associated bucket for the Region.
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
+	// `CfnMultiRegionAccessPoint.RegionProperty.AccountId`.
+	AccountId *string `field:"optional" json:"accountId" yaml:"accountId"`
 }
 
 // A CloudFormation `AWS::S3::MultiRegionAccessPointPolicy`.
@@ -8468,6 +8500,9 @@ type CfnMultiRegionAccessPointPolicyProps struct {
 //   	regions: []interface{}{
 //   		&regionProperty{
 //   			bucket: jsii.String("bucket"),
+//
+//   			// the properties below are optional
+//   			accountId: jsii.String("accountId"),
 //   		},
 //   	},
 //
@@ -9828,6 +9863,19 @@ type IBucket interface {
 	//
 	// To represent all keys, specify ``"*"``.
 	ArnForObjects(keyPattern *string) *string
+	// Enables event bridge notification, causing all events below to be sent to EventBridge:.
+	//
+	// - Object Deleted (DeleteObject)
+	// - Object Deleted (Lifecycle expiration)
+	// - Object Restore Initiated
+	// - Object Restore Completed
+	// - Object Restore Expired
+	// - Object Storage Class Changed
+	// - Object Access Tier Changed
+	// - Object ACL Updated
+	// - Object Tags Added
+	// - Object Tags Deleted.
+	EnableEventBridgeNotification()
 	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 	GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Allows unrestricted access to objects from this bucket.
@@ -10046,6 +10094,14 @@ func (i *jsiiProxy_IBucket) ArnForObjects(keyPattern *string) *string {
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_IBucket) EnableEventBridgeNotification() {
+	_jsii_.InvokeVoid(
+		i,
+		"enableEventBridgeNotification",
+		nil, // no parameters
+	)
 }
 
 func (i *jsiiProxy_IBucket) GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {

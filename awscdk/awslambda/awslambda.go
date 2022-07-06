@@ -9057,6 +9057,7 @@ type CfnPermissionProps struct {
 //   		},
 //   		maxAge: jsii.Number(123),
 //   	},
+//   	invokeMode: jsii.String("invokeMode"),
 //   	qualifier: jsii.String("qualifier"),
 //   })
 //
@@ -9084,6 +9085,9 @@ type CfnUrl interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// `AWS::Lambda::Url.InvokeMode`.
+	InvokeMode() *string
+	SetInvokeMode(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -9318,6 +9322,16 @@ func (j *jsiiProxy_CfnUrl) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUrl) InvokeMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"invokeMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUrl) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -9427,6 +9441,14 @@ func (j *jsiiProxy_CfnUrl) SetCors(val interface{}) {
 	_jsii_.Set(
 		j,
 		"cors",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUrl) SetInvokeMode(val *string) {
+	_jsii_.Set(
+		j,
+		"invokeMode",
 		val,
 	)
 }
@@ -9753,6 +9775,7 @@ type CfnUrl_CorsProperty struct {
 //   		},
 //   		maxAge: jsii.Number(123),
 //   	},
+//   	invokeMode: jsii.String("invokeMode"),
 //   	qualifier: jsii.String("qualifier"),
 //   }
 //
@@ -9771,6 +9794,8 @@ type CfnUrlProps struct {
 	TargetFunctionArn *string `field:"required" json:"targetFunctionArn" yaml:"targetFunctionArn"`
 	// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
 	Cors interface{} `field:"optional" json:"cors" yaml:"cors"`
+	// `AWS::Lambda::Url.InvokeMode`.
+	InvokeMode *string `field:"optional" json:"invokeMode" yaml:"invokeMode"`
 	// The alias name.
 	Qualifier *string `field:"optional" json:"qualifier" yaml:"qualifier"`
 }

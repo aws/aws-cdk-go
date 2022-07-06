@@ -429,6 +429,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationConfiguration", GoGetter: "ApplicationConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationDescription", GoGetter: "ApplicationDescription"},
+			_jsii_.MemberProperty{JsiiProperty: "applicationMaintenanceConfiguration", GoGetter: "ApplicationMaintenanceConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationMode", GoGetter: "ApplicationMode"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationName", GoGetter: "ApplicationName"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -444,6 +445,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "runConfiguration", GoGetter: "RunConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "runtimeEnvironment", GoGetter: "RuntimeEnvironment"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceExecutionRole", GoGetter: "ServiceExecutionRole"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
@@ -467,6 +469,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.ApplicationConfigurationProperty",
 		reflect.TypeOf((*CfnApplicationV2_ApplicationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.ApplicationMaintenanceConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationV2_ApplicationMaintenanceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.ApplicationRestoreConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationV2_ApplicationRestoreConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.ApplicationSnapshotConfigurationProperty",
@@ -503,6 +513,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.FlinkApplicationConfigurationProperty",
 		reflect.TypeOf((*CfnApplicationV2_FlinkApplicationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.FlinkRunConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationV2_FlinkRunConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.GlueDataCatalogConfigurationProperty",
@@ -569,6 +583,10 @@ func init() {
 		reflect.TypeOf((*CfnApplicationV2_RecordFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.RunConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationV2_RunConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.S3ContentBaseLocationProperty",
 		reflect.TypeOf((*CfnApplicationV2_S3ContentBaseLocationProperty)(nil)).Elem(),
 	)
@@ -579,6 +597,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.SqlApplicationConfigurationProperty",
 		reflect.TypeOf((*CfnApplicationV2_SqlApplicationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.VpcConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationV2_VpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2.ZeppelinApplicationConfigurationProperty",

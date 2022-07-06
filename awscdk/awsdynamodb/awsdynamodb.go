@@ -4930,6 +4930,7 @@ func (t *jsiiProxy_Table) ToString() *string {
 //   	globalIndexes: []*string{
 //   		jsii.String("globalIndexes"),
 //   	},
+//   	grantIndexPermissions: jsii.Boolean(false),
 //   	localIndexes: []*string{
 //   		jsii.String("localIndexes"),
 //   	},
@@ -4948,6 +4949,11 @@ type TableAttributes struct {
 	// if you want methods like grantReadData()
 	// to grant permissions for indexes as well as the table itself.
 	GlobalIndexes *[]*string `field:"optional" json:"globalIndexes" yaml:"globalIndexes"`
+	// If set to true, grant methods always grant permissions for all indexes.
+	//
+	// If false is provided, grant methods grant the permissions
+	// only when {@link globalIndexes} or {@link localIndexes} is specified.
+	GrantIndexPermissions *bool `field:"optional" json:"grantIndexPermissions" yaml:"grantIndexPermissions"`
 	// The name of the local indexes set for this Table.
 	//
 	// Note that you need to set either this property,

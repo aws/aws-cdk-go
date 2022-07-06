@@ -1103,7 +1103,6 @@ type CfnAggregationAuthorizationProps struct {
 //   cfnConfigRule := awscdk.Aws_config.NewCfnConfigRule(this, jsii.String("MyCfnConfigRule"), &cfnConfigRuleProps{
 //   	source: &sourceProperty{
 //   		owner: jsii.String("owner"),
-//   		sourceIdentifier: jsii.String("sourceIdentifier"),
 //
 //   		// the properties below are optional
 //   		sourceDetails: []interface{}{
@@ -1115,6 +1114,7 @@ type CfnAggregationAuthorizationProps struct {
 //   				maximumExecutionFrequency: jsii.String("maximumExecutionFrequency"),
 //   			},
 //   		},
+//   		sourceIdentifier: jsii.String("sourceIdentifier"),
 //   	},
 //
 //   	// the properties below are optional
@@ -1888,7 +1888,6 @@ type CfnConfigRule_SourceDetailProperty struct {
 //
 //   sourceProperty := &sourceProperty{
 //   	owner: jsii.String("owner"),
-//   	sourceIdentifier: jsii.String("sourceIdentifier"),
 //
 //   	// the properties below are optional
 //   	sourceDetails: []interface{}{
@@ -1900,6 +1899,7 @@ type CfnConfigRule_SourceDetailProperty struct {
 //   			maximumExecutionFrequency: jsii.String("maximumExecutionFrequency"),
 //   		},
 //   	},
+//   	sourceIdentifier: jsii.String("sourceIdentifier"),
 //   }
 //
 type CfnConfigRule_SourceProperty struct {
@@ -1909,6 +1909,12 @@ type CfnConfigRule_SourceProperty struct {
 	//
 	// AWS Config Custom Rules are rules that you can develop either with Guard ( `CUSTOM_POLICY` ) or AWS Lambda ( `CUSTOM_LAMBDA` ). For more information, see [AWS Config Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the AWS Config developer guide.
 	Owner *string `field:"required" json:"owner" yaml:"owner"`
+	// Provides the source and the message types that cause AWS Config to evaluate your AWS resources against a rule.
+	//
+	// It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
+	//
+	// If the owner is set to `CUSTOM_POLICY` , the only acceptable values for the AWS Config rule trigger message type are `ConfigurationItemChangeNotification` and `OversizedConfigurationItemChangeNotification` .
+	SourceDetails interface{} `field:"optional" json:"sourceDetails" yaml:"sourceDetails"`
 	// For AWS Config Managed rules, a predefined identifier from a list.
 	//
 	// For example, `IAM_PASSWORD_POLICY` is a managed rule. To reference a managed rule, see [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) .
@@ -1916,13 +1922,7 @@ type CfnConfigRule_SourceProperty struct {
 	// For AWS Config Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as `arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name` .
 	//
 	// For AWS Config Custom Policy rules, this field will be ignored.
-	SourceIdentifier *string `field:"required" json:"sourceIdentifier" yaml:"sourceIdentifier"`
-	// Provides the source and the message types that cause AWS Config to evaluate your AWS resources against a rule.
-	//
-	// It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
-	//
-	// If the owner is set to `CUSTOM_POLICY` , the only acceptable values for the AWS Config rule trigger message type are `ConfigurationItemChangeNotification` and `OversizedConfigurationItemChangeNotification` .
-	SourceDetails interface{} `field:"optional" json:"sourceDetails" yaml:"sourceDetails"`
+	SourceIdentifier *string `field:"optional" json:"sourceIdentifier" yaml:"sourceIdentifier"`
 }
 
 // Properties for defining a `CfnConfigRule`.
@@ -1937,7 +1937,6 @@ type CfnConfigRule_SourceProperty struct {
 //   cfnConfigRuleProps := &cfnConfigRuleProps{
 //   	source: &sourceProperty{
 //   		owner: jsii.String("owner"),
-//   		sourceIdentifier: jsii.String("sourceIdentifier"),
 //
 //   		// the properties below are optional
 //   		sourceDetails: []interface{}{
@@ -1949,6 +1948,7 @@ type CfnConfigRule_SourceProperty struct {
 //   				maximumExecutionFrequency: jsii.String("maximumExecutionFrequency"),
 //   			},
 //   		},
+//   		sourceIdentifier: jsii.String("sourceIdentifier"),
 //   	},
 //
 //   	// the properties below are optional

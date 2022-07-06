@@ -107,6 +107,7 @@ type CapacityConfig struct {
 //   		"advancedOptionsKey": jsii.String("advancedOptions"),
 //   	},
 //   	advancedSecurityOptions: &advancedSecurityOptionsInputProperty{
+//   		anonymousAuthEnabled: jsii.Boolean(false),
 //   		enabled: jsii.Boolean(false),
 //   		internalUserDatabaseEnabled: jsii.Boolean(false),
 //   		masterUserOptions: &masterUserOptionsProperty{
@@ -1045,6 +1046,7 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   advancedSecurityOptionsInputProperty := &advancedSecurityOptionsInputProperty{
+//   	anonymousAuthEnabled: jsii.Boolean(false),
 //   	enabled: jsii.Boolean(false),
 //   	internalUserDatabaseEnabled: jsii.Boolean(false),
 //   	masterUserOptions: &masterUserOptionsProperty{
@@ -1055,6 +1057,8 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 //   }
 //
 type CfnDomain_AdvancedSecurityOptionsInputProperty struct {
+	// `CfnDomain.AdvancedSecurityOptionsInputProperty.AnonymousAuthEnabled`.
+	AnonymousAuthEnabled interface{} `field:"optional" json:"anonymousAuthEnabled" yaml:"anonymousAuthEnabled"`
 	// True to enable fine-grained access control.
 	//
 	// You must also enable encryption of data at rest and node-to-node encryption.
@@ -1448,6 +1452,7 @@ type CfnDomain_ZoneAwarenessConfigProperty struct {
 //   		"advancedOptionsKey": jsii.String("advancedOptions"),
 //   	},
 //   	advancedSecurityOptions: &advancedSecurityOptionsInputProperty{
+//   		anonymousAuthEnabled: jsii.Boolean(false),
 //   		enabled: jsii.Boolean(false),
 //   		internalUserDatabaseEnabled: jsii.Boolean(false),
 //   		masterUserOptions: &masterUserOptionsProperty{

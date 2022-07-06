@@ -483,6 +483,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "storageConnectors", GoGetter: "StorageConnectors"},
+			_jsii_.MemberProperty{JsiiProperty: "streamingExperienceSettings", GoGetter: "StreamingExperienceSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
@@ -507,6 +508,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appstream.CfnStack.StorageConnectorProperty",
 		reflect.TypeOf((*CfnStack_StorageConnectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appstream.CfnStack.StreamingExperienceSettingsProperty",
+		reflect.TypeOf((*CfnStack_StreamingExperienceSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appstream.CfnStack.UserSettingProperty",

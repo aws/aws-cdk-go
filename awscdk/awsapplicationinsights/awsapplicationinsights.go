@@ -226,6 +226,7 @@ import (
 //   		},
 //   	},
 //   	cweMonitorEnabled: jsii.Boolean(false),
+//   	groupingType: jsii.String("groupingType"),
 //   	logPatternSets: []interface{}{
 //   		&logPatternSetProperty{
 //   			logPatterns: []interface{}{
@@ -274,6 +275,9 @@ type CfnApplication interface {
 	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as `instance terminated` , `failed deployment` , and others.
 	CweMonitorEnabled() interface{}
 	SetCweMonitorEnabled(val interface{})
+	// `AWS::ApplicationInsights::Application.GroupingType`.
+	GroupingType() *string
+	SetGroupingType(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -520,6 +524,16 @@ func (j *jsiiProxy_CfnApplication) CweMonitorEnabled() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) GroupingType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"groupingType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -675,6 +689,14 @@ func (j *jsiiProxy_CfnApplication) SetCweMonitorEnabled(val interface{}) {
 	_jsii_.Set(
 		j,
 		"cweMonitorEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication) SetGroupingType(val *string) {
+	_jsii_.Set(
+		j,
+		"groupingType",
 		val,
 	)
 }
@@ -1942,6 +1964,7 @@ type CfnApplication_WindowsEventProperty struct {
 //   		},
 //   	},
 //   	cweMonitorEnabled: jsii.Boolean(false),
+//   	groupingType: jsii.String("groupingType"),
 //   	logPatternSets: []interface{}{
 //   		&logPatternSetProperty{
 //   			logPatterns: []interface{}{
@@ -1975,6 +1998,8 @@ type CfnApplicationProps struct {
 	CustomComponents interface{} `field:"optional" json:"customComponents" yaml:"customComponents"`
 	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as `instance terminated` , `failed deployment` , and others.
 	CweMonitorEnabled interface{} `field:"optional" json:"cweMonitorEnabled" yaml:"cweMonitorEnabled"`
+	// `AWS::ApplicationInsights::Application.GroupingType`.
+	GroupingType *string `field:"optional" json:"groupingType" yaml:"groupingType"`
 	// The log pattern sets.
 	LogPatternSets interface{} `field:"optional" json:"logPatternSets" yaml:"logPatternSets"`
 	// Indicates whether Application Insights will create OpsItems for any problem that is detected by Application Insights for an application.

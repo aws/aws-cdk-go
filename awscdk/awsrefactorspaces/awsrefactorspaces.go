@@ -1493,6 +1493,9 @@ type CfnEnvironmentProps struct {
 //   	serviceIdentifier: jsii.String("serviceIdentifier"),
 //
 //   	// the properties below are optional
+//   	defaultRoute: &defaultRouteInputProperty{
+//   		activationState: jsii.String("activationState"),
+//   	},
 //   	routeType: jsii.String("routeType"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -1533,6 +1536,9 @@ type CfnRoute interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// `AWS::RefactorSpaces::Route.DefaultRoute`.
+	DefaultRoute() interface{}
+	SetDefaultRoute(val interface{})
 	// The unique identifier of the environment.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
@@ -1769,6 +1775,16 @@ func (j *jsiiProxy_CfnRoute) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRoute) DefaultRoute() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"defaultRoute",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRoute) EnvironmentIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1900,6 +1916,14 @@ func (j *jsiiProxy_CfnRoute) SetApplicationIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRoute) SetDefaultRoute(val interface{}) {
+	_jsii_.Set(
+		j,
+		"defaultRoute",
 		val,
 	)
 }
@@ -2161,6 +2185,20 @@ func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   defaultRouteInputProperty := &defaultRouteInputProperty{
+//   	activationState: jsii.String("activationState"),
+//   }
+//
+type CfnRoute_DefaultRouteInputProperty struct {
+	// `CfnRoute.DefaultRouteInputProperty.ActivationState`.
+	ActivationState *string `field:"required" json:"activationState" yaml:"activationState"`
+}
+
 // The configuration for the URI path route type.
 //
 // Example:
@@ -2209,6 +2247,9 @@ type CfnRoute_UriPathRouteInputProperty struct {
 //   	serviceIdentifier: jsii.String("serviceIdentifier"),
 //
 //   	// the properties below are optional
+//   	defaultRoute: &defaultRouteInputProperty{
+//   		activationState: jsii.String("activationState"),
+//   	},
 //   	routeType: jsii.String("routeType"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -2235,6 +2276,8 @@ type CfnRouteProps struct {
 	EnvironmentIdentifier *string `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// The unique identifier of the service.
 	ServiceIdentifier *string `field:"required" json:"serviceIdentifier" yaml:"serviceIdentifier"`
+	// `AWS::RefactorSpaces::Route.DefaultRoute`.
+	DefaultRoute interface{} `field:"optional" json:"defaultRoute" yaml:"defaultRoute"`
 	// The route type of the route.
 	RouteType *string `field:"optional" json:"routeType" yaml:"routeType"`
 	// The tags assigned to the route.

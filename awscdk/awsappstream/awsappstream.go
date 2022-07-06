@@ -6621,6 +6621,9 @@ type CfnImageBuilderProps struct {
 //   			resourceIdentifier: jsii.String("resourceIdentifier"),
 //   		},
 //   	},
+//   	streamingExperienceSettings: &streamingExperienceSettingsProperty{
+//   		preferredProtocol: jsii.String("preferredProtocol"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -6709,6 +6712,9 @@ type CfnStack interface {
 	// The storage connectors to enable.
 	StorageConnectors() interface{}
 	SetStorageConnectors(val interface{})
+	// `AWS::AppStream::Stack.StreamingExperienceSettings`.
+	StreamingExperienceSettings() interface{}
+	SetStreamingExperienceSettings(val interface{})
 	// An array of key-value pairs.
 	Tags() awscdk.TagManager
 	// Return properties modified after initiation.
@@ -7027,6 +7033,16 @@ func (j *jsiiProxy_CfnStack) StorageConnectors() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStack) StreamingExperienceSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"streamingExperienceSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStack) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -7168,6 +7184,14 @@ func (j *jsiiProxy_CfnStack) SetStorageConnectors(val interface{}) {
 	_jsii_.Set(
 		j,
 		"storageConnectors",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStack) SetStreamingExperienceSettings(val interface{}) {
+	_jsii_.Set(
+		j,
+		"streamingExperienceSettings",
 		val,
 	)
 }
@@ -7471,6 +7495,20 @@ type CfnStack_StorageConnectorProperty struct {
 	Domains *[]*string `field:"optional" json:"domains" yaml:"domains"`
 	// The ARN of the storage connector.
 	ResourceIdentifier *string `field:"optional" json:"resourceIdentifier" yaml:"resourceIdentifier"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   streamingExperienceSettingsProperty := &streamingExperienceSettingsProperty{
+//   	preferredProtocol: jsii.String("preferredProtocol"),
+//   }
+//
+type CfnStack_StreamingExperienceSettingsProperty struct {
+	// `CfnStack.StreamingExperienceSettingsProperty.PreferredProtocol`.
+	PreferredProtocol *string `field:"optional" json:"preferredProtocol" yaml:"preferredProtocol"`
 }
 
 // Specifies an action and whether the action is enabled or disabled for users during their streaming sessions.
@@ -8114,6 +8152,9 @@ type CfnStackFleetAssociationProps struct {
 //   			resourceIdentifier: jsii.String("resourceIdentifier"),
 //   		},
 //   	},
+//   	streamingExperienceSettings: &streamingExperienceSettingsProperty{
+//   		preferredProtocol: jsii.String("preferredProtocol"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -8159,6 +8200,8 @@ type CfnStackProps struct {
 	RedirectUrl *string `field:"optional" json:"redirectUrl" yaml:"redirectUrl"`
 	// The storage connectors to enable.
 	StorageConnectors interface{} `field:"optional" json:"storageConnectors" yaml:"storageConnectors"`
+	// `AWS::AppStream::Stack.StreamingExperienceSettings`.
+	StreamingExperienceSettings interface{} `field:"optional" json:"streamingExperienceSettings" yaml:"streamingExperienceSettings"`
 	// An array of key-value pairs.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The actions that are enabled or disabled for users during their streaming sessions.

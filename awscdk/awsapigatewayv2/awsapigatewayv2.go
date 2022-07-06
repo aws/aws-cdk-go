@@ -9920,8 +9920,6 @@ type CfnStageProps struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var tags interface{}
-//
 //   cfnVpcLink := awscdk.Aws_apigatewayv2.NewCfnVpcLink(this, jsii.String("MyCfnVpcLink"), &cfnVpcLinkProps{
 //   	name: jsii.String("name"),
 //   	subnetIds: []*string{
@@ -9932,12 +9930,15 @@ type CfnStageProps struct {
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
-//   	tags: tags,
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   })
 //
 type CfnVpcLink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrVpcLinkId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -10100,6 +10101,16 @@ type CfnVpcLink interface {
 type jsiiProxy_CfnVpcLink struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnVpcLink) AttrVpcLinkId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcLinkId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnVpcLink) CfnOptions() awscdk.ICfnResourceOptions {
@@ -10515,8 +10526,6 @@ func (c *jsiiProxy_CfnVpcLink) ValidateProperties(_properties interface{}) {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var tags interface{}
-//
 //   cfnVpcLinkProps := &cfnVpcLinkProps{
 //   	name: jsii.String("name"),
 //   	subnetIds: []*string{
@@ -10527,7 +10536,9 @@ func (c *jsiiProxy_CfnVpcLink) ValidateProperties(_properties interface{}) {
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
-//   	tags: tags,
+//   	tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   }
 //
 type CfnVpcLinkProps struct {
@@ -10540,6 +10551,6 @@ type CfnVpcLinkProps struct {
 	// The collection of tags.
 	//
 	// Each tag element is associated with a given resource.
-	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

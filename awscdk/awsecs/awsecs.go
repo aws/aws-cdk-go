@@ -14945,14 +14945,14 @@ type Ec2TaskDefinitionProps struct {
 // An image from an Amazon ECR repository.
 //
 // Example:
-//   import ecr "github.com/aws/aws-cdk-go/awscdk"
+//   dbSecret := secretsmanager.NewSecret(this, jsii.String("secret"))
 //
-//
-//   repo := ecr.repository.fromRepositoryName(this, jsii.String("batch-job-repo"), jsii.String("todo-list"))
-//
-//   batch.NewJobDefinition(this, jsii.String("batch-job-def-from-ecr"), &jobDefinitionProps{
+//   batch.NewJobDefinition(this, jsii.String("batch-job-def-secrets"), &jobDefinitionProps{
 //   	container: &jobDefinitionContainer{
-//   		image: ecs.NewEcrImage(repo, jsii.String("latest")),
+//   		image: ecs.ecrImage.fromRegistry(jsii.String("docker/whalesay")),
+//   		secrets: map[string]secret{
+//   			"PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
+//   		},
 //   	},
 //   })
 //
@@ -23078,36 +23078,23 @@ type ScratchSpace struct {
 //
 // Example:
 //   var secret secret
-//   var dbSecret secret
 //   var parameter stringParameter
-//   var taskDefinition taskDefinition
-//   var s3Bucket bucket
 //
 //
-//   newContainer := taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOptions{
-//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	memoryLimitMiB: jsii.Number(1024),
-//   	environment: map[string]*string{
-//   		 // clear text, not for sensitive data
-//   		"STAGE": jsii.String("prod"),
-//   	},
-//   	environmentFiles: []environmentFile{
-//   		ecs.*environmentFile.fromAsset(jsii.String("./demo-env-file.env")),
-//   		ecs.*environmentFile.fromBucket(s3Bucket, jsii.String("assets/demo-env-file.env")),
-//   	},
-//   	secrets: map[string]secret{
-//   		 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store at container start-up.
-//   		"SECRET": ecs.*secret.fromSecretsManager(secret),
-//   		"DB_PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
-//   		 // Reference a specific JSON field, (requires platform version 1.4.0 or later for Fargate tasks)
-//   		"API_KEY": ecs.*secret.fromSecretsManagerVersion(secret, &SecretVersionInfo{
-//   			"versionId": jsii.String("12345"),
-//   		}, jsii.String("apiKey")),
-//   		 // Reference a specific version of the secret by its version id or version stage (requires platform version 1.4.0 or later for Fargate tasks)
-//   		"PARAMETER": ecs.*secret.fromSsmParameter(parameter),
-//   	},
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	logging: ecs.logDrivers.firelens(&fireLensLogDriverProps{
+//   		options: map[string]interface{}{
+//   		},
+//   		secretOptions: map[string]secret{
+//   			 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store
+//   			"apikey": ecs.*secret.fromSecretsManager(secret),
+//   			"host": ecs.*secret.fromSsmParameter(parameter),
+//   		},
+//   	}),
 //   })
-//   newContainer.addEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
 //
 type Secret interface {
 	// The ARN of the secret.

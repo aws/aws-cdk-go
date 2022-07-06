@@ -24,6 +24,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "connectionMode", GoGetter: "ConnectionMode"},
+			_jsii_.MemberProperty{JsiiProperty: "connectorLabel", GoGetter: "ConnectorLabel"},
 			_jsii_.MemberProperty{JsiiProperty: "connectorProfileConfig", GoGetter: "ConnectorProfileConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "connectorProfileName", GoGetter: "ConnectorProfileName"},
 			_jsii_.MemberProperty{JsiiProperty: "connectorType", GoGetter: "ConnectorType"},
@@ -55,6 +56,14 @@ func init() {
 		reflect.TypeOf((*CfnConnectorProfile_AmplitudeConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.ApiKeyCredentialsProperty",
+		reflect.TypeOf((*CfnConnectorProfile_ApiKeyCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.BasicAuthCredentialsProperty",
+		reflect.TypeOf((*CfnConnectorProfile_BasicAuthCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.ConnectorOAuthRequestProperty",
 		reflect.TypeOf((*CfnConnectorProfile_ConnectorOAuthRequestProperty)(nil)).Elem(),
 	)
@@ -69,6 +78,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.ConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_ConnectorProfilePropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.CustomAuthCredentialsProperty",
+		reflect.TypeOf((*CfnConnectorProfile_CustomAuthCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.CustomConnectorProfileCredentialsProperty",
+		reflect.TypeOf((*CfnConnectorProfile_CustomConnectorProfileCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.CustomConnectorProfilePropertiesProperty",
+		reflect.TypeOf((*CfnConnectorProfile_CustomConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.DatadogConnectorProfileCredentialsProperty",
@@ -105,6 +126,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.MarketoConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_MarketoConnectorProfilePropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.OAuth2CredentialsProperty",
+		reflect.TypeOf((*CfnConnectorProfile_OAuth2CredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.OAuth2PropertiesProperty",
+		reflect.TypeOf((*CfnConnectorProfile_OAuth2PropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appflow.CfnConnectorProfile.OAuthPropertiesProperty",
@@ -242,6 +271,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appflow.CfnFlow.ConnectorOperatorProperty",
 		reflect.TypeOf((*CfnFlow_ConnectorOperatorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnFlow.CustomConnectorDestinationPropertiesProperty",
+		reflect.TypeOf((*CfnFlow_CustomConnectorDestinationPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appflow.CfnFlow.CustomConnectorSourcePropertiesProperty",
+		reflect.TypeOf((*CfnFlow_CustomConnectorSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appflow.CfnFlow.DatadogSourcePropertiesProperty",

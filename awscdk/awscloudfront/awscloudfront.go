@@ -12558,7 +12558,10 @@ func (i *jsiiProxy_IOrigin) Bind(scope constructs.Construct, options *OriginBind
 type IOriginAccessIdentity interface {
 	awsiam.IGrantable
 	awscdk.IResource
-	// The Origin Access Identity Name.
+	// The Origin Access Identity Id (physical id) This was called originAccessIdentityName before.
+	OriginAccessIdentityId() *string
+	// The Origin Access Identity Id (physical id) It is misnamed and superseded by the correctly named originAccessIdentityId.
+	// Deprecated: use originAccessIdentityId instead.
 	OriginAccessIdentityName() *string
 }
 
@@ -12574,6 +12577,16 @@ func (i *jsiiProxy_IOriginAccessIdentity) ApplyRemovalPolicy(policy awscdk.Remov
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (j *jsiiProxy_IOriginAccessIdentity) OriginAccessIdentityId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"originAccessIdentityId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_IOriginAccessIdentity) OriginAccessIdentityName() *string {
@@ -13130,7 +13143,10 @@ type OriginAccessIdentity interface {
 	GrantPrincipal() awsiam.IPrincipal
 	// The tree node.
 	Node() constructs.Node
-	// The Origin Access Identity Name (physical id).
+	// The Origin Access Identity Id (physical id) This was called originAccessIdentityName before.
+	OriginAccessIdentityId() *string
+	// The Origin Access Identity Id (physical id) It is misnamed and superseded by the correctly named originAccessIdentityId.
+	// Deprecated: use originAccessIdentityId instead.
 	OriginAccessIdentityName() *string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
@@ -13218,6 +13234,16 @@ func (j *jsiiProxy_OriginAccessIdentity) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_OriginAccessIdentity) OriginAccessIdentityId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"originAccessIdentityId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_OriginAccessIdentity) OriginAccessIdentityName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -13273,7 +13299,26 @@ func NewOriginAccessIdentity_Override(o OriginAccessIdentity, scope constructs.C
 	)
 }
 
-// Creates a OriginAccessIdentity by providing the OriginAccessIdentityName.
+// Creates a OriginAccessIdentity by providing the OriginAccessIdentityId.
+func OriginAccessIdentity_FromOriginAccessIdentityId(scope constructs.Construct, id *string, originAccessIdentityId *string) IOriginAccessIdentity {
+	_init_.Initialize()
+
+	var returns IOriginAccessIdentity
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.OriginAccessIdentity",
+		"fromOriginAccessIdentityId",
+		[]interface{}{scope, id, originAccessIdentityId},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a OriginAccessIdentity by providing the OriginAccessIdentityId.
+//
+// It is misnamed and superseded by the correctly named fromOriginAccessIdentityId.
+// Deprecated: use `fromOriginAccessIdentityId`.
 func OriginAccessIdentity_FromOriginAccessIdentityName(scope constructs.Construct, id *string, originAccessIdentityName *string) IOriginAccessIdentity {
 	_init_.Initialize()
 

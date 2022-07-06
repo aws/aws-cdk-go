@@ -18,8 +18,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var propertyMap interface{}
-//
 //   cfnApplication := awscdk.Aws_kinesisanalyticsv2.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
 //   	runtimeEnvironment: jsii.String("runtimeEnvironment"),
 //   	serviceExecutionRole: jsii.String("serviceExecutionRole"),
@@ -31,6 +29,8 @@ import (
 //   				s3ContentLocation: &s3ContentLocationProperty{
 //   					bucketArn: jsii.String("bucketArn"),
 //   					fileKey: jsii.String("fileKey"),
+//
+//   					// the properties below are optional
 //   					objectVersion: jsii.String("objectVersion"),
 //   				},
 //   				textContent: jsii.String("textContent"),
@@ -45,7 +45,9 @@ import (
 //   			propertyGroups: []interface{}{
 //   				&propertyGroupProperty{
 //   					propertyGroupId: jsii.String("propertyGroupId"),
-//   					propertyMap: propertyMap,
+//   					propertyMap: map[string]*string{
+//   						"propertyMapKey": jsii.String("propertyMap"),
+//   					},
 //   				},
 //   			},
 //   		},
@@ -125,6 +127,16 @@ import (
 //   				},
 //   			},
 //   		},
+//   		vpcConfigurations: []interface{}{
+//   			&vpcConfigurationProperty{
+//   				securityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				subnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//   			},
+//   		},
 //   		zeppelinApplicationConfiguration: &zeppelinApplicationConfigurationProperty{
 //   			catalogConfiguration: &catalogConfigurationProperty{
 //   				glueDataCatalogConfiguration: &glueDataCatalogConfigurationProperty{
@@ -144,14 +156,18 @@ import (
 //   					s3ContentLocation: &s3ContentLocationProperty{
 //   						bucketArn: jsii.String("bucketArn"),
 //   						fileKey: jsii.String("fileKey"),
+//
+//   						// the properties below are optional
 //   						objectVersion: jsii.String("objectVersion"),
 //   					},
 //   				},
 //   			},
 //   			deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
 //   				s3ContentLocation: &s3ContentBaseLocationProperty{
-//   					basePath: jsii.String("basePath"),
 //   					bucketArn: jsii.String("bucketArn"),
+//
+//   					// the properties below are optional
+//   					basePath: jsii.String("basePath"),
 //   				},
 //   			},
 //   			monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
@@ -160,8 +176,22 @@ import (
 //   		},
 //   	},
 //   	applicationDescription: jsii.String("applicationDescription"),
+//   	applicationMaintenanceConfiguration: &applicationMaintenanceConfigurationProperty{
+//   		applicationMaintenanceWindowStartTime: jsii.String("applicationMaintenanceWindowStartTime"),
+//   	},
 //   	applicationMode: jsii.String("applicationMode"),
 //   	applicationName: jsii.String("applicationName"),
+//   	runConfiguration: &runConfigurationProperty{
+//   		applicationRestoreConfiguration: &applicationRestoreConfigurationProperty{
+//   			applicationRestoreType: jsii.String("applicationRestoreType"),
+//
+//   			// the properties below are optional
+//   			snapshotName: jsii.String("snapshotName"),
+//   		},
+//   		flinkRunConfiguration: &flinkRunConfigurationProperty{
+//   			allowNonRestoredState: jsii.Boolean(false),
+//   		},
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -179,6 +209,9 @@ type CfnApplication interface {
 	// The description of the application.
 	ApplicationDescription() *string
 	SetApplicationDescription(val *string)
+	// `AWS::KinesisAnalyticsV2::Application.ApplicationMaintenanceConfiguration`.
+	ApplicationMaintenanceConfiguration() interface{}
+	SetApplicationMaintenanceConfiguration(val interface{})
 	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE` .
 	//
 	// However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
@@ -213,6 +246,9 @@ type CfnApplication interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// `AWS::KinesisAnalyticsV2::Application.RunConfiguration`.
+	RunConfiguration() interface{}
+	SetRunConfiguration(val interface{})
 	// The runtime environment for the application.
 	RuntimeEnvironment() *string
 	SetRuntimeEnvironment(val *string)
@@ -368,6 +404,16 @@ func (j *jsiiProxy_CfnApplication) ApplicationDescription() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) ApplicationMaintenanceConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"applicationMaintenanceConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) ApplicationMode() *string {
 	var returns *string
 	_jsii_.Get(
@@ -453,6 +499,16 @@ func (j *jsiiProxy_CfnApplication) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) RunConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"runConfiguration",
 		&returns,
 	)
 	return returns
@@ -551,6 +607,14 @@ func (j *jsiiProxy_CfnApplication) SetApplicationDescription(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnApplication) SetApplicationMaintenanceConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"applicationMaintenanceConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnApplication) SetApplicationMode(val *string) {
 	_jsii_.Set(
 		j,
@@ -563,6 +627,14 @@ func (j *jsiiProxy_CfnApplication) SetApplicationName(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication) SetRunConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"runConfiguration",
 		val,
 	)
 }
@@ -820,6 +892,8 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 //   		s3ContentLocation: &s3ContentLocationProperty{
 //   			bucketArn: jsii.String("bucketArn"),
 //   			fileKey: jsii.String("fileKey"),
+//
+//   			// the properties below are optional
 //   			objectVersion: jsii.String("objectVersion"),
 //   		},
 //   		textContent: jsii.String("textContent"),
@@ -842,14 +916,14 @@ type CfnApplication_ApplicationCodeConfigurationProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var propertyMap interface{}
-//
 //   applicationConfigurationProperty := &applicationConfigurationProperty{
 //   	applicationCodeConfiguration: &applicationCodeConfigurationProperty{
 //   		codeContent: &codeContentProperty{
 //   			s3ContentLocation: &s3ContentLocationProperty{
 //   				bucketArn: jsii.String("bucketArn"),
 //   				fileKey: jsii.String("fileKey"),
+//
+//   				// the properties below are optional
 //   				objectVersion: jsii.String("objectVersion"),
 //   			},
 //   			textContent: jsii.String("textContent"),
@@ -864,7 +938,9 @@ type CfnApplication_ApplicationCodeConfigurationProperty struct {
 //   		propertyGroups: []interface{}{
 //   			&propertyGroupProperty{
 //   				propertyGroupId: jsii.String("propertyGroupId"),
-//   				propertyMap: propertyMap,
+//   				propertyMap: map[string]*string{
+//   					"propertyMapKey": jsii.String("propertyMap"),
+//   				},
 //   			},
 //   		},
 //   	},
@@ -944,6 +1020,16 @@ type CfnApplication_ApplicationCodeConfigurationProperty struct {
 //   			},
 //   		},
 //   	},
+//   	vpcConfigurations: []interface{}{
+//   		&vpcConfigurationProperty{
+//   			securityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			subnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   		},
+//   	},
 //   	zeppelinApplicationConfiguration: &zeppelinApplicationConfigurationProperty{
 //   		catalogConfiguration: &catalogConfigurationProperty{
 //   			glueDataCatalogConfiguration: &glueDataCatalogConfigurationProperty{
@@ -963,14 +1049,18 @@ type CfnApplication_ApplicationCodeConfigurationProperty struct {
 //   				s3ContentLocation: &s3ContentLocationProperty{
 //   					bucketArn: jsii.String("bucketArn"),
 //   					fileKey: jsii.String("fileKey"),
+//
+//   					// the properties below are optional
 //   					objectVersion: jsii.String("objectVersion"),
 //   				},
 //   			},
 //   		},
 //   		deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
 //   			s3ContentLocation: &s3ContentBaseLocationProperty{
-//   				basePath: jsii.String("basePath"),
 //   				bucketArn: jsii.String("bucketArn"),
+//
+//   				// the properties below are optional
+//   				basePath: jsii.String("basePath"),
 //   			},
 //   		},
 //   		monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
@@ -990,8 +1080,43 @@ type CfnApplication_ApplicationConfigurationProperty struct {
 	FlinkApplicationConfiguration interface{} `field:"optional" json:"flinkApplicationConfiguration" yaml:"flinkApplicationConfiguration"`
 	// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
 	SqlApplicationConfiguration interface{} `field:"optional" json:"sqlApplicationConfiguration" yaml:"sqlApplicationConfiguration"`
+	// `CfnApplication.ApplicationConfigurationProperty.VpcConfigurations`.
+	VpcConfigurations interface{} `field:"optional" json:"vpcConfigurations" yaml:"vpcConfigurations"`
 	// The configuration parameters for a Kinesis Data Analytics Studio notebook.
 	ZeppelinApplicationConfiguration interface{} `field:"optional" json:"zeppelinApplicationConfiguration" yaml:"zeppelinApplicationConfiguration"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   applicationMaintenanceConfigurationProperty := &applicationMaintenanceConfigurationProperty{
+//   	applicationMaintenanceWindowStartTime: jsii.String("applicationMaintenanceWindowStartTime"),
+//   }
+//
+type CfnApplication_ApplicationMaintenanceConfigurationProperty struct {
+	// `CfnApplication.ApplicationMaintenanceConfigurationProperty.ApplicationMaintenanceWindowStartTime`.
+	ApplicationMaintenanceWindowStartTime *string `field:"required" json:"applicationMaintenanceWindowStartTime" yaml:"applicationMaintenanceWindowStartTime"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   applicationRestoreConfigurationProperty := &applicationRestoreConfigurationProperty{
+//   	applicationRestoreType: jsii.String("applicationRestoreType"),
+//
+//   	// the properties below are optional
+//   	snapshotName: jsii.String("snapshotName"),
+//   }
+//
+type CfnApplication_ApplicationRestoreConfigurationProperty struct {
+	// `CfnApplication.ApplicationRestoreConfigurationProperty.ApplicationRestoreType`.
+	ApplicationRestoreType *string `field:"required" json:"applicationRestoreType" yaml:"applicationRestoreType"`
+	// `CfnApplication.ApplicationRestoreConfigurationProperty.SnapshotName`.
+	SnapshotName *string `field:"optional" json:"snapshotName" yaml:"snapshotName"`
 }
 
 // Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
@@ -1117,6 +1242,8 @@ type CfnApplication_CheckpointConfigurationProperty struct {
 //   	s3ContentLocation: &s3ContentLocationProperty{
 //   		bucketArn: jsii.String("bucketArn"),
 //   		fileKey: jsii.String("fileKey"),
+//
+//   		// the properties below are optional
 //   		objectVersion: jsii.String("objectVersion"),
 //   	},
 //   	textContent: jsii.String("textContent"),
@@ -1151,6 +1278,8 @@ type CfnApplication_CodeContentProperty struct {
 //   	s3ContentLocation: &s3ContentLocationProperty{
 //   		bucketArn: jsii.String("bucketArn"),
 //   		fileKey: jsii.String("fileKey"),
+//
+//   		// the properties below are optional
 //   		objectVersion: jsii.String("objectVersion"),
 //   	},
 //   }
@@ -1175,8 +1304,10 @@ type CfnApplication_CustomArtifactConfigurationProperty struct {
 //
 //   deployAsApplicationConfigurationProperty := &deployAsApplicationConfigurationProperty{
 //   	s3ContentLocation: &s3ContentBaseLocationProperty{
-//   		basePath: jsii.String("basePath"),
 //   		bucketArn: jsii.String("bucketArn"),
+//
+//   		// the properties below are optional
+//   		basePath: jsii.String("basePath"),
 //   	},
 //   }
 //
@@ -1192,13 +1323,13 @@ type CfnApplication_DeployAsApplicationConfigurationProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var propertyMap interface{}
-//
 //   environmentPropertiesProperty := &environmentPropertiesProperty{
 //   	propertyGroups: []interface{}{
 //   		&propertyGroupProperty{
 //   			propertyGroupId: jsii.String("propertyGroupId"),
-//   			propertyMap: propertyMap,
+//   			propertyMap: map[string]*string{
+//   				"propertyMapKey": jsii.String("propertyMap"),
+//   			},
 //   		},
 //   	},
 //   }
@@ -1250,6 +1381,20 @@ type CfnApplication_FlinkApplicationConfigurationProperty struct {
 	MonitoringConfiguration interface{} `field:"optional" json:"monitoringConfiguration" yaml:"monitoringConfiguration"`
 	// Describes parameters for how an application executes multiple tasks simultaneously.
 	ParallelismConfiguration interface{} `field:"optional" json:"parallelismConfiguration" yaml:"parallelismConfiguration"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   flinkRunConfigurationProperty := &flinkRunConfigurationProperty{
+//   	allowNonRestoredState: jsii.Boolean(false),
+//   }
+//
+type CfnApplication_FlinkRunConfigurationProperty struct {
+	// `CfnApplication.FlinkRunConfigurationProperty.AllowNonRestoredState`.
+	AllowNonRestoredState interface{} `field:"optional" json:"allowNonRestoredState" yaml:"allowNonRestoredState"`
 }
 
 // The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
@@ -1615,11 +1760,11 @@ type CfnApplication_ParallelismConfigurationProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var propertyMap interface{}
-//
 //   propertyGroupProperty := &propertyGroupProperty{
 //   	propertyGroupId: jsii.String("propertyGroupId"),
-//   	propertyMap: propertyMap,
+//   	propertyMap: map[string]*string{
+//   		"propertyMapKey": jsii.String("propertyMap"),
+//   	},
 //   }
 //
 type CfnApplication_PropertyGroupProperty struct {
@@ -1684,6 +1829,30 @@ type CfnApplication_RecordFormatProperty struct {
 	MappingParameters interface{} `field:"optional" json:"mappingParameters" yaml:"mappingParameters"`
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   runConfigurationProperty := &runConfigurationProperty{
+//   	applicationRestoreConfiguration: &applicationRestoreConfigurationProperty{
+//   		applicationRestoreType: jsii.String("applicationRestoreType"),
+//
+//   		// the properties below are optional
+//   		snapshotName: jsii.String("snapshotName"),
+//   	},
+//   	flinkRunConfiguration: &flinkRunConfigurationProperty{
+//   		allowNonRestoredState: jsii.Boolean(false),
+//   	},
+//   }
+//
+type CfnApplication_RunConfigurationProperty struct {
+	// `CfnApplication.RunConfigurationProperty.ApplicationRestoreConfiguration`.
+	ApplicationRestoreConfiguration interface{} `field:"optional" json:"applicationRestoreConfiguration" yaml:"applicationRestoreConfiguration"`
+	// `CfnApplication.RunConfigurationProperty.FlinkRunConfiguration`.
+	FlinkRunConfiguration interface{} `field:"optional" json:"flinkRunConfiguration" yaml:"flinkRunConfiguration"`
+}
+
 // The base location of the Amazon Data Analytics application.
 //
 // Example:
@@ -1692,15 +1861,17 @@ type CfnApplication_RecordFormatProperty struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   s3ContentBaseLocationProperty := &s3ContentBaseLocationProperty{
-//   	basePath: jsii.String("basePath"),
 //   	bucketArn: jsii.String("bucketArn"),
+//
+//   	// the properties below are optional
+//   	basePath: jsii.String("basePath"),
 //   }
 //
 type CfnApplication_S3ContentBaseLocationProperty struct {
-	// The base path for the S3 bucket.
-	BasePath *string `field:"required" json:"basePath" yaml:"basePath"`
 	// The Amazon Resource Name (ARN) of the S3 bucket.
 	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
+	// The base path for the S3 bucket.
+	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 }
 
 // The location of an application or a custom artifact.
@@ -1713,14 +1884,16 @@ type CfnApplication_S3ContentBaseLocationProperty struct {
 //   s3ContentLocationProperty := &s3ContentLocationProperty{
 //   	bucketArn: jsii.String("bucketArn"),
 //   	fileKey: jsii.String("fileKey"),
+//
+//   	// the properties below are optional
 //   	objectVersion: jsii.String("objectVersion"),
 //   }
 //
 type CfnApplication_S3ContentLocationProperty struct {
 	// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
-	BucketArn *string `field:"optional" json:"bucketArn" yaml:"bucketArn"`
+	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
 	// The file key for the object containing the application code.
-	FileKey *string `field:"optional" json:"fileKey" yaml:"fileKey"`
+	FileKey *string `field:"required" json:"fileKey" yaml:"fileKey"`
 	// The version of the object containing the application code.
 	ObjectVersion *string `field:"optional" json:"objectVersion" yaml:"objectVersion"`
 }
@@ -1789,6 +1962,27 @@ type CfnApplication_SqlApplicationConfigurationProperty struct {
 	Inputs interface{} `field:"optional" json:"inputs" yaml:"inputs"`
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   vpcConfigurationProperty := &vpcConfigurationProperty{
+//   	securityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
+//   	},
+//   	subnetIds: []*string{
+//   		jsii.String("subnetIds"),
+//   	},
+//   }
+//
+type CfnApplication_VpcConfigurationProperty struct {
+	// `CfnApplication.VpcConfigurationProperty.SecurityGroupIds`.
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
+	// `CfnApplication.VpcConfigurationProperty.SubnetIds`.
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
+}
+
 // The configuration of a Kinesis Data Analytics Studio notebook.
 //
 // Example:
@@ -1815,14 +2009,18 @@ type CfnApplication_SqlApplicationConfigurationProperty struct {
 //   			s3ContentLocation: &s3ContentLocationProperty{
 //   				bucketArn: jsii.String("bucketArn"),
 //   				fileKey: jsii.String("fileKey"),
+//
+//   				// the properties below are optional
 //   				objectVersion: jsii.String("objectVersion"),
 //   			},
 //   		},
 //   	},
 //   	deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
 //   		s3ContentLocation: &s3ContentBaseLocationProperty{
-//   			basePath: jsii.String("basePath"),
 //   			bucketArn: jsii.String("bucketArn"),
+//
+//   			// the properties below are optional
+//   			basePath: jsii.String("basePath"),
 //   		},
 //   	},
 //   	monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
@@ -3184,8 +3382,6 @@ type CfnApplicationOutputProps struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var propertyMap interface{}
-//
 //   cfnApplicationProps := &cfnApplicationProps{
 //   	runtimeEnvironment: jsii.String("runtimeEnvironment"),
 //   	serviceExecutionRole: jsii.String("serviceExecutionRole"),
@@ -3197,6 +3393,8 @@ type CfnApplicationOutputProps struct {
 //   				s3ContentLocation: &s3ContentLocationProperty{
 //   					bucketArn: jsii.String("bucketArn"),
 //   					fileKey: jsii.String("fileKey"),
+//
+//   					// the properties below are optional
 //   					objectVersion: jsii.String("objectVersion"),
 //   				},
 //   				textContent: jsii.String("textContent"),
@@ -3211,7 +3409,9 @@ type CfnApplicationOutputProps struct {
 //   			propertyGroups: []interface{}{
 //   				&propertyGroupProperty{
 //   					propertyGroupId: jsii.String("propertyGroupId"),
-//   					propertyMap: propertyMap,
+//   					propertyMap: map[string]*string{
+//   						"propertyMapKey": jsii.String("propertyMap"),
+//   					},
 //   				},
 //   			},
 //   		},
@@ -3291,6 +3491,16 @@ type CfnApplicationOutputProps struct {
 //   				},
 //   			},
 //   		},
+//   		vpcConfigurations: []interface{}{
+//   			&vpcConfigurationProperty{
+//   				securityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				subnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//   			},
+//   		},
 //   		zeppelinApplicationConfiguration: &zeppelinApplicationConfigurationProperty{
 //   			catalogConfiguration: &catalogConfigurationProperty{
 //   				glueDataCatalogConfiguration: &glueDataCatalogConfigurationProperty{
@@ -3310,14 +3520,18 @@ type CfnApplicationOutputProps struct {
 //   					s3ContentLocation: &s3ContentLocationProperty{
 //   						bucketArn: jsii.String("bucketArn"),
 //   						fileKey: jsii.String("fileKey"),
+//
+//   						// the properties below are optional
 //   						objectVersion: jsii.String("objectVersion"),
 //   					},
 //   				},
 //   			},
 //   			deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
 //   				s3ContentLocation: &s3ContentBaseLocationProperty{
-//   					basePath: jsii.String("basePath"),
 //   					bucketArn: jsii.String("bucketArn"),
+//
+//   					// the properties below are optional
+//   					basePath: jsii.String("basePath"),
 //   				},
 //   			},
 //   			monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
@@ -3326,8 +3540,22 @@ type CfnApplicationOutputProps struct {
 //   		},
 //   	},
 //   	applicationDescription: jsii.String("applicationDescription"),
+//   	applicationMaintenanceConfiguration: &applicationMaintenanceConfigurationProperty{
+//   		applicationMaintenanceWindowStartTime: jsii.String("applicationMaintenanceWindowStartTime"),
+//   	},
 //   	applicationMode: jsii.String("applicationMode"),
 //   	applicationName: jsii.String("applicationName"),
+//   	runConfiguration: &runConfigurationProperty{
+//   		applicationRestoreConfiguration: &applicationRestoreConfigurationProperty{
+//   			applicationRestoreType: jsii.String("applicationRestoreType"),
+//
+//   			// the properties below are optional
+//   			snapshotName: jsii.String("snapshotName"),
+//   		},
+//   		flinkRunConfiguration: &flinkRunConfigurationProperty{
+//   			allowNonRestoredState: jsii.Boolean(false),
+//   		},
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -3345,12 +3573,16 @@ type CfnApplicationProps struct {
 	ApplicationConfiguration interface{} `field:"optional" json:"applicationConfiguration" yaml:"applicationConfiguration"`
 	// The description of the application.
 	ApplicationDescription *string `field:"optional" json:"applicationDescription" yaml:"applicationDescription"`
+	// `AWS::KinesisAnalyticsV2::Application.ApplicationMaintenanceConfiguration`.
+	ApplicationMaintenanceConfiguration interface{} `field:"optional" json:"applicationMaintenanceConfiguration" yaml:"applicationMaintenanceConfiguration"`
 	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE` .
 	//
 	// However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
 	ApplicationMode *string `field:"optional" json:"applicationMode" yaml:"applicationMode"`
 	// The name of the application.
 	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
+	// `AWS::KinesisAnalyticsV2::Application.RunConfiguration`.
+	RunConfiguration interface{} `field:"optional" json:"runConfiguration" yaml:"runConfiguration"`
 	// A list of one or more tags to assign to the application.
 	//
 	// A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.

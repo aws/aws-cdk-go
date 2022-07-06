@@ -1707,6 +1707,7 @@ type CfnCapacityReservation interface {
 	//
 	// For example: `9` .
 	AttrAvailableInstanceCount() *float64
+	AttrId() *string
 	// Returns the type of instance for which the capacity is reserved.
 	//
 	// For example: `m4.large` .
@@ -1951,6 +1952,16 @@ func (j *jsiiProxy_CfnCapacityReservation) AttrAvailableInstanceCount() *float64
 	_jsii_.Get(
 		j,
 		"attrAvailableInstanceCount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservation) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -7393,6 +7404,7 @@ type CfnClientVpnTargetNetworkAssociationProps struct {
 type CfnCustomerGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrCustomerGatewayId() *string
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//
 	// Default: 65000.
@@ -7557,6 +7569,16 @@ type CfnCustomerGateway interface {
 type jsiiProxy_CfnCustomerGateway struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnCustomerGateway) AttrCustomerGatewayId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCustomerGatewayId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnCustomerGateway) BgpAsn() *float64 {
@@ -10918,6 +10940,9 @@ type CfnEIP interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// `AWS::EC2::EIP.NetworkBorderGroup`.
+	NetworkBorderGroup() *string
+	SetNetworkBorderGroup(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The ID of an address pool that you own.
@@ -11141,6 +11166,16 @@ func (j *jsiiProxy_CfnEIP) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEIP) NetworkBorderGroup() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkBorderGroup",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEIP) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -11240,6 +11275,14 @@ func (j *jsiiProxy_CfnEIP) SetInstanceId(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEIP) SetNetworkBorderGroup(val *string) {
+	_jsii_.Set(
+		j,
+		"networkBorderGroup",
 		val,
 	)
 }
@@ -12183,6 +12226,8 @@ type CfnEIPProps struct {
 	//
 	// > Updates to the `InstanceId` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
+	// `AWS::EC2::EIP.NetworkBorderGroup`.
+	NetworkBorderGroup *string `field:"optional" json:"networkBorderGroup" yaml:"networkBorderGroup"`
 	// The ID of an address pool that you own.
 	//
 	// Use this parameter to let Amazon EC2 select an address from the address pool.
@@ -18653,6 +18698,7 @@ type CfnIPAMScopeProps struct {
 //   			deviceIndex: jsii.String("deviceIndex"),
 //
 //   			// the properties below are optional
+//   			associateCarrierIpAddress: jsii.Boolean(false),
 //   			associatePublicIpAddress: jsii.Boolean(false),
 //   			deleteOnTermination: jsii.Boolean(false),
 //   			description: jsii.String("description"),
@@ -20600,6 +20646,7 @@ type CfnInstance_LicenseSpecificationProperty struct {
 //   	deviceIndex: jsii.String("deviceIndex"),
 //
 //   	// the properties below are optional
+//   	associateCarrierIpAddress: jsii.Boolean(false),
 //   	associatePublicIpAddress: jsii.Boolean(false),
 //   	deleteOnTermination: jsii.Boolean(false),
 //   	description: jsii.String("description"),
@@ -20631,6 +20678,8 @@ type CfnInstance_NetworkInterfaceProperty struct {
 	//
 	// If you create a network interface when launching an instance, you must specify the device index.
 	DeviceIndex *string `field:"required" json:"deviceIndex" yaml:"deviceIndex"`
+	// `CfnInstance.NetworkInterfaceProperty.AssociateCarrierIpAddress`.
+	AssociateCarrierIpAddress interface{} `field:"optional" json:"associateCarrierIpAddress" yaml:"associateCarrierIpAddress"`
 	// Indicates whether to assign a public IPv4 address to an instance.
 	//
 	// Applies only if creating a network interface when launching an instance. The network interface must be the primary network interface. If launching into a default subnet, the default value is `true` .
@@ -20888,6 +20937,7 @@ type CfnInstance_VolumeProperty struct {
 //   			deviceIndex: jsii.String("deviceIndex"),
 //
 //   			// the properties below are optional
+//   			associateCarrierIpAddress: jsii.Boolean(false),
 //   			associatePublicIpAddress: jsii.Boolean(false),
 //   			deleteOnTermination: jsii.Boolean(false),
 //   			description: jsii.String("description"),
@@ -24585,7 +24635,7 @@ type CfnLaunchTemplate_VCpuCountProperty struct {
 //
 type CfnLaunchTemplateProps struct {
 	// The information for the launch template.
-	LaunchTemplateData interface{} `field:"optional" json:"launchTemplateData" yaml:"launchTemplateData"`
+	LaunchTemplateData interface{} `field:"required" json:"launchTemplateData" yaml:"launchTemplateData"`
 	// A name for the launch template.
 	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
 	// The tags to apply to the launch template during creation.
@@ -64308,6 +64358,7 @@ type CfnVPNGateway interface {
 	// The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
 	AmazonSideAsn() *float64
 	SetAmazonSideAsn(val *float64)
+	AttrVpnGatewayId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -64469,6 +64520,16 @@ func (j *jsiiProxy_CfnVPNGateway) AmazonSideAsn() *float64 {
 	_jsii_.Get(
 		j,
 		"amazonSideAsn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPNGateway) AttrVpnGatewayId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpnGatewayId",
 		&returns,
 	)
 	return returns
@@ -68960,6 +69021,25 @@ const (
 	DefaultInstanceTenancy_DEDICATED DefaultInstanceTenancy = "DEDICATED"
 )
 
+// Options for writing logs to a destination.
+//
+// TODO: there are other destination options, currently they are
+// only for s3 destinations (not sure if that will change).
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   destinationOptions := &destinationOptions{
+//   	hiveCompatiblePartitions: jsii.Boolean(false),
+//   }
+//
+type DestinationOptions struct {
+	// Use Hive-compatible prefixes for flow logs stored in Amazon S3.
+	HiveCompatiblePartitions *bool `field:"optional" json:"hiveCompatiblePartitions" yaml:"hiveCompatiblePartitions"`
+}
+
 // Block device options for an EBS volume.
 //
 // Example:
@@ -69615,7 +69695,7 @@ func FlowLogDestination_ToCloudWatchLogs(logGroup awslogs.ILogGroup, iamRole aws
 }
 
 // Use S3 as the destination.
-func FlowLogDestination_ToS3(bucket awss3.IBucket, keyPrefix *string) FlowLogDestination {
+func FlowLogDestination_ToS3(bucket awss3.IBucket, keyPrefix *string, options *S3DestinationOptions) FlowLogDestination {
 	_init_.Initialize()
 
 	var returns FlowLogDestination
@@ -69623,7 +69703,7 @@ func FlowLogDestination_ToS3(bucket awss3.IBucket, keyPrefix *string) FlowLogDes
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.FlowLogDestination",
 		"toS3",
-		[]interface{}{bucket, keyPrefix},
+		[]interface{}{bucket, keyPrefix, options},
 		&returns,
 	)
 
@@ -69661,6 +69741,9 @@ func (f *jsiiProxy_FlowLogDestination) Bind(scope constructs.Construct, flowLog 
 //   	logDestinationType: awscdk.Aws_ec2.flowLogDestinationType_CLOUD_WATCH_LOGS,
 //
 //   	// the properties below are optional
+//   	destinationOptions: &destinationOptions{
+//   		hiveCompatiblePartitions: jsii.Boolean(false),
+//   	},
 //   	iamRole: role,
 //   	keyPrefix: jsii.String("keyPrefix"),
 //   	logGroup: logGroup,
@@ -69670,6 +69753,8 @@ func (f *jsiiProxy_FlowLogDestination) Bind(scope constructs.Construct, flowLog 
 type FlowLogDestinationConfig struct {
 	// The type of destination to publish the flow logs to.
 	LogDestinationType FlowLogDestinationType `field:"required" json:"logDestinationType" yaml:"logDestinationType"`
+	// Options for writing flow logs to a supported destination.
+	DestinationOptions *DestinationOptions `field:"optional" json:"destinationOptions" yaml:"destinationOptions"`
 	// The IAM Role that has access to publish to CloudWatch logs.
 	IamRole awsiam.IRole `field:"optional" json:"iamRole" yaml:"iamRole"`
 	// S3 bucket key prefix to publish the flow logs to.
@@ -74473,6 +74558,10 @@ const (
 	InstanceClass_MEMORY6_INTEL InstanceClass = "MEMORY6_INTEL"
 	// Memory optimized instances, 6th generation with Intel Xeon Scalable processors (3rd generation processors code named Ice Lake).
 	InstanceClass_R6I InstanceClass = "R6I"
+	// Memory optimized instances with local NVME drive, 6th generation with Intel Xeon Scalable processors (3rd generation processors code named Ice Lake).
+	InstanceClass_MEMORY6_INTEL_NVME_DRIVE InstanceClass = "MEMORY6_INTEL_NVME_DRIVE"
+	// Memory optimized instances with local NVME drive, 6th generation with Intel Xeon Scalable processors (3rd generation processors code named Ice Lake).
+	InstanceClass_R6ID InstanceClass = "R6ID"
 	// Memory optimized instances for high performance computing, 5th generation.
 	InstanceClass_MEMORY5_HIGH_PERFORMANCE InstanceClass = "MEMORY5_HIGH_PERFORMANCE"
 	// Memory optimized instances for high performance computing, 5th generation.
@@ -74491,6 +74580,10 @@ const (
 	InstanceClass_R5A InstanceClass = "R5A"
 	// Memory optimized instances based on AMD EPYC with local NVME drive, 5th generation.
 	InstanceClass_MEMORY5_AMD_NVME_DRIVE InstanceClass = "MEMORY5_AMD_NVME_DRIVE"
+	// High memory instances (3TB) based on Intel Xeon Platinum 8176M (Skylake) processors, 1st generation.
+	InstanceClass_HIGH_MEMORY_3TB_1 InstanceClass = "HIGH_MEMORY_3TB_1"
+	// High memory instances (3TB) based on Intel Xeon Platinum 8176M (Skylake) processors, 1st generation.
+	InstanceClass_U_3TB1 InstanceClass = "U_3TB1"
 	// High memory instances (6TB) based on Intel Xeon Platinum 8176M (Skylake) processors, 1st generation.
 	InstanceClass_HIGH_MEMORY_6TB_1 InstanceClass = "HIGH_MEMORY_6TB_1"
 	// High memory instances (6TB) based on Intel Xeon Platinum 8176M (Skylake) processors, 1st generation.
@@ -74557,6 +74650,10 @@ const (
 	InstanceClass_COMPUTE6_INTEL InstanceClass = "COMPUTE6_INTEL"
 	// Compute optimized instances, 6th generation.
 	InstanceClass_C6I InstanceClass = "C6I"
+	// Compute optimized instances with local NVME drive, 6th generation.
+	InstanceClass_COMPUTE6_INTEL_NVME_DRIVE InstanceClass = "COMPUTE6_INTEL_NVME_DRIVE"
+	// Compute optimized instances with local NVME drive, 6th generation.
+	InstanceClass_C6ID InstanceClass = "C6ID"
 	// Compute optimized instances based on AMD EPYC (codename Milan), 6th generation.
 	InstanceClass_COMPUTE6_AMD InstanceClass = "COMPUTE6_AMD"
 	// Compute optimized instances based on AMD EPYC (codename Milan), 6th generation.
@@ -74672,6 +74769,10 @@ const (
 	// Instances with customizable hardware acceleration, 1st generation.
 	InstanceClass_F1 InstanceClass = "F1"
 	// Graphics-optimized instances, 3rd generation.
+	InstanceClass_GRAPHICS3_SMALL InstanceClass = "GRAPHICS3_SMALL"
+	// Graphics-optimized instances, 3rd generation.
+	InstanceClass_G3S InstanceClass = "G3S"
+	// Graphics-optimized instances, 3rd generation.
 	InstanceClass_GRAPHICS3 InstanceClass = "GRAPHICS3"
 	// Graphics-optimized instances, 3rd generation.
 	InstanceClass_G3 InstanceClass = "G3"
@@ -74699,6 +74800,10 @@ const (
 	InstanceClass_PARALLEL3 InstanceClass = "PARALLEL3"
 	// Parallel-processing optimized instances, 3rd generation.
 	InstanceClass_P3 InstanceClass = "P3"
+	// Parallel-processing optimized instances with local NVME drive for high performance computing, 3nd generation.
+	InstanceClass_PARALLEL3_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "PARALLEL3_NVME_DRIVE_HIGH_PERFORMANCE"
+	// Parallel-processing optimized instances with local NVME drive for high performance computing, 3rd generation.
+	InstanceClass_P3DN InstanceClass = "P3DN"
 	// Parallel-processing optimized instances, 4th generation.
 	InstanceClass_PARALLEL4 InstanceClass = "PARALLEL4"
 	// Parallel-processing optimized instances, 4th generation.
@@ -74715,6 +74820,10 @@ const (
 	InstanceClass_STANDARD6_INTEL InstanceClass = "STANDARD6_INTEL"
 	// Standard instances based on Intel (Ice Lake), 6th generation.
 	InstanceClass_M6I InstanceClass = "M6I"
+	// Standard instances based on Intel (Ice Lake) with local NVME drive, 6th generation.
+	InstanceClass_STANDARD6_INTEL_NVME_DRIVE InstanceClass = "STANDARD6_INTEL_NVME_DRIVE"
+	// Standard instances based on Intel (Ice Lake) with local NVME drive, 6th generation.
+	InstanceClass_M6ID InstanceClass = "M6ID"
 	// Standard instances based on 3rd Gen AMD EPYC processors, 6th generation.
 	InstanceClass_STANDARD6_AMD InstanceClass = "STANDARD6_AMD"
 	// Standard instances based on 3rd Gen AMD EPYC processors, 6th generation.
@@ -74743,6 +74852,10 @@ const (
 	InstanceClass_HIGH_PERFORMANCE_COMPUTING6_AMD InstanceClass = "HIGH_PERFORMANCE_COMPUTING6_AMD"
 	// High performance computing based on AMD EPYC, 6th generation.
 	InstanceClass_HPC6A InstanceClass = "HPC6A"
+	// Deep learning instances powered by Gaudi accelerators from Habana Labs (an Intel company), 1st generation.
+	InstanceClass_DEEP_LEARNING1 InstanceClass = "DEEP_LEARNING1"
+	// Deep learning instances powered by Gaudi accelerators from Habana Labs (an Intel company), 1st generation.
+	InstanceClass_DL1 InstanceClass = "DL1"
 )
 
 // Provides the options for specifying the instance initiated shutdown behavior.
@@ -80961,6 +81074,22 @@ const (
 	// VPC Endpoint for gateway load balancers.
 	RouterType_VPC_ENDPOINT RouterType = "VPC_ENDPOINT"
 )
+
+// Options for writing logs to a S3 destination.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   s3DestinationOptions := &s3DestinationOptions{
+//   	hiveCompatiblePartitions: jsii.Boolean(false),
+//   }
+//
+type S3DestinationOptions struct {
+	// Use Hive-compatible prefixes for flow logs stored in Amazon S3.
+	HiveCompatiblePartitions *bool `field:"optional" json:"hiveCompatiblePartitions" yaml:"hiveCompatiblePartitions"`
+}
 
 // Options when downloading files from S3.
 //

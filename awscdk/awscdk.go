@@ -25389,6 +25389,9 @@ func SecretValue_ResourceAttribute(attr *string) SecretValue {
 }
 
 // Creates a `SecretValue` with a value which is dynamically loaded from AWS Secrets Manager.
+//
+// If you rotate the value in the Secret, you must also change at least one property
+// on the resource where you are using the secret, to force CloudFormation to re-read the secret.
 func SecretValue_SecretsManager(secretId *string, options *SecretsManagerSecretOptions) SecretValue {
 	_init_.Initialize()
 
@@ -25405,6 +25408,10 @@ func SecretValue_SecretsManager(secretId *string, options *SecretsManagerSecretO
 }
 
 // Use a secret value stored from a Systems Manager (SSM) parameter.
+//
+// This secret source in only supported in a limited set of resources and
+// properties. [Click here for the list of supported
+// properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#template-parameters-dynamic-patterns-resources).
 func SecretValue_SsmSecure(parameterName *string, version *string) SecretValue {
 	_init_.Initialize()
 

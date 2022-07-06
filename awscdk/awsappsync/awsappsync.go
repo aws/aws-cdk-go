@@ -4821,7 +4821,7 @@ type CfnFunctionConfigurationProps struct {
 //   		iatTtl: jsii.Number(123),
 //   		issuer: jsii.String("issuer"),
 //   	},
-//   	tags: []interface{}{
+//   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
 //   			value: jsii.String("value"),
@@ -5790,7 +5790,7 @@ type CfnGraphQLApi_UserPoolConfigProperty struct {
 //   		iatTtl: jsii.Number(123),
 //   		issuer: jsii.String("issuer"),
 //   	},
-//   	tags: []interface{}{
+//   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
 //   			value: jsii.String("value"),
@@ -5823,7 +5823,7 @@ type CfnGraphQLApiProps struct {
 	// The OpenID Connect configuration.
 	OpenIdConnectConfig interface{} `field:"optional" json:"openIdConnectConfig" yaml:"openIdConnectConfig"`
 	// An arbitrary set of tags (key-value pairs) for this GraphQL API.
-	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Optional authorization configuration for using Amazon Cognito user pools with your GraphQL endpoint.
 	UserPoolConfig interface{} `field:"optional" json:"userPoolConfig" yaml:"userPoolConfig"`
 	// A flag indicating whether to use AWS X-Ray tracing for this `GraphqlApi` .

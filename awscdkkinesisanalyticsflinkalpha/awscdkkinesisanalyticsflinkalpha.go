@@ -1025,7 +1025,6 @@ func (a *jsiiProxy_ApplicationCode) Bind(scope constructs.Construct) *Applicatio
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
-//   var propertyMap interface{}
 //
 //   applicationCodeConfig := &applicationCodeConfig{
 //   	applicationCodeConfigurationProperty: &applicationConfigurationProperty{
@@ -1034,6 +1033,8 @@ func (a *jsiiProxy_ApplicationCode) Bind(scope constructs.Construct) *Applicatio
 //   				s3ContentLocation: &s3ContentLocationProperty{
 //   					bucketArn: jsii.String("bucketArn"),
 //   					fileKey: jsii.String("fileKey"),
+//
+//   					// the properties below are optional
 //   					objectVersion: jsii.String("objectVersion"),
 //   				},
 //   				textContent: jsii.String("textContent"),
@@ -1048,7 +1049,9 @@ func (a *jsiiProxy_ApplicationCode) Bind(scope constructs.Construct) *Applicatio
 //   			propertyGroups: []interface{}{
 //   				&propertyGroupProperty{
 //   					propertyGroupId: jsii.String("propertyGroupId"),
-//   					propertyMap: propertyMap,
+//   					propertyMap: map[string]*string{
+//   						"propertyMapKey": jsii.String("propertyMap"),
+//   					},
 //   				},
 //   			},
 //   		},
@@ -1128,6 +1131,16 @@ func (a *jsiiProxy_ApplicationCode) Bind(scope constructs.Construct) *Applicatio
 //   				},
 //   			},
 //   		},
+//   		vpcConfigurations: []interface{}{
+//   			&vpcConfigurationProperty{
+//   				securityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				subnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//   			},
+//   		},
 //   		zeppelinApplicationConfiguration: &zeppelinApplicationConfigurationProperty{
 //   			catalogConfiguration: &catalogConfigurationProperty{
 //   				glueDataCatalogConfiguration: &glueDataCatalogConfigurationProperty{
@@ -1147,14 +1160,18 @@ func (a *jsiiProxy_ApplicationCode) Bind(scope constructs.Construct) *Applicatio
 //   					s3ContentLocation: &s3ContentLocationProperty{
 //   						bucketArn: jsii.String("bucketArn"),
 //   						fileKey: jsii.String("fileKey"),
+//
+//   						// the properties below are optional
 //   						objectVersion: jsii.String("objectVersion"),
 //   					},
 //   				},
 //   			},
 //   			deployAsApplicationConfiguration: &deployAsApplicationConfigurationProperty{
 //   				s3ContentLocation: &s3ContentBaseLocationProperty{
-//   					basePath: jsii.String("basePath"),
 //   					bucketArn: jsii.String("bucketArn"),
+//
+//   					// the properties below are optional
+//   					basePath: jsii.String("basePath"),
 //   				},
 //   			},
 //   			monitoringConfiguration: &zeppelinMonitoringConfigurationProperty{
