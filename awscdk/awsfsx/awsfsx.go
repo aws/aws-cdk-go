@@ -1,14 +1,14 @@
 package awsfsx
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsfsx/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsfsx/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::FSx::FileSystem`.
@@ -179,13 +179,16 @@ type CfnFileSystem interface {
 	BackupId() *string
 	SetBackupId(val *string)
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The type of Amazon FSx file system, which can be `LUSTRE` , `WINDOWS` , `ONTAP` , or `OPENZFS` .
 	FileSystemType() *string
@@ -223,6 +226,7 @@ type CfnFileSystem interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
 	// The Lustre configuration for the file system being created.
 	//
@@ -234,8 +238,9 @@ type CfnFileSystem interface {
 	// > - `ImportPath`.
 	LustreConfiguration() interface{}
 	SetLustreConfiguration(val interface{})
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// The ONTAP configuration properties of the FSx for ONTAP file system that you are creating.
 	OntapConfiguration() interface{}
 	SetOntapConfiguration(val interface{})
@@ -246,6 +251,7 @@ type CfnFileSystem interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// A list of IDs specifying the security groups to apply to all network interfaces created for file system access.
 	//
@@ -255,6 +261,7 @@ type CfnFileSystem interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Sets the storage capacity of the file system that you're creating.
 	//
@@ -299,6 +306,7 @@ type CfnFileSystem interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The configuration object for the Microsoft Windows file system you are creating.
 	//
@@ -306,11 +314,13 @@ type CfnFileSystem interface {
 	WindowsConfiguration() interface{}
 	SetWindowsConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -319,6 +329,7 @@ type CfnFileSystem interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -363,12 +374,15 @@ type CfnFileSystem interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -378,17 +392,14 @@ type CfnFileSystem interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
-	// cases, a snapshot can be taken of the resource prior to deletion
-	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
-	// can be found in the following link:.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
-	//
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -397,21 +408,74 @@ type CfnFileSystem interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -551,8 +615,8 @@ func (j *jsiiProxy_CfnFileSystem) LustreConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFileSystem) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFileSystem) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -673,13 +737,13 @@ func (j *jsiiProxy_CfnFileSystem) WindowsConfiguration() interface{} {
 
 
 // Create a new `AWS::FSx::FileSystem`.
-func NewCfnFileSystem(scope constructs.Construct, id *string, props *CfnFileSystemProps) CfnFileSystem {
+func NewCfnFileSystem(scope awscdk.Construct, id *string, props *CfnFileSystemProps) CfnFileSystem {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFileSystem{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -688,11 +752,11 @@ func NewCfnFileSystem(scope constructs.Construct, id *string, props *CfnFileSyst
 }
 
 // Create a new `AWS::FSx::FileSystem`.
-func NewCfnFileSystem_Override(c CfnFileSystem, scope constructs.Construct, id *string, props *CfnFileSystemProps) {
+func NewCfnFileSystem_Override(c CfnFileSystem, scope awscdk.Construct, id *string, props *CfnFileSystemProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -800,13 +864,14 @@ func (j *jsiiProxy_CfnFileSystem) SetWindowsConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFileSystem_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -816,13 +881,14 @@ func CfnFileSystem_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFileSystem_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -831,30 +897,15 @@ func CfnFileSystem_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFileSystem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -867,7 +918,7 @@ func CfnFileSystem_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -964,11 +1015,48 @@ func (c *jsiiProxy_CfnFileSystem) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnFileSystem) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnFileSystem) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnFileSystem) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnFileSystem) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnFileSystem) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -998,12 +1086,33 @@ func (c *jsiiProxy_CfnFileSystem) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnFileSystem) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnFileSystem) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnFileSystem) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1902,13 +2011,16 @@ type CfnSnapshot interface {
 	// Example: `arn:aws:fsx:us-east-2:111133334444:snapshot/fsvol-01234567890123456/fsvolsnap-0123456789abcedf5`.
 	AttrResourceArn() *string
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -1919,20 +2031,24 @@ type CfnSnapshot interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
 	// The name of the snapshot.
 	Name() *string
 	SetName(val *string)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -1942,16 +2058,19 @@ type CfnSnapshot interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The ID of the volume that the snapshot is of.
 	VolumeId() *string
 	SetVolumeId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -1960,6 +2079,7 @@ type CfnSnapshot interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2004,12 +2124,15 @@ type CfnSnapshot interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2019,17 +2142,14 @@ type CfnSnapshot interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
-	// cases, a snapshot can be taken of the resource prior to deletion
-	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
-	// can be found in the following link:.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
-	//
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2038,21 +2158,74 @@ type CfnSnapshot interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2132,8 +2305,8 @@ func (j *jsiiProxy_CfnSnapshot) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSnapshot) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnSnapshot) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2194,13 +2367,13 @@ func (j *jsiiProxy_CfnSnapshot) VolumeId() *string {
 
 
 // Create a new `AWS::FSx::Snapshot`.
-func NewCfnSnapshot(scope constructs.Construct, id *string, props *CfnSnapshotProps) CfnSnapshot {
+func NewCfnSnapshot(scope awscdk.Construct, id *string, props *CfnSnapshotProps) CfnSnapshot {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSnapshot{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.CfnSnapshot",
+		"monocdk.aws_fsx.CfnSnapshot",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2209,11 +2382,11 @@ func NewCfnSnapshot(scope constructs.Construct, id *string, props *CfnSnapshotPr
 }
 
 // Create a new `AWS::FSx::Snapshot`.
-func NewCfnSnapshot_Override(c CfnSnapshot, scope constructs.Construct, id *string, props *CfnSnapshotProps) {
+func NewCfnSnapshot_Override(c CfnSnapshot, scope awscdk.Construct, id *string, props *CfnSnapshotProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.CfnSnapshot",
+		"monocdk.aws_fsx.CfnSnapshot",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2241,13 +2414,14 @@ func (j *jsiiProxy_CfnSnapshot) SetVolumeId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnSnapshot_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnSnapshot",
+		"monocdk.aws_fsx.CfnSnapshot",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2257,13 +2431,14 @@ func CfnSnapshot_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnSnapshot_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnSnapshot",
+		"monocdk.aws_fsx.CfnSnapshot",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2272,30 +2447,15 @@ func CfnSnapshot_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnSnapshot_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnSnapshot",
+		"monocdk.aws_fsx.CfnSnapshot",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2308,7 +2468,7 @@ func CfnSnapshot_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_fsx.CfnSnapshot",
+		"monocdk.aws_fsx.CfnSnapshot",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2405,11 +2565,48 @@ func (c *jsiiProxy_CfnSnapshot) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnSnapshot) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnSnapshot) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnSnapshot) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnSnapshot) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnSnapshot) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2439,12 +2636,33 @@ func (c *jsiiProxy_CfnSnapshot) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnSnapshot) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnSnapshot) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnSnapshot) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2547,13 +2765,16 @@ type CfnStorageVirtualMachine interface {
 	// Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`.
 	AttrUuid() *string
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// Specifies the FSx for ONTAP file system on which to create the SVM.
 	FileSystemId() *string
@@ -2567,16 +2788,19 @@ type CfnStorageVirtualMachine interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
 	// The name of the SVM.
 	Name() *string
 	SetName(val *string)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The security style of the root volume of the SVM. Specify one of the following values:.
 	//
@@ -2588,6 +2812,7 @@ type CfnStorageVirtualMachine interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint.
 	//
@@ -2602,13 +2827,16 @@ type CfnStorageVirtualMachine interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2617,6 +2845,7 @@ type CfnStorageVirtualMachine interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2661,12 +2890,15 @@ type CfnStorageVirtualMachine interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2676,17 +2908,14 @@ type CfnStorageVirtualMachine interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
-	// cases, a snapshot can be taken of the resource prior to deletion
-	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
-	// can be found in the following link:.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
-	//
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2695,21 +2924,74 @@ type CfnStorageVirtualMachine interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2829,8 +3111,8 @@ func (j *jsiiProxy_CfnStorageVirtualMachine) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageVirtualMachine) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnStorageVirtualMachine) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2901,13 +3183,13 @@ func (j *jsiiProxy_CfnStorageVirtualMachine) UpdatedProperites() *map[string]int
 
 
 // Create a new `AWS::FSx::StorageVirtualMachine`.
-func NewCfnStorageVirtualMachine(scope constructs.Construct, id *string, props *CfnStorageVirtualMachineProps) CfnStorageVirtualMachine {
+func NewCfnStorageVirtualMachine(scope awscdk.Construct, id *string, props *CfnStorageVirtualMachineProps) CfnStorageVirtualMachine {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStorageVirtualMachine{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.CfnStorageVirtualMachine",
+		"monocdk.aws_fsx.CfnStorageVirtualMachine",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2916,11 +3198,11 @@ func NewCfnStorageVirtualMachine(scope constructs.Construct, id *string, props *
 }
 
 // Create a new `AWS::FSx::StorageVirtualMachine`.
-func NewCfnStorageVirtualMachine_Override(c CfnStorageVirtualMachine, scope constructs.Construct, id *string, props *CfnStorageVirtualMachineProps) {
+func NewCfnStorageVirtualMachine_Override(c CfnStorageVirtualMachine, scope awscdk.Construct, id *string, props *CfnStorageVirtualMachineProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.CfnStorageVirtualMachine",
+		"monocdk.aws_fsx.CfnStorageVirtualMachine",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2972,13 +3254,14 @@ func (j *jsiiProxy_CfnStorageVirtualMachine) SetSvmAdminPassword(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnStorageVirtualMachine_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnStorageVirtualMachine",
+		"monocdk.aws_fsx.CfnStorageVirtualMachine",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2988,13 +3271,14 @@ func CfnStorageVirtualMachine_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnStorageVirtualMachine_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnStorageVirtualMachine",
+		"monocdk.aws_fsx.CfnStorageVirtualMachine",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3003,30 +3287,15 @@ func CfnStorageVirtualMachine_IsCfnResource(construct constructs.IConstruct) *bo
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnStorageVirtualMachine_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnStorageVirtualMachine",
+		"monocdk.aws_fsx.CfnStorageVirtualMachine",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3039,7 +3308,7 @@ func CfnStorageVirtualMachine_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_fsx.CfnStorageVirtualMachine",
+		"monocdk.aws_fsx.CfnStorageVirtualMachine",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3136,11 +3405,48 @@ func (c *jsiiProxy_CfnStorageVirtualMachine) Inspect(inspector awscdk.TreeInspec
 	)
 }
 
+func (c *jsiiProxy_CfnStorageVirtualMachine) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnStorageVirtualMachine) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnStorageVirtualMachine) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnStorageVirtualMachine) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnStorageVirtualMachine) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3170,12 +3476,33 @@ func (c *jsiiProxy_CfnStorageVirtualMachine) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnStorageVirtualMachine) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnStorageVirtualMachine) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnStorageVirtualMachine) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3414,13 +3741,16 @@ type CfnVolume interface {
 	BackupId() *string
 	SetBackupId(val *string)
 	// Options for this resource, such as condition, update policy etc.
+	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
+	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
+	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -3431,12 +3761,14 @@ type CfnVolume interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
+	// Experimental.
 	LogicalId() *string
 	// The name of the volume.
 	Name() *string
 	SetName(val *string)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// The configuration of an Amazon FSx for NetApp ONTAP volume.
 	OntapConfiguration() interface{}
 	SetOntapConfiguration(val interface{})
@@ -3447,10 +3779,12 @@ type CfnVolume interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
+	// Experimental.
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -3460,16 +3794,19 @@ type CfnVolume interface {
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
+	// Experimental.
 	UpdatedProperites() *map[string]interface{}
 	// The type of the volume.
 	VolumeType() *string
 	SetVolumeType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
+	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
+	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3478,6 +3815,7 @@ type CfnVolume interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -3522,12 +3860,15 @@ type CfnVolume interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
+	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
+	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -3537,17 +3878,14 @@ type CfnVolume interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
-	// cases, a snapshot can be taken of the resource prior to deletion
-	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
-	// can be found in the following link:.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
-	//
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
+	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3556,21 +3894,74 @@ type CfnVolume interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
+	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
+	// Experimental.
 	ShouldSynthesize() *bool
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
+	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3680,8 +4071,8 @@ func (j *jsiiProxy_CfnVolume) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVolume) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnVolume) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3762,13 +4153,13 @@ func (j *jsiiProxy_CfnVolume) VolumeType() *string {
 
 
 // Create a new `AWS::FSx::Volume`.
-func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps) CfnVolume {
+func NewCfnVolume(scope awscdk.Construct, id *string, props *CfnVolumeProps) CfnVolume {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnVolume{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.CfnVolume",
+		"monocdk.aws_fsx.CfnVolume",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3777,11 +4168,11 @@ func NewCfnVolume(scope constructs.Construct, id *string, props *CfnVolumeProps)
 }
 
 // Create a new `AWS::FSx::Volume`.
-func NewCfnVolume_Override(c CfnVolume, scope constructs.Construct, id *string, props *CfnVolumeProps) {
+func NewCfnVolume_Override(c CfnVolume, scope awscdk.Construct, id *string, props *CfnVolumeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.CfnVolume",
+		"monocdk.aws_fsx.CfnVolume",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3833,13 +4224,14 @@ func (j *jsiiProxy_CfnVolume) SetVolumeType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnVolume_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnVolume",
+		"monocdk.aws_fsx.CfnVolume",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3849,13 +4241,14 @@ func CfnVolume_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnVolume_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnVolume",
+		"monocdk.aws_fsx.CfnVolume",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3864,30 +4257,15 @@ func CfnVolume_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnVolume_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnVolume",
+		"monocdk.aws_fsx.CfnVolume",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3900,7 +4278,7 @@ func CfnVolume_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_fsx.CfnVolume",
+		"monocdk.aws_fsx.CfnVolume",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3997,11 +4375,48 @@ func (c *jsiiProxy_CfnVolume) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+func (c *jsiiProxy_CfnVolume) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnVolume) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CfnVolume) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CfnVolume) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+func (c *jsiiProxy_CfnVolume) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4031,12 +4446,33 @@ func (c *jsiiProxy_CfnVolume) ShouldSynthesize() *bool {
 	return returns
 }
 
+func (c *jsiiProxy_CfnVolume) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CfnVolume) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CfnVolume) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4446,22 +4882,29 @@ type CfnVolumeProps struct {
 //
 //   fs.connections.allowDefaultPortFrom(inst)
 //
+// Experimental.
 type FileSystemAttributes struct {
 	// The DNS name assigned to this file system.
+	// Experimental.
 	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`
 	// The ID of the file system, assigned by Amazon FSx.
+	// Experimental.
 	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
 	// The security group of the file system.
+	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `field:"required" json:"securityGroup" yaml:"securityGroup"`
 }
 
 // A new or imported FSx file system.
+// Experimental.
 type FileSystemBase interface {
 	awscdk.Resource
 	IFileSystem
 	// The security groups/rules used to allow network connections to the file system.
+	// Experimental.
 	Connections() awsec2.Connections
 	// The DNS name assigned to this file system.
+	// Experimental.
 	DnsName() *string
 	// The environment this resource belongs to.
 	//
@@ -4471,11 +4914,14 @@ type FileSystemBase interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The ID of the file system, assigned by Amazon FSx.
+	// Experimental.
 	FileSystemId() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -4483,8 +4929,10 @@ type FileSystemBase interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -4495,7 +4943,9 @@ type FileSystemBase interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -4503,15 +4953,66 @@ type FileSystemBase interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for FileSystemBase
@@ -4560,8 +5061,8 @@ func (j *jsiiProxy_FileSystemBase) FileSystemId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_FileSystemBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_FileSystemBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4591,40 +5092,26 @@ func (j *jsiiProxy_FileSystemBase) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewFileSystemBase_Override(f FileSystemBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.FileSystemBase",
+		"monocdk.aws_fsx.FileSystemBase",
 		[]interface{}{scope, id, props},
 		f,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func FileSystemBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.FileSystemBase",
+		"monocdk.aws_fsx.FileSystemBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4634,13 +5121,14 @@ func FileSystemBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func FileSystemBase_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func FileSystemBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.FileSystemBase",
+		"monocdk.aws_fsx.FileSystemBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4696,6 +5184,51 @@ func (f *jsiiProxy_FileSystemBase) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
+func (f *jsiiProxy_FileSystemBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (f *jsiiProxy_FileSystemBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (f *jsiiProxy_FileSystemBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FileSystemBase) Prepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (f *jsiiProxy_FileSystemBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (f *jsiiProxy_FileSystemBase) ToString() *string {
 	var returns *string
 
@@ -4709,12 +5242,25 @@ func (f *jsiiProxy_FileSystemBase) ToString() *string {
 	return returns
 }
 
+func (f *jsiiProxy_FileSystemBase) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for the FSx file system.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -4730,37 +5276,46 @@ func (f *jsiiProxy_FileSystemBase) ToString() *string {
 //   	// the properties below are optional
 //   	backupId: jsii.String("backupId"),
 //   	kmsKey: key,
-//   	removalPolicy: cdk.removalPolicy_DESTROY,
+//   	removalPolicy: monocdk.removalPolicy_DESTROY,
 //   	securityGroup: securityGroup,
 //   }
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html
 //
+// Experimental.
 type FileSystemProps struct {
 	// The storage capacity of the file system being created.
 	//
 	// For Windows file systems, valid values are 32 GiB to 65,536 GiB.
 	// For SCRATCH_1 deployment types, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3,600 GiB.
 	// For SCRATCH_2 and PERSISTENT_1 types, valid values are 1,200, 2,400, then continuing in increments of 2,400 GiB.
+	// Experimental.
 	StorageCapacityGiB *float64 `field:"required" json:"storageCapacityGiB" yaml:"storageCapacityGiB"`
 	// The VPC to launch the file system in.
+	// Experimental.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The ID of the backup.
 	//
 	// Specifies the backup to use if you're creating a file system from an existing backup.
+	// Experimental.
 	BackupId *string `field:"optional" json:"backupId" yaml:"backupId"`
 	// The KMS key used for encryption to protect your data at rest.
+	// Experimental.
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// Policy to apply when the file system is removed from the stack.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Security Group to assign to this file system.
+	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 }
 
 // Interface to implement FSx File Systems.
+// Experimental.
 type IFileSystem interface {
 	awsec2.IConnectable
 	// The ID of the file system, assigned by Amazon FSx.
+	// Experimental.
 	FileSystemId() *string
 }
 
@@ -4796,8 +5351,10 @@ func (j *jsiiProxy_IFileSystem) FileSystemId() *string {
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html
 //
+// Experimental.
 type LustreConfiguration struct {
 	// The type of backing file system deployment used by FSx.
+	// Experimental.
 	DeploymentType LustreDeploymentType `field:"required" json:"deploymentType" yaml:"deploymentType"`
 	// The path in Amazon S3 where the root of your Amazon FSx file system is exported.
 	//
@@ -4807,25 +5364,30 @@ type LustreConfiguration struct {
 	// overwritten on export. If you provide a custom prefix in the export path, such as
 	// s3://import-bucket/[custom-optional-prefix], Amazon FSx exports the contents of your file system to that export
 	// prefix in the Amazon S3 bucket.
+	// Experimental.
 	ExportPath *string `field:"optional" json:"exportPath" yaml:"exportPath"`
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk.
 	//
 	// Allowed values are between 1 and 512,000.
+	// Experimental.
 	ImportedFileChunkSizeMiB *float64 `field:"optional" json:"importedFileChunkSizeMiB" yaml:"importedFileChunkSizeMiB"`
 	// The path to the Amazon S3 bucket (including the optional prefix) that you're using as the data repository for your Amazon FSx for Lustre file system.
 	//
 	// Must be of the format "s3://{bucketName}/optional-prefix" and cannot
 	// exceed 900 characters.
+	// Experimental.
 	ImportPath *string `field:"optional" json:"importPath" yaml:"importPath"`
 	// Required for the PERSISTENT_1 deployment type, describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB.
 	//
 	// Valid values are 50, 100, 200.
+	// Experimental.
 	PerUnitStorageThroughput *float64 `field:"optional" json:"perUnitStorageThroughput" yaml:"perUnitStorageThroughput"`
 	// The preferred day and time to perform weekly maintenance.
 	//
 	// The first digit is the day of the week, starting at 1
 	// for Monday, then the following are hours and minutes in the UTC time zone, 24 hour clock. For example: '2:20:30'
 	// is Tuesdays at 20:30.
+	// Experimental.
 	WeeklyMaintenanceStartTime LustreMaintenanceTime `field:"optional" json:"weeklyMaintenanceStartTime" yaml:"weeklyMaintenanceStartTime"`
 }
 
@@ -4844,25 +5406,30 @@ type LustreConfiguration struct {
 //   	vpcSubnet: vpc.privateSubnets[jsii.Number(0)],
 //   })
 //
+// Experimental.
 type LustreDeploymentType string
 
 const (
 	// Original type for shorter term data processing.
 	//
 	// Data is not replicated and does not persist on server fail.
+	// Experimental.
 	LustreDeploymentType_SCRATCH_1 LustreDeploymentType = "SCRATCH_1"
 	// Newer type for shorter term data processing.
 	//
 	// Data is not replicated and does not persist on server fail.
 	// Provides better support for spiky workloads.
+	// Experimental.
 	LustreDeploymentType_SCRATCH_2 LustreDeploymentType = "SCRATCH_2"
 	// Long term storage.
 	//
 	// Data is replicated and file servers are replaced if they fail.
+	// Experimental.
 	LustreDeploymentType_PERSISTENT_1 LustreDeploymentType = "PERSISTENT_1"
 	// Newer type of long term storage with higher throughput tiers.
 	//
 	// Data is replicated and file servers are replaced if they fail.
+	// Experimental.
 	LustreDeploymentType_PERSISTENT_2 LustreDeploymentType = "PERSISTENT_2"
 )
 
@@ -4903,11 +5470,14 @@ const (
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html
 //
+// Experimental.
 type LustreFileSystem interface {
 	FileSystemBase
 	// The security groups/rules used to allow network connections to the file system.
+	// Experimental.
 	Connections() awsec2.Connections
 	// The DNS name assigned to this file system.
+	// Experimental.
 	DnsName() *string
 	// The environment this resource belongs to.
 	//
@@ -4917,13 +5487,17 @@ type LustreFileSystem interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
+	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The ID that AWS assigns to the file system.
+	// Experimental.
 	FileSystemId() *string
 	// The mount name of the file system, generated by FSx.
+	// Experimental.
 	MountName() *string
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -4931,8 +5505,10 @@ type LustreFileSystem interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
+	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
+	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -4943,7 +5519,9 @@ type LustreFileSystem interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -4951,15 +5529,66 @@ type LustreFileSystem interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
+	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
+	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for LustreFileSystem
@@ -5017,8 +5646,8 @@ func (j *jsiiProxy_LustreFileSystem) MountName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_LustreFileSystem) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_LustreFileSystem) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5048,13 +5677,14 @@ func (j *jsiiProxy_LustreFileSystem) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewLustreFileSystem(scope constructs.Construct, id *string, props *LustreFileSystemProps) LustreFileSystem {
 	_init_.Initialize()
 
 	j := jsiiProxy_LustreFileSystem{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.LustreFileSystem",
+		"monocdk.aws_fsx.LustreFileSystem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5062,24 +5692,26 @@ func NewLustreFileSystem(scope constructs.Construct, id *string, props *LustreFi
 	return &j
 }
 
+// Experimental.
 func NewLustreFileSystem_Override(l LustreFileSystem, scope constructs.Construct, id *string, props *LustreFileSystemProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.LustreFileSystem",
+		"monocdk.aws_fsx.LustreFileSystem",
 		[]interface{}{scope, id, props},
 		l,
 	)
 }
 
 // Import an existing FSx for Lustre file system from the given properties.
+// Experimental.
 func LustreFileSystem_FromLustreFileSystemAttributes(scope constructs.Construct, id *string, attrs *FileSystemAttributes) IFileSystem {
 	_init_.Initialize()
 
 	var returns IFileSystem
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.LustreFileSystem",
+		"monocdk.aws_fsx.LustreFileSystem",
 		"fromLustreFileSystemAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -5088,30 +5720,15 @@ func LustreFileSystem_FromLustreFileSystemAttributes(scope constructs.Construct,
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func LustreFileSystem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.LustreFileSystem",
+		"monocdk.aws_fsx.LustreFileSystem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5121,13 +5738,14 @@ func LustreFileSystem_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func LustreFileSystem_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func LustreFileSystem_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.LustreFileSystem",
+		"monocdk.aws_fsx.LustreFileSystem",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5183,12 +5801,70 @@ func (l *jsiiProxy_LustreFileSystem) GetResourceNameAttribute(nameAttr *string) 
 	return returns
 }
 
+func (l *jsiiProxy_LustreFileSystem) OnPrepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (l *jsiiProxy_LustreFileSystem) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (l *jsiiProxy_LustreFileSystem) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LustreFileSystem) Prepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (l *jsiiProxy_LustreFileSystem) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (l *jsiiProxy_LustreFileSystem) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		l,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LustreFileSystem) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5211,28 +5887,37 @@ func (l *jsiiProxy_LustreFileSystem) ToString() *string {
 //   	vpcSubnet: vpc.privateSubnets[jsii.Number(0)],
 //   })
 //
+// Experimental.
 type LustreFileSystemProps struct {
 	// The storage capacity of the file system being created.
 	//
 	// For Windows file systems, valid values are 32 GiB to 65,536 GiB.
 	// For SCRATCH_1 deployment types, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3,600 GiB.
 	// For SCRATCH_2 and PERSISTENT_1 types, valid values are 1,200, 2,400, then continuing in increments of 2,400 GiB.
+	// Experimental.
 	StorageCapacityGiB *float64 `field:"required" json:"storageCapacityGiB" yaml:"storageCapacityGiB"`
 	// The VPC to launch the file system in.
+	// Experimental.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The ID of the backup.
 	//
 	// Specifies the backup to use if you're creating a file system from an existing backup.
+	// Experimental.
 	BackupId *string `field:"optional" json:"backupId" yaml:"backupId"`
 	// The KMS key used for encryption to protect your data at rest.
+	// Experimental.
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// Policy to apply when the file system is removed from the stack.
+	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Security Group to assign to this file system.
+	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Additional configuration for FSx specific to Lustre.
+	// Experimental.
 	LustreConfiguration *LustreConfiguration `field:"required" json:"lustreConfiguration" yaml:"lustreConfiguration"`
 	// The subnet that the file system will be accessible from.
+	// Experimental.
 	VpcSubnet awsec2.ISubnet `field:"required" json:"vpcSubnet" yaml:"vpcSubnet"`
 }
 
@@ -5249,8 +5934,10 @@ type LustreFileSystemProps struct {
 //   	minute: jsii.Number(123),
 //   })
 //
+// Experimental.
 type LustreMaintenanceTime interface {
 	// Converts a day, hour, and minute into a timestamp as used by FSx for Lustre's weeklyMaintenanceStartTime field.
+	// Experimental.
 	ToTimestamp() *string
 }
 
@@ -5259,13 +5946,14 @@ type jsiiProxy_LustreMaintenanceTime struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewLustreMaintenanceTime(props *LustreMaintenanceTimeProps) LustreMaintenanceTime {
 	_init_.Initialize()
 
 	j := jsiiProxy_LustreMaintenanceTime{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.LustreMaintenanceTime",
+		"monocdk.aws_fsx.LustreMaintenanceTime",
 		[]interface{}{props},
 		&j,
 	)
@@ -5273,11 +5961,12 @@ func NewLustreMaintenanceTime(props *LustreMaintenanceTimeProps) LustreMaintenan
 	return &j
 }
 
+// Experimental.
 func NewLustreMaintenanceTime_Override(l LustreMaintenanceTime, props *LustreMaintenanceTimeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.LustreMaintenanceTime",
+		"monocdk.aws_fsx.LustreMaintenanceTime",
 		[]interface{}{props},
 		l,
 	)
@@ -5309,32 +5998,44 @@ func (l *jsiiProxy_LustreMaintenanceTime) ToTimestamp() *string {
 //   	minute: jsii.Number(123),
 //   }
 //
+// Experimental.
 type LustreMaintenanceTimeProps struct {
 	// The day of the week for maintenance to be performed.
+	// Experimental.
 	Day Weekday `field:"required" json:"day" yaml:"day"`
 	// The hour of the day (from 0-24) for maintenance to be performed.
+	// Experimental.
 	Hour *float64 `field:"required" json:"hour" yaml:"hour"`
 	// The minute of the hour (from 0-59) for maintenance to be performed.
+	// Experimental.
 	Minute *float64 `field:"required" json:"minute" yaml:"minute"`
 }
 
 // Enum for representing all the days of the week.
+// Experimental.
 type Weekday string
 
 const (
 	// Monday.
+	// Experimental.
 	Weekday_MONDAY Weekday = "MONDAY"
 	// Tuesday.
+	// Experimental.
 	Weekday_TUESDAY Weekday = "TUESDAY"
 	// Wednesday.
+	// Experimental.
 	Weekday_WEDNESDAY Weekday = "WEDNESDAY"
 	// Thursday.
+	// Experimental.
 	Weekday_THURSDAY Weekday = "THURSDAY"
 	// Friday.
+	// Experimental.
 	Weekday_FRIDAY Weekday = "FRIDAY"
 	// Saturday.
+	// Experimental.
 	Weekday_SATURDAY Weekday = "SATURDAY"
 	// Sunday.
+	// Experimental.
 	Weekday_SUNDAY Weekday = "SUNDAY"
 )
 

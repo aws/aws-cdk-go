@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
+		"monocdk.aws_applicationinsights.CfnApplication",
 		reflect.TypeOf((*CfnApplication)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -34,17 +34,23 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "logPatternSets", GoGetter: "LogPatternSets"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "opsCenterEnabled", GoGetter: "OpsCenterEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "opsItemSnsTopicArn", GoGetter: "OpsItemSnsTopicArn"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceGroupName", GoGetter: "ResourceGroupName"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -55,67 +61,67 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.AlarmMetricProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.AlarmMetricProperty",
 		reflect.TypeOf((*CfnApplication_AlarmMetricProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.AlarmProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.AlarmProperty",
 		reflect.TypeOf((*CfnApplication_AlarmProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.ComponentConfigurationProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.ComponentConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_ComponentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.ComponentMonitoringSettingProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.ComponentMonitoringSettingProperty",
 		reflect.TypeOf((*CfnApplication_ComponentMonitoringSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.ConfigurationDetailsProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.ConfigurationDetailsProperty",
 		reflect.TypeOf((*CfnApplication_ConfigurationDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.CustomComponentProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.CustomComponentProperty",
 		reflect.TypeOf((*CfnApplication_CustomComponentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.HAClusterPrometheusExporterProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.HAClusterPrometheusExporterProperty",
 		reflect.TypeOf((*CfnApplication_HAClusterPrometheusExporterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.HANAPrometheusExporterProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.HANAPrometheusExporterProperty",
 		reflect.TypeOf((*CfnApplication_HANAPrometheusExporterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.JMXPrometheusExporterProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.JMXPrometheusExporterProperty",
 		reflect.TypeOf((*CfnApplication_JMXPrometheusExporterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.LogPatternProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.LogPatternProperty",
 		reflect.TypeOf((*CfnApplication_LogPatternProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.LogPatternSetProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.LogPatternSetProperty",
 		reflect.TypeOf((*CfnApplication_LogPatternSetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.LogProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.LogProperty",
 		reflect.TypeOf((*CfnApplication_LogProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.SubComponentConfigurationDetailsProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.SubComponentConfigurationDetailsProperty",
 		reflect.TypeOf((*CfnApplication_SubComponentConfigurationDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.SubComponentTypeConfigurationProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.SubComponentTypeConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_SubComponentTypeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplication.WindowsEventProperty",
+		"monocdk.aws_applicationinsights.CfnApplication.WindowsEventProperty",
 		reflect.TypeOf((*CfnApplication_WindowsEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_applicationinsights.CfnApplicationProps",
+		"monocdk.aws_applicationinsights.CfnApplicationProps",
 		reflect.TypeOf((*CfnApplicationProps)(nil)).Elem(),
 	)
 }

@@ -8,11 +8,27 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.AddStageOpts",
+		"monocdk.pipelines.AddManualApprovalOptions",
+		reflect.TypeOf((*AddManualApprovalOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.AddStackOptions",
+		reflect.TypeOf((*AddStackOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.AddStageOptions",
+		reflect.TypeOf((*AddStageOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.AddStageOpts",
 		reflect.TypeOf((*AddStageOpts)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.AdditionalArtifact",
+		reflect.TypeOf((*AdditionalArtifact)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.ArtifactMap",
+		"monocdk.pipelines.ArtifactMap",
 		reflect.TypeOf((*ArtifactMap)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "toCodePipeline", GoMethod: "ToCodePipeline"},
@@ -21,8 +37,12 @@ func init() {
 			return &jsiiProxy_ArtifactMap{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.AssetPublishingCommand",
+		reflect.TypeOf((*AssetPublishingCommand)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.pipelines.AssetType",
+		"monocdk.pipelines.AssetType",
 		reflect.TypeOf((*AssetType)(nil)).Elem(),
 		map[string]interface{}{
 			"FILE": AssetType_FILE,
@@ -30,11 +50,76 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.CodeBuildOptions",
+		"monocdk.pipelines.BaseStageOptions",
+		reflect.TypeOf((*BaseStageOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.pipelines.CdkPipeline",
+		reflect.TypeOf((*CdkPipeline)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addApplicationStage", GoMethod: "AddApplicationStage"},
+			_jsii_.MemberMethod{JsiiMethod: "addStage", GoMethod: "AddStage"},
+			_jsii_.MemberProperty{JsiiProperty: "codePipeline", GoGetter: "CodePipeline"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberMethod{JsiiMethod: "stackOutput", GoMethod: "StackOutput"},
+			_jsii_.MemberMethod{JsiiMethod: "stage", GoMethod: "Stage"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CdkPipeline{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.CdkPipelineProps",
+		reflect.TypeOf((*CdkPipelineProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.CdkStackActionFromArtifactOptions",
+		reflect.TypeOf((*CdkStackActionFromArtifactOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.pipelines.CdkStage",
+		reflect.TypeOf((*CdkStage)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addActions", GoMethod: "AddActions"},
+			_jsii_.MemberMethod{JsiiMethod: "addApplication", GoMethod: "AddApplication"},
+			_jsii_.MemberMethod{JsiiMethod: "addManualApprovalAction", GoMethod: "AddManualApprovalAction"},
+			_jsii_.MemberMethod{JsiiMethod: "addStackArtifactDeployment", GoMethod: "AddStackArtifactDeployment"},
+			_jsii_.MemberMethod{JsiiMethod: "deploysStack", GoMethod: "DeploysStack"},
+			_jsii_.MemberMethod{JsiiMethod: "nextSequentialRunOrder", GoMethod: "NextSequentialRunOrder"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CdkStage{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.CdkStageProps",
+		reflect.TypeOf((*CdkStageProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.CodeBuildOptions",
 		reflect.TypeOf((*CodeBuildOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.CodeBuildStep",
+		"monocdk.pipelines.CodeBuildStep",
 		reflect.TypeOf((*CodeBuildStep)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionRole", GoGetter: "ActionRole"},
@@ -42,7 +127,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addOutputDirectory", GoMethod: "AddOutputDirectory"},
 			_jsii_.MemberMethod{JsiiMethod: "addStepDependency", GoMethod: "AddStepDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "buildEnvironment", GoGetter: "BuildEnvironment"},
-			_jsii_.MemberProperty{JsiiProperty: "cache", GoGetter: "Cache"},
 			_jsii_.MemberProperty{JsiiProperty: "commands", GoGetter: "Commands"},
 			_jsii_.MemberMethod{JsiiMethod: "configurePrimaryOutput", GoMethod: "ConfigurePrimaryOutput"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
@@ -77,15 +161,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.CodeBuildStepProps",
+		"monocdk.pipelines.CodeBuildStepProps",
 		reflect.TypeOf((*CodeBuildStepProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.CodeCommitSourceOptions",
+		"monocdk.pipelines.CodeCommitSourceOptions",
 		reflect.TypeOf((*CodeCommitSourceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.CodePipeline",
+		"monocdk.pipelines.CodePipeline",
 		reflect.TypeOf((*CodePipeline)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addStage", GoMethod: "AddStage"},
@@ -94,10 +178,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cloudAssemblyFileSet", GoGetter: "CloudAssemblyFileSet"},
 			_jsii_.MemberMethod{JsiiMethod: "doBuildPipeline", GoMethod: "DoBuildPipeline"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "pipeline", GoGetter: "Pipeline"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "synth", GoGetter: "Synth"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "synthProject", GoGetter: "SynthProject"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "waves", GoGetter: "Waves"},
 		},
 		func() interface{} {
@@ -107,11 +197,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.CodePipelineActionFactoryResult",
+		"monocdk.pipelines.CodePipelineActionFactoryResult",
 		reflect.TypeOf((*CodePipelineActionFactoryResult)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.CodePipelineFileSet",
+		"monocdk.pipelines.CodePipelineFileSet",
 		reflect.TypeOf((*CodePipelineFileSet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
@@ -127,11 +217,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.CodePipelineProps",
+		"monocdk.pipelines.CodePipelineProps",
 		reflect.TypeOf((*CodePipelineProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		reflect.TypeOf((*CodePipelineSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDependencyFileSet", GoMethod: "AddDependencyFileSet"},
@@ -156,7 +246,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.ConfirmPermissionsBroadening",
+		"monocdk.pipelines.ConfirmPermissionsBroadening",
 		reflect.TypeOf((*ConfirmPermissionsBroadening)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDependencyFileSet", GoMethod: "AddDependencyFileSet"},
@@ -179,11 +269,38 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.ConnectionSourceOptions",
+		"monocdk.pipelines.ConnectionSourceOptions",
 		reflect.TypeOf((*ConnectionSourceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.DockerCredential",
+		"monocdk.pipelines.DeployCdkStackAction",
+		reflect.TypeOf((*DeployCdkStackAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "dependencyStackArtifactIds", GoGetter: "DependencyStackArtifactIds"},
+			_jsii_.MemberProperty{JsiiProperty: "executeRunOrder", GoGetter: "ExecuteRunOrder"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberProperty{JsiiProperty: "prepareRunOrder", GoGetter: "PrepareRunOrder"},
+			_jsii_.MemberProperty{JsiiProperty: "stackArtifactId", GoGetter: "StackArtifactId"},
+			_jsii_.MemberProperty{JsiiProperty: "stackName", GoGetter: "StackName"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DeployCdkStackAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscodepipelineIAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.DeployCdkStackActionOptions",
+		reflect.TypeOf((*DeployCdkStackActionOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.DeployCdkStackActionProps",
+		reflect.TypeOf((*DeployCdkStackActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.pipelines.DockerCredential",
 		reflect.TypeOf((*DockerCredential)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
@@ -194,7 +311,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.pipelines.DockerCredentialUsage",
+		"monocdk.pipelines.DockerCredentialUsage",
 		reflect.TypeOf((*DockerCredentialUsage)(nil)).Elem(),
 		map[string]interface{}{
 			"SYNTH": DockerCredentialUsage_SYNTH,
@@ -203,19 +320,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.ECRSourceOptions",
+		"monocdk.pipelines.ECRSourceOptions",
 		reflect.TypeOf((*ECRSourceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.EcrDockerCredentialOptions",
+		"monocdk.pipelines.EcrDockerCredentialOptions",
 		reflect.TypeOf((*EcrDockerCredentialOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.ExternalDockerCredentialOptions",
+		"monocdk.pipelines.ExternalDockerCredentialOptions",
 		reflect.TypeOf((*ExternalDockerCredentialOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.FileSet",
+		"monocdk.pipelines.FileSet",
 		reflect.TypeOf((*FileSet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
@@ -231,15 +348,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.FileSetLocation",
+		"monocdk.pipelines.FileSetLocation",
 		reflect.TypeOf((*FileSetLocation)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.GitHubSourceOptions",
+		"monocdk.pipelines.FromStackArtifactOptions",
+		reflect.TypeOf((*FromStackArtifactOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.GitHubSourceOptions",
 		reflect.TypeOf((*GitHubSourceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.pipelines.ICodePipelineActionFactory",
+		"monocdk.pipelines.ICodePipelineActionFactory",
 		reflect.TypeOf((*ICodePipelineActionFactory)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "produceAction", GoMethod: "ProduceAction"},
@@ -249,7 +370,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.pipelines.IFileSetProducer",
+		"monocdk.pipelines.IFileSetProducer",
 		reflect.TypeOf((*IFileSetProducer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "primaryOutput", GoGetter: "PrimaryOutput"},
@@ -258,8 +379,19 @@ func init() {
 			return &jsiiProxy_IFileSetProducer{}
 		},
 	)
+	_jsii_.RegisterInterface(
+		"monocdk.pipelines.IStageHost",
+		reflect.TypeOf((*IStageHost)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "publishAsset", GoMethod: "PublishAsset"},
+			_jsii_.MemberMethod{JsiiMethod: "stackOutputArtifact", GoMethod: "StackOutputArtifact"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IStageHost{}
+		},
+	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.ManualApprovalStep",
+		"monocdk.pipelines.ManualApprovalStep",
 		reflect.TypeOf((*ManualApprovalStep)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDependencyFileSet", GoMethod: "AddDependencyFileSet"},
@@ -281,15 +413,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.ManualApprovalStepProps",
+		"monocdk.pipelines.ManualApprovalStepProps",
 		reflect.TypeOf((*ManualApprovalStepProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.PermissionsBroadeningCheckProps",
+		"monocdk.pipelines.PermissionsBroadeningCheckProps",
 		reflect.TypeOf((*PermissionsBroadeningCheckProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.PipelineBase",
+		"monocdk.pipelines.PipelineBase",
 		reflect.TypeOf((*PipelineBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addStage", GoMethod: "AddStage"},
@@ -298,30 +430,85 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cloudAssemblyFileSet", GoGetter: "CloudAssemblyFileSet"},
 			_jsii_.MemberMethod{JsiiMethod: "doBuildPipeline", GoMethod: "DoBuildPipeline"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "synth", GoGetter: "Synth"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "waves", GoGetter: "Waves"},
 		},
 		func() interface{} {
 			j := jsiiProxy_PipelineBase{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.PipelineBaseProps",
+		"monocdk.pipelines.PipelineBaseProps",
 		reflect.TypeOf((*PipelineBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.ProduceActionOptions",
+		"monocdk.pipelines.ProduceActionOptions",
 		reflect.TypeOf((*ProduceActionOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"monocdk.pipelines.PublishAssetsAction",
+		reflect.TypeOf((*PublishAssetsAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "addPublishCommand", GoMethod: "AddPublishCommand"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PublishAssetsAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscodepipelineIAction)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.S3SourceOptions",
+		"monocdk.pipelines.PublishAssetsActionProps",
+		reflect.TypeOf((*PublishAssetsActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.S3SourceOptions",
 		reflect.TypeOf((*S3SourceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.ShellStep",
+		"monocdk.pipelines.ShellScriptAction",
+		reflect.TypeOf((*ShellScriptAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberProperty{JsiiProperty: "project", GoGetter: "Project"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ShellScriptAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscodepipelineIAction)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.ShellScriptActionProps",
+		reflect.TypeOf((*ShellScriptActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.pipelines.ShellStep",
 		reflect.TypeOf((*ShellStep)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDependencyFileSet", GoMethod: "AddDependencyFileSet"},
@@ -350,15 +537,40 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.ShellStepProps",
+		"monocdk.pipelines.ShellStepProps",
 		reflect.TypeOf((*ShellStepProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"monocdk.pipelines.SimpleSynthAction",
+		reflect.TypeOf((*SimpleSynthAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberProperty{JsiiProperty: "project", GoGetter: "Project"},
+		},
+		func() interface{} {
+			j := jsiiProxy_SimpleSynthAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscodepipelineIAction)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.StackAsset",
+		"monocdk.pipelines.SimpleSynthActionProps",
+		reflect.TypeOf((*SimpleSynthActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.SimpleSynthOptions",
+		reflect.TypeOf((*SimpleSynthOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.StackAsset",
 		reflect.TypeOf((*StackAsset)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.StackDeployment",
+		"monocdk.pipelines.StackDeployment",
 		reflect.TypeOf((*StackDeployment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "absoluteTemplatePath", GoGetter: "AbsoluteTemplatePath"},
@@ -385,11 +597,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.StackDeploymentProps",
+		"monocdk.pipelines.StackDeploymentProps",
 		reflect.TypeOf((*StackDeploymentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.StackOutputReference",
+		"monocdk.pipelines.StackOutput",
+		reflect.TypeOf((*StackOutput)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "artifactFile", GoGetter: "ArtifactFile"},
+			_jsii_.MemberProperty{JsiiProperty: "outputName", GoGetter: "OutputName"},
+		},
+		func() interface{} {
+			return &jsiiProxy_StackOutput{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.pipelines.StackOutputReference",
 		reflect.TypeOf((*StackOutputReference)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "isProducedBy", GoMethod: "IsProducedBy"},
@@ -401,11 +624,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.StackSteps",
+		"monocdk.pipelines.StackSteps",
 		reflect.TypeOf((*StackSteps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.StageDeployment",
+		"monocdk.pipelines.StageDeployment",
 		reflect.TypeOf((*StageDeployment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addPost", GoMethod: "AddPost"},
@@ -421,11 +644,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.StageDeploymentProps",
+		"monocdk.pipelines.StageDeploymentProps",
 		reflect.TypeOf((*StageDeploymentProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.StandardNpmSynthOptions",
+		reflect.TypeOf((*StandardNpmSynthOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.StandardYarnSynthOptions",
+		reflect.TypeOf((*StandardYarnSynthOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.Step",
+		"monocdk.pipelines.Step",
 		reflect.TypeOf((*Step)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDependencyFileSet", GoMethod: "AddDependencyFileSet"},
@@ -446,7 +677,34 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.pipelines.Wave",
+		"monocdk.pipelines.UpdatePipelineAction",
+		reflect.TypeOf((*UpdatePipelineAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_UpdatePipelineAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscodepipelineIAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.pipelines.UpdatePipelineActionProps",
+		reflect.TypeOf((*UpdatePipelineActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.pipelines.Wave",
 		reflect.TypeOf((*Wave)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addPost", GoMethod: "AddPost"},
@@ -462,11 +720,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.WaveOptions",
+		"monocdk.pipelines.WaveOptions",
 		reflect.TypeOf((*WaveOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.pipelines.WaveProps",
+		"monocdk.pipelines.WaveProps",
 		reflect.TypeOf((*WaveProps)(nil)).Elem(),
 	)
 }
