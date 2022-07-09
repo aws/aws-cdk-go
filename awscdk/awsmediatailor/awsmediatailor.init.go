@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_mediatailor.CfnPlaybackConfiguration",
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration",
 		reflect.TypeOf((*CfnPlaybackConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -41,23 +41,17 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "manifestProcessingRules", GoGetter: "ManifestProcessingRules"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "personalizationThresholdSeconds", GoGetter: "PersonalizationThresholdSeconds"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "slateAdUrl", GoGetter: "SlateAdUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "transcodeProfileName", GoGetter: "TranscodeProfileName"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "videoContentSourceUrl", GoGetter: "VideoContentSourceUrl"},
 		},
@@ -69,39 +63,39 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediatailor.CfnPlaybackConfiguration.AdMarkerPassthroughProperty",
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.AdMarkerPassthroughProperty",
 		reflect.TypeOf((*CfnPlaybackConfiguration_AdMarkerPassthroughProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediatailor.CfnPlaybackConfiguration.AvailSuppressionProperty",
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.AvailSuppressionProperty",
 		reflect.TypeOf((*CfnPlaybackConfiguration_AvailSuppressionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediatailor.CfnPlaybackConfiguration.BumperProperty",
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.BumperProperty",
 		reflect.TypeOf((*CfnPlaybackConfiguration_BumperProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediatailor.CfnPlaybackConfiguration.CdnConfigurationProperty",
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.CdnConfigurationProperty",
 		reflect.TypeOf((*CfnPlaybackConfiguration_CdnConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediatailor.CfnPlaybackConfiguration.DashConfigurationProperty",
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.DashConfigurationProperty",
 		reflect.TypeOf((*CfnPlaybackConfiguration_DashConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediatailor.CfnPlaybackConfiguration.HlsConfigurationProperty",
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.HlsConfigurationProperty",
 		reflect.TypeOf((*CfnPlaybackConfiguration_HlsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediatailor.CfnPlaybackConfiguration.LivePreRollConfigurationProperty",
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.LivePreRollConfigurationProperty",
 		reflect.TypeOf((*CfnPlaybackConfiguration_LivePreRollConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediatailor.CfnPlaybackConfiguration.ManifestProcessingRulesProperty",
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.ManifestProcessingRulesProperty",
 		reflect.TypeOf((*CfnPlaybackConfiguration_ManifestProcessingRulesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediatailor.CfnPlaybackConfigurationProps",
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfigurationProps",
 		reflect.TypeOf((*CfnPlaybackConfigurationProps)(nil)).Elem(),
 	)
 }

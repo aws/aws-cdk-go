@@ -18,7 +18,7 @@ runtime code.
 * `lambda.Code.fromBucket(bucket, key[, objectVersion])` - specify an S3 object
   that contains the archive of your runtime code.
 * `lambda.Code.fromInline(code)` - inline the handle code as a string. This is
-  limited to supported runtimes and the code cannot exceed 4KiB.
+  limited to supported runtimes.
 * `lambda.Code.fromAsset(path)` - specify a directory or a .zip file in the local
   filesystem which will be zipped and uploaded to S3 before deployment. See also
   [bundling asset code](#bundling-asset-code).
@@ -152,12 +152,13 @@ if fn.timeout {
 
 AWS Lambda supports resource-based policies for controlling access to Lambda
 functions and layers on a per-resource basis. In particular, this allows you to
-give permission to AWS services and other AWS accounts to modify and invoke your
-functions. You can also restrict permissions given to AWS services by providing
-a source account or ARN (representing the account and identifier of the resource
-that accesses the function or layer).
+give permission to AWS services, AWS Organizations, or other AWS accounts to
+modify and invoke your functions.
+
+### Grant function access to AWS services
 
 ```go
+// Grant permissions to a service
 var fn function
 
 principal := iam.NewServicePrincipal(jsii.String("my-service"))
@@ -170,9 +171,60 @@ fn.addPermission(jsii.String("my-service Invocation"), &permission{
 })
 ```
 
-For more information, see [Resource-based
-policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
+You can also restrict permissions given to AWS services by providing
+a source account or ARN (representing the account and identifier of the resource
+that accesses the function or layer).
+
+For more information, see
+[Granting function access to AWS services](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-serviceinvoke)
 in the AWS Lambda Developer Guide.
+
+### Grant function access to an AWS Organization
+
+```go
+// Grant permissions to an entire AWS organization
+var fn function
+
+org := iam.NewOrganizationPrincipal(jsii.String("o-xxxxxxxxxx"))
+
+fn.grantInvoke(org)
+```
+
+In the above example, the `principal` will be `*` and all users in the
+organization `o-xxxxxxxxxx` will get function invocation permissions.
+
+You can restrict permissions given to the organization by specifying an
+AWS account or role as the `principal`:
+
+```go
+// Grant permission to an account ONLY IF they are part of the organization
+var fn function
+
+account := iam.NewAccountPrincipal(jsii.String("123456789012"))
+
+fn.grantInvoke(account.inOrganization(jsii.String("o-xxxxxxxxxx")))
+```
+
+For more information, see
+[Granting function access to an organization](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xorginvoke)
+in the AWS Lambda Developer Guide.
+
+### Grant function access to other AWS accounts
+
+```go
+// Grant permission to other AWS account
+var fn function
+
+account := iam.NewAccountPrincipal(jsii.String("123456789012"))
+
+fn.grantInvoke(account)
+```
+
+For more information, see
+[Granting function access to other accounts](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke)
+in the AWS Lambda Developer Guide.
+
+### Grant function access to unowned principals
 
 Providing an unowned principal (such as account principals, generic ARN
 principals, service principals, and principals in other accounts) to a call to
@@ -197,13 +249,6 @@ servicePrincipalWithConditions := servicePrincipal.withConditions(map[string]int
 })
 
 fn.grantInvoke(servicePrincipalWithConditions)
-
-// Equivalent to:
-fn.addPermission(jsii.String("my-service Invocation"), &permission{
-	principal: servicePrincipal,
-	sourceArn: sourceArn,
-	sourceAccount: sourceAccount,
-})
 ```
 
 ## Versions
@@ -300,7 +345,7 @@ deploying once.
 
 ```go
 stack := awscdk.Newstack()
-awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(monocdkcxapi.LAMBDA_RECOGNIZE_VERSION_PROPS))
+awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(awscdklibcxapi.LAMBDA_RECOGNIZE_VERSION_PROPS))
 ```
 
 When the new logic is in effect, you may rarely come across the following error:
@@ -336,7 +381,7 @@ deploying once.
 
 ```go
 stack := awscdk.Newstack()
-awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(monocdkcxapi.LAMBDA_RECOGNIZE_LAYER_VERSION))
+awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(awscdklibcxapi.LAMBDA_RECOGNIZE_LAYER_VERSION))
 ```
 
 ## Aliases
@@ -1022,8 +1067,8 @@ lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 
 Language-specific higher level constructs are provided in separate modules:
 
-* `@aws-cdk/aws-lambda-nodejs`: [Github](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-lambda-nodejs) & [CDK Docs](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-nodejs-readme.html)
-* `@aws-cdk/aws-lambda-python`: [Github](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-lambda-python) & [CDK Docs](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-python-readme.html)
+* `@aws-cdk/aws-lambda-nodejs`: [Github](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-lambda-nodejs) & [CDK Docs](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-nodejs-readme.html)
+* `@aws-cdk/aws-lambda-python`: [Github](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-lambda-python) & [CDK Docs](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-python-readme.html)
 
 ## Code Signing
 
