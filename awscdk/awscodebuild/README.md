@@ -101,7 +101,7 @@ gitHubSource := codebuild.source.gitHub(&gitHubSourceProps{
 	webhookTriggersBatchBuild: jsii.Boolean(true),
 	 // optional, default is false
 	webhookFilters: []filterGroup{
-		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("main")).andCommitMessageIs(jsii.String("the commit message")),
+		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("master")).andCommitMessageIs(jsii.String("the commit message")),
 	},
 })
 ```
@@ -517,33 +517,7 @@ project := codebuild.NewProject(this, jsii.String("Project"), &projectProps{
 })
 ```
 
-For a code coverage report, you can specify a report group with the code coverage report group type.
-
-```go
-var source source
-
-
-// create a new ReportGroup
-reportGroup := codebuild.NewReportGroup(this, jsii.String("ReportGroup"), &reportGroupProps{
-	type: codebuild.reportGroupType_CODE_COVERAGE,
-})
-
-project := codebuild.NewProject(this, jsii.String("Project"), &projectProps{
-	source: source,
-	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
-		// ...
-		"reports": map[string]map[string]*string{
-			reportGroup.reportGroupArn: map[string]*string{
-				"files": jsii.String("**/*"),
-				"base-directory": jsii.String("build/coverage-report.xml"),
-				"file-format": jsii.String("JACOCOXML"),
-			},
-		},
-	}),
-})
-```
-
-If you specify a report group, you need to grant the project's role permissions to write reports to that report group:
+If you do that, you need to grant the project's role permissions to write reports to that report group:
 
 ```go
 var project project
