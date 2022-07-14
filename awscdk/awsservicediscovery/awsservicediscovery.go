@@ -225,6 +225,22 @@ func AliasTargetInstance_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func AliasTargetInstance_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicediscovery.AliasTargetInstance",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func AliasTargetInstance_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -512,11 +528,19 @@ type CfnHttpNamespace interface {
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -768,6 +792,16 @@ func (j *jsiiProxy_CfnHttpNamespace) UpdatedProperites() *map[string]interface{}
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHttpNamespace) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -1171,11 +1205,19 @@ type CfnInstance interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -1407,6 +1449,16 @@ func (j *jsiiProxy_CfnInstance) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstance) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -1836,11 +1888,19 @@ type CfnPrivateDnsNamespace interface {
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// The ID of the Amazon VPC that you want to associate the namespace with.
 	Vpc() *string
 	SetVpc(val *string)
@@ -2115,6 +2175,16 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) UpdatedProperites() *map[string]inter
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrivateDnsNamespace) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -2596,11 +2666,19 @@ type CfnPublicDnsNamespace interface {
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -2872,6 +2950,16 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) UpdatedProperites() *map[string]interf
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPublicDnsNamespace) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -3372,11 +3460,19 @@ type CfnService interface {
 	// No DNS records is registered for the service instances. The only valid value is `HTTP` .
 	Type() *string
 	SetType(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -3688,6 +3784,16 @@ func (j *jsiiProxy_CfnService) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnService) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -4498,6 +4604,22 @@ func CnameInstance_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func CnameInstance_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicediscovery.CnameInstance",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func CnameInstance_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -5167,6 +5289,22 @@ func HttpNamespace_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func HttpNamespace_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicediscovery.HttpNamespace",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func HttpNamespace_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -5683,6 +5821,22 @@ func InstanceBase_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func InstanceBase_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicediscovery.InstanceBase",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func InstanceBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -6003,6 +6157,22 @@ func IpInstance_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_servicediscovery.IpInstance",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func IpInstance_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicediscovery.IpInstance",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -6396,6 +6566,22 @@ func NonIpInstance_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_servicediscovery.NonIpInstance",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func NonIpInstance_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicediscovery.NonIpInstance",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -6850,6 +7036,22 @@ func PrivateDnsNamespace_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func PrivateDnsNamespace_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicediscovery.PrivateDnsNamespace",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func PrivateDnsNamespace_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -7288,6 +7490,22 @@ func PublicDnsNamespace_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func PublicDnsNamespace_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicediscovery.PublicDnsNamespace",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func PublicDnsNamespace_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -7717,6 +7935,22 @@ func Service_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_servicediscovery.Service",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func Service_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicediscovery.Service",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

@@ -1063,6 +1063,17 @@ stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
 
 By default, termination protection is disabled.
 
+### Description
+
+You can add a description of the stack in the same way as `StackProps`.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
+	description: jsii.String("This is a description."),
+})
+```
+
 ### CfnJson
 
 `CfnJson` allows you to postpone the resolution of a JSON blob from

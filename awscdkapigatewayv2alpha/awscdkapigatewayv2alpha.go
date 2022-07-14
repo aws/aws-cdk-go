@@ -307,6 +307,23 @@ func ApiMapping_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func ApiMapping_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.ApiMapping",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func ApiMapping_IsResource(construct constructs.IConstruct) *bool {
@@ -847,6 +864,23 @@ func DomainName_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-apigatewayv2-alpha.DomainName",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func DomainName_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.DomainName",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -1434,6 +1468,23 @@ func HttpApi_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func HttpApi_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.HttpApi",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func HttpApi_IsResource(construct constructs.IConstruct) *bool {
@@ -1949,6 +2000,23 @@ func HttpAuthorizer_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func HttpAuthorizer_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.HttpAuthorizer",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func HttpAuthorizer_IsResource(construct constructs.IConstruct) *bool {
@@ -2371,6 +2439,23 @@ func HttpIntegration_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-apigatewayv2-alpha.HttpIntegration",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func HttpIntegration_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.HttpIntegration",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -3007,6 +3092,23 @@ func HttpRoute_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-apigatewayv2-alpha.HttpRoute",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func HttpRoute_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.HttpRoute",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -3757,6 +3859,23 @@ func HttpStage_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-apigatewayv2-alpha.HttpStage",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func HttpStage_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.HttpStage",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -5834,6 +5953,23 @@ func VpcLink_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func VpcLink_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.VpcLink",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func VpcLink_IsResource(construct constructs.IConstruct) *bool {
@@ -6229,6 +6365,23 @@ func WebSocketApi_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketApi",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func WebSocketApi_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketApi",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -6716,6 +6869,23 @@ func WebSocketAuthorizer_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func WebSocketAuthorizer_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketAuthorizer",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func WebSocketAuthorizer_IsResource(construct constructs.IConstruct) *bool {
@@ -7076,6 +7246,23 @@ func WebSocketIntegration_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketIntegration",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func WebSocketIntegration_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketIntegration",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -7496,6 +7683,23 @@ func WebSocketRoute_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketRoute",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func WebSocketRoute_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketRoute",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -8082,6 +8286,23 @@ func WebSocketStage_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketStage",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func WebSocketStage_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketStage",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

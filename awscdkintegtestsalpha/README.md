@@ -298,6 +298,40 @@ integ.assertions.awsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), m
 })
 ```
 
+By default, the `AwsApiCall` construct will automatically add the correct IAM policies
+to allow the Lambda function to make the API call. It does this based on the `service`
+and `api` that is provided. In the above example the service is `SQS` and the api is
+`receiveMessage` so it will create a policy with `Action: 'sqs:ReceiveMessage`.
+
+There are some cases where the permissions do not exactly match the service/api call, for
+example the S3 `listObjectsV2` api. In these cases it is possible to add the correct policy
+by accessing the `provider` object.
+
+```go
+var app app
+var stack stack
+var integ integTest
+
+
+apiCall := integ.assertions.awsApiCall(jsii.String("S3"), jsii.String("listObjectsV2"), map[string]*string{
+	"Bucket": jsii.String("mybucket"),
+})
+
+apiCall.provider.addToRolePolicy(map[string]interface{}{
+	"Effect": jsii.String("Allow"),
+	"Action": []*string{
+		jsii.String("s3:GetObject"),
+		jsii.String("s3:ListBucket"),
+	},
+	"Resource": []*string{
+		jsii.String("*"),
+	},
+})
+```
+
+Note that addToRolePolicy() uses direct IAM JSON policy blobs, not a iam.PolicyStatement
+object like you will see in the rest of the CDK.
+
 ### EqualsAssertion
 
 This library currently provides the ability to assert that two values are equal

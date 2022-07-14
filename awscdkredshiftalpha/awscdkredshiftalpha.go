@@ -275,6 +275,23 @@ func Cluster_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func Cluster_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-redshift-alpha.Cluster",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func Cluster_IsResource(construct constructs.IConstruct) *bool {
@@ -642,6 +659,23 @@ func ClusterParameterGroup_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func ClusterParameterGroup_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-redshift-alpha.ClusterParameterGroup",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func ClusterParameterGroup_IsResource(construct constructs.IConstruct) *bool {
@@ -767,6 +801,16 @@ type ClusterProps struct {
 	// The VPC to place the cluster in.
 	// Experimental.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
+	// If this flag is set, the cluster resizing type will be set to classic.
+	//
+	// When resizing a cluster, classic resizing will always provision a new cluster and transfer the data there.
+	//
+	// Classic resize takes more time to complete, but it can be useful in cases where the change in node count or
+	// the node type to migrate to doesn't fall within the bounds for elastic resize.
+	// See: https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-operations.html#elastic-resize
+	//
+	// Experimental.
+	ClassicResizing *bool `field:"optional" json:"classicResizing" yaml:"classicResizing"`
 	// An optional identifier for the cluster.
 	// Experimental.
 	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
@@ -1060,6 +1104,23 @@ func ClusterSubnetGroup_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-redshift-alpha.ClusterSubnetGroup",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func ClusterSubnetGroup_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-redshift-alpha.ClusterSubnetGroup",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -1675,6 +1736,23 @@ func DatabaseSecret_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-redshift-alpha.DatabaseSecret",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func DatabaseSecret_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-redshift-alpha.DatabaseSecret",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

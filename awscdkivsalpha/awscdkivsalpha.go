@@ -249,6 +249,23 @@ func Channel_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func Channel_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-ivs-alpha.Channel",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func Channel_IsResource(construct constructs.IConstruct) *bool {
@@ -701,6 +718,23 @@ func PlaybackKeyPair_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func PlaybackKeyPair_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-ivs-alpha.PlaybackKeyPair",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func PlaybackKeyPair_IsResource(construct constructs.IConstruct) *bool {
@@ -994,6 +1028,23 @@ func StreamKey_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-ivs-alpha.StreamKey",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func StreamKey_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-ivs-alpha.StreamKey",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

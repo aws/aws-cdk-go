@@ -178,11 +178,19 @@ type CfnSubscription interface {
 	// The ARN of the topic to subscribe to.
 	TopicArn() *string
 	SetTopicArn(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -474,6 +482,16 @@ func (j *jsiiProxy_CfnSubscription) UpdatedProperites() *map[string]interface{} 
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubscription) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -980,11 +998,19 @@ type CfnTopic interface {
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TopicName() *string
 	SetTopicName(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -1266,6 +1292,16 @@ func (j *jsiiProxy_CfnTopic) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTopic) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -1655,11 +1691,19 @@ type CfnTopicPolicy interface {
 	// You can use the `[Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an `[AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html)` resource.
 	Topics() *[]*string
 	SetTopics(val *[]*string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -1881,6 +1925,16 @@ func (j *jsiiProxy_CfnTopicPolicy) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTopicPolicy) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -2245,7 +2299,7 @@ type ITopic interface {
 	awscodestarnotifications.INotificationRuleTarget
 	awscdk.IResource
 	// Subscribe some endpoint to this topic.
-	AddSubscription(subscription ITopicSubscription)
+	AddSubscription(subscription ITopicSubscription) Subscription
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
@@ -2308,12 +2362,17 @@ type jsiiProxy_ITopic struct {
 	internal.Type__awscdkIResource
 }
 
-func (i *jsiiProxy_ITopic) AddSubscription(subscription ITopicSubscription) {
-	_jsii_.InvokeVoid(
+func (i *jsiiProxy_ITopic) AddSubscription(subscription ITopicSubscription) Subscription {
+	var returns Subscription
+
+	_jsii_.Invoke(
 		i,
 		"addSubscription",
 		[]interface{}{subscription},
+		&returns,
 	)
+
+	return returns
 }
 
 func (i *jsiiProxy_ITopic) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
@@ -2872,6 +2931,22 @@ func Subscription_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func Subscription_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sns.Subscription",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func Subscription_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -3274,7 +3349,7 @@ type Topic interface {
 	// The name of the topic.
 	TopicName() *string
 	// Subscribe some endpoint to this topic.
-	AddSubscription(subscription ITopicSubscription)
+	AddSubscription(subscription ITopicSubscription) Subscription
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
@@ -3509,6 +3584,22 @@ func Topic_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func Topic_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sns.Topic",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func Topic_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -3525,12 +3616,17 @@ func Topic_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-func (t *jsiiProxy_Topic) AddSubscription(subscription ITopicSubscription) {
-	_jsii_.InvokeVoid(
+func (t *jsiiProxy_Topic) AddSubscription(subscription ITopicSubscription) Subscription {
+	var returns Subscription
+
+	_jsii_.Invoke(
 		t,
 		"addSubscription",
 		[]interface{}{subscription},
+		&returns,
 	)
+
+	return returns
 }
 
 func (t *jsiiProxy_Topic) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
@@ -3800,7 +3896,7 @@ type TopicBase interface {
 	// The name of the topic.
 	TopicName() *string
 	// Subscribe some endpoint to this topic.
-	AddSubscription(subscription ITopicSubscription)
+	AddSubscription(subscription ITopicSubscription) Subscription
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
@@ -4006,6 +4102,22 @@ func TopicBase_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func TopicBase_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sns.TopicBase",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func TopicBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -4022,12 +4134,17 @@ func TopicBase_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-func (t *jsiiProxy_TopicBase) AddSubscription(subscription ITopicSubscription) {
-	_jsii_.InvokeVoid(
+func (t *jsiiProxy_TopicBase) AddSubscription(subscription ITopicSubscription) Subscription {
+	var returns Subscription
+
+	_jsii_.Invoke(
 		t,
 		"addSubscription",
 		[]interface{}{subscription},
+		&returns,
 	)
+
+	return returns
 }
 
 func (t *jsiiProxy_TopicBase) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
@@ -4451,6 +4568,22 @@ func TopicPolicy_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_sns.TopicPolicy",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func TopicPolicy_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sns.TopicPolicy",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

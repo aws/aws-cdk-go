@@ -263,3 +263,38 @@ Alternatively, use `addReplicaRegion()`:
 secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
 secret.addReplicaRegion(jsii.String("eu-west-1"))
 ```
+
+## Creating JSON Secrets
+
+Sometimes it is necessary to create a secret in SecretsManager that contains a JSON object.
+For example:
+
+```json
+{
+  "username": "myUsername",
+  "database": "foo",
+  "password": "mypassword"
+}
+```
+
+In order to create this type of secret, use the `secretObjectValue` input prop.
+
+```go
+var stack stack
+user := iam.NewUser(stack, jsii.String("User"))
+accessKey := iam.NewAccessKey(stack, jsii.String("AccessKey"), &accessKeyProps{
+	user: user,
+})
+
+secretsmanager.NewSecret(stack, jsii.String("Secret"), &secretProps{
+	secretObjectValue: map[string]secretValue{
+		"username": awscdk.SecretValue.unsafePlainText(user.userName),
+		"database": awscdk.SecretValue.unsafePlainText(jsii.String("foo")),
+		"password": accessKey.secretAccessKey,
+	},
+})
+```
+
+In this case both the `username` and `database` are not a `Secret` so `SecretValue.unsafePlainText` needs to be used.
+This means that they will be rendered as plain text in the template, but in this case neither of those
+are actual "secrets".

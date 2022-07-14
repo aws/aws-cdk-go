@@ -185,11 +185,19 @@ type CfnAssociation interface {
 	// You must specify the `InstanceId` or `Targets` property. You can target all instances in an AWS account by specifying the `InstanceIds` key with a value of `*` . To view a JSON and a YAML example that targets all instances, see "Create an association for all managed instances in an AWS account " on the Examples page.
 	Targets() interface{}
 	SetTargets(val interface{})
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution.
 	//
 	// If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
@@ -566,6 +574,16 @@ func (j *jsiiProxy_CfnAssociation) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAssociation) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -1286,11 +1304,19 @@ type CfnDocument interface {
 	// For example, to run a document on EC2 instances, specify the following value: `/AWS::EC2::Instance` . If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the *AWS CloudFormation User Guide* .
 	TargetType() *string
 	SetTargetType(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// If the document resource you specify in your template already exists, this parameter determines whether a new version of the existing document is created, or the existing document is replaced.
 	//
 	// `Replace` is the default method. If you specify `NewVersion` for the `UpdateMethod` parameter, and the `Name` of the document does not match an existing resource, a new document is created. When you specify `NewVersion` , the default version of the document is changed to the newly created version.
@@ -1582,6 +1608,16 @@ func (j *jsiiProxy_CfnDocument) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDocument) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -2182,11 +2218,19 @@ type CfnMaintenanceWindow interface {
 	//
 	// Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -2498,6 +2542,16 @@ func (j *jsiiProxy_CfnMaintenanceWindow) UpdatedProperites() *map[string]interfa
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindow) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -2973,11 +3027,19 @@ type CfnMaintenanceWindowTarget interface {
 	// You must specify targets by using the `WindowTargetIds` parameter.
 	Targets() interface{}
 	SetTargets(val interface{})
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// The ID of the maintenance window to register the target with.
 	WindowId() *string
 	SetWindowId(val *string)
@@ -3232,6 +3294,16 @@ func (j *jsiiProxy_CfnMaintenanceWindowTarget) UpdatedProperites() *map[string]i
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindowTarget) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -3801,11 +3873,19 @@ type CfnMaintenanceWindowTask interface {
 	// Valid values: `RUN_COMMAND` , `AUTOMATION` , `LAMBDA` , `STEP_FUNCTIONS` .
 	TaskType() *string
 	SetTaskType(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// The ID of the maintenance window where the task is registered.
 	WindowId() *string
 	SetWindowId(val *string)
@@ -4140,6 +4220,16 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) UpdatedProperites() *map[string]int
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindowTask) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -5102,11 +5192,19 @@ type CfnParameter interface {
 	// *Allowed Values* : String | StringList.
 	Type() *string
 	SetType(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// The parameter value.
 	//
 	// > If type is `StringList` , the system returns a comma-separated string with no spaces between commas in the `Value` field.
@@ -5413,6 +5511,16 @@ func (j *jsiiProxy_CfnParameter) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnParameter) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -5968,11 +6076,19 @@ type CfnPatchBaseline interface {
 	//
 	// Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -6304,6 +6420,16 @@ func (j *jsiiProxy_CfnPatchBaseline) UpdatedProperites() *map[string]interface{}
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPatchBaseline) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -7080,11 +7206,19 @@ type CfnResourceDataSync interface {
 	// If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
 	SyncType() *string
 	SetSyncType(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -7386,6 +7520,16 @@ func (j *jsiiProxy_CfnResourceDataSync) UpdatedProperites() *map[string]interfac
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourceDataSync) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -8117,6 +8261,30 @@ const (
 )
 
 // SSM parameter type.
+//
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   ssmParameter := ssm.NewStringParameter(this, jsii.String("mySsmParameter"), &stringParameterProps{
+//   	parameterName: jsii.String("mySsmParameter"),
+//   	stringValue: jsii.String("mySsmParameterValue"),
+//   	type: ssm.parameterType_STRING,
+//   })
+//
+//   secureParameter := ssm.NewStringParameter(this, jsii.String("mySecretParameter"), &stringParameterProps{
+//   	parameterName: jsii.String("mySecretParameter"),
+//   	stringValue: jsii.String("mySecretParameterValue"),
+//   	type: ssm.*parameterType_SECURE_STRING,
+//   })
+//
+//   listParameter := ssm.NewStringParameter(this, jsii.String("myListParameter"), &stringParameterProps{
+//   	parameterName: jsii.String("myListParameter"),
+//   	stringValue: []interface{}{
+//   		jsii.String("myListParameterValue1"),
+//   		jsii.String("myListParameterValue2"),
+//   	},
+//   	type: ssm.*parameterType_STRING_LIST,
+//   })
+//
 type ParameterType string
 
 const (
@@ -8448,6 +8616,22 @@ func StringListParameter_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func StringListParameter_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssm.StringListParameter",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func StringListParameter_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -8605,24 +8789,25 @@ type StringListParameterProps struct {
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   vpc := ec2.vpc.fromVpcAttributes(this, jsii.String("VPC"), &vpcAttributes{
-//   	vpcId: jsii.String("vpc-1234"),
-//   	availabilityZones: []*string{
-//   		jsii.String("us-east-1a"),
-//   		jsii.String("us-east-1b"),
+//   ssmParameter := ssm.NewStringParameter(this, jsii.String("mySsmParameter"), &stringParameterProps{
+//   	parameterName: jsii.String("mySsmParameter"),
+//   	stringValue: jsii.String("mySsmParameterValue"),
+//   	type: ssm.parameterType_STRING,
+//   })
+//
+//   secureParameter := ssm.NewStringParameter(this, jsii.String("mySecretParameter"), &stringParameterProps{
+//   	parameterName: jsii.String("mySecretParameter"),
+//   	stringValue: jsii.String("mySecretParameterValue"),
+//   	type: ssm.*parameterType_SECURE_STRING,
+//   })
+//
+//   listParameter := ssm.NewStringParameter(this, jsii.String("myListParameter"), &stringParameterProps{
+//   	parameterName: jsii.String("myListParameter"),
+//   	stringValue: []interface{}{
+//   		jsii.String("myListParameterValue1"),
+//   		jsii.String("myListParameterValue2"),
 //   	},
-//
-//   	// Either pass literals for all IDs
-//   	publicSubnetIds: []*string{
-//   		jsii.String("s-12345"),
-//   		jsii.String("s-67890"),
-//   	},
-//
-//   	// OR: import a list of known length
-//   	privateSubnetIds: awscdk.Fn.importListValue(jsii.String("PrivateSubnetIds"), jsii.Number(2)),
-//
-//   	// OR: split an imported string to a list of known length
-//   	isolatedSubnetIds: awscdk.Fn.split(jsii.String(","), ssm.stringParameter.valueForStringParameter(this, jsii.String("MyParameter")), jsii.Number(2)),
+//   	type: ssm.*parameterType_STRING_LIST,
 //   })
 //
 type StringParameter interface {
@@ -8898,6 +9083,22 @@ func StringParameter_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func StringParameter_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssm.StringParameter",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func StringParameter_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -9121,12 +9322,24 @@ type StringParameterAttributes struct {
 // Properties needed to create a String SSM parameter.
 //
 // Example:
-//   ssm.NewStringParameter(this, jsii.String("Parameter"), &stringParameterProps{
-//   	allowedPattern: jsii.String(".*"),
-//   	description: jsii.String("The value Foo"),
-//   	parameterName: jsii.String("FooParameter"),
-//   	stringValue: jsii.String("Foo"),
-//   	tier: ssm.parameterTier_ADVANCED,
+//   // Create a new SSM Parameter holding a String
+//   param := ssm.NewStringParameter(stack, jsii.String("StringParameter"), &stringParameterProps{
+//   	// description: 'Some user-friendly description',
+//   	// name: 'ParameterName',
+//   	stringValue: jsii.String("Initial parameter value"),
+//   })
+//
+//   // Grant read access to some Role
+//   param.grantRead(role)
+//
+//   // Create a new SSM Parameter holding a StringList
+//   listParameter := ssm.NewStringListParameter(stack, jsii.String("StringListParameter"), &stringListParameterProps{
+//   	// description: 'Some user-friendly description',
+//   	// name: 'ParameterName',
+//   	stringListValue: []*string{
+//   		jsii.String("Initial parameter value A"),
+//   		jsii.String("Initial parameter value B"),
+//   	},
 //   })
 //
 type StringParameterProps struct {

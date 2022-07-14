@@ -235,6 +235,22 @@ type AssertionsProvider interface {
 	// Create a policy statement from a specific api call.
 	// Experimental.
 	AddPolicyStatementFromSdkCall(service *string, api *string, resources *[]*string)
+	// Add an IAM policy statement to the inline policy of the lambdas function's role.
+	//
+	// **Please note**: this is a direct IAM JSON policy blob, *not* a `iam.PolicyStatement`
+	// object like you will see in the rest of the CDK.
+	//
+	// Example:
+	//   var provider assertionsProvider
+	//
+	//   provider.addToRolePolicy(map[string]*string{
+	//   	"Effect": jsii.String("Allow"),
+	//   	"Action": jsii.String("s3:GetObject"),
+	//   	"Resources": jsii.String("*"),
+	//   })
+	//
+	// Experimental.
+	AddToRolePolicy(statement interface{})
 	// Encode an object so it can be passed as custom resource parameters.
 	//
 	// Custom resources will convert
@@ -350,6 +366,14 @@ func (a *jsiiProxy_AssertionsProvider) AddPolicyStatementFromSdkCall(service *st
 	)
 }
 
+func (a *jsiiProxy_AssertionsProvider) AddToRolePolicy(statement interface{}) {
+	_jsii_.InvokeVoid(
+		a,
+		"addToRolePolicy",
+		[]interface{}{statement},
+	)
+}
+
 func (a *jsiiProxy_AssertionsProvider) Encode(obj interface{}) interface{} {
 	var returns interface{}
 
@@ -394,10 +418,12 @@ type AwsApiCall interface {
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// access the AssertionsProvider.
+	//
+	// This can be used to add additional IAM policies
+	// the the provider role policy.
 	// Experimental.
 	Provider() AssertionsProvider
-	// Experimental.
-	SetProvider(val AssertionsProvider)
 	// Assert that the ExpectedResult is equal to the result of the AwsApiCall at the given path.
 	//
 	// For example the SQS.receiveMessage api response would look
@@ -476,14 +502,6 @@ func NewAwsApiCall_Override(a AwsApiCall, scope constructs.Construct, id *string
 		"@aws-cdk/integ-tests-alpha.AwsApiCall",
 		[]interface{}{scope, id, props},
 		a,
-	)
-}
-
-func (j *jsiiProxy_AwsApiCall) SetProvider(val AssertionsProvider) {
-	_jsii_.Set(
-		j,
-		"provider",
-		val,
 	)
 }
 
@@ -1119,6 +1137,26 @@ type IAwsApiCall interface {
 	// Returns: a token for `Fn::GetAtt` encoded as a string.
 	// Experimental.
 	GetAttString(attributeName *string) *string
+	// access the AssertionsProvider.
+	//
+	// This can be used to add additional IAM policies
+	// the the provider role policy.
+	//
+	// Example:
+	//   var apiCall awsApiCall
+	//
+	//   apiCall.provider.addToRolePolicy(map[string]interface{}{
+	//   	"Effect": jsii.String("Allow"),
+	//   	"Action": []*string{
+	//   		jsii.String("s3:GetObject"),
+	//   	},
+	//   	"Resource": []*string{
+	//   		jsii.String("*"),
+	//   	},
+	//   })
+	//
+	// Experimental.
+	Provider() AssertionsProvider
 }
 
 // The jsii proxy for IAwsApiCall
@@ -1165,6 +1203,16 @@ func (i *jsiiProxy_IAwsApiCall) GetAttString(attributeName *string) *string {
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_IAwsApiCall) Provider() AssertionsProvider {
+	var returns AssertionsProvider
+	_jsii_.Get(
+		j,
+		"provider",
+		&returns,
+	)
 	return returns
 }
 
@@ -2955,10 +3003,12 @@ type LambdaInvokeFunction interface {
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// access the AssertionsProvider.
+	//
+	// This can be used to add additional IAM policies
+	// the the provider role policy.
 	// Experimental.
 	Provider() AssertionsProvider
-	// Experimental.
-	SetProvider(val AssertionsProvider)
 	// Assert that the ExpectedResult is equal to the result of the AwsApiCall at the given path.
 	//
 	// For example the SQS.receiveMessage api response would look
@@ -3036,14 +3086,6 @@ func NewLambdaInvokeFunction_Override(l LambdaInvokeFunction, scope constructs.C
 		"@aws-cdk/integ-tests-alpha.LambdaInvokeFunction",
 		[]interface{}{scope, id, props},
 		l,
-	)
-}
-
-func (j *jsiiProxy_LambdaInvokeFunction) SetProvider(val AssertionsProvider) {
-	_jsii_.Set(
-		j,
-		"provider",
-		val,
 	)
 }
 

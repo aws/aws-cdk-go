@@ -114,26 +114,25 @@ The alternative would be to use the `BEST_FIT_PROGRESSIVE` strategy in order for
 
 Simply define your Launch Template:
 
-```text
-// This example is only available in TypeScript
-const myLaunchTemplate = new ec2.CfnLaunchTemplate(this, 'LaunchTemplate', {
-  launchTemplateName: 'extra-storage-template',
-  launchTemplateData: {
-    blockDeviceMappings: [
-      {
-        deviceName: '/dev/xvdcz',
-        ebs: {
-          encrypted: true,
-          volumeSize: 100,
-          volumeType: 'gp2',
-        },
-      },
-    ],
-  },
-});
+```go
+myLaunchTemplate := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &cfnLaunchTemplateProps{
+	launchTemplateName: jsii.String("extra-storage-template"),
+	launchTemplateData: &launchTemplateDataProperty{
+		blockDeviceMappings: []interface{}{
+			&blockDeviceMappingProperty{
+				deviceName: jsii.String("/dev/xvdcz"),
+				ebs: &ebsProperty{
+					encrypted: jsii.Boolean(true),
+					volumeSize: jsii.Number(100),
+					volumeType: jsii.String("gp2"),
+				},
+			},
+		},
+	},
+})
 ```
 
-and use it:
+And provide `launchTemplateName`:
 
 ```go
 var vpc vpc
@@ -144,6 +143,24 @@ myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &co
 	computeResources: &computeResources{
 		launchTemplate: &launchTemplateSpecification{
 			launchTemplateName: string(myLaunchTemplate.launchTemplateName),
+		},
+		vpc: vpc,
+	},
+	computeEnvironmentName: jsii.String("MyStorageCapableComputeEnvironment"),
+})
+```
+
+Or provide `launchTemplateId` instead:
+
+```go
+var vpc vpc
+var myLaunchTemplate cfnLaunchTemplate
+
+
+myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &computeEnvironmentProps{
+	computeResources: &computeResources{
+		launchTemplate: &launchTemplateSpecification{
+			launchTemplateId: string(myLaunchTemplate.ref),
 		},
 		vpc: vpc,
 	},

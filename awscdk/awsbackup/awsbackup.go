@@ -310,6 +310,22 @@ func BackupPlan_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func BackupPlan_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.BackupPlan",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func BackupPlan_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -610,13 +626,37 @@ type BackupPlanRuleProps struct {
 //
 // Example:
 //   var plan backupPlan
+//   var vpc vpc
 //
 //   myTable := dynamodb.table.fromTableName(this, jsii.String("Table"), jsii.String("myTableName"))
+//   myDatabaseInstance := rds.NewDatabaseInstance(this, jsii.String("DatabaseInstance"), &databaseInstanceProps{
+//   	engine: rds.databaseInstanceEngine.mysql(&mySqlInstanceEngineProps{
+//   		version: rds.mysqlEngineVersion_VER_8_0_26(),
+//   	}),
+//   	vpc: vpc,
+//   })
+//   myDatabaseCluster := rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &databaseClusterProps{
+//   	engine: rds.databaseClusterEngine.auroraMysql(&auroraMysqlClusterEngineProps{
+//   		version: rds.auroraMysqlEngineVersion_VER_2_08_1(),
+//   	}),
+//   	credentials: rds.credentials.fromGeneratedSecret(jsii.String("clusteradmin")),
+//   	instanceProps: &instanceProps{
+//   		vpc: vpc,
+//   	},
+//   })
+//   myServerlessCluster := rds.NewServerlessCluster(this, jsii.String("ServerlessCluster"), &serverlessClusterProps{
+//   	engine: rds.*databaseClusterEngine_AURORA_POSTGRESQL(),
+//   	parameterGroup: rds.parameterGroup.fromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
+//   	vpc: vpc,
+//   })
 //   myCoolConstruct := constructs.NewConstruct(this, jsii.String("MyCoolConstruct"))
 //
 //   plan.addSelection(jsii.String("Selection"), &backupSelectionOptions{
 //   	resources: []backupResource{
 //   		backup.*backupResource.fromDynamoDbTable(myTable),
+//   		backup.*backupResource.fromRdsDatabaseInstance(myDatabaseInstance),
+//   		backup.*backupResource.fromRdsDatabaseCluster(myDatabaseCluster),
+//   		backup.*backupResource.fromRdsServerlessCluster(myServerlessCluster),
 //   		backup.*backupResource.fromTag(jsii.String("stage"), jsii.String("prod")),
 //   		backup.*backupResource.fromConstruct(myCoolConstruct),
 //   	},
@@ -771,6 +811,22 @@ func BackupResource_FromEfsFileSystem(fileSystem awsefs.IFileSystem) BackupResou
 	return returns
 }
 
+// A RDS database cluter.
+func BackupResource_FromRdsDatabaseCluster(cluster awsrds.IDatabaseCluster) BackupResource {
+	_init_.Initialize()
+
+	var returns BackupResource
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.BackupResource",
+		"fromRdsDatabaseCluster",
+		[]interface{}{cluster},
+		&returns,
+	)
+
+	return returns
+}
+
 // A RDS database instance.
 func BackupResource_FromRdsDatabaseInstance(instance awsrds.IDatabaseInstance) BackupResource {
 	_init_.Initialize()
@@ -781,6 +837,22 @@ func BackupResource_FromRdsDatabaseInstance(instance awsrds.IDatabaseInstance) B
 		"aws-cdk-lib.aws_backup.BackupResource",
 		"fromRdsDatabaseInstance",
 		[]interface{}{instance},
+		&returns,
+	)
+
+	return returns
+}
+
+// An Aurora database instance.
+func BackupResource_FromRdsServerlessCluster(cluster awsrds.IServerlessCluster) BackupResource {
+	_init_.Initialize()
+
+	var returns BackupResource
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.BackupResource",
+		"fromRdsServerlessCluster",
+		[]interface{}{cluster},
 		&returns,
 	)
 
@@ -1018,6 +1090,22 @@ func BackupSelection_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func BackupSelection_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.BackupSelection",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func BackupSelection_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -1098,13 +1186,37 @@ func (b *jsiiProxy_BackupSelection) ToString() *string {
 //
 // Example:
 //   var plan backupPlan
+//   var vpc vpc
 //
 //   myTable := dynamodb.table.fromTableName(this, jsii.String("Table"), jsii.String("myTableName"))
+//   myDatabaseInstance := rds.NewDatabaseInstance(this, jsii.String("DatabaseInstance"), &databaseInstanceProps{
+//   	engine: rds.databaseInstanceEngine.mysql(&mySqlInstanceEngineProps{
+//   		version: rds.mysqlEngineVersion_VER_8_0_26(),
+//   	}),
+//   	vpc: vpc,
+//   })
+//   myDatabaseCluster := rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &databaseClusterProps{
+//   	engine: rds.databaseClusterEngine.auroraMysql(&auroraMysqlClusterEngineProps{
+//   		version: rds.auroraMysqlEngineVersion_VER_2_08_1(),
+//   	}),
+//   	credentials: rds.credentials.fromGeneratedSecret(jsii.String("clusteradmin")),
+//   	instanceProps: &instanceProps{
+//   		vpc: vpc,
+//   	},
+//   })
+//   myServerlessCluster := rds.NewServerlessCluster(this, jsii.String("ServerlessCluster"), &serverlessClusterProps{
+//   	engine: rds.*databaseClusterEngine_AURORA_POSTGRESQL(),
+//   	parameterGroup: rds.parameterGroup.fromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
+//   	vpc: vpc,
+//   })
 //   myCoolConstruct := constructs.NewConstruct(this, jsii.String("MyCoolConstruct"))
 //
 //   plan.addSelection(jsii.String("Selection"), &backupSelectionOptions{
 //   	resources: []backupResource{
 //   		backup.*backupResource.fromDynamoDbTable(myTable),
+//   		backup.*backupResource.fromRdsDatabaseInstance(myDatabaseInstance),
+//   		backup.*backupResource.fromRdsDatabaseCluster(myDatabaseCluster),
+//   		backup.*backupResource.fromRdsServerlessCluster(myServerlessCluster),
 //   		backup.*backupResource.fromTag(jsii.String("stage"), jsii.String("prod")),
 //   		backup.*backupResource.fromConstruct(myCoolConstruct),
 //   	},
@@ -1402,6 +1514,22 @@ func BackupVault_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func BackupVault_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_backup.BackupVault",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func BackupVault_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -1573,6 +1701,10 @@ type BackupVaultProps struct {
 	BlockRecoveryPointDeletion *bool `field:"optional" json:"blockRecoveryPointDeletion" yaml:"blockRecoveryPointDeletion"`
 	// The server-side encryption key to use to protect your backups.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	// Configuration for AWS Backup Vault Lock.
+	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html
+	//
+	LockConfiguration *LockConfiguration `field:"optional" json:"lockConfiguration" yaml:"lockConfiguration"`
 	// The vault events to send.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html
 	//
@@ -1701,11 +1833,19 @@ type CfnBackupPlan interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -1957,6 +2097,16 @@ func (j *jsiiProxy_CfnBackupPlan) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBackupPlan) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -2582,11 +2732,19 @@ type CfnBackupSelection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -2838,6 +2996,16 @@ func (j *jsiiProxy_CfnBackupSelection) UpdatedProperites() *map[string]interface
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBackupSelection) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -3347,11 +3515,19 @@ type CfnBackupVault interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -3633,6 +3809,16 @@ func (j *jsiiProxy_CfnBackupVault) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBackupVault) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -4164,11 +4350,19 @@ type CfnFramework interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -4450,6 +4644,16 @@ func (j *jsiiProxy_CfnFramework) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFramework) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -4935,11 +5139,19 @@ type CfnReportPlan interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -5201,6 +5413,16 @@ func (j *jsiiProxy_CfnReportPlan) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReportPlan) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -5616,6 +5838,56 @@ func (j *jsiiProxy_IBackupVault) BackupVaultName() *string {
 		&returns,
 	)
 	return returns
+}
+
+// Configuration for AWS Backup Vault Lock.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   lockConfiguration := &lockConfiguration{
+//   	minRetention: cdk.duration.minutes(jsii.Number(30)),
+//
+//   	// the properties below are optional
+//   	changeableFor: cdk.*duration.minutes(jsii.Number(30)),
+//   	maxRetention: cdk.*duration.minutes(jsii.Number(30)),
+//   }
+//
+// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html
+//
+type LockConfiguration struct {
+	// The minimum retention period that the vault retains its recovery points.
+	//
+	// If this parameter is specified, any backup or copy job to the vault must
+	// have a lifecycle policy with a retention period equal to or longer than
+	// the minimum retention period. If the job's retention period is shorter than
+	// that minimum retention period, then the vault fails that backup or copy job,
+	// and you should either modify your lifecycle settings or use a different
+	// vault. Recovery points already saved in the vault prior to Vault Lock are
+	// not affected.
+	MinRetention awscdk.Duration `field:"required" json:"minRetention" yaml:"minRetention"`
+	// The duration before the lock date.
+	//
+	// AWS Backup enforces a 72-hour cooling-off period before Vault Lock takes
+	// effect and becomes immutable.
+	//
+	// Before the lock date, you can delete Vault Lock from the vault or change
+	// the Vault Lock configuration. On and after the lock date, the Vault Lock
+	// becomes immutable and cannot be changed or deleted.
+	ChangeableFor awscdk.Duration `field:"optional" json:"changeableFor" yaml:"changeableFor"`
+	// The maximum retention period that the vault retains its recovery points.
+	//
+	// If this parameter is specified, any backup or copy job to the vault must
+	// have a lifecycle policy with a retention period equal to or shorter than
+	// the maximum retention period. If the job's retention period is longer than
+	// that maximum retention period, then the vault fails the backup or copy job,
+	// and you should either modify your lifecycle settings or use a different
+	// vault. Recovery points already saved in the vault prior to Vault Lock are
+	// not affected.
+	MaxRetention awscdk.Duration `field:"optional" json:"maxRetention" yaml:"maxRetention"`
 }
 
 // A tag condition.

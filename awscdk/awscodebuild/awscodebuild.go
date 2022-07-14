@@ -369,6 +369,22 @@ func BitBucketSourceCredentials_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func BitBucketSourceCredentials_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codebuild.BitBucketSourceCredentials",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func BitBucketSourceCredentials_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -1354,11 +1370,19 @@ type CfnProject interface {
 	// For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, enables AWS CodeBuild to begin automatically rebuilding the source code every time a code change is pushed to the repository.
 	Triggers() interface{}
 	SetTriggers(val interface{})
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Specifies the visibility of the project's builds. Possible values are:.
 	//
 	// - **PUBLIC_READ** - The project builds are visible to the public.
@@ -1801,6 +1825,16 @@ func (j *jsiiProxy_CfnProject) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProject) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -3464,11 +3498,19 @@ type CfnReportGroup interface {
 	// - **TEST** - The report group contains test reports.
 	Type() *string
 	SetType(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -3730,6 +3772,16 @@ func (j *jsiiProxy_CfnReportGroup) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReportGroup) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -4215,11 +4267,19 @@ type CfnSourceCredential interface {
 	// For Bitbucket, this is the app password.
 	Token() *string
 	SetToken(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// The Bitbucket username when the `authType` is BASIC_AUTH.
 	//
 	// This parameter is not valid for other types of source providers or connections.
@@ -4456,6 +4516,16 @@ func (j *jsiiProxy_CfnSourceCredential) UpdatedProperites() *map[string]interfac
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSourceCredential) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -5746,6 +5816,22 @@ func GitHubEnterpriseSourceCredentials_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func GitHubEnterpriseSourceCredentials_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codebuild.GitHubEnterpriseSourceCredentials",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func GitHubEnterpriseSourceCredentials_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -6087,6 +6173,22 @@ func GitHubSourceCredentials_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_codebuild.GitHubSourceCredentials",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func GitHubSourceCredentials_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codebuild.GitHubSourceCredentials",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -7453,6 +7555,17 @@ func LinuxBuildImage_AMAZON_LINUX_2_3() IBuildImage {
 	return returns
 }
 
+func LinuxBuildImage_AMAZON_LINUX_2_4() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"AMAZON_LINUX_2_4",
+		&returns,
+	)
+	return returns
+}
+
 func LinuxBuildImage_AMAZON_LINUX_2_ARM() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage
@@ -7525,6 +7638,17 @@ func LinuxBuildImage_STANDARD_5_0() IBuildImage {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
 		"STANDARD_5_0",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_STANDARD_6_0() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"STANDARD_6_0",
 		&returns,
 	)
 	return returns
@@ -8452,6 +8576,22 @@ func PipelineProject_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func PipelineProject_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codebuild.PipelineProject",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func PipelineProject_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -9314,6 +9454,22 @@ func Project_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func Project_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codebuild.Project",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func Project_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -10064,6 +10220,22 @@ func ReportGroup_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_codebuild.ReportGroup",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func ReportGroup_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codebuild.ReportGroup",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -10932,6 +11104,22 @@ func UntrustedCodeBoundaryPolicy_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_codebuild.UntrustedCodeBoundaryPolicy",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func UntrustedCodeBoundaryPolicy_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codebuild.UntrustedCodeBoundaryPolicy",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

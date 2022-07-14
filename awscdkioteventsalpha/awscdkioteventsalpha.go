@@ -453,6 +453,23 @@ func DetectorModel_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func DetectorModel_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-iotevents-alpha.DetectorModel",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func DetectorModel_IsResource(construct constructs.IConstruct) *bool {
@@ -1434,6 +1451,23 @@ func Input_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-iotevents-alpha.Input",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func Input_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-iotevents-alpha.Input",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

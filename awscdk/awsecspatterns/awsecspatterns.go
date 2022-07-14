@@ -402,8 +402,8 @@ type ApplicationLoadBalancedEc2ServiceProps struct {
 	// The protocol for connections from clients to the load balancer.
 	//
 	// The load balancer port is determined from the protocol (port 80 for
-	// HTTP, port 443 for HTTPS).  A domain name and zone must be also be
-	// specified if using HTTPS.
+	// HTTP, port 443 for HTTPS).  If HTTPS, either a certificate or domain
+	// name and domain zone must also be specified.
 	Protocol awselasticloadbalancingv2.ApplicationProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The protocol version to use.
 	ProtocolVersion awselasticloadbalancingv2.ApplicationProtocolVersion `field:"optional" json:"protocolVersion" yaml:"protocolVersion"`
@@ -845,8 +845,8 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	// The protocol for connections from clients to the load balancer.
 	//
 	// The load balancer port is determined from the protocol (port 80 for
-	// HTTP, port 443 for HTTPS).  A domain name and zone must be also be
-	// specified if using HTTPS.
+	// HTTP, port 443 for HTTPS).  If HTTPS, either a certificate or domain
+	// name and domain zone must also be specified.
 	Protocol awselasticloadbalancingv2.ApplicationProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The protocol version to use.
 	ProtocolVersion awselasticloadbalancingv2.ApplicationProtocolVersion `field:"optional" json:"protocolVersion" yaml:"protocolVersion"`
@@ -1287,8 +1287,8 @@ type ApplicationLoadBalancedServiceBaseProps struct {
 	// The protocol for connections from clients to the load balancer.
 	//
 	// The load balancer port is determined from the protocol (port 80 for
-	// HTTP, port 443 for HTTPS).  A domain name and zone must be also be
-	// specified if using HTTPS.
+	// HTTP, port 443 for HTTPS).  If HTTPS, either a certificate or domain
+	// name and domain zone must also be specified.
 	Protocol awselasticloadbalancingv2.ApplicationProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The protocol version to use.
 	ProtocolVersion awselasticloadbalancingv2.ApplicationProtocolVersion `field:"optional" json:"protocolVersion" yaml:"protocolVersion"`

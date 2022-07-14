@@ -43,6 +43,7 @@ func init() {
 		reflect.TypeOf((*AssertionsProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addPolicyStatementFromSdkCall", GoMethod: "AddPolicyStatementFromSdkCall"},
+			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "encode", GoMethod: "Encode"},
 			_jsii_.MemberProperty{JsiiProperty: "handlerRoleArn", GoGetter: "HandlerRoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -127,6 +128,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getAttString", GoMethod: "GetAttString"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "provider", GoGetter: "Provider"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IAwsApiCall{}

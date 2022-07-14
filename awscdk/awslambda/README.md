@@ -101,7 +101,7 @@ it appropriate permissions:
 
 ```go
 myRole := iam.NewRole(this, jsii.String("My Role"), &roleProps{
-	assumedBy: iam.NewServicePrincipal(jsii.String("sns.amazonaws.com")),
+	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
 
 fn := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{

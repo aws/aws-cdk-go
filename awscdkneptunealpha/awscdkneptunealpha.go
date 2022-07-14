@@ -235,6 +235,23 @@ func ClusterParameterGroup_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func ClusterParameterGroup_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-neptune-alpha.ClusterParameterGroup",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func ClusterParameterGroup_IsResource(construct constructs.IConstruct) *bool {
@@ -701,6 +718,23 @@ func DatabaseCluster_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func DatabaseCluster_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-neptune-alpha.DatabaseCluster",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func DatabaseCluster_IsResource(construct constructs.IConstruct) *bool {
@@ -1116,6 +1150,23 @@ func DatabaseClusterBase_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-neptune-alpha.DatabaseClusterBase",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func DatabaseClusterBase_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-neptune-alpha.DatabaseClusterBase",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -1565,6 +1616,23 @@ func DatabaseInstance_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func DatabaseInstance_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-neptune-alpha.DatabaseInstance",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func DatabaseInstance_IsResource(construct constructs.IConstruct) *bool {
@@ -1952,6 +2020,17 @@ func EngineVersion_V1_1_0_0() EngineVersion {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-neptune-alpha.EngineVersion",
 		"V1_1_0_0",
+		&returns,
+	)
+	return returns
+}
+
+func EngineVersion_V1_1_1_0() EngineVersion {
+	_init_.Initialize()
+	var returns EngineVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.EngineVersion",
+		"V1_1_1_0",
 		&returns,
 	)
 	return returns
@@ -2709,6 +2788,23 @@ func ParameterGroup_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func ParameterGroup_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-neptune-alpha.ParameterGroup",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func ParameterGroup_IsResource(construct constructs.IConstruct) *bool {
@@ -3051,6 +3147,23 @@ func SubnetGroup_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-neptune-alpha.SubnetGroup",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func SubnetGroup_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-neptune-alpha.SubnetGroup",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

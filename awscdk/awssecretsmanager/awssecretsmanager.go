@@ -120,11 +120,19 @@ type CfnResourcePolicy interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -356,6 +364,16 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperites() *map[string]interface{
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -770,11 +788,19 @@ type CfnRotationSchedule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -1026,6 +1052,16 @@ func (j *jsiiProxy_CfnRotationSchedule) UpdatedProperites() *map[string]interfac
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRotationSchedule) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -1636,11 +1672,19 @@ type CfnSecret interface {
 	// - Do not use the `aws:` prefix in your tag names or values because AWS reserves it for AWS use. You can't edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit.
 	// - If you use your tagging schema across multiple services and resources, other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -1912,6 +1956,16 @@ func (j *jsiiProxy_CfnSecret) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecret) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -2464,11 +2518,19 @@ type CfnSecretTargetAttachment interface {
 	// - AWS::DocDB::DBCluster.
 	TargetType() *string
 	SetTargetType(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -2700,6 +2762,16 @@ func (j *jsiiProxy_CfnSecretTargetAttachment) UpdatedProperites() *map[string]in
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecretTargetAttachment) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -3979,6 +4051,22 @@ func ResourcePolicy_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func ResourcePolicy_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_secretsmanager.ResourcePolicy",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func ResourcePolicy_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -4248,6 +4336,22 @@ func RotationSchedule_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func RotationSchedule_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_secretsmanager.RotationSchedule",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func RotationSchedule_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -4404,16 +4508,14 @@ type RotationScheduleProps struct {
 // Creates a new secret in AWS SecretsManager.
 //
 // Example:
-//   dbSecret := secretsmanager.NewSecret(this, jsii.String("secret"))
+//   var role role
 //
-//   batch.NewJobDefinition(this, jsii.String("batch-job-def-secrets"), &jobDefinitionProps{
-//   	container: &jobDefinitionContainer{
-//   		image: ecs.ecrImage.fromRegistry(jsii.String("docker/whalesay")),
-//   		secrets: map[string]secret{
-//   			"PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
-//   		},
-//   	},
+//   key := kms.NewKey(this, jsii.String("KMS"))
+//   secret := secretsmanager.NewSecret(this, jsii.String("Secret"), &secretProps{
+//   	encryptionKey: key,
 //   })
+//   secret.grantRead(role)
+//   secret.grantWrite(role)
 //
 type Secret interface {
 	awscdk.Resource
@@ -4773,6 +4875,22 @@ func Secret_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func Secret_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_secretsmanager.Secret",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func Secret_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -5036,6 +5154,35 @@ type SecretProps struct {
 	// Note that deleting secrets from SecretsManager does not happen immediately, but after a 7 to
 	// 30 days blackout period. During that period, it is not possible to create another secret that shares the same name.
 	SecretName *string `field:"optional" json:"secretName" yaml:"secretName"`
+	// Initial value for a JSON secret.
+	//
+	// **NOTE:** *It is **highly** encouraged to leave this field undefined and allow SecretsManager to create the secret value.
+	// The secret object -- if provided -- will be included in the output of the cdk as part of synthesis,
+	// and will appear in the CloudFormation template in the console. This can be secure(-ish) if that value is merely reference to
+	// another resource (or one of its attributes), but if the value is a plaintext string, it will be visible to anyone with access
+	// to the CloudFormation template (via the AWS Console, SDKs, or CLI).
+	//
+	// Specifies a JSON object that you want to encrypt and store in this new version of the secret.
+	// To specify a simple string value instead, use {@link SecretProps.secretStringValue}
+	//
+	// Only one of `secretStringBeta1`, `secretStringValue`, 'secretObjectValue', and `generateSecretString` can be provided.
+	//
+	// Example:
+	//   var user user
+	//   var accessKey accessKey
+	//   var stack stack
+	//
+	//   secretsmanager.NewSecret(stack, jsii.String("JSONSecret"), &secretProps{
+	//   	secretObjectValue: map[string]secretValue{
+	//   		"username": awscdk.SecretValue.unsafePlainText(user.userName),
+	//   		 // intrinsic reference, not exposed as plaintext
+	//   		"database": awscdk.SecretValue.unsafePlainText(jsii.String("foo")),
+	//   		 // rendered as plain text, but not a secret
+	//   		"password": accessKey.secretAccessKey,
+	//   	},
+	//   })
+	//
+	SecretObjectValue *map[string]awscdk.SecretValue `field:"optional" json:"secretObjectValue" yaml:"secretObjectValue"`
 	// Initial value for the secret.
 	//
 	// **NOTE:** *It is **highly** encouraged to leave this field undefined and allow SecretsManager to create the secret value.
@@ -5059,9 +5206,9 @@ type SecretProps struct {
 	// to the CloudFormation template (via the AWS Console, SDKs, or CLI).
 	//
 	// Specifies text data that you want to encrypt and store in this new version of the secret.
-	// May be a simple string value, or a string representation of a JSON structure.
+	// May be a simple string value. To provide a string representation of JSON structure, use {@link SecretProps.secretObjectValue} instead.
 	//
-	// Only one of `secretStringBeta1`, `secretStringValue`, and `generateSecretString` can be provided.
+	// Only one of `secretStringBeta1`, `secretStringValue`, 'secretObjectValue', and `generateSecretString` can be provided.
 	SecretStringValue awscdk.SecretValue `field:"optional" json:"secretStringValue" yaml:"secretStringValue"`
 }
 
@@ -5609,7 +5756,7 @@ type jsiiProxy_SecretStringValueBeta1 struct {
 // // Creates a new IAM user, access and secret keys, and stores the secret access key in a Secret.
 // const user = new iam.User(this, 'User');
 // const accessKey = new iam.AccessKey(this, 'AccessKey', { user });
-// const secret = new secrets.Secret(this, 'Secret', {
+// const secret = new secretsmanager.Secret(this, 'Secret', {
 //  	secretStringValue: accessKey.secretAccessKey,
 // });
 // ```
@@ -5990,6 +6137,22 @@ func SecretTargetAttachment_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_secretsmanager.SecretTargetAttachment",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func SecretTargetAttachment_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_secretsmanager.SecretTargetAttachment",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

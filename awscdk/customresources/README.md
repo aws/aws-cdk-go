@@ -560,36 +560,6 @@ path in `PhysicalResourceId.fromResponse()`.
 
 ### Custom Resource Examples
 
-#### Verify a domain with SES
-
-```go
-import route53 "github.com/aws/aws-cdk-go/awscdk"
-
-var zone hostedZone
-
-
-verifyDomainIdentity := cr.NewAwsCustomResource(this, jsii.String("VerifyDomainIdentity"), &awsCustomResourceProps{
-	onCreate: &awsSdkCall{
-		service: jsii.String("SES"),
-		action: jsii.String("verifyDomainIdentity"),
-		parameters: map[string]*string{
-			"Domain": jsii.String("example.com"),
-		},
-		physicalResourceId: cr.physicalResourceId.fromResponse(jsii.String("VerificationToken")),
-	},
-	policy: cr.awsCustomResourcePolicy.fromSdkCalls(&sdkCallsPolicyOptions{
-		resources: cr.*awsCustomResourcePolicy_ANY_RESOURCE(),
-	}),
-})
-route53.NewTxtRecord(this, jsii.String("SESVerificationRecord"), &txtRecordProps{
-	zone: zone,
-	recordName: jsii.String("_amazonses.example.com"),
-	values: []*string{
-		verifyDomainIdentity.getResponseField(jsii.String("VerificationToken")),
-	},
-})
-```
-
 #### Get the latest version of a secure SSM parameter
 
 ```go

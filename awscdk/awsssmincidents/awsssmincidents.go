@@ -74,11 +74,19 @@ type CfnReplicationSet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -310,6 +318,16 @@ func (j *jsiiProxy_CfnReplicationSet) UpdatedProperites() *map[string]interface{
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicationSet) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -666,6 +684,12 @@ type CfnReplicationSetProps struct {
 //
 //   		// the properties below are optional
 //   		dedupeString: jsii.String("dedupeString"),
+//   		incidentTags: []interface{}{
+//   			&cfnTag{
+//   				key: jsii.String("key"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
 //   		notificationTargets: []interface{}{
 //   			&notificationTargetItemProperty{
 //   				snsTopicArn: jsii.String("snsTopicArn"),
@@ -713,7 +737,7 @@ type CfnReplicationSetProps struct {
 //   	engagements: []*string{
 //   		jsii.String("engagements"),
 //   	},
-//   	tags: []cfnTag{
+//   	tags: []*cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
 //   			value: jsii.String("value"),
@@ -777,11 +801,19 @@ type CfnResponsePlan interface {
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -1063,6 +1095,16 @@ func (j *jsiiProxy_CfnResponsePlan) UpdatedProperites() *map[string]interface{} 
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResponsePlan) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -1473,6 +1515,12 @@ type CfnResponsePlan_DynamicSsmParameterValueProperty struct {
 //
 //   	// the properties below are optional
 //   	dedupeString: jsii.String("dedupeString"),
+//   	incidentTags: []interface{}{
+//   		&cfnTag{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
 //   	notificationTargets: []interface{}{
 //   		&notificationTargetItemProperty{
 //   			snsTopicArn: jsii.String("snsTopicArn"),
@@ -1494,6 +1542,8 @@ type CfnResponsePlan_IncidentTemplateProperty struct {
 	Title *string `field:"required" json:"title" yaml:"title"`
 	// Used to create only one incident record for an incident.
 	DedupeString *string `field:"optional" json:"dedupeString" yaml:"dedupeString"`
+	// `CfnResponsePlan.IncidentTemplateProperty.IncidentTags`.
+	IncidentTags interface{} `field:"optional" json:"incidentTags" yaml:"incidentTags"`
 	// The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident.
 	//
 	// You can also make updates to the incident through the chat channel using the SNS topics.
@@ -1602,6 +1652,12 @@ type CfnResponsePlan_SsmParameterProperty struct {
 //
 //   		// the properties below are optional
 //   		dedupeString: jsii.String("dedupeString"),
+//   		incidentTags: []interface{}{
+//   			&cfnTag{
+//   				key: jsii.String("key"),
+//   				value: jsii.String("value"),
+//   			},
+//   		},
 //   		notificationTargets: []interface{}{
 //   			&notificationTargetItemProperty{
 //   				snsTopicArn: jsii.String("snsTopicArn"),
@@ -1649,7 +1705,7 @@ type CfnResponsePlan_SsmParameterProperty struct {
 //   	engagements: []*string{
 //   		jsii.String("engagements"),
 //   	},
-//   	tags: []cfnTag{
+//   	tags: []*cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
 //   			value: jsii.String("value"),

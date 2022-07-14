@@ -677,6 +677,23 @@ func PythonFunction_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func PythonFunction_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-lambda-python-alpha.PythonFunction",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func PythonFunction_IsResource(construct constructs.IConstruct) *bool {
@@ -1534,6 +1551,23 @@ func PythonLayerVersion_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-lambda-python-alpha.PythonLayerVersion",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func PythonLayerVersion_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-lambda-python-alpha.PythonLayerVersion",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

@@ -32,6 +32,10 @@ func init() {
 		"aws-cdk-lib.aws_ses.BounceActionConfig",
 		reflect.TypeOf((*BounceActionConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.ByoDkimOptions",
+		reflect.TypeOf((*ByoDkimOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ses.CfnConfigurationSet",
 		reflect.TypeOf((*CfnConfigurationSet)(nil)).Elem(),
@@ -65,6 +69,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "trackingOptions", GoGetter: "TrackingOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -124,6 +129,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -192,6 +198,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "topics", GoGetter: "Topics"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -237,6 +244,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -289,6 +297,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -350,6 +359,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -401,6 +411,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -478,6 +489,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -520,6 +532,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "template", GoGetter: "Template"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -538,6 +551,84 @@ func init() {
 		reflect.TypeOf((*CfnTemplateProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.ConfigurationSet",
+		reflect.TypeOf((*ConfigurationSet)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "configurationSetName", GoGetter: "ConfigurationSetName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ConfigurationSet{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConfigurationSet)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.ConfigurationSetProps",
+		reflect.TypeOf((*ConfigurationSetProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ses.ConfigurationSetTlsPolicy",
+		reflect.TypeOf((*ConfigurationSetTlsPolicy)(nil)).Elem(),
+		map[string]interface{}{
+			"REQUIRE": ConfigurationSetTlsPolicy_REQUIRE,
+			"OPTIONAL": ConfigurationSetTlsPolicy_OPTIONAL,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.DedicatedIpPool",
+		reflect.TypeOf((*DedicatedIpPool)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "dedicatedIpPoolName", GoGetter: "DedicatedIpPoolName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DedicatedIpPool{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDedicatedIpPool)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.DedicatedIpPoolProps",
+		reflect.TypeOf((*DedicatedIpPoolProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.DkimIdentity",
+		reflect.TypeOf((*DkimIdentity)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_DkimIdentity{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.DkimIdentityConfig",
+		reflect.TypeOf((*DkimIdentityConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.DkimRecord",
+		reflect.TypeOf((*DkimRecord)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ses.DropSpamReceiptRule",
 		reflect.TypeOf((*DropSpamReceiptRule)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -554,6 +645,95 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.DropSpamReceiptRuleProps",
 		reflect.TypeOf((*DropSpamReceiptRuleProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ses.EasyDkimSigningKeyLength",
+		reflect.TypeOf((*EasyDkimSigningKeyLength)(nil)).Elem(),
+		map[string]interface{}{
+			"RSA_1024_BIT": EasyDkimSigningKeyLength_RSA_1024_BIT,
+			"RSA_2048_BIT": EasyDkimSigningKeyLength_RSA_2048_BIT,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.EmailIdentity",
+		reflect.TypeOf((*EmailIdentity)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "dkimDnsTokenName1", GoGetter: "DkimDnsTokenName1"},
+			_jsii_.MemberProperty{JsiiProperty: "dkimDnsTokenName2", GoGetter: "DkimDnsTokenName2"},
+			_jsii_.MemberProperty{JsiiProperty: "dkimDnsTokenName3", GoGetter: "DkimDnsTokenName3"},
+			_jsii_.MemberProperty{JsiiProperty: "dkimDnsTokenValue1", GoGetter: "DkimDnsTokenValue1"},
+			_jsii_.MemberProperty{JsiiProperty: "dkimDnsTokenValue2", GoGetter: "DkimDnsTokenValue2"},
+			_jsii_.MemberProperty{JsiiProperty: "dkimDnsTokenValue3", GoGetter: "DkimDnsTokenValue3"},
+			_jsii_.MemberProperty{JsiiProperty: "dkimRecords", GoGetter: "DkimRecords"},
+			_jsii_.MemberProperty{JsiiProperty: "emailIdentityName", GoGetter: "EmailIdentityName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_EmailIdentity{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEmailIdentity)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.EmailIdentityProps",
+		reflect.TypeOf((*EmailIdentityProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_ses.IConfigurationSet",
+		reflect.TypeOf((*IConfigurationSet)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "configurationSetName", GoGetter: "ConfigurationSetName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IConfigurationSet{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_ses.IDedicatedIpPool",
+		reflect.TypeOf((*IDedicatedIpPool)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "dedicatedIpPoolName", GoGetter: "DedicatedIpPoolName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDedicatedIpPool{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_ses.IEmailIdentity",
+		reflect.TypeOf((*IEmailIdentity)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "emailIdentityName", GoGetter: "EmailIdentityName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IEmailIdentity{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_ses.IReceiptRule",
@@ -598,9 +778,28 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.Identity",
+		reflect.TypeOf((*Identity)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "hostedZone", GoGetter: "HostedZone"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Identity{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.LambdaActionConfig",
 		reflect.TypeOf((*LambdaActionConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ses.MailFromBehaviorOnMxFailure",
+		reflect.TypeOf((*MailFromBehaviorOnMxFailure)(nil)).Elem(),
+		map[string]interface{}{
+			"USE_DEFAULT_VALUE": MailFromBehaviorOnMxFailure_USE_DEFAULT_VALUE,
+			"REJECT_MESSAGE": MailFromBehaviorOnMxFailure_REJECT_MESSAGE,
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ses.ReceiptFilter",
@@ -708,6 +907,15 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.StopActionConfig",
 		reflect.TypeOf((*StopActionConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ses.SuppressionReasons",
+		reflect.TypeOf((*SuppressionReasons)(nil)).Elem(),
+		map[string]interface{}{
+			"BOUNCES_AND_COMPLAINTS": SuppressionReasons_BOUNCES_AND_COMPLAINTS,
+			"BOUNCES_ONLY": SuppressionReasons_BOUNCES_ONLY,
+			"COMPLAINTS_ONLY": SuppressionReasons_COMPLAINTS_ONLY,
+		},
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ses.TlsPolicy",

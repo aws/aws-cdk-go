@@ -1748,11 +1748,19 @@ type CfnDBCluster interface {
 	SetStorageEncrypted(val interface{})
 	// Tags to assign to the DB cluster.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// A value that indicates whether to restore the DB cluster to the latest restorable backup time.
 	//
 	// By default, the DB cluster is not restored to the latest restorable backup time.
@@ -2304,6 +2312,16 @@ func (j *jsiiProxy_CfnDBCluster) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -2994,11 +3012,19 @@ type CfnDBClusterParameterGroup interface {
 	Stack() awscdk.Stack
 	// Tags to assign to the DB cluster parameter group.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -3240,6 +3266,16 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) UpdatedProperites() *map[string]i
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBClusterParameterGroup) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -4760,11 +4796,19 @@ type CfnDBInstance interface {
 	// The time zone parameter is currently supported only by [Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone) .
 	Timezone() *string
 	SetTimezone(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 	//
 	// This setting doesn't apply to RDS Custom.
@@ -5512,6 +5556,16 @@ func (j *jsiiProxy_CfnDBInstance) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -7115,11 +7169,19 @@ type CfnDBParameterGroup interface {
 	Stack() awscdk.Stack
 	// Tags to assign to the DB parameter group.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -7371,6 +7433,16 @@ func (j *jsiiProxy_CfnDBParameterGroup) UpdatedProperites() *map[string]interfac
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBParameterGroup) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -7830,11 +7902,19 @@ type CfnDBProxy interface {
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags() *[]*CfnDBProxy_TagFormatProperty
 	SetTags(val *[]*CfnDBProxy_TagFormatProperty)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// One or more VPC security group IDs to associate with the new proxy.
 	//
 	// If you plan to update the resource, don't specify VPC security groups in a shared VPC.
@@ -8144,6 +8224,16 @@ func (j *jsiiProxy_CfnDBProxy) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBProxy) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -8646,11 +8736,19 @@ type CfnDBProxyEndpoint interface {
 	// Valid Values: `READ_WRITE | READ_ONLY`.
 	TargetRole() *string
 	SetTargetRole(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// The VPC security group IDs for the DB proxy endpoint that you create.
 	//
 	// You can specify a different set of security group IDs than for the original DB proxy. The default is the default security group for the VPC.
@@ -8942,6 +9040,16 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) UpdatedProperites() *map[string]interface
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBProxyEndpoint) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -9509,11 +9617,19 @@ type CfnDBProxyTargetGroup interface {
 	// > Currently, this property must be set to `default` .
 	TargetGroupName() *string
 	SetTargetGroupName(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -9775,6 +9891,16 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) UpdatedProperites() *map[string]interf
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBProxyTargetGroup) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -10250,11 +10376,19 @@ type CfnDBSecurityGroup interface {
 	Stack() awscdk.Stack
 	// Tags to assign to the DB security group.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -10496,6 +10630,16 @@ func (j *jsiiProxy_CfnDBSecurityGroup) UpdatedProperites() *map[string]interface
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBSecurityGroup) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -10885,11 +11029,19 @@ type CfnDBSecurityGroupIngress interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -11141,6 +11293,16 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress) UpdatedProperites() *map[string]in
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBSecurityGroupIngress) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -11590,11 +11752,19 @@ type CfnDBSubnetGroup interface {
 	SetSubnetIds(val *[]*string)
 	// Tags to assign to the DB subnet group.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -11836,6 +12006,16 @@ func (j *jsiiProxy_CfnDBSubnetGroup) UpdatedProperites() *map[string]interface{}
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBSubnetGroup) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -12260,11 +12440,19 @@ type CfnEventSubscription interface {
 	SetSubscriptionName(val *string)
 	// `AWS::RDS::EventSubscription.Tags`.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -12536,6 +12724,16 @@ func (j *jsiiProxy_CfnEventSubscription) UpdatedProperites() *map[string]interfa
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -12991,11 +13189,19 @@ type CfnGlobalCluster interface {
 	// The storage encryption setting for the global database cluster.
 	StorageEncrypted() interface{}
 	SetStorageEncrypted(val interface{})
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -13257,6 +13463,16 @@ func (j *jsiiProxy_CfnGlobalCluster) UpdatedProperites() *map[string]interface{}
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGlobalCluster) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -13706,11 +13922,19 @@ type CfnOptionGroup interface {
 	Stack() awscdk.Stack
 	// Tags to assign to the option group.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -13962,6 +14186,16 @@ func (j *jsiiProxy_CfnOptionGroup) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOptionGroup) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -14832,24 +15066,20 @@ type CredentialsFromUsernameOptions struct {
 //   var vpc vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
-//   	engine: rds.databaseClusterEngine_AURORA(),
+//   	engine: rds.databaseClusterEngine.auroraMysql(&auroraMysqlClusterEngineProps{
+//   		version: rds.auroraMysqlEngineVersion_VER_2_08_1(),
+//   	}),
+//   	credentials: rds.credentials.fromGeneratedSecret(jsii.String("clusteradmin")),
+//   	 // Optional - will default to 'admin' username and generated password
 //   	instanceProps: &instanceProps{
+//   		// optional , defaults to t3.medium
+//   		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_SMALL),
+//   		vpcSubnets: &subnetSelection{
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   		},
 //   		vpc: vpc,
 //   	},
 //   })
-//
-//   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &databaseProxyProps{
-//   	proxyTarget: rds.proxyTarget.fromCluster(cluster),
-//   	secrets: []iSecret{
-//   		cluster.secret,
-//   	},
-//   	vpc: vpc,
-//   })
-//
-//   role := iam.NewRole(this, jsii.String("DBProxyRole"), &roleProps{
-//   	assumedBy: iam.NewAccountPrincipal(this.account),
-//   })
-//   proxy.grantConnect(role, jsii.String("admin"))
 //
 type DatabaseCluster interface {
 	DatabaseClusterBase
@@ -15263,6 +15493,22 @@ func DatabaseCluster_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_rds.DatabaseCluster",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func DatabaseCluster_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.DatabaseCluster",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -15931,6 +16177,22 @@ func DatabaseClusterBase_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func DatabaseClusterBase_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.DatabaseClusterBase",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func DatabaseClusterBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -16236,19 +16498,25 @@ func (d *jsiiProxy_DatabaseClusterBase) ToString() *string {
 // Example:
 //   var vpc vpc
 //
-//
-//   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &serverlessClusterProps{
-//   	engine: rds.databaseClusterEngine_AURORA_POSTGRESQL(),
-//   	parameterGroup: rds.parameterGroup.fromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
-//   	vpc: vpc,
-//   	scaling: &serverlessScalingOptions{
-//   		autoPause: awscdk.Duration.minutes(jsii.Number(10)),
-//   		 // default is to pause after 5 minutes of idle time
-//   		minCapacity: rds.auroraCapacityUnit_ACU_8,
-//   		 // default is 2 Aurora capacity units (ACUs)
-//   		maxCapacity: rds.*auroraCapacityUnit_ACU_32,
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
+//   	engine: rds.databaseClusterEngine_AURORA(),
+//   	instanceProps: &instanceProps{
+//   		vpc: vpc,
 //   	},
 //   })
+//
+//   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &databaseProxyProps{
+//   	proxyTarget: rds.proxyTarget.fromCluster(cluster),
+//   	secrets: []iSecret{
+//   		cluster.secret,
+//   	},
+//   	vpc: vpc,
+//   })
+//
+//   role := iam.NewRole(this, jsii.String("DBProxyRole"), &roleProps{
+//   	assumedBy: iam.NewAccountPrincipal(this.account),
+//   })
+//   proxy.grantConnect(role, jsii.String("admin"))
 //
 type DatabaseClusterEngine interface {
 }
@@ -16780,6 +17048,22 @@ func DatabaseClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func DatabaseClusterFromSnapshot_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.DatabaseClusterFromSnapshot",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func DatabaseClusterFromSnapshot_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -17175,6 +17459,8 @@ type DatabaseClusterFromSnapshotProps struct {
 	//
 	// Has to be at least 1.
 	Instances *float64 `field:"optional" json:"instances" yaml:"instances"`
+	// The ordering of updates for instances.
+	InstanceUpdateBehaviour InstanceUpdateBehaviour `field:"optional" json:"instanceUpdateBehaviour" yaml:"instanceUpdateBehaviour"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instances.
 	MonitoringInterval awscdk.Duration `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instances monitoring.
@@ -17253,24 +17539,20 @@ type DatabaseClusterFromSnapshotProps struct {
 //   var vpc vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
-//   	engine: rds.databaseClusterEngine_AURORA(),
+//   	engine: rds.databaseClusterEngine.auroraMysql(&auroraMysqlClusterEngineProps{
+//   		version: rds.auroraMysqlEngineVersion_VER_2_08_1(),
+//   	}),
+//   	credentials: rds.credentials.fromGeneratedSecret(jsii.String("clusteradmin")),
+//   	 // Optional - will default to 'admin' username and generated password
 //   	instanceProps: &instanceProps{
+//   		// optional , defaults to t3.medium
+//   		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_SMALL),
+//   		vpcSubnets: &subnetSelection{
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   		},
 //   		vpc: vpc,
 //   	},
 //   })
-//
-//   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &databaseProxyProps{
-//   	proxyTarget: rds.proxyTarget.fromCluster(cluster),
-//   	secrets: []iSecret{
-//   		cluster.secret,
-//   	},
-//   	vpc: vpc,
-//   })
-//
-//   role := iam.NewRole(this, jsii.String("DBProxyRole"), &roleProps{
-//   	assumedBy: iam.NewAccountPrincipal(this.account),
-//   })
-//   proxy.grantConnect(role, jsii.String("admin"))
 //
 type DatabaseClusterProps struct {
 	// What kind of database to start.
@@ -17318,6 +17600,8 @@ type DatabaseClusterProps struct {
 	//
 	// Has to be at least 1.
 	Instances *float64 `field:"optional" json:"instances" yaml:"instances"`
+	// The ordering of updates for instances.
+	InstanceUpdateBehaviour InstanceUpdateBehaviour `field:"optional" json:"instanceUpdateBehaviour" yaml:"instanceUpdateBehaviour"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instances.
 	MonitoringInterval awscdk.Duration `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
 	// Role that will be used to manage DB instances monitoring.
@@ -17796,6 +18080,22 @@ func DatabaseInstance_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_rds.DatabaseInstance",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func DatabaseInstance_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.DatabaseInstance",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -18411,6 +18711,22 @@ func DatabaseInstanceBase_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_rds.DatabaseInstanceBase",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func DatabaseInstanceBase_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceBase",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -19342,6 +19658,22 @@ func DatabaseInstanceFromSnapshot_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_rds.DatabaseInstanceFromSnapshot",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func DatabaseInstanceFromSnapshot_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceFromSnapshot",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -20600,6 +20932,22 @@ func DatabaseInstanceReadReplica_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func DatabaseInstanceReadReplica_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceReadReplica",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func DatabaseInstanceReadReplica_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -21512,6 +21860,22 @@ func DatabaseProxy_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func DatabaseProxy_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.DatabaseProxy",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func DatabaseProxy_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -22208,6 +22572,22 @@ func DatabaseSecret_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_rds.DatabaseSecret",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func DatabaseSecret_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -23906,24 +24286,20 @@ type InstanceEngineFeatures struct {
 //   var vpc vpc
 //
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
-//   	engine: rds.databaseClusterEngine_AURORA(),
+//   	engine: rds.databaseClusterEngine.auroraMysql(&auroraMysqlClusterEngineProps{
+//   		version: rds.auroraMysqlEngineVersion_VER_2_08_1(),
+//   	}),
+//   	credentials: rds.credentials.fromGeneratedSecret(jsii.String("clusteradmin")),
+//   	 // Optional - will default to 'admin' username and generated password
 //   	instanceProps: &instanceProps{
+//   		// optional , defaults to t3.medium
+//   		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_SMALL),
+//   		vpcSubnets: &subnetSelection{
+//   			subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   		},
 //   		vpc: vpc,
 //   	},
 //   })
-//
-//   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &databaseProxyProps{
-//   	proxyTarget: rds.proxyTarget.fromCluster(cluster),
-//   	secrets: []iSecret{
-//   		cluster.secret,
-//   	},
-//   	vpc: vpc,
-//   })
-//
-//   role := iam.NewRole(this, jsii.String("DBProxyRole"), &roleProps{
-//   	assumedBy: iam.NewAccountPrincipal(this.account),
-//   })
-//   proxy.grantConnect(role, jsii.String("admin"))
 //
 type InstanceProps struct {
 	// What subnets to run the RDS instances in.
@@ -23958,6 +24334,38 @@ type InstanceProps struct {
 	// Where to place the instances within the VPC.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
+
+// The orchestration of updates of multiple instances.
+//
+// Example:
+//   var vpc vpc
+//
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
+//   	engine: rds.databaseClusterEngine.auroraMysql(&auroraMysqlClusterEngineProps{
+//   		version: rds.auroraMysqlEngineVersion_VER_3_01_0(),
+//   	}),
+//   	instances: jsii.Number(2),
+//   	instanceProps: &instanceProps{
+//   		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE3, ec2.instanceSize_SMALL),
+//   		vpc: vpc,
+//   	},
+//   	instanceUpdateBehaviour: rds.instanceUpdateBehaviour_ROLLING,
+//   })
+//
+type InstanceUpdateBehaviour string
+
+const (
+	// In a bulk update, all instances of the cluster are updated at the same time.
+	//
+	// This results in a faster update procedure.
+	// During the update, however, all instances might be unavailable at the same time and thus a downtime might occur.
+	InstanceUpdateBehaviour_BULK InstanceUpdateBehaviour = "BULK"
+	// In a rolling update, one instance after another is updated.
+	//
+	// This results in at most one instance being unavailable during the update.
+	// If your cluster consists of more than 1 instance, the downtime periods are limited to the time a primary switch needs.
+	InstanceUpdateBehaviour_ROLLING InstanceUpdateBehaviour = "ROLLING"
+)
 
 // The license model.
 //
@@ -25253,6 +25661,22 @@ func OptionGroup_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func OptionGroup_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.OptionGroup",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func OptionGroup_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -26148,19 +26572,40 @@ type OracleSe2InstanceEngineProps struct {
 // and an instance parameter group.
 //
 // Example:
+//   var plan backupPlan
 //   var vpc vpc
 //
-//
-//   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &serverlessClusterProps{
-//   	engine: rds.databaseClusterEngine_AURORA_POSTGRESQL(),
+//   myTable := dynamodb.table.fromTableName(this, jsii.String("Table"), jsii.String("myTableName"))
+//   myDatabaseInstance := rds.NewDatabaseInstance(this, jsii.String("DatabaseInstance"), &databaseInstanceProps{
+//   	engine: rds.databaseInstanceEngine.mysql(&mySqlInstanceEngineProps{
+//   		version: rds.mysqlEngineVersion_VER_8_0_26(),
+//   	}),
+//   	vpc: vpc,
+//   })
+//   myDatabaseCluster := rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &databaseClusterProps{
+//   	engine: rds.databaseClusterEngine.auroraMysql(&auroraMysqlClusterEngineProps{
+//   		version: rds.auroraMysqlEngineVersion_VER_2_08_1(),
+//   	}),
+//   	credentials: rds.credentials.fromGeneratedSecret(jsii.String("clusteradmin")),
+//   	instanceProps: &instanceProps{
+//   		vpc: vpc,
+//   	},
+//   })
+//   myServerlessCluster := rds.NewServerlessCluster(this, jsii.String("ServerlessCluster"), &serverlessClusterProps{
+//   	engine: rds.*databaseClusterEngine_AURORA_POSTGRESQL(),
 //   	parameterGroup: rds.parameterGroup.fromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
 //   	vpc: vpc,
-//   	scaling: &serverlessScalingOptions{
-//   		autoPause: awscdk.Duration.minutes(jsii.Number(10)),
-//   		 // default is to pause after 5 minutes of idle time
-//   		minCapacity: rds.auroraCapacityUnit_ACU_8,
-//   		 // default is 2 Aurora capacity units (ACUs)
-//   		maxCapacity: rds.*auroraCapacityUnit_ACU_32,
+//   })
+//   myCoolConstruct := constructs.NewConstruct(this, jsii.String("MyCoolConstruct"))
+//
+//   plan.addSelection(jsii.String("Selection"), &backupSelectionOptions{
+//   	resources: []backupResource{
+//   		backup.*backupResource.fromDynamoDbTable(myTable),
+//   		backup.*backupResource.fromRdsDatabaseInstance(myDatabaseInstance),
+//   		backup.*backupResource.fromRdsDatabaseCluster(myDatabaseCluster),
+//   		backup.*backupResource.fromRdsServerlessCluster(myServerlessCluster),
+//   		backup.*backupResource.fromTag(jsii.String("stage"), jsii.String("prod")),
+//   		backup.*backupResource.fromConstruct(myCoolConstruct),
 //   	},
 //   })
 //
@@ -26335,6 +26780,22 @@ func ParameterGroup_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_rds.ParameterGroup",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func ParameterGroup_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -27573,27 +28034,43 @@ type RotationSingleUserOptions struct {
 // Create an Aurora Serverless Cluster.
 //
 // Example:
-//   var vpc vpc
+//   // Build a data source for AppSync to access the database.
+//   var api graphqlApi
+//   // Create username and password secret for DB Cluster
+//   secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &databaseSecretProps{
+//   	username: jsii.String("clusteradmin"),
+//   })
 //
-//   var code code
+//   // The VPC to place the cluster in
+//   vpc := ec2.NewVpc(this, jsii.String("AuroraVpc"))
 //
-//
-//   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &serverlessClusterProps{
+//   // Create the serverless cluster, provide all values needed to customise the database.
+//   cluster := rds.NewServerlessCluster(this, jsii.String("AuroraCluster"), &serverlessClusterProps{
 //   	engine: rds.databaseClusterEngine_AURORA_MYSQL(),
 //   	vpc: vpc,
-//   	 // this parameter is optional for serverless Clusters
-//   	enableDataApi: jsii.Boolean(true),
-//   })
-//   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-//   	runtime: lambda.runtime_NODEJS_14_X(),
-//   	handler: jsii.String("index.handler"),
-//   	code: code,
-//   	environment: map[string]*string{
-//   		"CLUSTER_ARN": cluster.clusterArn,
-//   		"SECRET_ARN": cluster.secret.secretArn,
+//   	credentials: map[string]*string{
+//   		"username": jsii.String("clusteradmin"),
 //   	},
+//   	clusterIdentifier: jsii.String("db-endpoint-test"),
+//   	defaultDatabaseName: jsii.String("demos"),
 //   })
-//   cluster.grantDataApiAccess(fn)
+//   rdsDS := api.addRdsDataSource(jsii.String("rds"), cluster, secret, jsii.String("demos"))
+//
+//   // Set up a resolver for an RDS query.
+//   rdsDS.createResolver(&baseResolverProps{
+//   	typeName: jsii.String("Query"),
+//   	fieldName: jsii.String("getDemosRds"),
+//   	requestMappingTemplate: appsync.mappingTemplate.fromString(jsii.String("\n  {\n    \"version\": \"2018-05-29\",\n    \"statements\": [\n      \"SELECT * FROM demos\"\n    ]\n  }\n  ")),
+//   	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])\n  ")),
+//   })
+//
+//   // Set up a resolver for an RDS mutation.
+//   rdsDS.createResolver(&baseResolverProps{
+//   	typeName: jsii.String("Mutation"),
+//   	fieldName: jsii.String("addDemoRds"),
+//   	requestMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n  {\n    \"version\": \"2018-05-29\",\n    \"statements\": [\n      \"INSERT INTO demos VALUES (:id, :version)\",\n      \"SELECT * WHERE id = :id\"\n    ],\n    \"variableMap\": {\n      \":id\": $util.toJson($util.autoId()),\n      \":version\": $util.toJson($ctx.args.version)\n    }\n  }\n  ")),
+//   	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])\n  ")),
+//   })
 //
 type ServerlessCluster interface {
 	awscdk.Resource
@@ -27882,6 +28359,22 @@ func ServerlessCluster_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_rds.ServerlessCluster",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func ServerlessCluster_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -28340,6 +28833,22 @@ func ServerlessClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func ServerlessClusterFromSnapshot_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.ServerlessClusterFromSnapshot",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func ServerlessClusterFromSnapshot_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -28502,27 +29011,43 @@ type ServerlessClusterFromSnapshotProps struct {
 // Properties for a new Aurora Serverless Cluster.
 //
 // Example:
-//   var vpc vpc
+//   // Build a data source for AppSync to access the database.
+//   var api graphqlApi
+//   // Create username and password secret for DB Cluster
+//   secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &databaseSecretProps{
+//   	username: jsii.String("clusteradmin"),
+//   })
 //
-//   var code code
+//   // The VPC to place the cluster in
+//   vpc := ec2.NewVpc(this, jsii.String("AuroraVpc"))
 //
-//
-//   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &serverlessClusterProps{
+//   // Create the serverless cluster, provide all values needed to customise the database.
+//   cluster := rds.NewServerlessCluster(this, jsii.String("AuroraCluster"), &serverlessClusterProps{
 //   	engine: rds.databaseClusterEngine_AURORA_MYSQL(),
 //   	vpc: vpc,
-//   	 // this parameter is optional for serverless Clusters
-//   	enableDataApi: jsii.Boolean(true),
-//   })
-//   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-//   	runtime: lambda.runtime_NODEJS_14_X(),
-//   	handler: jsii.String("index.handler"),
-//   	code: code,
-//   	environment: map[string]*string{
-//   		"CLUSTER_ARN": cluster.clusterArn,
-//   		"SECRET_ARN": cluster.secret.secretArn,
+//   	credentials: map[string]*string{
+//   		"username": jsii.String("clusteradmin"),
 //   	},
+//   	clusterIdentifier: jsii.String("db-endpoint-test"),
+//   	defaultDatabaseName: jsii.String("demos"),
 //   })
-//   cluster.grantDataApiAccess(fn)
+//   rdsDS := api.addRdsDataSource(jsii.String("rds"), cluster, secret, jsii.String("demos"))
+//
+//   // Set up a resolver for an RDS query.
+//   rdsDS.createResolver(&baseResolverProps{
+//   	typeName: jsii.String("Query"),
+//   	fieldName: jsii.String("getDemosRds"),
+//   	requestMappingTemplate: appsync.mappingTemplate.fromString(jsii.String("\n  {\n    \"version\": \"2018-05-29\",\n    \"statements\": [\n      \"SELECT * FROM demos\"\n    ]\n  }\n  ")),
+//   	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])\n  ")),
+//   })
+//
+//   // Set up a resolver for an RDS mutation.
+//   rdsDS.createResolver(&baseResolverProps{
+//   	typeName: jsii.String("Mutation"),
+//   	fieldName: jsii.String("addDemoRds"),
+//   	requestMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n  {\n    \"version\": \"2018-05-29\",\n    \"statements\": [\n      \"INSERT INTO demos VALUES (:id, :version)\",\n      \"SELECT * WHERE id = :id\"\n    ],\n    \"variableMap\": {\n      \":id\": $util.toJson($util.autoId()),\n      \":version\": $util.toJson($ctx.args.version)\n    }\n  }\n  ")),
+//   	responseMappingTemplate: appsync.*mappingTemplate.fromString(jsii.String("\n    $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])\n  ")),
+//   })
 //
 type ServerlessClusterProps struct {
 	// What kind of database to start.
@@ -29845,6 +30370,22 @@ func SubnetGroup_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_rds.SubnetGroup",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func SubnetGroup_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.SubnetGroup",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

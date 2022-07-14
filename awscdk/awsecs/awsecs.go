@@ -462,43 +462,33 @@ type AppMeshProxyConfigurationProps struct {
 // there are still tasks running on them.
 //
 // Example:
-//   var vpc vpc
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("ASG-LaunchTemplate"), &launchTemplateProps{
+//   	instanceType: ec2.NewInstanceType(jsii.String("t3.medium")),
+//   	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
+//   	userData: ec2.userData.forLinux(),
+//   })
 //
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+//   	vpc: vpc,
+//   	mixedInstancesPolicy: &mixedInstancesPolicy{
+//   		instancesDistribution: &instancesDistribution{
+//   			onDemandPercentageAboveBaseCapacity: jsii.Number(50),
+//   		},
+//   		launchTemplate: launchTemplate,
+//   	},
+//   })
 //
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
 //   	vpc: vpc,
 //   })
 //
-//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-//   	vpc: vpc,
-//   	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
-//   	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
-//   	minCapacity: jsii.Number(0),
-//   	maxCapacity: jsii.Number(100),
-//   })
-//
 //   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
 //   	autoScalingGroup: autoScalingGroup,
+//   	machineImageType: ecs.machineImageType_AMAZON_LINUX_2,
 //   })
+//
 //   cluster.addAsgCapacityProvider(capacityProvider)
-//
-//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-//
-//   taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
-//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	memoryReservationMiB: jsii.Number(256),
-//   })
-//
-//   ecs.NewEc2Service(this, jsii.String("EC2Service"), &ec2ServiceProps{
-//   	cluster: cluster,
-//   	taskDefinition: taskDefinition,
-//   	capacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
-//   			capacityProvider: capacityProvider.capacityProviderName,
-//   			weight: jsii.Number(1),
-//   		},
-//   	},
-//   })
 //
 type AsgCapacityProvider interface {
 	constructs.Construct
@@ -656,43 +646,33 @@ func (a *jsiiProxy_AsgCapacityProvider) ToString() *string {
 // The options for creating an Auto Scaling Group Capacity Provider.
 //
 // Example:
-//   var vpc vpc
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("ASG-LaunchTemplate"), &launchTemplateProps{
+//   	instanceType: ec2.NewInstanceType(jsii.String("t3.medium")),
+//   	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
+//   	userData: ec2.userData.forLinux(),
+//   })
 //
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+//   	vpc: vpc,
+//   	mixedInstancesPolicy: &mixedInstancesPolicy{
+//   		instancesDistribution: &instancesDistribution{
+//   			onDemandPercentageAboveBaseCapacity: jsii.Number(50),
+//   		},
+//   		launchTemplate: launchTemplate,
+//   	},
+//   })
 //
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
 //   	vpc: vpc,
 //   })
 //
-//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-//   	vpc: vpc,
-//   	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
-//   	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
-//   	minCapacity: jsii.Number(0),
-//   	maxCapacity: jsii.Number(100),
-//   })
-//
 //   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
 //   	autoScalingGroup: autoScalingGroup,
+//   	machineImageType: ecs.machineImageType_AMAZON_LINUX_2,
 //   })
+//
 //   cluster.addAsgCapacityProvider(capacityProvider)
-//
-//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-//
-//   taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
-//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	memoryReservationMiB: jsii.Number(256),
-//   })
-//
-//   ecs.NewEc2Service(this, jsii.String("EC2Service"), &ec2ServiceProps{
-//   	cluster: cluster,
-//   	taskDefinition: taskDefinition,
-//   	capacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
-//   			capacityProvider: capacityProvider.capacityProviderName,
-//   			weight: jsii.Number(1),
-//   		},
-//   	},
-//   })
 //
 type AsgCapacityProviderProps struct {
 	// Specifies whether the containers can access the container instance role.
@@ -1862,6 +1842,22 @@ func BaseService_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func BaseService_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.BaseService",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func BaseService_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -2652,11 +2648,19 @@ type CfnCapacityProvider interface {
 	// - Tag keys and values are case-sensitive.
 	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -2888,6 +2892,16 @@ func (j *jsiiProxy_CfnCapacityProvider) UpdatedProperites() *map[string]interfac
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityProvider) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -3418,11 +3432,19 @@ type CfnCluster interface {
 	// - Tag keys and values are case-sensitive.
 	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -3694,6 +3716,16 @@ func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -4213,11 +4245,19 @@ type CfnClusterCapacityProviderAssociations interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -4449,6 +4489,16 @@ func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) UpdatedProperites() *
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnClusterCapacityProviderAssociations) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -4938,11 +4988,19 @@ type CfnPrimaryTaskSet interface {
 	// The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task set in the deployment.
 	TaskSetId() *string
 	SetTaskSetId(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -5174,6 +5232,16 @@ func (j *jsiiProxy_CfnPrimaryTaskSet) UpdatedProperites() *map[string]interface{
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrimaryTaskSet) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -5748,11 +5816,19 @@ type CfnService interface {
 	// A task definition must be specified if the service is using either the `ECS` or `CODE_DEPLOY` deployment controllers.
 	TaskDefinition() *string
 	SetTaskDefinition(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -6184,6 +6260,16 @@ func (j *jsiiProxy_CfnService) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnService) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -7580,11 +7666,19 @@ type CfnTaskDefinition interface {
 	// IAM roles for tasks on Windows require that the `-EnableTaskIAMRole` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide* .
 	TaskRoleArn() *string
 	SetTaskRoleArn(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// The list of data volume definitions for the task.
 	//
 	// For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide* .
@@ -7963,6 +8057,16 @@ func (j *jsiiProxy_CfnTaskDefinition) UpdatedProperites() *map[string]interface{
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTaskDefinition) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -10304,11 +10408,19 @@ type CfnTaskSet interface {
 	// The task definition for the tasks in the task set to use.
 	TaskDefinition() *string
 	SetTaskDefinition(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -10620,6 +10732,16 @@ func (j *jsiiProxy_CfnTaskSet) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTaskSet) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -11619,6 +11741,22 @@ func Cluster_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_ecs.Cluster",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func Cluster_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.Cluster",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -13871,6 +14009,22 @@ func Ec2Service_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func Ec2Service_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.Ec2Service",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func Ec2Service_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -14678,6 +14832,22 @@ func Ec2TaskDefinition_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_ecs.Ec2TaskDefinition",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func Ec2TaskDefinition_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.Ec2TaskDefinition",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -16017,6 +16187,22 @@ func ExternalService_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func ExternalService_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.ExternalService",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func ExternalService_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -16757,6 +16943,22 @@ func ExternalTaskDefinition_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_ecs.ExternalTaskDefinition",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func ExternalTaskDefinition_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.ExternalTaskDefinition",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -17555,6 +17757,22 @@ func FargateService_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func FargateService_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.FargateService",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func FargateService_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -18323,6 +18541,22 @@ func FargateTaskDefinition_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_ecs.FargateTaskDefinition",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func FargateTaskDefinition_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -21666,14 +21900,33 @@ func LogDrivers_Syslog(props *SyslogLogDriverProps) LogDriver {
 // The machine image type.
 //
 // Example:
-//   var cluster cluster
-//
-//
-//   cluster.addCapacity(jsii.String("graviton-cluster"), &addCapacityOptions{
-//   	minCapacity: jsii.Number(2),
-//   	instanceType: ec2.NewInstanceType(jsii.String("c6g.large")),
-//   	machineImageType: ecs.machineImageType_BOTTLEROCKET,
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("ASG-LaunchTemplate"), &launchTemplateProps{
+//   	instanceType: ec2.NewInstanceType(jsii.String("t3.medium")),
+//   	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
+//   	userData: ec2.userData.forLinux(),
 //   })
+//
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+//   	vpc: vpc,
+//   	mixedInstancesPolicy: &mixedInstancesPolicy{
+//   		instancesDistribution: &instancesDistribution{
+//   			onDemandPercentageAboveBaseCapacity: jsii.Number(50),
+//   		},
+//   		launchTemplate: launchTemplate,
+//   	},
+//   })
+//
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+//   	vpc: vpc,
+//   })
+//
+//   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
+//   	autoScalingGroup: autoScalingGroup,
+//   	machineImageType: ecs.machineImageType_AMAZON_LINUX_2,
+//   })
+//
+//   cluster.addAsgCapacityProvider(capacityProvider)
 //
 type MachineImageType string
 
@@ -24421,6 +24674,22 @@ func TaskDefinition_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_ecs.TaskDefinition",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func TaskDefinition_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.TaskDefinition",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

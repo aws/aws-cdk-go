@@ -406,6 +406,23 @@ func IdentityPool_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func IdentityPool_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPool",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func IdentityPool_IsResource(construct constructs.IConstruct) *bool {
@@ -1270,6 +1287,23 @@ func IdentityPoolRoleAttachment_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPoolRoleAttachment",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func IdentityPoolRoleAttachment_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPoolRoleAttachment",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

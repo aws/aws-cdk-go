@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -178,6 +179,35 @@ type BounceActionConfig struct {
 	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 
+// Options for BYO DKIM.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var secretValue secretValue
+//
+//   byoDkimOptions := &byoDkimOptions{
+//   	privateKey: secretValue,
+//   	selector: jsii.String("selector"),
+//
+//   	// the properties below are optional
+//   	publicKey: jsii.String("publicKey"),
+//   }
+//
+type ByoDkimOptions struct {
+	// The private key that's used to generate a DKIM signature.
+	PrivateKey awscdk.SecretValue `field:"required" json:"privateKey" yaml:"privateKey"`
+	// A string that's used to identify a public key in the DNS configuration for a domain.
+	Selector *string `field:"required" json:"selector" yaml:"selector"`
+	// The public key.
+	//
+	// If specified, a TXT record with the public key is created.
+	PublicKey *string `field:"optional" json:"publicKey" yaml:"publicKey"`
+}
+
 // A CloudFormation `AWS::SES::ConfigurationSet`.
 //
 // The name of the configuration set.
@@ -265,11 +295,19 @@ type CfnConfigurationSet interface {
 	// `AWS::SES::ConfigurationSet.TrackingOptions`.
 	TrackingOptions() interface{}
 	SetTrackingOptions(val interface{})
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -531,6 +569,16 @@ func (j *jsiiProxy_CfnConfigurationSet) UpdatedProperites() *map[string]interfac
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -991,11 +1039,19 @@ type CfnConfigurationSetEventDestination interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -1227,6 +1283,16 @@ func (j *jsiiProxy_CfnConfigurationSetEventDestination) UpdatedProperites() *map
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationSetEventDestination) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -1827,11 +1893,19 @@ type CfnContactList interface {
 	// A contact list can have multiple topics.
 	Topics() interface{}
 	SetTopics(val interface{})
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -2073,6 +2147,16 @@ func (j *jsiiProxy_CfnContactList) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContactList) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -2471,11 +2555,19 @@ type CfnDedicatedIpPool interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -2687,6 +2779,16 @@ func (j *jsiiProxy_CfnDedicatedIpPool) UpdatedProperites() *map[string]interface
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDedicatedIpPool) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -3056,11 +3158,19 @@ type CfnEmailIdentity interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -3382,6 +3492,16 @@ func (j *jsiiProxy_CfnEmailIdentity) UpdatedProperites() *map[string]interface{}
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEmailIdentity) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -3869,11 +3989,19 @@ type CfnReceiptFilter interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -4085,6 +4213,16 @@ func (j *jsiiProxy_CfnReceiptFilter) UpdatedProperites() *map[string]interface{}
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReceiptFilter) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -4542,11 +4680,19 @@ type CfnReceiptRule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -4778,6 +4924,16 @@ func (j *jsiiProxy_CfnReceiptRule) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReceiptRule) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -5611,11 +5767,19 @@ type CfnReceiptRuleSet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -5827,6 +5991,16 @@ func (j *jsiiProxy_CfnReceiptRuleSet) UpdatedProperites() *map[string]interface{
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReceiptRuleSet) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -6165,11 +6339,19 @@ type CfnTemplate interface {
 	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 	Template() interface{}
 	SetTemplate(val interface{})
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -6391,6 +6573,16 @@ func (j *jsiiProxy_CfnTemplate) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTemplate) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -6706,6 +6898,771 @@ type CfnTemplateProps struct {
 	Template interface{} `field:"optional" json:"template" yaml:"template"`
 }
 
+// A configuration set.
+//
+// Example:
+//   var myPool iDedicatedIpPool
+//
+//
+//   ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &configurationSetProps{
+//   	customTrackingRedirectDomain: jsii.String("track.cdk.dev"),
+//   	suppressionReasons: ses.suppressionReasons_COMPLAINTS_ONLY,
+//   	tlsPolicy: ses.configurationSetTlsPolicy_REQUIRE,
+//   	dedicatedIpPool: myPool,
+//   })
+//
+type ConfigurationSet interface {
+	awscdk.Resource
+	IConfigurationSet
+	// The name of the configuration set.
+	ConfigurationSetName() *string
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	Env() *awscdk.ResourceEnvironment
+	// The tree node.
+	Node() constructs.Node
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	PhysicalName() *string
+	// The stack in which this resource is defined.
+	Stack() awscdk.Stack
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	GetResourceNameAttribute(nameAttr *string) *string
+	// Returns a string representation of this construct.
+	ToString() *string
+}
+
+// The jsii proxy struct for ConfigurationSet
+type jsiiProxy_ConfigurationSet struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IConfigurationSet
+}
+
+func (j *jsiiProxy_ConfigurationSet) ConfigurationSetName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"configurationSetName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ConfigurationSet) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ConfigurationSet) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ConfigurationSet) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ConfigurationSet) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewConfigurationSet(scope constructs.Construct, id *string, props *ConfigurationSetProps) ConfigurationSet {
+	_init_.Initialize()
+
+	j := jsiiProxy_ConfigurationSet{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_ses.ConfigurationSet",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewConfigurationSet_Override(c ConfigurationSet, scope constructs.Construct, id *string, props *ConfigurationSetProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_ses.ConfigurationSet",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+// Use an existing configuration set.
+func ConfigurationSet_FromConfigurationSetName(scope constructs.Construct, id *string, configurationSetName *string) IConfigurationSet {
+	_init_.Initialize()
+
+	var returns IConfigurationSet
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.ConfigurationSet",
+		"fromConfigurationSetName",
+		[]interface{}{scope, id, configurationSetName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func ConfigurationSet_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.ConfigurationSet",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func ConfigurationSet_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.ConfigurationSet",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func ConfigurationSet_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.ConfigurationSet",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ConfigurationSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (c *jsiiProxy_ConfigurationSet) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ConfigurationSet) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ConfigurationSet) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_ConfigurationSet) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for a configuration set.
+//
+// Example:
+//   var myPool iDedicatedIpPool
+//
+//
+//   ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &configurationSetProps{
+//   	customTrackingRedirectDomain: jsii.String("track.cdk.dev"),
+//   	suppressionReasons: ses.suppressionReasons_COMPLAINTS_ONLY,
+//   	tlsPolicy: ses.configurationSetTlsPolicy_REQUIRE,
+//   	dedicatedIpPool: myPool,
+//   })
+//
+type ConfigurationSetProps struct {
+	// A name for the configuration set.
+	ConfigurationSetName *string `field:"optional" json:"configurationSetName" yaml:"configurationSetName"`
+	// The custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+	CustomTrackingRedirectDomain *string `field:"optional" json:"customTrackingRedirectDomain" yaml:"customTrackingRedirectDomain"`
+	// The dedicated IP pool to associate with the configuration set.
+	DedicatedIpPool IDedicatedIpPool `field:"optional" json:"dedicatedIpPool" yaml:"dedicatedIpPool"`
+	// Whether to publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
+	ReputationMetrics *bool `field:"optional" json:"reputationMetrics" yaml:"reputationMetrics"`
+	// Whether email sending is enabled.
+	SendingEnabled *bool `field:"optional" json:"sendingEnabled" yaml:"sendingEnabled"`
+	// The reasons for which recipient email addresses should be automatically added to your account's suppression list.
+	SuppressionReasons SuppressionReasons `field:"optional" json:"suppressionReasons" yaml:"suppressionReasons"`
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+	TlsPolicy ConfigurationSetTlsPolicy `field:"optional" json:"tlsPolicy" yaml:"tlsPolicy"`
+}
+
+// TLS policy for a configuration set.
+//
+// Example:
+//   var myPool iDedicatedIpPool
+//
+//
+//   ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &configurationSetProps{
+//   	customTrackingRedirectDomain: jsii.String("track.cdk.dev"),
+//   	suppressionReasons: ses.suppressionReasons_COMPLAINTS_ONLY,
+//   	tlsPolicy: ses.configurationSetTlsPolicy_REQUIRE,
+//   	dedicatedIpPool: myPool,
+//   })
+//
+type ConfigurationSetTlsPolicy string
+
+const (
+	// Messages are only delivered if a TLS connection can be established.
+	ConfigurationSetTlsPolicy_REQUIRE ConfigurationSetTlsPolicy = "REQUIRE"
+	// Messages can be delivered in plain text if a TLS connection can't be established.
+	ConfigurationSetTlsPolicy_OPTIONAL ConfigurationSetTlsPolicy = "OPTIONAL"
+)
+
+// A dedicated IP pool.
+//
+// Example:
+//   ses.NewDedicatedIpPool(this, jsii.String("Pool"))
+//
+type DedicatedIpPool interface {
+	awscdk.Resource
+	IDedicatedIpPool
+	// The name of the dedicated IP pool.
+	DedicatedIpPoolName() *string
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	Env() *awscdk.ResourceEnvironment
+	// The tree node.
+	Node() constructs.Node
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	PhysicalName() *string
+	// The stack in which this resource is defined.
+	Stack() awscdk.Stack
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	GetResourceNameAttribute(nameAttr *string) *string
+	// Returns a string representation of this construct.
+	ToString() *string
+}
+
+// The jsii proxy struct for DedicatedIpPool
+type jsiiProxy_DedicatedIpPool struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IDedicatedIpPool
+}
+
+func (j *jsiiProxy_DedicatedIpPool) DedicatedIpPoolName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dedicatedIpPoolName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DedicatedIpPool) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DedicatedIpPool) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DedicatedIpPool) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DedicatedIpPool) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewDedicatedIpPool(scope constructs.Construct, id *string, props *DedicatedIpPoolProps) DedicatedIpPool {
+	_init_.Initialize()
+
+	j := jsiiProxy_DedicatedIpPool{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_ses.DedicatedIpPool",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewDedicatedIpPool_Override(d DedicatedIpPool, scope constructs.Construct, id *string, props *DedicatedIpPoolProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_ses.DedicatedIpPool",
+		[]interface{}{scope, id, props},
+		d,
+	)
+}
+
+// Use an existing dedicated IP pool.
+func DedicatedIpPool_FromDedicatedIpPoolName(scope constructs.Construct, id *string, dedicatedIpPoolName *string) IDedicatedIpPool {
+	_init_.Initialize()
+
+	var returns IDedicatedIpPool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.DedicatedIpPool",
+		"fromDedicatedIpPoolName",
+		[]interface{}{scope, id, dedicatedIpPoolName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func DedicatedIpPool_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.DedicatedIpPool",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func DedicatedIpPool_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.DedicatedIpPool",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func DedicatedIpPool_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.DedicatedIpPool",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DedicatedIpPool) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		d,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (d *jsiiProxy_DedicatedIpPool) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		d,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DedicatedIpPool) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		d,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DedicatedIpPool) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		d,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DedicatedIpPool) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		d,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for a dedicated IP pool.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   dedicatedIpPoolProps := &dedicatedIpPoolProps{
+//   	dedicatedIpPoolName: jsii.String("dedicatedIpPoolName"),
+//   }
+//
+type DedicatedIpPoolProps struct {
+	// A name for the dedicated IP pool.
+	DedicatedIpPoolName *string `field:"optional" json:"dedicatedIpPoolName" yaml:"dedicatedIpPoolName"`
+}
+
+// The identity to use for DKIM.
+//
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var myHostedZone iPublicHostedZone
+//
+//
+//   ses.NewEmailIdentity(stack, jsii.String("Identity"), &emailIdentityProps{
+//   	identity: ses.identity.publicHostedZone(myHostedZone),
+//   	dkimIdentity: dkimIdentity_ByoDkim(map[string]interface{}{
+//   		"privateKey": SecretValue_secretsManager(jsii.String("dkim-private-key")),
+//   		"publicKey": jsii.String("...base64-encoded-public-key..."),
+//   		"selector": jsii.String("selector"),
+//   	}),
+//   })
+//
+type DkimIdentity interface {
+	// Binds this DKIM identity to the email identity.
+	Bind(emailIdentity EmailIdentity, hostedZone awsroute53.IPublicHostedZone) *DkimIdentityConfig
+}
+
+// The jsii proxy struct for DkimIdentity
+type jsiiProxy_DkimIdentity struct {
+	_ byte // padding
+}
+
+func NewDkimIdentity_Override(d DkimIdentity) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_ses.DkimIdentity",
+		nil, // no parameters
+		d,
+	)
+}
+
+// Bring Your Own DKIM.
+// See: https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-bring-your-own.html
+//
+func DkimIdentity_ByoDkim(options *ByoDkimOptions) DkimIdentity {
+	_init_.Initialize()
+
+	var returns DkimIdentity
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.DkimIdentity",
+		"byoDkim",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Easy DKIM.
+// See: https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html
+//
+func DkimIdentity_EasyDkim(signingKeyLength EasyDkimSigningKeyLength) DkimIdentity {
+	_init_.Initialize()
+
+	var returns DkimIdentity
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.DkimIdentity",
+		"easyDkim",
+		[]interface{}{signingKeyLength},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DkimIdentity) Bind(emailIdentity EmailIdentity, hostedZone awsroute53.IPublicHostedZone) *DkimIdentityConfig {
+	var returns *DkimIdentityConfig
+
+	_jsii_.Invoke(
+		d,
+		"bind",
+		[]interface{}{emailIdentity, hostedZone},
+		&returns,
+	)
+
+	return returns
+}
+
+// Configuration for DKIM identity.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   dkimIdentityConfig := &dkimIdentityConfig{
+//   	domainSigningPrivateKey: jsii.String("domainSigningPrivateKey"),
+//   	domainSigningSelector: jsii.String("domainSigningSelector"),
+//   	nextSigningKeyLength: awscdk.Aws_ses.easyDkimSigningKeyLength_RSA_1024_BIT,
+//   }
+//
+type DkimIdentityConfig struct {
+	// A private key that's used to generate a DKIM signature.
+	DomainSigningPrivateKey *string `field:"optional" json:"domainSigningPrivateKey" yaml:"domainSigningPrivateKey"`
+	// A string that's used to identify a public key in the DNS configuration for a domain.
+	DomainSigningSelector *string `field:"optional" json:"domainSigningSelector" yaml:"domainSigningSelector"`
+	// The key length of the future DKIM key pair to be generated.
+	//
+	// This can be changed
+	// at most once per day.
+	NextSigningKeyLength EasyDkimSigningKeyLength `field:"optional" json:"nextSigningKeyLength" yaml:"nextSigningKeyLength"`
+}
+
+// A DKIM record.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   dkimRecord := &dkimRecord{
+//   	name: jsii.String("name"),
+//   	value: jsii.String("value"),
+//   }
+//
+type DkimRecord struct {
+	// The name of the record.
+	Name *string `field:"required" json:"name" yaml:"name"`
+	// The value of the record.
+	Value *string `field:"required" json:"value" yaml:"value"`
+}
+
 // A rule added at the top of the rule set to drop spam/virus.
 //
 // Example:
@@ -6885,6 +7842,497 @@ type DropSpamReceiptRuleProps struct {
 	RuleSet IReceiptRuleSet `field:"required" json:"ruleSet" yaml:"ruleSet"`
 }
 
+// The signing key length for Easy DKIM.
+type EasyDkimSigningKeyLength string
+
+const (
+	// RSA 1024-bit.
+	EasyDkimSigningKeyLength_RSA_1024_BIT EasyDkimSigningKeyLength = "RSA_1024_BIT"
+	// RSA 2048-bit.
+	EasyDkimSigningKeyLength_RSA_2048_BIT EasyDkimSigningKeyLength = "RSA_2048_BIT"
+)
+
+// An email identity.
+//
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var myHostedZone iPublicHostedZone
+//
+//
+//   identity := ses.NewEmailIdentity(stack, jsii.String("Identity"), &emailIdentityProps{
+//   	identity: ses.identity.publicHostedZone(myHostedZone),
+//   	mailFromDomain: jsii.String("mail.cdk.dev"),
+//   })
+//
+type EmailIdentity interface {
+	awscdk.Resource
+	IEmailIdentity
+	// The host name for the first token that you have to add to the DNS configurationfor your domain.
+	DkimDnsTokenName1() *string
+	// The host name for the second token that you have to add to the DNS configuration for your domain.
+	DkimDnsTokenName2() *string
+	// The host name for the third token that you have to add to the DNS configuration for your domain.
+	DkimDnsTokenName3() *string
+	// The record value for the first token that you have to add to the DNS configuration for your domain.
+	DkimDnsTokenValue1() *string
+	// The record value for the second token that you have to add to the DNS configuration for your domain.
+	DkimDnsTokenValue2() *string
+	// The record value for the third token that you have to add to the DNS configuration for your domain.
+	DkimDnsTokenValue3() *string
+	// DKIM records for this identity.
+	DkimRecords() *[]*DkimRecord
+	// The name of the email identity.
+	EmailIdentityName() *string
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed by the CDK
+	// (generally, those created by creating new class instances like Role, Bucket, etc.),
+	// this is always the same as the environment of the stack they belong to;
+	// however, for imported resources
+	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+	// that might be different than the stack they were imported into.
+	Env() *awscdk.ResourceEnvironment
+	// The tree node.
+	Node() constructs.Node
+	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
+	//
+	// This value will resolve to one of the following:
+	// - a concrete value (e.g. `"my-awesome-bucket"`)
+	// - `undefined`, when a name should be generated by CloudFormation
+	// - a concrete name generated automatically during synthesis, in
+	//    cross-environment scenarios.
+	PhysicalName() *string
+	// The stack in which this resource is defined.
+	Stack() awscdk.Stack
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	GeneratePhysicalName() *string
+	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+	//
+	// Normally, this token will resolve to `arnAttr`, but if the resource is
+	// referenced across environments, `arnComponents` will be used to synthesize
+	// a concrete ARN with the resource's physical name. Make sure to reference
+	// `this.physicalName` in `arnComponents`.
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+	//
+	// Normally, this token will resolve to `nameAttr`, but if the resource is
+	// referenced across environments, it will be resolved to `this.physicalName`,
+	// which will be a concrete name.
+	GetResourceNameAttribute(nameAttr *string) *string
+	// Returns a string representation of this construct.
+	ToString() *string
+}
+
+// The jsii proxy struct for EmailIdentity
+type jsiiProxy_EmailIdentity struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IEmailIdentity
+}
+
+func (j *jsiiProxy_EmailIdentity) DkimDnsTokenName1() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dkimDnsTokenName1",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) DkimDnsTokenName2() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dkimDnsTokenName2",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) DkimDnsTokenName3() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dkimDnsTokenName3",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) DkimDnsTokenValue1() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dkimDnsTokenValue1",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) DkimDnsTokenValue2() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dkimDnsTokenValue2",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) DkimDnsTokenValue3() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dkimDnsTokenValue3",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) DkimRecords() *[]*DkimRecord {
+	var returns *[]*DkimRecord
+	_jsii_.Get(
+		j,
+		"dkimRecords",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) EmailIdentityName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"emailIdentityName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewEmailIdentity(scope constructs.Construct, id *string, props *EmailIdentityProps) EmailIdentity {
+	_init_.Initialize()
+
+	j := jsiiProxy_EmailIdentity{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_ses.EmailIdentity",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewEmailIdentity_Override(e EmailIdentity, scope constructs.Construct, id *string, props *EmailIdentityProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_ses.EmailIdentity",
+		[]interface{}{scope, id, props},
+		e,
+	)
+}
+
+// Use an existing email identity.
+func EmailIdentity_FromEmailIdentityName(scope constructs.Construct, id *string, emailIdentityName *string) IEmailIdentity {
+	_init_.Initialize()
+
+	var returns IEmailIdentity
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.EmailIdentity",
+		"fromEmailIdentityName",
+		[]interface{}{scope, id, emailIdentityName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func EmailIdentity_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.EmailIdentity",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func EmailIdentity_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.EmailIdentity",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func EmailIdentity_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.EmailIdentity",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EmailIdentity) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		e,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (e *jsiiProxy_EmailIdentity) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EmailIdentity) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EmailIdentity) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EmailIdentity) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for an email identity.
+//
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var myHostedZone iPublicHostedZone
+//
+//
+//   identity := ses.NewEmailIdentity(stack, jsii.String("Identity"), &emailIdentityProps{
+//   	identity: ses.identity.publicHostedZone(myHostedZone),
+//   	mailFromDomain: jsii.String("mail.cdk.dev"),
+//   })
+//
+type EmailIdentityProps struct {
+	// The email address or domain to verify.
+	Identity Identity `field:"required" json:"identity" yaml:"identity"`
+	// The configuration set to associate with the email identity.
+	ConfigurationSet IConfigurationSet `field:"optional" json:"configurationSet" yaml:"configurationSet"`
+	// The type of DKIM identity to use.
+	DkimIdentity DkimIdentity `field:"optional" json:"dkimIdentity" yaml:"dkimIdentity"`
+	// Whether the messages that are sent from the identity are signed using DKIM.
+	DkimSigning *bool `field:"optional" json:"dkimSigning" yaml:"dkimSigning"`
+	// Whether to receive email notifications when bounce or complaint events occur.
+	//
+	// These notifications are sent to the address that you specified in the `Return-Path`
+	// header of the original email.
+	//
+	// You're required to have a method of tracking bounces and complaints. If you haven't set
+	// up another mechanism for receiving bounce or complaint notifications (for example, by
+	// setting up an event destination), you receive an email notification when these events
+	// occur (even if this setting is disabled).
+	FeedbackForwarding *bool `field:"optional" json:"feedbackForwarding" yaml:"feedbackForwarding"`
+	// The action to take if the required MX record for the MAIL FROM domain isn't found when you send an email.
+	MailFromBehaviorOnMxFailure MailFromBehaviorOnMxFailure `field:"optional" json:"mailFromBehaviorOnMxFailure" yaml:"mailFromBehaviorOnMxFailure"`
+	// The custom MAIL FROM domain that you want the verified identity to use.
+	//
+	// The MAIL FROM domain
+	// must meet the following criteria:
+	//    - It has to be a subdomain of the verified identity
+	//    - It can't be used to receive email
+	//    - It can't be used in a "From" address if the MAIL FROM domain is a destination for feedback
+	// forwarding emails.
+	MailFromDomain *string `field:"optional" json:"mailFromDomain" yaml:"mailFromDomain"`
+}
+
+// A configuration set.
+type IConfigurationSet interface {
+	awscdk.IResource
+	// The name of the configuration set.
+	ConfigurationSetName() *string
+}
+
+// The jsii proxy for IConfigurationSet
+type jsiiProxy_IConfigurationSet struct {
+	internal.Type__awscdkIResource
+}
+
+func (j *jsiiProxy_IConfigurationSet) ConfigurationSetName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"configurationSetName",
+		&returns,
+	)
+	return returns
+}
+
+// A dedicated IP pool.
+type IDedicatedIpPool interface {
+	awscdk.IResource
+	// The name of the dedicated IP pool.
+	DedicatedIpPoolName() *string
+}
+
+// The jsii proxy for IDedicatedIpPool
+type jsiiProxy_IDedicatedIpPool struct {
+	internal.Type__awscdkIResource
+}
+
+func (j *jsiiProxy_IDedicatedIpPool) DedicatedIpPoolName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dedicatedIpPoolName",
+		&returns,
+	)
+	return returns
+}
+
+// An email identity.
+type IEmailIdentity interface {
+	awscdk.IResource
+	// The name of the email identity.
+	EmailIdentityName() *string
+}
+
+// The jsii proxy for IEmailIdentity
+type jsiiProxy_IEmailIdentity struct {
+	internal.Type__awscdkIResource
+}
+
+func (j *jsiiProxy_IEmailIdentity) EmailIdentityName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"emailIdentityName",
+		&returns,
+	)
+	return returns
+}
+
 // A receipt rule.
 type IReceiptRule interface {
 	awscdk.IResource
@@ -6971,6 +8419,118 @@ func (j *jsiiProxy_IReceiptRuleSet) ReceiptRuleSetName() *string {
 	return returns
 }
 
+// Identity.
+//
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var myHostedZone iPublicHostedZone
+//
+//
+//   identity := ses.NewEmailIdentity(stack, jsii.String("Identity"), &emailIdentityProps{
+//   	identity: ses.identity.publicHostedZone(myHostedZone),
+//   	mailFromDomain: jsii.String("mail.cdk.dev"),
+//   })
+//
+type Identity interface {
+	// The hosted zone associated with this identity.
+	HostedZone() awsroute53.IPublicHostedZone
+	// The value of the identity.
+	Value() *string
+}
+
+// The jsii proxy struct for Identity
+type jsiiProxy_Identity struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_Identity) HostedZone() awsroute53.IPublicHostedZone {
+	var returns awsroute53.IPublicHostedZone
+	_jsii_.Get(
+		j,
+		"hostedZone",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Identity) Value() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"value",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewIdentity_Override(i Identity) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_ses.Identity",
+		nil, // no parameters
+		i,
+	)
+}
+
+// Verify a domain name.
+//
+// DKIM records will have to be added manually to complete the verification
+// process.
+func Identity_Domain(domain *string) Identity {
+	_init_.Initialize()
+
+	var returns Identity
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.Identity",
+		"domain",
+		[]interface{}{domain},
+		&returns,
+	)
+
+	return returns
+}
+
+// Verify an email address.
+//
+// To complete the verification process look for an email from
+// no-reply-aws@amazon.com, open it and click the link.
+func Identity_Email(email *string) Identity {
+	_init_.Initialize()
+
+	var returns Identity
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.Identity",
+		"email",
+		[]interface{}{email},
+		&returns,
+	)
+
+	return returns
+}
+
+// Verify a public hosted zone.
+//
+// DKIM and MAIL FROM records will be added automatically to the hosted
+// zone.
+func Identity_PublicHostedZone(hostedZone awsroute53.IPublicHostedZone) Identity {
+	_init_.Initialize()
+
+	var returns Identity
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.Identity",
+		"publicHostedZone",
+		[]interface{}{hostedZone},
+		&returns,
+	)
+
+	return returns
+}
+
 // LambdaAction configuration.
 //
 // Example:
@@ -6994,6 +8554,16 @@ type LambdaActionConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is executed.
 	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
+
+// The action to take if the required MX record for the MAIL FROM domain isn't found.
+type MailFromBehaviorOnMxFailure string
+
+const (
+	// The mail is sent using amazonses.com as the MAIL FROM domain.
+	MailFromBehaviorOnMxFailure_USE_DEFAULT_VALUE MailFromBehaviorOnMxFailure = "USE_DEFAULT_VALUE"
+	// The Amazon SES API v2 returns a `MailFromDomainNotVerified` error and doesn't attempt to deliver the email.
+	MailFromBehaviorOnMxFailure_REJECT_MESSAGE MailFromBehaviorOnMxFailure = "REJECT_MESSAGE"
+)
 
 // A receipt filter.
 //
@@ -7152,6 +8722,22 @@ func ReceiptFilter_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_ses.ReceiptFilter",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func ReceiptFilter_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.ReceiptFilter",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -7449,6 +9035,22 @@ func ReceiptRule_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_ses.ReceiptRule",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func ReceiptRule_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.ReceiptRule",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -7886,6 +9488,22 @@ func ReceiptRuleSet_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func ReceiptRuleSet_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.ReceiptRuleSet",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func ReceiptRuleSet_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -8104,6 +9722,30 @@ type StopActionConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken.
 	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
+
+// Reasons for which recipient email addresses should be automatically added to your account's suppression list.
+//
+// Example:
+//   var myPool iDedicatedIpPool
+//
+//
+//   ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &configurationSetProps{
+//   	customTrackingRedirectDomain: jsii.String("track.cdk.dev"),
+//   	suppressionReasons: ses.suppressionReasons_COMPLAINTS_ONLY,
+//   	tlsPolicy: ses.configurationSetTlsPolicy_REQUIRE,
+//   	dedicatedIpPool: myPool,
+//   })
+//
+type SuppressionReasons string
+
+const (
+	// Bounces and complaints.
+	SuppressionReasons_BOUNCES_AND_COMPLAINTS SuppressionReasons = "BOUNCES_AND_COMPLAINTS"
+	// Bounces only.
+	SuppressionReasons_BOUNCES_ONLY SuppressionReasons = "BOUNCES_ONLY"
+	// Complaints only.
+	SuppressionReasons_COMPLAINTS_ONLY SuppressionReasons = "COMPLAINTS_ONLY"
+)
 
 // The type of TLS policy for a receipt rule.
 type TlsPolicy string

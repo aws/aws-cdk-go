@@ -107,11 +107,19 @@ type CfnSlackChannelConfiguration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Enables use of a user role requirement in your chat configuration.
 	UserRoleRequired() interface{}
 	SetUserRoleRequired(val interface{})
@@ -396,6 +404,16 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) UpdatedProperites() *map[string
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSlackChannelConfiguration) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -1167,6 +1185,22 @@ func SlackChannelConfiguration_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_chatbot.SlackChannelConfiguration",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func SlackChannelConfiguration_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_chatbot.SlackChannelConfiguration",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

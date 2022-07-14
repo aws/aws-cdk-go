@@ -507,6 +507,23 @@ func FirewallDomainList_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func FirewallDomainList_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-route53resolver-alpha.FirewallDomainList",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func FirewallDomainList_IsResource(construct constructs.IConstruct) *bool {
@@ -1231,6 +1248,23 @@ func FirewallRuleGroup_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func FirewallRuleGroup_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-route53resolver-alpha.FirewallRuleGroup",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func FirewallRuleGroup_IsResource(construct constructs.IConstruct) *bool {
@@ -1622,6 +1656,23 @@ func FirewallRuleGroupAssociation_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-route53resolver-alpha.FirewallRuleGroupAssociation",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func FirewallRuleGroupAssociation_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-route53resolver-alpha.FirewallRuleGroupAssociation",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

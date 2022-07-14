@@ -161,6 +161,38 @@ autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &a
 })
 ```
 
+To use `LaunchTemplate` with `AsgCapacityProvider`, make sure to specify the `userData` in the `LaunchTemplate`:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("ASG-LaunchTemplate"), &launchTemplateProps{
+	instanceType: ec2.NewInstanceType(jsii.String("t3.medium")),
+	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
+	userData: ec2.userData.forLinux(),
+})
+
+autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
+	vpc: vpc,
+	mixedInstancesPolicy: &mixedInstancesPolicy{
+		instancesDistribution: &instancesDistribution{
+			onDemandPercentageAboveBaseCapacity: jsii.Number(50),
+		},
+		launchTemplate: launchTemplate,
+	},
+})
+
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+	vpc: vpc,
+})
+
+capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
+	autoScalingGroup: autoScalingGroup,
+	machineImageType: ecs.machineImageType_AMAZON_LINUX_2,
+})
+
+cluster.addAsgCapacityProvider(capacityProvider)
+```
+
 ### Bottlerocket
 
 [Bottlerocket](https://aws.amazon.com/bottlerocket/) is a Linux-based open source operating system that is

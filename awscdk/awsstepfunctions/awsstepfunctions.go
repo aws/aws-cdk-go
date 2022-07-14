@@ -17,13 +17,11 @@ import (
 // Example:
 //   activity := sfn.NewActivity(this, jsii.String("Activity"))
 //
-//   // Read this CloudFormation Output from your application and use it to poll for work on
-//   // the activity.
-//   // Read this CloudFormation Output from your application and use it to poll for work on
-//   // the activity.
-//   awscdk.NewCfnOutput(this, jsii.String("ActivityArn"), &cfnOutputProps{
-//   	value: activity.activityArn,
+//   role := iam.NewRole(this, jsii.String("Role"), &roleProps{
+//   	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 //   })
+//
+//   activity.grant(role, jsii.String("states:SendTaskSuccess"))
 //
 type Activity interface {
 	awscdk.Resource
@@ -252,6 +250,22 @@ func Activity_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions.Activity",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func Activity_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.Activity",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -634,11 +648,19 @@ type CfnActivity interface {
 	//
 	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -880,6 +902,16 @@ func (j *jsiiProxy_CfnActivity) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnActivity) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -1212,6 +1244,7 @@ type CfnActivityProps struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var definition interface{}
+//   var definitionSubstitutions interface{}
 //
 //   cfnStateMachine := awscdk.Aws_stepfunctions.NewCfnStateMachine(this, jsii.String("MyCfnStateMachine"), &cfnStateMachineProps{
 //   	roleArn: jsii.String("roleArn"),
@@ -1226,8 +1259,8 @@ type CfnActivityProps struct {
 //   		version: jsii.String("version"),
 //   	},
 //   	definitionString: jsii.String("definitionString"),
-//   	definitionSubstitutions: map[string]*string{
-//   		"definitionSubstitutionsKey": jsii.String("definitionSubstitutions"),
+//   	definitionSubstitutions: map[string]interface{}{
+//   		"definitionSubstitutionsKey": definitionSubstitutions,
 //   	},
 //   	loggingConfiguration: &loggingConfigurationProperty{
 //   		destinations: []interface{}{
@@ -1354,11 +1387,19 @@ type CfnStateMachine interface {
 	// Selects whether or not the state machine's AWS X-Ray tracing is enabled.
 	TracingConfiguration() interface{}
 	SetTracingConfiguration(val interface{})
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -1680,6 +1721,16 @@ func (j *jsiiProxy_CfnStateMachine) UpdatedProperites() *map[string]interface{} 
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStateMachine) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -2156,6 +2207,7 @@ type CfnStateMachine_TracingConfigurationProperty struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var definition interface{}
+//   var definitionSubstitutions interface{}
 //
 //   cfnStateMachineProps := &cfnStateMachineProps{
 //   	roleArn: jsii.String("roleArn"),
@@ -2170,8 +2222,8 @@ type CfnStateMachine_TracingConfigurationProperty struct {
 //   		version: jsii.String("version"),
 //   	},
 //   	definitionString: jsii.String("definitionString"),
-//   	definitionSubstitutions: map[string]*string{
-//   		"definitionSubstitutionsKey": jsii.String("definitionSubstitutions"),
+//   	definitionSubstitutions: map[string]interface{}{
+//   		"definitionSubstitutionsKey": definitionSubstitutions,
 //   	},
 //   	loggingConfiguration: &loggingConfigurationProperty{
 //   		destinations: []interface{}{
@@ -5914,17 +5966,17 @@ const (
 // Extract a field from the State Machine data or context that gets passed around between states.
 //
 // Example:
-//   var fn function
+//   submitJobActivity := sfn.NewActivity(this, jsii.String("SubmitJob"))
 //
-//   tasks.NewLambdaInvoke(this, jsii.String("Invoke Handler"), &lambdaInvokeProps{
-//   	lambdaFunction: fn,
-//   	resultSelector: map[string]interface{}{
-//   		"lambdaOutput": sfn.JsonPath.stringAt(jsii.String("$.Payload")),
-//   		"invokeRequestId": sfn.JsonPath.stringAt(jsii.String("$.SdkResponseMetadata.RequestId")),
-//   		"staticValue": map[string]*string{
-//   			"foo": jsii.String("bar"),
+//   tasks.NewStepFunctionsInvokeActivity(this, jsii.String("Submit Job"), &stepFunctionsInvokeActivityProps{
+//   	activity: submitJobActivity,
+//   	parameters: map[string]interface{}{
+//   		"comment": jsii.String("Selecting what I care about."),
+//   		"MyDetails": map[string]interface{}{
+//   			"size": sfn.JsonPath.stringAt(jsii.String("$.product.details.size")),
+//   			"exists": sfn.JsonPath.stringAt(jsii.String("$.product.availability")),
+//   			"StaticValue": jsii.String("foo"),
 //   		},
-//   		"stateName": sfn.JsonPath.stringAt(jsii.String("$.State.Name")),
 //   	},
 //   })
 //
@@ -9464,6 +9516,22 @@ func StateMachine_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions.StateMachine",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func StateMachine_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.StateMachine",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

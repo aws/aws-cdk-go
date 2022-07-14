@@ -258,6 +258,23 @@ func ComputeEnvironment_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func ComputeEnvironment_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-batch-alpha.ComputeEnvironment",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func ComputeEnvironment_IsResource(construct constructs.IConstruct) *bool {
@@ -1193,6 +1210,23 @@ func JobDefinition_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func JobDefinition_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-batch-alpha.JobDefinition",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func JobDefinition_IsResource(construct constructs.IConstruct) *bool {
@@ -1652,6 +1686,23 @@ func JobQueue_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func JobQueue_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-batch-alpha.JobQueue",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func JobQueue_IsResource(construct constructs.IConstruct) *bool {
@@ -1816,9 +1867,16 @@ type JobQueueProps struct {
 //
 // Experimental.
 type LaunchTemplateSpecification struct {
-	// The Launch template name.
+	// The Launch template ID.
+	//
+	// Mutually exclusive with `launchTemplateName`.
 	// Experimental.
-	LaunchTemplateName *string `field:"required" json:"launchTemplateName" yaml:"launchTemplateName"`
+	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
+	// The Launch template name.
+	//
+	// Mutually exclusive with `launchTemplateId`.
+	// Experimental.
+	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
 	// The launch template version to be used (optional).
 	// Experimental.
 	Version *string `field:"optional" json:"version" yaml:"version"`

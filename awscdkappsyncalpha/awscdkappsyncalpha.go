@@ -336,6 +336,23 @@ func AppsyncFunction_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func AppsyncFunction_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-appsync-alpha.AppsyncFunction",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func AppsyncFunction_IsResource(construct constructs.IConstruct) *bool {
@@ -1499,6 +1516,9 @@ type BaseResolverProps struct {
 	// The caching configuration for this resolver.
 	// Experimental.
 	CachingConfig *CachingConfig `field:"optional" json:"cachingConfig" yaml:"cachingConfig"`
+	// The maximum number of elements per batch, when using batch invoke.
+	// Experimental.
+	MaxBatchSize *float64 `field:"optional" json:"maxBatchSize" yaml:"maxBatchSize"`
 	// configuration of the pipeline resolver.
 	// Experimental.
 	PipelineConfig *[]IAppsyncFunction `field:"optional" json:"pipelineConfig" yaml:"pipelineConfig"`
@@ -2721,6 +2741,7 @@ type ExtendedDataSourceProps struct {
 //   		},
 //   	},
 //   	dataSource: baseDataSource,
+//   	maxBatchSize: jsii.Number(123),
 //   	pipelineConfig: []iAppsyncFunction{
 //   		appsyncFunction,
 //   	},
@@ -2739,6 +2760,9 @@ type ExtendedResolverProps struct {
 	// The caching configuration for this resolver.
 	// Experimental.
 	CachingConfig *CachingConfig `field:"optional" json:"cachingConfig" yaml:"cachingConfig"`
+	// The maximum number of elements per batch, when using batch invoke.
+	// Experimental.
+	MaxBatchSize *float64 `field:"optional" json:"maxBatchSize" yaml:"maxBatchSize"`
 	// configuration of the pipeline resolver.
 	// Experimental.
 	PipelineConfig *[]IAppsyncFunction `field:"optional" json:"pipelineConfig" yaml:"pipelineConfig"`
@@ -3615,6 +3639,23 @@ func GraphqlApi_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func GraphqlApi_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-appsync-alpha.GraphqlApi",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func GraphqlApi_IsResource(construct constructs.IConstruct) *bool {
@@ -4167,6 +4208,23 @@ func GraphqlApiBase_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-appsync-alpha.GraphqlApiBase",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func GraphqlApiBase_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-appsync-alpha.GraphqlApiBase",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -9039,6 +9097,9 @@ type ResolverProps struct {
 	// The caching configuration for this resolver.
 	// Experimental.
 	CachingConfig *CachingConfig `field:"optional" json:"cachingConfig" yaml:"cachingConfig"`
+	// The maximum number of elements per batch, when using batch invoke.
+	// Experimental.
+	MaxBatchSize *float64 `field:"optional" json:"maxBatchSize" yaml:"maxBatchSize"`
 	// configuration of the pipeline resolver.
 	// Experimental.
 	PipelineConfig *[]IAppsyncFunction `field:"optional" json:"pipelineConfig" yaml:"pipelineConfig"`

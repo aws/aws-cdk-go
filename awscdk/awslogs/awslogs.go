@@ -75,11 +75,19 @@ type CfnDestination interface {
 	// The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
 	TargetArn() *string
 	SetTargetArn(val *string)
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -331,6 +339,16 @@ func (j *jsiiProxy_CfnDestination) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDestination) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -732,11 +750,19 @@ type CfnLogGroup interface {
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags() awscdk.TagManager
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -988,6 +1014,16 @@ func (j *jsiiProxy_CfnLogGroup) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLogGroup) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -1378,11 +1414,19 @@ type CfnLogStream interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -1604,6 +1648,16 @@ func (j *jsiiProxy_CfnLogStream) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLogStream) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -1922,8 +1976,18 @@ type CfnLogStreamProps struct {
 //
 //   			// the properties below are optional
 //   			defaultValue: jsii.Number(123),
+//   			dimensions: []interface{}{
+//   				&dimensionProperty{
+//   					key: jsii.String("key"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			unit: jsii.String("unit"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	filterName: jsii.String("filterName"),
 //   })
 //
 type CfnMetricFilter interface {
@@ -1938,6 +2002,9 @@ type CfnMetricFilter interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// `AWS::Logs::MetricFilter.FilterName`.
+	FilterName() *string
+	SetFilterName(val *string)
 	// A filter pattern for extracting metric data out of ingested log events.
 	//
 	// For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
@@ -1970,11 +2037,19 @@ type CfnMetricFilter interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -2131,6 +2206,16 @@ func (j *jsiiProxy_CfnMetricFilter) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMetricFilter) FilterName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"filterName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMetricFilter) FilterPattern() *string {
 	var returns *string
 	_jsii_.Get(
@@ -2211,6 +2296,16 @@ func (j *jsiiProxy_CfnMetricFilter) UpdatedProperites() *map[string]interface{} 
 	return returns
 }
 
+func (j *jsiiProxy_CfnMetricFilter) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Logs::MetricFilter`.
 func NewCfnMetricFilter(scope constructs.Construct, id *string, props *CfnMetricFilterProps) CfnMetricFilter {
@@ -2235,6 +2330,14 @@ func NewCfnMetricFilter_Override(c CfnMetricFilter, scope constructs.Construct, 
 		"aws-cdk-lib.aws_logs.CfnMetricFilter",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnMetricFilter) SetFilterName(val *string) {
+	_jsii_.Set(
+		j,
+		"filterName",
+		val,
 	)
 }
 
@@ -2487,6 +2590,23 @@ func (c *jsiiProxy_CfnMetricFilter) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   dimensionProperty := &dimensionProperty{
+//   	key: jsii.String("key"),
+//   	value: jsii.String("value"),
+//   }
+//
+type CfnMetricFilter_DimensionProperty struct {
+	// `CfnMetricFilter.DimensionProperty.Key`.
+	Key *string `field:"required" json:"key" yaml:"key"`
+	// `CfnMetricFilter.DimensionProperty.Value`.
+	Value *string `field:"required" json:"value" yaml:"value"`
+}
+
 // `MetricTransformation` is a property of the `AWS::Logs::MetricFilter` resource that describes how to transform log streams into a CloudWatch metric.
 //
 // Example:
@@ -2501,6 +2621,13 @@ func (c *jsiiProxy_CfnMetricFilter) ValidateProperties(_properties interface{}) 
 //
 //   	// the properties below are optional
 //   	defaultValue: jsii.Number(123),
+//   	dimensions: []interface{}{
+//   		&dimensionProperty{
+//   			key: jsii.String("key"),
+//   			value: jsii.String("value"),
+//   		},
+//   	},
+//   	unit: jsii.String("unit"),
 //   }
 //
 type CfnMetricFilter_MetricTransformationProperty struct {
@@ -2518,6 +2645,10 @@ type CfnMetricFilter_MetricTransformationProperty struct {
 	//
 	// This value can be null.
 	DefaultValue *float64 `field:"optional" json:"defaultValue" yaml:"defaultValue"`
+	// `CfnMetricFilter.MetricTransformationProperty.Dimensions`.
+	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
+	// `CfnMetricFilter.MetricTransformationProperty.Unit`.
+	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 
 // Properties for defining a `CfnMetricFilter`.
@@ -2538,8 +2669,18 @@ type CfnMetricFilter_MetricTransformationProperty struct {
 //
 //   			// the properties below are optional
 //   			defaultValue: jsii.Number(123),
+//   			dimensions: []interface{}{
+//   				&dimensionProperty{
+//   					key: jsii.String("key"),
+//   					value: jsii.String("value"),
+//   				},
+//   			},
+//   			unit: jsii.String("unit"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	filterName: jsii.String("filterName"),
 //   }
 //
 type CfnMetricFilterProps struct {
@@ -2551,6 +2692,8 @@ type CfnMetricFilterProps struct {
 	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// The metric transformations.
 	MetricTransformations interface{} `field:"required" json:"metricTransformations" yaml:"metricTransformations"`
+	// `AWS::Logs::MetricFilter.FilterName`.
+	FilterName *string `field:"optional" json:"filterName" yaml:"filterName"`
 }
 
 // A CloudFormation `AWS::Logs::QueryDefinition`.
@@ -2618,11 +2761,19 @@ type CfnQueryDefinition interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -2864,6 +3015,16 @@ func (j *jsiiProxy_CfnQueryDefinition) UpdatedProperites() *map[string]interface
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueryDefinition) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -3228,11 +3389,19 @@ type CfnResourcePolicy interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -3454,6 +3623,16 @@ func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperites() *map[string]interface{
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -3824,11 +4003,19 @@ type CfnSubscriptionFilter interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Return properties modified after initiation.
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperites() *map[string]interface{}
+	// Return properties modified after initiation.
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -4070,6 +4257,16 @@ func (j *jsiiProxy_CfnSubscriptionFilter) UpdatedProperites() *map[string]interf
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubscriptionFilter) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
 		&returns,
 	)
 	return returns
@@ -4639,6 +4836,22 @@ func CrossAccountDestination_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_logs.CrossAccountDestination",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func CrossAccountDestination_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.CrossAccountDestination",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -5649,6 +5862,22 @@ func LogGroup_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func LogGroup_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.LogGroup",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func LogGroup_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -5867,7 +6096,7 @@ func (l *jsiiProxy_LogGroup) ToString() *string {
 //   })
 //
 type LogGroupProps struct {
-	// The KMS Key to encrypt the log group with.
+	// The KMS customer managed key to encrypt the log group with.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Name of the log group.
 	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
@@ -6276,6 +6505,22 @@ func LogStream_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+func LogStream_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.LogStream",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 func LogStream_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -6571,6 +6816,22 @@ func MetricFilter_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_logs.MetricFilter",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func MetricFilter_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.MetricFilter",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -6918,6 +7179,22 @@ func QueryDefinition_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_logs.QueryDefinition",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func QueryDefinition_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.QueryDefinition",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -7305,6 +7582,22 @@ func ResourcePolicy_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_logs.ResourcePolicy",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func ResourcePolicy_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.ResourcePolicy",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -7782,6 +8075,22 @@ func SubscriptionFilter_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_logs.SubscriptionFilter",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+func SubscriptionFilter_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.SubscriptionFilter",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 

@@ -724,6 +724,23 @@ func Connection_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func Connection_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-glue-alpha.Connection",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func Connection_IsResource(construct constructs.IConstruct) *bool {
@@ -1106,6 +1123,7 @@ type ContinuousLoggingProps struct {
 //   		},
 //   	},
 //   	dataFormat: glue.dataFormat_JSON(),
+//   	enablePartitionFiltering: jsii.Boolean(true),
 //   })
 //
 // Experimental.
@@ -1582,6 +1600,23 @@ func Database_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-glue-alpha.Database",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func Database_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-glue-alpha.Database",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -2594,6 +2629,23 @@ func Job_IsConstruct(x interface{}) *bool {
 		"@aws-cdk/aws-glue-alpha.Job",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func Job_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-glue-alpha.Job",
+		"isOwnedResource",
+		[]interface{}{construct},
 		&returns,
 	)
 
@@ -3808,6 +3860,7 @@ type ScalaJobExecutableProps struct {
 //   		},
 //   	},
 //   	dataFormat: glue.dataFormat_JSON(),
+//   	enablePartitionFiltering: jsii.Boolean(true),
 //   })
 //
 // See: https://docs.aws.amazon.com/athena/latest/ug/data-types.html
@@ -4331,6 +4384,23 @@ func SecurityConfiguration_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func SecurityConfiguration_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-glue-alpha.SecurityConfiguration",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func SecurityConfiguration_IsResource(construct constructs.IConstruct) *bool {
@@ -4696,6 +4766,7 @@ type SparkUIProps struct {
 //   		},
 //   	},
 //   	dataFormat: glue.dataFormat_JSON(),
+//   	enablePartitionFiltering: jsii.Boolean(true),
 //   })
 //
 // Experimental.
@@ -5083,6 +5154,23 @@ func Table_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Returns true if the construct was created by CDK, and false otherwise.
+// Experimental.
+func Table_IsOwnedResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-glue-alpha.Table",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 // Check whether the given construct is a Resource.
 // Experimental.
 func Table_IsResource(construct constructs.IConstruct) *bool {
@@ -5321,6 +5409,7 @@ const (
 //   		},
 //   	},
 //   	dataFormat: glue.dataFormat_JSON(),
+//   	enablePartitionFiltering: jsii.Boolean(true),
 //   })
 //
 // Experimental.
@@ -5346,6 +5435,11 @@ type TableProps struct {
 	// Description of the table.
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Enables partition filtering.
+	// See: https://docs.aws.amazon.com/athena/latest/ug/glue-best-practices.html#glue-best-practices-partition-index
+	//
+	// Experimental.
+	EnablePartitionFiltering *bool `field:"optional" json:"enablePartitionFiltering" yaml:"enablePartitionFiltering"`
 	// The kind of encryption to secure the data with.
 	//
 	// You can only provide this option if you are not explicitly passing in a bucket.
@@ -5402,6 +5496,7 @@ type TableProps struct {
 //   		},
 //   	},
 //   	dataFormat: glue.dataFormat_JSON(),
+//   	enablePartitionFiltering: jsii.Boolean(true),
 //   })
 //
 // Experimental.

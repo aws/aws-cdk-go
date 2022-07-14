@@ -37954,6 +37954,10 @@ type StepFunctionsInvokeActivityProps struct {
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Step Functions Activity to invoke.
 	Activity awsstepfunctions.IActivity `field:"required" json:"activity" yaml:"activity"`
+	// Parameters pass a collection of key-value pairs, either static values or JSONPath expressions that select from the input.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters
+	//
+	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 
 // A Step Functions Task to call StartExecution on another state machine.
