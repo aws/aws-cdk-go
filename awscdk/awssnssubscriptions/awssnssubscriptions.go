@@ -1,13 +1,13 @@
 package awssnssubscriptions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/awssnssubscriptions/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssnssubscriptions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 )
 
 // Use an email address as a subscription target.
@@ -20,11 +20,9 @@ import (
 //
 //   myTopic.addSubscription(subscriptions.NewEmailSubscription(emailAddress.valueAsString))
 //
-// Experimental.
 type EmailSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration for an email address to subscribe to an SNS topic.
-	// Experimental.
 	Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
@@ -33,14 +31,13 @@ type jsiiProxy_EmailSubscription struct {
 	internal.Type__awssnsITopicSubscription
 }
 
-// Experimental.
 func NewEmailSubscription(emailAddress *string, props *EmailSubscriptionProps) EmailSubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_EmailSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.EmailSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.EmailSubscription",
 		[]interface{}{emailAddress, props},
 		&j,
 	)
@@ -48,12 +45,11 @@ func NewEmailSubscription(emailAddress *string, props *EmailSubscriptionProps) E
 	return &j
 }
 
-// Experimental.
 func NewEmailSubscription_Override(e EmailSubscription, emailAddress *string, props *EmailSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.EmailSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.EmailSubscription",
 		[]interface{}{emailAddress, props},
 		e,
 	)
@@ -92,18 +88,14 @@ func (e *jsiiProxy_EmailSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSu
 //   	json: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type EmailSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	// Experimental.
 	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 	// Indicates if the full notification JSON should be sent to the email address or just the message text.
-	// Experimental.
 	Json *bool `field:"optional" json:"json" yaml:"json"`
 }
 
@@ -149,11 +141,9 @@ type EmailSubscriptionProps struct {
 //   	},
 //   }))
 //
-// Experimental.
 type LambdaSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration for a Lambda function to subscribe to an SNS topic.
-	// Experimental.
 	Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
@@ -162,14 +152,13 @@ type jsiiProxy_LambdaSubscription struct {
 	internal.Type__awssnsITopicSubscription
 }
 
-// Experimental.
 func NewLambdaSubscription(fn awslambda.IFunction, props *LambdaSubscriptionProps) LambdaSubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_LambdaSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.LambdaSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.LambdaSubscription",
 		[]interface{}{fn, props},
 		&j,
 	)
@@ -177,12 +166,11 @@ func NewLambdaSubscription(fn awslambda.IFunction, props *LambdaSubscriptionProp
 	return &j
 }
 
-// Experimental.
 func NewLambdaSubscription_Override(l LambdaSubscription, fn awslambda.IFunction, props *LambdaSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.LambdaSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.LambdaSubscription",
 		[]interface{}{fn, props},
 		l,
 	)
@@ -243,15 +231,12 @@ func (l *jsiiProxy_LambdaSubscription) Bind(topic awssns.ITopic) *awssns.TopicSu
 //   	},
 //   }))
 //
-// Experimental.
 type LambdaSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	// Experimental.
 	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 }
 
@@ -262,11 +247,9 @@ type LambdaSubscriptionProps struct {
 //
 //   myTopic.addSubscription(subscriptions.NewSmsSubscription(jsii.String("+15551231234")))
 //
-// Experimental.
 type SmsSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration used to subscribe to an SNS topic.
-	// Experimental.
 	Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
@@ -275,14 +258,13 @@ type jsiiProxy_SmsSubscription struct {
 	internal.Type__awssnsITopicSubscription
 }
 
-// Experimental.
 func NewSmsSubscription(phoneNumber *string, props *SmsSubscriptionProps) SmsSubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_SmsSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.SmsSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.SmsSubscription",
 		[]interface{}{phoneNumber, props},
 		&j,
 	)
@@ -290,12 +272,11 @@ func NewSmsSubscription(phoneNumber *string, props *SmsSubscriptionProps) SmsSub
 	return &j
 }
 
-// Experimental.
 func NewSmsSubscription_Override(s SmsSubscription, phoneNumber *string, props *SmsSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.SmsSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.SmsSubscription",
 		[]interface{}{phoneNumber, props},
 		s,
 	)
@@ -333,15 +314,12 @@ func (s *jsiiProxy_SmsSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubs
 //   	},
 //   }
 //
-// Experimental.
 type SmsSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	// Experimental.
 	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 }
 
@@ -354,11 +332,9 @@ type SmsSubscriptionProps struct {
 //
 //   myTopic.addSubscription(subscriptions.NewSqsSubscription(queue))
 //
-// Experimental.
 type SqsSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration for an SQS queue to subscribe to an SNS topic.
-	// Experimental.
 	Bind(topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
@@ -367,14 +343,13 @@ type jsiiProxy_SqsSubscription struct {
 	internal.Type__awssnsITopicSubscription
 }
 
-// Experimental.
 func NewSqsSubscription(queue awssqs.IQueue, props *SqsSubscriptionProps) SqsSubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_SqsSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.SqsSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.SqsSubscription",
 		[]interface{}{queue, props},
 		&j,
 	)
@@ -382,12 +357,11 @@ func NewSqsSubscription(queue awssqs.IQueue, props *SqsSubscriptionProps) SqsSub
 	return &j
 }
 
-// Experimental.
 func NewSqsSubscription_Override(s SqsSubscription, queue awssqs.IQueue, props *SqsSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.SqsSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.SqsSubscription",
 		[]interface{}{queue, props},
 		s,
 	)
@@ -426,20 +400,16 @@ func (s *jsiiProxy_SqsSubscription) Bind(topic awssns.ITopic) *awssns.TopicSubsc
 //   	rawMessageDelivery: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type SqsSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	// Experimental.
 	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 	// The message to the queue is the same as it was sent to the topic.
 	//
 	// If false, the message will be wrapped in an SNS envelope.
-	// Experimental.
 	RawMessageDelivery *bool `field:"optional" json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 }
 
@@ -462,15 +432,12 @@ type SqsSubscriptionProps struct {
 //   	},
 //   }
 //
-// Experimental.
 type SubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	// Experimental.
 	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 }
 
@@ -485,11 +452,9 @@ type SubscriptionProps struct {
 //
 // See: https://docs.aws.amazon.com/sns/latest/dg/sns-http-https-endpoint-as-subscriber.html
 //
-// Experimental.
 type UrlSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration for a URL to subscribe to an SNS topic.
-	// Experimental.
 	Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
@@ -498,14 +463,13 @@ type jsiiProxy_UrlSubscription struct {
 	internal.Type__awssnsITopicSubscription
 }
 
-// Experimental.
 func NewUrlSubscription(url *string, props *UrlSubscriptionProps) UrlSubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_UrlSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.UrlSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.UrlSubscription",
 		[]interface{}{url, props},
 		&j,
 	)
@@ -513,12 +477,11 @@ func NewUrlSubscription(url *string, props *UrlSubscriptionProps) UrlSubscriptio
 	return &j
 }
 
-// Experimental.
 func NewUrlSubscription_Override(u UrlSubscription, url *string, props *UrlSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.UrlSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.UrlSubscription",
 		[]interface{}{url, props},
 		u,
 	)
@@ -558,23 +521,18 @@ func (u *jsiiProxy_UrlSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubs
 //   	rawMessageDelivery: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type UrlSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
-	// Experimental.
 	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 	// The subscription's protocol.
-	// Experimental.
 	Protocol awssns.SubscriptionProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The message to the queue is the same as it was sent to the topic.
 	//
 	// If false, the message will be wrapped in an SNS envelope.
-	// Experimental.
 	RawMessageDelivery *bool `field:"optional" json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 }
 

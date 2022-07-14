@@ -25,7 +25,7 @@ down to using the `aws-codepipeline` construct library directly.
 > allows more control of CodeBuild project generation; supports deployment
 > engines other than CodePipeline.
 >
-> The README for the original API, as well as a migration guide, can be found in [our GitHub repository](https://github.com/aws/aws-cdk/blob/master/packages/@aws-cdk/pipelines/ORIGINAL_API.md).
+> The README for the original API, as well as a migration guide, can be found in [our GitHub repository](https://github.com/aws/aws-cdk/blob/main/packages/@aws-cdk/pipelines/ORIGINAL_API.md).
 
 ## At a glance
 
@@ -789,6 +789,9 @@ pipelines.NewCodeBuildStep(jsii.String("Synth"), &codeBuildStepProps{
 		mySecurityGroup,
 	},
 
+	// Control caching
+	cache: codebuild.cache.bucket(s3.NewBucket(this, jsii.String("Cache"))),
+
 	// Additional policy statements for the execution role
 	rolePolicyStatements: []policyStatement{
 		iam.NewPolicyStatement(&policyStatementProps{
@@ -1476,6 +1479,47 @@ pipeline := pipelines.NewCdkPipeline(this, jsii.String("MyPipeline"), &cdkPipeli
 After turning on `privilegedMode: true`, you will need to do a one-time manual cdk deploy of your
 pipeline to get it going again (as with a broken 'synth' the pipeline will not be able to self
 update to the right state).
+
+### Not authorized to perform sts:AssumeRole on arn:aws:iam::*:role/*-lookup-role-*
+
+You may get an error like the following in the **Synth** step:
+
+```text
+Could not assume role in target account using current credentials (which are for account 111111111111). User:
+arn:aws:sts::111111111111:assumed-role/PipelineStack-PipelineBuildSynthCdkBuildProje-..../AWSCodeBuild-....
+is not authorized to perform: sts:AssumeRole on resource:
+arn:aws:iam::222222222222:role/cdk-hnb659fds-lookup-role-222222222222-us-east-1.
+Please make sure that this role exists in the account. If it doesn't exist, (re)-bootstrap the environment with
+the right '--trust', using the latest version of the CDK CLI.
+```
+
+This is a sign that the CLI is trying to do Context Lookups during the **Synth** step, which are failing
+because it cannot assume the right role. We recommend you don't rely on Context Lookups in the pipeline at
+all, and commit a file called `cdk.context.json` with the right lookup values in it to source control.
+
+If you do want to do lookups in the pipeline, the cause is one of the following:
+
+* The target environment has not been bootstrapped; OR
+* The target environment has been bootstrapped without the right `--trust` relationship; OR
+* The CodeBuild execution role does not have permissions to call `sts:AssumeRole`.
+
+See the section called **Context Lookups** for more information on using this feature.
+
+### IAM policies: Cannot exceed quota for PoliciesPerRole / Maximum policy size exceeded
+
+This happens as a result of having a lot of targets in the Pipeline: the IAM policies that
+get generated enumerate all required roles and grow too large.
+
+Make sure you are on version `2.26.0` or higher, and that your `cdk.json` contains the
+following:
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-iam:minimizePolicies": true
+  }
+}
+```
 
 ### S3 error: Access Denied
 

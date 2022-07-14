@@ -417,7 +417,7 @@ var myBucket bucket
 // A Lambda@Edge function added to default behavior of a Distribution
 // and triggered on every request
 myFunc := #error#.NewEdgeFunction(this, jsii.String("MyFunction"), &edgeFunctionProps{
-	runtime: lambda.runtime_NODEJS_12_X(),
+	runtime: lambda.runtime_NODEJS_14_X(),
 	handler: jsii.String("index.handler"),
 	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 })
@@ -446,7 +446,7 @@ If the stack is in `us-east-1`, a "normal" `lambda.Function` can be used instead
 ```go
 // Using a lambda Function instead of an EdgeFunction for stacks in `us-east-`.
 myFunc := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_12_X(),
+	runtime: lambda.runtime_NODEJS_14_X(),
 	handler: jsii.String("index.handler"),
 	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 })
@@ -459,14 +459,14 @@ you can also set a specific stack ID for each Lambda@Edge.
 // Setting stackIds for EdgeFunctions that can be referenced from different applications
 // on the same account.
 myFunc1 := #error#.NewEdgeFunction(this, jsii.String("MyFunction1"), &edgeFunctionProps{
-	runtime: lambda.runtime_NODEJS_12_X(),
+	runtime: lambda.runtime_NODEJS_14_X(),
 	handler: jsii.String("index.handler"),
 	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler1"))),
 	stackId: jsii.String("edge-lambda-stack-id-1"),
 })
 
 myFunc2 := #error#.NewEdgeFunction(this, jsii.String("MyFunction2"), &edgeFunctionProps{
-	runtime: lambda.*runtime_NODEJS_12_X(),
+	runtime: lambda.*runtime_NODEJS_14_X(),
 	handler: jsii.String("index.handler"),
 	code: lambda.*code.fromAsset(path.join(__dirname, jsii.String("lambda-handler2"))),
 	stackId: jsii.String("edge-lambda-stack-id-2"),
