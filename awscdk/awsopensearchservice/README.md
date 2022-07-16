@@ -75,12 +75,29 @@ slr := iam.NewCfnServiceLinkedRole(this, jsii.String("Service Linked Role"), &cf
 
 ## Importing existing domains
 
+### Using a known domain endpoint
+
 To import an existing domain into your CDK application, use the `Domain.fromDomainEndpoint` factory method.
 This method accepts a domain endpoint of an already existing domain:
 
 ```go
 domainEndpoint := "https://my-domain-jcjotrt6f7otem4sqcwbch3c4u.us-east-1.es.amazonaws.com"
 domain := opensearch.domain.fromDomainEndpoint(this, jsii.String("ImportedDomain"), domainEndpoint)
+```
+
+### Using the output of another CloudFormation stack
+
+To import an existing domain with the help of an exported value from another CloudFormation stack,
+use the `Domain.fromDomainAttributes` factory method. This will accept tokens.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+domainArn := fn_ImportValue(jsii.String("another-cf-stack-export-domain-arn"))
+domainEndpoint := fn_ImportValue(jsii.String("another-cf-stack-export-domain-endpoint"))
+domain := domain_FromDomainAttributes(this, jsii.String("ImportedDomain"), map[string]interface{}{
+	"domainArn": domainArn,
+	"domainEndpoint": domainEndpoint,
+})
 ```
 
 ## Permissions

@@ -340,6 +340,7 @@ tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Endpoint"), &callApiGa
 The `CallApiGatewayHttpApiEndpoint` calls the HTTP API endpoint.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
 
 httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
@@ -459,9 +460,10 @@ Step Functions supports [Batch](https://docs.aws.amazon.com/step-functions/lates
 The [SubmitJob](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html) API submits an AWS Batch job from a job definition.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import batch "github.com/aws/aws-cdk-go/awscdk"
-var batchJobDefinition jobDefinition
-var batchQueue jobQueue
+var batchJobDefinition batch.JobDefinition
+var batchQueue batch.JobQueue
 
 
 task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &batchSubmitJobProps{
@@ -1468,6 +1470,25 @@ submitJobActivity := sfn.NewActivity(this, jsii.String("SubmitJob"))
 
 tasks.NewStepFunctionsInvokeActivity(this, jsii.String("Submit Job"), &stepFunctionsInvokeActivityProps{
 	activity: submitJobActivity,
+})
+```
+
+Use the [Parameters](https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters) field to create a collection of key-value pairs that are passed as input.
+The values of each can either be static values that you include in your state machine definition, or selected from either the input or the context object with a path.
+
+```go
+submitJobActivity := sfn.NewActivity(this, jsii.String("SubmitJob"))
+
+tasks.NewStepFunctionsInvokeActivity(this, jsii.String("Submit Job"), &stepFunctionsInvokeActivityProps{
+	activity: submitJobActivity,
+	parameters: map[string]interface{}{
+		"comment": jsii.String("Selecting what I care about."),
+		"MyDetails": map[string]interface{}{
+			"size": sfn.JsonPath.stringAt(jsii.String("$.product.details.size")),
+			"exists": sfn.JsonPath.stringAt(jsii.String("$.product.availability")),
+			"StaticValue": jsii.String("foo"),
+		},
+	},
 })
 ```
 

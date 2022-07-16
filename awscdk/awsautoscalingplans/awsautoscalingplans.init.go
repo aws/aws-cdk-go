@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan",
 		reflect.TypeOf((*CfnScalingPlan)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -30,20 +30,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "scalingInstructions", GoGetter: "ScalingInstructions"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -54,43 +49,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan.ApplicationSourceProperty",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan.ApplicationSourceProperty",
 		reflect.TypeOf((*CfnScalingPlan_ApplicationSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan.CustomizedLoadMetricSpecificationProperty",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan.CustomizedLoadMetricSpecificationProperty",
 		reflect.TypeOf((*CfnScalingPlan_CustomizedLoadMetricSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan.CustomizedScalingMetricSpecificationProperty",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan.CustomizedScalingMetricSpecificationProperty",
 		reflect.TypeOf((*CfnScalingPlan_CustomizedScalingMetricSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan.MetricDimensionProperty",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan.MetricDimensionProperty",
 		reflect.TypeOf((*CfnScalingPlan_MetricDimensionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan.PredefinedLoadMetricSpecificationProperty",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan.PredefinedLoadMetricSpecificationProperty",
 		reflect.TypeOf((*CfnScalingPlan_PredefinedLoadMetricSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan.PredefinedScalingMetricSpecificationProperty",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan.PredefinedScalingMetricSpecificationProperty",
 		reflect.TypeOf((*CfnScalingPlan_PredefinedScalingMetricSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan.ScalingInstructionProperty",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan.ScalingInstructionProperty",
 		reflect.TypeOf((*CfnScalingPlan_ScalingInstructionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan.TagFilterProperty",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan.TagFilterProperty",
 		reflect.TypeOf((*CfnScalingPlan_TagFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_autoscalingplans.CfnScalingPlan.TargetTrackingConfigurationProperty",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan.TargetTrackingConfigurationProperty",
 		reflect.TypeOf((*CfnScalingPlan_TargetTrackingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_autoscalingplans.CfnScalingPlanProps",
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlanProps",
 		reflect.TypeOf((*CfnScalingPlanProps)(nil)).Elem(),
 	)
 }

@@ -411,7 +411,7 @@ on the construct, as so -
 
 ```go
 authChallengeFn := lambda.NewFunction(this, jsii.String("authChallengeFn"), &functionProps{
-	runtime: lambda.runtime_NODEJS_12_X(),
+	runtime: lambda.runtime_NODEJS_14_X(),
 	handler: jsii.String("index.handler"),
 	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("path/to/asset"))),
 })
@@ -424,7 +424,7 @@ userpool := cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
 })
 
 userpool.addTrigger(cognito.userPoolOperation_USER_MIGRATION(), lambda.NewFunction(this, jsii.String("userMigrationFn"), &functionProps{
-	runtime: lambda.*runtime_NODEJS_12_X(),
+	runtime: lambda.*runtime_NODEJS_14_X(),
 	handler: jsii.String("index.handler"),
 	code: lambda.*code.fromAsset(path.join(__dirname, jsii.String("path/to/asset"))),
 }))
