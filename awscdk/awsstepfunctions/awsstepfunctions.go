@@ -9490,6 +9490,22 @@ func StateMachine_FromStateMachineArn(scope constructs.Construct, id *string, st
 	return returns
 }
 
+// Import a state machine via resource name.
+func StateMachine_FromStateMachineName(scope constructs.Construct, id *string, stateMachineName *string) IStateMachine {
+	_init_.Initialize()
+
+	var returns IStateMachine
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.StateMachine",
+		"fromStateMachineName",
+		[]interface{}{scope, id, stateMachineName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

@@ -34957,6 +34957,7 @@ type CfnNetworkInterfaceProps struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPlacementGroup := awscdk.Aws_ec2.NewCfnPlacementGroup(this, jsii.String("MyCfnPlacementGroup"), &cfnPlacementGroupProps{
+//   	spreadLevel: jsii.String("spreadLevel"),
 //   	strategy: jsii.String("strategy"),
 //   })
 //
@@ -34990,6 +34991,9 @@ type CfnPlacementGroup interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// `AWS::EC2::PlacementGroup.SpreadLevel`.
+	SpreadLevel() *string
+	SetSpreadLevel(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -35206,6 +35210,16 @@ func (j *jsiiProxy_CfnPlacementGroup) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPlacementGroup) SpreadLevel() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"spreadLevel",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPlacementGroup) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -35270,6 +35284,14 @@ func NewCfnPlacementGroup_Override(c CfnPlacementGroup, scope constructs.Constru
 		"aws-cdk-lib.aws_ec2.CfnPlacementGroup",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnPlacementGroup) SetSpreadLevel(val *string) {
+	_jsii_.Set(
+		j,
+		"spreadLevel",
+		val,
 	)
 }
 
@@ -35514,10 +35536,13 @@ func (c *jsiiProxy_CfnPlacementGroup) ValidateProperties(_properties interface{}
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPlacementGroupProps := &cfnPlacementGroupProps{
+//   	spreadLevel: jsii.String("spreadLevel"),
 //   	strategy: jsii.String("strategy"),
 //   }
 //
 type CfnPlacementGroupProps struct {
+	// `AWS::EC2::PlacementGroup.SpreadLevel`.
+	SpreadLevel *string `field:"optional" json:"spreadLevel" yaml:"spreadLevel"`
 	// The placement strategy.
 	Strategy *string `field:"optional" json:"strategy" yaml:"strategy"`
 }
@@ -81110,17 +81135,18 @@ func Peer_SecurityGroupId(securityGroupId *string, sourceSecurityGroupOwnerId *s
 // Interface for classes that provide the connection-specification parts of a security group rule.
 //
 // Example:
-//   var loadBalancer applicationLoadBalancer
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var instanceType instanceType
 //
 //
-//   vpc := ec2.NewVpc(this, jsii.String("MyVPC"))
-//   project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
-//   	vpc: vpc,
-//   	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
-//   	}),
+//   provider := ec2.natProvider.instance(&natInstanceProps{
+//   	instanceType: instanceType,
+//   	defaultAllowedTraffic: ec2.natTrafficDirection_OUTBOUND_ONLY,
 //   })
-//
-//   project.connections.allowTo(loadBalancer, ec2.port.tcp(jsii.Number(443)))
+//   ec2.NewVpc(this, jsii.String("TheVPC"), &vpcProps{
+//   	natGatewayProvider: provider,
+//   })
+//   provider.connections.allowFrom(ec2.peer.ipv4(jsii.String("1.2.3.4/8")), ec2.port.tcp(jsii.Number(80)))
 //
 type Port interface {
 	// Whether the rule containing this port range can be inlined into a securitygroup or not.
@@ -81195,6 +81221,22 @@ func Port_AllIcmp() Port {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.Port",
 		"allIcmp",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// All ICMPv6 traffic.
+func Port_AllIcmpV6() Port {
+	_init_.Initialize()
+
+	var returns Port
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.Port",
+		"allIcmpV6",
 		nil, // no parameters
 		&returns,
 	)
@@ -86990,6 +87032,7 @@ const (
 //   })
 //   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env"), &ec2EnvironmentProps{
 //   	vpc: vpc,
+//   	imageId: cloud9.imageId_AMAZON_LINUX_2,
 //   })
 //
 //   // or create the cloud9 environment in the default VPC with specific instanceType
@@ -86999,6 +87042,7 @@ const (
 //   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &ec2EnvironmentProps{
 //   	vpc: defaultVpc,
 //   	instanceType: ec2.NewInstanceType(jsii.String("t3.large")),
+//   	imageId: cloud9.*imageId_AMAZON_LINUX_2,
 //   })
 //
 //   // or specify in a different subnetSelection
@@ -87007,6 +87051,7 @@ const (
 //   	subnetSelection: &subnetSelection{
 //   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 //   	},
+//   	imageId: cloud9.*imageId_AMAZON_LINUX_2,
 //   })
 //
 //   // print the Cloud9 IDE URL in the output

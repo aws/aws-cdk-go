@@ -1958,21 +1958,20 @@ type AthenaGetQueryResultsProps struct {
 // Start an Athena Query as a Task.
 //
 // Example:
-//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Athena Start Query"), &athenaStartQueryExecutionProps{
-//   	queryString: sfn.jsonPath.format(jsii.String("select contacts where year={};"), sfn.*jsonPath.stringAt(jsii.String("$.year"))),
+//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Start Athena Query"), &athenaStartQueryExecutionProps{
+//   	queryString: sfn.jsonPath.stringAt(jsii.String("$.queryString")),
 //   	queryExecutionContext: &queryExecutionContext{
-//   		databaseName: jsii.String("interactions"),
+//   		databaseName: jsii.String("mydatabase"),
 //   	},
 //   	resultConfiguration: &resultConfiguration{
 //   		encryptionConfiguration: &encryptionConfiguration{
 //   			encryptionOption: tasks.encryptionOption_S3_MANAGED,
 //   		},
 //   		outputLocation: &location{
-//   			bucketName: jsii.String("mybucket"),
-//   			objectKey: jsii.String("myprefix"),
+//   			bucketName: jsii.String("query-results-bucket"),
+//   			objectKey: jsii.String("folder"),
 //   		},
 //   	},
-//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-athena.html
@@ -2742,21 +2741,20 @@ func (a *jsiiProxy_AthenaStartQueryExecution) WhenBoundToGraph(graph awsstepfunc
 // Properties for starting a Query Execution.
 //
 // Example:
-//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Athena Start Query"), &athenaStartQueryExecutionProps{
-//   	queryString: sfn.jsonPath.format(jsii.String("select contacts where year={};"), sfn.*jsonPath.stringAt(jsii.String("$.year"))),
+//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Start Athena Query"), &athenaStartQueryExecutionProps{
+//   	queryString: sfn.jsonPath.stringAt(jsii.String("$.queryString")),
 //   	queryExecutionContext: &queryExecutionContext{
-//   		databaseName: jsii.String("interactions"),
+//   		databaseName: jsii.String("mydatabase"),
 //   	},
 //   	resultConfiguration: &resultConfiguration{
 //   		encryptionConfiguration: &encryptionConfiguration{
 //   			encryptionOption: tasks.encryptionOption_S3_MANAGED,
 //   		},
 //   		outputLocation: &location{
-//   			bucketName: jsii.String("mybucket"),
-//   			objectKey: jsii.String("myprefix"),
+//   			bucketName: jsii.String("query-results-bucket"),
+//   			objectKey: jsii.String("folder"),
 //   		},
 //   	},
-//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
 //   })
 //
 type AthenaStartQueryExecutionProps struct {
@@ -11012,10 +11010,11 @@ func (d *jsiiProxy_DynamoProjectionExpression) WithAttribute(attr *string) Dynam
 //
 //   tasks.NewDynamoPutItem(this, jsii.String("PutItem"), &dynamoPutItemProps{
 //   	item: map[string]dynamoAttributeValue{
-//   		"MessageId": tasks.*dynamoAttributeValue.fromString(jsii.String("message-id")),
+//   		"MessageId": tasks.*dynamoAttributeValue.fromString(jsii.String("message-007")),
+//   		"Text": tasks.*dynamoAttributeValue.fromString(sfn.JsonPath.stringAt(jsii.String("$.bar"))),
+//   		"TotalCount": tasks.*dynamoAttributeValue.fromNumber(jsii.Number(10)),
 //   	},
 //   	table: myTable,
-//   	resultPath: jsii.String("$.Item"),
 //   })
 //
 type DynamoPutItem interface {
@@ -11787,10 +11786,11 @@ func (d *jsiiProxy_DynamoPutItem) WhenBoundToGraph(graph awsstepfunctions.StateG
 //
 //   tasks.NewDynamoPutItem(this, jsii.String("PutItem"), &dynamoPutItemProps{
 //   	item: map[string]dynamoAttributeValue{
-//   		"MessageId": tasks.*dynamoAttributeValue.fromString(jsii.String("message-id")),
+//   		"MessageId": tasks.*dynamoAttributeValue.fromString(jsii.String("message-007")),
+//   		"Text": tasks.*dynamoAttributeValue.fromString(sfn.JsonPath.stringAt(jsii.String("$.bar"))),
+//   		"TotalCount": tasks.*dynamoAttributeValue.fromNumber(jsii.Number(10)),
 //   	},
 //   	table: myTable,
-//   	resultPath: jsii.String("$.Item"),
 //   })
 //
 type DynamoPutItemProps struct {
@@ -24656,21 +24656,20 @@ type EmrTerminateClusterProps struct {
 // Encryption Configuration of the S3 bucket.
 //
 // Example:
-//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Athena Start Query"), &athenaStartQueryExecutionProps{
-//   	queryString: sfn.jsonPath.format(jsii.String("select contacts where year={};"), sfn.*jsonPath.stringAt(jsii.String("$.year"))),
+//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Start Athena Query"), &athenaStartQueryExecutionProps{
+//   	queryString: sfn.jsonPath.stringAt(jsii.String("$.queryString")),
 //   	queryExecutionContext: &queryExecutionContext{
-//   		databaseName: jsii.String("interactions"),
+//   		databaseName: jsii.String("mydatabase"),
 //   	},
 //   	resultConfiguration: &resultConfiguration{
 //   		encryptionConfiguration: &encryptionConfiguration{
 //   			encryptionOption: tasks.encryptionOption_S3_MANAGED,
 //   		},
 //   		outputLocation: &location{
-//   			bucketName: jsii.String("mybucket"),
-//   			objectKey: jsii.String("myprefix"),
+//   			bucketName: jsii.String("query-results-bucket"),
+//   			objectKey: jsii.String("folder"),
 //   		},
 //   	},
-//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
 //   })
 //
 // See: https://docs.aws.amazon.com/athena/latest/APIReference/API_EncryptionConfiguration.html
@@ -24685,21 +24684,20 @@ type EncryptionConfiguration struct {
 // Encryption Options of the S3 bucket.
 //
 // Example:
-//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Athena Start Query"), &athenaStartQueryExecutionProps{
-//   	queryString: sfn.jsonPath.format(jsii.String("select contacts where year={};"), sfn.*jsonPath.stringAt(jsii.String("$.year"))),
+//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Start Athena Query"), &athenaStartQueryExecutionProps{
+//   	queryString: sfn.jsonPath.stringAt(jsii.String("$.queryString")),
 //   	queryExecutionContext: &queryExecutionContext{
-//   		databaseName: jsii.String("interactions"),
+//   		databaseName: jsii.String("mydatabase"),
 //   	},
 //   	resultConfiguration: &resultConfiguration{
 //   		encryptionConfiguration: &encryptionConfiguration{
 //   			encryptionOption: tasks.encryptionOption_S3_MANAGED,
 //   		},
 //   		outputLocation: &location{
-//   			bucketName: jsii.String("mybucket"),
-//   			objectKey: jsii.String("myprefix"),
+//   			bucketName: jsii.String("query-results-bucket"),
+//   			objectKey: jsii.String("folder"),
 //   		},
 //   	},
-//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
 //   })
 //
 // See: https://docs.aws.amazon.com/athena/latest/APIReference/API_EncryptionConfiguration.html#athena-Type-EncryptionConfiguration-EncryptionOption
@@ -28371,17 +28369,6 @@ type JobDriver struct {
 }
 
 // Invocation type of a Lambda.
-//
-// Example:
-//   var fn function
-//
-//
-//   submitJob := tasks.NewLambdaInvoke(this, jsii.String("Invoke Handler"), &lambdaInvokeProps{
-//   	lambdaFunction: fn,
-//   	payload: sfn.taskInput.fromJsonPathAt(jsii.String("$.input")),
-//   	invocationType: tasks.lambdaInvocationType_EVENT,
-//   })
-//
 type LambdaInvocationType string
 
 const (
@@ -28402,16 +28389,19 @@ const (
 // Invoke a Lambda function as a Task.
 //
 // Example:
-//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   var fn function
 //
-//   var orderFn function
-//
-//
-//   submitJob := tasks.NewLambdaInvoke(this, jsii.String("InvokeOrderProcessor"), &lambdaInvokeProps{
-//   	lambdaFunction: orderFn,
+//   tasks.NewLambdaInvoke(this, jsii.String("Invoke with empty object as payload"), &lambdaInvokeProps{
+//   	lambdaFunction: fn,
 //   	payload: sfn.taskInput.fromObject(map[string]interface{}{
-//   		"OrderId": sfn.JsonPath.stringAt(jsii.String("$.OrderId")),
 //   	}),
+//   })
+//
+//   // use the output of fn as input
+//   // use the output of fn as input
+//   tasks.NewLambdaInvoke(this, jsii.String("Invoke with payload field in the state input"), &lambdaInvokeProps{
+//   	lambdaFunction: fn,
+//   	payload: sfn.*taskInput.fromJsonPathAt(jsii.String("$.Payload")),
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-lambda.html
@@ -29181,16 +29171,19 @@ func (l *jsiiProxy_LambdaInvoke) WhenBoundToGraph(graph awsstepfunctions.StateGr
 // Properties for invoking a Lambda function with LambdaInvoke.
 //
 // Example:
-//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   var fn function
 //
-//   var orderFn function
-//
-//
-//   submitJob := tasks.NewLambdaInvoke(this, jsii.String("InvokeOrderProcessor"), &lambdaInvokeProps{
-//   	lambdaFunction: orderFn,
+//   tasks.NewLambdaInvoke(this, jsii.String("Invoke with empty object as payload"), &lambdaInvokeProps{
+//   	lambdaFunction: fn,
 //   	payload: sfn.taskInput.fromObject(map[string]interface{}{
-//   		"OrderId": sfn.JsonPath.stringAt(jsii.String("$.OrderId")),
 //   	}),
+//   })
+//
+//   // use the output of fn as input
+//   // use the output of fn as input
+//   tasks.NewLambdaInvoke(this, jsii.String("Invoke with payload field in the state input"), &lambdaInvokeProps{
+//   	lambdaFunction: fn,
+//   	payload: sfn.*taskInput.fromJsonPathAt(jsii.String("$.Payload")),
 //   })
 //
 type LambdaInvokeProps struct {
@@ -29601,21 +29594,20 @@ type ProductionVariant struct {
 // Database and data catalog context in which the query execution occurs.
 //
 // Example:
-//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Athena Start Query"), &athenaStartQueryExecutionProps{
-//   	queryString: sfn.jsonPath.format(jsii.String("select contacts where year={};"), sfn.*jsonPath.stringAt(jsii.String("$.year"))),
+//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Start Athena Query"), &athenaStartQueryExecutionProps{
+//   	queryString: sfn.jsonPath.stringAt(jsii.String("$.queryString")),
 //   	queryExecutionContext: &queryExecutionContext{
-//   		databaseName: jsii.String("interactions"),
+//   		databaseName: jsii.String("mydatabase"),
 //   	},
 //   	resultConfiguration: &resultConfiguration{
 //   		encryptionConfiguration: &encryptionConfiguration{
 //   			encryptionOption: tasks.encryptionOption_S3_MANAGED,
 //   		},
 //   		outputLocation: &location{
-//   			bucketName: jsii.String("mybucket"),
-//   			objectKey: jsii.String("myprefix"),
+//   			bucketName: jsii.String("query-results-bucket"),
+//   			objectKey: jsii.String("folder"),
 //   		},
 //   	},
-//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
 //   })
 //
 // See: https://docs.aws.amazon.com/athena/latest/APIReference/API_QueryExecutionContext.html
@@ -29814,21 +29806,20 @@ type ResourceConfig struct {
 // Location of query result along with S3 bucket configuration.
 //
 // Example:
-//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Athena Start Query"), &athenaStartQueryExecutionProps{
-//   	queryString: sfn.jsonPath.format(jsii.String("select contacts where year={};"), sfn.*jsonPath.stringAt(jsii.String("$.year"))),
+//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Start Athena Query"), &athenaStartQueryExecutionProps{
+//   	queryString: sfn.jsonPath.stringAt(jsii.String("$.queryString")),
 //   	queryExecutionContext: &queryExecutionContext{
-//   		databaseName: jsii.String("interactions"),
+//   		databaseName: jsii.String("mydatabase"),
 //   	},
 //   	resultConfiguration: &resultConfiguration{
 //   		encryptionConfiguration: &encryptionConfiguration{
 //   			encryptionOption: tasks.encryptionOption_S3_MANAGED,
 //   		},
 //   		outputLocation: &location{
-//   			bucketName: jsii.String("mybucket"),
-//   			objectKey: jsii.String("myprefix"),
+//   			bucketName: jsii.String("query-results-bucket"),
+//   			objectKey: jsii.String("folder"),
 //   		},
 //   	},
-//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
 //   })
 //
 // See: https://docs.aws.amazon.com/athena/latest/APIReference/API_ResultConfiguration.html

@@ -6544,6 +6544,8 @@ type CfnScalingPolicy interface {
 	// Required if the policy type is `StepScaling` or `SimpleScaling` . For more information, see [Scaling adjustment types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment) in the *Amazon EC2 Auto Scaling User Guide* .
 	AdjustmentType() *string
 	SetAdjustmentType(val *string)
+	AttrArn() *string
+	AttrPolicyName() *string
 	// The name of the Auto Scaling group.
 	AutoScalingGroupName() *string
 	SetAutoScalingGroupName(val *string)
@@ -6786,6 +6788,26 @@ func (j *jsiiProxy_CfnScalingPolicy) AdjustmentType() *string {
 	_jsii_.Get(
 		j,
 		"adjustmentType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScalingPolicy) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScalingPolicy) AttrPolicyName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPolicyName",
 		&returns,
 	)
 	return returns

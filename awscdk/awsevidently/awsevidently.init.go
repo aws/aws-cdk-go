@@ -36,9 +36,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "project", GoGetter: "Project"},
 			_jsii_.MemberProperty{JsiiProperty: "randomizationSalt", GoGetter: "RandomizationSalt"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberProperty{JsiiProperty: "removeSegment", GoGetter: "RemoveSegment"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "runningStatus", GoGetter: "RunningStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "samplingRate", GoGetter: "SamplingRate"},
+			_jsii_.MemberProperty{JsiiProperty: "segment", GoGetter: "Segment"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -199,6 +201,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_evidently.CfnLaunch.MetricDefinitionObjectProperty",
 		reflect.TypeOf((*CfnLaunch_MetricDefinitionObjectProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_evidently.CfnLaunch.SegmentOverrideProperty",
+		reflect.TypeOf((*CfnLaunch_SegmentOverrideProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_evidently.CfnLaunch.StepConfigProperty",

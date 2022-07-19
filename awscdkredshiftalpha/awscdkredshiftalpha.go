@@ -820,6 +820,11 @@ type ClusterProps struct {
 	// Name of a database which is automatically created inside the cluster.
 	// Experimental.
 	DefaultDatabaseName *string `field:"optional" json:"defaultDatabaseName" yaml:"defaultDatabaseName"`
+	// The Elastic IP (EIP) address for the cluster.
+	// See: https://docs.aws.amazon.com/redshift/latest/mgmt/managing-clusters-vpc.html
+	//
+	// Experimental.
+	ElasticIp *string `field:"optional" json:"elasticIp" yaml:"elasticIp"`
 	// Whether to enable encryption of data at rest in the cluster.
 	// Experimental.
 	Encrypted *bool `field:"optional" json:"encrypted" yaml:"encrypted"`

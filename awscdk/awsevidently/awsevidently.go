@@ -58,6 +58,7 @@ import (
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
 //   	randomizationSalt: jsii.String("randomizationSalt"),
+//   	removeSegment: jsii.Boolean(false),
 //   	runningStatus: &runningStatusObjectProperty{
 //   		analysisCompleteTime: jsii.String("analysisCompleteTime"),
 //   		desiredState: jsii.String("desiredState"),
@@ -65,6 +66,7 @@ import (
 //   		status: jsii.String("status"),
 //   	},
 //   	samplingRate: jsii.Number(123),
+//   	segment: jsii.String("segment"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -130,6 +132,9 @@ type CfnExperiment interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// `AWS::Evidently::Experiment.RemoveSegment`.
+	RemoveSegment() interface{}
+	SetRemoveSegment(val interface{})
 	// A structure that you can use to start and stop the experiment.
 	RunningStatus() interface{}
 	SetRunningStatus(val interface{})
@@ -140,6 +145,9 @@ type CfnExperiment interface {
 	// This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
 	SamplingRate() *float64
 	SetSamplingRate(val *float64)
+	// `AWS::Evidently::Experiment.Segment`.
+	Segment() *string
+	SetSegment(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -426,6 +434,16 @@ func (j *jsiiProxy_CfnExperiment) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnExperiment) RemoveSegment() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"removeSegment",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnExperiment) RunningStatus() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -441,6 +459,16 @@ func (j *jsiiProxy_CfnExperiment) SamplingRate() *float64 {
 	_jsii_.Get(
 		j,
 		"samplingRate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExperiment) Segment() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"segment",
 		&returns,
 	)
 	return returns
@@ -571,6 +599,14 @@ func (j *jsiiProxy_CfnExperiment) SetRandomizationSalt(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnExperiment) SetRemoveSegment(val interface{}) {
+	_jsii_.Set(
+		j,
+		"removeSegment",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnExperiment) SetRunningStatus(val interface{}) {
 	_jsii_.Set(
 		j,
@@ -583,6 +619,14 @@ func (j *jsiiProxy_CfnExperiment) SetSamplingRate(val *float64) {
 	_jsii_.Set(
 		j,
 		"samplingRate",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnExperiment) SetSegment(val *string) {
+	_jsii_.Set(
+		j,
+		"segment",
 		val,
 	)
 }
@@ -1015,6 +1059,7 @@ type CfnExperiment_TreatmentToWeightProperty struct {
 //   	// the properties below are optional
 //   	description: jsii.String("description"),
 //   	randomizationSalt: jsii.String("randomizationSalt"),
+//   	removeSegment: jsii.Boolean(false),
 //   	runningStatus: &runningStatusObjectProperty{
 //   		analysisCompleteTime: jsii.String("analysisCompleteTime"),
 //   		desiredState: jsii.String("desiredState"),
@@ -1022,6 +1067,7 @@ type CfnExperiment_TreatmentToWeightProperty struct {
 //   		status: jsii.String("status"),
 //   	},
 //   	samplingRate: jsii.Number(123),
+//   	segment: jsii.String("segment"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -1051,6 +1097,8 @@ type CfnExperimentProps struct {
 	//
 	// This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
 	RandomizationSalt *string `field:"optional" json:"randomizationSalt" yaml:"randomizationSalt"`
+	// `AWS::Evidently::Experiment.RemoveSegment`.
+	RemoveSegment interface{} `field:"optional" json:"removeSegment" yaml:"removeSegment"`
 	// A structure that you can use to start and stop the experiment.
 	RunningStatus interface{} `field:"optional" json:"runningStatus" yaml:"runningStatus"`
 	// The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent.
@@ -1059,6 +1107,8 @@ type CfnExperimentProps struct {
 	//
 	// This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
 	SamplingRate *float64 `field:"optional" json:"samplingRate" yaml:"samplingRate"`
+	// `AWS::Evidently::Experiment.Segment`.
+	Segment *string `field:"optional" json:"segment" yaml:"segment"`
 	// Assigns one or more tags (key-value pairs) to the experiment.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -1985,6 +2035,20 @@ type CfnFeatureProps struct {
 //   				},
 //   			},
 //   			startTime: jsii.String("startTime"),
+//
+//   			// the properties below are optional
+//   			segmentOverrides: []interface{}{
+//   				&segmentOverrideProperty{
+//   					evaluationOrder: jsii.Number(123),
+//   					segment: jsii.String("segment"),
+//   					weights: []interface{}{
+//   						&groupToWeightProperty{
+//   							groupName: jsii.String("groupName"),
+//   							splitWeight: jsii.Number(123),
+//   						},
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //
@@ -2859,6 +2923,31 @@ type CfnLaunch_MetricDefinitionObjectProperty struct {
 	UnitLabel *string `field:"optional" json:"unitLabel" yaml:"unitLabel"`
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   segmentOverrideProperty := &segmentOverrideProperty{
+//   	evaluationOrder: jsii.Number(123),
+//   	segment: jsii.String("segment"),
+//   	weights: []interface{}{
+//   		&groupToWeightProperty{
+//   			groupName: jsii.String("groupName"),
+//   			splitWeight: jsii.Number(123),
+//   		},
+//   	},
+//   }
+//
+type CfnLaunch_SegmentOverrideProperty struct {
+	// `CfnLaunch.SegmentOverrideProperty.EvaluationOrder`.
+	EvaluationOrder *float64 `field:"required" json:"evaluationOrder" yaml:"evaluationOrder"`
+	// `CfnLaunch.SegmentOverrideProperty.Segment`.
+	Segment *string `field:"required" json:"segment" yaml:"segment"`
+	// `CfnLaunch.SegmentOverrideProperty.Weights`.
+	Weights interface{} `field:"required" json:"weights" yaml:"weights"`
+}
+
 // A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
 //
 // Example:
@@ -2874,6 +2963,20 @@ type CfnLaunch_MetricDefinitionObjectProperty struct {
 //   		},
 //   	},
 //   	startTime: jsii.String("startTime"),
+//
+//   	// the properties below are optional
+//   	segmentOverrides: []interface{}{
+//   		&segmentOverrideProperty{
+//   			evaluationOrder: jsii.Number(123),
+//   			segment: jsii.String("segment"),
+//   			weights: []interface{}{
+//   				&groupToWeightProperty{
+//   					groupName: jsii.String("groupName"),
+//   					splitWeight: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   	},
 //   }
 //
 type CfnLaunch_StepConfigProperty struct {
@@ -2883,6 +2986,8 @@ type CfnLaunch_StepConfigProperty struct {
 	//
 	// Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
 	StartTime *string `field:"required" json:"startTime" yaml:"startTime"`
+	// `CfnLaunch.StepConfigProperty.SegmentOverrides`.
+	SegmentOverrides interface{} `field:"optional" json:"segmentOverrides" yaml:"segmentOverrides"`
 }
 
 // Properties for defining a `CfnLaunch`.
@@ -2914,6 +3019,20 @@ type CfnLaunch_StepConfigProperty struct {
 //   				},
 //   			},
 //   			startTime: jsii.String("startTime"),
+//
+//   			// the properties below are optional
+//   			segmentOverrides: []interface{}{
+//   				&segmentOverrideProperty{
+//   					evaluationOrder: jsii.Number(123),
+//   					segment: jsii.String("segment"),
+//   					weights: []interface{}{
+//   						&groupToWeightProperty{
+//   							groupName: jsii.String("groupName"),
+//   							splitWeight: jsii.Number(123),
+//   						},
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //

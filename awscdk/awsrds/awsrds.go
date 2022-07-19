@@ -19057,7 +19057,7 @@ func DatabaseInstanceEngine_OracleEe(props *OracleEeInstanceEngineProps) IInstan
 	return returns
 }
 
-// Creates a new Oracle Standard Edition 1 instance engine.
+// Creates a new Oracle Standard Edition 2 instance engine.
 func DatabaseInstanceEngine_OracleSe2(props *OracleSe2InstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 

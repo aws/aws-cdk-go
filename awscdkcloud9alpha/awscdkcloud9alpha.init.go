@@ -73,4 +73,12 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-cloud9-alpha.ImageId",
+		reflect.TypeOf((*ImageId)(nil)).Elem(),
+		map[string]interface{}{
+			"AMAZON_LINUX_2": ImageId_AMAZON_LINUX_2,
+			"UBUNTU_18_04": ImageId_UBUNTU_18_04,
+		},
+	)
 }

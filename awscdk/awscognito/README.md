@@ -226,6 +226,34 @@ User pools come with two 'built-in' attributes - `email_verified` and `phone_num
 configured (required-ness or mutability) as part of user pool creation. However, user pool administrators can modify
 them for specific users using the [AdminUpdateUserAttributes API](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html).
 
+### Attribute verification
+
+When your user updates an email address or phone number attribute, Amazon Cognito marks it unverified until they verify the new value.
+You can’t send messages to an unverified email address or phone number.
+Your user can’t sign in with an unverified alias attribute.
+You can choose how Amazon Cognito handles an updated email address or phone number after the update and before the verification.
+
+Learn more on [configuring email or phone verification in Cognito's documentation.](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html?icmpid=docs_cognito_console_help_panel)
+
+The following code configures a user pool that keeps the original value for the two standard attributes (email and phone_number) until the new values are verified.
+
+```go
+cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+	// ...
+	signInAliases: &signInAliases{
+		username: jsii.Boolean(true),
+	},
+	autoVerify: &autoVerifiedAttrs{
+		email: jsii.Boolean(true),
+		phone: jsii.Boolean(true),
+	},
+	keepOriginal: &keepOriginalAttrs{
+		email: jsii.Boolean(true),
+		phone: jsii.Boolean(true),
+	},
+})
+```
+
 ### Security
 
 Cognito sends various messages to its users via SMS, for different actions, ranging from account verification to

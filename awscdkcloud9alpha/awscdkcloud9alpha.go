@@ -34,6 +34,7 @@ import (
 //   		cloud9.*cloneRepository.fromCodeCommit(repoNew, jsii.String("/src/new-repo")),
 //   		cloud9.*cloneRepository.fromCodeCommit(repoExisting, jsii.String("/src/existing-repo")),
 //   	},
+//   	imageId: cloud9.imageId_AMAZON_LINUX_2,
 //   })
 //
 // Experimental.
@@ -92,7 +93,7 @@ func CloneRepository_FromCodeCommit(repository awscodecommit.IRepository, path *
 type ConnectionType string
 
 const (
-	// Conect through SSH.
+	// Connect through SSH.
 	// Experimental.
 	ConnectionType_CONNECT_SSH ConnectionType = "CONNECT_SSH"
 	// Connect through AWS Systems Manager.
@@ -103,35 +104,26 @@ const (
 // A Cloud9 Environment with Amazon EC2.
 //
 // Example:
-//   // create a cloud9 ec2 environment in a new VPC
-//   vpc := ec2.NewVpc(this, jsii.String("VPC"), &vpcProps{
-//   	maxAzs: jsii.Number(3),
-//   })
-//   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env"), &ec2EnvironmentProps{
-//   	vpc: vpc,
+//   import codecommit "github.com/aws/aws-cdk-go/awscdk"
+//
+//   // create a new Cloud9 environment and clone the two repositories
+//   var vpc vpc
+//
+//
+//   // create a codecommit repository to clone into the cloud9 environment
+//   repoNew := codecommit.NewRepository(this, jsii.String("RepoNew"), &repositoryProps{
+//   	repositoryName: jsii.String("new-repo"),
 //   })
 //
-//   // or create the cloud9 environment in the default VPC with specific instanceType
-//   defaultVpc := ec2.vpc.fromLookup(this, jsii.String("DefaultVPC"), &vpcLookupOptions{
-//   	isDefault: jsii.Boolean(true),
-//   })
-//   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &ec2EnvironmentProps{
-//   	vpc: defaultVpc,
-//   	instanceType: ec2.NewInstanceType(jsii.String("t3.large")),
-//   })
-//
-//   // or specify in a different subnetSelection
-//   c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &ec2EnvironmentProps{
+//   // import an existing codecommit repository to clone into the cloud9 environment
+//   repoExisting := codecommit.repository.fromRepositoryName(this, jsii.String("RepoExisting"), jsii.String("existing-repo"))
+//   cloud9.NewEc2Environment(this, jsii.String("C9Env"), &ec2EnvironmentProps{
 //   	vpc: vpc,
-//   	subnetSelection: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   	clonedRepositories: []cloneRepository{
+//   		cloud9.*cloneRepository.fromCodeCommit(repoNew, jsii.String("/src/new-repo")),
+//   		cloud9.*cloneRepository.fromCodeCommit(repoExisting, jsii.String("/src/existing-repo")),
 //   	},
-//   })
-//
-//   // print the Cloud9 IDE URL in the output
-//   // print the Cloud9 IDE URL in the output
-//   awscdk.NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
-//   	value: c9env.ideUrl,
+//   	imageId: cloud9.imageId_AMAZON_LINUX_2,
 //   })
 //
 // Experimental.
@@ -481,39 +473,33 @@ func (e *jsiiProxy_Ec2Environment) ToString() *string {
 // Properties for Ec2Environment.
 //
 // Example:
-//   // create a cloud9 ec2 environment in a new VPC
-//   vpc := ec2.NewVpc(this, jsii.String("VPC"), &vpcProps{
-//   	maxAzs: jsii.Number(3),
-//   })
-//   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env"), &ec2EnvironmentProps{
-//   	vpc: vpc,
+//   import codecommit "github.com/aws/aws-cdk-go/awscdk"
+//
+//   // create a new Cloud9 environment and clone the two repositories
+//   var vpc vpc
+//
+//
+//   // create a codecommit repository to clone into the cloud9 environment
+//   repoNew := codecommit.NewRepository(this, jsii.String("RepoNew"), &repositoryProps{
+//   	repositoryName: jsii.String("new-repo"),
 //   })
 //
-//   // or create the cloud9 environment in the default VPC with specific instanceType
-//   defaultVpc := ec2.vpc.fromLookup(this, jsii.String("DefaultVPC"), &vpcLookupOptions{
-//   	isDefault: jsii.Boolean(true),
-//   })
-//   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &ec2EnvironmentProps{
-//   	vpc: defaultVpc,
-//   	instanceType: ec2.NewInstanceType(jsii.String("t3.large")),
-//   })
-//
-//   // or specify in a different subnetSelection
-//   c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &ec2EnvironmentProps{
+//   // import an existing codecommit repository to clone into the cloud9 environment
+//   repoExisting := codecommit.repository.fromRepositoryName(this, jsii.String("RepoExisting"), jsii.String("existing-repo"))
+//   cloud9.NewEc2Environment(this, jsii.String("C9Env"), &ec2EnvironmentProps{
 //   	vpc: vpc,
-//   	subnetSelection: &subnetSelection{
-//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   	clonedRepositories: []cloneRepository{
+//   		cloud9.*cloneRepository.fromCodeCommit(repoNew, jsii.String("/src/new-repo")),
+//   		cloud9.*cloneRepository.fromCodeCommit(repoExisting, jsii.String("/src/existing-repo")),
 //   	},
-//   })
-//
-//   // print the Cloud9 IDE URL in the output
-//   // print the Cloud9 IDE URL in the output
-//   awscdk.NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
-//   	value: c9env.ideUrl,
+//   	imageId: cloud9.imageId_AMAZON_LINUX_2,
 //   })
 //
 // Experimental.
 type Ec2EnvironmentProps struct {
+	// The image ID used for creating an Amazon EC2 environment.
+	// Experimental.
+	ImageId ImageId `field:"required" json:"imageId" yaml:"imageId"`
 	// The VPC that AWS Cloud9 will use to communicate with the Amazon Elastic Compute Cloud (Amazon EC2) instance.
 	// Experimental.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
@@ -575,4 +561,41 @@ func (j *jsiiProxy_IEc2Environment) Ec2EnvironmentName() *string {
 	)
 	return returns
 }
+
+// The image ID used for creating an Amazon EC2 environment.
+//
+// Example:
+//   import codecommit "github.com/aws/aws-cdk-go/awscdk"
+//
+//   // create a new Cloud9 environment and clone the two repositories
+//   var vpc vpc
+//
+//
+//   // create a codecommit repository to clone into the cloud9 environment
+//   repoNew := codecommit.NewRepository(this, jsii.String("RepoNew"), &repositoryProps{
+//   	repositoryName: jsii.String("new-repo"),
+//   })
+//
+//   // import an existing codecommit repository to clone into the cloud9 environment
+//   repoExisting := codecommit.repository.fromRepositoryName(this, jsii.String("RepoExisting"), jsii.String("existing-repo"))
+//   cloud9.NewEc2Environment(this, jsii.String("C9Env"), &ec2EnvironmentProps{
+//   	vpc: vpc,
+//   	clonedRepositories: []cloneRepository{
+//   		cloud9.*cloneRepository.fromCodeCommit(repoNew, jsii.String("/src/new-repo")),
+//   		cloud9.*cloneRepository.fromCodeCommit(repoExisting, jsii.String("/src/existing-repo")),
+//   	},
+//   	imageId: cloud9.imageId_AMAZON_LINUX_2,
+//   })
+//
+// Experimental.
+type ImageId string
+
+const (
+	// Create using Amazon Linux 2.
+	// Experimental.
+	ImageId_AMAZON_LINUX_2 ImageId = "AMAZON_LINUX_2"
+	// Create using Ubunut 18.04.
+	// Experimental.
+	ImageId_UBUNTU_18_04 ImageId = "UBUNTU_18_04"
+)
 

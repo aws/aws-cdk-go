@@ -37,6 +37,7 @@ vpc := ec2.NewVpc(this, jsii.String("VPC"), &vpcProps{
 })
 cloud9.NewEc2Environment(this, jsii.String("Cloud9Env"), &ec2EnvironmentProps{
 	vpc: vpc,
+	imageId: cloud9.imageId_AMAZON_LINUX_2,
 })
 
 // or create the cloud9 environment in the default VPC with specific instanceType
@@ -46,6 +47,7 @@ defaultVpc := ec2.vpc.fromLookup(this, jsii.String("DefaultVPC"), &vpcLookupOpti
 cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &ec2EnvironmentProps{
 	vpc: defaultVpc,
 	instanceType: ec2.NewInstanceType(jsii.String("t3.large")),
+	imageId: cloud9.*imageId_AMAZON_LINUX_2,
 })
 
 // or specify in a different subnetSelection
@@ -54,12 +56,28 @@ c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &ec2Environme
 	subnetSelection: &subnetSelection{
 		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
 	},
+	imageId: cloud9.*imageId_AMAZON_LINUX_2,
 })
 
 // print the Cloud9 IDE URL in the output
 // print the Cloud9 IDE URL in the output
 awscdk.NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
 	value: c9env.ideUrl,
+})
+```
+
+## Specifying EC2 AMI
+
+Use `imageId` to specify the EC2 AMI image to be used:
+
+```go
+defaultVpc := ec2.vpc.fromLookup(this, jsii.String("DefaultVPC"), &vpcLookupOptions{
+	isDefault: jsii.Boolean(true),
+})
+cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &ec2EnvironmentProps{
+	vpc: defaultVpc,
+	instanceType: ec2.NewInstanceType(jsii.String("t3.large")),
+	imageId: cloud9.imageId_UBUNTU_18_04,
 })
 ```
 
@@ -87,5 +105,6 @@ cloud9.NewEc2Environment(this, jsii.String("C9Env"), &ec2EnvironmentProps{
 		cloud9.*cloneRepository.fromCodeCommit(repoNew, jsii.String("/src/new-repo")),
 		cloud9.*cloneRepository.fromCodeCommit(repoExisting, jsii.String("/src/existing-repo")),
 	},
+	imageId: cloud9.imageId_AMAZON_LINUX_2,
 })
 ```

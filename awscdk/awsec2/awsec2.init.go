@@ -2469,6 +2469,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "spreadLevel", GoGetter: "SpreadLevel"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},

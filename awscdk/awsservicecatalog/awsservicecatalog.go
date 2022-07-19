@@ -13325,7 +13325,7 @@ type ProductStack interface {
 	//
 	// The ARN will be formatted as follows:
 	//
-	//    arn:{partition}:{service}:{region}:{account}:{resource}{sep}}{resource-name}
+	//    arn:{partition}:{service}:{region}:{account}:{resource}{sep}{resource-name}
 	//
 	// The required ARN pieces that are omitted will be taken from the stack that
 	// the 'scope' is attached to. If all ARN pieces are supplied, the supplied scope

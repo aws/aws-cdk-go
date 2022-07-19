@@ -937,6 +937,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.KeepOriginalAttrs",
+		reflect.TypeOf((*KeepOriginalAttrs)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_cognito.Mfa",
 		reflect.TypeOf((*Mfa)(nil)).Elem(),

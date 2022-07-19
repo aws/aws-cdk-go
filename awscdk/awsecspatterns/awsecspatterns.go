@@ -341,6 +341,8 @@ func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) ToString() *string {
 //   })
 //
 type ApplicationLoadBalancedEc2ServiceProps struct {
+	// A list of Capacity Provider strategies used to place a service.
+	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `field:"optional" json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Certificate Manager certificate to associate with the load balancer.
 	//
 	// Setting this option will set the load balancer protocol to HTTPS.
@@ -484,23 +486,21 @@ type ApplicationLoadBalancedEc2ServiceProps struct {
 //
 // Example:
 //   var cluster cluster
-//   var vpc vpc
 //
-//   service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
 //   	cluster: cluster,
-//   	vpc: vpc,
+//   	memoryLimitMiB: jsii.Number(1024),
 //   	desiredCount: jsii.Number(1),
+//   	cpu: jsii.Number(512),
 //   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
 //   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   		dockerLabels: map[string]*string{
-//   			"application.label.one": jsii.String("first_label"),
-//   			"application.label.two": jsii.String("second_label"),
+//   	},
+//   	taskSubnets: &subnetSelection{
+//   		subnets: []iSubnet{
+//   			ec2.subnet.fromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),
 //   		},
 //   	},
-//   })
-//
-//   service.taskDefinition.addContainer(jsii.String("Sidecar"), &containerDefinitionOptions{
-//   	image: ecs.*containerImage.fromRegistry(jsii.String("example/metrics-sidecar")),
+//   	loadBalancerName: jsii.String("application-lb-name"),
 //   })
 //
 type ApplicationLoadBalancedFargateService interface {
@@ -764,26 +764,26 @@ func (a *jsiiProxy_ApplicationLoadBalancedFargateService) ToString() *string {
 //
 // Example:
 //   var cluster cluster
-//   var vpc vpc
 //
-//   service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
 //   	cluster: cluster,
-//   	vpc: vpc,
+//   	memoryLimitMiB: jsii.Number(1024),
 //   	desiredCount: jsii.Number(1),
+//   	cpu: jsii.Number(512),
 //   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
 //   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   		dockerLabels: map[string]*string{
-//   			"application.label.one": jsii.String("first_label"),
-//   			"application.label.two": jsii.String("second_label"),
+//   	},
+//   	taskSubnets: &subnetSelection{
+//   		subnets: []iSubnet{
+//   			ec2.subnet.fromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),
 //   		},
 //   	},
-//   })
-//
-//   service.taskDefinition.addContainer(jsii.String("Sidecar"), &containerDefinitionOptions{
-//   	image: ecs.*containerImage.fromRegistry(jsii.String("example/metrics-sidecar")),
+//   	loadBalancerName: jsii.String("application-lb-name"),
 //   })
 //
 type ApplicationLoadBalancedFargateServiceProps struct {
+	// A list of Capacity Provider strategies used to place a service.
+	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `field:"optional" json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Certificate Manager certificate to associate with the load balancer.
 	//
 	// Setting this option will set the load balancer protocol to HTTPS.
@@ -1163,6 +1163,15 @@ func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) ToString() *string {
 //   var vpc vpc
 //
 //   applicationLoadBalancedServiceBaseProps := &applicationLoadBalancedServiceBaseProps{
+//   	capacityProviderStrategies: []capacityProviderStrategy{
+//   		&capacityProviderStrategy{
+//   			capacityProvider: jsii.String("capacityProvider"),
+//
+//   			// the properties below are optional
+//   			base: jsii.Number(123),
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
 //   	certificate: certificate,
 //   	circuitBreaker: &deploymentCircuitBreaker{
 //   		rollback: jsii.Boolean(false),
@@ -1226,6 +1235,8 @@ func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) ToString() *string {
 //   }
 //
 type ApplicationLoadBalancedServiceBaseProps struct {
+	// A list of Capacity Provider strategies used to place a service.
+	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `field:"optional" json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Certificate Manager certificate to associate with the load balancer.
 	//
 	// Setting this option will set the load balancer protocol to HTTPS.
@@ -3113,6 +3124,8 @@ func (n *jsiiProxy_NetworkLoadBalancedEc2Service) ToString() *string {
 //   })
 //
 type NetworkLoadBalancedEc2ServiceProps struct {
+	// A list of Capacity Provider strategies used to place a service.
+	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `field:"optional" json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
@@ -3488,6 +3501,8 @@ func (n *jsiiProxy_NetworkLoadBalancedFargateService) ToString() *string {
 //   })
 //
 type NetworkLoadBalancedFargateServiceProps struct {
+	// A list of Capacity Provider strategies used to place a service.
+	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `field:"optional" json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly
@@ -3812,6 +3827,15 @@ func (n *jsiiProxy_NetworkLoadBalancedServiceBase) ToString() *string {
 //   var vpc vpc
 //
 //   networkLoadBalancedServiceBaseProps := &networkLoadBalancedServiceBaseProps{
+//   	capacityProviderStrategies: []capacityProviderStrategy{
+//   		&capacityProviderStrategy{
+//   			capacityProvider: jsii.String("capacityProvider"),
+//
+//   			// the properties below are optional
+//   			base: jsii.Number(123),
+//   			weight: jsii.Number(123),
+//   		},
+//   	},
 //   	circuitBreaker: &deploymentCircuitBreaker{
 //   		rollback: jsii.Boolean(false),
 //   	},
@@ -3867,6 +3891,8 @@ func (n *jsiiProxy_NetworkLoadBalancedServiceBase) ToString() *string {
 //   }
 //
 type NetworkLoadBalancedServiceBaseProps struct {
+	// A list of Capacity Provider strategies used to place a service.
+	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `field:"optional" json:"capacityProviderStrategies" yaml:"capacityProviderStrategies"`
 	// Whether to enable the deployment circuit breaker.
 	//
 	// If this property is defined, circuit breaker will be implicitly

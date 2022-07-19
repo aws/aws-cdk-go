@@ -18264,7 +18264,8 @@ type CustomResourceProps struct {
 	// });
 	// ```
 	//
-	// AWS Lambda function:
+	// AWS Lambda function (not recommended to use AWS Lambda Functions directly,
+	// see the module README):
 	//
 	// ```ts
 	// // invoke an AWS Lambda function when a lifecycle event occurs:
@@ -18273,7 +18274,8 @@ type CustomResourceProps struct {
 	// });
 	// ```
 	//
-	// SNS topic:
+	// SNS topic (not recommended to use AWS Lambda Functions directly, see the
+	// module README):
 	//
 	// ```ts
 	// // publish lifecycle events to an SNS topic:
@@ -18312,11 +18314,12 @@ type CustomResourceProps struct {
 // This is a provider for `CustomResource` constructs, backed by an AWS Lambda
 // Function. It only supports NodeJS runtimes.
 //
-// **This is not a generic custom resource provider class**. It is specifically
-// intended to be used only by constructs in the AWS CDK Construct Library, and
-// only exists here because of reverse dependency issues (for example, it cannot
-// use `iam.PolicyStatement` objects, since the `iam` library already depends on
-// the CDK `core` library and we cannot have cyclic dependencies).
+// > **Application builders do not need to use this provider type**. This is not
+// > a generic custom resource provider class. It is specifically
+// > intended to be used only by constructs in the AWS CDK Construct Library, and
+// > only exists here because of reverse dependency issues (for example, it cannot
+// > use `iam.PolicyStatement` objects, since the `iam` library already depends on
+// > the CDK `core` library and we cannot have cyclic dependencies).
 //
 // If you are not writing constructs for the AWS Construct Library, you should
 // use the `Provider` class in the `custom-resources` module instead, which has
@@ -23805,7 +23808,7 @@ type NestedStack interface {
 	//
 	// The ARN will be formatted as follows:
 	//
-	//    arn:{partition}:{service}:{region}:{account}:{resource}{sep}}{resource-name}
+	//    arn:{partition}:{service}:{region}:{account}:{resource}{sep}{resource-name}
 	//
 	// The required ARN pieces that are omitted will be taken from the stack that
 	// the 'scope' is attached to. If all ARN pieces are supplied, the supplied scope
@@ -26441,7 +26444,7 @@ type Stack interface {
 	//
 	// The ARN will be formatted as follows:
 	//
-	//    arn:{partition}:{service}:{region}:{account}:{resource}{sep}}{resource-name}
+	//    arn:{partition}:{service}:{region}:{account}:{resource}{sep}{resource-name}
 	//
 	// The required ARN pieces that are omitted will be taken from the stack that
 	// the 'scope' is attached to. If all ARN pieces are supplied, the supplied scope

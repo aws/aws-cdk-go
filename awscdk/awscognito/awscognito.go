@@ -11905,6 +11905,31 @@ func (j *jsiiProxy_IUserPoolResourceServer) UserPoolResourceServerId() *string {
 	return returns
 }
 
+// Attributes that will be kept until the user verifies the changed attribute.
+//
+// Example:
+//   cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
+//   	// ...
+//   	signInAliases: &signInAliases{
+//   		username: jsii.Boolean(true),
+//   	},
+//   	autoVerify: &autoVerifiedAttrs{
+//   		email: jsii.Boolean(true),
+//   		phone: jsii.Boolean(true),
+//   	},
+//   	keepOriginal: &keepOriginalAttrs{
+//   		email: jsii.Boolean(true),
+//   		phone: jsii.Boolean(true),
+//   	},
+//   })
+//
+type KeepOriginalAttrs struct {
+	// Whether the email address of the user should remain the original value until the new email address is verified.
+	Email *bool `field:"optional" json:"email" yaml:"email"`
+	// Whether the phone number of the user should remain the original value until the new phone number is verified.
+	Phone *bool `field:"optional" json:"phone" yaml:"phone"`
+}
+
 // The different ways in which a user pool's MFA enforcement can be configured.
 //
 // Example:
@@ -12918,6 +12943,10 @@ type ResourceServerScopeProps struct {
 //   	signInAliases: &signInAliases{
 //   		username: jsii.Boolean(true),
 //   		email: jsii.Boolean(true),
+//   	},
+//   	autoVerify: &autoVerifiedAttrs{
+//   		email: jsii.Boolean(true),
+//   		phone: jsii.Boolean(true),
 //   	},
 //   })
 //
@@ -17022,6 +17051,10 @@ type UserPoolProps struct {
 	//
 	// When left unspecified, CDK will determine based on other properties if a role is needed or not.
 	EnableSmsRole *bool `field:"optional" json:"enableSmsRole" yaml:"enableSmsRole"`
+	// Attributes which Cognito will look to handle changes to the value of your users' email address and phone number attributes.
+	//
+	// EMAIL and PHONE are the only available options.
+	KeepOriginal *KeepOriginalAttrs `field:"optional" json:"keepOriginal" yaml:"keepOriginal"`
 	// Lambda functions to use for supported Cognito triggers.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html
 	//

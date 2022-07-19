@@ -13110,33 +13110,22 @@ const (
 // Constructs for types of container images.
 //
 // Example:
-//   var vpc vpc
+//   var cluster cluster
 //
-//
-//   cluster := ecs.NewCluster(this, jsii.String("FargateCPCluster"), &clusterProps{
-//   	vpc: vpc,
-//   	enableFargateCapacityProviders: jsii.Boolean(true),
-//   })
-//
-//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"))
-//
-//   taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
-//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   })
-//
-//   ecs.NewFargateService(this, jsii.String("FargateService"), &fargateServiceProps{
+//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
 //   	cluster: cluster,
-//   	taskDefinition: taskDefinition,
-//   	capacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
-//   			capacityProvider: jsii.String("FARGATE_SPOT"),
-//   			weight: jsii.Number(2),
-//   		},
-//   		&capacityProviderStrategy{
-//   			capacityProvider: jsii.String("FARGATE"),
-//   			weight: jsii.Number(1),
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	desiredCount: jsii.Number(1),
+//   	cpu: jsii.Number(512),
+//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	taskSubnets: &subnetSelection{
+//   		subnets: []iSubnet{
+//   			ec2.subnet.fromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),
 //   		},
 //   	},
+//   	loadBalancerName: jsii.String("application-lb-name"),
 //   })
 //
 type ContainerImage interface {

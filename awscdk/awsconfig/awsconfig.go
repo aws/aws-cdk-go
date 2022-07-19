@@ -1139,6 +1139,11 @@ type CfnAggregationAuthorizationProps struct {
 //   		owner: jsii.String("owner"),
 //
 //   		// the properties below are optional
+//   		customPolicyDetails: &customPolicyDetailsProperty{
+//   			enableDebugLogDelivery: jsii.Boolean(false),
+//   			policyRuntime: jsii.String("policyRuntime"),
+//   			policyText: jsii.String("policyText"),
+//   		},
 //   		sourceDetails: []interface{}{
 //   			&sourceDetailProperty{
 //   				eventSource: jsii.String("eventSource"),
@@ -1855,6 +1860,26 @@ func (c *jsiiProxy_CfnConfigRule) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   customPolicyDetailsProperty := &customPolicyDetailsProperty{
+//   	enableDebugLogDelivery: jsii.Boolean(false),
+//   	policyRuntime: jsii.String("policyRuntime"),
+//   	policyText: jsii.String("policyText"),
+//   }
+//
+type CfnConfigRule_CustomPolicyDetailsProperty struct {
+	// `CfnConfigRule.CustomPolicyDetailsProperty.EnableDebugLogDelivery`.
+	EnableDebugLogDelivery interface{} `field:"optional" json:"enableDebugLogDelivery" yaml:"enableDebugLogDelivery"`
+	// `CfnConfigRule.CustomPolicyDetailsProperty.PolicyRuntime`.
+	PolicyRuntime *string `field:"optional" json:"policyRuntime" yaml:"policyRuntime"`
+	// `CfnConfigRule.CustomPolicyDetailsProperty.PolicyText`.
+	PolicyText *string `field:"optional" json:"policyText" yaml:"policyText"`
+}
+
 // Defines which resources trigger an evaluation for an AWS Config rule.
 //
 // The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
@@ -1942,6 +1967,11 @@ type CfnConfigRule_SourceDetailProperty struct {
 //   	owner: jsii.String("owner"),
 //
 //   	// the properties below are optional
+//   	customPolicyDetails: &customPolicyDetailsProperty{
+//   		enableDebugLogDelivery: jsii.Boolean(false),
+//   		policyRuntime: jsii.String("policyRuntime"),
+//   		policyText: jsii.String("policyText"),
+//   	},
 //   	sourceDetails: []interface{}{
 //   		&sourceDetailProperty{
 //   			eventSource: jsii.String("eventSource"),
@@ -1961,6 +1991,8 @@ type CfnConfigRule_SourceProperty struct {
 	//
 	// AWS Config Custom Rules are rules that you can develop either with Guard ( `CUSTOM_POLICY` ) or AWS Lambda ( `CUSTOM_LAMBDA` ). For more information, see [AWS Config Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the AWS Config developer guide.
 	Owner *string `field:"required" json:"owner" yaml:"owner"`
+	// `CfnConfigRule.SourceProperty.CustomPolicyDetails`.
+	CustomPolicyDetails interface{} `field:"optional" json:"customPolicyDetails" yaml:"customPolicyDetails"`
 	// Provides the source and the message types that cause AWS Config to evaluate your AWS resources against a rule.
 	//
 	// It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
@@ -1991,6 +2023,11 @@ type CfnConfigRule_SourceProperty struct {
 //   		owner: jsii.String("owner"),
 //
 //   		// the properties below are optional
+//   		customPolicyDetails: &customPolicyDetailsProperty{
+//   			enableDebugLogDelivery: jsii.Boolean(false),
+//   			policyRuntime: jsii.String("policyRuntime"),
+//   			policyText: jsii.String("policyText"),
+//   		},
 //   		sourceDetails: []interface{}{
 //   			&sourceDetailProperty{
 //   				eventSource: jsii.String("eventSource"),

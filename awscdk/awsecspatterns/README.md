@@ -383,6 +383,33 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 })
 ```
 
+### Set capacityProviderStrategies for ApplicationLoadBalancedFargateService
+
+```go
+var cluster cluster
+
+cluster.enableFargateCapacityProviders()
+
+loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+	cluster: cluster,
+	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	},
+	capacityProviderStrategies: []capacityProviderStrategy{
+		&capacityProviderStrategy{
+			capacityProvider: jsii.String("FARGATE_SPOT"),
+			weight: jsii.Number(2),
+			base: jsii.Number(0),
+		},
+		&capacityProviderStrategy{
+			capacityProvider: jsii.String("FARGATE"),
+			weight: jsii.Number(1),
+			base: jsii.Number(1),
+		},
+	},
+})
+```
+
 ### Add Schedule-Based Auto-Scaling to an ApplicationLoadBalancedFargateService
 
 ```go
