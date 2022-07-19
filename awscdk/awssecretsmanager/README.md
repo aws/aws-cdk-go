@@ -151,11 +151,6 @@ secret.addRotationSchedule(jsii.String("RotationSchedule"), &rotationScheduleOpt
 dbConnections.allowDefaultPortFrom(myHostedRotation)
 ```
 
-Use the `excludeCharacters` option to customize the characters excluded from
-the generated password when it is rotated. By default, the rotation excludes
-the same characters as the ones excluded for the secret. If none are defined
-then the following set is used: `% +~`#$&*()|[]{}:;<>?!'/@"\`.
-
 See also [Automating secret creation in AWS CloudFormation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_cloudformation.html).
 
 ## Rotating database credentials
@@ -214,7 +209,7 @@ secretsmanager.NewSecretRotation(this, jsii.String("SecretRotation"), &secretRot
 })
 ```
 
-See also [aws-rds](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-rds/README.md) where
+See also [aws-rds](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-rds/README.md) where
 credentials generation and rotation is integrated.
 
 ## Importing Secrets
@@ -263,38 +258,3 @@ Alternatively, use `addReplicaRegion()`:
 secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
 secret.addReplicaRegion(jsii.String("eu-west-1"))
 ```
-
-## Creating JSON Secrets
-
-Sometimes it is necessary to create a secret in SecretsManager that contains a JSON object.
-For example:
-
-```json
-{
-  "username": "myUsername",
-  "database": "foo",
-  "password": "mypassword"
-}
-```
-
-In order to create this type of secret, use the `secretObjectValue` input prop.
-
-```go
-var stack stack
-user := iam.NewUser(stack, jsii.String("User"))
-accessKey := iam.NewAccessKey(stack, jsii.String("AccessKey"), &accessKeyProps{
-	user: user,
-})
-
-secretsmanager.NewSecret(stack, jsii.String("Secret"), &secretProps{
-	secretObjectValue: map[string]secretValue{
-		"username": awscdk.SecretValue.unsafePlainText(user.userName),
-		"database": awscdk.SecretValue.unsafePlainText(jsii.String("foo")),
-		"password": accessKey.secretAccessKey,
-	},
-})
-```
-
-In this case both the `username` and `database` are not a `Secret` so `SecretValue.unsafePlainText` needs to be used.
-This means that they will be rendered as plain text in the template, but in this case neither of those
-are actual "secrets".

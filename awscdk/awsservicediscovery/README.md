@@ -25,7 +25,7 @@ app := cdk.NewApp()
 stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
 
 namespace := servicediscovery.NewHttpNamespace(stack, jsii.String("MyNamespace"), &httpNamespaceProps{
-	name: jsii.String("MyHTTPNamespace"),
+	name: jsii.String("covfefe"),
 })
 
 service1 := namespace.createService(jsii.String("NonIpService"), &baseServiceProps{
