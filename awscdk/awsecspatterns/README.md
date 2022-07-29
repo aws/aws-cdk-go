@@ -383,33 +383,6 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 })
 ```
 
-### Set capacityProviderStrategies for ApplicationLoadBalancedFargateService
-
-```go
-var cluster cluster
-
-cluster.enableFargateCapacityProviders()
-
-loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
-	cluster: cluster,
-	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
-		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-	},
-	capacityProviderStrategies: []capacityProviderStrategy{
-		&capacityProviderStrategy{
-			capacityProvider: jsii.String("FARGATE_SPOT"),
-			weight: jsii.Number(2),
-			base: jsii.Number(0),
-		},
-		&capacityProviderStrategy{
-			capacityProvider: jsii.String("FARGATE"),
-			weight: jsii.Number(1),
-			base: jsii.Number(1),
-		},
-	},
-})
-```
-
 ### Add Schedule-Based Auto-Scaling to an ApplicationLoadBalancedFargateService
 
 ```go
@@ -660,7 +633,7 @@ capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("provider"), &a
 })
 cluster.addAsgCapacityProvider(capacityProvider)
 
-queueProcessingEc2Service := ecsPatterns.NewQueueProcessingEc2Service(this, jsii.String("Service"), &queueProcessingEc2ServiceProps{
+queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &queueProcessingFargateServiceProps{
 	cluster: cluster,
 	memoryLimitMiB: jsii.Number(512),
 	image: ecs.containerImage.fromRegistry(jsii.String("test")),
@@ -829,33 +802,3 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 	loadBalancerName: jsii.String("application-lb-name"),
 })
 ```
-
-### ECS Exec
-
-You can use ECS Exec to run commands in or get a shell to a container running on an Amazon EC2 instance or on
-AWS Fargate. Enable ECS Exec, by setting `enableExecuteCommand` to `true`.
-
-ECS Exec is supported by all Services i.e. `ApplicationLoadBalanced(Fargate|Ec2)Service`, `ApplicationMultipleTargetGroups(Fargate|Ec2)Service`, `NetworkLoadBalanced(Fargate|Ec2)Service`, `NetworkMultipleTargetGroups(Fargate|Ec2)Service`, `QueueProcessing(Fargate|Ec2)Service`. It is not supported for `ScheduledTask`s.
-
-Read more about ECS Exec in the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html).
-
-Example:
-
-```go
-var cluster cluster
-
-loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
-	cluster: cluster,
-	memoryLimitMiB: jsii.Number(1024),
-	desiredCount: jsii.Number(1),
-	cpu: jsii.Number(512),
-	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
-		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-	},
-	enableExecuteCommand: jsii.Boolean(true),
-})
-```
-
-Please note, ECS Exec leverages AWS Systems Manager (SSM). So as a prerequisite for the exec command
-to work, you need to have the SSM plugin for the AWS CLI installed locally. For more information, see
-[Install Session Manager plugin for AWS CLI](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html).

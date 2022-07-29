@@ -64,7 +64,7 @@ Here are the main differences:
   Application/Network Load Balancers. Only the AWS log driver is supported.
   Many host features are not supported such as adding kernel capabilities
   and mounting host devices/volumes inside the container.
-* **AWS ECSAnywhere**: tasks are run and managed by AWS ECS Anywhere on infrastructure owned by the customer. Bridge, Host and None networking modes are supported. Does not support autoscaling, load balancing, cloudmap or attachment of volumes.
+* **AWS ECSAnywhere**: tasks are run and managed by AWS ECS Anywhere on infrastructure owned by the customer. Only Bridge networking mode is supported. Does not support autoscaling, load balancing, cloudmap or attachment of volumes.
 
 For more information on Amazon EC2 vs AWS Fargate, networking and ECS Anywhere see the AWS Documentation:
 [AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html),
@@ -159,38 +159,6 @@ autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &a
 	vpc: vpc,
 	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
 })
-```
-
-To use `LaunchTemplate` with `AsgCapacityProvider`, make sure to specify the `userData` in the `LaunchTemplate`:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("ASG-LaunchTemplate"), &launchTemplateProps{
-	instanceType: ec2.NewInstanceType(jsii.String("t3.medium")),
-	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
-	userData: ec2.userData.forLinux(),
-})
-
-autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-	vpc: vpc,
-	mixedInstancesPolicy: &mixedInstancesPolicy{
-		instancesDistribution: &instancesDistribution{
-			onDemandPercentageAboveBaseCapacity: jsii.Number(50),
-		},
-		launchTemplate: launchTemplate,
-	},
-})
-
-cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
-	vpc: vpc,
-})
-
-capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
-	autoScalingGroup: autoScalingGroup,
-	machineImageType: ecs.machineImageType_AMAZON_LINUX_2,
-})
-
-cluster.addAsgCapacityProvider(capacityProvider)
 ```
 
 ### Bottlerocket
@@ -420,22 +388,6 @@ taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &taskDefin
 	networkMode: ecs.networkMode_AWS_VPC,
 	compatibility: ecs.compatibility_EC2_AND_FARGATE,
 })
-```
-
-To grant a principal permission to run your `TaskDefinition`, you can use the `TaskDefinition.grantRun()` method:
-
-```go
-// Example automatically generated from non-compiling source. May contain errors.
-var role iam.IGrantable
-
-taskDef := ecs.NewTaskDefinition(stack, jsii.String("TaskDef"), &taskDefinitionProps{
-	cpu: jsii.String("512"),
-	memoryMiB: jsii.String("512"),
-	compatibility: ecs.compatibility_EC2_AND_FARGATE,
-})
-
-// Gives role required permissions to run taskDef
-taskDef.grantRun(role)
 ```
 
 ### Images
