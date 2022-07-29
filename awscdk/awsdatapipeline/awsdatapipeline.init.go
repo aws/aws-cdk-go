@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_datapipeline.CfnPipeline",
+		"aws-cdk-lib.aws_datapipeline.CfnPipeline",
 		reflect.TypeOf((*CfnPipeline)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "activate", GoGetter: "Activate"},
@@ -30,23 +30,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterObjects", GoGetter: "ParameterObjects"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterValues", GoGetter: "ParameterValues"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineObjects", GoGetter: "PipelineObjects"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineTags", GoGetter: "PipelineTags"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -57,31 +52,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_datapipeline.CfnPipeline.FieldProperty",
+		"aws-cdk-lib.aws_datapipeline.CfnPipeline.FieldProperty",
 		reflect.TypeOf((*CfnPipeline_FieldProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_datapipeline.CfnPipeline.ParameterAttributeProperty",
+		"aws-cdk-lib.aws_datapipeline.CfnPipeline.ParameterAttributeProperty",
 		reflect.TypeOf((*CfnPipeline_ParameterAttributeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_datapipeline.CfnPipeline.ParameterObjectProperty",
+		"aws-cdk-lib.aws_datapipeline.CfnPipeline.ParameterObjectProperty",
 		reflect.TypeOf((*CfnPipeline_ParameterObjectProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_datapipeline.CfnPipeline.ParameterValueProperty",
+		"aws-cdk-lib.aws_datapipeline.CfnPipeline.ParameterValueProperty",
 		reflect.TypeOf((*CfnPipeline_ParameterValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_datapipeline.CfnPipeline.PipelineObjectProperty",
+		"aws-cdk-lib.aws_datapipeline.CfnPipeline.PipelineObjectProperty",
 		reflect.TypeOf((*CfnPipeline_PipelineObjectProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_datapipeline.CfnPipeline.PipelineTagProperty",
+		"aws-cdk-lib.aws_datapipeline.CfnPipeline.PipelineTagProperty",
 		reflect.TypeOf((*CfnPipeline_PipelineTagProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_datapipeline.CfnPipelineProps",
+		"aws-cdk-lib.aws_datapipeline.CfnPipelineProps",
 		reflect.TypeOf((*CfnPipelineProps)(nil)).Elem(),
 	)
 }

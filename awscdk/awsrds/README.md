@@ -58,9 +58,33 @@ rds.NewDatabaseClusterFromSnapshot(this, jsii.String("Database"), &databaseClust
 })
 ```
 
+### Updating the database instances in a cluster
+
+Database cluster instances may be updated in bulk or on a rolling basis.
+
+An update to all instances in a cluster may cause significant downtime. To reduce the downtime, set the `instanceUpdateBehavior` property in `DatabaseClusterBaseProps` to `InstanceUpdateBehavior.ROLLING`. This adds a dependency between each instance so the update is performed on only one instance at a time.
+
+Use `InstanceUpdateBehavior.BULK` to update all instances at once.
+
+```go
+var vpc vpc
+
+cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
+	engine: rds.databaseClusterEngine.auroraMysql(&auroraMysqlClusterEngineProps{
+		version: rds.auroraMysqlEngineVersion_VER_3_01_0(),
+	}),
+	instances: jsii.Number(2),
+	instanceProps: &instanceProps{
+		instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE3, ec2.instanceSize_SMALL),
+		vpc: vpc,
+	},
+	instanceUpdateBehaviour: rds.instanceUpdateBehaviour_ROLLING,
+})
+```
+
 ## Starting an instance database
 
-To set up a instance database, define a `DatabaseInstance`. You must
+To set up an instance database, define a `DatabaseInstance`. You must
 always launch a database in a VPC. Use the `vpcSubnets` attribute to control whether
 your instances will be launched privately or publicly:
 
@@ -582,7 +606,7 @@ instance.addRotationSingleUser(&rotationSingleUserOptions{
 })
 ```
 
-See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
+See also [@aws-cdk/aws-secretsmanager](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-secretsmanager/README.md) for credentials rotation of existing clusters/instances.
 
 ## IAM Authentication
 
@@ -958,7 +982,7 @@ cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &server
 	enableDataApi: jsii.Boolean(true),
 })
 fn := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_12_X(),
+	runtime: lambda.runtime_NODEJS_14_X(),
 	handler: jsii.String("index.handler"),
 	code: code,
 	environment: map[string]*string{
