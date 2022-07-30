@@ -196,6 +196,7 @@ The `locked` boolean which when set to true will prevent your `currentVersionNam
 from being overwritten when there is an existing snapshot for that version.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 
@@ -204,7 +205,7 @@ type s3BucketProduct struct {
 	productStack
 }
 
-func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
 	this := &s3BucketProduct{}
 	servicecatalog.NewProductStack_Override(this, scope, id)
 
@@ -222,6 +223,7 @@ productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("
 We can deploy the current version `v1` by using `productStackHistory.currentVersion()`
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 
@@ -230,7 +232,7 @@ type s3BucketProduct struct {
 	productStack
 }
 
-func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
 	this := &s3BucketProduct{}
 	servicecatalog.NewProductStack_Override(this, scope, id)
 
@@ -263,6 +265,7 @@ make changes to the `ProductStack` and update the `currentVersionName` to `v2`.
 We still want our `v1` version to still be deployed, so we reference it by calling `productStackHistory.versionFromSnapshot('v1')`.
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import s3 "github.com/aws/aws-cdk-go/awscdk"
 import cdk "github.com/aws/aws-cdk-go/awscdk"
 
@@ -271,7 +274,7 @@ type s3BucketProduct struct {
 	productStack
 }
 
-func newS3BucketProduct(scope construct, id *string) *s3BucketProduct {
+func newS3BucketProduct(scope cdk.Construct, id *string) *s3BucketProduct {
 	this := &s3BucketProduct{}
 	servicecatalog.NewProductStack_Override(this, scope, id)
 

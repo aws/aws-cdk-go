@@ -1,12 +1,12 @@
 package awscodestarnotifications
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::CodeStarNotifications::NotificationRule`.
@@ -47,11 +47,9 @@ type CfnNotificationRule interface {
 	awscdk.IInspectable
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// `AWS::CodeStarNotifications::NotificationRule.CreatedBy`.
 	CreatedBy() *string
@@ -59,7 +57,6 @@ type CfnNotificationRule interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The level of detail to include in the notifications for this resource.
 	//
@@ -83,21 +80,18 @@ type CfnNotificationRule interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account .
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The Amazon Resource Name (ARN) of the resource to associate with the notification rule.
 	//
@@ -107,7 +101,6 @@ type CfnNotificationRule interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The status of the notification rule.
 	//
@@ -124,20 +117,25 @@ type CfnNotificationRule interface {
 	// A list of Amazon Resource Names (ARNs) of AWS Chatbot topics and AWS Chatbot clients to associate with the notification rule.
 	Targets() interface{}
 	SetTargets(val interface{})
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -146,7 +144,6 @@ type CfnNotificationRule interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -191,15 +188,12 @@ type CfnNotificationRule interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -209,14 +203,17 @@ type CfnNotificationRule interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -225,74 +222,21 @@ type CfnNotificationRule interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -412,8 +356,8 @@ func (j *jsiiProxy_CfnNotificationRule) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotificationRule) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnNotificationRule) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -502,15 +446,25 @@ func (j *jsiiProxy_CfnNotificationRule) UpdatedProperites() *map[string]interfac
 	return returns
 }
 
+func (j *jsiiProxy_CfnNotificationRule) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::CodeStarNotifications::NotificationRule`.
-func NewCfnNotificationRule(scope awscdk.Construct, id *string, props *CfnNotificationRuleProps) CfnNotificationRule {
+func NewCfnNotificationRule(scope constructs.Construct, id *string, props *CfnNotificationRuleProps) CfnNotificationRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnNotificationRule{}
 
 	_jsii_.Create(
-		"monocdk.aws_codestarnotifications.CfnNotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.CfnNotificationRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -519,11 +473,11 @@ func NewCfnNotificationRule(scope awscdk.Construct, id *string, props *CfnNotifi
 }
 
 // Create a new `AWS::CodeStarNotifications::NotificationRule`.
-func NewCfnNotificationRule_Override(c CfnNotificationRule, scope awscdk.Construct, id *string, props *CfnNotificationRuleProps) {
+func NewCfnNotificationRule_Override(c CfnNotificationRule, scope constructs.Construct, id *string, props *CfnNotificationRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codestarnotifications.CfnNotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.CfnNotificationRule",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -607,14 +561,13 @@ func (j *jsiiProxy_CfnNotificationRule) SetTargets(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnNotificationRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codestarnotifications.CfnNotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.CfnNotificationRule",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -624,14 +577,13 @@ func CfnNotificationRule_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnNotificationRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codestarnotifications.CfnNotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.CfnNotificationRule",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -640,15 +592,30 @@ func CfnNotificationRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnNotificationRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codestarnotifications.CfnNotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.CfnNotificationRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -661,7 +628,7 @@ func CfnNotificationRule_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codestarnotifications.CfnNotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.CfnNotificationRule",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -758,48 +725,11 @@ func (c *jsiiProxy_CfnNotificationRule) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-func (c *jsiiProxy_CfnNotificationRule) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnNotificationRule) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnNotificationRule) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnNotificationRule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnNotificationRule) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -829,33 +759,12 @@ func (c *jsiiProxy_CfnNotificationRule) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnNotificationRule) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnNotificationRule) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnNotificationRule) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -960,29 +869,23 @@ type CfnNotificationRuleProps struct {
 }
 
 // The level of detail to include in the notifications for this resource.
-// Experimental.
 type DetailType string
 
 const (
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
-	// Experimental.
 	DetailType_BASIC DetailType = "BASIC"
 	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
-	// Experimental.
 	DetailType_FULL DetailType = "FULL"
 )
 
 // Represents a notification rule.
-// Experimental.
 type INotificationRule interface {
 	awscdk.IResource
 	// Adds target to notification rule.
 	//
 	// Returns: boolean - return true if it had any effect.
-	// Experimental.
 	AddTarget(target INotificationRuleTarget) *bool
 	// The ARN of the notification rule (i.e. arn:aws:codestar-notifications:::notificationrule/01234abcde).
-	// Experimental.
 	NotificationRuleArn() *string
 }
 
@@ -1015,10 +918,8 @@ func (j *jsiiProxy_INotificationRule) NotificationRuleArn() *string {
 }
 
 // Represents a notification source The source that allows CodeBuild and CodePipeline to associate with this rule.
-// Experimental.
 type INotificationRuleSource interface {
 	// Returns a source configuration for notification rule.
-	// Experimental.
 	BindAsNotificationRuleSource(scope constructs.Construct) *NotificationRuleSourceConfig
 }
 
@@ -1041,10 +942,8 @@ func (i *jsiiProxy_INotificationRuleSource) BindAsNotificationRuleSource(scope c
 }
 
 // Represents a notification target That allows AWS Chatbot and SNS topic to associate with this rule target.
-// Experimental.
 type INotificationRuleTarget interface {
 	// Returns a target configuration for notification rule.
-	// Experimental.
 	BindAsNotificationRuleTarget(scope constructs.Construct) *NotificationRuleTargetConfig
 }
 
@@ -1097,7 +996,6 @@ func (i *jsiiProxy_INotificationRuleTarget) BindAsNotificationRuleTarget(scope c
 //   })
 //   rule.addTarget(slack)
 //
-// Experimental.
 type NotificationRule interface {
 	awscdk.Resource
 	INotificationRule
@@ -1109,13 +1007,10 @@ type NotificationRule interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The ARN of the notification rule (i.e. arn:aws:codestar-notifications:::notificationrule/01234abcde).
-	// Experimental.
 	NotificationRuleArn() *string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
@@ -1124,13 +1019,10 @@ type NotificationRule interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Adds target to notification rule.
-	// Experimental.
 	AddTarget(target INotificationRuleTarget) *bool
 	// Apply the given removal policy to this resource.
 	//
@@ -1141,9 +1033,7 @@ type NotificationRule interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -1151,66 +1041,15 @@ type NotificationRule interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for NotificationRule
@@ -1229,8 +1068,8 @@ func (j *jsiiProxy_NotificationRule) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_NotificationRule) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_NotificationRule) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1270,14 +1109,13 @@ func (j *jsiiProxy_NotificationRule) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewNotificationRule(scope constructs.Construct, id *string, props *NotificationRuleProps) NotificationRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_NotificationRule{}
 
 	_jsii_.Create(
-		"monocdk.aws_codestarnotifications.NotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.NotificationRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1285,26 +1123,24 @@ func NewNotificationRule(scope constructs.Construct, id *string, props *Notifica
 	return &j
 }
 
-// Experimental.
 func NewNotificationRule_Override(n NotificationRule, scope constructs.Construct, id *string, props *NotificationRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codestarnotifications.NotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.NotificationRule",
 		[]interface{}{scope, id, props},
 		n,
 	)
 }
 
 // Import an existing notification rule provided an ARN.
-// Experimental.
 func NotificationRule_FromNotificationRuleArn(scope constructs.Construct, id *string, notificationRuleArn *string) INotificationRule {
 	_init_.Initialize()
 
 	var returns INotificationRule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codestarnotifications.NotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.NotificationRule",
 		"fromNotificationRuleArn",
 		[]interface{}{scope, id, notificationRuleArn},
 		&returns,
@@ -1313,15 +1149,30 @@ func NotificationRule_FromNotificationRuleArn(scope constructs.Construct, id *st
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func NotificationRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codestarnotifications.NotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.NotificationRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1330,15 +1181,30 @@ func NotificationRule_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func NotificationRule_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func NotificationRule_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codestarnotifications.NotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.NotificationRule",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func NotificationRule_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codestarnotifications.NotificationRule",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1407,70 +1273,12 @@ func (n *jsiiProxy_NotificationRule) GetResourceNameAttribute(nameAttr *string) 
 	return returns
 }
 
-func (n *jsiiProxy_NotificationRule) OnPrepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (n *jsiiProxy_NotificationRule) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (n *jsiiProxy_NotificationRule) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (n *jsiiProxy_NotificationRule) Prepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (n *jsiiProxy_NotificationRule) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (n *jsiiProxy_NotificationRule) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		n,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (n *jsiiProxy_NotificationRule) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1491,23 +1299,19 @@ func (n *jsiiProxy_NotificationRule) Validate() *[]*string {
 //   	notificationRuleName: jsii.String("notificationRuleName"),
 //   }
 //
-// Experimental.
 type NotificationRuleOptions struct {
 	// The level of detail to include in the notifications for this resource.
 	//
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
 	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
-	// Experimental.
 	DetailType DetailType `field:"optional" json:"detailType" yaml:"detailType"`
 	// The status of the notification rule.
 	//
 	// If the enabled is set to DISABLED, notifications aren't sent for the notification rule.
-	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account.
-	// Experimental.
 	NotificationRuleName *string `field:"optional" json:"notificationRuleName" yaml:"notificationRuleName"`
 }
 
@@ -1542,40 +1346,33 @@ type NotificationRuleOptions struct {
 //   })
 //   rule.addTarget(slack)
 //
-// Experimental.
 type NotificationRuleProps struct {
 	// The level of detail to include in the notifications for this resource.
 	//
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
 	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
-	// Experimental.
 	DetailType DetailType `field:"optional" json:"detailType" yaml:"detailType"`
 	// The status of the notification rule.
 	//
 	// If the enabled is set to DISABLED, notifications aren't sent for the notification rule.
-	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account.
-	// Experimental.
 	NotificationRuleName *string `field:"optional" json:"notificationRuleName" yaml:"notificationRuleName"`
 	// A list of event types associated with this notification rule.
 	//
 	// For a complete list of event types and IDs, see Notification concepts in the Developer Tools Console User Guide.
 	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api
 	//
-	// Experimental.
 	Events *[]*string `field:"required" json:"events" yaml:"events"`
 	// The Amazon Resource Name (ARN) of the resource to associate with the notification rule.
 	//
 	// Currently, Supported sources include pipelines in AWS CodePipeline, build projects in AWS CodeBuild, and repositories in AWS CodeCommit in this L2 constructor.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-resource
 	//
-	// Experimental.
 	Source INotificationRuleSource `field:"required" json:"source" yaml:"source"`
 	// The targets to register for the notification destination.
-	// Experimental.
 	Targets *[]INotificationRuleTarget `field:"optional" json:"targets" yaml:"targets"`
 }
 
@@ -1590,10 +1387,8 @@ type NotificationRuleProps struct {
 //   	sourceArn: jsii.String("sourceArn"),
 //   }
 //
-// Experimental.
 type NotificationRuleSourceConfig struct {
 	// The Amazon Resource Name (ARN) of the notification source.
-	// Experimental.
 	SourceArn *string `field:"required" json:"sourceArn" yaml:"sourceArn"`
 }
 
@@ -1609,15 +1404,12 @@ type NotificationRuleSourceConfig struct {
 //   	targetType: jsii.String("targetType"),
 //   }
 //
-// Experimental.
 type NotificationRuleTargetConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
-	// Experimental.
 	TargetAddress *string `field:"required" json:"targetAddress" yaml:"targetAddress"`
 	// The target type.
 	//
 	// Can be an Amazon SNS topic or AWS Chatbot client.
-	// Experimental.
 	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`
 }
 
