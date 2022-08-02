@@ -8,19 +8,19 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_autoscaling_common.Alarms",
+		"monocdk.aws_autoscaling_common.Alarms",
 		reflect.TypeOf((*Alarms)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_autoscaling_common.ArbitraryIntervals",
+		"monocdk.aws_autoscaling_common.ArbitraryIntervals",
 		reflect.TypeOf((*ArbitraryIntervals)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_autoscaling_common.CompleteScalingInterval",
+		"monocdk.aws_autoscaling_common.CompleteScalingInterval",
 		reflect.TypeOf((*CompleteScalingInterval)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_autoscaling_common.IRandomGenerator",
+		"monocdk.aws_autoscaling_common.IRandomGenerator",
 		reflect.TypeOf((*IRandomGenerator)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "nextBoolean", GoMethod: "NextBoolean"},
@@ -31,7 +31,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_autoscaling_common.ScalingInterval",
+		"monocdk.aws_autoscaling_common.ScalingInterval",
 		reflect.TypeOf((*ScalingInterval)(nil)).Elem(),
 	)
 }

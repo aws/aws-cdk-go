@@ -204,7 +204,7 @@ Compliance events are published to an SNS topic.
 evalComplianceFn := lambda.NewFunction(this, jsii.String("CustomFunction"), &functionProps{
 	code: lambda.assetCode.fromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 	handler: jsii.String("index.handler"),
-	runtime: lambda.runtime_NODEJS_14_X(),
+	runtime: lambda.runtime_NODEJS_12_X(),
 })
 
 // A custom rule that runs on configuration changes of EC2 instances

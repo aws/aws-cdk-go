@@ -14,8 +14,11 @@ import (
 //   	upperAlarmIntervalIndex: jsii.Number(123),
 //   }
 //
+// Experimental.
 type Alarms struct {
+	// Experimental.
 	LowerAlarmIntervalIndex *float64 `field:"optional" json:"lowerAlarmIntervalIndex" yaml:"lowerAlarmIntervalIndex"`
+	// Experimental.
 	UpperAlarmIntervalIndex *float64 `field:"optional" json:"upperAlarmIntervalIndex" yaml:"upperAlarmIntervalIndex"`
 }
 
@@ -37,8 +40,11 @@ type Alarms struct {
 //   	},
 //   }
 //
+// Experimental.
 type ArbitraryIntervals struct {
+	// Experimental.
 	Absolute *bool `field:"required" json:"absolute" yaml:"absolute"`
+	// Experimental.
 	Intervals *[]*ScalingInterval `field:"required" json:"intervals" yaml:"intervals"`
 }
 
@@ -55,14 +61,21 @@ type ArbitraryIntervals struct {
 //   	change: jsii.Number(123),
 //   }
 //
+// Experimental.
 type CompleteScalingInterval struct {
+	// Experimental.
 	Lower *float64 `field:"required" json:"lower" yaml:"lower"`
+	// Experimental.
 	Upper *float64 `field:"required" json:"upper" yaml:"upper"`
+	// Experimental.
 	Change *float64 `field:"optional" json:"change" yaml:"change"`
 }
 
+// Experimental.
 type IRandomGenerator interface {
+	// Experimental.
 	NextBoolean() *bool
+	// Experimental.
 	NextInt(min *float64, max *float64) *float64
 }
 
@@ -112,6 +125,7 @@ func (i *jsiiProxy_IRandomGenerator) NextInt(min *float64, max *float64) *float6
 //   	upper: jsii.Number(123),
 //   }
 //
+// Experimental.
 type ScalingInterval struct {
 	// The capacity adjustment to apply in this interval.
 	//
@@ -123,14 +137,17 @@ type ScalingInterval struct {
 	//    capacity to itself. The number can be in the range [-100..100].
 	// - ExactCapacity: set the capacity to this number. The number must
 	//    be positive.
+	// Experimental.
 	Change *float64 `field:"required" json:"change" yaml:"change"`
 	// The lower bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is higher than this value.
+	// Experimental.
 	Lower *float64 `field:"optional" json:"lower" yaml:"lower"`
 	// The upper bound of the interval.
 	//
 	// The scaling adjustment will be applied if the metric is lower than this value.
+	// Experimental.
 	Upper *float64 `field:"optional" json:"upper" yaml:"upper"`
 }
 

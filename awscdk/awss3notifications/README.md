@@ -39,7 +39,7 @@ import lambda "github.com/aws/aws-cdk-go/awscdk"
 
 bucket := s3.NewBucket(this, jsii.String("Bucket"))
 fn := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
+	runtime: lambda.runtime_NODEJS_12_X(),
 	handler: jsii.String("index.handler"),
 	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 })
