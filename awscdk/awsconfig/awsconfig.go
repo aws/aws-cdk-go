@@ -11103,6 +11103,28 @@ func ManagedRuleIdentifiers_EIP_ATTACHED() *string {
 	return returns
 }
 
+func ManagedRuleIdentifiers_EKS_CLUSTER_OLDEST_SUPPORTED_VERSION() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"EKS_CLUSTER_OLDEST_SUPPORTED_VERSION",
+		&returns,
+	)
+	return returns
+}
+
+func ManagedRuleIdentifiers_EKS_CLUSTER_SUPPORTED_VERSION() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"EKS_CLUSTER_SUPPORTED_VERSION",
+		&returns,
+	)
+	return returns
+}
+
 func ManagedRuleIdentifiers_EKS_ENDPOINT_NO_PUBLIC_ACCESS() *string {
 	_init_.Initialize()
 	var returns *string
@@ -12663,6 +12685,17 @@ func ResourceType_EC2_VPN_GATEWAY() ResourceType {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_config.ResourceType",
 		"EC2_VPN_GATEWAY",
+		&returns,
+	)
+	return returns
+}
+
+func ResourceType_EKS_CLUSTER() ResourceType {
+	_init_.Initialize()
+	var returns ResourceType
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_config.ResourceType",
+		"EKS_CLUSTER",
 		&returns,
 	)
 	return returns

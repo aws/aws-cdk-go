@@ -293,7 +293,7 @@ awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool
 })
 ```
 
-Using a rule-based approach to role mapping allows roles to be assigned based on custom claims passed from the identity  provider:
+Using a rule-based approach to role mapping allows roles to be assigned based on custom claims passed from the identity provider:
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
@@ -374,6 +374,28 @@ awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool
 		},
 		&identityPoolRoleMapping{
 			providerUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl.custom(jsii.String("my-custom-provider.com")),
+			useToken: jsii.Boolean(true),
+		},
+	},
+})
+```
+
+If a provider URL is a CDK Token, as it will be if you are trying to use a previously defined Cognito User Pool, you will need to also provide a mappingKey.
+This is because by default, the key in the Cloudformation role mapping hash is the providerUrl, and Cloudformation map keys must be concrete strings, they
+cannot be references. For example:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
+
+var userPool userPool
+
+awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
+	identityPoolName: jsii.String("myidentitypool"),
+	roleMappings: []identityPoolRoleMapping{
+		&identityPoolRoleMapping{
+			mappingKey: jsii.String("cognito"),
+			providerUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl.userPool(userPool.userPoolProviderUrl),
 			useToken: jsii.Boolean(true),
 		},
 	},

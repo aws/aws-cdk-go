@@ -11396,42 +11396,42 @@ type CloudMapOptions struct {
 // A regional grouping of one or more container instances on which you can run tasks and services.
 //
 // Example:
-//   var vpc vpc
+//   vpc := ec2.vpc.fromLookup(this, jsii.String("Vpc"), &vpcLookupOptions{
+//   	isDefault: jsii.Boolean(true),
+//   })
 //
-//
-//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &clusterProps{
+//   cluster := ecs.NewCluster(this, jsii.String("FargateCluster"), &clusterProps{
 //   	vpc: vpc,
 //   })
 //
-//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
-//   	vpc: vpc,
-//   	instanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
-//   	machineImage: ecs.ecsOptimizedImage.amazonLinux2(),
-//   	minCapacity: jsii.Number(0),
-//   	maxCapacity: jsii.Number(100),
+//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &taskDefinitionProps{
+//   	memoryMiB: jsii.String("512"),
+//   	cpu: jsii.String("256"),
+//   	compatibility: ecs.compatibility_FARGATE,
 //   })
 //
-//   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &asgCapacityProviderProps{
-//   	autoScalingGroup: autoScalingGroup,
-//   })
-//   cluster.addAsgCapacityProvider(capacityProvider)
-//
-//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-//
-//   taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
-//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	memoryReservationMiB: jsii.Number(256),
+//   containerDefinition := taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("foo/bar")),
+//   	memoryLimitMiB: jsii.Number(256),
 //   })
 //
-//   ecs.NewEc2Service(this, jsii.String("EC2Service"), &ec2ServiceProps{
+//   runTask := tasks.NewEcsRunTask(this, jsii.String("RunFargate"), &ecsRunTaskProps{
+//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
 //   	cluster: cluster,
 //   	taskDefinition: taskDefinition,
-//   	capacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
-//   			capacityProvider: capacityProvider.capacityProviderName,
-//   			weight: jsii.Number(1),
+//   	assignPublicIp: jsii.Boolean(true),
+//   	containerOverrides: []containerOverride{
+//   		&containerOverride{
+//   			containerDefinition: containerDefinition,
+//   			environment: []taskEnvironmentVariable{
+//   				&taskEnvironmentVariable{
+//   					name: jsii.String("SOME_KEY"),
+//   					value: sfn.jsonPath.stringAt(jsii.String("$.SomeKey")),
+//   				},
+//   			},
 //   		},
 //   	},
+//   	launchTarget: tasks.NewEcsFargateLaunchTarget(),
 //   })
 //
 type Cluster interface {
@@ -13110,22 +13110,33 @@ const (
 // Constructs for types of container images.
 //
 // Example:
-//   var cluster cluster
+//   var vpc vpc
 //
-//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+//
+//   cluster := ecs.NewCluster(this, jsii.String("FargateCPCluster"), &clusterProps{
+//   	vpc: vpc,
+//   	enableFargateCapacityProviders: jsii.Boolean(true),
+//   })
+//
+//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"))
+//
+//   taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   })
+//
+//   ecs.NewFargateService(this, jsii.String("FargateService"), &fargateServiceProps{
 //   	cluster: cluster,
-//   	memoryLimitMiB: jsii.Number(1024),
-//   	desiredCount: jsii.Number(1),
-//   	cpu: jsii.Number(512),
-//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
-//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	},
-//   	taskSubnets: &subnetSelection{
-//   		subnets: []iSubnet{
-//   			ec2.subnet.fromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),
+//   	taskDefinition: taskDefinition,
+//   	capacityProviderStrategies: []capacityProviderStrategy{
+//   		&capacityProviderStrategy{
+//   			capacityProvider: jsii.String("FARGATE_SPOT"),
+//   			weight: jsii.Number(2),
+//   		},
+//   		&capacityProviderStrategy{
+//   			capacityProvider: jsii.String("FARGATE"),
+//   			weight: jsii.Number(1),
 //   		},
 //   	},
-//   	loadBalancerName: jsii.String("application-lb-name"),
 //   })
 //
 type ContainerImage interface {

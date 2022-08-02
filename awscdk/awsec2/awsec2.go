@@ -77497,12 +77497,56 @@ func InterfaceVpcEndpointAwsService_APIGATEWAY() InterfaceVpcEndpointAwsService 
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_APPLICATION_AUTOSCALING() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"APPLICATION_AUTOSCALING",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_ATHENA() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"ATHENA",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_AUTOSCALING() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"AUTOSCALING",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_AUTOSCALING_PLANS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"AUTOSCALING_PLANS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_BATCH() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"BATCH",
 		&returns,
 	)
 	return returns
@@ -77558,6 +77602,28 @@ func InterfaceVpcEndpointAwsService_CLOUDWATCH_LOGS() InterfaceVpcEndpointAwsSer
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"CLOUDWATCH_LOGS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_CODEARTIFACT_API() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"CODEARTIFACT_API",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_CODEARTIFACT_REPOSITORIES() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"CODEARTIFACT_REPOSITORIES",
 		&returns,
 	)
 	return returns
@@ -77899,6 +77965,17 @@ func InterfaceVpcEndpointAwsService_REKOGNITION_FIPS() InterfaceVpcEndpointAwsSe
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"REKOGNITION_FIPS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_S3() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"S3",
 		&returns,
 	)
 	return returns

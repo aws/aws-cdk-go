@@ -693,6 +693,103 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 })
 ```
 
+### Select idleTimeout for ApplicationLoadBalancedFargateService
+
+```go
+var cluster cluster
+
+loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+	cluster: cluster,
+	memoryLimitMiB: jsii.Number(1024),
+	desiredCount: jsii.Number(1),
+	cpu: jsii.Number(512),
+	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	},
+	idleTimeout: awscdk.Duration.seconds(jsii.Number(120)),
+})
+```
+
+### Select idleTimeout for ApplicationMultipleTargetGroupsFargateService
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
+	maxAzs: jsii.Number(1),
+})
+loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("myService"), &applicationMultipleTargetGroupsFargateServiceProps{
+	cluster: ecs.NewCluster(this, jsii.String("EcsCluster"), &clusterProps{
+		vpc: vpc,
+	}),
+	memoryLimitMiB: jsii.Number(256),
+	taskImageOptions: &applicationLoadBalancedTaskImageProps{
+		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	},
+	enableExecuteCommand: jsii.Boolean(true),
+	loadBalancers: []applicationLoadBalancerProps{
+		&applicationLoadBalancerProps{
+			name: jsii.String("lb"),
+			idleTimeout: awscdk.Duration.seconds(jsii.Number(400)),
+			domainName: jsii.String("api.example.com"),
+			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+				zoneName: jsii.String("example.com"),
+			}),
+			listeners: []applicationListenerProps{
+				&applicationListenerProps{
+					name: jsii.String("listener"),
+					protocol: awscdk.ApplicationProtocol_HTTPS,
+					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert"), jsii.String("helloworld")),
+					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+				},
+			},
+		},
+		&applicationLoadBalancerProps{
+			name: jsii.String("lb2"),
+			idleTimeout: awscdk.Duration.seconds(jsii.Number(120)),
+			domainName: jsii.String("frontend.com"),
+			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+				zoneName: jsii.String("frontend.com"),
+			}),
+			listeners: []*applicationListenerProps{
+				&applicationListenerProps{
+					name: jsii.String("listener2"),
+					protocol: awscdk.ApplicationProtocol_HTTPS,
+					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert2"), jsii.String("helloworld")),
+					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+				},
+			},
+		},
+	},
+	targetGroups: []applicationTargetProps{
+		&applicationTargetProps{
+			containerPort: jsii.Number(80),
+			listener: jsii.String("listener"),
+		},
+		&applicationTargetProps{
+			containerPort: jsii.Number(90),
+			pathPattern: jsii.String("a/b/c"),
+			priority: jsii.Number(10),
+			listener: jsii.String("listener"),
+		},
+		&applicationTargetProps{
+			containerPort: jsii.Number(443),
+			listener: jsii.String("listener2"),
+		},
+		&applicationTargetProps{
+			containerPort: jsii.Number(80),
+			pathPattern: jsii.String("a/b/c"),
+			priority: jsii.Number(10),
+			listener: jsii.String("listener2"),
+		},
+	},
+})
+```
+
 ### Set PlatformVersion for ScheduledFargateTask
 
 ```go

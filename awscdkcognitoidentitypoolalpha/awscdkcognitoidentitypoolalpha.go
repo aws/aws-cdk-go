@@ -808,18 +808,17 @@ const (
 // Keys for Login Providers - correspond to client id's of respective federation identity providers.
 //
 // Example:
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
 //
+//   var userPool userPool
 //
 //   awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
 //   	identityPoolName: jsii.String("myidentitypool"),
 //   	roleMappings: []identityPoolRoleMapping{
 //   		&identityPoolRoleMapping{
-//   			providerUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl.userPool(jsii.String("cognito-idp.my-idp-region.amazonaws.com/my-idp-region_abcdefghi:app_client_id")),
-//   			useToken: jsii.Boolean(true),
-//   		},
-//   		&identityPoolRoleMapping{
-//   			providerUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl.custom(jsii.String("my-custom-provider.com")),
+//   			mappingKey: jsii.String("cognito"),
+//   			providerUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl.userPool(userPool.userPoolProviderUrl),
 //   			useToken: jsii.Boolean(true),
 //   		},
 //   	},
@@ -1095,6 +1094,7 @@ type IdentityPoolProviders struct {
 //   			providerUrl: identityPoolProviderUrl,
 //
 //   			// the properties below are optional
+//   			mappingKey: jsii.String("mappingKey"),
 //   			resolveAmbiguousRoles: jsii.Boolean(false),
 //   			rules: []roleMappingRule{
 //   				&roleMappingRule{
@@ -1409,6 +1409,7 @@ func (i *jsiiProxy_IdentityPoolRoleAttachment) ToString() *string {
 //   			providerUrl: identityPoolProviderUrl,
 //
 //   			// the properties below are optional
+//   			mappingKey: jsii.String("mappingKey"),
 //   			resolveAmbiguousRoles: jsii.Boolean(false),
 //   			rules: []roleMappingRule{
 //   				&roleMappingRule{
@@ -1462,6 +1463,11 @@ type IdentityPoolRoleMapping struct {
 	// The url of the provider of for which the role is mapped.
 	// Experimental.
 	ProviderUrl IdentityPoolProviderUrl `field:"required" json:"providerUrl" yaml:"providerUrl"`
+	// The key used for the role mapping in the role mapping hash.
+	//
+	// Required if the providerUrl is a token.
+	// Experimental.
+	MappingKey *string `field:"optional" json:"mappingKey" yaml:"mappingKey"`
 	// Allow for role assumption when results of role mapping are ambiguous.
 	// Experimental.
 	ResolveAmbiguousRoles *bool `field:"optional" json:"resolveAmbiguousRoles" yaml:"resolveAmbiguousRoles"`

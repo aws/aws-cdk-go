@@ -10210,13 +10210,29 @@ type PrivateHostedZoneProps struct {
 // Create a Route53 public hosted zone.
 //
 // Example:
-//   zoneFromAttributes := route53.publicHostedZone.fromPublicHostedZoneAttributes(this, jsii.String("MyZone"), &publicHostedZoneAttributes{
-//   	zoneName: jsii.String("example.com"),
-//   	hostedZoneId: jsii.String("ZOJJZC49E0EPZ"),
+//   subZone := route53.NewPublicHostedZone(this, jsii.String("SubZone"), &publicHostedZoneProps{
+//   	zoneName: jsii.String("sub.someexample.com"),
 //   })
 //
-//   // Does not know zoneName
-//   zoneFromId := route53.publicHostedZone.fromPublicHostedZoneId(this, jsii.String("MyZone"), jsii.String("ZOJJZC49E0EPZ"))
+//   // import the delegation role by constructing the roleArn
+//   delegationRoleArn := awscdk.stack.of(this).formatArn(&arnComponents{
+//   	region: jsii.String(""),
+//   	 // IAM is global in each partition
+//   	service: jsii.String("iam"),
+//   	account: jsii.String("parent-account-id"),
+//   	resource: jsii.String("role"),
+//   	resourceName: jsii.String("MyDelegationRole"),
+//   })
+//   delegationRole := iam.role.fromRoleArn(this, jsii.String("DelegationRole"), delegationRoleArn)
+//
+//   // create the record
+//   // create the record
+//   route53.NewCrossAccountZoneDelegationRecord(this, jsii.String("delegate"), &crossAccountZoneDelegationRecordProps{
+//   	delegatedZone: subZone,
+//   	parentHostedZoneName: jsii.String("someexample.com"),
+//   	 // or you can use parentHostedZoneId
+//   	delegationRole: delegationRole,
+//   })
 //
 type PublicHostedZone interface {
 	HostedZone
@@ -10676,10 +10692,28 @@ type PublicHostedZoneAttributes struct {
 // Construction properties for a PublicHostedZone.
 //
 // Example:
-//   parentZone := route53.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
-//   	zoneName: jsii.String("someexample.com"),
-//   	crossAccountZoneDelegationPrincipal: iam.NewAccountPrincipal(jsii.String("12345678901")),
-//   	crossAccountZoneDelegationRoleName: jsii.String("MyDelegationRole"),
+//   subZone := route53.NewPublicHostedZone(this, jsii.String("SubZone"), &publicHostedZoneProps{
+//   	zoneName: jsii.String("sub.someexample.com"),
+//   })
+//
+//   // import the delegation role by constructing the roleArn
+//   delegationRoleArn := awscdk.stack.of(this).formatArn(&arnComponents{
+//   	region: jsii.String(""),
+//   	 // IAM is global in each partition
+//   	service: jsii.String("iam"),
+//   	account: jsii.String("parent-account-id"),
+//   	resource: jsii.String("role"),
+//   	resourceName: jsii.String("MyDelegationRole"),
+//   })
+//   delegationRole := iam.role.fromRoleArn(this, jsii.String("DelegationRole"), delegationRoleArn)
+//
+//   // create the record
+//   // create the record
+//   route53.NewCrossAccountZoneDelegationRecord(this, jsii.String("delegate"), &crossAccountZoneDelegationRecordProps{
+//   	delegatedZone: subZone,
+//   	parentHostedZoneName: jsii.String("someexample.com"),
+//   	 // or you can use parentHostedZoneId
+//   	delegationRole: delegationRole,
 //   })
 //
 type PublicHostedZoneProps struct {

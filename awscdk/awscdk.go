@@ -21611,7 +21611,7 @@ type ICfnResourceOptions interface {
 	// A condition to associate with this resource.
 	//
 	// This means that only if the condition evaluates to 'true' when the stack
-	// is deployed, the resource will be included. This is provided to allow CDK projects to produce legacy templates, but noramlly
+	// is deployed, the resource will be included. This is provided to allow CDK projects to produce legacy templates, but normally
 	// there is no need to use it in CDK projects.
 	Condition() CfnCondition
 	SetCondition(c CfnCondition)
@@ -24863,7 +24863,7 @@ func (r *jsiiProxy_Reference) ToString() *string {
 //
 //   user := iam.NewUser(this, jsii.String("User"))
 //   domain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_2(),
+//   	version: opensearch.engineVersion_OPENSEARCH_1_3(),
 //   	removalPolicy: awscdk.RemovalPolicy_DESTROY,
 //   	fineGrainedAccessControl: &advancedSecurityOptions{
 //   		masterUserArn: user.userArn,

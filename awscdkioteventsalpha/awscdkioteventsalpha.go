@@ -835,6 +835,23 @@ func NewExpression_Override(e Expression) {
 	)
 }
 
+// Create a expression for the Addition operator.
+// Experimental.
+func Expression_Add(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-iotevents-alpha.Expression",
+		"add",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
 // Create a expression for the AND operator.
 // Experimental.
 func Expression_And(left Expression, right Expression) Expression {
@@ -845,6 +862,74 @@ func Expression_And(left Expression, right Expression) Expression {
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-iotevents-alpha.Expression",
 		"and",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a expression for the Bitwise AND operator.
+// Experimental.
+func Expression_BitwiseAnd(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-iotevents-alpha.Expression",
+		"bitwiseAnd",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a expression for the Bitwise OR operator.
+// Experimental.
+func Expression_BitwiseOr(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-iotevents-alpha.Expression",
+		"bitwiseOr",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a expression for the Bitwise XOR operator.
+// Experimental.
+func Expression_BitwiseXor(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-iotevents-alpha.Expression",
+		"bitwiseXor",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a expression for the String Concatenation operator.
+// Experimental.
+func Expression_Concat(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-iotevents-alpha.Expression",
+		"concat",
 		[]interface{}{left, right},
 		&returns,
 	)
@@ -865,6 +950,23 @@ func Expression_CurrentInput(input IInput) Expression {
 		"@aws-cdk/aws-iotevents-alpha.Expression",
 		"currentInput",
 		[]interface{}{input},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a expression for the Division operator.
+// Experimental.
+func Expression_Divide(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-iotevents-alpha.Expression",
+		"divide",
+		[]interface{}{left, right},
 		&returns,
 	)
 
@@ -990,6 +1092,23 @@ func Expression_Lte(left Expression, right Expression) Expression {
 	return returns
 }
 
+// Create a expression for the Multiplication operator.
+// Experimental.
+func Expression_Multiply(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-iotevents-alpha.Expression",
+		"multiply",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
 // Create a expression for the Not Equal operator.
 // Experimental.
 func Expression_Neq(left Expression, right Expression) Expression {
@@ -1017,6 +1136,23 @@ func Expression_Or(left Expression, right Expression) Expression {
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-iotevents-alpha.Expression",
 		"or",
+		[]interface{}{left, right},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a expression for the Subtraction operator.
+// Experimental.
+func Expression_Subtract(left Expression, right Expression) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-iotevents-alpha.Expression",
+		"subtract",
 		[]interface{}{left, right},
 		&returns,
 	)

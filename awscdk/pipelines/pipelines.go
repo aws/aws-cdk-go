@@ -1422,6 +1422,8 @@ type CodePipelineProps struct {
 	PublishAssetsInParallel *bool `field:"optional" json:"publishAssetsInParallel" yaml:"publishAssetsInParallel"`
 	// Reuse the same cross region support stack for all pipelines in the App.
 	ReuseCrossRegionSupportStacks *bool `field:"optional" json:"reuseCrossRegionSupportStacks" yaml:"reuseCrossRegionSupportStacks"`
+	// The IAM role to be assumed by this Pipeline.
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Whether the pipeline will update itself.
 	//
 	// This needs to be set to `true` to allow the pipeline to reconfigure
@@ -3224,9 +3226,10 @@ type S3SourceOptions struct {
 // to be deployment engine agnostic.
 //
 // Example:
-//   // Modern API
-//   modernPipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-//   	selfMutation: jsii.Boolean(false),
+//   var codePipeline pipeline
+//
+//
+//   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 //   	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
 //   		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
 //   			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
@@ -3237,13 +3240,7 @@ type S3SourceOptions struct {
 //   			jsii.String("npx cdk synth"),
 //   		},
 //   	}),
-//   })
-//
-//   // Original API
-//   cloudAssemblyArtifact := codepipeline.NewArtifact()
-//   originalPipeline := pipelines.NewCdkPipeline(this, jsii.String("Pipeline"), &cdkPipelineProps{
-//   	selfMutating: jsii.Boolean(false),
-//   	cloudAssemblyArtifact: cloudAssemblyArtifact,
+//   	codePipeline: codePipeline,
 //   })
 //
 type ShellStep interface {
@@ -3553,9 +3550,10 @@ func (s *jsiiProxy_ShellStep) ToString() *string {
 // Construction properties for a `ShellStep`.
 //
 // Example:
-//   // Modern API
-//   modernPipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
-//   	selfMutation: jsii.Boolean(false),
+//   var codePipeline pipeline
+//
+//
+//   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 //   	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
 //   		input: pipelines.codePipelineSource.connection(jsii.String("my-org/my-app"), jsii.String("main"), &connectionSourceOptions{
 //   			connectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
@@ -3566,13 +3564,7 @@ func (s *jsiiProxy_ShellStep) ToString() *string {
 //   			jsii.String("npx cdk synth"),
 //   		},
 //   	}),
-//   })
-//
-//   // Original API
-//   cloudAssemblyArtifact := codepipeline.NewArtifact()
-//   originalPipeline := pipelines.NewCdkPipeline(this, jsii.String("Pipeline"), &cdkPipelineProps{
-//   	selfMutating: jsii.Boolean(false),
-//   	cloudAssemblyArtifact: cloudAssemblyArtifact,
+//   	codePipeline: codePipeline,
 //   })
 //
 type ShellStepProps struct {

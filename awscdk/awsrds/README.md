@@ -920,6 +920,8 @@ var vpc vpc
 
 cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &serverlessClusterProps{
 	engine: rds.databaseClusterEngine_AURORA_POSTGRESQL(),
+	copyTagsToSnapshot: jsii.Boolean(true),
+	 // whether to save the cluster tags when creating the snapshot. Default is 'true'
 	parameterGroup: rds.parameterGroup.fromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
 	vpc: vpc,
 	scaling: &serverlessScalingOptions{

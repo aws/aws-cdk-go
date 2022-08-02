@@ -4867,19 +4867,69 @@ func (j *jsiiProxy_IFileSystem) FileSystemId() *string {
 	return returns
 }
 
+// The different auto import policies which are allowed.
+//
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var vpc vpc
+//   var bucket s3.Bucket
+//
+//
+//   lustreConfiguration := map[string]interface{}{
+//   	"deploymentType": fsx.LustreDeploymentType_SCRATCH_2,
+//   	"exportPath": bucket.s3UrlForObject(),
+//   	"importPath": bucket.s3UrlForObject(),
+//   	"autoImportPolicy": fsx.LustreAutoImportPolicy_NEW_CHANGED_DELETED,
+//   }
+//
+//   fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
+//   	vpc: vpc,
+//   	vpcSubnet: vpc.privateSubnets[jsii.Number(0)],
+//   	storageCapacityGiB: jsii.Number(1200),
+//   	lustreConfiguration: lustreConfiguration,
+//   })
+//
+type LustreAutoImportPolicy string
+
+const (
+	// AutoImport is off.
+	//
+	// Amazon FSx only updates file and directory listings from the linked S3 bucket when the file system is created. FSx does not update file and directory listings for any new or changed objects after choosing this option.
+	LustreAutoImportPolicy_NONE LustreAutoImportPolicy = "NONE"
+	// AutoImport is on.
+	//
+	// Amazon FSx automatically imports directory listings of any new objects added to the linked S3 bucket that do not currently exist in the FSx file system.
+	LustreAutoImportPolicy_NEW LustreAutoImportPolicy = "NEW"
+	// AutoImport is on.
+	//
+	// Amazon FSx automatically imports file and directory listings of any new objects added to the S3 bucket and any existing objects that are changed in the S3 bucket after you choose this option.
+	LustreAutoImportPolicy_NEW_CHANGED LustreAutoImportPolicy = "NEW_CHANGED"
+	// AutoImport is on.
+	//
+	// Amazon FSx automatically imports file and directory listings of any new objects added to the S3 bucket, any existing objects that are changed in the S3 bucket, and any objects that were deleted in the S3 bucket.
+	LustreAutoImportPolicy_NEW_CHANGED_DELETED LustreAutoImportPolicy = "NEW_CHANGED_DELETED"
+)
+
 // The configuration for the Amazon FSx for Lustre file system.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
+//   var bucket s3.Bucket
 //
 //
-//   fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
-//   	lustreConfiguration: &lustreConfiguration{
-//   		deploymentType: fsx.lustreDeploymentType_SCRATCH_2,
-//   	},
-//   	storageCapacityGiB: jsii.Number(1200),
+//   lustreConfiguration := map[string]interface{}{
+//   	"deploymentType": fsx.LustreDeploymentType_SCRATCH_2,
+//   	"exportPath": bucket.s3UrlForObject(),
+//   	"importPath": bucket.s3UrlForObject(),
+//   	"autoImportPolicy": fsx.LustreAutoImportPolicy_NEW_CHANGED_DELETED,
+//   }
+//
+//   fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
 //   	vpc: vpc,
 //   	vpcSubnet: vpc.privateSubnets[jsii.Number(0)],
+//   	storageCapacityGiB: jsii.Number(1200),
+//   	lustreConfiguration: lustreConfiguration,
 //   })
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html
@@ -4887,6 +4937,18 @@ func (j *jsiiProxy_IFileSystem) FileSystemId() *string {
 type LustreConfiguration struct {
 	// The type of backing file system deployment used by FSx.
 	DeploymentType LustreDeploymentType `field:"required" json:"deploymentType" yaml:"deploymentType"`
+	// Available with `Scratch` and `Persistent_1` deployment types.
+	//
+	// When you create your file system, your existing S3 objects appear as file and directory listings. Use this property to choose how Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. `AutoImportPolicy` can have the following values:
+	//
+	// For more information, see [Automatically import updates from your S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) .
+	//
+	// > This parameter is not supported for Lustre file systems using the `Persistent_2` deployment type.
+	AutoImportPolicy LustreAutoImportPolicy `field:"optional" json:"autoImportPolicy" yaml:"autoImportPolicy"`
+	// Sets the data compression configuration for the file system.
+	//
+	// For more information, see [Lustre data compression](https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html) in the *Amazon FSx for Lustre User Guide* .
+	DataCompressionType LustreDataCompressionType `field:"optional" json:"dataCompressionType" yaml:"dataCompressionType"`
 	// The path in Amazon S3 where the root of your Amazon FSx file system is exported.
 	//
 	// The path must use the same
@@ -4917,19 +4979,45 @@ type LustreConfiguration struct {
 	WeeklyMaintenanceStartTime LustreMaintenanceTime `field:"optional" json:"weeklyMaintenanceStartTime" yaml:"weeklyMaintenanceStartTime"`
 }
 
+// The permitted Lustre data compression algorithms.
+//
+// Example:
+//   lustreConfiguration := map[string]lustreDataCompressionType{
+//   	// ...
+//   	"dataCompressionType": fsx.lustreDataCompressionType_LZ4,
+//   }
+//
+type LustreDataCompressionType string
+
+const (
+	// `NONE` - (Default) Data compression is turned off when the file system is created.
+	LustreDataCompressionType_NONE LustreDataCompressionType = "NONE"
+	// `LZ4` - Data compression is turned on with the LZ4 algorithm.
+	//
+	// Note: When you turn data compression on for an existing file system, only newly written files are compressed. Existing files are not compressed.
+	LustreDataCompressionType_LZ4 LustreDataCompressionType = "LZ4"
+)
+
 // The different kinds of file system deployments used by Lustre.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
+//   var bucket s3.Bucket
 //
 //
-//   fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
-//   	lustreConfiguration: &lustreConfiguration{
-//   		deploymentType: fsx.lustreDeploymentType_SCRATCH_2,
-//   	},
-//   	storageCapacityGiB: jsii.Number(1200),
+//   lustreConfiguration := map[string]interface{}{
+//   	"deploymentType": fsx.LustreDeploymentType_SCRATCH_2,
+//   	"exportPath": bucket.s3UrlForObject(),
+//   	"importPath": bucket.s3UrlForObject(),
+//   	"autoImportPolicy": fsx.LustreAutoImportPolicy_NEW_CHANGED_DELETED,
+//   }
+//
+//   fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
 //   	vpc: vpc,
 //   	vpcSubnet: vpc.privateSubnets[jsii.Number(0)],
+//   	storageCapacityGiB: jsii.Number(1200),
+//   	lustreConfiguration: lustreConfiguration,
 //   })
 //
 type LustreDeploymentType string
@@ -4957,37 +5045,24 @@ const (
 // The FSx for Lustre File System implementation of IFileSystem.
 //
 // Example:
-//   sg := ec2.securityGroup.fromSecurityGroupId(this, jsii.String("FsxSecurityGroup"), jsii.String("{SECURITY-GROUP-ID}"))
-//   fs := fsx.lustreFileSystem.fromLustreFileSystemAttributes(this, jsii.String("FsxLustreFileSystem"), &fileSystemAttributes{
-//   	dnsName: jsii.String("{FILE-SYSTEM-DNS-NAME}"),
-//   	fileSystemId: jsii.String("{FILE-SYSTEM-ID}"),
-//   	securityGroup: sg,
-//   })
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   var vpc vpc
+//   var bucket s3.Bucket
 //
-//   vpc := ec2.vpc.fromVpcAttributes(this, jsii.String("Vpc"), &vpcAttributes{
-//   	availabilityZones: []*string{
-//   		jsii.String("us-west-2a"),
-//   		jsii.String("us-west-2b"),
-//   	},
-//   	publicSubnetIds: []*string{
-//   		jsii.String("{US-WEST-2A-SUBNET-ID}"),
-//   		jsii.String("{US-WEST-2B-SUBNET-ID}"),
-//   	},
-//   	vpcId: jsii.String("{VPC-ID}"),
-//   })
 //
-//   inst := ec2.NewInstance(this, jsii.String("inst"), &instanceProps{
-//   	instanceType: ec2.instanceType.of(ec2.instanceClass_T2, ec2.instanceSize_LARGE),
-//   	machineImage: ec2.NewAmazonLinuxImage(&amazonLinuxImageProps{
-//   		generation: ec2.amazonLinuxGeneration_AMAZON_LINUX_2,
-//   	}),
+//   lustreConfiguration := map[string]interface{}{
+//   	"deploymentType": fsx.LustreDeploymentType_SCRATCH_2,
+//   	"exportPath": bucket.s3UrlForObject(),
+//   	"importPath": bucket.s3UrlForObject(),
+//   	"autoImportPolicy": fsx.LustreAutoImportPolicy_NEW_CHANGED_DELETED,
+//   }
+//
+//   fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
 //   	vpc: vpc,
-//   	vpcSubnets: &subnetSelection{
-//   		subnetType: ec2.subnetType_PUBLIC,
-//   	},
+//   	vpcSubnet: vpc.privateSubnets[jsii.Number(0)],
+//   	storageCapacityGiB: jsii.Number(1200),
+//   	lustreConfiguration: lustreConfiguration,
 //   })
-//
-//   fs.connections.allowDefaultPortFrom(inst)
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html
 //
@@ -5303,16 +5378,23 @@ func (l *jsiiProxy_LustreFileSystem) ToString() *string {
 // Properties specific to the Lustre version of the FSx file system.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
+//   var bucket s3.Bucket
 //
 //
-//   fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
-//   	lustreConfiguration: &lustreConfiguration{
-//   		deploymentType: fsx.lustreDeploymentType_SCRATCH_2,
-//   	},
-//   	storageCapacityGiB: jsii.Number(1200),
+//   lustreConfiguration := map[string]interface{}{
+//   	"deploymentType": fsx.LustreDeploymentType_SCRATCH_2,
+//   	"exportPath": bucket.s3UrlForObject(),
+//   	"importPath": bucket.s3UrlForObject(),
+//   	"autoImportPolicy": fsx.LustreAutoImportPolicy_NEW_CHANGED_DELETED,
+//   }
+//
+//   fs := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &lustreFileSystemProps{
 //   	vpc: vpc,
 //   	vpcSubnet: vpc.privateSubnets[jsii.Number(0)],
+//   	storageCapacityGiB: jsii.Number(1200),
+//   	lustreConfiguration: lustreConfiguration,
 //   })
 //
 type LustreFileSystemProps struct {

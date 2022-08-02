@@ -380,6 +380,8 @@ type ApplicationLoadBalancedEc2ServiceProps struct {
 	EnableExecuteCommand *bool `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
 	HealthCheckGracePeriod awscdk.Duration `field:"optional" json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
+	// The load balancer idle timeout, in seconds.
+	IdleTimeout awscdk.Duration `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Listener port of the application load balancer that will serve traffic to the service.
 	ListenerPort *float64 `field:"optional" json:"listenerPort" yaml:"listenerPort"`
 	// The application load balancer that will serve traffic to the service.
@@ -821,6 +823,8 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	EnableExecuteCommand *bool `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
 	HealthCheckGracePeriod awscdk.Duration `field:"optional" json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
+	// The load balancer idle timeout, in seconds.
+	IdleTimeout awscdk.Duration `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Listener port of the application load balancer that will serve traffic to the service.
 	ListenerPort *float64 `field:"optional" json:"listenerPort" yaml:"listenerPort"`
 	// The application load balancer that will serve traffic to the service.
@@ -1195,6 +1199,7 @@ func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) ToString() *string {
 //   	enableECSManagedTags: jsii.Boolean(false),
 //   	enableExecuteCommand: jsii.Boolean(false),
 //   	healthCheckGracePeriod: cdk.*duration.minutes(jsii.Number(30)),
+//   	idleTimeout: cdk.*duration.minutes(jsii.Number(30)),
 //   	listenerPort: jsii.Number(123),
 //   	loadBalancer: applicationLoadBalancer,
 //   	loadBalancerName: jsii.String("loadBalancerName"),
@@ -1274,6 +1279,8 @@ type ApplicationLoadBalancedServiceBaseProps struct {
 	EnableExecuteCommand *bool `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
 	HealthCheckGracePeriod awscdk.Duration `field:"optional" json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
+	// The load balancer idle timeout, in seconds.
+	IdleTimeout awscdk.Duration `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Listener port of the application load balancer that will serve traffic to the service.
 	ListenerPort *float64 `field:"optional" json:"listenerPort" yaml:"listenerPort"`
 	// The application load balancer that will serve traffic to the service.
@@ -1405,9 +1412,10 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 //   // One application load balancer with one listener and two target groups.
 //   var cluster cluster
 //
-//   loadBalancedEc2Service := ecsPatterns.NewApplicationMultipleTargetGroupsEc2Service(this, jsii.String("Service"), &applicationMultipleTargetGroupsEc2ServiceProps{
+//   loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("Service"), &applicationMultipleTargetGroupsFargateServiceProps{
 //   	cluster: cluster,
-//   	memoryLimitMiB: jsii.Number(256),
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	cpu: jsii.Number(512),
 //   	taskImageOptions: &applicationLoadBalancedTaskImageProps{
 //   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
@@ -1466,6 +1474,7 @@ type ApplicationLoadBalancedTaskImageProps struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -1491,6 +1500,7 @@ type ApplicationLoadBalancedTaskImageProps struct {
 //   	// the properties below are optional
 //   	domainName: jsii.String("domainName"),
 //   	domainZone: hostedZone,
+//   	idleTimeout: cdk.duration.minutes(jsii.Number(30)),
 //   	publicLoadBalancer: jsii.Boolean(false),
 //   }
 //
@@ -1503,6 +1513,8 @@ type ApplicationLoadBalancerProps struct {
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The Route53 hosted zone for the domain, e.g. "example.com.".
 	DomainZone awsroute53.IHostedZone `field:"optional" json:"domainZone" yaml:"domainZone"`
+	// The load balancer idle timeout, in seconds.
+	IdleTimeout awscdk.Duration `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Determines whether the Load Balancer will be internet-facing.
 	PublicLoadBalancer *bool `field:"optional" json:"publicLoadBalancer" yaml:"publicLoadBalancer"`
 }
@@ -2708,6 +2720,7 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) ToString() *strin
 //   			// the properties below are optional
 //   			domainName: jsii.String("domainName"),
 //   			domainZone: hostedZone,
+//   			idleTimeout: cdk.*duration.minutes(jsii.Number(30)),
 //   			publicLoadBalancer: jsii.Boolean(false),
 //   		},
 //   	},

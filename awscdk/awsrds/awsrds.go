@@ -27,6 +27,8 @@ import (
 //
 //   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &serverlessClusterProps{
 //   	engine: rds.databaseClusterEngine_AURORA_POSTGRESQL(),
+//   	copyTagsToSnapshot: jsii.Boolean(true),
+//   	 // whether to save the cluster tags when creating the snapshot. Default is 'true'
 //   	parameterGroup: rds.parameterGroup.fromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
 //   	vpc: vpc,
 //   	scaling: &serverlessScalingOptions{
@@ -29132,6 +29134,8 @@ type ServerlessClusterFromSnapshotProps struct {
 	BackupRetention awscdk.Duration `field:"optional" json:"backupRetention" yaml:"backupRetention"`
 	// An optional identifier for the cluster.
 	ClusterIdentifier *string `field:"optional" json:"clusterIdentifier" yaml:"clusterIdentifier"`
+	// Whether to copy tags to the snapshot when a snapshot is created.
+	CopyTagsToSnapshot *bool `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Master user credentials.
 	//
 	// Note - It is not possible to change the master username for a snapshot;
@@ -29214,6 +29218,8 @@ type ServerlessClusterProps struct {
 	BackupRetention awscdk.Duration `field:"optional" json:"backupRetention" yaml:"backupRetention"`
 	// An optional identifier for the cluster.
 	ClusterIdentifier *string `field:"optional" json:"clusterIdentifier" yaml:"clusterIdentifier"`
+	// Whether to copy tags to the snapshot when a snapshot is created.
+	CopyTagsToSnapshot *bool `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Credentials for the administrative user.
 	Credentials Credentials `field:"optional" json:"credentials" yaml:"credentials"`
 	// Name of a database which is automatically created inside the cluster.
@@ -29252,6 +29258,8 @@ type ServerlessClusterProps struct {
 //
 //   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &serverlessClusterProps{
 //   	engine: rds.databaseClusterEngine_AURORA_POSTGRESQL(),
+//   	copyTagsToSnapshot: jsii.Boolean(true),
+//   	 // whether to save the cluster tags when creating the snapshot. Default is 'true'
 //   	parameterGroup: rds.parameterGroup.fromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
 //   	vpc: vpc,
 //   	scaling: &serverlessScalingOptions{

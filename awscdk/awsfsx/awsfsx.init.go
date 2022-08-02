@@ -334,9 +334,27 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_fsx.LustreAutoImportPolicy",
+		reflect.TypeOf((*LustreAutoImportPolicy)(nil)).Elem(),
+		map[string]interface{}{
+			"NONE": LustreAutoImportPolicy_NONE,
+			"NEW": LustreAutoImportPolicy_NEW,
+			"NEW_CHANGED": LustreAutoImportPolicy_NEW_CHANGED,
+			"NEW_CHANGED_DELETED": LustreAutoImportPolicy_NEW_CHANGED_DELETED,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.LustreConfiguration",
 		reflect.TypeOf((*LustreConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_fsx.LustreDataCompressionType",
+		reflect.TypeOf((*LustreDataCompressionType)(nil)).Elem(),
+		map[string]interface{}{
+			"NONE": LustreDataCompressionType_NONE,
+			"LZ4": LustreDataCompressionType_LZ4,
+		},
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_fsx.LustreDeploymentType",
