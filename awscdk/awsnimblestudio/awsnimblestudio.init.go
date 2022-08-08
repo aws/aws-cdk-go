@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_nimblestudio.CfnLaunchProfile",
+		"aws-cdk-lib.aws_nimblestudio.CfnLaunchProfile",
 		reflect.TypeOf((*CfnLaunchProfile)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -32,11 +32,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
@@ -44,11 +40,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "streamConfiguration", GoGetter: "StreamConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "studioComponentIds", GoGetter: "StudioComponentIds"},
 			_jsii_.MemberProperty{JsiiProperty: "studioId", GoGetter: "StudioId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -59,23 +54,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnLaunchProfile.StreamConfigurationProperty",
+		"aws-cdk-lib.aws_nimblestudio.CfnLaunchProfile.StreamConfigurationProperty",
 		reflect.TypeOf((*CfnLaunchProfile_StreamConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnLaunchProfile.StreamConfigurationSessionStorageProperty",
+		"aws-cdk-lib.aws_nimblestudio.CfnLaunchProfile.StreamConfigurationSessionStorageProperty",
 		reflect.TypeOf((*CfnLaunchProfile_StreamConfigurationSessionStorageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnLaunchProfile.StreamingSessionStorageRootProperty",
+		"aws-cdk-lib.aws_nimblestudio.CfnLaunchProfile.StreamingSessionStorageRootProperty",
 		reflect.TypeOf((*CfnLaunchProfile_StreamingSessionStorageRootProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnLaunchProfileProps",
+		"aws-cdk-lib.aws_nimblestudio.CfnLaunchProfileProps",
 		reflect.TypeOf((*CfnLaunchProfileProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_nimblestudio.CfnStreamingImage",
+		"aws-cdk-lib.aws_nimblestudio.CfnStreamingImage",
 		reflect.TypeOf((*CfnStreamingImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -101,21 +96,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "studioId", GoGetter: "StudioId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -126,11 +116,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnStreamingImageProps",
+		"aws-cdk-lib.aws_nimblestudio.CfnStreamingImageProps",
 		reflect.TypeOf((*CfnStreamingImageProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_nimblestudio.CfnStudio",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudio",
 		reflect.TypeOf((*CfnStudio)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -155,23 +145,18 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "studioEncryptionConfiguration", GoGetter: "StudioEncryptionConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "studioName", GoGetter: "StudioName"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "userRoleArn", GoGetter: "UserRoleArn"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -182,11 +167,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnStudio.StudioEncryptionConfigurationProperty",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudio.StudioEncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnStudio_StudioEncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_nimblestudio.CfnStudioComponent",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudioComponent",
 		reflect.TypeOf((*CfnStudioComponent)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -211,11 +196,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "scriptParameters", GoGetter: "ScriptParameters"},
@@ -223,12 +204,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "studioId", GoGetter: "StudioId"},
 			_jsii_.MemberProperty{JsiiProperty: "subtype", GoGetter: "Subtype"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -239,43 +219,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnStudioComponent.ActiveDirectoryComputerAttributeProperty",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudioComponent.ActiveDirectoryComputerAttributeProperty",
 		reflect.TypeOf((*CfnStudioComponent_ActiveDirectoryComputerAttributeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnStudioComponent.ActiveDirectoryConfigurationProperty",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudioComponent.ActiveDirectoryConfigurationProperty",
 		reflect.TypeOf((*CfnStudioComponent_ActiveDirectoryConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnStudioComponent.ComputeFarmConfigurationProperty",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudioComponent.ComputeFarmConfigurationProperty",
 		reflect.TypeOf((*CfnStudioComponent_ComputeFarmConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnStudioComponent.LicenseServiceConfigurationProperty",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudioComponent.LicenseServiceConfigurationProperty",
 		reflect.TypeOf((*CfnStudioComponent_LicenseServiceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnStudioComponent.ScriptParameterKeyValueProperty",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudioComponent.ScriptParameterKeyValueProperty",
 		reflect.TypeOf((*CfnStudioComponent_ScriptParameterKeyValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnStudioComponent.SharedFileSystemConfigurationProperty",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudioComponent.SharedFileSystemConfigurationProperty",
 		reflect.TypeOf((*CfnStudioComponent_SharedFileSystemConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnStudioComponent.StudioComponentConfigurationProperty",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudioComponent.StudioComponentConfigurationProperty",
 		reflect.TypeOf((*CfnStudioComponent_StudioComponentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnStudioComponent.StudioComponentInitializationScriptProperty",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudioComponent.StudioComponentInitializationScriptProperty",
 		reflect.TypeOf((*CfnStudioComponent_StudioComponentInitializationScriptProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnStudioComponentProps",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudioComponentProps",
 		reflect.TypeOf((*CfnStudioComponentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_nimblestudio.CfnStudioProps",
+		"aws-cdk-lib.aws_nimblestudio.CfnStudioProps",
 		reflect.TypeOf((*CfnStudioProps)(nil)).Elem(),
 	)
 }

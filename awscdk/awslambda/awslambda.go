@@ -1,38 +1,38 @@
 package awslambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/assets"
-	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awscodeguruprofiler"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
-	"github.com/aws/aws-cdk-go/awscdk/awsefs"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
-	"github.com/aws/aws-cdk-go/awscdk/awssigner"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssigner"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A new alias to a particular version of a Lambda function.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   lambdaCode := lambda.code.fromCfnParameters()
 //   func := lambda.NewFunction(this, jsii.String("Lambda"), &functionProps{
 //   	code: lambdaCode,
 //   	handler: jsii.String("index.handler"),
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_14_X(),
 //   })
 //   // used to make sure each CDK synthesis produces a different Version
 //   version := func.currentVersion
@@ -46,26 +46,21 @@ import (
 //   	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
 //   })
 //
-// Experimental.
 type Alias interface {
 	QualifiedFunctionBase
 	IAlias
 	// Name of this alias.
-	// Experimental.
 	AliasName() *string
 	// The architecture of this Lambda Function.
-	// Experimental.
 	Architecture() Architecture
 	// Whether the addPermission() call adds any permissions.
 	//
 	// True for new Lambdas, false for version $LATEST and imported Lambdas
 	// from different accounts.
-	// Experimental.
 	CanCreatePermissions() *bool
 	// Access the Connections object.
 	//
 	// Will fail if not a VPC-enabled Lambda Function.
-	// Experimental.
 	Connections() awsec2.Connections
 	// The environment this resource belongs to.
 	//
@@ -75,29 +70,23 @@ type Alias interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// ARN of this alias.
 	//
 	// Used to be able to use Alias in place of a regular Lambda. Lambda accepts
 	// ARNs everywhere it accepts function names.
-	// Experimental.
 	FunctionArn() *string
 	// ARN of this alias.
 	//
 	// Used to be able to use Alias in place of a regular Lambda. Lambda accepts
 	// ARNs everywhere it accepts function names.
-	// Experimental.
 	FunctionName() *string
 	// The principal this Lambda Function is running as.
-	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
 	//
 	// If this is is `false`, trying to access the `connections` object will fail.
-	// Experimental.
 	IsBoundToVpc() *bool
-	// Experimental.
 	Lambda() IFunction
 	// The `$LATEST` version of this function.
 	//
@@ -107,14 +96,11 @@ type Alias interface {
 	//
 	// To obtain a reference to an explicit version which references the current
 	// function configuration, use `lambdaFunction.currentVersion` instead.
-	// Experimental.
 	LatestVersion() IVersion
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The construct node where permissions are attached.
-	// Experimental.
-	PermissionsNode() awscdk.ConstructNode
+	PermissionsNode() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -122,32 +108,25 @@ type Alias interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The qualifier of the version or alias of this function.
 	//
 	// A qualifier is the identifier that's appended to a version or alias ARN.
-	// Experimental.
 	Qualifier() *string
 	// The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke().
-	// Experimental.
 	ResourceArnsForGrantInvoke() *[]*string
 	// The IAM role associated with this function.
 	//
 	// Undefined if the function was imported without a role.
-	// Experimental.
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// The underlying Lambda function version.
-	// Experimental.
 	Version() IVersion
 	// Configure provisioned concurrency autoscaling on a function alias.
 	//
 	// Returns a scalable attribute that can call
 	// `scaleOnUtilization()` and `scaleOnSchedule()`.
-	// Experimental.
 	AddAutoScaling(options *AutoScalingOptions) IScalableFunctionAttribute
 	// Adds an event source to this function.
 	//
@@ -158,21 +137,16 @@ type Alias interface {
 	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 	// myFunction.addEventSource(new SqsEventSource(myQueue));
 	// ```.
-	// Experimental.
 	AddEventSource(source IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
-	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
 	// Adds a url to this lambda function.
-	// Experimental.
 	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
-	// Experimental.
 	AddPermission(id *string, permission *Permission)
 	// Adds a statement to the IAM role assumed by the instance.
-	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Apply the given removal policy to this resource.
 	//
@@ -183,10 +157,8 @@ type Alias interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
-	// Experimental.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
 	//
@@ -194,9 +166,7 @@ type Alias interface {
 	//
 	// This applies only to permissions on Lambda functions, not versions or aliases.
 	// This function is overridden as a noOp for QualifiedFunctionBase.
-	// Experimental.
-	ConsiderWarningOnInvokeFunctionPermissions(_scope awscdk.Construct, _action *string)
-	// Experimental.
+	ConsiderWarningOnInvokeFunctionPermissions(_scope constructs.Construct, _action *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -204,97 +174,38 @@ type Alias interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
-	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
-	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
-	WarnInvokeFunctionPermissions(scope awscdk.Construct)
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for Alias
@@ -413,8 +324,8 @@ func (j *jsiiProxy_Alias) LatestVersion() IVersion {
 	return returns
 }
 
-func (j *jsiiProxy_Alias) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Alias) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -423,8 +334,8 @@ func (j *jsiiProxy_Alias) Node() awscdk.ConstructNode {
 	return returns
 }
 
-func (j *jsiiProxy_Alias) PermissionsNode() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Alias) PermissionsNode() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -494,14 +405,13 @@ func (j *jsiiProxy_Alias) Version() IVersion {
 }
 
 
-// Experimental.
 func NewAlias(scope constructs.Construct, id *string, props *AliasProps) Alias {
 	_init_.Initialize()
 
 	j := jsiiProxy_Alias{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.Alias",
+		"aws-cdk-lib.aws_lambda.Alias",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -509,25 +419,23 @@ func NewAlias(scope constructs.Construct, id *string, props *AliasProps) Alias {
 	return &j
 }
 
-// Experimental.
 func NewAlias_Override(a Alias, scope constructs.Construct, id *string, props *AliasProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.Alias",
+		"aws-cdk-lib.aws_lambda.Alias",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Experimental.
 func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *AliasAttributes) IAlias {
 	_init_.Initialize()
 
 	var returns IAlias
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Alias",
+		"aws-cdk-lib.aws_lambda.Alias",
 		"fromAliasAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -536,15 +444,30 @@ func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *Al
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func Alias_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Alias",
+		"aws-cdk-lib.aws_lambda.Alias",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -553,15 +476,30 @@ func Alias_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func Alias_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func Alias_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Alias",
+		"aws-cdk-lib.aws_lambda.Alias",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func Alias_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.Alias",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -649,7 +587,7 @@ func (a *jsiiProxy_Alias) ConfigureAsyncInvoke(options *EventInvokeConfigOptions
 	)
 }
 
-func (a *jsiiProxy_Alias) ConsiderWarningOnInvokeFunctionPermissions(_scope awscdk.Construct, _action *string) {
+func (a *jsiiProxy_Alias) ConsiderWarningOnInvokeFunctionPermissions(_scope constructs.Construct, _action *string) {
 	_jsii_.InvokeVoid(
 		a,
 		"considerWarningOnInvokeFunctionPermissions",
@@ -787,51 +725,6 @@ func (a *jsiiProxy_Alias) MetricThrottles(props *awscloudwatch.MetricOptions) aw
 	return returns
 }
 
-func (a *jsiiProxy_Alias) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (a *jsiiProxy_Alias) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (a *jsiiProxy_Alias) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_Alias) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (a *jsiiProxy_Alias) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (a *jsiiProxy_Alias) ToString() *string {
 	var returns *string
 
@@ -845,20 +738,7 @@ func (a *jsiiProxy_Alias) ToString() *string {
 	return returns
 }
 
-func (a *jsiiProxy_Alias) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_Alias) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
+func (a *jsiiProxy_Alias) WarnInvokeFunctionPermissions(scope constructs.Construct) {
 	_jsii_.InvokeVoid(
 		a,
 		"warnInvokeFunctionPermissions",
@@ -878,11 +758,8 @@ func (a *jsiiProxy_Alias) WarnInvokeFunctionPermissions(scope awscdk.Construct) 
 //   	aliasVersion: version,
 //   }
 //
-// Experimental.
 type AliasAttributes struct {
-	// Experimental.
 	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
-	// Experimental.
 	AliasVersion IVersion `field:"required" json:"aliasVersion" yaml:"aliasVersion"`
 }
 
@@ -891,11 +768,10 @@ type AliasAttributes struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var destination iDestination
-//   var duration duration
 //   var version version
 //
 //   aliasOptions := &aliasOptions{
@@ -906,32 +782,27 @@ type AliasAttributes struct {
 //   		},
 //   	},
 //   	description: jsii.String("description"),
-//   	maxEventAge: duration,
+//   	maxEventAge: cdk.duration.minutes(jsii.Number(30)),
 //   	onFailure: destination,
 //   	onSuccess: destination,
 //   	provisionedConcurrentExecutions: jsii.Number(123),
 //   	retryAttempts: jsii.Number(123),
 //   }
 //
-// Experimental.
 type AliasOptions struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
-	// Experimental.
 	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
-	// Experimental.
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Additional versions with individual weights this alias points to.
 	//
@@ -946,24 +817,22 @@ type AliasOptions struct {
 	//
 	// Then 5% of traffic will be routed to function version 2, while
 	// the remaining 95% of traffic will be routed to function version 1.
-	// Experimental.
 	AdditionalVersions *[]*VersionWeight `field:"optional" json:"additionalVersions" yaml:"additionalVersions"`
 	// Description for the alias.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's alias.
-	// Experimental.
 	ProvisionedConcurrentExecutions *float64 `field:"optional" json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 }
 
 // Properties for a new Lambda alias.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   lambdaCode := lambda.code.fromCfnParameters()
 //   func := lambda.NewFunction(this, jsii.String("Lambda"), &functionProps{
 //   	code: lambdaCode,
 //   	handler: jsii.String("index.handler"),
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_14_X(),
 //   })
 //   // used to make sure each CDK synthesis produces a different Version
 //   version := func.currentVersion
@@ -977,25 +846,20 @@ type AliasOptions struct {
 //   	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
 //   })
 //
-// Experimental.
 type AliasProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
-	// Experimental.
 	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
-	// Experimental.
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Additional versions with individual weights this alias points to.
 	//
@@ -1010,21 +874,16 @@ type AliasProps struct {
 	//
 	// Then 5% of traffic will be routed to function version 2, while
 	// the remaining 95% of traffic will be routed to function version 1.
-	// Experimental.
 	AdditionalVersions *[]*VersionWeight `field:"optional" json:"additionalVersions" yaml:"additionalVersions"`
 	// Description for the alias.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's alias.
-	// Experimental.
 	ProvisionedConcurrentExecutions *float64 `field:"optional" json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 	// Name of this alias.
-	// Experimental.
 	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 	// Function version this alias refers to.
 	//
 	// Use lambda.currentVersion to reference a version with your latest changes.
-	// Experimental.
 	Version IVersion `field:"required" json:"version" yaml:"version"`
 }
 
@@ -1039,13 +898,10 @@ type AliasProps struct {
 //   	insightsVersion: lambda.lambdaInsightsVersion_VERSION_1_0_119_0(),
 //   })
 //
-// Experimental.
 type Architecture interface {
 	// The platform to use for this architecture when building with Docker.
-	// Experimental.
 	DockerPlatform() *string
 	// The name of the architecture as recognized by the AWS Lambda service APIs.
-	// Experimental.
 	Name() *string
 }
 
@@ -1078,14 +934,13 @@ func (j *jsiiProxy_Architecture) Name() *string {
 // Used to specify a custom architecture name.
 //
 // Use this if the architecture name is not yet supported by the CDK.
-// Experimental.
 func Architecture_Custom(name *string, dockerPlatform *string) Architecture {
 	_init_.Initialize()
 
 	var returns Architecture
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Architecture",
+		"aws-cdk-lib.aws_lambda.Architecture",
 		"custom",
 		[]interface{}{name, dockerPlatform},
 		&returns,
@@ -1098,7 +953,7 @@ func Architecture_ARM_64() Architecture {
 	_init_.Initialize()
 	var returns Architecture
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Architecture",
+		"aws-cdk-lib.aws_lambda.Architecture",
 		"ARM_64",
 		&returns,
 	)
@@ -1109,7 +964,7 @@ func Architecture_X86_64() Architecture {
 	_init_.Initialize()
 	var returns Architecture
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Architecture",
+		"aws-cdk-lib.aws_lambda.Architecture",
 		"X86_64",
 		&returns,
 	)
@@ -1165,23 +1020,18 @@ func Architecture_X86_64() Architecture {
 //   	authorizer: authorizer,
 //   })
 //
-// Experimental.
 type AssetCode interface {
 	Code
 	// Determines whether this Code is inline code or not.
-	// Experimental.
 	IsInline() *bool
 	// The path to the asset file or directory.
-	// Experimental.
 	Path() *string
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	// Experimental.
-	Bind(scope awscdk.Construct) *CodeConfig
+	Bind(scope constructs.Construct) *CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	// Experimental.
 	BindToResource(resource awscdk.CfnResource, options *ResourceBindOptions)
 }
 
@@ -1211,14 +1061,13 @@ func (j *jsiiProxy_AssetCode) Path() *string {
 }
 
 
-// Experimental.
 func NewAssetCode(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
 	j := jsiiProxy_AssetCode{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.AssetCode",
+		"aws-cdk-lib.aws_lambda.AssetCode",
 		[]interface{}{path, options},
 		&j,
 	)
@@ -1226,77 +1075,24 @@ func NewAssetCode(path *string, options *awss3assets.AssetOptions) AssetCode {
 	return &j
 }
 
-// Experimental.
 func NewAssetCode_Override(a AssetCode, path *string, options *awss3assets.AssetOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.AssetCode",
+		"aws-cdk-lib.aws_lambda.AssetCode",
 		[]interface{}{path, options},
 		a,
 	)
 }
 
-// DEPRECATED.
-// Deprecated: use `fromAsset`.
-func AssetCode_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetCode",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`.
-func AssetCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetCode",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`.
-func AssetCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetCode",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Loads the function code from a local disk path.
-// Experimental.
 func AssetCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetCode",
+		"aws-cdk-lib.aws_lambda.AssetCode",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -1306,14 +1102,13 @@ func AssetCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetC
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func AssetCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetCode",
+		"aws-cdk-lib.aws_lambda.AssetCode",
 		"fromAssetImage",
 		[]interface{}{directory, props},
 		&returns,
@@ -1323,14 +1118,13 @@ func AssetCode_FromAssetImage(directory *string, props *AssetImageCodeProps) Ass
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func AssetCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetCode",
+		"aws-cdk-lib.aws_lambda.AssetCode",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -1342,14 +1136,13 @@ func AssetCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *stri
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`.
-// Experimental.
 func AssetCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetCode",
+		"aws-cdk-lib.aws_lambda.AssetCode",
 		"fromCfnParameters",
 		[]interface{}{props},
 		&returns,
@@ -1362,14 +1155,13 @@ func AssetCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCod
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func AssetCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetCode",
+		"aws-cdk-lib.aws_lambda.AssetCode",
 		"fromDockerBuild",
 		[]interface{}{path, options},
 		&returns,
@@ -1379,14 +1171,13 @@ func AssetCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) A
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func AssetCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetCode",
+		"aws-cdk-lib.aws_lambda.AssetCode",
 		"fromEcrImage",
 		[]interface{}{repository, props},
 		&returns,
@@ -1398,14 +1189,13 @@ func AssetCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodePr
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func AssetCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetCode",
+		"aws-cdk-lib.aws_lambda.AssetCode",
 		"fromInline",
 		[]interface{}{code},
 		&returns,
@@ -1414,24 +1204,7 @@ func AssetCode_FromInline(code *string) InlineCode {
 	return returns
 }
 
-// DEPRECATED.
-// Deprecated: use `fromInline`.
-func AssetCode_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetCode",
-		"inline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_AssetCode) Bind(scope awscdk.Construct) *CodeConfig {
+func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -1457,8 +1230,7 @@ func (a *jsiiProxy_AssetCode) BindToResource(resource awscdk.CfnResource, option
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
@@ -1480,9 +1252,8 @@ func (a *jsiiProxy_AssetCode) BindToResource(resource awscdk.CfnResource, option
 //   	},
 //   	extraHash: jsii.String("extraHash"),
 //   	file: jsii.String("file"),
-//   	follow: awscdk.Assets.followMode_NEVER,
-//   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
-//   	ignoreMode: monocdk.ignoreMode_GLOB,
+//   	followSymlinks: cdk.symlinkFollowMode_NEVER,
+//   	ignoreMode: cdk.ignoreMode_GLOB,
 //   	invalidation: &dockerImageAssetInvalidationOptions{
 //   		buildArgs: jsii.Boolean(false),
 //   		extraHash: jsii.Boolean(false),
@@ -1494,25 +1265,20 @@ func (a *jsiiProxy_AssetCode) BindToResource(resource awscdk.CfnResource, option
 //   	},
 //   	networkMode: networkMode,
 //   	platform: platform,
-//   	repositoryName: jsii.String("repositoryName"),
 //   	target: jsii.String("target"),
 //   	workingDirectory: jsii.String("workingDirectory"),
 //   })
 //
-// Experimental.
 type AssetImageCode interface {
 	Code
 	// Determines whether this Code is inline code or not.
-	// Experimental.
 	IsInline() *bool
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	// Experimental.
-	Bind(scope awscdk.Construct) *CodeConfig
+	Bind(scope constructs.Construct) *CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	// Experimental.
 	BindToResource(resource awscdk.CfnResource, options *ResourceBindOptions)
 }
 
@@ -1532,14 +1298,13 @@ func (j *jsiiProxy_AssetImageCode) IsInline() *bool {
 }
 
 
-// Experimental.
 func NewAssetImageCode(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
 	j := jsiiProxy_AssetImageCode{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.AssetImageCode",
+		"aws-cdk-lib.aws_lambda.AssetImageCode",
 		[]interface{}{directory, props},
 		&j,
 	)
@@ -1547,77 +1312,24 @@ func NewAssetImageCode(directory *string, props *AssetImageCodeProps) AssetImage
 	return &j
 }
 
-// Experimental.
 func NewAssetImageCode_Override(a AssetImageCode, directory *string, props *AssetImageCodeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.AssetImageCode",
+		"aws-cdk-lib.aws_lambda.AssetImageCode",
 		[]interface{}{directory, props},
 		a,
 	)
 }
 
-// DEPRECATED.
-// Deprecated: use `fromAsset`.
-func AssetImageCode_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetImageCode",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`.
-func AssetImageCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetImageCode",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`.
-func AssetImageCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetImageCode",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Loads the function code from a local disk path.
-// Experimental.
 func AssetImageCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetImageCode",
+		"aws-cdk-lib.aws_lambda.AssetImageCode",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -1627,14 +1339,13 @@ func AssetImageCode_FromAsset(path *string, options *awss3assets.AssetOptions) A
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func AssetImageCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetImageCode",
+		"aws-cdk-lib.aws_lambda.AssetImageCode",
 		"fromAssetImage",
 		[]interface{}{directory, props},
 		&returns,
@@ -1644,14 +1355,13 @@ func AssetImageCode_FromAssetImage(directory *string, props *AssetImageCodeProps
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func AssetImageCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetImageCode",
+		"aws-cdk-lib.aws_lambda.AssetImageCode",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -1663,14 +1373,13 @@ func AssetImageCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion 
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`.
-// Experimental.
 func AssetImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetImageCode",
+		"aws-cdk-lib.aws_lambda.AssetImageCode",
 		"fromCfnParameters",
 		[]interface{}{props},
 		&returns,
@@ -1683,14 +1392,13 @@ func AssetImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParamete
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func AssetImageCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetImageCode",
+		"aws-cdk-lib.aws_lambda.AssetImageCode",
 		"fromDockerBuild",
 		[]interface{}{path, options},
 		&returns,
@@ -1700,14 +1408,13 @@ func AssetImageCode_FromDockerBuild(path *string, options *DockerBuildAssetOptio
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func AssetImageCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetImageCode",
+		"aws-cdk-lib.aws_lambda.AssetImageCode",
 		"fromEcrImage",
 		[]interface{}{repository, props},
 		&returns,
@@ -1719,14 +1426,13 @@ func AssetImageCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageC
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func AssetImageCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetImageCode",
+		"aws-cdk-lib.aws_lambda.AssetImageCode",
 		"fromInline",
 		[]interface{}{code},
 		&returns,
@@ -1735,24 +1441,7 @@ func AssetImageCode_FromInline(code *string) InlineCode {
 	return returns
 }
 
-// DEPRECATED.
-// Deprecated: use `fromInline`.
-func AssetImageCode_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.AssetImageCode",
-		"inline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_AssetImageCode) Bind(scope awscdk.Construct) *CodeConfig {
+func (a *jsiiProxy_AssetImageCode) Bind(scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -1778,8 +1467,7 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, o
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
@@ -1801,9 +1489,8 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, o
 //   	},
 //   	extraHash: jsii.String("extraHash"),
 //   	file: jsii.String("file"),
-//   	follow: awscdk.Assets.followMode_NEVER,
-//   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
-//   	ignoreMode: monocdk.ignoreMode_GLOB,
+//   	followSymlinks: cdk.symlinkFollowMode_NEVER,
+//   	ignoreMode: cdk.ignoreMode_GLOB,
 //   	invalidation: &dockerImageAssetInvalidationOptions{
 //   		buildArgs: jsii.Boolean(false),
 //   		extraHash: jsii.Boolean(false),
@@ -1815,69 +1502,44 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, o
 //   	},
 //   	networkMode: networkMode,
 //   	platform: platform,
-//   	repositoryName: jsii.String("repositoryName"),
 //   	target: jsii.String("target"),
 //   	workingDirectory: jsii.String("workingDirectory"),
 //   }
 //
-// Experimental.
 type AssetImageCodeProps struct {
 	// Glob patterns to exclude from the copy.
-	// Experimental.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated: use `followSymlinks` instead.
-	Follow assets.FollowMode `field:"optional" json:"follow" yaml:"follow"`
+	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
-	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	// Experimental.
 	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
-	// A strategy for how to handle symlinks.
-	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
-	// Experimental.
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
-	// Experimental.
 	File *string `field:"optional" json:"file" yaml:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
-	// Experimental.
 	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `field:"optional" json:"invalidation" yaml:"invalidation"`
 	// Networking mode for the RUN commands during build.
 	//
 	// Support docker API 1.25+.
-	// Experimental.
 	NetworkMode awsecrassets.NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// Platform to build for.
 	//
 	// _Requires Docker Buildx_.
-	// Experimental.
 	Platform awsecrassets.Platform `field:"optional" json:"platform" yaml:"platform"`
-	// ECR repository name.
-	//
-	// Specify this property if you need to statically address the image, e.g.
-	// from a Kubernetes Pod. Note, this is only the repository name, without the
-	// registry and the tag parts.
-	// Deprecated: to control the location of docker image assets, please override
-	// `Stack.addDockerImageAsset`. this feature will be removed in future
-	// releases.
-	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 	// Docker target to build to.
-	// Experimental.
 	Target *string `field:"optional" json:"target" yaml:"target"`
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
-	// Experimental.
 	Cmd *[]*string `field:"optional" json:"cmd" yaml:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
@@ -1885,14 +1547,12 @@ type AssetImageCodeProps struct {
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	// Experimental.
 	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
-	// Experimental.
 	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }
 
@@ -1924,13 +1584,10 @@ type AssetImageCodeProps struct {
 //   	minCapacity: jsii.Number(20),
 //   })
 //
-// Experimental.
 type AutoScalingOptions struct {
 	// Maximum capacity to scale to.
-	// Experimental.
 	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
-	// Experimental.
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 }
 
@@ -1969,16 +1626,13 @@ type CfnAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A description of the alias.
 	Description() *string
@@ -2004,14 +1658,12 @@ type CfnAlias interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the alias.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 	ProvisionedConcurrencyConfig() interface{}
 	SetProvisionedConcurrencyConfig(val interface{})
@@ -2019,7 +1671,6 @@ type CfnAlias interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
 	RoutingConfig() interface{}
@@ -2027,22 +1678,26 @@ type CfnAlias interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2051,7 +1706,6 @@ type CfnAlias interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2096,15 +1750,12 @@ type CfnAlias interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2114,14 +1765,17 @@ type CfnAlias interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2130,74 +1784,21 @@ type CfnAlias interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -2297,8 +1898,8 @@ func (j *jsiiProxy_CfnAlias) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlias) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnAlias) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2357,15 +1958,25 @@ func (j *jsiiProxy_CfnAlias) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAlias) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Lambda::Alias`.
-func NewCfnAlias(scope awscdk.Construct, id *string, props *CfnAliasProps) CfnAlias {
+func NewCfnAlias(scope constructs.Construct, id *string, props *CfnAliasProps) CfnAlias {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAlias{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnAlias",
+		"aws-cdk-lib.aws_lambda.CfnAlias",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2374,11 +1985,11 @@ func NewCfnAlias(scope awscdk.Construct, id *string, props *CfnAliasProps) CfnAl
 }
 
 // Create a new `AWS::Lambda::Alias`.
-func NewCfnAlias_Override(c CfnAlias, scope awscdk.Construct, id *string, props *CfnAliasProps) {
+func NewCfnAlias_Override(c CfnAlias, scope constructs.Construct, id *string, props *CfnAliasProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnAlias",
+		"aws-cdk-lib.aws_lambda.CfnAlias",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2438,14 +2049,13 @@ func (j *jsiiProxy_CfnAlias) SetRoutingConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAlias_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnAlias",
+		"aws-cdk-lib.aws_lambda.CfnAlias",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2455,14 +2065,13 @@ func CfnAlias_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnAlias",
+		"aws-cdk-lib.aws_lambda.CfnAlias",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2471,15 +2080,30 @@ func CfnAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnAlias_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnAlias",
+		"aws-cdk-lib.aws_lambda.CfnAlias",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2492,7 +2116,7 @@ func CfnAlias_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.CfnAlias",
+		"aws-cdk-lib.aws_lambda.CfnAlias",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2589,48 +2213,11 @@ func (c *jsiiProxy_CfnAlias) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnAlias) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnAlias) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnAlias) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnAlias) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnAlias) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2660,33 +2247,12 @@ func (c *jsiiProxy_CfnAlias) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnAlias) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnAlias) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnAlias) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2840,11 +2406,9 @@ type CfnCodeSigningConfig interface {
 	// The code signing configuration ID.
 	AttrCodeSigningConfigId() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The code signing policy controls the validation failure action for signature mismatch or expiry.
 	CodeSigningPolicies() interface{}
@@ -2852,7 +2416,6 @@ type CfnCodeSigningConfig interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Code signing configuration description.
 	Description() *string
@@ -2866,36 +2429,37 @@ type CfnCodeSigningConfig interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2904,7 +2468,6 @@ type CfnCodeSigningConfig interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -2949,15 +2512,12 @@ type CfnCodeSigningConfig interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -2967,14 +2527,17 @@ type CfnCodeSigningConfig interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -2983,74 +2546,21 @@ type CfnCodeSigningConfig interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3160,8 +2670,8 @@ func (j *jsiiProxy_CfnCodeSigningConfig) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCodeSigningConfig) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnCodeSigningConfig) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3200,15 +2710,25 @@ func (j *jsiiProxy_CfnCodeSigningConfig) UpdatedProperites() *map[string]interfa
 	return returns
 }
 
+func (j *jsiiProxy_CfnCodeSigningConfig) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Lambda::CodeSigningConfig`.
-func NewCfnCodeSigningConfig(scope awscdk.Construct, id *string, props *CfnCodeSigningConfigProps) CfnCodeSigningConfig {
+func NewCfnCodeSigningConfig(scope constructs.Construct, id *string, props *CfnCodeSigningConfigProps) CfnCodeSigningConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCodeSigningConfig{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnCodeSigningConfig",
+		"aws-cdk-lib.aws_lambda.CfnCodeSigningConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3217,11 +2737,11 @@ func NewCfnCodeSigningConfig(scope awscdk.Construct, id *string, props *CfnCodeS
 }
 
 // Create a new `AWS::Lambda::CodeSigningConfig`.
-func NewCfnCodeSigningConfig_Override(c CfnCodeSigningConfig, scope awscdk.Construct, id *string, props *CfnCodeSigningConfigProps) {
+func NewCfnCodeSigningConfig_Override(c CfnCodeSigningConfig, scope constructs.Construct, id *string, props *CfnCodeSigningConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnCodeSigningConfig",
+		"aws-cdk-lib.aws_lambda.CfnCodeSigningConfig",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3257,14 +2777,13 @@ func (j *jsiiProxy_CfnCodeSigningConfig) SetDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnCodeSigningConfig_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnCodeSigningConfig",
+		"aws-cdk-lib.aws_lambda.CfnCodeSigningConfig",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3274,14 +2793,13 @@ func CfnCodeSigningConfig_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnCodeSigningConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnCodeSigningConfig",
+		"aws-cdk-lib.aws_lambda.CfnCodeSigningConfig",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3290,15 +2808,30 @@ func CfnCodeSigningConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnCodeSigningConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnCodeSigningConfig",
+		"aws-cdk-lib.aws_lambda.CfnCodeSigningConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3311,7 +2844,7 @@ func CfnCodeSigningConfig_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.CfnCodeSigningConfig",
+		"aws-cdk-lib.aws_lambda.CfnCodeSigningConfig",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3408,48 +2941,11 @@ func (c *jsiiProxy_CfnCodeSigningConfig) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
-func (c *jsiiProxy_CfnCodeSigningConfig) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnCodeSigningConfig) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnCodeSigningConfig) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnCodeSigningConfig) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnCodeSigningConfig) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3479,33 +2975,12 @@ func (c *jsiiProxy_CfnCodeSigningConfig) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnCodeSigningConfig) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnCodeSigningConfig) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnCodeSigningConfig) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3623,16 +3098,13 @@ type CfnEventInvokeConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A destination for events after they have been sent to a function for processing.
 	//
@@ -3660,7 +3132,6 @@ type CfnEventInvokeConfig interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The maximum age of a request that Lambda sends to a function for processing.
 	MaximumEventAgeInSeconds() *float64
@@ -3668,9 +3139,8 @@ type CfnEventInvokeConfig interface {
 	// The maximum number of times to retry when the function returns an error.
 	MaximumRetryAttempts() *float64
 	SetMaximumRetryAttempts(val *float64)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The identifier of a version or alias.
 	//
 	// - *Version* - A version number.
@@ -3682,27 +3152,30 @@ type CfnEventInvokeConfig interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3711,7 +3184,6 @@ type CfnEventInvokeConfig interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -3756,15 +3228,12 @@ type CfnEventInvokeConfig interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -3774,14 +3243,17 @@ type CfnEventInvokeConfig interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3790,74 +3262,21 @@ type CfnEventInvokeConfig interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3957,8 +3376,8 @@ func (j *jsiiProxy_CfnEventInvokeConfig) MaximumRetryAttempts() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventInvokeConfig) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnEventInvokeConfig) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4007,15 +3426,25 @@ func (j *jsiiProxy_CfnEventInvokeConfig) UpdatedProperites() *map[string]interfa
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventInvokeConfig) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Lambda::EventInvokeConfig`.
-func NewCfnEventInvokeConfig(scope awscdk.Construct, id *string, props *CfnEventInvokeConfigProps) CfnEventInvokeConfig {
+func NewCfnEventInvokeConfig(scope constructs.Construct, id *string, props *CfnEventInvokeConfigProps) CfnEventInvokeConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEventInvokeConfig{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnEventInvokeConfig",
+		"aws-cdk-lib.aws_lambda.CfnEventInvokeConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4024,11 +3453,11 @@ func NewCfnEventInvokeConfig(scope awscdk.Construct, id *string, props *CfnEvent
 }
 
 // Create a new `AWS::Lambda::EventInvokeConfig`.
-func NewCfnEventInvokeConfig_Override(c CfnEventInvokeConfig, scope awscdk.Construct, id *string, props *CfnEventInvokeConfigProps) {
+func NewCfnEventInvokeConfig_Override(c CfnEventInvokeConfig, scope constructs.Construct, id *string, props *CfnEventInvokeConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnEventInvokeConfig",
+		"aws-cdk-lib.aws_lambda.CfnEventInvokeConfig",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4080,14 +3509,13 @@ func (j *jsiiProxy_CfnEventInvokeConfig) SetQualifier(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnEventInvokeConfig_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnEventInvokeConfig",
+		"aws-cdk-lib.aws_lambda.CfnEventInvokeConfig",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4097,14 +3525,13 @@ func CfnEventInvokeConfig_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnEventInvokeConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnEventInvokeConfig",
+		"aws-cdk-lib.aws_lambda.CfnEventInvokeConfig",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4113,15 +3540,30 @@ func CfnEventInvokeConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnEventInvokeConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnEventInvokeConfig",
+		"aws-cdk-lib.aws_lambda.CfnEventInvokeConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4134,7 +3576,7 @@ func CfnEventInvokeConfig_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.CfnEventInvokeConfig",
+		"aws-cdk-lib.aws_lambda.CfnEventInvokeConfig",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4231,48 +3673,11 @@ func (c *jsiiProxy_CfnEventInvokeConfig) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
-func (c *jsiiProxy_CfnEventInvokeConfig) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnEventInvokeConfig) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnEventInvokeConfig) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnEventInvokeConfig) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnEventInvokeConfig) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -4302,33 +3707,12 @@ func (c *jsiiProxy_CfnEventInvokeConfig) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnEventInvokeConfig) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnEventInvokeConfig) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnEventInvokeConfig) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4543,16 +3927,13 @@ type CfnEventSourceMapping interface {
 	BisectBatchOnFunctionError() interface{}
 	SetBisectBatchOnFunctionError(val interface{})
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// (Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	DestinationConfig() interface{}
@@ -4599,7 +3980,6 @@ type CfnEventSourceMapping interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//
@@ -4620,9 +4000,8 @@ type CfnEventSourceMapping interface {
 	// which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
 	MaximumRetryAttempts() *float64
 	SetMaximumRetryAttempts(val *float64)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// (Streams only) The number of batches to process concurrently from each shard.
 	//
 	// The default value is 1.
@@ -4635,7 +4014,6 @@ type CfnEventSourceMapping interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The self-managed Apache Kafka cluster for your event source.
 	SelfManagedEventSource() interface{}
@@ -4646,7 +4024,6 @@ type CfnEventSourceMapping interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
 	//
@@ -4666,20 +4043,25 @@ type CfnEventSourceMapping interface {
 	// The range is between 1 second up to 900 seconds.
 	TumblingWindowInSeconds() *float64
 	SetTumblingWindowInSeconds(val *float64)
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4688,7 +4070,6 @@ type CfnEventSourceMapping interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -4733,15 +4114,12 @@ type CfnEventSourceMapping interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -4751,14 +4129,17 @@ type CfnEventSourceMapping interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4767,74 +4148,21 @@ type CfnEventSourceMapping interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -5014,8 +4342,8 @@ func (j *jsiiProxy_CfnEventSourceMapping) MaximumRetryAttempts() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventSourceMapping) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnEventSourceMapping) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5134,15 +4462,25 @@ func (j *jsiiProxy_CfnEventSourceMapping) UpdatedProperites() *map[string]interf
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventSourceMapping) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Lambda::EventSourceMapping`.
-func NewCfnEventSourceMapping(scope awscdk.Construct, id *string, props *CfnEventSourceMappingProps) CfnEventSourceMapping {
+func NewCfnEventSourceMapping(scope constructs.Construct, id *string, props *CfnEventSourceMappingProps) CfnEventSourceMapping {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEventSourceMapping{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnEventSourceMapping",
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5151,11 +4489,11 @@ func NewCfnEventSourceMapping(scope awscdk.Construct, id *string, props *CfnEven
 }
 
 // Create a new `AWS::Lambda::EventSourceMapping`.
-func NewCfnEventSourceMapping_Override(c CfnEventSourceMapping, scope awscdk.Construct, id *string, props *CfnEventSourceMappingProps) {
+func NewCfnEventSourceMapping_Override(c CfnEventSourceMapping, scope constructs.Construct, id *string, props *CfnEventSourceMappingProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnEventSourceMapping",
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5319,14 +4657,13 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetTumblingWindowInSeconds(val *float6
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnEventSourceMapping_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnEventSourceMapping",
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5336,14 +4673,13 @@ func CfnEventSourceMapping_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnEventSourceMapping_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnEventSourceMapping",
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5352,15 +4688,30 @@ func CfnEventSourceMapping_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnEventSourceMapping_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnEventSourceMapping",
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5373,7 +4724,7 @@ func CfnEventSourceMapping_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.CfnEventSourceMapping",
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5470,48 +4821,11 @@ func (c *jsiiProxy_CfnEventSourceMapping) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
-func (c *jsiiProxy_CfnEventSourceMapping) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnEventSourceMapping) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnEventSourceMapping) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnEventSourceMapping) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnEventSourceMapping) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5541,33 +4855,12 @@ func (c *jsiiProxy_CfnEventSourceMapping) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnEventSourceMapping) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnEventSourceMapping) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnEventSourceMapping) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5972,11 +5265,9 @@ type CfnFunction interface {
 	// The Amazon Resource Name (ARN) of the function.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The code for the function.
 	Code() interface{}
@@ -5990,7 +5281,6 @@ type CfnFunction interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
 	//
@@ -6049,14 +5339,12 @@ type CfnFunction interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.
 	MemorySize() *float64
 	SetMemorySize(val *float64)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The type of deployment package.
 	//
 	// Set to `Image` for container image and set `Zip` for .zip file archive.
@@ -6066,7 +5354,6 @@ type CfnFunction interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions() *float64
@@ -6080,7 +5367,6 @@ type CfnFunction interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 	Tags() awscdk.TagManager
@@ -6092,23 +5378,28 @@ type CfnFunction interface {
 	// Set `Mode` to `Active` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) .
 	TracingConfig() interface{}
 	SetTracingConfig(val interface{})
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// For network connectivity to AWS resources in a [VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-network.html) , specify a list of security groups and subnets in the VPC.
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6117,7 +5408,6 @@ type CfnFunction interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -6162,15 +5452,12 @@ type CfnFunction interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -6180,14 +5467,17 @@ type CfnFunction interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -6196,74 +5486,21 @@ type CfnFunction interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -6473,8 +5710,8 @@ func (j *jsiiProxy_CfnFunction) MemorySize() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFunction) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnFunction) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6583,6 +5820,16 @@ func (j *jsiiProxy_CfnFunction) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) VpcConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -6595,13 +5842,13 @@ func (j *jsiiProxy_CfnFunction) VpcConfig() interface{} {
 
 
 // Create a new `AWS::Lambda::Function`.
-func NewCfnFunction(scope awscdk.Construct, id *string, props *CfnFunctionProps) CfnFunction {
+func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionProps) CfnFunction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFunction{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnFunction",
+		"aws-cdk-lib.aws_lambda.CfnFunction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6610,11 +5857,11 @@ func NewCfnFunction(scope awscdk.Construct, id *string, props *CfnFunctionProps)
 }
 
 // Create a new `AWS::Lambda::Function`.
-func NewCfnFunction_Override(c CfnFunction, scope awscdk.Construct, id *string, props *CfnFunctionProps) {
+func NewCfnFunction_Override(c CfnFunction, scope constructs.Construct, id *string, props *CfnFunctionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnFunction",
+		"aws-cdk-lib.aws_lambda.CfnFunction",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6794,14 +6041,13 @@ func (j *jsiiProxy_CfnFunction) SetVpcConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnFunction_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnFunction",
+		"aws-cdk-lib.aws_lambda.CfnFunction",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6811,14 +6057,13 @@ func CfnFunction_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnFunction_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnFunction",
+		"aws-cdk-lib.aws_lambda.CfnFunction",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6827,15 +6072,30 @@ func CfnFunction_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnFunction",
+		"aws-cdk-lib.aws_lambda.CfnFunction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6848,7 +6108,7 @@ func CfnFunction_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.CfnFunction",
+		"aws-cdk-lib.aws_lambda.CfnFunction",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6945,48 +6205,11 @@ func (c *jsiiProxy_CfnFunction) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnFunction) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnFunction) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnFunction) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnFunction) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnFunction) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -7016,33 +6239,12 @@ func (c *jsiiProxy_CfnFunction) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnFunction) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnFunction) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnFunction) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7429,11 +6631,9 @@ type CfnLayerVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// A list of compatible [instruction set architectures](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html) .
 	CompatibleArchitectures() *[]*string
@@ -7447,7 +6647,6 @@ type CfnLayerVersion interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The description of the version.
 	Description() *string
@@ -7471,36 +6670,37 @@ type CfnLayerVersion interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7509,7 +6709,6 @@ type CfnLayerVersion interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -7554,15 +6753,12 @@ type CfnLayerVersion interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -7572,14 +6768,17 @@ type CfnLayerVersion interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7588,74 +6787,21 @@ type CfnLayerVersion interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -7775,8 +6921,8 @@ func (j *jsiiProxy_CfnLayerVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLayerVersion) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLayerVersion) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7815,15 +6961,25 @@ func (j *jsiiProxy_CfnLayerVersion) UpdatedProperites() *map[string]interface{} 
 	return returns
 }
 
+func (j *jsiiProxy_CfnLayerVersion) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Lambda::LayerVersion`.
-func NewCfnLayerVersion(scope awscdk.Construct, id *string, props *CfnLayerVersionProps) CfnLayerVersion {
+func NewCfnLayerVersion(scope constructs.Construct, id *string, props *CfnLayerVersionProps) CfnLayerVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLayerVersion{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnLayerVersion",
+		"aws-cdk-lib.aws_lambda.CfnLayerVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7832,11 +6988,11 @@ func NewCfnLayerVersion(scope awscdk.Construct, id *string, props *CfnLayerVersi
 }
 
 // Create a new `AWS::Lambda::LayerVersion`.
-func NewCfnLayerVersion_Override(c CfnLayerVersion, scope awscdk.Construct, id *string, props *CfnLayerVersionProps) {
+func NewCfnLayerVersion_Override(c CfnLayerVersion, scope constructs.Construct, id *string, props *CfnLayerVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnLayerVersion",
+		"aws-cdk-lib.aws_lambda.CfnLayerVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7896,14 +7052,13 @@ func (j *jsiiProxy_CfnLayerVersion) SetLicenseInfo(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLayerVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnLayerVersion",
+		"aws-cdk-lib.aws_lambda.CfnLayerVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7913,14 +7068,13 @@ func CfnLayerVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLayerVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnLayerVersion",
+		"aws-cdk-lib.aws_lambda.CfnLayerVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7929,15 +7083,30 @@ func CfnLayerVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnLayerVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnLayerVersion",
+		"aws-cdk-lib.aws_lambda.CfnLayerVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7950,7 +7119,7 @@ func CfnLayerVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.CfnLayerVersion",
+		"aws-cdk-lib.aws_lambda.CfnLayerVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8047,48 +7216,11 @@ func (c *jsiiProxy_CfnLayerVersion) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnLayerVersion) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLayerVersion) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLayerVersion) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLayerVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLayerVersion) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -8118,33 +7250,12 @@ func (c *jsiiProxy_CfnLayerVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLayerVersion) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLayerVersion) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLayerVersion) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8213,16 +7324,13 @@ type CfnLayerVersionPermission interface {
 	Action() *string
 	SetAction(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The name or Amazon Resource Name (ARN) of the layer.
 	LayerVersionArn() *string
@@ -8236,11 +7344,9 @@ type CfnLayerVersionPermission interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// With the principal set to `*` , grant permission to all accounts in the specified organization.
 	OrganizationId() *string
 	SetOrganizationId(val *string)
@@ -8253,27 +7359,30 @@ type CfnLayerVersionPermission interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8282,7 +7391,6 @@ type CfnLayerVersionPermission interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -8327,15 +7435,12 @@ type CfnLayerVersionPermission interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -8345,14 +7450,17 @@ type CfnLayerVersionPermission interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8361,74 +7469,21 @@ type CfnLayerVersionPermission interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -8508,8 +7563,8 @@ func (j *jsiiProxy_CfnLayerVersionPermission) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLayerVersionPermission) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLayerVersionPermission) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8568,15 +7623,25 @@ func (j *jsiiProxy_CfnLayerVersionPermission) UpdatedProperites() *map[string]in
 	return returns
 }
 
+func (j *jsiiProxy_CfnLayerVersionPermission) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Lambda::LayerVersionPermission`.
-func NewCfnLayerVersionPermission(scope awscdk.Construct, id *string, props *CfnLayerVersionPermissionProps) CfnLayerVersionPermission {
+func NewCfnLayerVersionPermission(scope constructs.Construct, id *string, props *CfnLayerVersionPermissionProps) CfnLayerVersionPermission {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLayerVersionPermission{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnLayerVersionPermission",
+		"aws-cdk-lib.aws_lambda.CfnLayerVersionPermission",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8585,11 +7650,11 @@ func NewCfnLayerVersionPermission(scope awscdk.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::Lambda::LayerVersionPermission`.
-func NewCfnLayerVersionPermission_Override(c CfnLayerVersionPermission, scope awscdk.Construct, id *string, props *CfnLayerVersionPermissionProps) {
+func NewCfnLayerVersionPermission_Override(c CfnLayerVersionPermission, scope constructs.Construct, id *string, props *CfnLayerVersionPermissionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnLayerVersionPermission",
+		"aws-cdk-lib.aws_lambda.CfnLayerVersionPermission",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8633,14 +7698,13 @@ func (j *jsiiProxy_CfnLayerVersionPermission) SetPrincipal(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLayerVersionPermission_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnLayerVersionPermission",
+		"aws-cdk-lib.aws_lambda.CfnLayerVersionPermission",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8650,14 +7714,13 @@ func CfnLayerVersionPermission_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLayerVersionPermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnLayerVersionPermission",
+		"aws-cdk-lib.aws_lambda.CfnLayerVersionPermission",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8666,15 +7729,30 @@ func CfnLayerVersionPermission_IsCfnResource(construct constructs.IConstruct) *b
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnLayerVersionPermission_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnLayerVersionPermission",
+		"aws-cdk-lib.aws_lambda.CfnLayerVersionPermission",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8687,7 +7765,7 @@ func CfnLayerVersionPermission_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.CfnLayerVersionPermission",
+		"aws-cdk-lib.aws_lambda.CfnLayerVersionPermission",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8784,48 +7862,11 @@ func (c *jsiiProxy_CfnLayerVersionPermission) Inspect(inspector awscdk.TreeInspe
 	)
 }
 
-func (c *jsiiProxy_CfnLayerVersionPermission) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnLayerVersionPermission) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnLayerVersionPermission) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLayerVersionPermission) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnLayerVersionPermission) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -8855,33 +7896,12 @@ func (c *jsiiProxy_CfnLayerVersionPermission) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLayerVersionPermission) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnLayerVersionPermission) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnLayerVersionPermission) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9115,15 +8135,11 @@ type CfnLayerVersionProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type CfnParametersCode interface {
 	Code
-	// Experimental.
 	BucketNameParam() *string
 	// Determines whether this Code is inline code or not.
-	// Experimental.
 	IsInline() *bool
-	// Experimental.
 	ObjectKeyParam() *string
 	// Create a parameters map from this instance's CloudFormation parameters.
 	//
@@ -9133,16 +8149,13 @@ type CfnParametersCode interface {
 	// The result should be provided to the CloudFormation Action
 	// that is deploying the Stack that the Lambda with this code is part of,
 	// in the `parameterOverrides` property.
-	// Experimental.
 	Assign(location *awss3.Location) *map[string]interface{}
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	// Experimental.
-	Bind(scope awscdk.Construct) *CodeConfig
+	Bind(scope constructs.Construct) *CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	// Experimental.
 	BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions)
 }
 
@@ -9182,14 +8195,13 @@ func (j *jsiiProxy_CfnParametersCode) ObjectKeyParam() *string {
 }
 
 
-// Experimental.
 func NewCfnParametersCode(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnParametersCode{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnParametersCode",
+		"aws-cdk-lib.aws_lambda.CfnParametersCode",
 		[]interface{}{props},
 		&j,
 	)
@@ -9197,77 +8209,24 @@ func NewCfnParametersCode(props *CfnParametersCodeProps) CfnParametersCode {
 	return &j
 }
 
-// Experimental.
 func NewCfnParametersCode_Override(c CfnParametersCode, props *CfnParametersCodeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnParametersCode",
+		"aws-cdk-lib.aws_lambda.CfnParametersCode",
 		[]interface{}{props},
 		c,
 	)
 }
 
-// DEPRECATED.
-// Deprecated: use `fromAsset`.
-func CfnParametersCode_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnParametersCode",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`.
-func CfnParametersCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnParametersCode",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`.
-func CfnParametersCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnParametersCode",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Loads the function code from a local disk path.
-// Experimental.
 func CfnParametersCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnParametersCode",
+		"aws-cdk-lib.aws_lambda.CfnParametersCode",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -9277,14 +8236,13 @@ func CfnParametersCode_FromAsset(path *string, options *awss3assets.AssetOptions
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func CfnParametersCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnParametersCode",
+		"aws-cdk-lib.aws_lambda.CfnParametersCode",
 		"fromAssetImage",
 		[]interface{}{directory, props},
 		&returns,
@@ -9294,14 +8252,13 @@ func CfnParametersCode_FromAssetImage(directory *string, props *AssetImageCodePr
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func CfnParametersCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnParametersCode",
+		"aws-cdk-lib.aws_lambda.CfnParametersCode",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -9313,14 +8270,13 @@ func CfnParametersCode_FromBucket(bucket awss3.IBucket, key *string, objectVersi
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`.
-// Experimental.
 func CfnParametersCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnParametersCode",
+		"aws-cdk-lib.aws_lambda.CfnParametersCode",
 		"fromCfnParameters",
 		[]interface{}{props},
 		&returns,
@@ -9333,14 +8289,13 @@ func CfnParametersCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParam
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func CfnParametersCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnParametersCode",
+		"aws-cdk-lib.aws_lambda.CfnParametersCode",
 		"fromDockerBuild",
 		[]interface{}{path, options},
 		&returns,
@@ -9350,14 +8305,13 @@ func CfnParametersCode_FromDockerBuild(path *string, options *DockerBuildAssetOp
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func CfnParametersCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnParametersCode",
+		"aws-cdk-lib.aws_lambda.CfnParametersCode",
 		"fromEcrImage",
 		[]interface{}{repository, props},
 		&returns,
@@ -9369,32 +8323,14 @@ func CfnParametersCode_FromEcrImage(repository awsecr.IRepository, props *EcrIma
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func CfnParametersCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnParametersCode",
+		"aws-cdk-lib.aws_lambda.CfnParametersCode",
 		"fromInline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromInline`.
-func CfnParametersCode_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnParametersCode",
-		"inline",
 		[]interface{}{code},
 		&returns,
 	)
@@ -9415,7 +8351,7 @@ func (c *jsiiProxy_CfnParametersCode) Assign(location *awss3.Location) *map[stri
 	return returns
 }
 
-func (c *jsiiProxy_CfnParametersCode) Bind(scope awscdk.Construct) *CodeConfig {
+func (c *jsiiProxy_CfnParametersCode) Bind(scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -9441,7 +8377,7 @@ func (c *jsiiProxy_CfnParametersCode) BindToResource(_resource awscdk.CfnResourc
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cfnParameter cfnParameter
@@ -9451,17 +8387,14 @@ func (c *jsiiProxy_CfnParametersCode) BindToResource(_resource awscdk.CfnResourc
 //   	objectKeyParam: cfnParameter,
 //   }
 //
-// Experimental.
 type CfnParametersCodeProps struct {
 	// The CloudFormation parameter that represents the name of the S3 Bucket where the Lambda code will be located in.
 	//
 	// Must be of type 'String'.
-	// Experimental.
 	BucketNameParam awscdk.CfnParameter `field:"optional" json:"bucketNameParam" yaml:"bucketNameParam"`
 	// The CloudFormation parameter that represents the path inside the S3 Bucket where the Lambda code will be located at.
 	//
 	// Must be of type 'String'.
-	// Experimental.
 	ObjectKeyParam awscdk.CfnParameter `field:"optional" json:"objectKeyParam" yaml:"objectKeyParam"`
 }
 
@@ -9502,16 +8435,13 @@ type CfnPermission interface {
 	Action() *string
 	SetAction(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// For Alexa Smart Home functions, a token that must be supplied by the invoker.
 	EventSourceToken() *string
@@ -9539,11 +8469,9 @@ type CfnPermission interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The AWS service or account that invokes the function.
 	//
 	// If you specify a service, use `SourceArn` or `SourceAccount` to limit who can invoke the function through that service.
@@ -9558,7 +8486,6 @@ type CfnPermission interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// For Amazon S3, the ID of the account that owns the resource.
 	//
@@ -9575,22 +8502,26 @@ type CfnPermission interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -9599,7 +8530,6 @@ type CfnPermission interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -9644,15 +8574,12 @@ type CfnPermission interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -9662,14 +8589,17 @@ type CfnPermission interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -9678,74 +8608,21 @@ type CfnPermission interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -9845,8 +8722,8 @@ func (j *jsiiProxy_CfnPermission) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPermission) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnPermission) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -9925,15 +8802,25 @@ func (j *jsiiProxy_CfnPermission) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPermission) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Lambda::Permission`.
-func NewCfnPermission(scope awscdk.Construct, id *string, props *CfnPermissionProps) CfnPermission {
+func NewCfnPermission(scope constructs.Construct, id *string, props *CfnPermissionProps) CfnPermission {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPermission{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnPermission",
+		"aws-cdk-lib.aws_lambda.CfnPermission",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9942,11 +8829,11 @@ func NewCfnPermission(scope awscdk.Construct, id *string, props *CfnPermissionPr
 }
 
 // Create a new `AWS::Lambda::Permission`.
-func NewCfnPermission_Override(c CfnPermission, scope awscdk.Construct, id *string, props *CfnPermissionProps) {
+func NewCfnPermission_Override(c CfnPermission, scope constructs.Construct, id *string, props *CfnPermissionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnPermission",
+		"aws-cdk-lib.aws_lambda.CfnPermission",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -10022,14 +8909,13 @@ func (j *jsiiProxy_CfnPermission) SetSourceArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnPermission_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnPermission",
+		"aws-cdk-lib.aws_lambda.CfnPermission",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -10039,14 +8925,13 @@ func CfnPermission_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnPermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnPermission",
+		"aws-cdk-lib.aws_lambda.CfnPermission",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -10055,15 +8940,30 @@ func CfnPermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnPermission_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnPermission",
+		"aws-cdk-lib.aws_lambda.CfnPermission",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10076,7 +8976,7 @@ func CfnPermission_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.CfnPermission",
+		"aws-cdk-lib.aws_lambda.CfnPermission",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -10173,48 +9073,11 @@ func (c *jsiiProxy_CfnPermission) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnPermission) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnPermission) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnPermission) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnPermission) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnPermission) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -10244,33 +9107,12 @@ func (c *jsiiProxy_CfnPermission) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnPermission) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnPermission) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnPermission) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -10392,11 +9234,9 @@ type CfnUrl interface {
 	AuthType() *string
 	SetAuthType(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
 	Cors() interface{}
@@ -10404,7 +9244,6 @@ type CfnUrl interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// `AWS::Lambda::Url.InvokeMode`.
 	InvokeMode() *string
@@ -10418,11 +9257,9 @@ type CfnUrl interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The alias name.
 	Qualifier() *string
 	SetQualifier(val *string)
@@ -10430,12 +9267,10 @@ type CfnUrl interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// The name of the Lambda function.
 	//
@@ -10446,20 +9281,25 @@ type CfnUrl interface {
 	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	TargetFunctionArn() *string
 	SetTargetFunctionArn(val *string)
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -10468,7 +9308,6 @@ type CfnUrl interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -10513,15 +9352,12 @@ type CfnUrl interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -10531,14 +9367,17 @@ type CfnUrl interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -10547,74 +9386,21 @@ type CfnUrl interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -10724,8 +9510,8 @@ func (j *jsiiProxy_CfnUrl) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUrl) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUrl) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -10784,15 +9570,25 @@ func (j *jsiiProxy_CfnUrl) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUrl) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Lambda::Url`.
-func NewCfnUrl(scope awscdk.Construct, id *string, props *CfnUrlProps) CfnUrl {
+func NewCfnUrl(scope constructs.Construct, id *string, props *CfnUrlProps) CfnUrl {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUrl{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnUrl",
+		"aws-cdk-lib.aws_lambda.CfnUrl",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10801,11 +9597,11 @@ func NewCfnUrl(scope awscdk.Construct, id *string, props *CfnUrlProps) CfnUrl {
 }
 
 // Create a new `AWS::Lambda::Url`.
-func NewCfnUrl_Override(c CfnUrl, scope awscdk.Construct, id *string, props *CfnUrlProps) {
+func NewCfnUrl_Override(c CfnUrl, scope constructs.Construct, id *string, props *CfnUrlProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnUrl",
+		"aws-cdk-lib.aws_lambda.CfnUrl",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -10857,14 +9653,13 @@ func (j *jsiiProxy_CfnUrl) SetTargetFunctionArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUrl_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnUrl",
+		"aws-cdk-lib.aws_lambda.CfnUrl",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -10874,14 +9669,13 @@ func CfnUrl_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUrl_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnUrl",
+		"aws-cdk-lib.aws_lambda.CfnUrl",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -10890,15 +9684,30 @@ func CfnUrl_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnUrl_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnUrl",
+		"aws-cdk-lib.aws_lambda.CfnUrl",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10911,7 +9720,7 @@ func CfnUrl_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.CfnUrl",
+		"aws-cdk-lib.aws_lambda.CfnUrl",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -11008,48 +9817,11 @@ func (c *jsiiProxy_CfnUrl) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnUrl) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnUrl) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnUrl) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnUrl) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnUrl) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -11079,33 +9851,12 @@ func (c *jsiiProxy_CfnUrl) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnUrl) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnUrl) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnUrl) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -11253,11 +10004,9 @@ type CfnVersion interface {
 	// The version number.
 	AttrVersion() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Only publish a version if the hash value matches the value that's specified.
 	//
@@ -11267,7 +10016,6 @@ type CfnVersion interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// A description for the version to override the description in the function configuration.
 	//
@@ -11292,11 +10040,9 @@ type CfnVersion interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Specifies a provisioned concurrency configuration for a function's version.
 	//
 	// Updates are not supported for this property.
@@ -11306,27 +10052,30 @@ type CfnVersion interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -11335,7 +10084,6 @@ type CfnVersion interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -11380,15 +10128,12 @@ type CfnVersion interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -11398,14 +10143,17 @@ type CfnVersion interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -11414,74 +10162,21 @@ type CfnVersion interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -11581,8 +10276,8 @@ func (j *jsiiProxy_CfnVersion) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVersion) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnVersion) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -11631,15 +10326,25 @@ func (j *jsiiProxy_CfnVersion) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVersion) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Lambda::Version`.
-func NewCfnVersion(scope awscdk.Construct, id *string, props *CfnVersionProps) CfnVersion {
+func NewCfnVersion(scope constructs.Construct, id *string, props *CfnVersionProps) CfnVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnVersion{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnVersion",
+		"aws-cdk-lib.aws_lambda.CfnVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -11648,11 +10353,11 @@ func NewCfnVersion(scope awscdk.Construct, id *string, props *CfnVersionProps) C
 }
 
 // Create a new `AWS::Lambda::Version`.
-func NewCfnVersion_Override(c CfnVersion, scope awscdk.Construct, id *string, props *CfnVersionProps) {
+func NewCfnVersion_Override(c CfnVersion, scope constructs.Construct, id *string, props *CfnVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CfnVersion",
+		"aws-cdk-lib.aws_lambda.CfnVersion",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -11696,14 +10401,13 @@ func (j *jsiiProxy_CfnVersion) SetProvisionedConcurrencyConfig(val interface{}) 
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnVersion",
+		"aws-cdk-lib.aws_lambda.CfnVersion",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -11713,14 +10417,13 @@ func CfnVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnVersion",
+		"aws-cdk-lib.aws_lambda.CfnVersion",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -11729,15 +10432,30 @@ func CfnVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CfnVersion",
+		"aws-cdk-lib.aws_lambda.CfnVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -11750,7 +10468,7 @@ func CfnVersion_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.CfnVersion",
+		"aws-cdk-lib.aws_lambda.CfnVersion",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -11847,48 +10565,11 @@ func (c *jsiiProxy_CfnVersion) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnVersion) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnVersion) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnVersion) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnVersion) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -11918,33 +10599,12 @@ func (c *jsiiProxy_CfnVersion) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnVersion) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnVersion) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnVersion) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -12040,20 +10700,13 @@ type CfnVersionProps struct {
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
 //
-// Experimental.
 type Code interface {
-	// Determines whether this Code is inline code or not.
-	// Deprecated: this value is ignored since inline is now determined based on the
-	// the `inlineCode` field of `CodeConfig` returned from `bind()`.
-	IsInline() *bool
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	// Experimental.
-	Bind(scope awscdk.Construct) *CodeConfig
+	Bind(scope constructs.Construct) *CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	// Experimental.
 	BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions)
 }
 
@@ -12062,88 +10715,24 @@ type jsiiProxy_Code struct {
 	_ byte // padding
 }
 
-func (j *jsiiProxy_Code) IsInline() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"isInline",
-		&returns,
-	)
-	return returns
-}
-
-
-// Experimental.
 func NewCode_Override(c Code) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.Code",
+		"aws-cdk-lib.aws_lambda.Code",
 		nil, // no parameters
 		c,
 	)
 }
 
-// DEPRECATED.
-// Deprecated: use `fromAsset`.
-func Code_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Code",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`.
-func Code_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Code",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`.
-func Code_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Code",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Loads the function code from a local disk path.
-// Experimental.
 func Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Code",
+		"aws-cdk-lib.aws_lambda.Code",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -12153,14 +10742,13 @@ func Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func Code_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Code",
+		"aws-cdk-lib.aws_lambda.Code",
 		"fromAssetImage",
 		[]interface{}{directory, props},
 		&returns,
@@ -12170,14 +10758,13 @@ func Code_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetIma
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Code",
+		"aws-cdk-lib.aws_lambda.Code",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -12189,14 +10776,13 @@ func Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`.
-// Experimental.
 func Code_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Code",
+		"aws-cdk-lib.aws_lambda.Code",
 		"fromCfnParameters",
 		[]interface{}{props},
 		&returns,
@@ -12209,14 +10795,13 @@ func Code_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func Code_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Code",
+		"aws-cdk-lib.aws_lambda.Code",
 		"fromDockerBuild",
 		[]interface{}{path, options},
 		&returns,
@@ -12226,14 +10811,13 @@ func Code_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetC
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func Code_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Code",
+		"aws-cdk-lib.aws_lambda.Code",
 		"fromEcrImage",
 		[]interface{}{repository, props},
 		&returns,
@@ -12245,14 +10829,13 @@ func Code_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) 
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func Code_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Code",
+		"aws-cdk-lib.aws_lambda.Code",
 		"fromInline",
 		[]interface{}{code},
 		&returns,
@@ -12261,24 +10844,7 @@ func Code_FromInline(code *string) InlineCode {
 	return returns
 }
 
-// DEPRECATED.
-// Deprecated: use `fromInline`.
-func Code_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Code",
-		"inline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_Code) Bind(scope awscdk.Construct) *CodeConfig {
+func (c *jsiiProxy_Code) Bind(scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -12329,16 +10895,12 @@ func (c *jsiiProxy_Code) BindToResource(_resource awscdk.CfnResource, _options *
 //   	},
 //   }
 //
-// Experimental.
 type CodeConfig struct {
 	// Docker image configuration (mutually exclusive with `s3Location` and `inlineCode`).
-	// Experimental.
 	Image *CodeImageConfig `field:"optional" json:"image" yaml:"image"`
 	// Inline code (mutually exclusive with `s3Location` and `image`).
-	// Experimental.
 	InlineCode *string `field:"optional" json:"inlineCode" yaml:"inlineCode"`
 	// The location of the code in S3 (mutually exclusive with `inlineCode` and `image`).
-	// Experimental.
 	S3Location *awss3.Location `field:"optional" json:"s3Location" yaml:"s3Location"`
 }
 
@@ -12362,17 +10924,14 @@ type CodeConfig struct {
 //   	workingDirectory: jsii.String("workingDirectory"),
 //   }
 //
-// Experimental.
 type CodeImageConfig struct {
 	// URI to the Docker image.
-	// Experimental.
 	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
-	// Experimental.
 	Cmd *[]*string `field:"optional" json:"cmd" yaml:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
@@ -12380,14 +10939,12 @@ type CodeImageConfig struct {
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	// Experimental.
 	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
-	// Experimental.
 	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }
 
@@ -12414,15 +10971,12 @@ type CodeImageConfig struct {
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
 //
-// Experimental.
 type CodeSigningConfig interface {
 	awscdk.Resource
 	ICodeSigningConfig
 	// The ARN of Code Signing Config.
-	// Experimental.
 	CodeSigningConfigArn() *string
 	// The id of Code Signing Config.
-	// Experimental.
 	CodeSigningConfigId() *string
 	// The environment this resource belongs to.
 	//
@@ -12432,11 +10986,9 @@ type CodeSigningConfig interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -12444,10 +10996,8 @@ type CodeSigningConfig interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -12458,9 +11008,7 @@ type CodeSigningConfig interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -12468,66 +11016,15 @@ type CodeSigningConfig interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for CodeSigningConfig
@@ -12566,8 +11063,8 @@ func (j *jsiiProxy_CodeSigningConfig) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CodeSigningConfig) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CodeSigningConfig) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -12597,14 +11094,13 @@ func (j *jsiiProxy_CodeSigningConfig) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewCodeSigningConfig(scope constructs.Construct, id *string, props *CodeSigningConfigProps) CodeSigningConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_CodeSigningConfig{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CodeSigningConfig",
+		"aws-cdk-lib.aws_lambda.CodeSigningConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -12612,26 +11108,24 @@ func NewCodeSigningConfig(scope constructs.Construct, id *string, props *CodeSig
 	return &j
 }
 
-// Experimental.
 func NewCodeSigningConfig_Override(c CodeSigningConfig, scope constructs.Construct, id *string, props *CodeSigningConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.CodeSigningConfig",
+		"aws-cdk-lib.aws_lambda.CodeSigningConfig",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
 // Creates a Signing Profile construct that represents an external Signing Profile.
-// Experimental.
 func CodeSigningConfig_FromCodeSigningConfigArn(scope constructs.Construct, id *string, codeSigningConfigArn *string) ICodeSigningConfig {
 	_init_.Initialize()
 
 	var returns ICodeSigningConfig
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CodeSigningConfig",
+		"aws-cdk-lib.aws_lambda.CodeSigningConfig",
 		"fromCodeSigningConfigArn",
 		[]interface{}{scope, id, codeSigningConfigArn},
 		&returns,
@@ -12640,15 +11134,30 @@ func CodeSigningConfig_FromCodeSigningConfigArn(scope constructs.Construct, id *
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CodeSigningConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CodeSigningConfig",
+		"aws-cdk-lib.aws_lambda.CodeSigningConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12657,15 +11166,30 @@ func CodeSigningConfig_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func CodeSigningConfig_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func CodeSigningConfig_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.CodeSigningConfig",
+		"aws-cdk-lib.aws_lambda.CodeSigningConfig",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func CodeSigningConfig_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.CodeSigningConfig",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -12721,70 +11245,12 @@ func (c *jsiiProxy_CodeSigningConfig) GetResourceNameAttribute(nameAttr *string)
 	return returns
 }
 
-func (c *jsiiProxy_CodeSigningConfig) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CodeSigningConfig) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CodeSigningConfig) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CodeSigningConfig) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CodeSigningConfig) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CodeSigningConfig) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CodeSigningConfig) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -12815,13 +11281,10 @@ func (c *jsiiProxy_CodeSigningConfig) Validate() *[]*string {
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
 //
-// Experimental.
 type CodeSigningConfigProps struct {
 	// List of signing profiles that defines a trusted user who can sign a code package.
-	// Experimental.
 	SigningProfiles *[]awssigner.ISigningProfile `field:"required" json:"signingProfiles" yaml:"signingProfiles"`
 	// Code signing configuration description.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Code signing configuration policy for deployment validation failure.
 	//
@@ -12829,7 +11292,6 @@ type CodeSigningConfigProps struct {
 	// if signature validation checks fail.
 	// If you set the policy to Warn, Lambda allows the deployment and
 	// creates a CloudWatch log.
-	// Experimental.
 	UntrustedArtifactOnDeployment UntrustedArtifactOnDeployment `field:"optional" json:"untrustedArtifactOnDeployment" yaml:"untrustedArtifactOnDeployment"`
 }
 
@@ -12844,10 +11306,8 @@ type CodeSigningConfigProps struct {
 //   	destination: jsii.String("destination"),
 //   }
 //
-// Experimental.
 type DestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	// Experimental.
 	Destination *string `field:"required" json:"destination" yaml:"destination"`
 }
 
@@ -12862,23 +11322,18 @@ type DestinationConfig struct {
 //   	type: awscdk.Aws_lambda.destinationType_FAILURE,
 //   }
 //
-// Experimental.
 type DestinationOptions struct {
 	// The destination type.
-	// Experimental.
 	Type DestinationType `field:"required" json:"type" yaml:"type"`
 }
 
 // The type of destination.
-// Experimental.
 type DestinationType string
 
 const (
 	// Failure.
-	// Experimental.
 	DestinationType_FAILURE DestinationType = "FAILURE"
 	// Success.
-	// Experimental.
 	DestinationType_SUCCESS DestinationType = "SUCCESS"
 )
 
@@ -12893,10 +11348,8 @@ const (
 //   	destination: jsii.String("destination"),
 //   }
 //
-// Experimental.
 type DlqDestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	// Experimental.
 	Destination *string `field:"required" json:"destination" yaml:"destination"`
 }
 
@@ -12915,26 +11368,25 @@ type DlqDestinationConfig struct {
 //   	imagePath: jsii.String("imagePath"),
 //   	outputPath: jsii.String("outputPath"),
 //   	platform: jsii.String("platform"),
+//   	targetStage: jsii.String("targetStage"),
 //   }
 //
-// Experimental.
 type DockerBuildAssetOptions struct {
 	// Build args.
-	// Experimental.
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Name of the Dockerfile, must relative to the docker build path.
-	// Experimental.
 	File *string `field:"optional" json:"file" yaml:"file"`
 	// Set platform if server is multi-platform capable. _Requires Docker Engine API v1.38+_.
 	//
 	// Example value: `linux/amd64`.
-	// Experimental.
 	Platform *string `field:"optional" json:"platform" yaml:"platform"`
+	// Set build target for multi-stage container builds. Any stage defined afterwards will be ignored.
+	//
+	// Example value: `build-env`.
+	TargetStage *string `field:"optional" json:"targetStage" yaml:"targetStage"`
 	// The path in the Docker image where the asset is located after the build operation.
-	// Experimental.
 	ImagePath *string `field:"optional" json:"imagePath" yaml:"imagePath"`
 	// The path on the local filesystem where the asset will be copied using `docker cp`.
-	// Experimental.
 	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 }
 
@@ -12945,7 +11397,6 @@ type DockerBuildAssetOptions struct {
 //   	code: lambda.dockerImageCode.fromImageAsset(path.join(__dirname, jsii.String("docker-handler"))),
 //   })
 //
-// Experimental.
 type DockerImageCode interface {
 }
 
@@ -12954,26 +11405,24 @@ type jsiiProxy_DockerImageCode struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewDockerImageCode_Override(d DockerImageCode) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.DockerImageCode",
+		"aws-cdk-lib.aws_lambda.DockerImageCode",
 		nil, // no parameters
 		d,
 	)
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func DockerImageCode_FromEcr(repository awsecr.IRepository, props *EcrImageCodeProps) DockerImageCode {
 	_init_.Initialize()
 
 	var returns DockerImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageCode",
+		"aws-cdk-lib.aws_lambda.DockerImageCode",
 		"fromEcr",
 		[]interface{}{repository, props},
 		&returns,
@@ -12983,14 +11432,13 @@ func DockerImageCode_FromEcr(repository awsecr.IRepository, props *EcrImageCodeP
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func DockerImageCode_FromImageAsset(directory *string, props *AssetImageCodeProps) DockerImageCode {
 	_init_.Initialize()
 
 	var returns DockerImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageCode",
+		"aws-cdk-lib.aws_lambda.DockerImageCode",
 		"fromImageAsset",
 		[]interface{}{directory, props},
 		&returns,
@@ -13006,34 +11454,27 @@ func DockerImageCode_FromImageAsset(directory *string, props *AssetImageCodeProp
 //   	code: lambda.dockerImageCode.fromImageAsset(path.join(__dirname, jsii.String("docker-handler"))),
 //   })
 //
-// Experimental.
 type DockerImageFunction interface {
 	Function
 	// The architecture of this Lambda Function (this is an optional attribute and defaults to X86_64).
-	// Experimental.
 	Architecture() Architecture
 	// Whether the addPermission() call adds any permissions.
 	//
 	// True for new Lambdas, false for version $LATEST and imported Lambdas
 	// from different accounts.
-	// Experimental.
 	CanCreatePermissions() *bool
 	// Access the Connections object.
 	//
 	// Will fail if not a VPC-enabled Lambda Function.
-	// Experimental.
 	Connections() awsec2.Connections
 	// Returns a `lambda.Version` which represents the current version of this Lambda function. A new version will be created every time the function's configuration changes.
 	//
 	// You can specify options for this version using the `currentVersionOptions`
 	// prop when initializing the `lambda.Function`.
-	// Experimental.
 	CurrentVersion() Version
 	// The DLQ (as queue) associated with this Lambda Function (this is an optional attribute).
-	// Experimental.
 	DeadLetterQueue() awssqs.IQueue
 	// The DLQ (as topic) associated with this Lambda Function (this is an optional attribute).
-	// Experimental.
 	DeadLetterTopic() awssns.ITopic
 	// The environment this resource belongs to.
 	//
@@ -13043,21 +11484,16 @@ type DockerImageFunction interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// ARN of this function.
-	// Experimental.
 	FunctionArn() *string
 	// Name of this function.
-	// Experimental.
 	FunctionName() *string
 	// The principal this Lambda Function is running as.
-	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
 	//
 	// If this is is `false`, trying to access the `connections` object will fail.
-	// Experimental.
 	IsBoundToVpc() *bool
 	// The `$LATEST` version of this function.
 	//
@@ -13067,7 +11503,6 @@ type DockerImageFunction interface {
 	//
 	// To obtain a reference to an explicit version which references the current
 	// function configuration, use `lambdaFunction.currentVersion` instead.
-	// Experimental.
 	LatestVersion() IVersion
 	// The LogGroup where the Lambda function's logs are made available.
 	//
@@ -13077,14 +11512,11 @@ type DockerImageFunction interface {
 	//
 	// Further, if the log group already exists and the `logRetention` is not set, the custom resource will reset the log retention
 	// to never expire even if it was configured with a different value.
-	// Experimental.
 	LogGroup() awslogs.ILogGroup
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The construct node where permissions are attached.
-	// Experimental.
-	PermissionsNode() awscdk.ConstructNode
+	PermissionsNode() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -13092,22 +11524,16 @@ type DockerImageFunction interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke().
-	// Experimental.
 	ResourceArnsForGrantInvoke() *[]*string
 	// Execution role associated with this function.
-	// Experimental.
 	Role() awsiam.IRole
 	// The runtime configured for this lambda.
-	// Experimental.
 	Runtime() Runtime
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// The timeout configured for this lambda.
-	// Experimental.
 	Timeout() awscdk.Duration
 	// Defines an alias for this function.
 	//
@@ -13124,13 +11550,12 @@ type DockerImageFunction interface {
 	// new lambda.Alias(this, 'AliasLive', {
 	//    aliasName: 'Live',
 	//    version: fn.currentVersion,
-	// });.
-	// Experimental.
+	// });
+	// ```.
 	AddAlias(aliasName *string, options *AliasOptions) Alias
 	// Adds an environment variable to this Lambda function.
 	//
 	// If this is a ref to a Lambda function, this operation results in a no-op.
-	// Experimental.
 	AddEnvironment(key *string, value *string, options *EnvironmentOptions) Function
 	// Adds an event source to this function.
 	//
@@ -13141,41 +11566,19 @@ type DockerImageFunction interface {
 	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 	// myFunction.addEventSource(new SqsEventSource(myQueue));
 	// ```.
-	// Experimental.
 	AddEventSource(source IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
-	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
 	// Adds a url to this lambda function.
-	// Experimental.
 	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds one or more Lambda Layers to this Lambda function.
-	// Experimental.
 	AddLayers(layers ...ILayerVersion)
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
-	// Experimental.
 	AddPermission(id *string, permission *Permission)
 	// Adds a statement to the IAM role assumed by the instance.
-	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
-	// Add a new version for this Lambda.
-	//
-	// If you want to deploy through CloudFormation and use aliases, you need to
-	// add a new version (with a new name) to your Lambda every time you want to
-	// deploy an update. An alias can then refer to the newly created Version.
-	//
-	// All versions should have distinct names, and you should not delete versions
-	// as long as your Alias needs to refer to them.
-	//
-	// Returns: A new Version object.
-	// Deprecated: This method will create an AWS::Lambda::Version resource which
-	// snapshots the AWS Lambda function *at the time of its creation* and it
-	// won't get updated when the function changes. Instead, use
-	// `this.currentVersion` to obtain a reference to a version resource that gets
-	// automatically recreated when the function configuration (or code) changes.
-	AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *EventInvokeConfigOptions) Version
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -13185,10 +11588,8 @@ type DockerImageFunction interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
-	// Experimental.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
 	//
@@ -13196,9 +11597,7 @@ type DockerImageFunction interface {
 	//
 	// This applies only to permissions on Lambda functions, not versions or aliases.
 	// This function is overridden as a noOp for QualifiedFunctionBase.
-	// Experimental.
-	ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string)
-	// Experimental.
+	ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -13206,97 +11605,38 @@ type DockerImageFunction interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
-	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
-	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
-	WarnInvokeFunctionPermissions(scope awscdk.Construct)
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for DockerImageFunction
@@ -13434,8 +11774,8 @@ func (j *jsiiProxy_DockerImageFunction) LogGroup() awslogs.ILogGroup {
 	return returns
 }
 
-func (j *jsiiProxy_DockerImageFunction) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_DockerImageFunction) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -13444,8 +11784,8 @@ func (j *jsiiProxy_DockerImageFunction) Node() awscdk.ConstructNode {
 	return returns
 }
 
-func (j *jsiiProxy_DockerImageFunction) PermissionsNode() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_DockerImageFunction) PermissionsNode() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -13515,14 +11855,13 @@ func (j *jsiiProxy_DockerImageFunction) Timeout() awscdk.Duration {
 }
 
 
-// Experimental.
 func NewDockerImageFunction(scope constructs.Construct, id *string, props *DockerImageFunctionProps) DockerImageFunction {
 	_init_.Initialize()
 
 	j := jsiiProxy_DockerImageFunction{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -13530,12 +11869,11 @@ func NewDockerImageFunction(scope constructs.Construct, id *string, props *Docke
 	return &j
 }
 
-// Experimental.
 func NewDockerImageFunction_Override(d DockerImageFunction, scope constructs.Construct, id *string, props *DockerImageFunctionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -13544,26 +11882,24 @@ func NewDockerImageFunction_Override(d DockerImageFunction, scope constructs.Con
 // Record whether specific properties in the `AWS::Lambda::Function` resource should also be associated to the Version resource.
 //
 // See 'currentVersion' section in the module README for more details.
-// Experimental.
 func DockerImageFunction_ClassifyVersionProperty(propertyName *string, locked *bool) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"classifyVersionProperty",
 		[]interface{}{propertyName, locked},
 	)
 }
 
 // Import a lambda function into the CDK using its ARN.
-// Experimental.
 func DockerImageFunction_FromFunctionArn(scope constructs.Construct, id *string, functionArn *string) IFunction {
 	_init_.Initialize()
 
 	var returns IFunction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"fromFunctionArn",
 		[]interface{}{scope, id, functionArn},
 		&returns,
@@ -13573,14 +11909,13 @@ func DockerImageFunction_FromFunctionArn(scope constructs.Construct, id *string,
 }
 
 // Creates a Lambda function object which represents a function not defined within this stack.
-// Experimental.
 func DockerImageFunction_FromFunctionAttributes(scope constructs.Construct, id *string, attrs *FunctionAttributes) IFunction {
 	_init_.Initialize()
 
 	var returns IFunction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"fromFunctionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -13590,14 +11925,13 @@ func DockerImageFunction_FromFunctionAttributes(scope constructs.Construct, id *
 }
 
 // Import a lambda function into the CDK using its name.
-// Experimental.
 func DockerImageFunction_FromFunctionName(scope constructs.Construct, id *string, functionName *string) IFunction {
 	_init_.Initialize()
 
 	var returns IFunction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"fromFunctionName",
 		[]interface{}{scope, id, functionName},
 		&returns,
@@ -13606,15 +11940,30 @@ func DockerImageFunction_FromFunctionName(scope constructs.Construct, id *string
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func DockerImageFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -13623,15 +11972,30 @@ func DockerImageFunction_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func DockerImageFunction_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func DockerImageFunction_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func DockerImageFunction_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -13641,14 +12005,13 @@ func DockerImageFunction_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 // Return the given named metric for this Lambda.
-// Experimental.
 func DockerImageFunction_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"metricAll",
 		[]interface{}{metricName, props},
 		&returns,
@@ -13658,14 +12021,13 @@ func DockerImageFunction_MetricAll(metricName *string, props *awscloudwatch.Metr
 }
 
 // Metric for the number of concurrent executions across all Lambdas.
-// Experimental.
 func DockerImageFunction_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"metricAllConcurrentExecutions",
 		[]interface{}{props},
 		&returns,
@@ -13675,14 +12037,13 @@ func DockerImageFunction_MetricAllConcurrentExecutions(props *awscloudwatch.Metr
 }
 
 // Metric for the Duration executing all Lambdas.
-// Experimental.
 func DockerImageFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"metricAllDuration",
 		[]interface{}{props},
 		&returns,
@@ -13692,14 +12053,13 @@ func DockerImageFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) a
 }
 
 // Metric for the number of Errors executing all Lambdas.
-// Experimental.
 func DockerImageFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"metricAllErrors",
 		[]interface{}{props},
 		&returns,
@@ -13709,14 +12069,13 @@ func DockerImageFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) aws
 }
 
 // Metric for the number of invocations of all Lambdas.
-// Experimental.
 func DockerImageFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"metricAllInvocations",
 		[]interface{}{props},
 		&returns,
@@ -13726,14 +12085,13 @@ func DockerImageFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions
 }
 
 // Metric for the number of throttled invocations of all Lambdas.
-// Experimental.
 func DockerImageFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"metricAllThrottles",
 		[]interface{}{props},
 		&returns,
@@ -13743,14 +12101,13 @@ func DockerImageFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) 
 }
 
 // Metric for the number of unreserved concurrent executions across all Lambdas.
-// Experimental.
 func DockerImageFunction_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.DockerImageFunction",
+		"aws-cdk-lib.aws_lambda.DockerImageFunction",
 		"metricAllUnreservedConcurrentExecutions",
 		[]interface{}{props},
 		&returns,
@@ -13848,19 +12205,6 @@ func (d *jsiiProxy_DockerImageFunction) AddToRolePolicy(statement awsiam.PolicyS
 	)
 }
 
-func (d *jsiiProxy_DockerImageFunction) AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *EventInvokeConfigOptions) Version {
-	var returns Version
-
-	_jsii_.Invoke(
-		d,
-		"addVersion",
-		[]interface{}{name, codeSha256, description, provisionedExecutions, asyncInvokeConfig},
-		&returns,
-	)
-
-	return returns
-}
-
 func (d *jsiiProxy_DockerImageFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -13877,7 +12221,7 @@ func (d *jsiiProxy_DockerImageFunction) ConfigureAsyncInvoke(options *EventInvok
 	)
 }
 
-func (d *jsiiProxy_DockerImageFunction) ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string) {
+func (d *jsiiProxy_DockerImageFunction) ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string) {
 	_jsii_.InvokeVoid(
 		d,
 		"considerWarningOnInvokeFunctionPermissions",
@@ -14015,51 +12359,6 @@ func (d *jsiiProxy_DockerImageFunction) MetricThrottles(props *awscloudwatch.Met
 	return returns
 }
 
-func (d *jsiiProxy_DockerImageFunction) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (d *jsiiProxy_DockerImageFunction) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (d *jsiiProxy_DockerImageFunction) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DockerImageFunction) Prepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (d *jsiiProxy_DockerImageFunction) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (d *jsiiProxy_DockerImageFunction) ToString() *string {
 	var returns *string
 
@@ -14073,20 +12372,7 @@ func (d *jsiiProxy_DockerImageFunction) ToString() *string {
 	return returns
 }
 
-func (d *jsiiProxy_DockerImageFunction) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (d *jsiiProxy_DockerImageFunction) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
+func (d *jsiiProxy_DockerImageFunction) WarnInvokeFunctionPermissions(scope constructs.Construct) {
 	_jsii_.InvokeVoid(
 		d,
 		"warnInvokeFunctionPermissions",
@@ -14101,148 +12387,115 @@ func (d *jsiiProxy_DockerImageFunction) WarnInvokeFunctionPermissions(scope awsc
 //   	code: lambda.dockerImageCode.fromImageAsset(path.join(__dirname, jsii.String("docker-handler"))),
 //   })
 //
-// Experimental.
 type DockerImageFunctionProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
-	// Experimental.
 	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
-	// Experimental.
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	// Experimental.
 	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	// Experimental.
 	AllowPublicSubnet *bool `field:"optional" json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	// Experimental.
 	Architecture Architecture `field:"optional" json:"architecture" yaml:"architecture"`
-	// DEPRECATED.
-	// Deprecated: use `architecture`.
-	Architectures *[]Architecture `field:"optional" json:"architectures" yaml:"architectures"`
 	// Code signing config associated with this function.
-	// Experimental.
 	CodeSigningConfig ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	// Experimental.
 	CurrentVersionOptions *VersionOptions `field:"optional" json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
 	//
 	// If SNS topic is desired, specify `deadLetterTopic` property instead.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	// Experimental.
 	DeadLetterQueueEnabled *bool `field:"optional" json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// The SNS topic to use as a DLQ.
 	//
 	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
 	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
-	// Experimental.
 	DeadLetterTopic awssns.ITopic `field:"optional" json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	// Experimental.
 	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
-	// Experimental.
 	EphemeralStorageSize awscdk.Size `field:"optional" json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	// Experimental.
 	Events *[]IEventSource `field:"optional" json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
-	// Experimental.
 	Filesystem FileSystem `field:"optional" json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
-	// Experimental.
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	// Experimental.
 	InitialPolicy *[]awsiam.PolicyStatement `field:"optional" json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	// Experimental.
 	InsightsVersion LambdaInsightsVersion `field:"optional" json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	// Experimental.
 	Layers *[]ILayerVersion `field:"optional" json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	// Experimental.
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	// Experimental.
 	LogRetentionRetryOptions *LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	// Experimental.
 	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	Profiling *bool `field:"optional" json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	ProfilingGroup awscodeguruprofiler.IProfilingGroup `field:"optional" json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	// Experimental.
 	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
@@ -14255,47 +12508,32 @@ type DockerImageFunctionProps struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
-	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
-	//
-	// Only used if 'vpc' is supplied.
-	//
-	// Use securityGroups property instead.
-	// Function constructor will throw an error if both are specified.
-	// Deprecated: - This property is deprecated, use securityGroups instead.
-	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	// Experimental.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	// Experimental.
 	Tracing Tracing `field:"optional" json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The source code of your Lambda function.
 	//
 	// You can point to a file in an
 	// Amazon Simple Storage Service (Amazon S3) bucket or specify your source
 	// code as inline text.
-	// Experimental.
 	Code DockerImageCode `field:"required" json:"code" yaml:"code"`
 }
 
@@ -14321,20 +12559,16 @@ type DockerImageFunctionProps struct {
 //   	workingDirectory: jsii.String("workingDirectory"),
 //   })
 //
-// Experimental.
 type EcrImageCode interface {
 	Code
 	// Determines whether this Code is inline code or not.
-	// Experimental.
 	IsInline() *bool
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	// Experimental.
-	Bind(_arg awscdk.Construct) *CodeConfig
+	Bind(_arg constructs.Construct) *CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	// Experimental.
 	BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions)
 }
 
@@ -14354,14 +12588,13 @@ func (j *jsiiProxy_EcrImageCode) IsInline() *bool {
 }
 
 
-// Experimental.
 func NewEcrImageCode(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
 	j := jsiiProxy_EcrImageCode{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.EcrImageCode",
+		"aws-cdk-lib.aws_lambda.EcrImageCode",
 		[]interface{}{repository, props},
 		&j,
 	)
@@ -14369,77 +12602,24 @@ func NewEcrImageCode(repository awsecr.IRepository, props *EcrImageCodeProps) Ec
 	return &j
 }
 
-// Experimental.
 func NewEcrImageCode_Override(e EcrImageCode, repository awsecr.IRepository, props *EcrImageCodeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.EcrImageCode",
+		"aws-cdk-lib.aws_lambda.EcrImageCode",
 		[]interface{}{repository, props},
 		e,
 	)
 }
 
-// DEPRECATED.
-// Deprecated: use `fromAsset`.
-func EcrImageCode_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EcrImageCode",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`.
-func EcrImageCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EcrImageCode",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`.
-func EcrImageCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EcrImageCode",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Loads the function code from a local disk path.
-// Experimental.
 func EcrImageCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EcrImageCode",
+		"aws-cdk-lib.aws_lambda.EcrImageCode",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -14449,14 +12629,13 @@ func EcrImageCode_FromAsset(path *string, options *awss3assets.AssetOptions) Ass
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func EcrImageCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EcrImageCode",
+		"aws-cdk-lib.aws_lambda.EcrImageCode",
 		"fromAssetImage",
 		[]interface{}{directory, props},
 		&returns,
@@ -14466,14 +12645,13 @@ func EcrImageCode_FromAssetImage(directory *string, props *AssetImageCodeProps) 
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func EcrImageCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EcrImageCode",
+		"aws-cdk-lib.aws_lambda.EcrImageCode",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -14485,14 +12663,13 @@ func EcrImageCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *s
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`.
-// Experimental.
 func EcrImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EcrImageCode",
+		"aws-cdk-lib.aws_lambda.EcrImageCode",
 		"fromCfnParameters",
 		[]interface{}{props},
 		&returns,
@@ -14505,14 +12682,13 @@ func EcrImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParameters
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func EcrImageCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EcrImageCode",
+		"aws-cdk-lib.aws_lambda.EcrImageCode",
 		"fromDockerBuild",
 		[]interface{}{path, options},
 		&returns,
@@ -14522,14 +12698,13 @@ func EcrImageCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func EcrImageCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EcrImageCode",
+		"aws-cdk-lib.aws_lambda.EcrImageCode",
 		"fromEcrImage",
 		[]interface{}{repository, props},
 		&returns,
@@ -14541,14 +12716,13 @@ func EcrImageCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCod
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func EcrImageCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EcrImageCode",
+		"aws-cdk-lib.aws_lambda.EcrImageCode",
 		"fromInline",
 		[]interface{}{code},
 		&returns,
@@ -14557,24 +12731,7 @@ func EcrImageCode_FromInline(code *string) InlineCode {
 	return returns
 }
 
-// DEPRECATED.
-// Deprecated: use `fromInline`.
-func EcrImageCode_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EcrImageCode",
-		"inline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EcrImageCode) Bind(_arg awscdk.Construct) *CodeConfig {
+func (e *jsiiProxy_EcrImageCode) Bind(_arg constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -14614,14 +12771,12 @@ func (e *jsiiProxy_EcrImageCode) BindToResource(_resource awscdk.CfnResource, _o
 //   	workingDirectory: jsii.String("workingDirectory"),
 //   }
 //
-// Experimental.
 type EcrImageCodeProps struct {
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
-	// Experimental.
 	Cmd *[]*string `field:"optional" json:"cmd" yaml:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
@@ -14629,20 +12784,17 @@ type EcrImageCodeProps struct {
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	// Experimental.
 	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
 	// The image tag to use when pulling the image from ECR.
 	// Deprecated: use `tagOrDigest`.
 	Tag *string `field:"optional" json:"tag" yaml:"tag"`
 	// The image tag or digest to use when pulling the image from ECR (digests must start with `sha256:`).
-	// Experimental.
 	TagOrDigest *string `field:"optional" json:"tagOrDigest" yaml:"tagOrDigest"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
-	// Experimental.
 	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }
 
@@ -14657,14 +12809,12 @@ type EcrImageCodeProps struct {
 //   	removeInEdge: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type EnvironmentOptions struct {
 	// When used in Lambda@Edge via edgeArn() API, these environment variables will be removed.
 	//
 	// If not set, an error will be thrown.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html#lambda-requirements-lambda-function-configuration
 	//
-	// Experimental.
 	RemoveInEdge *bool `field:"optional" json:"removeInEdge" yaml:"removeInEdge"`
 }
 
@@ -14678,25 +12828,23 @@ type EnvironmentOptions struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var destination iDestination
-//   var duration duration
 //   var function_ function
 //
 //   eventInvokeConfig := awscdk.Aws_lambda.NewEventInvokeConfig(this, jsii.String("MyEventInvokeConfig"), &eventInvokeConfigProps{
 //   	function: function_,
 //
 //   	// the properties below are optional
-//   	maxEventAge: duration,
+//   	maxEventAge: cdk.duration.minutes(jsii.Number(30)),
 //   	onFailure: destination,
 //   	onSuccess: destination,
 //   	qualifier: jsii.String("qualifier"),
 //   	retryAttempts: jsii.Number(123),
 //   })
 //
-// Experimental.
 type EventInvokeConfig interface {
 	awscdk.Resource
 	// The environment this resource belongs to.
@@ -14707,11 +12855,9 @@ type EventInvokeConfig interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -14719,10 +12865,8 @@ type EventInvokeConfig interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -14733,9 +12877,7 @@ type EventInvokeConfig interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -14743,66 +12885,15 @@ type EventInvokeConfig interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for EventInvokeConfig
@@ -14820,8 +12911,8 @@ func (j *jsiiProxy_EventInvokeConfig) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_EventInvokeConfig) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EventInvokeConfig) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -14851,14 +12942,13 @@ func (j *jsiiProxy_EventInvokeConfig) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewEventInvokeConfig(scope constructs.Construct, id *string, props *EventInvokeConfigProps) EventInvokeConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_EventInvokeConfig{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.EventInvokeConfig",
+		"aws-cdk-lib.aws_lambda.EventInvokeConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -14866,26 +12956,40 @@ func NewEventInvokeConfig(scope constructs.Construct, id *string, props *EventIn
 	return &j
 }
 
-// Experimental.
 func NewEventInvokeConfig_Override(e EventInvokeConfig, scope constructs.Construct, id *string, props *EventInvokeConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.EventInvokeConfig",
+		"aws-cdk-lib.aws_lambda.EventInvokeConfig",
 		[]interface{}{scope, id, props},
 		e,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func EventInvokeConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EventInvokeConfig",
+		"aws-cdk-lib.aws_lambda.EventInvokeConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -14894,15 +12998,30 @@ func EventInvokeConfig_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func EventInvokeConfig_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func EventInvokeConfig_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EventInvokeConfig",
+		"aws-cdk-lib.aws_lambda.EventInvokeConfig",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func EventInvokeConfig_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.EventInvokeConfig",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -14958,51 +13077,6 @@ func (e *jsiiProxy_EventInvokeConfig) GetResourceNameAttribute(nameAttr *string)
 	return returns
 }
 
-func (e *jsiiProxy_EventInvokeConfig) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EventInvokeConfig) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EventInvokeConfig) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EventInvokeConfig) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EventInvokeConfig) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EventInvokeConfig) ToString() *string {
 	var returns *string
 
@@ -15016,56 +13090,37 @@ func (e *jsiiProxy_EventInvokeConfig) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EventInvokeConfig) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Options to add an EventInvokeConfig to a function.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var destination iDestination
-//   var duration duration
 //
 //   eventInvokeConfigOptions := &eventInvokeConfigOptions{
-//   	maxEventAge: duration,
+//   	maxEventAge: cdk.duration.minutes(jsii.Number(30)),
 //   	onFailure: destination,
 //   	onSuccess: destination,
 //   	retryAttempts: jsii.Number(123),
 //   }
 //
-// Experimental.
 type EventInvokeConfigOptions struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
-	// Experimental.
 	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
-	// Experimental.
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 }
 
@@ -15074,49 +13129,41 @@ type EventInvokeConfigOptions struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var destination iDestination
-//   var duration duration
 //   var function_ function
 //
 //   eventInvokeConfigProps := &eventInvokeConfigProps{
 //   	function: function_,
 //
 //   	// the properties below are optional
-//   	maxEventAge: duration,
+//   	maxEventAge: cdk.duration.minutes(jsii.Number(30)),
 //   	onFailure: destination,
 //   	onSuccess: destination,
 //   	qualifier: jsii.String("qualifier"),
 //   	retryAttempts: jsii.Number(123),
 //   }
 //
-// Experimental.
 type EventInvokeConfigProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
-	// Experimental.
 	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
-	// Experimental.
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// The Lambda function.
-	// Experimental.
 	Function IFunction `field:"required" json:"function" yaml:"function"`
 	// The qualifier.
-	// Experimental.
 	Qualifier *string `field:"optional" json:"qualifier" yaml:"qualifier"`
 }
 
@@ -15134,10 +13181,9 @@ type EventInvokeConfigProps struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var eventSourceDlq iEventSourceDlq
 //   var function_ function
 //   var sourceAccessConfigurationType sourceAccessConfigurationType
@@ -15154,8 +13200,8 @@ type EventInvokeConfigProps struct {
 //   		jsii.String("kafkaBootstrapServers"),
 //   	},
 //   	kafkaTopic: jsii.String("kafkaTopic"),
-//   	maxBatchingWindow: duration,
-//   	maxRecordAge: duration,
+//   	maxBatchingWindow: cdk.duration.minutes(jsii.Number(30)),
+//   	maxRecordAge: cdk.*duration.minutes(jsii.Number(30)),
 //   	onFailure: eventSourceDlq,
 //   	parallelizationFactor: jsii.Number(123),
 //   	reportBatchItemFailures: jsii.Boolean(false),
@@ -15167,10 +13213,10 @@ type EventInvokeConfigProps struct {
 //   		},
 //   	},
 //   	startingPosition: awscdk.*Aws_lambda.startingPosition_TRIM_HORIZON,
-//   	tumblingWindow: duration,
+//   	startingPositionTimestamp: jsii.Number(123),
+//   	tumblingWindow: cdk.*duration.minutes(jsii.Number(30)),
 //   })
 //
-// Experimental.
 type EventSourceMapping interface {
 	awscdk.Resource
 	IEventSourceMapping
@@ -15182,14 +13228,11 @@ type EventSourceMapping interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The identifier for this EventSourceMapping.
-	// Experimental.
 	EventSourceMappingId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -15197,10 +13240,8 @@ type EventSourceMapping interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -15211,9 +13252,7 @@ type EventSourceMapping interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -15221,66 +13260,15 @@ type EventSourceMapping interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for EventSourceMapping
@@ -15309,8 +13297,8 @@ func (j *jsiiProxy_EventSourceMapping) EventSourceMappingId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_EventSourceMapping) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_EventSourceMapping) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -15340,14 +13328,13 @@ func (j *jsiiProxy_EventSourceMapping) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewEventSourceMapping(scope constructs.Construct, id *string, props *EventSourceMappingProps) EventSourceMapping {
 	_init_.Initialize()
 
 	j := jsiiProxy_EventSourceMapping{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.EventSourceMapping",
+		"aws-cdk-lib.aws_lambda.EventSourceMapping",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -15355,26 +13342,24 @@ func NewEventSourceMapping(scope constructs.Construct, id *string, props *EventS
 	return &j
 }
 
-// Experimental.
 func NewEventSourceMapping_Override(e EventSourceMapping, scope constructs.Construct, id *string, props *EventSourceMappingProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.EventSourceMapping",
+		"aws-cdk-lib.aws_lambda.EventSourceMapping",
 		[]interface{}{scope, id, props},
 		e,
 	)
 }
 
 // Import an event source into this stack from its event source id.
-// Experimental.
 func EventSourceMapping_FromEventSourceMappingId(scope constructs.Construct, id *string, eventSourceMappingId *string) IEventSourceMapping {
 	_init_.Initialize()
 
 	var returns IEventSourceMapping
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EventSourceMapping",
+		"aws-cdk-lib.aws_lambda.EventSourceMapping",
 		"fromEventSourceMappingId",
 		[]interface{}{scope, id, eventSourceMappingId},
 		&returns,
@@ -15383,15 +13368,30 @@ func EventSourceMapping_FromEventSourceMappingId(scope constructs.Construct, id 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func EventSourceMapping_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EventSourceMapping",
+		"aws-cdk-lib.aws_lambda.EventSourceMapping",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -15400,15 +13400,30 @@ func EventSourceMapping_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func EventSourceMapping_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func EventSourceMapping_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.EventSourceMapping",
+		"aws-cdk-lib.aws_lambda.EventSourceMapping",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func EventSourceMapping_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.EventSourceMapping",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -15464,51 +13479,6 @@ func (e *jsiiProxy_EventSourceMapping) GetResourceNameAttribute(nameAttr *string
 	return returns
 }
 
-func (e *jsiiProxy_EventSourceMapping) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EventSourceMapping) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (e *jsiiProxy_EventSourceMapping) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (e *jsiiProxy_EventSourceMapping) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (e *jsiiProxy_EventSourceMapping) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (e *jsiiProxy_EventSourceMapping) ToString() *string {
 	var returns *string
 
@@ -15522,26 +13492,12 @@ func (e *jsiiProxy_EventSourceMapping) ToString() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EventSourceMapping) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var eventSourceDlq iEventSourceDlq
 //   var sourceAccessConfigurationType sourceAccessConfigurationType
 //
@@ -15554,8 +13510,8 @@ func (e *jsiiProxy_EventSourceMapping) Validate() *[]*string {
 //   		jsii.String("kafkaBootstrapServers"),
 //   	},
 //   	kafkaTopic: jsii.String("kafkaTopic"),
-//   	maxBatchingWindow: duration,
-//   	maxRecordAge: duration,
+//   	maxBatchingWindow: cdk.duration.minutes(jsii.Number(30)),
+//   	maxRecordAge: cdk.*duration.minutes(jsii.Number(30)),
 //   	onFailure: eventSourceDlq,
 //   	parallelizationFactor: jsii.Number(123),
 //   	reportBatchItemFailures: jsii.Boolean(false),
@@ -15567,10 +13523,10 @@ func (e *jsiiProxy_EventSourceMapping) Validate() *[]*string {
 //   		},
 //   	},
 //   	startingPosition: awscdk.Aws_lambda.startingPosition_TRIM_HORIZON,
-//   	tumblingWindow: duration,
+//   	startingPositionTimestamp: jsii.Number(123),
+//   	tumblingWindow: cdk.*duration.minutes(jsii.Number(30)),
 //   }
 //
-// Experimental.
 type EventSourceMappingOptions struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
@@ -15578,54 +13534,43 @@ type EventSourceMappingOptions struct {
 	// event with all the retrieved records.
 	//
 	// Valid Range: Minimum value of 1. Maximum value of 10000.
-	// Experimental.
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
-	// Experimental.
 	BisectBatchOnError *bool `field:"optional" json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// Set to false to disable the event source upon creation.
-	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
 	//
 	// Any record added to
 	// this stream can invoke the Lambda function.
-	// Experimental.
 	EventSourceArn *string `field:"optional" json:"eventSourceArn" yaml:"eventSourceArn"`
 	// A list of host and port pairs that are the addresses of the Kafka brokers in a self managed "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.example.com:9096`.
-	// Experimental.
 	KafkaBootstrapServers *[]*string `field:"optional" json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
 	// The name of the Kafka topic.
-	// Experimental.
 	KafkaTopic *string `field:"optional" json:"kafkaTopic" yaml:"kafkaTopic"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	// Experimental.
 	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days.
-	// Experimental.
 	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
 	OnFailure IEventSourceDlq `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10.
-	// Experimental.
 	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	// Experimental.
 	ReportBatchItemFailures *bool `field:"optional" json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// The maximum number of times to retry when the function returns an error.
 	//
@@ -15635,24 +13580,22 @@ type EventSourceMappingOptions struct {
 	// Valid Range:
 	// * Minimum value of 0
 	// * Maximum value of 10000.
-	// Experimental.
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Specific settings like the authentication protocol or the VPC components to secure access to your event source.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
 	//
-	// Experimental.
 	SourceAccessConfigurations *[]*SourceAccessConfiguration `field:"optional" json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
 	// The position in the DynamoDB, Kinesis or MSK stream where AWS Lambda should start reading.
 	// See: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType
 	//
-	// Experimental.
 	StartingPosition StartingPosition `field:"optional" json:"startingPosition" yaml:"startingPosition"`
+	// The time from which to start reading, in Unix time seconds.
+	StartingPositionTimestamp *float64 `field:"optional" json:"startingPositionTimestamp" yaml:"startingPositionTimestamp"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows
 	//
 	// Valid Range: 0 - 15 minutes.
 	//
-	// Experimental.
 	TumblingWindow awscdk.Duration `field:"optional" json:"tumblingWindow" yaml:"tumblingWindow"`
 }
 
@@ -15661,10 +13604,9 @@ type EventSourceMappingOptions struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var eventSourceDlq iEventSourceDlq
 //   var function_ function
 //   var sourceAccessConfigurationType sourceAccessConfigurationType
@@ -15681,8 +13623,8 @@ type EventSourceMappingOptions struct {
 //   		jsii.String("kafkaBootstrapServers"),
 //   	},
 //   	kafkaTopic: jsii.String("kafkaTopic"),
-//   	maxBatchingWindow: duration,
-//   	maxRecordAge: duration,
+//   	maxBatchingWindow: cdk.duration.minutes(jsii.Number(30)),
+//   	maxRecordAge: cdk.*duration.minutes(jsii.Number(30)),
 //   	onFailure: eventSourceDlq,
 //   	parallelizationFactor: jsii.Number(123),
 //   	reportBatchItemFailures: jsii.Boolean(false),
@@ -15694,10 +13636,10 @@ type EventSourceMappingOptions struct {
 //   		},
 //   	},
 //   	startingPosition: awscdk.Aws_lambda.startingPosition_TRIM_HORIZON,
-//   	tumblingWindow: duration,
+//   	startingPositionTimestamp: jsii.Number(123),
+//   	tumblingWindow: cdk.*duration.minutes(jsii.Number(30)),
 //   }
 //
-// Experimental.
 type EventSourceMappingProps struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
@@ -15705,54 +13647,43 @@ type EventSourceMappingProps struct {
 	// event with all the retrieved records.
 	//
 	// Valid Range: Minimum value of 1. Maximum value of 10000.
-	// Experimental.
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
-	// Experimental.
 	BisectBatchOnError *bool `field:"optional" json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// Set to false to disable the event source upon creation.
-	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
 	//
 	// Any record added to
 	// this stream can invoke the Lambda function.
-	// Experimental.
 	EventSourceArn *string `field:"optional" json:"eventSourceArn" yaml:"eventSourceArn"`
 	// A list of host and port pairs that are the addresses of the Kafka brokers in a self managed "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.example.com:9096`.
-	// Experimental.
 	KafkaBootstrapServers *[]*string `field:"optional" json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
 	// The name of the Kafka topic.
-	// Experimental.
 	KafkaTopic *string `field:"optional" json:"kafkaTopic" yaml:"kafkaTopic"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	// Experimental.
 	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days.
-	// Experimental.
 	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
 	OnFailure IEventSourceDlq `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10.
-	// Experimental.
 	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	// Experimental.
 	ReportBatchItemFailures *bool `field:"optional" json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// The maximum number of times to retry when the function returns an error.
 	//
@@ -15762,27 +13693,24 @@ type EventSourceMappingProps struct {
 	// Valid Range:
 	// * Minimum value of 0
 	// * Maximum value of 10000.
-	// Experimental.
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Specific settings like the authentication protocol or the VPC components to secure access to your event source.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
 	//
-	// Experimental.
 	SourceAccessConfigurations *[]*SourceAccessConfiguration `field:"optional" json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
 	// The position in the DynamoDB, Kinesis or MSK stream where AWS Lambda should start reading.
 	// See: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType
 	//
-	// Experimental.
 	StartingPosition StartingPosition `field:"optional" json:"startingPosition" yaml:"startingPosition"`
+	// The time from which to start reading, in Unix time seconds.
+	StartingPositionTimestamp *float64 `field:"optional" json:"startingPositionTimestamp" yaml:"startingPositionTimestamp"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows
 	//
 	// Valid Range: 0 - 15 minutes.
 	//
-	// Experimental.
 	TumblingWindow awscdk.Duration `field:"optional" json:"tumblingWindow" yaml:"tumblingWindow"`
 	// The target AWS Lambda function.
-	// Experimental.
 	Target IFunction `field:"required" json:"target" yaml:"target"`
 }
 
@@ -15827,10 +13755,8 @@ type EventSourceMappingProps struct {
 //   	vpc: vpc,
 //   })
 //
-// Experimental.
 type FileSystem interface {
 	// the FileSystem configurations for the Lambda function.
-	// Experimental.
 	Config() *FileSystemConfig
 }
 
@@ -15850,14 +13776,13 @@ func (j *jsiiProxy_FileSystem) Config() *FileSystemConfig {
 }
 
 
-// Experimental.
 func NewFileSystem(config *FileSystemConfig) FileSystem {
 	_init_.Initialize()
 
 	j := jsiiProxy_FileSystem{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.FileSystem",
+		"aws-cdk-lib.aws_lambda.FileSystem",
 		[]interface{}{config},
 		&j,
 	)
@@ -15865,26 +13790,24 @@ func NewFileSystem(config *FileSystemConfig) FileSystem {
 	return &j
 }
 
-// Experimental.
 func NewFileSystem_Override(f FileSystem, config *FileSystemConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.FileSystem",
+		"aws-cdk-lib.aws_lambda.FileSystem",
 		[]interface{}{config},
 		f,
 	)
 }
 
 // mount the filesystem from Amazon EFS.
-// Experimental.
 func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) FileSystem {
 	_init_.Initialize()
 
 	var returns FileSystem
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.FileSystem",
+		"aws-cdk-lib.aws_lambda.FileSystem",
 		"fromEfsAccessPoint",
 		[]interface{}{ap, mountPath},
 		&returns,
@@ -15898,10 +13821,10 @@ func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) Fi
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import constructs "github.com/aws/constructs-go/constructs"
 //
 //   var connections connections
 //   var dependable iDependable
@@ -15921,22 +13844,16 @@ func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) Fi
 //   	},
 //   }
 //
-// Experimental.
 type FileSystemConfig struct {
 	// ARN of the access point.
-	// Experimental.
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// mount path in the lambda runtime environment.
-	// Experimental.
 	LocalMountPath *string `field:"required" json:"localMountPath" yaml:"localMountPath"`
 	// connections object used to allow ingress traffic from lambda function.
-	// Experimental.
 	Connections awsec2.Connections `field:"optional" json:"connections" yaml:"connections"`
 	// array of IDependable that lambda function depends on.
-	// Experimental.
-	Dependency *[]awscdk.IDependable `field:"optional" json:"dependency" yaml:"dependency"`
+	Dependency *[]constructs.IDependable `field:"optional" json:"dependency" yaml:"dependency"`
 	// additional IAM policies required for the lambda function.
-	// Experimental.
 	Policies *[]awsiam.PolicyStatement `field:"optional" json:"policies" yaml:"policies"`
 }
 
@@ -15971,34 +13888,27 @@ type FileSystemConfig struct {
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
 //
-// Experimental.
 type Function interface {
 	FunctionBase
 	// The architecture of this Lambda Function (this is an optional attribute and defaults to X86_64).
-	// Experimental.
 	Architecture() Architecture
 	// Whether the addPermission() call adds any permissions.
 	//
 	// True for new Lambdas, false for version $LATEST and imported Lambdas
 	// from different accounts.
-	// Experimental.
 	CanCreatePermissions() *bool
 	// Access the Connections object.
 	//
 	// Will fail if not a VPC-enabled Lambda Function.
-	// Experimental.
 	Connections() awsec2.Connections
 	// Returns a `lambda.Version` which represents the current version of this Lambda function. A new version will be created every time the function's configuration changes.
 	//
 	// You can specify options for this version using the `currentVersionOptions`
 	// prop when initializing the `lambda.Function`.
-	// Experimental.
 	CurrentVersion() Version
 	// The DLQ (as queue) associated with this Lambda Function (this is an optional attribute).
-	// Experimental.
 	DeadLetterQueue() awssqs.IQueue
 	// The DLQ (as topic) associated with this Lambda Function (this is an optional attribute).
-	// Experimental.
 	DeadLetterTopic() awssns.ITopic
 	// The environment this resource belongs to.
 	//
@@ -16008,21 +13918,16 @@ type Function interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// ARN of this function.
-	// Experimental.
 	FunctionArn() *string
 	// Name of this function.
-	// Experimental.
 	FunctionName() *string
 	// The principal this Lambda Function is running as.
-	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
 	//
 	// If this is is `false`, trying to access the `connections` object will fail.
-	// Experimental.
 	IsBoundToVpc() *bool
 	// The `$LATEST` version of this function.
 	//
@@ -16032,7 +13937,6 @@ type Function interface {
 	//
 	// To obtain a reference to an explicit version which references the current
 	// function configuration, use `lambdaFunction.currentVersion` instead.
-	// Experimental.
 	LatestVersion() IVersion
 	// The LogGroup where the Lambda function's logs are made available.
 	//
@@ -16042,14 +13946,11 @@ type Function interface {
 	//
 	// Further, if the log group already exists and the `logRetention` is not set, the custom resource will reset the log retention
 	// to never expire even if it was configured with a different value.
-	// Experimental.
 	LogGroup() awslogs.ILogGroup
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The construct node where permissions are attached.
-	// Experimental.
-	PermissionsNode() awscdk.ConstructNode
+	PermissionsNode() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -16057,22 +13958,16 @@ type Function interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke().
-	// Experimental.
 	ResourceArnsForGrantInvoke() *[]*string
 	// Execution role associated with this function.
-	// Experimental.
 	Role() awsiam.IRole
 	// The runtime configured for this lambda.
-	// Experimental.
 	Runtime() Runtime
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// The timeout configured for this lambda.
-	// Experimental.
 	Timeout() awscdk.Duration
 	// Defines an alias for this function.
 	//
@@ -16089,13 +13984,12 @@ type Function interface {
 	// new lambda.Alias(this, 'AliasLive', {
 	//    aliasName: 'Live',
 	//    version: fn.currentVersion,
-	// });.
-	// Experimental.
+	// });
+	// ```.
 	AddAlias(aliasName *string, options *AliasOptions) Alias
 	// Adds an environment variable to this Lambda function.
 	//
 	// If this is a ref to a Lambda function, this operation results in a no-op.
-	// Experimental.
 	AddEnvironment(key *string, value *string, options *EnvironmentOptions) Function
 	// Adds an event source to this function.
 	//
@@ -16106,41 +14000,19 @@ type Function interface {
 	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 	// myFunction.addEventSource(new SqsEventSource(myQueue));
 	// ```.
-	// Experimental.
 	AddEventSource(source IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
-	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
 	// Adds a url to this lambda function.
-	// Experimental.
 	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds one or more Lambda Layers to this Lambda function.
-	// Experimental.
 	AddLayers(layers ...ILayerVersion)
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
-	// Experimental.
 	AddPermission(id *string, permission *Permission)
 	// Adds a statement to the IAM role assumed by the instance.
-	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
-	// Add a new version for this Lambda.
-	//
-	// If you want to deploy through CloudFormation and use aliases, you need to
-	// add a new version (with a new name) to your Lambda every time you want to
-	// deploy an update. An alias can then refer to the newly created Version.
-	//
-	// All versions should have distinct names, and you should not delete versions
-	// as long as your Alias needs to refer to them.
-	//
-	// Returns: A new Version object.
-	// Deprecated: This method will create an AWS::Lambda::Version resource which
-	// snapshots the AWS Lambda function *at the time of its creation* and it
-	// won't get updated when the function changes. Instead, use
-	// `this.currentVersion` to obtain a reference to a version resource that gets
-	// automatically recreated when the function configuration (or code) changes.
-	AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *EventInvokeConfigOptions) Version
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -16150,10 +14022,8 @@ type Function interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
-	// Experimental.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
 	//
@@ -16161,9 +14031,7 @@ type Function interface {
 	//
 	// This applies only to permissions on Lambda functions, not versions or aliases.
 	// This function is overridden as a noOp for QualifiedFunctionBase.
-	// Experimental.
-	ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string)
-	// Experimental.
+	ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -16171,97 +14039,38 @@ type Function interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
-	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
-	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
-	WarnInvokeFunctionPermissions(scope awscdk.Construct)
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for Function
@@ -16399,8 +14208,8 @@ func (j *jsiiProxy_Function) LogGroup() awslogs.ILogGroup {
 	return returns
 }
 
-func (j *jsiiProxy_Function) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Function) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -16409,8 +14218,8 @@ func (j *jsiiProxy_Function) Node() awscdk.ConstructNode {
 	return returns
 }
 
-func (j *jsiiProxy_Function) PermissionsNode() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Function) PermissionsNode() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -16480,14 +14289,13 @@ func (j *jsiiProxy_Function) Timeout() awscdk.Duration {
 }
 
 
-// Experimental.
 func NewFunction(scope constructs.Construct, id *string, props *FunctionProps) Function {
 	_init_.Initialize()
 
 	j := jsiiProxy_Function{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -16495,12 +14303,11 @@ func NewFunction(scope constructs.Construct, id *string, props *FunctionProps) F
 	return &j
 }
 
-// Experimental.
 func NewFunction_Override(f Function, scope constructs.Construct, id *string, props *FunctionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		[]interface{}{scope, id, props},
 		f,
 	)
@@ -16509,26 +14316,24 @@ func NewFunction_Override(f Function, scope constructs.Construct, id *string, pr
 // Record whether specific properties in the `AWS::Lambda::Function` resource should also be associated to the Version resource.
 //
 // See 'currentVersion' section in the module README for more details.
-// Experimental.
 func Function_ClassifyVersionProperty(propertyName *string, locked *bool) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		"classifyVersionProperty",
 		[]interface{}{propertyName, locked},
 	)
 }
 
 // Import a lambda function into the CDK using its ARN.
-// Experimental.
 func Function_FromFunctionArn(scope constructs.Construct, id *string, functionArn *string) IFunction {
 	_init_.Initialize()
 
 	var returns IFunction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		"fromFunctionArn",
 		[]interface{}{scope, id, functionArn},
 		&returns,
@@ -16538,14 +14343,13 @@ func Function_FromFunctionArn(scope constructs.Construct, id *string, functionAr
 }
 
 // Creates a Lambda function object which represents a function not defined within this stack.
-// Experimental.
 func Function_FromFunctionAttributes(scope constructs.Construct, id *string, attrs *FunctionAttributes) IFunction {
 	_init_.Initialize()
 
 	var returns IFunction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		"fromFunctionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -16555,14 +14359,13 @@ func Function_FromFunctionAttributes(scope constructs.Construct, id *string, att
 }
 
 // Import a lambda function into the CDK using its name.
-// Experimental.
 func Function_FromFunctionName(scope constructs.Construct, id *string, functionName *string) IFunction {
 	_init_.Initialize()
 
 	var returns IFunction
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		"fromFunctionName",
 		[]interface{}{scope, id, functionName},
 		&returns,
@@ -16571,15 +14374,30 @@ func Function_FromFunctionName(scope constructs.Construct, id *string, functionN
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func Function_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -16588,15 +14406,30 @@ func Function_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func Function_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func Function_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func Function_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.Function",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -16606,14 +14439,13 @@ func Function_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 // Return the given named metric for this Lambda.
-// Experimental.
 func Function_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		"metricAll",
 		[]interface{}{metricName, props},
 		&returns,
@@ -16623,14 +14455,13 @@ func Function_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) 
 }
 
 // Metric for the number of concurrent executions across all Lambdas.
-// Experimental.
 func Function_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		"metricAllConcurrentExecutions",
 		[]interface{}{props},
 		&returns,
@@ -16640,14 +14471,13 @@ func Function_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOptions) 
 }
 
 // Metric for the Duration executing all Lambdas.
-// Experimental.
 func Function_MetricAllDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		"metricAllDuration",
 		[]interface{}{props},
 		&returns,
@@ -16657,14 +14487,13 @@ func Function_MetricAllDuration(props *awscloudwatch.MetricOptions) awscloudwatc
 }
 
 // Metric for the number of Errors executing all Lambdas.
-// Experimental.
 func Function_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		"metricAllErrors",
 		[]interface{}{props},
 		&returns,
@@ -16674,14 +14503,13 @@ func Function_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.
 }
 
 // Metric for the number of invocations of all Lambdas.
-// Experimental.
 func Function_MetricAllInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		"metricAllInvocations",
 		[]interface{}{props},
 		&returns,
@@ -16691,14 +14519,13 @@ func Function_MetricAllInvocations(props *awscloudwatch.MetricOptions) awscloudw
 }
 
 // Metric for the number of throttled invocations of all Lambdas.
-// Experimental.
 func Function_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		"metricAllThrottles",
 		[]interface{}{props},
 		&returns,
@@ -16708,14 +14535,13 @@ func Function_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscloudwat
 }
 
 // Metric for the number of unreserved concurrent executions across all Lambdas.
-// Experimental.
 func Function_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Function",
+		"aws-cdk-lib.aws_lambda.Function",
 		"metricAllUnreservedConcurrentExecutions",
 		[]interface{}{props},
 		&returns,
@@ -16813,19 +14639,6 @@ func (f *jsiiProxy_Function) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	)
 }
 
-func (f *jsiiProxy_Function) AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *EventInvokeConfigOptions) Version {
-	var returns Version
-
-	_jsii_.Invoke(
-		f,
-		"addVersion",
-		[]interface{}{name, codeSha256, description, provisionedExecutions, asyncInvokeConfig},
-		&returns,
-	)
-
-	return returns
-}
-
 func (f *jsiiProxy_Function) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		f,
@@ -16842,7 +14655,7 @@ func (f *jsiiProxy_Function) ConfigureAsyncInvoke(options *EventInvokeConfigOpti
 	)
 }
 
-func (f *jsiiProxy_Function) ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string) {
+func (f *jsiiProxy_Function) ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string) {
 	_jsii_.InvokeVoid(
 		f,
 		"considerWarningOnInvokeFunctionPermissions",
@@ -16980,51 +14793,6 @@ func (f *jsiiProxy_Function) MetricThrottles(props *awscloudwatch.MetricOptions)
 	return returns
 }
 
-func (f *jsiiProxy_Function) OnPrepare() {
-	_jsii_.InvokeVoid(
-		f,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (f *jsiiProxy_Function) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		f,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (f *jsiiProxy_Function) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		f,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (f *jsiiProxy_Function) Prepare() {
-	_jsii_.InvokeVoid(
-		f,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (f *jsiiProxy_Function) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		f,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (f *jsiiProxy_Function) ToString() *string {
 	var returns *string
 
@@ -17038,20 +14806,7 @@ func (f *jsiiProxy_Function) ToString() *string {
 	return returns
 }
 
-func (f *jsiiProxy_Function) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		f,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (f *jsiiProxy_Function) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
+func (f *jsiiProxy_Function) WarnInvokeFunctionPermissions(scope constructs.Construct) {
 	_jsii_.InvokeVoid(
 		f,
 		"warnInvokeFunctionPermissions",
@@ -17075,20 +14830,16 @@ func (f *jsiiProxy_Function) WarnInvokeFunctionPermissions(scope awscdk.Construc
 //   	skipPermissions: jsii.Boolean(true),
 //   })
 //
-// Experimental.
 type FunctionAttributes struct {
 	// The ARN of the Lambda function.
 	//
 	// Format: arn:<partition>:lambda:<region>:<account-id>:function:<function-name>.
-	// Experimental.
 	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// The architecture of this Lambda Function (this is an optional attribute and defaults to X86_64).
-	// Experimental.
 	Architecture Architecture `field:"optional" json:"architecture" yaml:"architecture"`
 	// The IAM execution role associated with this function.
 	//
 	// If the role is not specified, any role-related operations will no-op.
-	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Setting this property informs the CDK that the imported function is in the same environment as the stack.
 	//
@@ -17098,20 +14849,12 @@ type FunctionAttributes struct {
 	//
 	// Set this to property *ONLY IF* the imported function is in the same account as the stack
 	// it's imported in.
-	// Experimental.
 	SameEnvironment *bool `field:"optional" json:"sameEnvironment" yaml:"sameEnvironment"`
 	// The security group of this Lambda, if in a VPC.
 	//
 	// This needs to be given in order to support allowing connections
 	// to this Lambda.
-	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
-	// Id of the security group of this Lambda, if in a VPC.
-	//
-	// This needs to be given in order to support allowing connections
-	// to this Lambda.
-	// Deprecated: use `securityGroup` instead.
-	SecurityGroupId *string `field:"optional" json:"securityGroupId" yaml:"securityGroupId"`
 	// Setting this property informs the CDK that the imported function ALREADY HAS the necessary permissions for what you are trying to do.
 	//
 	// When not configured, the CDK attempts to auto-determine whether or not
@@ -17121,28 +14864,23 @@ type FunctionAttributes struct {
 	// Set this property *ONLY IF* you are committing to manage the imported function's permissions outside of
 	// CDK. You are acknowledging that your CDK code alone will have insufficient permissions to access the
 	// imported function.
-	// Experimental.
 	SkipPermissions *bool `field:"optional" json:"skipPermissions" yaml:"skipPermissions"`
 }
 
-// Experimental.
 type FunctionBase interface {
 	awscdk.Resource
 	awsec2.IClientVpnConnectionHandler
 	IFunction
 	// The architecture of this Lambda Function.
-	// Experimental.
 	Architecture() Architecture
 	// Whether the addPermission() call adds any permissions.
 	//
 	// True for new Lambdas, false for version $LATEST and imported Lambdas
 	// from different accounts.
-	// Experimental.
 	CanCreatePermissions() *bool
 	// Access the Connections object.
 	//
 	// Will fail if not a VPC-enabled Lambda Function.
-	// Experimental.
 	Connections() awsec2.Connections
 	// The environment this resource belongs to.
 	//
@@ -17152,21 +14890,16 @@ type FunctionBase interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The ARN fo the function.
-	// Experimental.
 	FunctionArn() *string
 	// The name of the function.
-	// Experimental.
 	FunctionName() *string
 	// The principal this Lambda Function is running as.
-	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
 	//
 	// If this is is `false`, trying to access the `connections` object will fail.
-	// Experimental.
 	IsBoundToVpc() *bool
 	// The `$LATEST` version of this function.
 	//
@@ -17176,14 +14909,11 @@ type FunctionBase interface {
 	//
 	// To obtain a reference to an explicit version which references the current
 	// function configuration, use `lambdaFunction.currentVersion` instead.
-	// Experimental.
 	LatestVersion() IVersion
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The construct node where permissions are attached.
-	// Experimental.
-	PermissionsNode() awscdk.ConstructNode
+	PermissionsNode() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -17191,18 +14921,14 @@ type FunctionBase interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke().
-	// Experimental.
 	ResourceArnsForGrantInvoke() *[]*string
 	// The IAM role associated with this function.
 	//
 	// Undefined if the function was imported without a role.
-	// Experimental.
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Adds an event source to this function.
 	//
@@ -17213,21 +14939,16 @@ type FunctionBase interface {
 	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 	// myFunction.addEventSource(new SqsEventSource(myQueue));
 	// ```.
-	// Experimental.
 	AddEventSource(source IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
-	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
 	// Adds a url to this lambda function.
-	// Experimental.
 	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
-	// Experimental.
 	AddPermission(id *string, permission *Permission)
 	// Adds a statement to the IAM role assumed by the instance.
-	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Apply the given removal policy to this resource.
 	//
@@ -17238,10 +14959,8 @@ type FunctionBase interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
-	// Experimental.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
 	//
@@ -17249,9 +14968,7 @@ type FunctionBase interface {
 	//
 	// This applies only to permissions on Lambda functions, not versions or aliases.
 	// This function is overridden as a noOp for QualifiedFunctionBase.
-	// Experimental.
-	ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string)
-	// Experimental.
+	ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -17259,97 +14976,38 @@ type FunctionBase interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
-	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
-	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
-	WarnInvokeFunctionPermissions(scope awscdk.Construct)
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for FunctionBase
@@ -17449,8 +15107,8 @@ func (j *jsiiProxy_FunctionBase) LatestVersion() IVersion {
 	return returns
 }
 
-func (j *jsiiProxy_FunctionBase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_FunctionBase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -17459,8 +15117,8 @@ func (j *jsiiProxy_FunctionBase) Node() awscdk.ConstructNode {
 	return returns
 }
 
-func (j *jsiiProxy_FunctionBase) PermissionsNode() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_FunctionBase) PermissionsNode() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -17510,26 +15168,40 @@ func (j *jsiiProxy_FunctionBase) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewFunctionBase_Override(f FunctionBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.FunctionBase",
+		"aws-cdk-lib.aws_lambda.FunctionBase",
 		[]interface{}{scope, id, props},
 		f,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func FunctionBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.FunctionBase",
+		"aws-cdk-lib.aws_lambda.FunctionBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -17538,15 +15210,30 @@ func FunctionBase_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func FunctionBase_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func FunctionBase_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.FunctionBase",
+		"aws-cdk-lib.aws_lambda.FunctionBase",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func FunctionBase_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.FunctionBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -17621,7 +15308,7 @@ func (f *jsiiProxy_FunctionBase) ConfigureAsyncInvoke(options *EventInvokeConfig
 	)
 }
 
-func (f *jsiiProxy_FunctionBase) ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string) {
+func (f *jsiiProxy_FunctionBase) ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string) {
 	_jsii_.InvokeVoid(
 		f,
 		"considerWarningOnInvokeFunctionPermissions",
@@ -17759,51 +15446,6 @@ func (f *jsiiProxy_FunctionBase) MetricThrottles(props *awscloudwatch.MetricOpti
 	return returns
 }
 
-func (f *jsiiProxy_FunctionBase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		f,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (f *jsiiProxy_FunctionBase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		f,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (f *jsiiProxy_FunctionBase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		f,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (f *jsiiProxy_FunctionBase) Prepare() {
-	_jsii_.InvokeVoid(
-		f,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (f *jsiiProxy_FunctionBase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		f,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (f *jsiiProxy_FunctionBase) ToString() *string {
 	var returns *string
 
@@ -17817,20 +15459,7 @@ func (f *jsiiProxy_FunctionBase) ToString() *string {
 	return returns
 }
 
-func (f *jsiiProxy_FunctionBase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		f,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
+func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope constructs.Construct) {
 	_jsii_.InvokeVoid(
 		f,
 		"warnInvokeFunctionPermissions",
@@ -17843,7 +15472,7 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -17856,7 +15485,6 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 //   var architecture architecture
 //   var codeSigningConfig codeSigningConfig
 //   var destination iDestination
-//   var duration duration
 //   var eventSource iEventSource
 //   var fileSystem fileSystem
 //   var key key
@@ -17877,18 +15505,15 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 //   	allowAllOutbound: jsii.Boolean(false),
 //   	allowPublicSubnet: jsii.Boolean(false),
 //   	architecture: architecture,
-//   	architectures: []*architecture{
-//   		architecture,
-//   	},
 //   	codeSigningConfig: codeSigningConfig,
 //   	currentVersionOptions: &versionOptions{
 //   		codeSha256: jsii.String("codeSha256"),
 //   		description: jsii.String("description"),
-//   		maxEventAge: duration,
+//   		maxEventAge: cdk.duration.minutes(jsii.Number(30)),
 //   		onFailure: destination,
 //   		onSuccess: destination,
 //   		provisionedConcurrentExecutions: jsii.Number(123),
-//   		removalPolicy: monocdk.removalPolicy_DESTROY,
+//   		removalPolicy: cdk.removalPolicy_DESTROY,
 //   		retryAttempts: jsii.Number(123),
 //   	},
 //   	deadLetterQueue: queue,
@@ -17914,11 +15539,11 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 //   	},
 //   	logRetention: awscdk.Aws_logs.retentionDays_ONE_DAY,
 //   	logRetentionRetryOptions: &logRetentionRetryOptions{
-//   		base: duration,
+//   		base: cdk.*duration.minutes(jsii.Number(30)),
 //   		maxRetries: jsii.Number(123),
 //   	},
 //   	logRetentionRole: role,
-//   	maxEventAge: duration,
+//   	maxEventAge: cdk.*duration.minutes(jsii.Number(30)),
 //   	memorySize: jsii.Number(123),
 //   	onFailure: destination,
 //   	onSuccess: destination,
@@ -17927,11 +15552,10 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 //   	reservedConcurrentExecutions: jsii.Number(123),
 //   	retryAttempts: jsii.Number(123),
 //   	role: role,
-//   	securityGroup: securityGroup,
 //   	securityGroups: []iSecurityGroup{
 //   		securityGroup,
 //   	},
-//   	timeout: duration,
+//   	timeout: cdk.*duration.minutes(jsii.Number(30)),
 //   	tracing: awscdk.Aws_lambda.tracing_ACTIVE,
 //   	vpc: vpc,
 //   	vpcSubnets: &subnetSelection{
@@ -17943,156 +15567,122 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 //   			subnetFilter,
 //   		},
 //   		subnetGroupName: jsii.String("subnetGroupName"),
-//   		subnetName: jsii.String("subnetName"),
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_PRIVATE_ISOLATED,
 //   	},
 //   }
 //
-// Experimental.
 type FunctionOptions struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
-	// Experimental.
 	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
-	// Experimental.
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	// Experimental.
 	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	// Experimental.
 	AllowPublicSubnet *bool `field:"optional" json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	// Experimental.
 	Architecture Architecture `field:"optional" json:"architecture" yaml:"architecture"`
-	// DEPRECATED.
-	// Deprecated: use `architecture`.
-	Architectures *[]Architecture `field:"optional" json:"architectures" yaml:"architectures"`
 	// Code signing config associated with this function.
-	// Experimental.
 	CodeSigningConfig ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	// Experimental.
 	CurrentVersionOptions *VersionOptions `field:"optional" json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
 	//
 	// If SNS topic is desired, specify `deadLetterTopic` property instead.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	// Experimental.
 	DeadLetterQueueEnabled *bool `field:"optional" json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// The SNS topic to use as a DLQ.
 	//
 	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
 	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
-	// Experimental.
 	DeadLetterTopic awssns.ITopic `field:"optional" json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	// Experimental.
 	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
-	// Experimental.
 	EphemeralStorageSize awscdk.Size `field:"optional" json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	// Experimental.
 	Events *[]IEventSource `field:"optional" json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
-	// Experimental.
 	Filesystem FileSystem `field:"optional" json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
-	// Experimental.
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	// Experimental.
 	InitialPolicy *[]awsiam.PolicyStatement `field:"optional" json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	// Experimental.
 	InsightsVersion LambdaInsightsVersion `field:"optional" json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	// Experimental.
 	Layers *[]ILayerVersion `field:"optional" json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	// Experimental.
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	// Experimental.
 	LogRetentionRetryOptions *LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	// Experimental.
 	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	Profiling *bool `field:"optional" json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	ProfilingGroup awscodeguruprofiler.IProfilingGroup `field:"optional" json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	// Experimental.
 	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
@@ -18105,40 +15695,26 @@ type FunctionOptions struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
-	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
-	//
-	// Only used if 'vpc' is supplied.
-	//
-	// Use securityGroups property instead.
-	// Function constructor will throw an error if both are specified.
-	// Deprecated: - This property is deprecated, use securityGroups instead.
-	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	// Experimental.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	// Experimental.
 	Tracing Tracing `field:"optional" json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
@@ -18147,7 +15723,7 @@ type FunctionOptions struct {
 //
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &functionProps{
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_14_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromInline(jsii.String("exports.handler = handler.toString()")),
 //   })
@@ -18170,148 +15746,115 @@ type FunctionOptions struct {
 //   	retryAttempts: jsii.Number(2),
 //   }))
 //
-// Experimental.
 type FunctionProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
-	// Experimental.
 	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
-	// Experimental.
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	// Experimental.
 	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	// Experimental.
 	AllowPublicSubnet *bool `field:"optional" json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	// Experimental.
 	Architecture Architecture `field:"optional" json:"architecture" yaml:"architecture"`
-	// DEPRECATED.
-	// Deprecated: use `architecture`.
-	Architectures *[]Architecture `field:"optional" json:"architectures" yaml:"architectures"`
 	// Code signing config associated with this function.
-	// Experimental.
 	CodeSigningConfig ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	// Experimental.
 	CurrentVersionOptions *VersionOptions `field:"optional" json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
 	//
 	// If SNS topic is desired, specify `deadLetterTopic` property instead.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	// Experimental.
 	DeadLetterQueueEnabled *bool `field:"optional" json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// The SNS topic to use as a DLQ.
 	//
 	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
 	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
-	// Experimental.
 	DeadLetterTopic awssns.ITopic `field:"optional" json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	// Experimental.
 	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
-	// Experimental.
 	EphemeralStorageSize awscdk.Size `field:"optional" json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	// Experimental.
 	Events *[]IEventSource `field:"optional" json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
-	// Experimental.
 	Filesystem FileSystem `field:"optional" json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
-	// Experimental.
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	// Experimental.
 	InitialPolicy *[]awsiam.PolicyStatement `field:"optional" json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	// Experimental.
 	InsightsVersion LambdaInsightsVersion `field:"optional" json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	// Experimental.
 	Layers *[]ILayerVersion `field:"optional" json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	// Experimental.
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	// Experimental.
 	LogRetentionRetryOptions *LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	// Experimental.
 	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	Profiling *bool `field:"optional" json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	ProfilingGroup awscodeguruprofiler.IProfilingGroup `field:"optional" json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	// Experimental.
 	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
@@ -18324,68 +15867,51 @@ type FunctionProps struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
-	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
-	//
-	// Only used if 'vpc' is supplied.
-	//
-	// Use securityGroups property instead.
-	// Function constructor will throw an error if both are specified.
-	// Deprecated: - This property is deprecated, use securityGroups instead.
-	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	// Experimental.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	// Experimental.
 	Tracing Tracing `field:"optional" json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The source code of your Lambda function.
 	//
 	// You can point to a file in an
 	// Amazon Simple Storage Service (Amazon S3) bucket or specify your source
 	// code as inline text.
-	// Experimental.
 	Code Code `field:"required" json:"code" yaml:"code"`
 	// The name of the method within your code that Lambda calls to execute your function.
 	//
 	// The format includes the file name. It can also include
 	// namespaces and other qualifiers, depending on the runtime.
-	// For more information, see https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-features.html#gettingstarted-features-programmingmodel.
+	// For more information, see https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html.
 	//
 	// Use `Handler.FROM_IMAGE` when defining a function from a Docker image.
 	//
 	// NOTE: If you specify your source code as inline text by specifying the
 	// ZipFile property within the Code property, specify index.function_name as
 	// the handler.
-	// Experimental.
 	Handler *string `field:"required" json:"handler" yaml:"handler"`
 	// The runtime environment for the Lambda function that you are uploading.
 	//
 	// For valid values, see the Runtime property in the AWS Lambda Developer
 	// Guide.
 	//
-	// Use `Runtime.FROM_IMAGE` when when defining a function from a Docker image.
-	// Experimental.
+	// Use `Runtime.FROM_IMAGE` when defining a function from a Docker image.
 	Runtime Runtime `field:"required" json:"runtime" yaml:"runtime"`
 }
 
@@ -18405,7 +15931,6 @@ type FunctionProps struct {
 //   	value: fnUrl.url,
 //   })
 //
-// Experimental.
 type FunctionUrl interface {
 	awscdk.Resource
 	IFunctionUrl
@@ -18417,14 +15942,11 @@ type FunctionUrl interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The ARN of the function this URL refers to.
-	// Experimental.
 	FunctionArn() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -18432,13 +15954,10 @@ type FunctionUrl interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// The url of the Lambda function.
-	// Experimental.
 	Url() *string
 	// Apply the given removal policy to this resource.
 	//
@@ -18449,9 +15968,7 @@ type FunctionUrl interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -18459,69 +15976,17 @@ type FunctionUrl interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda Function URL.
-	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for FunctionUrl
@@ -18550,8 +16015,8 @@ func (j *jsiiProxy_FunctionUrl) FunctionArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_FunctionUrl) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_FunctionUrl) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -18591,14 +16056,13 @@ func (j *jsiiProxy_FunctionUrl) Url() *string {
 }
 
 
-// Experimental.
 func NewFunctionUrl(scope constructs.Construct, id *string, props *FunctionUrlProps) FunctionUrl {
 	_init_.Initialize()
 
 	j := jsiiProxy_FunctionUrl{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.FunctionUrl",
+		"aws-cdk-lib.aws_lambda.FunctionUrl",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -18606,26 +16070,40 @@ func NewFunctionUrl(scope constructs.Construct, id *string, props *FunctionUrlPr
 	return &j
 }
 
-// Experimental.
 func NewFunctionUrl_Override(f FunctionUrl, scope constructs.Construct, id *string, props *FunctionUrlProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.FunctionUrl",
+		"aws-cdk-lib.aws_lambda.FunctionUrl",
 		[]interface{}{scope, id, props},
 		f,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func FunctionUrl_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.FunctionUrl",
+		"aws-cdk-lib.aws_lambda.FunctionUrl",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -18634,15 +16112,30 @@ func FunctionUrl_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func FunctionUrl_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func FunctionUrl_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.FunctionUrl",
+		"aws-cdk-lib.aws_lambda.FunctionUrl",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func FunctionUrl_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.FunctionUrl",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -18711,70 +16204,12 @@ func (f *jsiiProxy_FunctionUrl) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam
 	return returns
 }
 
-func (f *jsiiProxy_FunctionUrl) OnPrepare() {
-	_jsii_.InvokeVoid(
-		f,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (f *jsiiProxy_FunctionUrl) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		f,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (f *jsiiProxy_FunctionUrl) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		f,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (f *jsiiProxy_FunctionUrl) Prepare() {
-	_jsii_.InvokeVoid(
-		f,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (f *jsiiProxy_FunctionUrl) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		f,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (f *jsiiProxy_FunctionUrl) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		f,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (f *jsiiProxy_FunctionUrl) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		f,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -18797,15 +16232,12 @@ func (f *jsiiProxy_FunctionUrl) Validate() *[]*string {
 //   	value: fnUrl.url,
 //   })
 //
-// Experimental.
 type FunctionUrlAuthType string
 
 const (
 	// Restrict access to authenticated IAM users only.
-	// Experimental.
 	FunctionUrlAuthType_AWS_IAM FunctionUrlAuthType = "AWS_IAM"
 	// Bypass IAM authentication to create a public endpoint.
-	// Experimental.
 	FunctionUrlAuthType_NONE FunctionUrlAuthType = "NONE"
 )
 
@@ -18826,25 +16258,18 @@ const (
 //   	},
 //   })
 //
-// Experimental.
 type FunctionUrlCorsOptions struct {
 	// Whether to allow cookies or other credentials in requests to your function URL.
-	// Experimental.
 	AllowCredentials *bool `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
 	// Headers that are specified in the Access-Control-Request-Headers header.
-	// Experimental.
 	AllowedHeaders *[]*string `field:"optional" json:"allowedHeaders" yaml:"allowedHeaders"`
 	// An HTTP method that you allow the origin to execute.
-	// Experimental.
 	AllowedMethods *[]HttpMethod `field:"optional" json:"allowedMethods" yaml:"allowedMethods"`
 	// One or more origins you want customers to be able to access the bucket from.
-	// Experimental.
 	AllowedOrigins *[]*string `field:"optional" json:"allowedOrigins" yaml:"allowedOrigins"`
 	// One or more headers in the response that you want customers to be able to access from their applications.
-	// Experimental.
 	ExposedHeaders *[]*string `field:"optional" json:"exposedHeaders" yaml:"exposedHeaders"`
 	// The time in seconds that your browser is to cache the preflight response for the specified resource.
-	// Experimental.
 	MaxAge awscdk.Duration `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 
@@ -18863,13 +16288,10 @@ type FunctionUrlCorsOptions struct {
 //   	value: fnUrl.url,
 //   })
 //
-// Experimental.
 type FunctionUrlOptions struct {
 	// The type of authentication that your function URL uses.
-	// Experimental.
 	AuthType FunctionUrlAuthType `field:"optional" json:"authType" yaml:"authType"`
 	// The cross-origin resource sharing (CORS) settings for your function URL.
-	// Experimental.
 	Cors *FunctionUrlCorsOptions `field:"optional" json:"cors" yaml:"cors"`
 }
 
@@ -18878,10 +16300,9 @@ type FunctionUrlOptions struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var function_ function
 //
 //   functionUrlProps := &functionUrlProps{
@@ -18903,22 +16324,18 @@ type FunctionUrlOptions struct {
 //   		exposedHeaders: []*string{
 //   			jsii.String("exposedHeaders"),
 //   		},
-//   		maxAge: duration,
+//   		maxAge: cdk.duration.minutes(jsii.Number(30)),
 //   	},
 //   }
 //
-// Experimental.
 type FunctionUrlProps struct {
 	// The type of authentication that your function URL uses.
-	// Experimental.
 	AuthType FunctionUrlAuthType `field:"optional" json:"authType" yaml:"authType"`
 	// The cross-origin resource sharing (CORS) settings for your function URL.
-	// Experimental.
 	Cors *FunctionUrlCorsOptions `field:"optional" json:"cors" yaml:"cors"`
 	// The function to which this url refers.
 	//
 	// It can also be an `Alias` but not a `Version`.
-	// Experimental.
 	Function IFunction `field:"required" json:"function" yaml:"function"`
 }
 
@@ -18931,14 +16348,12 @@ type FunctionUrlProps struct {
 //
 // Example:
 //   stack := awscdk.Newstack()
-//   awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(monocdkcxapi.LAMBDA_RECOGNIZE_VERSION_PROPS))
+//   awscdk.Aspects.of(stack).add(lambda.NewFunctionVersionUpgrade(awscdklibcxapi.LAMBDA_RECOGNIZE_VERSION_PROPS))
 //
-// Experimental.
 type FunctionVersionUpgrade interface {
 	awscdk.IAspect
 	// All aspects can visit an IConstruct.
-	// Experimental.
-	Visit(node awscdk.IConstruct)
+	Visit(node constructs.IConstruct)
 }
 
 // The jsii proxy struct for FunctionVersionUpgrade
@@ -18946,14 +16361,13 @@ type jsiiProxy_FunctionVersionUpgrade struct {
 	internal.Type__awscdkIAspect
 }
 
-// Experimental.
 func NewFunctionVersionUpgrade(featureFlag *string, enabled *bool) FunctionVersionUpgrade {
 	_init_.Initialize()
 
 	j := jsiiProxy_FunctionVersionUpgrade{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.FunctionVersionUpgrade",
+		"aws-cdk-lib.aws_lambda.FunctionVersionUpgrade",
 		[]interface{}{featureFlag, enabled},
 		&j,
 	)
@@ -18961,18 +16375,17 @@ func NewFunctionVersionUpgrade(featureFlag *string, enabled *bool) FunctionVersi
 	return &j
 }
 
-// Experimental.
 func NewFunctionVersionUpgrade_Override(f FunctionVersionUpgrade, featureFlag *string, enabled *bool) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.FunctionVersionUpgrade",
+		"aws-cdk-lib.aws_lambda.FunctionVersionUpgrade",
 		[]interface{}{featureFlag, enabled},
 		f,
 	)
 }
 
-func (f *jsiiProxy_FunctionVersionUpgrade) Visit(node awscdk.IConstruct) {
+func (f *jsiiProxy_FunctionVersionUpgrade) Visit(node constructs.IConstruct) {
 	_jsii_.InvokeVoid(
 		f,
 		"visit",
@@ -18981,7 +16394,6 @@ func (f *jsiiProxy_FunctionVersionUpgrade) Visit(node awscdk.IConstruct) {
 }
 
 // Lambda function handler.
-// Experimental.
 type Handler interface {
 }
 
@@ -18994,7 +16406,7 @@ func Handler_FROM_IMAGE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Handler",
+		"aws-cdk-lib.aws_lambda.Handler",
 		"FROM_IMAGE",
 		&returns,
 	)
@@ -19002,44 +16414,32 @@ func Handler_FROM_IMAGE() *string {
 }
 
 // All http request methods.
-// Experimental.
 type HttpMethod string
 
 const (
 	// The GET method requests a representation of the specified resource.
-	// Experimental.
 	HttpMethod_GET HttpMethod = "GET"
 	// The PUT method replaces all current representations of the target resource with the request payload.
-	// Experimental.
 	HttpMethod_PUT HttpMethod = "PUT"
 	// The HEAD method asks for a response identical to that of a GET request, but without the response body.
-	// Experimental.
 	HttpMethod_HEAD HttpMethod = "HEAD"
 	// The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.
-	// Experimental.
 	HttpMethod_POST HttpMethod = "POST"
 	// The DELETE method deletes the specified resource.
-	// Experimental.
 	HttpMethod_DELETE HttpMethod = "DELETE"
 	// The PATCH method applies partial modifications to a resource.
-	// Experimental.
 	HttpMethod_PATCH HttpMethod = "PATCH"
 	// The OPTIONS method describes the communication options for the target resource.
-	// Experimental.
 	HttpMethod_OPTIONS HttpMethod = "OPTIONS"
 	// The wildcard entry to allow all methods.
-	// Experimental.
 	HttpMethod_ALL HttpMethod = "ALL"
 )
 
-// Experimental.
 type IAlias interface {
 	IFunction
 	// Name of this alias.
-	// Experimental.
 	AliasName() *string
 	// The underlying Lambda function version.
-	// Experimental.
 	Version() IVersion
 }
 
@@ -19069,14 +16469,11 @@ func (j *jsiiProxy_IAlias) Version() IVersion {
 }
 
 // A Code Signing Config.
-// Experimental.
 type ICodeSigningConfig interface {
 	awscdk.IResource
 	// The ARN of Code Signing Config.
-	// Experimental.
 	CodeSigningConfigArn() *string
 	// The id of Code Signing Config.
-	// Experimental.
 	CodeSigningConfigId() *string
 }
 
@@ -19106,11 +16503,9 @@ func (j *jsiiProxy_ICodeSigningConfig) CodeSigningConfigId() *string {
 }
 
 // A Lambda destination.
-// Experimental.
 type IDestination interface {
 	// Binds this destination to the Lambda function.
-	// Experimental.
-	Bind(scope awscdk.Construct, fn IFunction, options *DestinationOptions) *DestinationConfig
+	Bind(scope constructs.Construct, fn IFunction, options *DestinationOptions) *DestinationConfig
 }
 
 // The jsii proxy for IDestination
@@ -19118,7 +16513,7 @@ type jsiiProxy_IDestination struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_IDestination) Bind(scope awscdk.Construct, fn IFunction, options *DestinationOptions) *DestinationConfig {
+func (i *jsiiProxy_IDestination) Bind(scope constructs.Construct, fn IFunction, options *DestinationOptions) *DestinationConfig {
 	var returns *DestinationConfig
 
 	_jsii_.Invoke(
@@ -19132,10 +16527,8 @@ func (i *jsiiProxy_IDestination) Bind(scope awscdk.Construct, fn IFunction, opti
 }
 
 // An abstract class which represents an AWS Lambda event source.
-// Experimental.
 type IEventSource interface {
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
-	// Experimental.
 	Bind(target IFunction)
 }
 
@@ -19153,10 +16546,8 @@ func (i *jsiiProxy_IEventSource) Bind(target IFunction) {
 }
 
 // A DLQ for an event source.
-// Experimental.
 type IEventSourceDlq interface {
 	// Returns the DLQ destination config of the DLQ.
-	// Experimental.
 	Bind(target IEventSourceMapping, targetHandler IFunction) *DlqDestinationConfig
 }
 
@@ -19181,11 +16572,9 @@ func (i *jsiiProxy_IEventSourceDlq) Bind(target IEventSourceMapping, targetHandl
 // Represents an event source mapping for a lambda function.
 // See: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html
 //
-// Experimental.
 type IEventSourceMapping interface {
 	awscdk.IResource
 	// The identifier for this EventSourceMapping.
-	// Experimental.
 	EventSourceMappingId() *string
 }
 
@@ -19204,7 +16593,6 @@ func (j *jsiiProxy_IEventSourceMapping) EventSourceMappingId() *string {
 	return returns
 }
 
-// Experimental.
 type IFunction interface {
 	awsec2.IConnectable
 	awsiam.IGrantable
@@ -19218,67 +16606,50 @@ type IFunction interface {
 	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 	// myFunction.addEventSource(new SqsEventSource(myQueue));
 	// ```.
-	// Experimental.
 	AddEventSource(source IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
-	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
 	// Adds a url to this lambda function.
-	// Experimental.
 	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
-	// Experimental.
 	AddPermission(id *string, permission *Permission)
 	// Adds a statement to the IAM role assumed by the instance.
-	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Configures options for asynchronous invocation.
-	// Experimental.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	// Grant the given identity permissions to invoke this Lambda.
-	// Experimental.
 	GrantInvoke(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
-	// Experimental.
 	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Lambda Return the given named metric for this Function.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the Duration of this Lambda How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of invocations of this Lambda How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of throttled invocations of this Lambda How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The system architectures compatible with this lambda function.
-	// Experimental.
 	Architecture() Architecture
 	// The ARN of the function.
-	// Experimental.
 	FunctionArn() *string
 	// The name of the function.
-	// Experimental.
 	FunctionName() *string
 	// Whether or not this Lambda function was bound to a VPC.
 	//
 	// If this is is `false`, trying to access the `connections` object will fail.
-	// Experimental.
 	IsBoundToVpc() *bool
 	// The `$LATEST` version of this function.
 	//
@@ -19288,19 +16659,15 @@ type IFunction interface {
 	//
 	// To obtain a reference to an explicit version which references the current
 	// function configuration, use `lambdaFunction.currentVersion` instead.
-	// Experimental.
 	LatestVersion() IVersion
 	// The construct node where permissions are attached.
-	// Experimental.
-	PermissionsNode() awscdk.ConstructNode
+	PermissionsNode() constructs.Node
 	// The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke().
 	//
 	// This property is for cdk modules to consume only. You should not need to use this property.
 	// Instead, use grantInvoke() directly.
-	// Experimental.
 	ResourceArnsForGrantInvoke() *[]*string
 	// The IAM role associated with this function.
-	// Experimental.
 	Role() awsiam.IRole
 }
 
@@ -19518,8 +16885,8 @@ func (j *jsiiProxy_IFunction) LatestVersion() IVersion {
 	return returns
 }
 
-func (j *jsiiProxy_IFunction) PermissionsNode() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_IFunction) PermissionsNode() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -19578,8 +16945,8 @@ func (j *jsiiProxy_IFunction) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IFunction) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_IFunction) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -19599,17 +16966,13 @@ func (j *jsiiProxy_IFunction) Stack() awscdk.Stack {
 }
 
 // A Lambda function Url.
-// Experimental.
 type IFunctionUrl interface {
 	awscdk.IResource
 	// Grant the given identity permissions to invoke this Lambda Function URL.
-	// Experimental.
 	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
 	// The ARN of the function this URL refers to.
-	// Experimental.
 	FunctionArn() *string
 	// The url of the Lambda function.
-	// Experimental.
 	Url() *string
 }
 
@@ -19651,7 +17014,6 @@ func (j *jsiiProxy_IFunctionUrl) Url() *string {
 	return returns
 }
 
-// Experimental.
 type ILayerVersion interface {
 	awscdk.IResource
 	// Add permission for this layer version to specific entities.
@@ -19662,13 +17024,10 @@ type ILayerVersion interface {
 	// Lambda function using the layer (for example, a CloudFormation changeset
 	// execution role) also needs to have the ``lambda:GetLayerVersion``
 	// permission on the layer version.
-	// Experimental.
 	AddPermission(id *string, permission *LayerVersionPermission)
 	// The runtimes compatible with this Layer.
-	// Experimental.
 	CompatibleRuntimes() *[]Runtime
 	// The ARN of the Lambda Layer version that this Layer defines.
-	// Experimental.
 	LayerVersionArn() *string
 }
 
@@ -19706,24 +17065,21 @@ func (j *jsiiProxy_ILayerVersion) LayerVersionArn() *string {
 }
 
 // Interface for scalable attributes.
-// Experimental.
 type IScalableFunctionAttribute interface {
-	awscdk.IConstruct
+	constructs.IConstruct
 	// Scale out or in based on schedule.
-	// Experimental.
 	ScaleOnSchedule(id *string, actions *awsapplicationautoscaling.ScalingSchedule)
 	// Scale out or in to keep utilization at a given level.
 	//
 	// The utilization is tracked by the
 	// LambdaProvisionedConcurrencyUtilization metric, emitted by lambda. See:
 	// https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics.html#monitoring-metrics-concurrency
-	// Experimental.
 	ScaleOnUtilization(options *UtilizationScalingOptions)
 }
 
 // The jsii proxy for IScalableFunctionAttribute
 type jsiiProxy_IScalableFunctionAttribute struct {
-	internal.Type__awscdkIConstruct
+	internal.Type__constructsIConstruct
 }
 
 func (i *jsiiProxy_IScalableFunctionAttribute) ScaleOnSchedule(id *string, actions *awsapplicationautoscaling.ScalingSchedule) {
@@ -19742,20 +17098,16 @@ func (i *jsiiProxy_IScalableFunctionAttribute) ScaleOnUtilization(options *Utili
 	)
 }
 
-// Experimental.
 type IVersion interface {
 	IFunction
 	// Defines an alias for this version.
 	// Deprecated: Calling `addAlias` on a `Version` object will cause the Alias to be replaced on every function update. Call `function.addAlias()` or `new Alias()` instead.
 	AddAlias(aliasName *string, options *AliasOptions) Alias
 	// The ARN of the version for Lambda@Edge.
-	// Experimental.
 	EdgeArn() *string
 	// The underlying AWS Lambda function.
-	// Experimental.
 	Lambda() IFunction
 	// The most recently deployed version of this function.
-	// Experimental.
 	Version() *string
 }
 
@@ -19807,7 +17159,7 @@ func (j *jsiiProxy_IVersion) Version() *string {
 	return returns
 }
 
-// Lambda code from an inline string (limited to 4KiB).
+// Lambda code from an inline string.
 //
 // Example:
 //   layer := lambda.NewLayerVersion(stack, jsii.String("MyLayer"), &layerVersionProps{
@@ -19838,20 +17190,16 @@ func (j *jsiiProxy_IVersion) Version() *string {
 //   	},
 //   })
 //
-// Experimental.
 type InlineCode interface {
 	Code
 	// Determines whether this Code is inline code or not.
-	// Experimental.
 	IsInline() *bool
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	// Experimental.
-	Bind(_scope awscdk.Construct) *CodeConfig
+	Bind(_scope constructs.Construct) *CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	// Experimental.
 	BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions)
 }
 
@@ -19871,14 +17219,13 @@ func (j *jsiiProxy_InlineCode) IsInline() *bool {
 }
 
 
-// Experimental.
 func NewInlineCode(code *string) InlineCode {
 	_init_.Initialize()
 
 	j := jsiiProxy_InlineCode{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.InlineCode",
+		"aws-cdk-lib.aws_lambda.InlineCode",
 		[]interface{}{code},
 		&j,
 	)
@@ -19886,77 +17233,24 @@ func NewInlineCode(code *string) InlineCode {
 	return &j
 }
 
-// Experimental.
 func NewInlineCode_Override(i InlineCode, code *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.InlineCode",
+		"aws-cdk-lib.aws_lambda.InlineCode",
 		[]interface{}{code},
 		i,
 	)
 }
 
-// DEPRECATED.
-// Deprecated: use `fromAsset`.
-func InlineCode_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.InlineCode",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`.
-func InlineCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.InlineCode",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`.
-func InlineCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.InlineCode",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Loads the function code from a local disk path.
-// Experimental.
 func InlineCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.InlineCode",
+		"aws-cdk-lib.aws_lambda.InlineCode",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -19966,14 +17260,13 @@ func InlineCode_FromAsset(path *string, options *awss3assets.AssetOptions) Asset
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func InlineCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.InlineCode",
+		"aws-cdk-lib.aws_lambda.InlineCode",
 		"fromAssetImage",
 		[]interface{}{directory, props},
 		&returns,
@@ -19983,14 +17276,13 @@ func InlineCode_FromAssetImage(directory *string, props *AssetImageCodeProps) As
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func InlineCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.InlineCode",
+		"aws-cdk-lib.aws_lambda.InlineCode",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -20002,14 +17294,13 @@ func InlineCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *str
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`.
-// Experimental.
 func InlineCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.InlineCode",
+		"aws-cdk-lib.aws_lambda.InlineCode",
 		"fromCfnParameters",
 		[]interface{}{props},
 		&returns,
@@ -20022,14 +17313,13 @@ func InlineCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCo
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func InlineCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.InlineCode",
+		"aws-cdk-lib.aws_lambda.InlineCode",
 		"fromDockerBuild",
 		[]interface{}{path, options},
 		&returns,
@@ -20039,14 +17329,13 @@ func InlineCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) 
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func InlineCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.InlineCode",
+		"aws-cdk-lib.aws_lambda.InlineCode",
 		"fromEcrImage",
 		[]interface{}{repository, props},
 		&returns,
@@ -20058,14 +17347,13 @@ func InlineCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeP
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func InlineCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.InlineCode",
+		"aws-cdk-lib.aws_lambda.InlineCode",
 		"fromInline",
 		[]interface{}{code},
 		&returns,
@@ -20074,24 +17362,7 @@ func InlineCode_FromInline(code *string) InlineCode {
 	return returns
 }
 
-// DEPRECATED.
-// Deprecated: use `fromInline`.
-func InlineCode_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.InlineCode",
-		"inline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_InlineCode) Bind(_scope awscdk.Construct) *CodeConfig {
+func (i *jsiiProxy_InlineCode) Bind(_scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -20123,10 +17394,8 @@ func (i *jsiiProxy_InlineCode) BindToResource(_resource awscdk.CfnResource, _opt
 //   	insightsVersion: lambda.lambdaInsightsVersion.fromInsightVersionArn(layerArn),
 //   })
 //
-// Experimental.
 type LambdaInsightsVersion interface {
 	// The arn of the Lambda Insights extension.
-	// Experimental.
 	LayerVersionArn() *string
 }
 
@@ -20146,12 +17415,11 @@ func (j *jsiiProxy_LambdaInsightsVersion) LayerVersionArn() *string {
 }
 
 
-// Experimental.
 func NewLambdaInsightsVersion_Override(l LambdaInsightsVersion) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		nil, // no parameters
 		l,
 	)
@@ -20163,14 +17431,13 @@ func NewLambdaInsightsVersion_Override(l LambdaInsightsVersion) {
 // with same region as your function.
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-extension-versions.html
 //
-// Experimental.
 func LambdaInsightsVersion_FromInsightVersionArn(arn *string) LambdaInsightsVersion {
 	_init_.Initialize()
 
 	var returns LambdaInsightsVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"fromInsightVersionArn",
 		[]interface{}{arn},
 		&returns,
@@ -20183,7 +17450,7 @@ func LambdaInsightsVersion_VERSION_1_0_119_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_119_0",
 		&returns,
 	)
@@ -20194,7 +17461,7 @@ func LambdaInsightsVersion_VERSION_1_0_135_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_135_0",
 		&returns,
 	)
@@ -20205,7 +17472,7 @@ func LambdaInsightsVersion_VERSION_1_0_54_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_54_0",
 		&returns,
 	)
@@ -20216,7 +17483,7 @@ func LambdaInsightsVersion_VERSION_1_0_86_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_86_0",
 		&returns,
 	)
@@ -20227,7 +17494,7 @@ func LambdaInsightsVersion_VERSION_1_0_89_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_89_0",
 		&returns,
 	)
@@ -20238,7 +17505,7 @@ func LambdaInsightsVersion_VERSION_1_0_98_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
 		"VERSION_1_0_98_0",
 		&returns,
 	)
@@ -20256,16 +17523,12 @@ func LambdaInsightsVersion_VERSION_1_0_98_0() LambdaInsightsVersion {
 //   	supportsInlineCode: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type LambdaRuntimeProps struct {
 	// The Docker image name to be used for bundling in this runtime.
-	// Experimental.
 	BundlingDockerImage *string `field:"optional" json:"bundlingDockerImage" yaml:"bundlingDockerImage"`
 	// Whether this runtime is integrated with and supported for profiling using Amazon CodeGuru Profiler.
-	// Experimental.
 	SupportsCodeGuruProfiling *bool `field:"optional" json:"supportsCodeGuruProfiling" yaml:"supportsCodeGuruProfiling"`
 	// Whether the ``ZipFile`` (aka inline code) property can be used with this runtime.
-	// Experimental.
 	SupportsInlineCode *bool `field:"optional" json:"supportsInlineCode" yaml:"supportsInlineCode"`
 }
 
@@ -20281,12 +17544,10 @@ type LambdaRuntimeProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type LayerVersion interface {
 	awscdk.Resource
 	ILayerVersion
 	// The runtimes compatible with this Layer.
-	// Experimental.
 	CompatibleRuntimes() *[]Runtime
 	// The environment this resource belongs to.
 	//
@@ -20296,14 +17557,11 @@ type LayerVersion interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The ARN of the Lambda Layer version that this Layer defines.
-	// Experimental.
 	LayerVersionArn() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -20311,10 +17569,8 @@ type LayerVersion interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Add permission for this layer version to specific entities.
 	//
@@ -20324,7 +17580,6 @@ type LayerVersion interface {
 	// Lambda function using the layer (for example, a CloudFormation changeset
 	// execution role) also needs to have the ``lambda:GetLayerVersion``
 	// permission on the layer version.
-	// Experimental.
 	AddPermission(id *string, permission *LayerVersionPermission)
 	// Apply the given removal policy to this resource.
 	//
@@ -20335,9 +17590,7 @@ type LayerVersion interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -20345,66 +17598,15 @@ type LayerVersion interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for LayerVersion
@@ -20443,8 +17645,8 @@ func (j *jsiiProxy_LayerVersion) LayerVersionArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_LayerVersion) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_LayerVersion) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -20474,14 +17676,13 @@ func (j *jsiiProxy_LayerVersion) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewLayerVersion(scope constructs.Construct, id *string, props *LayerVersionProps) LayerVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_LayerVersion{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.LayerVersion",
+		"aws-cdk-lib.aws_lambda.LayerVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -20489,12 +17690,11 @@ func NewLayerVersion(scope constructs.Construct, id *string, props *LayerVersion
 	return &j
 }
 
-// Experimental.
 func NewLayerVersion_Override(l LayerVersion, scope constructs.Construct, id *string, props *LayerVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.LayerVersion",
+		"aws-cdk-lib.aws_lambda.LayerVersion",
 		[]interface{}{scope, id, props},
 		l,
 	)
@@ -20503,14 +17703,13 @@ func NewLayerVersion_Override(l LayerVersion, scope constructs.Construct, id *st
 // Imports a layer version by ARN.
 //
 // Assumes it is compatible with all Lambda runtimes.
-// Experimental.
 func LayerVersion_FromLayerVersionArn(scope constructs.Construct, id *string, layerVersionArn *string) ILayerVersion {
 	_init_.Initialize()
 
 	var returns ILayerVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.LayerVersion",
+		"aws-cdk-lib.aws_lambda.LayerVersion",
 		"fromLayerVersionArn",
 		[]interface{}{scope, id, layerVersionArn},
 		&returns,
@@ -20520,14 +17719,13 @@ func LayerVersion_FromLayerVersionArn(scope constructs.Construct, id *string, la
 }
 
 // Imports a Layer that has been defined externally.
-// Experimental.
 func LayerVersion_FromLayerVersionAttributes(scope constructs.Construct, id *string, attrs *LayerVersionAttributes) ILayerVersion {
 	_init_.Initialize()
 
 	var returns ILayerVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.LayerVersion",
+		"aws-cdk-lib.aws_lambda.LayerVersion",
 		"fromLayerVersionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -20536,15 +17734,30 @@ func LayerVersion_FromLayerVersionAttributes(scope constructs.Construct, id *str
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func LayerVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.LayerVersion",
+		"aws-cdk-lib.aws_lambda.LayerVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -20553,15 +17766,30 @@ func LayerVersion_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func LayerVersion_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func LayerVersion_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.LayerVersion",
+		"aws-cdk-lib.aws_lambda.LayerVersion",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func LayerVersion_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.LayerVersion",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -20625,70 +17853,12 @@ func (l *jsiiProxy_LayerVersion) GetResourceNameAttribute(nameAttr *string) *str
 	return returns
 }
 
-func (l *jsiiProxy_LayerVersion) OnPrepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (l *jsiiProxy_LayerVersion) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		l,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (l *jsiiProxy_LayerVersion) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		l,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (l *jsiiProxy_LayerVersion) Prepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (l *jsiiProxy_LayerVersion) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		l,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (l *jsiiProxy_LayerVersion) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		l,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (l *jsiiProxy_LayerVersion) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		l,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -20714,13 +17884,10 @@ func (l *jsiiProxy_LayerVersion) Validate() *[]*string {
 //   	},
 //   }
 //
-// Experimental.
 type LayerVersionAttributes struct {
 	// The ARN of the LayerVersion.
-	// Experimental.
 	LayerVersionArn *string `field:"required" json:"layerVersionArn" yaml:"layerVersionArn"`
 	// The list of compatible runtimes with this Layer.
-	// Experimental.
 	CompatibleRuntimes *[]Runtime `field:"optional" json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
 }
 
@@ -20729,29 +17896,24 @@ type LayerVersionAttributes struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   layerVersionOptions := &layerVersionOptions{
 //   	description: jsii.String("description"),
 //   	layerVersionName: jsii.String("layerVersionName"),
 //   	license: jsii.String("license"),
-//   	removalPolicy: monocdk.removalPolicy_DESTROY,
+//   	removalPolicy: cdk.removalPolicy_DESTROY,
 //   }
 //
-// Experimental.
 type LayerVersionOptions struct {
 	// The description the this Lambda Layer.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the layer.
-	// Experimental.
 	LayerVersionName *string `field:"optional" json:"layerVersionName" yaml:"layerVersionName"`
 	// The SPDX licence identifier or URL to the license file for this layer.
-	// Experimental.
 	License *string `field:"optional" json:"license" yaml:"license"`
 	// Whether to retain this version of the layer when a new version is added or when the stack is deleted.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 
@@ -20786,18 +17948,15 @@ type LayerVersionOptions struct {
 //   	},
 //   })
 //
-// Experimental.
 type LayerVersionPermission struct {
 	// The AWS Account id of the account that is authorized to use a Lambda Layer Version.
 	//
 	// The wild-card ``'*'`` can be
 	// used to grant access to "any" account (or any account in an organization when ``organizationId`` is specified).
-	// Experimental.
 	AccountId *string `field:"required" json:"accountId" yaml:"accountId"`
 	// The ID of the AWS Organization to which the grant is restricted.
 	//
 	// Can only be specified if ``accountId`` is ``'*'``.
-	// Experimental.
 	OrganizationId *string `field:"optional" json:"organizationId" yaml:"organizationId"`
 }
 
@@ -20811,307 +17970,23 @@ type LayerVersionPermission struct {
 //   	},
 //   })
 //
-// Experimental.
 type LayerVersionProps struct {
 	// The description the this Lambda Layer.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the layer.
-	// Experimental.
 	LayerVersionName *string `field:"optional" json:"layerVersionName" yaml:"layerVersionName"`
 	// The SPDX licence identifier or URL to the license file for this layer.
-	// Experimental.
 	License *string `field:"optional" json:"license" yaml:"license"`
 	// Whether to retain this version of the layer when a new version is added or when the stack is deleted.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The content of this Layer.
 	//
 	// Using `Code.fromInline` is not supported.
-	// Experimental.
 	Code Code `field:"required" json:"code" yaml:"code"`
 	// The system architectures compatible with this layer.
-	// Experimental.
 	CompatibleArchitectures *[]Architecture `field:"optional" json:"compatibleArchitectures" yaml:"compatibleArchitectures"`
 	// The runtimes compatible with this Layer.
-	// Experimental.
 	CompatibleRuntimes *[]Runtime `field:"optional" json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
-}
-
-// Creates a custom resource to control the retention policy of a CloudWatch Logs log group.
-//
-// The log group is created if it doesn't already exist. The policy
-// is removed when `retentionDays` is `undefined` or equal to `Infinity`.
-//
-// Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var duration duration
-//   var role role
-//
-//   logRetention := awscdk.Aws_lambda.NewLogRetention(this, jsii.String("MyLogRetention"), &logRetentionProps{
-//   	logGroupName: jsii.String("logGroupName"),
-//   	retention: awscdk.Aws_logs.retentionDays_ONE_DAY,
-//
-//   	// the properties below are optional
-//   	logGroupRegion: jsii.String("logGroupRegion"),
-//   	logRetentionRetryOptions: &logRetentionRetryOptions{
-//   		base: duration,
-//   		maxRetries: jsii.Number(123),
-//   	},
-//   	role: role,
-//   })
-//
-// Deprecated: use `LogRetention` from '.
-type LogRetention interface {
-	awslogs.LogRetention
-	// The ARN of the LogGroup.
-	// Deprecated: use `LogRetention` from '.
-	LogGroupArn() *string
-	// The construct tree node associated with this construct.
-	// Deprecated: use `LogRetention` from '.
-	Node() awscdk.ConstructNode
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Deprecated: use `LogRetention` from '.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Deprecated: use `LogRetention` from '.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Deprecated: use `LogRetention` from '.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Deprecated: use `LogRetention` from '.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Deprecated: use `LogRetention` from '.
-	Synthesize(session awscdk.ISynthesisSession)
-	// Returns a string representation of this construct.
-	// Deprecated: use `LogRetention` from '.
-	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Deprecated: use `LogRetention` from '.
-	Validate() *[]*string
-}
-
-// The jsii proxy struct for LogRetention
-type jsiiProxy_LogRetention struct {
-	internal.Type__awslogsLogRetention
-}
-
-func (j *jsiiProxy_LogRetention) LogGroupArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"logGroupArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_LogRetention) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-
-// Deprecated: use `LogRetention` from '.
-func NewLogRetention(scope constructs.Construct, id *string, props *LogRetentionProps) LogRetention {
-	_init_.Initialize()
-
-	j := jsiiProxy_LogRetention{}
-
-	_jsii_.Create(
-		"monocdk.aws_lambda.LogRetention",
-		[]interface{}{scope, id, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: use `LogRetention` from '.
-func NewLogRetention_Override(l LogRetention, scope constructs.Construct, id *string, props *LogRetentionProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_lambda.LogRetention",
-		[]interface{}{scope, id, props},
-		l,
-	)
-}
-
-// Return whether the given object is a Construct.
-// Deprecated: use `LogRetention` from '.
-func LogRetention_IsConstruct(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.LogRetention",
-		"isConstruct",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-func (l *jsiiProxy_LogRetention) OnPrepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (l *jsiiProxy_LogRetention) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		l,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (l *jsiiProxy_LogRetention) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		l,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (l *jsiiProxy_LogRetention) Prepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (l *jsiiProxy_LogRetention) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		l,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
-func (l *jsiiProxy_LogRetention) ToString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		l,
-		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (l *jsiiProxy_LogRetention) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		l,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Construction properties for a LogRetention.
-//
-// Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var duration duration
-//   var role role
-//
-//   logRetentionProps := &logRetentionProps{
-//   	logGroupName: jsii.String("logGroupName"),
-//   	retention: awscdk.Aws_logs.retentionDays_ONE_DAY,
-//
-//   	// the properties below are optional
-//   	logGroupRegion: jsii.String("logGroupRegion"),
-//   	logRetentionRetryOptions: &logRetentionRetryOptions{
-//   		base: duration,
-//   		maxRetries: jsii.Number(123),
-//   	},
-//   	role: role,
-//   }
-//
-// Deprecated: use `LogRetentionProps` from '.
-type LogRetentionProps struct {
-	// The log group name.
-	// Deprecated: use `LogRetentionProps` from '.
-	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
-	// The number of days log events are kept in CloudWatch Logs.
-	// Deprecated: use `LogRetentionProps` from '.
-	Retention awslogs.RetentionDays `field:"required" json:"retention" yaml:"retention"`
-	// The region where the log group should be created.
-	// Deprecated: use `LogRetentionProps` from '.
-	LogGroupRegion *string `field:"optional" json:"logGroupRegion" yaml:"logGroupRegion"`
-	// Retry options for all AWS API calls.
-	// Deprecated: use `LogRetentionProps` from '.
-	LogRetentionRetryOptions *awslogs.LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
-	// The IAM role for the Lambda function associated with the custom resource.
-	// Deprecated: use `LogRetentionProps` from '.
-	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // Retry options for all AWS API calls.
@@ -21119,29 +17994,25 @@ type LogRetentionProps struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
-//
 //   logRetentionRetryOptions := &logRetentionRetryOptions{
-//   	base: duration,
+//   	base: cdk.duration.minutes(jsii.Number(30)),
 //   	maxRetries: jsii.Number(123),
 //   }
 //
-// Experimental.
 type LogRetentionRetryOptions struct {
 	// The base duration to use in the exponential backoff for operation retries.
-	// Experimental.
 	Base awscdk.Duration `field:"optional" json:"base" yaml:"base"`
 	// The maximum amount of retries.
-	// Experimental.
 	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 }
 
 // Represents a permission statement that can be added to a Lambda function's resource policy via the `addPermission()` method.
 //
 // Example:
+//   // Grant permissions to a service
 //   var fn function
 //
 //   principal := iam.NewServicePrincipal(jsii.String("my-service"))
@@ -21153,18 +18024,19 @@ type LogRetentionRetryOptions struct {
 //   	principal: principal,
 //   })
 //
-// Experimental.
 type Permission struct {
 	// The entity for which you are granting permission to invoke the Lambda function.
 	//
-	// This entity can be any valid AWS service principal, such as
-	// s3.amazonaws.com or sns.amazonaws.com, or, if you are granting
-	// cross-account permission, an AWS account ID. For example, you might want
-	// to allow a custom application in another AWS account to push events to
-	// Lambda by invoking your function.
+	// This entity can be any of the following:
 	//
-	// The principal can be either an AccountPrincipal or a ServicePrincipal.
-	// Experimental.
+	// - a valid AWS service principal, such as `s3.amazonaws.com` or `sns.amazonaws.com`
+	// - an AWS account ID for cross-account permissions. For example, you might want
+	//    to allow a custom application in another AWS account to push events to
+	//    Lambda by invoking your function.
+	// - an AWS organization principal to grant permissions to an entire organization.
+	//
+	// The principal can be an AccountPrincipal, an ArnPrincipal, a ServicePrincipal,
+	// or an OrganizationPrincipal.
 	Principal awsiam.IPrincipal `field:"required" json:"principal" yaml:"principal"`
 	// The Lambda actions that you want to allow in this statement.
 	//
@@ -21173,29 +18045,34 @@ type Permission struct {
 	// a wildcard (``lambda:*``) to grant permission to all Lambda actions. For a
 	// list of actions, see Actions and Condition Context Keys for AWS Lambda in
 	// the IAM User Guide.
-	// Experimental.
 	Action *string `field:"optional" json:"action" yaml:"action"`
 	// A unique token that must be supplied by the principal invoking the function.
-	// Experimental.
 	EventSourceToken *string `field:"optional" json:"eventSourceToken" yaml:"eventSourceToken"`
 	// The authType for the function URL that you are granting permissions for.
-	// Experimental.
 	FunctionUrlAuthType FunctionUrlAuthType `field:"optional" json:"functionUrlAuthType" yaml:"functionUrlAuthType"`
+	// The organization you want to grant permissions to.
+	//
+	// Use this ONLY if you
+	// need to grant permissions to a subset of the organization. If you want to
+	// grant permissions to the entire organization, sending the organization principal
+	// through the `principal` property will suffice.
+	//
+	// You can use this property to ensure that all source principals are owned by
+	// a specific organization.
+	OrganizationId *string `field:"optional" json:"organizationId" yaml:"organizationId"`
 	// The scope to which the permission constructs be attached.
 	//
 	// The default is
 	// the Lambda function construct itself, but this would need to be different
 	// in cases such as cross-stack references where the Permissions would need
 	// to sit closer to the consumer of this permission (i.e., the caller).
-	// Experimental.
-	Scope awscdk.Construct `field:"optional" json:"scope" yaml:"scope"`
+	Scope constructs.Construct `field:"optional" json:"scope" yaml:"scope"`
 	// The AWS account ID (without hyphens) of the source owner.
 	//
 	// For example, if
 	// you specify an S3 bucket in the SourceArn property, this value is the
 	// bucket owner's account ID. You can use this property to ensure that all
 	// source principals are owned by a specific account.
-	// Experimental.
 	SourceAccount *string `field:"optional" json:"sourceAccount" yaml:"sourceAccount"`
 	// The ARN of a resource that is invoking your function.
 	//
@@ -21205,26 +18082,21 @@ type Permission struct {
 	// ensures that events generated only from the specified bucket, not just
 	// any bucket from any AWS account that creates a mapping to your function,
 	// can invoke the function.
-	// Experimental.
 	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
 }
 
-// Experimental.
 type QualifiedFunctionBase interface {
 	FunctionBase
 	// The architecture of this Lambda Function.
-	// Experimental.
 	Architecture() Architecture
 	// Whether the addPermission() call adds any permissions.
 	//
 	// True for new Lambdas, false for version $LATEST and imported Lambdas
 	// from different accounts.
-	// Experimental.
 	CanCreatePermissions() *bool
 	// Access the Connections object.
 	//
 	// Will fail if not a VPC-enabled Lambda Function.
-	// Experimental.
 	Connections() awsec2.Connections
 	// The environment this resource belongs to.
 	//
@@ -21234,23 +18106,17 @@ type QualifiedFunctionBase interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The ARN fo the function.
-	// Experimental.
 	FunctionArn() *string
 	// The name of the function.
-	// Experimental.
 	FunctionName() *string
 	// The principal this Lambda Function is running as.
-	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
 	//
 	// If this is is `false`, trying to access the `connections` object will fail.
-	// Experimental.
 	IsBoundToVpc() *bool
-	// Experimental.
 	Lambda() IFunction
 	// The `$LATEST` version of this function.
 	//
@@ -21260,14 +18126,11 @@ type QualifiedFunctionBase interface {
 	//
 	// To obtain a reference to an explicit version which references the current
 	// function configuration, use `lambdaFunction.currentVersion` instead.
-	// Experimental.
 	LatestVersion() IVersion
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The construct node where permissions are attached.
-	// Experimental.
-	PermissionsNode() awscdk.ConstructNode
+	PermissionsNode() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -21275,25 +18138,20 @@ type QualifiedFunctionBase interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The qualifier of the version or alias of this function.
 	//
 	// A qualifier is the identifier that's appended to a version or alias ARN.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html#API_GetFunctionConfiguration_RequestParameters
 	//
-	// Experimental.
 	Qualifier() *string
 	// The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke().
-	// Experimental.
 	ResourceArnsForGrantInvoke() *[]*string
 	// The IAM role associated with this function.
 	//
 	// Undefined if the function was imported without a role.
-	// Experimental.
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Adds an event source to this function.
 	//
@@ -21304,21 +18162,16 @@ type QualifiedFunctionBase interface {
 	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 	// myFunction.addEventSource(new SqsEventSource(myQueue));
 	// ```.
-	// Experimental.
 	AddEventSource(source IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
-	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
 	// Adds a url to this lambda function.
-	// Experimental.
 	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
-	// Experimental.
 	AddPermission(id *string, permission *Permission)
 	// Adds a statement to the IAM role assumed by the instance.
-	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Apply the given removal policy to this resource.
 	//
@@ -21329,10 +18182,8 @@ type QualifiedFunctionBase interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
-	// Experimental.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
 	//
@@ -21340,9 +18191,7 @@ type QualifiedFunctionBase interface {
 	//
 	// This applies only to permissions on Lambda functions, not versions or aliases.
 	// This function is overridden as a noOp for QualifiedFunctionBase.
-	// Experimental.
-	ConsiderWarningOnInvokeFunctionPermissions(_scope awscdk.Construct, _action *string)
-	// Experimental.
+	ConsiderWarningOnInvokeFunctionPermissions(_scope constructs.Construct, _action *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -21350,97 +18199,38 @@ type QualifiedFunctionBase interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
-	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
-	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
-	WarnInvokeFunctionPermissions(scope awscdk.Construct)
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for QualifiedFunctionBase
@@ -21548,8 +18338,8 @@ func (j *jsiiProxy_QualifiedFunctionBase) LatestVersion() IVersion {
 	return returns
 }
 
-func (j *jsiiProxy_QualifiedFunctionBase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_QualifiedFunctionBase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -21558,8 +18348,8 @@ func (j *jsiiProxy_QualifiedFunctionBase) Node() awscdk.ConstructNode {
 	return returns
 }
 
-func (j *jsiiProxy_QualifiedFunctionBase) PermissionsNode() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_QualifiedFunctionBase) PermissionsNode() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -21619,26 +18409,40 @@ func (j *jsiiProxy_QualifiedFunctionBase) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewQualifiedFunctionBase_Override(q QualifiedFunctionBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.QualifiedFunctionBase",
+		"aws-cdk-lib.aws_lambda.QualifiedFunctionBase",
 		[]interface{}{scope, id, props},
 		q,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func QualifiedFunctionBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.QualifiedFunctionBase",
+		"aws-cdk-lib.aws_lambda.QualifiedFunctionBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -21647,15 +18451,30 @@ func QualifiedFunctionBase_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func QualifiedFunctionBase_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func QualifiedFunctionBase_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.QualifiedFunctionBase",
+		"aws-cdk-lib.aws_lambda.QualifiedFunctionBase",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func QualifiedFunctionBase_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.QualifiedFunctionBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -21730,7 +18549,7 @@ func (q *jsiiProxy_QualifiedFunctionBase) ConfigureAsyncInvoke(options *EventInv
 	)
 }
 
-func (q *jsiiProxy_QualifiedFunctionBase) ConsiderWarningOnInvokeFunctionPermissions(_scope awscdk.Construct, _action *string) {
+func (q *jsiiProxy_QualifiedFunctionBase) ConsiderWarningOnInvokeFunctionPermissions(_scope constructs.Construct, _action *string) {
 	_jsii_.InvokeVoid(
 		q,
 		"considerWarningOnInvokeFunctionPermissions",
@@ -21868,51 +18687,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) MetricThrottles(props *awscloudwatch.M
 	return returns
 }
 
-func (q *jsiiProxy_QualifiedFunctionBase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		q,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (q *jsiiProxy_QualifiedFunctionBase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		q,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (q *jsiiProxy_QualifiedFunctionBase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		q,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (q *jsiiProxy_QualifiedFunctionBase) Prepare() {
-	_jsii_.InvokeVoid(
-		q,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (q *jsiiProxy_QualifiedFunctionBase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		q,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (q *jsiiProxy_QualifiedFunctionBase) ToString() *string {
 	var returns *string
 
@@ -21926,20 +18700,7 @@ func (q *jsiiProxy_QualifiedFunctionBase) ToString() *string {
 	return returns
 }
 
-func (q *jsiiProxy_QualifiedFunctionBase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		q,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (q *jsiiProxy_QualifiedFunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
+func (q *jsiiProxy_QualifiedFunctionBase) WarnInvokeFunctionPermissions(scope constructs.Construct) {
 	_jsii_.InvokeVoid(
 		q,
 		"warnInvokeFunctionPermissions",
@@ -21956,12 +18717,10 @@ func (q *jsiiProxy_QualifiedFunctionBase) WarnInvokeFunctionPermissions(scope aw
 //   	resourceProperty: jsii.String("resourceProperty"),
 //   }
 //
-// Experimental.
 type ResourceBindOptions struct {
 	// The name of the CloudFormation property to annotate with asset metadata.
 	// See: https://github.com/aws/aws-cdk/issues/1432
 	//
-	// Experimental.
 	ResourceProperty *string `field:"optional" json:"resourceProperty" yaml:"resourceProperty"`
 }
 
@@ -21991,45 +18750,24 @@ type ResourceBindOptions struct {
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
 //
-// Experimental.
 type Runtime interface {
-	// DEPRECATED.
-	// Deprecated: use `bundlingImage`.
-	BundlingDockerImage() awscdk.BundlingDockerImage
 	// The bundling Docker image for this runtime.
-	// Experimental.
 	BundlingImage() awscdk.DockerImage
 	// The runtime family.
-	// Experimental.
 	Family() RuntimeFamily
 	// The name of this runtime, as expected by the Lambda resource.
-	// Experimental.
 	Name() *string
 	// Whether this runtime is integrated with and supported for profiling using Amazon CodeGuru Profiler.
-	// Experimental.
 	SupportsCodeGuruProfiling() *bool
 	// Whether the ``ZipFile`` (aka inline code) property can be used with this runtime.
-	// Experimental.
 	SupportsInlineCode() *bool
-	// Experimental.
 	RuntimeEquals(other Runtime) *bool
-	// Experimental.
 	ToString() *string
 }
 
 // The jsii proxy struct for Runtime
 type jsiiProxy_Runtime struct {
 	_ byte // padding
-}
-
-func (j *jsiiProxy_Runtime) BundlingDockerImage() awscdk.BundlingDockerImage {
-	var returns awscdk.BundlingDockerImage
-	_jsii_.Get(
-		j,
-		"bundlingDockerImage",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_Runtime) BundlingImage() awscdk.DockerImage {
@@ -22083,14 +18821,13 @@ func (j *jsiiProxy_Runtime) SupportsInlineCode() *bool {
 }
 
 
-// Experimental.
 func NewRuntime(name *string, family RuntimeFamily, props *LambdaRuntimeProps) Runtime {
 	_init_.Initialize()
 
 	j := jsiiProxy_Runtime{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		[]interface{}{name, family, props},
 		&j,
 	)
@@ -22098,12 +18835,11 @@ func NewRuntime(name *string, family RuntimeFamily, props *LambdaRuntimeProps) R
 	return &j
 }
 
-// Experimental.
 func NewRuntime_Override(r Runtime, name *string, family RuntimeFamily, props *LambdaRuntimeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		[]interface{}{name, family, props},
 		r,
 	)
@@ -22113,7 +18849,7 @@ func Runtime_ALL() *[]Runtime {
 	_init_.Initialize()
 	var returns *[]Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"ALL",
 		&returns,
 	)
@@ -22124,7 +18860,7 @@ func Runtime_DOTNET_6() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"DOTNET_6",
 		&returns,
 	)
@@ -22135,7 +18871,7 @@ func Runtime_DOTNET_CORE_1() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"DOTNET_CORE_1",
 		&returns,
 	)
@@ -22146,7 +18882,7 @@ func Runtime_DOTNET_CORE_2() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"DOTNET_CORE_2",
 		&returns,
 	)
@@ -22157,7 +18893,7 @@ func Runtime_DOTNET_CORE_2_1() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"DOTNET_CORE_2_1",
 		&returns,
 	)
@@ -22168,7 +18904,7 @@ func Runtime_DOTNET_CORE_3_1() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"DOTNET_CORE_3_1",
 		&returns,
 	)
@@ -22179,7 +18915,7 @@ func Runtime_FROM_IMAGE() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"FROM_IMAGE",
 		&returns,
 	)
@@ -22190,7 +18926,7 @@ func Runtime_GO_1_X() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"GO_1_X",
 		&returns,
 	)
@@ -22201,7 +18937,7 @@ func Runtime_JAVA_11() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"JAVA_11",
 		&returns,
 	)
@@ -22212,7 +18948,7 @@ func Runtime_JAVA_8() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"JAVA_8",
 		&returns,
 	)
@@ -22223,7 +18959,7 @@ func Runtime_JAVA_8_CORRETTO() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"JAVA_8_CORRETTO",
 		&returns,
 	)
@@ -22234,7 +18970,7 @@ func Runtime_NODEJS() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS",
 		&returns,
 	)
@@ -22245,7 +18981,7 @@ func Runtime_NODEJS_10_X() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_10_X",
 		&returns,
 	)
@@ -22256,7 +18992,7 @@ func Runtime_NODEJS_12_X() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_12_X",
 		&returns,
 	)
@@ -22267,7 +19003,7 @@ func Runtime_NODEJS_14_X() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_14_X",
 		&returns,
 	)
@@ -22278,7 +19014,7 @@ func Runtime_NODEJS_16_X() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_16_X",
 		&returns,
 	)
@@ -22289,7 +19025,7 @@ func Runtime_NODEJS_4_3() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_4_3",
 		&returns,
 	)
@@ -22300,7 +19036,7 @@ func Runtime_NODEJS_6_10() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_6_10",
 		&returns,
 	)
@@ -22311,7 +19047,7 @@ func Runtime_NODEJS_8_10() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"NODEJS_8_10",
 		&returns,
 	)
@@ -22322,7 +19058,7 @@ func Runtime_PROVIDED() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PROVIDED",
 		&returns,
 	)
@@ -22333,7 +19069,7 @@ func Runtime_PROVIDED_AL2() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PROVIDED_AL2",
 		&returns,
 	)
@@ -22344,7 +19080,7 @@ func Runtime_PYTHON_2_7() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PYTHON_2_7",
 		&returns,
 	)
@@ -22355,7 +19091,7 @@ func Runtime_PYTHON_3_6() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PYTHON_3_6",
 		&returns,
 	)
@@ -22366,7 +19102,7 @@ func Runtime_PYTHON_3_7() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PYTHON_3_7",
 		&returns,
 	)
@@ -22377,7 +19113,7 @@ func Runtime_PYTHON_3_8() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PYTHON_3_8",
 		&returns,
 	)
@@ -22388,7 +19124,7 @@ func Runtime_PYTHON_3_9() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"PYTHON_3_9",
 		&returns,
 	)
@@ -22399,7 +19135,7 @@ func Runtime_RUBY_2_5() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"RUBY_2_5",
 		&returns,
 	)
@@ -22410,7 +19146,7 @@ func Runtime_RUBY_2_7() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.Runtime",
+		"aws-cdk-lib.aws_lambda.Runtime",
 		"RUBY_2_7",
 		&returns,
 	)
@@ -22443,23 +19179,15 @@ func (r *jsiiProxy_Runtime) ToString() *string {
 	return returns
 }
 
-// Experimental.
 type RuntimeFamily string
 
 const (
-	// Experimental.
 	RuntimeFamily_NODEJS RuntimeFamily = "NODEJS"
-	// Experimental.
 	RuntimeFamily_JAVA RuntimeFamily = "JAVA"
-	// Experimental.
 	RuntimeFamily_PYTHON RuntimeFamily = "PYTHON"
-	// Experimental.
 	RuntimeFamily_DOTNET_CORE RuntimeFamily = "DOTNET_CORE"
-	// Experimental.
 	RuntimeFamily_GO RuntimeFamily = "GO"
-	// Experimental.
 	RuntimeFamily_RUBY RuntimeFamily = "RUBY"
-	// Experimental.
 	RuntimeFamily_OTHER RuntimeFamily = "OTHER"
 )
 
@@ -22475,20 +19203,16 @@ const (
 //
 //   s3Code := awscdk.Aws_lambda.NewS3Code(bucket, jsii.String("key"), jsii.String("objectVersion"))
 //
-// Experimental.
 type S3Code interface {
 	Code
 	// Determines whether this Code is inline code or not.
-	// Experimental.
 	IsInline() *bool
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	// Experimental.
-	Bind(_scope awscdk.Construct) *CodeConfig
+	Bind(_scope constructs.Construct) *CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	// Experimental.
 	BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions)
 }
 
@@ -22508,14 +19232,13 @@ func (j *jsiiProxy_S3Code) IsInline() *bool {
 }
 
 
-// Experimental.
 func NewS3Code(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	j := jsiiProxy_S3Code{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.S3Code",
+		"aws-cdk-lib.aws_lambda.S3Code",
 		[]interface{}{bucket, key, objectVersion},
 		&j,
 	)
@@ -22523,77 +19246,24 @@ func NewS3Code(bucket awss3.IBucket, key *string, objectVersion *string) S3Code 
 	return &j
 }
 
-// Experimental.
 func NewS3Code_Override(s S3Code, bucket awss3.IBucket, key *string, objectVersion *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.S3Code",
+		"aws-cdk-lib.aws_lambda.S3Code",
 		[]interface{}{bucket, key, objectVersion},
 		s,
 	)
 }
 
-// DEPRECATED.
-// Deprecated: use `fromAsset`.
-func S3Code_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.S3Code",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`.
-func S3Code_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.S3Code",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`.
-func S3Code_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.S3Code",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Loads the function code from a local disk path.
-// Experimental.
 func S3Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.S3Code",
+		"aws-cdk-lib.aws_lambda.S3Code",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -22603,14 +19273,13 @@ func S3Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func S3Code_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.S3Code",
+		"aws-cdk-lib.aws_lambda.S3Code",
 		"fromAssetImage",
 		[]interface{}{directory, props},
 		&returns,
@@ -22620,14 +19289,13 @@ func S3Code_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetI
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func S3Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.S3Code",
+		"aws-cdk-lib.aws_lambda.S3Code",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -22639,14 +19307,13 @@ func S3Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string)
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`.
-// Experimental.
 func S3Code_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.S3Code",
+		"aws-cdk-lib.aws_lambda.S3Code",
 		"fromCfnParameters",
 		[]interface{}{props},
 		&returns,
@@ -22659,14 +19326,13 @@ func S3Code_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func S3Code_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.S3Code",
+		"aws-cdk-lib.aws_lambda.S3Code",
 		"fromDockerBuild",
 		[]interface{}{path, options},
 		&returns,
@@ -22676,14 +19342,13 @@ func S3Code_FromDockerBuild(path *string, options *DockerBuildAssetOptions) Asse
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func S3Code_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.S3Code",
+		"aws-cdk-lib.aws_lambda.S3Code",
 		"fromEcrImage",
 		[]interface{}{repository, props},
 		&returns,
@@ -22695,14 +19360,13 @@ func S3Code_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func S3Code_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.S3Code",
+		"aws-cdk-lib.aws_lambda.S3Code",
 		"fromInline",
 		[]interface{}{code},
 		&returns,
@@ -22711,24 +19375,7 @@ func S3Code_FromInline(code *string) InlineCode {
 	return returns
 }
 
-// DEPRECATED.
-// Deprecated: use `fromInline`.
-func S3Code_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.S3Code",
-		"inline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_S3Code) Bind(_scope awscdk.Construct) *CodeConfig {
+func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -22759,7 +19406,7 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -22773,7 +19420,6 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 //   var code code
 //   var codeSigningConfig codeSigningConfig
 //   var destination iDestination
-//   var duration duration
 //   var eventSource iEventSource
 //   var fileSystem fileSystem
 //   var key key
@@ -22801,18 +19447,15 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 //   	allowAllOutbound: jsii.Boolean(false),
 //   	allowPublicSubnet: jsii.Boolean(false),
 //   	architecture: architecture,
-//   	architectures: []*architecture{
-//   		architecture,
-//   	},
 //   	codeSigningConfig: codeSigningConfig,
 //   	currentVersionOptions: &versionOptions{
 //   		codeSha256: jsii.String("codeSha256"),
 //   		description: jsii.String("description"),
-//   		maxEventAge: duration,
+//   		maxEventAge: cdk.duration.minutes(jsii.Number(30)),
 //   		onFailure: destination,
 //   		onSuccess: destination,
 //   		provisionedConcurrentExecutions: jsii.Number(123),
-//   		removalPolicy: monocdk.removalPolicy_DESTROY,
+//   		removalPolicy: cdk.removalPolicy_DESTROY,
 //   		retryAttempts: jsii.Number(123),
 //   	},
 //   	deadLetterQueue: queue,
@@ -22839,11 +19482,11 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 //   	},
 //   	logRetention: awscdk.Aws_logs.retentionDays_ONE_DAY,
 //   	logRetentionRetryOptions: &logRetentionRetryOptions{
-//   		base: duration,
+//   		base: cdk.*duration.minutes(jsii.Number(30)),
 //   		maxRetries: jsii.Number(123),
 //   	},
 //   	logRetentionRole: role,
-//   	maxEventAge: duration,
+//   	maxEventAge: cdk.*duration.minutes(jsii.Number(30)),
 //   	memorySize: jsii.Number(123),
 //   	onFailure: destination,
 //   	onSuccess: destination,
@@ -22852,11 +19495,10 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 //   	reservedConcurrentExecutions: jsii.Number(123),
 //   	retryAttempts: jsii.Number(123),
 //   	role: role,
-//   	securityGroup: securityGroup,
 //   	securityGroups: []iSecurityGroup{
 //   		securityGroup,
 //   	},
-//   	timeout: duration,
+//   	timeout: cdk.*duration.minutes(jsii.Number(30)),
 //   	tracing: awscdk.*Aws_lambda.tracing_ACTIVE,
 //   	vpc: vpc,
 //   	vpcSubnets: &subnetSelection{
@@ -22868,36 +19510,30 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 //   			subnetFilter,
 //   		},
 //   		subnetGroupName: jsii.String("subnetGroupName"),
-//   		subnetName: jsii.String("subnetName"),
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_PRIVATE_ISOLATED,
 //   	},
 //   })
 //
-// Experimental.
 type SingletonFunction interface {
 	FunctionBase
 	// The architecture of this Lambda Function.
-	// Experimental.
 	Architecture() Architecture
 	// Whether the addPermission() call adds any permissions.
 	//
 	// True for new Lambdas, false for version $LATEST and imported Lambdas
 	// from different accounts.
-	// Experimental.
 	CanCreatePermissions() *bool
 	// Access the Connections object.
 	//
 	// Will fail if not a VPC-enabled Lambda Function.
-	// Experimental.
 	Connections() awsec2.Connections
 	// Returns a `lambda.Version` which represents the current version of this singleton Lambda function. A new version will be created every time the function's configuration changes.
 	//
 	// You can specify options for this version using the `currentVersionOptions`
 	// prop when initializing the `lambda.SingletonFunction`.
-	// Experimental.
 	CurrentVersion() Version
 	// The environment this resource belongs to.
 	//
@@ -22907,21 +19543,16 @@ type SingletonFunction interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The ARN fo the function.
-	// Experimental.
 	FunctionArn() *string
 	// The name of the function.
-	// Experimental.
 	FunctionName() *string
 	// The principal this Lambda Function is running as.
-	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
 	//
 	// If this is is `false`, trying to access the `connections` object will fail.
-	// Experimental.
 	IsBoundToVpc() *bool
 	// The `$LATEST` version of this function.
 	//
@@ -22931,7 +19562,6 @@ type SingletonFunction interface {
 	//
 	// To obtain a reference to an explicit version which references the current
 	// function configuration, use `lambdaFunction.currentVersion` instead.
-	// Experimental.
 	LatestVersion() IVersion
 	// The LogGroup where the Lambda function's logs are made available.
 	//
@@ -22941,14 +19571,11 @@ type SingletonFunction interface {
 	//
 	// Further, if the log group already exists and the `logRetention` is not set, the custom resource will reset the log retention
 	// to never expire even if it was configured with a different value.
-	// Experimental.
 	LogGroup() awslogs.ILogGroup
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The construct node where permissions are attached.
-	// Experimental.
-	PermissionsNode() awscdk.ConstructNode
+	PermissionsNode() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -22956,29 +19583,22 @@ type SingletonFunction interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke().
-	// Experimental.
 	ResourceArnsForGrantInvoke() *[]*string
 	// The IAM role associated with this function.
 	//
 	// Undefined if the function was imported without a role.
-	// Experimental.
 	Role() awsiam.IRole
 	// The runtime environment for the Lambda function.
-	// Experimental.
 	Runtime() Runtime
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Using node.addDependency() does not work on this method as the underlying lambda function is modeled as a singleton across the stack. Use this method instead to declare dependencies.
-	// Experimental.
-	AddDependency(up ...awscdk.IDependable)
+	AddDependency(up ...constructs.IDependable)
 	// Adds an environment variable to this Lambda function.
 	//
 	// If this is a ref to a Lambda function, this operation results in a no-op.
-	// Experimental.
 	AddEnvironment(key *string, value *string, options *EnvironmentOptions) Function
 	// Adds an event source to this function.
 	//
@@ -22989,22 +19609,16 @@ type SingletonFunction interface {
 	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 	// myFunction.addEventSource(new SqsEventSource(myQueue));
 	// ```.
-	// Experimental.
 	AddEventSource(source IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
-	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
 	// Adds a url to this lambda function.
-	// Experimental.
 	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds one or more Lambda Layers to this Lambda function.
-	// Experimental.
 	AddLayers(layers ...ILayerVersion)
 	// Adds a permission to the Lambda resource policy.
-	// Experimental.
 	AddPermission(name *string, permission *Permission)
 	// Adds a statement to the IAM role assumed by the instance.
-	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Apply the given removal policy to this resource.
 	//
@@ -23015,10 +19629,8 @@ type SingletonFunction interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
-	// Experimental.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
 	//
@@ -23026,12 +19638,9 @@ type SingletonFunction interface {
 	//
 	// This applies only to permissions on Lambda functions, not versions or aliases.
 	// This function is overridden as a noOp for QualifiedFunctionBase.
-	// Experimental.
-	ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string)
+	ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string)
 	// The SingletonFunction construct cannot be added as a dependency of another construct using node.addDependency(). Use this method instead to declare this as a dependency of another construct.
-	// Experimental.
-	DependOn(down awscdk.IConstruct)
-	// Experimental.
+	DependOn(down constructs.IConstruct)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -23039,97 +19648,38 @@ type SingletonFunction interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
-	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
-	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
-	WarnInvokeFunctionPermissions(scope awscdk.Construct)
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for SingletonFunction
@@ -23247,8 +19797,8 @@ func (j *jsiiProxy_SingletonFunction) LogGroup() awslogs.ILogGroup {
 	return returns
 }
 
-func (j *jsiiProxy_SingletonFunction) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SingletonFunction) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -23257,8 +19807,8 @@ func (j *jsiiProxy_SingletonFunction) Node() awscdk.ConstructNode {
 	return returns
 }
 
-func (j *jsiiProxy_SingletonFunction) PermissionsNode() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_SingletonFunction) PermissionsNode() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -23318,14 +19868,13 @@ func (j *jsiiProxy_SingletonFunction) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewSingletonFunction(scope constructs.Construct, id *string, props *SingletonFunctionProps) SingletonFunction {
 	_init_.Initialize()
 
 	j := jsiiProxy_SingletonFunction{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.SingletonFunction",
+		"aws-cdk-lib.aws_lambda.SingletonFunction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -23333,26 +19882,40 @@ func NewSingletonFunction(scope constructs.Construct, id *string, props *Singlet
 	return &j
 }
 
-// Experimental.
 func NewSingletonFunction_Override(s SingletonFunction, scope constructs.Construct, id *string, props *SingletonFunctionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.SingletonFunction",
+		"aws-cdk-lib.aws_lambda.SingletonFunction",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func SingletonFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.SingletonFunction",
+		"aws-cdk-lib.aws_lambda.SingletonFunction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -23361,15 +19924,30 @@ func SingletonFunction_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func SingletonFunction_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func SingletonFunction_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.SingletonFunction",
+		"aws-cdk-lib.aws_lambda.SingletonFunction",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func SingletonFunction_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.SingletonFunction",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -23378,7 +19956,7 @@ func SingletonFunction_IsResource(construct awscdk.IConstruct) *bool {
 	return returns
 }
 
-func (s *jsiiProxy_SingletonFunction) AddDependency(up ...awscdk.IDependable) {
+func (s *jsiiProxy_SingletonFunction) AddDependency(up ...constructs.IDependable) {
 	args := []interface{}{}
 	for _, a := range up {
 		args = append(args, a)
@@ -23483,7 +20061,7 @@ func (s *jsiiProxy_SingletonFunction) ConfigureAsyncInvoke(options *EventInvokeC
 	)
 }
 
-func (s *jsiiProxy_SingletonFunction) ConsiderWarningOnInvokeFunctionPermissions(scope awscdk.Construct, action *string) {
+func (s *jsiiProxy_SingletonFunction) ConsiderWarningOnInvokeFunctionPermissions(scope constructs.Construct, action *string) {
 	_jsii_.InvokeVoid(
 		s,
 		"considerWarningOnInvokeFunctionPermissions",
@@ -23491,7 +20069,7 @@ func (s *jsiiProxy_SingletonFunction) ConsiderWarningOnInvokeFunctionPermissions
 	)
 }
 
-func (s *jsiiProxy_SingletonFunction) DependOn(down awscdk.IConstruct) {
+func (s *jsiiProxy_SingletonFunction) DependOn(down constructs.IConstruct) {
 	_jsii_.InvokeVoid(
 		s,
 		"dependOn",
@@ -23629,51 +20207,6 @@ func (s *jsiiProxy_SingletonFunction) MetricThrottles(props *awscloudwatch.Metri
 	return returns
 }
 
-func (s *jsiiProxy_SingletonFunction) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SingletonFunction) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (s *jsiiProxy_SingletonFunction) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SingletonFunction) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (s *jsiiProxy_SingletonFunction) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (s *jsiiProxy_SingletonFunction) ToString() *string {
 	var returns *string
 
@@ -23687,20 +20220,7 @@ func (s *jsiiProxy_SingletonFunction) ToString() *string {
 	return returns
 }
 
-func (s *jsiiProxy_SingletonFunction) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
+func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope constructs.Construct) {
 	_jsii_.InvokeVoid(
 		s,
 		"warnInvokeFunctionPermissions",
@@ -23713,7 +20233,7 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -23727,7 +20247,6 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 //   var code code
 //   var codeSigningConfig codeSigningConfig
 //   var destination iDestination
-//   var duration duration
 //   var eventSource iEventSource
 //   var fileSystem fileSystem
 //   var key key
@@ -23755,18 +20274,15 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 //   	allowAllOutbound: jsii.Boolean(false),
 //   	allowPublicSubnet: jsii.Boolean(false),
 //   	architecture: architecture,
-//   	architectures: []*architecture{
-//   		architecture,
-//   	},
 //   	codeSigningConfig: codeSigningConfig,
 //   	currentVersionOptions: &versionOptions{
 //   		codeSha256: jsii.String("codeSha256"),
 //   		description: jsii.String("description"),
-//   		maxEventAge: duration,
+//   		maxEventAge: cdk.duration.minutes(jsii.Number(30)),
 //   		onFailure: destination,
 //   		onSuccess: destination,
 //   		provisionedConcurrentExecutions: jsii.Number(123),
-//   		removalPolicy: monocdk.removalPolicy_DESTROY,
+//   		removalPolicy: cdk.removalPolicy_DESTROY,
 //   		retryAttempts: jsii.Number(123),
 //   	},
 //   	deadLetterQueue: queue,
@@ -23793,11 +20309,11 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 //   	},
 //   	logRetention: awscdk.Aws_logs.retentionDays_ONE_DAY,
 //   	logRetentionRetryOptions: &logRetentionRetryOptions{
-//   		base: duration,
+//   		base: cdk.*duration.minutes(jsii.Number(30)),
 //   		maxRetries: jsii.Number(123),
 //   	},
 //   	logRetentionRole: role,
-//   	maxEventAge: duration,
+//   	maxEventAge: cdk.*duration.minutes(jsii.Number(30)),
 //   	memorySize: jsii.Number(123),
 //   	onFailure: destination,
 //   	onSuccess: destination,
@@ -23806,11 +20322,10 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 //   	reservedConcurrentExecutions: jsii.Number(123),
 //   	retryAttempts: jsii.Number(123),
 //   	role: role,
-//   	securityGroup: securityGroup,
 //   	securityGroups: []iSecurityGroup{
 //   		securityGroup,
 //   	},
-//   	timeout: duration,
+//   	timeout: cdk.*duration.minutes(jsii.Number(30)),
 //   	tracing: awscdk.Aws_lambda.tracing_ACTIVE,
 //   	vpc: vpc,
 //   	vpcSubnets: &subnetSelection{
@@ -23822,156 +20337,122 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 //   			subnetFilter,
 //   		},
 //   		subnetGroupName: jsii.String("subnetGroupName"),
-//   		subnetName: jsii.String("subnetName"),
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_PRIVATE_ISOLATED,
 //   	},
 //   }
 //
-// Experimental.
 type SingletonFunctionProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
-	// Experimental.
 	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
-	// Experimental.
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	// Experimental.
 	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	// Experimental.
 	AllowPublicSubnet *bool `field:"optional" json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	// Experimental.
 	Architecture Architecture `field:"optional" json:"architecture" yaml:"architecture"`
-	// DEPRECATED.
-	// Deprecated: use `architecture`.
-	Architectures *[]Architecture `field:"optional" json:"architectures" yaml:"architectures"`
 	// Code signing config associated with this function.
-	// Experimental.
 	CodeSigningConfig ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	// Experimental.
 	CurrentVersionOptions *VersionOptions `field:"optional" json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
 	//
 	// If SNS topic is desired, specify `deadLetterTopic` property instead.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	// Experimental.
 	DeadLetterQueueEnabled *bool `field:"optional" json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// The SNS topic to use as a DLQ.
 	//
 	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
 	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
-	// Experimental.
 	DeadLetterTopic awssns.ITopic `field:"optional" json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	// Experimental.
 	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
-	// Experimental.
 	EphemeralStorageSize awscdk.Size `field:"optional" json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	// Experimental.
 	Events *[]IEventSource `field:"optional" json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
-	// Experimental.
 	Filesystem FileSystem `field:"optional" json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
-	// Experimental.
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	// Experimental.
 	InitialPolicy *[]awsiam.PolicyStatement `field:"optional" json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	// Experimental.
 	InsightsVersion LambdaInsightsVersion `field:"optional" json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	// Experimental.
 	Layers *[]ILayerVersion `field:"optional" json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	// Experimental.
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	// Experimental.
 	LogRetentionRetryOptions *LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	// Experimental.
 	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	Profiling *bool `field:"optional" json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	ProfilingGroup awscodeguruprofiler.IProfilingGroup `field:"optional" json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	// Experimental.
 	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
@@ -23984,81 +20465,62 @@ type SingletonFunctionProps struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
-	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
-	//
-	// Only used if 'vpc' is supplied.
-	//
-	// Use securityGroups property instead.
-	// Function constructor will throw an error if both are specified.
-	// Deprecated: - This property is deprecated, use securityGroups instead.
-	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	// Experimental.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	// Experimental.
 	Tracing Tracing `field:"optional" json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The source code of your Lambda function.
 	//
 	// You can point to a file in an
 	// Amazon Simple Storage Service (Amazon S3) bucket or specify your source
 	// code as inline text.
-	// Experimental.
 	Code Code `field:"required" json:"code" yaml:"code"`
 	// The name of the method within your code that Lambda calls to execute your function.
 	//
 	// The format includes the file name. It can also include
 	// namespaces and other qualifiers, depending on the runtime.
-	// For more information, see https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-features.html#gettingstarted-features-programmingmodel.
+	// For more information, see https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html.
 	//
 	// Use `Handler.FROM_IMAGE` when defining a function from a Docker image.
 	//
 	// NOTE: If you specify your source code as inline text by specifying the
 	// ZipFile property within the Code property, specify index.function_name as
 	// the handler.
-	// Experimental.
 	Handler *string `field:"required" json:"handler" yaml:"handler"`
 	// The runtime environment for the Lambda function that you are uploading.
 	//
 	// For valid values, see the Runtime property in the AWS Lambda Developer
 	// Guide.
 	//
-	// Use `Runtime.FROM_IMAGE` when when defining a function from a Docker image.
-	// Experimental.
+	// Use `Runtime.FROM_IMAGE` when defining a function from a Docker image.
 	Runtime Runtime `field:"required" json:"runtime" yaml:"runtime"`
 	// A unique identifier to identify this lambda.
 	//
 	// The identifier should be unique across all custom resource providers.
 	// We recommend generating a UUID per provider.
-	// Experimental.
 	Uuid *string `field:"required" json:"uuid" yaml:"uuid"`
 	// A descriptive name for the purpose of this Lambda.
 	//
 	// If the Lambda does not have a physical name, this string will be
 	// reflected its generated name. The combination of lambdaPurpose
 	// and uuid must be unique.
-	// Experimental.
 	LambdaPurpose *string `field:"optional" json:"lambdaPurpose" yaml:"lambdaPurpose"`
 }
 
@@ -24076,12 +20538,10 @@ type SingletonFunctionProps struct {
 //   	uri: jsii.String("uri"),
 //   }
 //
-// Experimental.
 type SourceAccessConfiguration struct {
 	// The type of authentication protocol or the VPC components for your event source.
 	//
 	// For example: "SASL_SCRAM_512_AUTH".
-	// Experimental.
 	Type SourceAccessConfigurationType `field:"required" json:"type" yaml:"type"`
 	// The value for your chosen configuration in type.
 	//
@@ -24089,7 +20549,6 @@ type SourceAccessConfiguration struct {
 	// The exact string depends on the type.
 	// See: SourceAccessConfigurationType.
 	//
-	// Experimental.
 	Uri *string `field:"required" json:"uri" yaml:"uri"`
 }
 
@@ -24104,12 +20563,10 @@ type SourceAccessConfiguration struct {
 //
 // See: https://docs.aws.amazon.com/lambda/latest/dg/API_SourceAccessConfiguration.html#SSS-Type-SourceAccessConfiguration-Type
 //
-// Experimental.
 type SourceAccessConfigurationType interface {
 	// The key to use in `SourceAccessConfigurationProperty.Type` property in CloudFormation.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-type
 	//
-	// Experimental.
 	Type() *string
 }
 
@@ -24130,14 +20587,13 @@ func (j *jsiiProxy_SourceAccessConfigurationType) Type() *string {
 
 
 // A custom source access configuration property.
-// Experimental.
 func SourceAccessConfigurationType_Of(name *string) SourceAccessConfigurationType {
 	_init_.Initialize()
 
 	var returns SourceAccessConfigurationType
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"of",
 		[]interface{}{name},
 		&returns,
@@ -24150,7 +20606,7 @@ func SourceAccessConfigurationType_BASIC_AUTH() SourceAccessConfigurationType {
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"BASIC_AUTH",
 		&returns,
 	)
@@ -24161,7 +20617,7 @@ func SourceAccessConfigurationType_CLIENT_CERTIFICATE_TLS_AUTH() SourceAccessCon
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"CLIENT_CERTIFICATE_TLS_AUTH",
 		&returns,
 	)
@@ -24172,7 +20628,7 @@ func SourceAccessConfigurationType_SASL_SCRAM_256_AUTH() SourceAccessConfigurati
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"SASL_SCRAM_256_AUTH",
 		&returns,
 	)
@@ -24183,7 +20639,7 @@ func SourceAccessConfigurationType_SASL_SCRAM_512_AUTH() SourceAccessConfigurati
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"SASL_SCRAM_512_AUTH",
 		&returns,
 	)
@@ -24194,7 +20650,7 @@ func SourceAccessConfigurationType_VPC_SECURITY_GROUP() SourceAccessConfiguratio
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"VPC_SECURITY_GROUP",
 		&returns,
 	)
@@ -24205,7 +20661,7 @@ func SourceAccessConfigurationType_VPC_SUBNET() SourceAccessConfigurationType {
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"VPC_SUBNET",
 		&returns,
 	)
@@ -24240,16 +20696,18 @@ func SourceAccessConfigurationType_VPC_SUBNET() SourceAccessConfigurationType {
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
 //   }))
 //
-// Experimental.
 type StartingPosition string
 
 const (
 	// Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.
-	// Experimental.
 	StartingPosition_TRIM_HORIZON StartingPosition = "TRIM_HORIZON"
 	// Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.
-	// Experimental.
 	StartingPosition_LATEST StartingPosition = "LATEST"
+	// Start reading from a position defined by a time stamp.
+	//
+	// Only supported for Amazon Kinesis streams, otherwise an error will occur.
+	// If supplied, `startingPositionTimestamp` must also be set.
+	StartingPosition_AT_TIMESTAMP StartingPosition = "AT_TIMESTAMP"
 )
 
 // X-Ray Tracing Modes (https://docs.aws.amazon.com/lambda/latest/dg/API_TracingConfig.html).
@@ -24262,35 +20720,28 @@ const (
 //   	tracing: lambda.tracing_ACTIVE,
 //   })
 //
-// Experimental.
 type Tracing string
 
 const (
 	// Lambda will respect any tracing header it receives from an upstream service.
 	//
 	// If no tracing header is received, Lambda will call X-Ray for a tracing decision.
-	// Experimental.
 	Tracing_ACTIVE Tracing = "ACTIVE"
 	// Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1".
-	// Experimental.
 	Tracing_PASS_THROUGH Tracing = "PASS_THROUGH"
 	// Lambda will not trace any request.
-	// Experimental.
 	Tracing_DISABLED Tracing = "DISABLED"
 )
 
 // Code signing configuration policy for deployment validation failure.
-// Experimental.
 type UntrustedArtifactOnDeployment string
 
 const (
 	// Lambda blocks the deployment request if signature validation checks fail.
-	// Experimental.
 	UntrustedArtifactOnDeployment_ENFORCE UntrustedArtifactOnDeployment = "ENFORCE"
 	// Lambda allows the deployment of the code package, but issues a warning.
 	//
 	// Lambda issues a new Amazon CloudWatch metric, called a signature validation error and also stores the warning in CloudTrail.
-	// Experimental.
 	UntrustedArtifactOnDeployment_WARN UntrustedArtifactOnDeployment = "WARN"
 )
 
@@ -24322,7 +20773,6 @@ const (
 //   	minCapacity: jsii.Number(20),
 //   })
 //
-// Experimental.
 type UtilizationScalingOptions struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
@@ -24330,21 +20780,16 @@ type UtilizationScalingOptions struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
-	// Experimental.
 	DisableScaleIn *bool `field:"optional" json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
-	// Experimental.
 	PolicyName *string `field:"optional" json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
-	// Experimental.
 	ScaleInCooldown awscdk.Duration `field:"optional" json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
-	// Experimental.
 	ScaleOutCooldown awscdk.Duration `field:"optional" json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// Utilization target for the attribute.
 	//
 	// For example, .5 indicates that 50 percent of allocated provisioned concurrency is in use.
-	// Experimental.
 	UtilizationTarget *float64 `field:"required" json:"utilizationTarget" yaml:"utilizationTarget"`
 }
 
@@ -24365,11 +20810,12 @@ type UtilizationScalingOptions struct {
 // creating the `Version.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   lambdaCode := lambda.code.fromCfnParameters()
 //   func := lambda.NewFunction(this, jsii.String("Lambda"), &functionProps{
 //   	code: lambdaCode,
 //   	handler: jsii.String("index.handler"),
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_14_X(),
 //   })
 //   // used to make sure each CDK synthesis produces a different Version
 //   version := func.currentVersion
@@ -24383,26 +20829,21 @@ type UtilizationScalingOptions struct {
 //   	deploymentConfig: codedeploy.lambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
 //   })
 //
-// Experimental.
 type Version interface {
 	QualifiedFunctionBase
 	IVersion
 	// The architecture of this Lambda Function.
-	// Experimental.
 	Architecture() Architecture
 	// Whether the addPermission() call adds any permissions.
 	//
 	// True for new Lambdas, false for version $LATEST and imported Lambdas
 	// from different accounts.
-	// Experimental.
 	CanCreatePermissions() *bool
 	// Access the Connections object.
 	//
 	// Will fail if not a VPC-enabled Lambda Function.
-	// Experimental.
 	Connections() awsec2.Connections
 	// The ARN of the version for Lambda@Edge.
-	// Experimental.
 	EdgeArn() *string
 	// The environment this resource belongs to.
 	//
@@ -24412,24 +20853,18 @@ type Version interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The ARN fo the function.
-	// Experimental.
 	FunctionArn() *string
 	// The name of the function.
-	// Experimental.
 	FunctionName() *string
 	// The principal this Lambda Function is running as.
-	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
 	//
 	// If this is is `false`, trying to access the `connections` object will fail.
-	// Experimental.
 	IsBoundToVpc() *bool
 	// The underlying AWS Lambda function.
-	// Experimental.
 	Lambda() IFunction
 	// The `$LATEST` version of this function.
 	//
@@ -24439,14 +20874,11 @@ type Version interface {
 	//
 	// To obtain a reference to an explicit version which references the current
 	// function configuration, use `lambdaFunction.currentVersion` instead.
-	// Experimental.
 	LatestVersion() IVersion
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The construct node where permissions are attached.
-	// Experimental.
-	PermissionsNode() awscdk.ConstructNode
+	PermissionsNode() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -24454,26 +20886,20 @@ type Version interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The qualifier of the version or alias of this function.
 	//
 	// A qualifier is the identifier that's appended to a version or alias ARN.
-	// Experimental.
 	Qualifier() *string
 	// The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke().
-	// Experimental.
 	ResourceArnsForGrantInvoke() *[]*string
 	// The IAM role associated with this function.
 	//
 	// Undefined if the function was imported without a role.
-	// Experimental.
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// The most recently deployed version of this function.
-	// Experimental.
 	Version() *string
 	// Defines an alias for this version.
 	// Deprecated: Calling `addAlias` on a `Version` object will cause the Alias to be replaced on every function update. Call `function.addAlias()` or `new Alias()` instead.
@@ -24487,21 +20913,16 @@ type Version interface {
 	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 	// myFunction.addEventSource(new SqsEventSource(myQueue));
 	// ```.
-	// Experimental.
 	AddEventSource(source IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
-	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
 	// Adds a url to this lambda function.
-	// Experimental.
 	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
-	// Experimental.
 	AddPermission(id *string, permission *Permission)
 	// Adds a statement to the IAM role assumed by the instance.
-	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Apply the given removal policy to this resource.
 	//
@@ -24512,10 +20933,8 @@ type Version interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Configures options for asynchronous invocation.
-	// Experimental.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	// A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function.
 	//
@@ -24523,9 +20942,7 @@ type Version interface {
 	//
 	// This applies only to permissions on Lambda functions, not versions or aliases.
 	// This function is overridden as a noOp for QualifiedFunctionBase.
-	// Experimental.
-	ConsiderWarningOnInvokeFunctionPermissions(_scope awscdk.Construct, _action *string)
-	// Experimental.
+	ConsiderWarningOnInvokeFunctionPermissions(_scope constructs.Construct, _action *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -24533,97 +20950,38 @@ type Version interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
-	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
-	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Function.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
-	WarnInvokeFunctionPermissions(scope awscdk.Construct)
+	WarnInvokeFunctionPermissions(scope constructs.Construct)
 }
 
 // The jsii proxy struct for Version
@@ -24742,8 +21100,8 @@ func (j *jsiiProxy_Version) LatestVersion() IVersion {
 	return returns
 }
 
-func (j *jsiiProxy_Version) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Version) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -24752,8 +21110,8 @@ func (j *jsiiProxy_Version) Node() awscdk.ConstructNode {
 	return returns
 }
 
-func (j *jsiiProxy_Version) PermissionsNode() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Version) PermissionsNode() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -24823,14 +21181,13 @@ func (j *jsiiProxy_Version) Version() *string {
 }
 
 
-// Experimental.
 func NewVersion(scope constructs.Construct, id *string, props *VersionProps) Version {
 	_init_.Initialize()
 
 	j := jsiiProxy_Version{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.Version",
+		"aws-cdk-lib.aws_lambda.Version",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -24838,26 +21195,24 @@ func NewVersion(scope constructs.Construct, id *string, props *VersionProps) Ver
 	return &j
 }
 
-// Experimental.
 func NewVersion_Override(v Version, scope constructs.Construct, id *string, props *VersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda.Version",
+		"aws-cdk-lib.aws_lambda.Version",
 		[]interface{}{scope, id, props},
 		v,
 	)
 }
 
 // Construct a Version object from a Version ARN.
-// Experimental.
 func Version_FromVersionArn(scope constructs.Construct, id *string, versionArn *string) IVersion {
 	_init_.Initialize()
 
 	var returns IVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Version",
+		"aws-cdk-lib.aws_lambda.Version",
 		"fromVersionArn",
 		[]interface{}{scope, id, versionArn},
 		&returns,
@@ -24866,14 +21221,13 @@ func Version_FromVersionArn(scope constructs.Construct, id *string, versionArn *
 	return returns
 }
 
-// Experimental.
 func Version_FromVersionAttributes(scope constructs.Construct, id *string, attrs *VersionAttributes) IVersion {
 	_init_.Initialize()
 
 	var returns IVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Version",
+		"aws-cdk-lib.aws_lambda.Version",
 		"fromVersionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -24882,15 +21236,30 @@ func Version_FromVersionAttributes(scope constructs.Construct, id *string, attrs
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func Version_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Version",
+		"aws-cdk-lib.aws_lambda.Version",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -24899,15 +21268,30 @@ func Version_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func Version_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func Version_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.Version",
+		"aws-cdk-lib.aws_lambda.Version",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func Version_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.Version",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -24995,7 +21379,7 @@ func (v *jsiiProxy_Version) ConfigureAsyncInvoke(options *EventInvokeConfigOptio
 	)
 }
 
-func (v *jsiiProxy_Version) ConsiderWarningOnInvokeFunctionPermissions(_scope awscdk.Construct, _action *string) {
+func (v *jsiiProxy_Version) ConsiderWarningOnInvokeFunctionPermissions(_scope constructs.Construct, _action *string) {
 	_jsii_.InvokeVoid(
 		v,
 		"considerWarningOnInvokeFunctionPermissions",
@@ -25133,51 +21517,6 @@ func (v *jsiiProxy_Version) MetricThrottles(props *awscloudwatch.MetricOptions) 
 	return returns
 }
 
-func (v *jsiiProxy_Version) OnPrepare() {
-	_jsii_.InvokeVoid(
-		v,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (v *jsiiProxy_Version) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		v,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (v *jsiiProxy_Version) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		v,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (v *jsiiProxy_Version) Prepare() {
-	_jsii_.InvokeVoid(
-		v,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (v *jsiiProxy_Version) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		v,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (v *jsiiProxy_Version) ToString() *string {
 	var returns *string
 
@@ -25191,20 +21530,7 @@ func (v *jsiiProxy_Version) ToString() *string {
 	return returns
 }
 
-func (v *jsiiProxy_Version) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		v,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (v *jsiiProxy_Version) WarnInvokeFunctionPermissions(scope awscdk.Construct) {
+func (v *jsiiProxy_Version) WarnInvokeFunctionPermissions(scope constructs.Construct) {
 	_jsii_.InvokeVoid(
 		v,
 		"warnInvokeFunctionPermissions",
@@ -25224,13 +21550,10 @@ func (v *jsiiProxy_Version) WarnInvokeFunctionPermissions(scope awscdk.Construct
 //   	version: jsii.String("version"),
 //   }
 //
-// Experimental.
 type VersionAttributes struct {
 	// The lambda function.
-	// Experimental.
 	Lambda IFunction `field:"required" json:"lambda" yaml:"lambda"`
 	// The version.
-	// Experimental.
 	Version *string `field:"required" json:"version" yaml:"version"`
 }
 
@@ -25250,39 +21573,30 @@ type VersionAttributes struct {
 //
 //   fn.addAlias(jsii.String("live"))
 //
-// Experimental.
 type VersionOptions struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
-	// Experimental.
 	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
-	// Experimental.
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// SHA256 of the version of the Lambda source code.
 	//
 	// Specify to validate that you're deploying the right version.
-	// Experimental.
 	CodeSha256 *string `field:"optional" json:"codeSha256" yaml:"codeSha256"`
 	// Description of the version.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's version.
-	// Experimental.
 	ProvisionedConcurrentExecutions *float64 `field:"optional" json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 	// Whether to retain old versions of this function when a new version is created.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 
@@ -25295,42 +21609,32 @@ type VersionOptions struct {
 //   	lambda: fn,
 //   })
 //
-// Experimental.
 type VersionProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
-	// Experimental.
 	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
-	// Experimental.
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// SHA256 of the version of the Lambda source code.
 	//
 	// Specify to validate that you're deploying the right version.
-	// Experimental.
 	CodeSha256 *string `field:"optional" json:"codeSha256" yaml:"codeSha256"`
 	// Description of the version.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's version.
-	// Experimental.
 	ProvisionedConcurrentExecutions *float64 `field:"optional" json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 	// Whether to retain old versions of this function when a new version is created.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Function to get the value of.
-	// Experimental.
 	Lambda IFunction `field:"required" json:"lambda" yaml:"lambda"`
 }
 
@@ -25348,13 +21652,10 @@ type VersionProps struct {
 //   	weight: jsii.Number(123),
 //   }
 //
-// Experimental.
 type VersionWeight struct {
 	// The version to route traffic to.
-	// Experimental.
 	Version IVersion `field:"required" json:"version" yaml:"version"`
 	// How much weight to assign to this version (0..1).
-	// Experimental.
 	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
 }
 
