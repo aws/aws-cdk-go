@@ -29,6 +29,7 @@
 * [WebSocket APIs](#websocket-apis)
 
   * [Lambda Authorizer](#lambda-authorizer)
+  * [IAM Authorizers](#iam-authorizer)
 
 ## Introduction
 
@@ -281,4 +282,47 @@ apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"), &webSocketApiProps{
 		authorizer: authorizer,
 	},
 })
+```
+
+### IAM Authorizer
+
+IAM authorizers can be used to allow identity-based access to your WebSocket API.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdkapigatewayv2authorizersalpha"
+import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
+
+// This function handles your connect route
+var connectHandler function
+
+
+webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"))
+
+webSocketApi.addRoute(jsii.String("$connect"), &webSocketRouteOptions{
+	integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("Integration"), connectHandler),
+	authorizer: awscdkapigatewayv2authorizersalpha.NewWebSocketIamAuthorizer(),
+})
+
+// Create an IAM user (identity)
+user := iam.NewUser(this, jsii.String("User"))
+
+webSocketArn := awscdk.stack.of(this).formatArn(&arnComponents{
+	service: jsii.String("execute-api"),
+	resource: webSocketApi.apiId,
+})
+
+// Grant access to the IAM user
+user.attachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowInvoke"), &policyProps{
+	statements: []policyStatement{
+		iam.NewPolicyStatement(&policyStatementProps{
+			actions: []*string{
+				jsii.String("execute-api:Invoke"),
+			},
+			effect: iam.effect_ALLOW,
+			resources: []*string{
+				webSocketArn,
+			},
+		}),
+	},
+}))
 ```

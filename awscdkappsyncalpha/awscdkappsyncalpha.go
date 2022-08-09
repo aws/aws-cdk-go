@@ -13,6 +13,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
@@ -759,50 +760,21 @@ func (a *jsiiProxy_AttributeValuesStep) Is(val *string) AttributeValues {
 // Configuration of the API authorization modes.
 //
 // Example:
-//   api := appsync.NewGraphqlApi(this, jsii.String("Api"), &graphqlApiProps{
-//   	name: jsii.String("demo"),
-//   	schema: appsync.schema.fromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   var authFunction function
+//
+//
+//   appsync.NewGraphqlApi(this, jsii.String("api"), &graphqlApiProps{
+//   	name: jsii.String("api"),
+//   	schema: appsync.schema.fromAsset(path.join(__dirname, jsii.String("appsync.test.graphql"))),
 //   	authorizationConfig: &authorizationConfig{
 //   		defaultAuthorization: &authorizationMode{
-//   			authorizationType: appsync.authorizationType_IAM,
+//   			authorizationType: appsync.authorizationType_LAMBDA,
+//   			lambdaAuthorizerConfig: &lambdaAuthorizerConfig{
+//   				handler: authFunction,
+//   			},
 //   		},
 //   	},
-//   	xrayEnabled: jsii.Boolean(true),
-//   })
-//
-//   demoTable := dynamodb.NewTable(this, jsii.String("DemoTable"), &tableProps{
-//   	partitionKey: &attribute{
-//   		name: jsii.String("id"),
-//   		type: dynamodb.attributeType_STRING,
-//   	},
-//   })
-//
-//   demoDS := api.addDynamoDbDataSource(jsii.String("demoDataSource"), demoTable)
-//
-//   // Resolver for the Query "getDemos" that scans the DynamoDb table and returns the entire list.
-//   // Resolver Mapping Template Reference:
-//   // https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference-dynamodb.html
-//   demoDS.createResolver(&baseResolverProps{
-//   	typeName: jsii.String("Query"),
-//   	fieldName: jsii.String("getDemos"),
-//   	requestMappingTemplate: appsync.mappingTemplate.dynamoDbScanTable(),
-//   	responseMappingTemplate: appsync.*mappingTemplate.dynamoDbResultList(),
-//   })
-//
-//   // Resolver for the Mutation "addDemo" that puts the item into the DynamoDb table.
-//   demoDS.createResolver(&baseResolverProps{
-//   	typeName: jsii.String("Mutation"),
-//   	fieldName: jsii.String("addDemo"),
-//   	requestMappingTemplate: appsync.*mappingTemplate.dynamoDbPutItem(appsync.primaryKey.partition(jsii.String("id")).auto(), appsync.values.projecting(jsii.String("input"))),
-//   	responseMappingTemplate: appsync.*mappingTemplate.dynamoDbResultItem(),
-//   })
-//
-//   //To enable DynamoDB read consistency with the `MappingTemplate`:
-//   demoDS.createResolver(&baseResolverProps{
-//   	typeName: jsii.String("Query"),
-//   	fieldName: jsii.String("getDemosConsistent"),
-//   	requestMappingTemplate: appsync.*mappingTemplate.dynamoDbScanTable(jsii.Boolean(true)),
-//   	responseMappingTemplate: appsync.*mappingTemplate.dynamoDbResultList(),
 //   })
 //
 // Experimental.
@@ -3368,6 +3340,9 @@ type GraphqlApi interface {
 	// the URL of the endpoint created by AppSync.
 	// Experimental.
 	GraphqlUrl() *string
+	// the CloudWatch Log Group for this API.
+	// Experimental.
+	LogGroup() awslogs.ILogGroup
 	// The Authorization Types for this GraphQL Api.
 	// Experimental.
 	Modes() *[]AuthorizationType
@@ -3547,6 +3522,16 @@ func (j *jsiiProxy_GraphqlApi) GraphqlUrl() *string {
 	_jsii_.Get(
 		j,
 		"graphqlUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GraphqlApi) LogGroup() awslogs.ILogGroup {
+	var returns awslogs.ILogGroup
+	_jsii_.Get(
+		j,
+		"logGroup",
 		&returns,
 	)
 	return returns
@@ -4478,26 +4463,21 @@ func (g *jsiiProxy_GraphqlApiBase) ToString() *string {
 // Properties for an AppSync GraphQL API.
 //
 // Example:
-//   api := appsync.NewGraphqlApi(this, jsii.String("api"), &graphqlApiProps{
-//   	name: jsii.String("api"),
-//   	schema: appsync.schema.fromAsset(path.join(__dirname, jsii.String("schema.graphql"))),
+//   api := appsync.NewGraphqlApi(this, jsii.String("Api"), &graphqlApiProps{
+//   	name: jsii.String("demo"),
 //   })
-//
-//   httpDs := api.addHttpDataSource(jsii.String("ds"), jsii.String("https://states.amazonaws.com"), &httpDataSourceOptions{
-//   	name: jsii.String("httpDsWithStepF"),
-//   	description: jsii.String("from appsync to StepFunctions Workflow"),
-//   	authorizationConfig: &awsIamConfig{
-//   		signingRegion: jsii.String("us-east-1"),
-//   		signingServiceName: jsii.String("states"),
+//   demo := appsync.NewObjectType(jsii.String("Demo"), &objectTypeOptions{
+//   	definition: map[string]iField{
+//   		"id": appsync.GraphqlType.string(&BaseTypeOptions{
+//   			"isRequired": jsii.Boolean(true),
+//   		}),
+//   		"version": appsync.GraphqlType.string(&BaseTypeOptions{
+//   			"isRequired": jsii.Boolean(true),
+//   		}),
 //   	},
 //   })
 //
-//   httpDs.createResolver(&baseResolverProps{
-//   	typeName: jsii.String("Mutation"),
-//   	fieldName: jsii.String("callStepFunction"),
-//   	requestMappingTemplate: appsync.mappingTemplate.fromFile(jsii.String("request.vtl")),
-//   	responseMappingTemplate: appsync.*mappingTemplate.fromFile(jsii.String("response.vtl")),
-//   })
+//   api.addType(demo)
 //
 // Experimental.
 type GraphqlApiProps struct {
@@ -6752,18 +6732,20 @@ type LambdaDataSourceProps struct {
 // Logging configuration for AppSync.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import appsync_alpha "github.com/aws/aws-cdk-go/awscdkappsyncalpha"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
 //
 //   logConfig := &logConfig{
-//   	excludeVerboseContent: jsii.Boolean(false),
-//   	fieldLogLevel: appsync_alpha.fieldLogLevel_NONE,
-//   	role: role,
+//   	retention: logs.retentionDays_ONE_WEEK,
 //   }
+//
+//   appsync.NewGraphqlApi(this, jsii.String("api"), &graphqlApiProps{
+//   	authorizationConfig: &authorizationConfig{
+//   	},
+//   	name: jsii.String("myApi"),
+//   	schema: appsync.schema.fromAsset(path.join(__dirname, jsii.String("myApi.graphql"))),
+//   	logConfig: logConfig,
+//   })
 //
 // Experimental.
 type LogConfig struct {
@@ -6773,6 +6755,13 @@ type LogConfig struct {
 	// log level for fields.
 	// Experimental.
 	FieldLogLevel FieldLogLevel `field:"optional" json:"fieldLogLevel" yaml:"fieldLogLevel"`
+	// The number of days log events are kept in CloudWatch Logs.
+	//
+	// By default AppSync keeps the logs infinitely. When updating this property,
+	// unsetting it doesn't remove the log retention policy.
+	// To remove the retention policy, set the value to `INFINITE`.
+	// Experimental.
+	Retention awslogs.RetentionDays `field:"optional" json:"retention" yaml:"retention"`
 	// The role for CloudWatch Logs.
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`

@@ -4508,14 +4508,19 @@ type RotationScheduleProps struct {
 // Creates a new secret in AWS SecretsManager.
 //
 // Example:
-//   var role role
-//
-//   key := kms.NewKey(this, jsii.String("KMS"))
-//   secret := secretsmanager.NewSecret(this, jsii.String("Secret"), &secretProps{
-//   	encryptionKey: key,
+//   var stack stack
+//   user := iam.NewUser(stack, jsii.String("User"))
+//   accessKey := iam.NewAccessKey(stack, jsii.String("AccessKey"), &accessKeyProps{
+//   	user: user,
 //   })
-//   secret.grantRead(role)
-//   secret.grantWrite(role)
+//
+//   secretsmanager.NewSecret(stack, jsii.String("Secret"), &secretProps{
+//   	secretObjectValue: map[string]secretValue{
+//   		"username": awscdk.SecretValue.unsafePlainText(user.userName),
+//   		"database": awscdk.SecretValue.unsafePlainText(jsii.String("foo")),
+//   		"password": accessKey.secretAccessKey,
+//   	},
+//   })
 //
 type Secret interface {
 	awscdk.Resource
@@ -5127,14 +5132,19 @@ type SecretAttributes struct {
 // The properties required to create a new secret in AWS Secrets Manager.
 //
 // Example:
-//   var role role
-//
-//   key := kms.NewKey(this, jsii.String("KMS"))
-//   secret := secretsmanager.NewSecret(this, jsii.String("Secret"), &secretProps{
-//   	encryptionKey: key,
+//   var stack stack
+//   user := iam.NewUser(stack, jsii.String("User"))
+//   accessKey := iam.NewAccessKey(stack, jsii.String("AccessKey"), &accessKeyProps{
+//   	user: user,
 //   })
-//   secret.grantRead(role)
-//   secret.grantWrite(role)
+//
+//   secretsmanager.NewSecret(stack, jsii.String("Secret"), &secretProps{
+//   	secretObjectValue: map[string]secretValue{
+//   		"username": awscdk.SecretValue.unsafePlainText(user.userName),
+//   		"database": awscdk.SecretValue.unsafePlainText(jsii.String("foo")),
+//   		"password": accessKey.secretAccessKey,
+//   	},
+//   })
 //
 type SecretProps struct {
 	// An optional, human-friendly description of the secret.
@@ -5659,27 +5669,34 @@ type SecretRotationProps struct {
 // Configuration to generate secrets such as passwords automatically.
 //
 // Example:
-//   // Default secret
+//   var vpc vpc
+//
+//
+//   // Simple secret
 //   secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
-//   // Using the default secret
-//   // Using the default secret
-//   iam.NewUser(this, jsii.String("User"), &userProps{
-//   	password: secret.secretValue,
+//   // Using the secret
+//   instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &databaseInstanceProps{
+//   	engine: rds.databaseInstanceEngine_POSTGRES(),
+//   	credentials: rds.credentials.fromSecret(secret),
+//   	vpc: vpc,
 //   })
-//   // Templated secret
+//   // Templated secret with username and password fields
 //   templatedSecret := secretsmanager.NewSecret(this, jsii.String("TemplatedSecret"), &secretProps{
 //   	generateSecretString: &secretStringGenerator{
 //   		secretStringTemplate: jSON.stringify(map[string]*string{
-//   			"username": jsii.String("user"),
+//   			"username": jsii.String("postgres"),
 //   		}),
 //   		generateStringKey: jsii.String("password"),
 //   	},
 //   })
-//   // Using the templated secret
-//   // Using the templated secret
-//   iam.NewUser(this, jsii.String("OtherUser"), &userProps{
-//   	userName: templatedSecret.secretValueFromJson(jsii.String("username")).toString(),
-//   	password: templatedSecret.secretValueFromJson(jsii.String("password")),
+//   // Using the templated secret as credentials
+//   instance2 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance2"), &databaseInstanceProps{
+//   	engine: rds.*databaseInstanceEngine_POSTGRES(),
+//   	credentials: map[string]interface{}{
+//   		"username": templatedSecret.secretValueFromJson(jsii.String("username")).toString(),
+//   		"password": templatedSecret.secretValueFromJson(jsii.String("password")),
+//   	},
+//   	vpc: vpc,
 //   })
 //
 type SecretStringGenerator struct {

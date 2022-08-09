@@ -13102,9 +13102,9 @@ type ProductStack interface {
 	// This value is resolved according to the following rules:
 	//
 	// 1. The value provided to `env.account` when the stack is defined. This can
-	//     either be a concerete account (e.g. `585695031111`) or the
-	//     `Aws.accountId` token.
-	// 3. `Aws.accountId`, which represents the CloudFormation intrinsic reference
+	//     either be a concrete account (e.g. `585695031111`) or the
+	//     `Aws.ACCOUNT_ID` token.
+	// 3. `Aws.ACCOUNT_ID`, which represents the CloudFormation intrinsic reference
 	//     `{ "Ref": "AWS::AccountId" }` encoded as a string token.
 	//
 	// Preferably, you should use the return value as an opaque string and not
@@ -13145,7 +13145,7 @@ type ProductStack interface {
 	// environment.
 	//
 	// If either `stack.account` or `stack.region` are not concrete values (e.g.
-	// `Aws.account` or `Aws.region`) the special strings `unknown-account` and/or
+	// `Aws.ACCOUNT_ID` or `Aws.REGION`) the special strings `unknown-account` and/or
 	// `unknown-region` will be used respectively to indicate this stack is
 	// region/account-agnostic.
 	Environment() *string
@@ -13168,9 +13168,9 @@ type ProductStack interface {
 	// This value is resolved according to the following rules:
 	//
 	// 1. The value provided to `env.region` when the stack is defined. This can
-	//     either be a concerete region (e.g. `us-west-2`) or the `Aws.region`
+	//     either be a concerete region (e.g. `us-west-2`) or the `Aws.REGION`
 	//     token.
-	// 3. `Aws.region`, which is represents the CloudFormation intrinsic reference
+	// 3. `Aws.REGION`, which is represents the CloudFormation intrinsic reference
 	//     `{ "Ref": "AWS::Region" }` encoded as a string token.
 	//
 	// Preferably, you should use the return value as an opaque string and not
@@ -13198,7 +13198,7 @@ type ProductStack interface {
 	// scheme based on the construct path to ensure uniqueness.
 	//
 	// If you wish to obtain the deploy-time AWS::StackName intrinsic,
-	// you can use `Aws.stackName` directly.
+	// you can use `Aws.STACK_NAME` directly.
 	StackName() *string
 	// Synthesis method for this stack.
 	Synthesizer() awscdk.IStackSynthesizer

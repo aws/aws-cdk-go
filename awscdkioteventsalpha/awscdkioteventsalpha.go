@@ -801,10 +801,9 @@ const (
 //   			eventName: jsii.String("test-event"),
 //   			condition: iotevents.expression.currentInput(input),
 //   			actions: []iAction{
-//   				actions,
-//   				[]interface{}{
-//   					actions.NewSetVariableAction(jsii.String("MyVariable"), iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature"))),
-//   				},
+//   				actions.NewSetTimerAction(jsii.String("MyTimer"), map[string]interface{}{
+//   					"duration": cdk.Duration_seconds(jsii.Number(60)),
+//   				}),
 //   			},
 //   		},
 //   	},
@@ -1160,6 +1159,26 @@ func Expression_Subtract(left Expression, right Expression) Expression {
 	return returns
 }
 
+// Create a expression for function `timeout("timer-name")`.
+//
+// It is evaluated to true if the specified timer has elapsed.
+// You can define a timer only using the `setTimer` action.
+// Experimental.
+func Expression_Timeout(timerName *string) Expression {
+	_init_.Initialize()
+
+	var returns Expression
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-iotevents-alpha.Expression",
+		"timeout",
+		[]interface{}{timerName},
+		&returns,
+	)
+
+	return returns
+}
+
 func (e *jsiiProxy_Expression) Evaluate(parentPriority *float64) *string {
 	var returns *string
 
@@ -1176,27 +1195,11 @@ func (e *jsiiProxy_Expression) Evaluate(parentPriority *float64) *string {
 // An abstract action for DetectorModel.
 // Experimental.
 type IAction interface {
-	// Returns the AWS IoT Events action specification.
-	// Experimental.
-	Bind(scope constructs.Construct, options *ActionBindOptions) *ActionConfig
 }
 
 // The jsii proxy for IAction
 type jsiiProxy_IAction struct {
 	_ byte // padding
-}
-
-func (i *jsiiProxy_IAction) Bind(scope constructs.Construct, options *ActionBindOptions) *ActionConfig {
-	var returns *ActionConfig
-
-	_jsii_.Invoke(
-		i,
-		"bind",
-		[]interface{}{scope, options},
-		&returns,
-	)
-
-	return returns
 }
 
 // Represents an AWS IoT Events detector model.
@@ -1301,79 +1304,28 @@ func (j *jsiiProxy_IInput) InputName() *string {
 //
 // Example:
 //   import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
-//   import actions "github.com/aws/aws-cdk-go/awscdkioteventsactionsalpha"
-//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var func iFunction
+//   var role iRole
 //
 //
 //   input := iotevents.NewInput(this, jsii.String("MyInput"), &inputProps{
-//   	inputName: jsii.String("my_input"),
-//   	 // optional
 //   	attributeJsonPaths: []*string{
-//   		jsii.String("payload.deviceId"),
 //   		jsii.String("payload.temperature"),
+//   		jsii.String("payload.transactionId"),
 //   	},
 //   })
-//
-//   warmState := iotevents.NewState(&stateProps{
-//   	stateName: jsii.String("warm"),
-//   	onEnter: []event{
-//   		&event{
-//   			eventName: jsii.String("test-enter-event"),
-//   			condition: iotevents.expression.currentInput(input),
-//   			actions: []iAction{
-//   				actions.NewLambdaInvokeAction(func),
-//   			},
-//   		},
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
+//   	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
+//   	actions: []iAction{
+//   		actions.NewIotEventsPutMessageAction(input, &iotEventsPutMessageActionProps{
+//   			batchMode: jsii.Boolean(true),
+//   			 // optional property, default is 'false'
+//   			messageId: jsii.String("${payload.transactionId}"),
+//   			 // optional property, default is a new UUID
+//   			role: role,
+//   		}),
 //   	},
-//   	onInput: []*event{
-//   		&event{
-//   			 // optional
-//   			eventName: jsii.String("test-input-event"),
-//   			actions: []*iAction{
-//   				actions.NewLambdaInvokeAction(func),
-//   			},
-//   		},
-//   	},
-//   	onExit: []*event{
-//   		&event{
-//   			 // optional
-//   			eventName: jsii.String("test-exit-event"),
-//   			actions: []*iAction{
-//   				actions.NewLambdaInvokeAction(func),
-//   			},
-//   		},
-//   	},
-//   })
-//   coldState := iotevents.NewState(&stateProps{
-//   	stateName: jsii.String("cold"),
-//   })
-//
-//   // transit to coldState when temperature is less than 15
-//   warmState.transitionTo(coldState, &transitionOptions{
-//   	eventName: jsii.String("to_coldState"),
-//   	 // optional property, default by combining the names of the States
-//   	when: iotevents.*expression.lt(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
-//   	executing: []*iAction{
-//   		actions.NewLambdaInvokeAction(func),
-//   	},
-//   })
-//   // transit to warmState when temperature is greater than or equal to 15
-//   coldState.transitionTo(warmState, &transitionOptions{
-//   	when: iotevents.*expression.gte(iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature")), iotevents.*expression.fromString(jsii.String("15"))),
-//   })
-//
-//   iotevents.NewDetectorModel(this, jsii.String("MyDetectorModel"), &detectorModelProps{
-//   	detectorModelName: jsii.String("test-detector-model"),
-//   	 // optional
-//   	description: jsii.String("test-detector-model-description"),
-//   	 // optional property, default is none
-//   	evaluationMethod: iotevents.eventEvaluation_SERIAL,
-//   	 // optional property, default is iotevents.EventEvaluation.BATCH
-//   	detectorKey: jsii.String("payload.deviceId"),
-//   	 // optional property, default is none and single detector instance will be created and all inputs will be routed to it
-//   	initialState: warmState,
 //   })
 //
 // Experimental.
@@ -1828,10 +1780,9 @@ type InputProps struct {
 //   			eventName: jsii.String("test-event"),
 //   			condition: iotevents.expression.currentInput(input),
 //   			actions: []iAction{
-//   				actions,
-//   				[]interface{}{
-//   					actions.NewSetVariableAction(jsii.String("MyVariable"), iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature"))),
-//   				},
+//   				actions.NewSetTimerAction(jsii.String("MyTimer"), map[string]interface{}{
+//   					"duration": cdk.Duration_seconds(jsii.Number(60)),
+//   				}),
 //   			},
 //   		},
 //   	},
@@ -1915,10 +1866,9 @@ func (s *jsiiProxy_State) TransitionTo(targetState State, options *TransitionOpt
 //   			eventName: jsii.String("test-event"),
 //   			condition: iotevents.expression.currentInput(input),
 //   			actions: []iAction{
-//   				actions,
-//   				[]interface{}{
-//   					actions.NewSetVariableAction(jsii.String("MyVariable"), iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature"))),
-//   				},
+//   				actions.NewSetTimerAction(jsii.String("MyTimer"), map[string]interface{}{
+//   					"duration": cdk.Duration_seconds(jsii.Number(60)),
+//   				}),
 //   			},
 //   		},
 //   	},

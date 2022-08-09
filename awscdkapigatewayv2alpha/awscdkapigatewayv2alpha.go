@@ -6129,7 +6129,13 @@ type VpcLinkProps struct {
 //
 //   var messageHandler function
 //
+//
 //   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
+//   apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &webSocketStageProps{
+//   	webSocketApi: webSocketApi,
+//   	stageName: jsii.String("dev"),
+//   	autoDeploy: jsii.Boolean(true),
+//   })
 //   webSocketApi.addRoute(jsii.String("sendmessage"), &webSocketRouteOptions{
 //   	integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
@@ -7041,6 +7047,9 @@ const (
 	// Lambda Authorizer.
 	// Experimental.
 	WebSocketAuthorizerType_LAMBDA WebSocketAuthorizerType = "LAMBDA"
+	// IAM Authorizer.
+	// Experimental.
+	WebSocketAuthorizerType_IAM WebSocketAuthorizerType = "IAM"
 )
 
 // The integration for an API route.

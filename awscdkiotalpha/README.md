@@ -17,21 +17,6 @@
 AWS IoT Core lets you connect billions of IoT devices and route trillions of
 messages to AWS services without managing infrastructure.
 
-## Installation
-
-Install the module:
-
-```console
-$ npm i @aws-cdk/aws-iot
-```
-
-Import it into your code:
-
-```go
-import iot "github.com/aws/aws-cdk-go/awscdkiotalpha"
-import actions "github.com/aws/aws-cdk-go/awscdkiotactionsalpha"
-```
-
 ## `TopicRule`
 
 Create a topic rule that give your devices the ability to interact with AWS services.

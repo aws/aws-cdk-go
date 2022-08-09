@@ -882,6 +882,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolClientId", GoGetter: "UserPoolClientId"},
+			_jsii_.MemberProperty{JsiiProperty: "userPoolClientSecret", GoGetter: "UserPoolClientSecret"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPoolClient{}
@@ -1125,6 +1126,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolClientId", GoGetter: "UserPoolClientId"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolClientName", GoGetter: "UserPoolClientName"},
+			_jsii_.MemberProperty{JsiiProperty: "userPoolClientSecret", GoGetter: "UserPoolClientSecret"},
 		},
 		func() interface{} {
 			j := jsiiProxy_UserPoolClient{}

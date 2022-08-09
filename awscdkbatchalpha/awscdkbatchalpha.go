@@ -51,12 +51,16 @@ const (
 type ComputeEnvironment interface {
 	awscdk.Resource
 	IComputeEnvironment
+	awsec2.IConnectable
 	// The ARN of this compute environment.
 	// Experimental.
 	ComputeEnvironmentArn() *string
 	// The name of this compute environment.
 	// Experimental.
 	ComputeEnvironmentName() *string
+	// Connections for this compute environment.
+	// Experimental.
+	Connections() awsec2.Connections
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -119,6 +123,7 @@ type ComputeEnvironment interface {
 type jsiiProxy_ComputeEnvironment struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IComputeEnvironment
+	internal.Type__awsec2IConnectable
 }
 
 func (j *jsiiProxy_ComputeEnvironment) ComputeEnvironmentArn() *string {
@@ -136,6 +141,16 @@ func (j *jsiiProxy_ComputeEnvironment) ComputeEnvironmentName() *string {
 	_jsii_.Get(
 		j,
 		"computeEnvironmentName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ComputeEnvironment) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
 		&returns,
 	)
 	return returns

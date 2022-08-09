@@ -39,6 +39,31 @@ A default database named `default_db` will be created in the cluster. To change 
 By default, the cluster will not be publicly accessible.
 Depending on your use case, you can make the cluster publicly accessible with the `publiclyAccessible` property.
 
+## Adding a logging bucket for database audit logging to S3
+
+Amazon Redshift logs information about connections and user activities in your database. These logs help you to monitor the database for security and troubleshooting purposes, a process called database auditing. To send these logs to an S3 bucket, specify the `loggingProperties` when creating a new cluster.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+
+
+vpc := ec2.NewVpc(this, jsii.String("Vpc"))
+bucket := s3.bucket.fromBucketName(stack, jsii.String("bucket"), jsii.String("logging-bucket"))
+
+cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &clusterProps{
+	masterUser: &login{
+		masterUsername: jsii.String("admin"),
+	},
+	vpc: vpc,
+	loggingProperties: &loggingProperties{
+		loggingBucket: loggingBucket,
+		loggingKeyPrefix: jsii.String("prefix"),
+	},
+})
+```
+
 ## Connecting
 
 To control who can access the cluster, use the `.connections` attribute. Redshift Clusters have

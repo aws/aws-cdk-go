@@ -14,16 +14,18 @@ import (
 // An asset represents a local file or directory, which is automatically uploaded to S3 and then can be referenced within a CDK application.
 //
 // Example:
-//   import s3Assets "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var cluster cluster
-//
-//   chartAsset := s3Assets.NewAsset(this, jsii.String("ChartAsset"), &assetProps{
-//   	path: jsii.String("/path/to/asset"),
-//   })
-//
-//   cluster.addHelmChart(jsii.String("test-chart"), &helmChartOptions{
-//   	chartAsset: chartAsset,
+//   asset := assets.NewAsset(this, jsii.String("BundledAsset"), &assetProps{
+//   	path: path.join(__dirname, jsii.String("markdown-asset")),
+//   	 // /asset-input and working directory in the container
+//   	bundling: &bundlingOptions{
+//   		image: awscdk.DockerImage.fromBuild(path.join(__dirname, jsii.String("alpine-markdown"))),
+//   		 // Build an image
+//   		command: []*string{
+//   			jsii.String("sh"),
+//   			jsii.String("-c"),
+//   			jsii.String("\n            markdown index.md > /asset-output/index.html\n          "),
+//   		},
+//   	},
 //   })
 //
 type Asset interface {
@@ -317,11 +319,14 @@ type AssetOptions struct {
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
 	Bundling *awscdk.BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
-	// Glob patterns to exclude from the copy.
+	// File paths matching the patterns will be excluded.
+	//
+	// See `ignoreMode` to set the matching behavior.
+	// Has no effect on Assets bundled using the `bundling` property.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
-	// The ignore behavior to use for exclude patterns.
+	// The ignore behavior to use for `exclude` patterns.
 	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// A list of principals that should be able to read this asset from S3.
 	//
@@ -370,11 +375,14 @@ type AssetProps struct {
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
 	Bundling *awscdk.BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
-	// Glob patterns to exclude from the copy.
+	// File paths matching the patterns will be excluded.
+	//
+	// See `ignoreMode` to set the matching behavior.
+	// Has no effect on Assets bundled using the `bundling` property.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
-	// The ignore behavior to use for exclude patterns.
+	// The ignore behavior to use for `exclude` patterns.
 	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// A list of principals that should be able to read this asset from S3.
 	//

@@ -13831,6 +13831,9 @@ type CfnGlobalClusterProps struct {
 //   cfnOptionGroup := awscdk.Aws_rds.NewCfnOptionGroup(this, jsii.String("MyCfnOptionGroup"), &cfnOptionGroupProps{
 //   	engineName: jsii.String("engineName"),
 //   	majorEngineVersion: jsii.String("majorEngineVersion"),
+//   	optionGroupDescription: jsii.String("optionGroupDescription"),
+//
+//   	// the properties below are optional
 //   	optionConfigurations: []interface{}{
 //   		&optionConfigurationProperty{
 //   			optionName: jsii.String("optionName"),
@@ -13852,9 +13855,6 @@ type CfnGlobalClusterProps struct {
 //   			},
 //   		},
 //   	},
-//   	optionGroupDescription: jsii.String("optionGroupDescription"),
-//
-//   	// the properties below are optional
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -13866,6 +13866,7 @@ type CfnGlobalClusterProps struct {
 type CfnOptionGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrOptionGroupName() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -14051,6 +14052,16 @@ type CfnOptionGroup interface {
 type jsiiProxy_CfnOptionGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnOptionGroup) AttrOptionGroupName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOptionGroupName",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnOptionGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -14558,6 +14569,9 @@ type CfnOptionGroup_OptionSettingProperty struct {
 //   cfnOptionGroupProps := &cfnOptionGroupProps{
 //   	engineName: jsii.String("engineName"),
 //   	majorEngineVersion: jsii.String("majorEngineVersion"),
+//   	optionGroupDescription: jsii.String("optionGroupDescription"),
+//
+//   	// the properties below are optional
 //   	optionConfigurations: []interface{}{
 //   		&optionConfigurationProperty{
 //   			optionName: jsii.String("optionName"),
@@ -14579,9 +14593,6 @@ type CfnOptionGroup_OptionSettingProperty struct {
 //   			},
 //   		},
 //   	},
-//   	optionGroupDescription: jsii.String("optionGroupDescription"),
-//
-//   	// the properties below are optional
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -14609,10 +14620,10 @@ type CfnOptionGroupProps struct {
 	EngineName *string `field:"required" json:"engineName" yaml:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion *string `field:"required" json:"majorEngineVersion" yaml:"majorEngineVersion"`
-	// A list of options and the settings for each option.
-	OptionConfigurations interface{} `field:"required" json:"optionConfigurations" yaml:"optionConfigurations"`
 	// The description of the option group.
 	OptionGroupDescription *string `field:"required" json:"optionGroupDescription" yaml:"optionGroupDescription"`
+	// A list of options and the settings for each option.
+	OptionConfigurations interface{} `field:"optional" json:"optionConfigurations" yaml:"optionConfigurations"`
 	// Tags to assign to the option group.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
@@ -17676,26 +17687,32 @@ type DatabaseClusterProps struct {
 // Example:
 //   var vpc vpc
 //
-//   engine := rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
-//   	version: rds.postgresEngineVersion_VER_12_3(),
-//   })
-//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithUsername"), &databaseInstanceProps{
-//   	engine: engine,
-//   	vpc: vpc,
-//   	credentials: rds.credentials.fromGeneratedSecret(jsii.String("postgres")),
-//   })
 //
-//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithUsernameAndPassword"), &databaseInstanceProps{
-//   	engine: engine,
+//   // Simple secret
+//   secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
+//   // Using the secret
+//   instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &databaseInstanceProps{
+//   	engine: rds.databaseInstanceEngine_POSTGRES(),
+//   	credentials: rds.credentials.fromSecret(secret),
 //   	vpc: vpc,
-//   	credentials: rds.*credentials.fromPassword(jsii.String("postgres"), awscdk.SecretValue.ssmSecure(jsii.String("/dbPassword"), jsii.String("1"))),
 //   })
-//
-//   mySecret := secretsmanager.secret.fromSecretName(this, jsii.String("DBSecret"), jsii.String("myDBLoginInfo"))
-//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithSecretLogin"), &databaseInstanceProps{
-//   	engine: engine,
+//   // Templated secret with username and password fields
+//   templatedSecret := secretsmanager.NewSecret(this, jsii.String("TemplatedSecret"), &secretProps{
+//   	generateSecretString: &secretStringGenerator{
+//   		secretStringTemplate: jSON.stringify(map[string]*string{
+//   			"username": jsii.String("postgres"),
+//   		}),
+//   		generateStringKey: jsii.String("password"),
+//   	},
+//   })
+//   // Using the templated secret as credentials
+//   instance2 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance2"), &databaseInstanceProps{
+//   	engine: rds.*databaseInstanceEngine_POSTGRES(),
+//   	credentials: map[string]interface{}{
+//   		"username": templatedSecret.secretValueFromJson(jsii.String("username")).toString(),
+//   		"password": templatedSecret.secretValueFromJson(jsii.String("password")),
+//   	},
 //   	vpc: vpc,
-//   	credentials: rds.*credentials.fromSecret(mySecret),
 //   })
 //
 type DatabaseInstance interface {
@@ -18962,20 +18979,31 @@ func (d *jsiiProxy_DatabaseInstanceBase) ToString() *string {
 // Example:
 //   var vpc vpc
 //
-//   var sourceInstance databaseInstance
 //
-//   rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &databaseInstanceFromSnapshotProps{
-//   	snapshotIdentifier: jsii.String("my-snapshot"),
-//   	engine: rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
-//   		version: rds.postgresEngineVersion_VER_12_3(),
-//   	}),
-//   	// optional, defaults to m5.large
-//   	instanceType: ec2.instanceType.of(ec2.instanceClass_BURSTABLE2, ec2.instanceSize_LARGE),
+//   // Simple secret
+//   secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
+//   // Using the secret
+//   instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &databaseInstanceProps{
+//   	engine: rds.databaseInstanceEngine_POSTGRES(),
+//   	credentials: rds.credentials.fromSecret(secret),
 //   	vpc: vpc,
 //   })
-//   rds.NewDatabaseInstanceReadReplica(this, jsii.String("ReadReplica"), &databaseInstanceReadReplicaProps{
-//   	sourceDatabaseInstance: sourceInstance,
-//   	instanceType: ec2.*instanceType.of(ec2.*instanceClass_BURSTABLE2, ec2.*instanceSize_LARGE),
+//   // Templated secret with username and password fields
+//   templatedSecret := secretsmanager.NewSecret(this, jsii.String("TemplatedSecret"), &secretProps{
+//   	generateSecretString: &secretStringGenerator{
+//   		secretStringTemplate: jSON.stringify(map[string]*string{
+//   			"username": jsii.String("postgres"),
+//   		}),
+//   		generateStringKey: jsii.String("password"),
+//   	},
+//   })
+//   // Using the templated secret as credentials
+//   instance2 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance2"), &databaseInstanceProps{
+//   	engine: rds.*databaseInstanceEngine_POSTGRES(),
+//   	credentials: map[string]interface{}{
+//   		"username": templatedSecret.secretValueFromJson(jsii.String("username")).toString(),
+//   		"password": templatedSecret.secretValueFromJson(jsii.String("password")),
+//   	},
 //   	vpc: vpc,
 //   })
 //
@@ -20414,26 +20442,32 @@ type DatabaseInstanceNewProps struct {
 // Example:
 //   var vpc vpc
 //
-//   engine := rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
-//   	version: rds.postgresEngineVersion_VER_12_3(),
-//   })
-//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithUsername"), &databaseInstanceProps{
-//   	engine: engine,
-//   	vpc: vpc,
-//   	credentials: rds.credentials.fromGeneratedSecret(jsii.String("postgres")),
-//   })
 //
-//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithUsernameAndPassword"), &databaseInstanceProps{
-//   	engine: engine,
+//   // Simple secret
+//   secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
+//   // Using the secret
+//   instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &databaseInstanceProps{
+//   	engine: rds.databaseInstanceEngine_POSTGRES(),
+//   	credentials: rds.credentials.fromSecret(secret),
 //   	vpc: vpc,
-//   	credentials: rds.*credentials.fromPassword(jsii.String("postgres"), awscdk.SecretValue.ssmSecure(jsii.String("/dbPassword"), jsii.String("1"))),
 //   })
-//
-//   mySecret := secretsmanager.secret.fromSecretName(this, jsii.String("DBSecret"), jsii.String("myDBLoginInfo"))
-//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithSecretLogin"), &databaseInstanceProps{
-//   	engine: engine,
+//   // Templated secret with username and password fields
+//   templatedSecret := secretsmanager.NewSecret(this, jsii.String("TemplatedSecret"), &secretProps{
+//   	generateSecretString: &secretStringGenerator{
+//   		secretStringTemplate: jSON.stringify(map[string]*string{
+//   			"username": jsii.String("postgres"),
+//   		}),
+//   		generateStringKey: jsii.String("password"),
+//   	},
+//   })
+//   // Using the templated secret as credentials
+//   instance2 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance2"), &databaseInstanceProps{
+//   	engine: rds.*databaseInstanceEngine_POSTGRES(),
+//   	credentials: map[string]interface{}{
+//   		"username": templatedSecret.secretValueFromJson(jsii.String("username")).toString(),
+//   		"password": templatedSecret.secretValueFromJson(jsii.String("password")),
+//   	},
 //   	vpc: vpc,
-//   	credentials: rds.*credentials.fromSecret(mySecret),
 //   })
 //
 type DatabaseInstanceProps struct {
@@ -24773,6 +24807,28 @@ func MariaDbEngineVersion_VER_10_3_32() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_3_34() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_3_34",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_3_35() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_3_35",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_3_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
@@ -24839,6 +24895,28 @@ func MariaDbEngineVersion_VER_10_4_22() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_4_24() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_4_24",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_4_25() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_4_25",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_4_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
@@ -24883,6 +24961,28 @@ func MariaDbEngineVersion_VER_10_5_13() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_5_15() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_5_15",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_5_16() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_5_16",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_5_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
@@ -24900,6 +25000,50 @@ func MariaDbEngineVersion_VER_10_5_9() MariaDbEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
 		"VER_10_5_9",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_6() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_6",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_6_5() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_6_5",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_6_7() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_6_7",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_6_8() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_6_8",
 		&returns,
 	)
 	return returns
@@ -27737,6 +27881,17 @@ func PostgresEngineVersion_VER_12_10() PostgresEngineVersion {
 	return returns
 }
 
+func PostgresEngineVersion_VER_12_11() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_12_11",
+		&returns,
+	)
+	return returns
+}
+
 func PostgresEngineVersion_VER_12_2() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
@@ -27902,6 +28057,17 @@ func PostgresEngineVersion_VER_13_6() PostgresEngineVersion {
 	return returns
 }
 
+func PostgresEngineVersion_VER_13_7() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_13_7",
+		&returns,
+	)
+	return returns
+}
+
 func PostgresEngineVersion_VER_14() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
@@ -27930,6 +28096,17 @@ func PostgresEngineVersion_VER_14_2() PostgresEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
 		"VER_14_2",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_14_3() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_14_3",
 		&returns,
 	)
 	return returns

@@ -18,20 +18,6 @@ AWS IoT Events enables you to monitor your equipment or device fleets for
 failures or changes in operation, and to trigger actions when such events
 occur.
 
-## Installation
-
-Install the module:
-
-```console
-$ npm i @aws-cdk/aws-iotevents
-```
-
-Import it into your code:
-
-```go
-import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
-```
-
 ## `DetectorModel`
 
 The following example creates an AWS IoT Events detector model to your stack.

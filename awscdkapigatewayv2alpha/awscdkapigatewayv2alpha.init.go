@@ -959,6 +959,7 @@ func init() {
 		reflect.TypeOf((*WebSocketAuthorizerType)(nil)).Elem(),
 		map[string]interface{}{
 			"LAMBDA": WebSocketAuthorizerType_LAMBDA,
+			"IAM": WebSocketAuthorizerType_IAM,
 		},
 	)
 	_jsii_.RegisterClass(

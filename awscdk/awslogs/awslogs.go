@@ -6139,6 +6139,7 @@ type LogGroupProps struct {
 //   		base: cdk.duration.minutes(jsii.Number(30)),
 //   		maxRetries: jsii.Number(123),
 //   	},
+//   	removalPolicy: cdk.removalPolicy_DESTROY,
 //   	role: role,
 //   })
 //
@@ -6268,6 +6269,7 @@ func (l *jsiiProxy_LogRetention) ToString() *string {
 //   		base: cdk.duration.minutes(jsii.Number(30)),
 //   		maxRetries: jsii.Number(123),
 //   	},
+//   	removalPolicy: cdk.removalPolicy_DESTROY,
 //   	role: role,
 //   }
 //
@@ -6280,6 +6282,8 @@ type LogRetentionProps struct {
 	LogGroupRegion *string `field:"optional" json:"logGroupRegion" yaml:"logGroupRegion"`
 	// Retry options for all AWS API calls.
 	LogRetentionRetryOptions *LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
+	// The removalPolicy for the log group when the stack is deleted.
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The IAM role for the Lambda function associated with the custom resource.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }

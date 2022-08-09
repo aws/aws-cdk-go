@@ -6,6 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
@@ -15,6 +16,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 	"github.com/aws/aws-cdk-go/awscdkiotactionsalpha/v2/internal"
 	"github.com/aws/aws-cdk-go/awscdkiotalpha/v2"
+	"github.com/aws/aws-cdk-go/awscdkioteventsalpha/v2"
 	"github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha/v2"
 )
 
@@ -34,9 +36,6 @@ import (
 // Experimental.
 type CloudWatchLogsAction interface {
 	awscdkiotalpha.IAction
-	// Returns the topic rule action specification.
-	// Experimental.
-	Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
 }
 
 // The jsii proxy struct for CloudWatchLogsAction
@@ -68,19 +67,6 @@ func NewCloudWatchLogsAction_Override(c CloudWatchLogsAction, logGroup awslogs.I
 		[]interface{}{logGroup, props},
 		c,
 	)
-}
-
-func (c *jsiiProxy_CloudWatchLogsAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
-	var returns *awscdkiotalpha.ActionConfig
-
-	_jsii_.Invoke(
-		c,
-		"bind",
-		[]interface{}{rule},
-		&returns,
-	)
-
-	return returns
 }
 
 // Configuration properties of an action for CloudWatch Logs.
@@ -123,9 +109,6 @@ type CloudWatchLogsActionProps struct {
 // Experimental.
 type CloudWatchPutMetricAction interface {
 	awscdkiotalpha.IAction
-	// Returns the topic rule action specification.
-	// Experimental.
-	Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
 }
 
 // The jsii proxy struct for CloudWatchPutMetricAction
@@ -157,19 +140,6 @@ func NewCloudWatchPutMetricAction_Override(c CloudWatchPutMetricAction, props *C
 		[]interface{}{props},
 		c,
 	)
-}
-
-func (c *jsiiProxy_CloudWatchPutMetricAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
-	var returns *awscdkiotalpha.ActionConfig
-
-	_jsii_.Invoke(
-		c,
-		"bind",
-		[]interface{}{rule},
-		&returns,
-	)
-
-	return returns
 }
 
 // Configuration properties of an action for CloudWatch metric.
@@ -263,9 +233,6 @@ type CloudWatchPutMetricActionProps struct {
 // Experimental.
 type CloudWatchSetAlarmStateAction interface {
 	awscdkiotalpha.IAction
-	// Returns the topic rule action specification.
-	// Experimental.
-	Bind(topicRule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
 }
 
 // The jsii proxy struct for CloudWatchSetAlarmStateAction
@@ -297,19 +264,6 @@ func NewCloudWatchSetAlarmStateAction_Override(c CloudWatchSetAlarmStateAction, 
 		[]interface{}{alarm, props},
 		c,
 	)
-}
-
-func (c *jsiiProxy_CloudWatchSetAlarmStateAction) Bind(topicRule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
-	var returns *awscdkiotalpha.ActionConfig
-
-	_jsii_.Invoke(
-		c,
-		"bind",
-		[]interface{}{topicRule},
-		&returns,
-	)
-
-	return returns
 }
 
 // Configuration properties of an action for CloudWatch alarm.
@@ -376,6 +330,78 @@ type CommonActionProps struct {
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
+// The action to put the record from an MQTT message to the DynamoDB table.
+//
+// Example:
+//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var table table
+//
+//
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
+//   	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
+//   	actions: []iAction{
+//   		actions.NewDynamoDBv2PutItemAction(table),
+//   	},
+//   })
+//
+// Experimental.
+type DynamoDBv2PutItemAction interface {
+	awscdkiotalpha.IAction
+}
+
+// The jsii proxy struct for DynamoDBv2PutItemAction
+type jsiiProxy_DynamoDBv2PutItemAction struct {
+	internal.Type__awscdkiotalphaIAction
+}
+
+// Experimental.
+func NewDynamoDBv2PutItemAction(table awsdynamodb.ITable, props *DynamoDBv2PutItemActionProps) DynamoDBv2PutItemAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_DynamoDBv2PutItemAction{}
+
+	_jsii_.Create(
+		"@aws-cdk/aws-iot-actions-alpha.DynamoDBv2PutItemAction",
+		[]interface{}{table, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewDynamoDBv2PutItemAction_Override(d DynamoDBv2PutItemAction, table awsdynamodb.ITable, props *DynamoDBv2PutItemActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-iot-actions-alpha.DynamoDBv2PutItemAction",
+		[]interface{}{table, props},
+		d,
+	)
+}
+
+// Configuration properties of an action for the dynamodb table.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import iot_actions_alpha "github.com/aws/aws-cdk-go/awscdkiotactionsalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var role role
+//
+//   dynamoDBv2PutItemActionProps := &dynamoDBv2PutItemActionProps{
+//   	role: role,
+//   }
+//
+// Experimental.
+type DynamoDBv2PutItemActionProps struct {
+	// The IAM role that allows access to AWS service.
+	// Experimental.
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+}
+
 // The action to put the record from an MQTT message to the Kinesis Data Firehose stream.
 //
 // Example:
@@ -403,9 +429,6 @@ type CommonActionProps struct {
 // Experimental.
 type FirehosePutRecordAction interface {
 	awscdkiotalpha.IAction
-	// Returns the topic rule action specification.
-	// Experimental.
-	Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
 }
 
 // The jsii proxy struct for FirehosePutRecordAction
@@ -437,19 +460,6 @@ func NewFirehosePutRecordAction_Override(f FirehosePutRecordAction, stream awscd
 		[]interface{}{stream, props},
 		f,
 	)
-}
-
-func (f *jsiiProxy_FirehosePutRecordAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
-	var returns *awscdkiotalpha.ActionConfig
-
-	_jsii_.Invoke(
-		f,
-		"bind",
-		[]interface{}{rule},
-		&returns,
-	)
-
-	return returns
 }
 
 // Configuration properties of an action for the Kinesis Data Firehose stream.
@@ -535,6 +545,120 @@ const (
 	FirehoseRecordSeparator_COMMA FirehoseRecordSeparator = "COMMA"
 )
 
+// The action to put the message from an MQTT message to the IoT Events input.
+//
+// Example:
+//   import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var role iRole
+//
+//
+//   input := iotevents.NewInput(this, jsii.String("MyInput"), &inputProps{
+//   	attributeJsonPaths: []*string{
+//   		jsii.String("payload.temperature"),
+//   		jsii.String("payload.transactionId"),
+//   	},
+//   })
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
+//   	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
+//   	actions: []iAction{
+//   		actions.NewIotEventsPutMessageAction(input, &iotEventsPutMessageActionProps{
+//   			batchMode: jsii.Boolean(true),
+//   			 // optional property, default is 'false'
+//   			messageId: jsii.String("${payload.transactionId}"),
+//   			 // optional property, default is a new UUID
+//   			role: role,
+//   		}),
+//   	},
+//   })
+//
+// Experimental.
+type IotEventsPutMessageAction interface {
+	awscdkiotalpha.IAction
+}
+
+// The jsii proxy struct for IotEventsPutMessageAction
+type jsiiProxy_IotEventsPutMessageAction struct {
+	internal.Type__awscdkiotalphaIAction
+}
+
+// Experimental.
+func NewIotEventsPutMessageAction(input awscdkioteventsalpha.IInput, props *IotEventsPutMessageActionProps) IotEventsPutMessageAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_IotEventsPutMessageAction{}
+
+	_jsii_.Create(
+		"@aws-cdk/aws-iot-actions-alpha.IotEventsPutMessageAction",
+		[]interface{}{input, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewIotEventsPutMessageAction_Override(i IotEventsPutMessageAction, input awscdkioteventsalpha.IInput, props *IotEventsPutMessageActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-iot-actions-alpha.IotEventsPutMessageAction",
+		[]interface{}{input, props},
+		i,
+	)
+}
+
+// Configuration properties of an action for the IoT Events.
+//
+// Example:
+//   import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var role iRole
+//
+//
+//   input := iotevents.NewInput(this, jsii.String("MyInput"), &inputProps{
+//   	attributeJsonPaths: []*string{
+//   		jsii.String("payload.temperature"),
+//   		jsii.String("payload.transactionId"),
+//   	},
+//   })
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
+//   	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
+//   	actions: []iAction{
+//   		actions.NewIotEventsPutMessageAction(input, &iotEventsPutMessageActionProps{
+//   			batchMode: jsii.Boolean(true),
+//   			 // optional property, default is 'false'
+//   			messageId: jsii.String("${payload.transactionId}"),
+//   			 // optional property, default is a new UUID
+//   			role: role,
+//   		}),
+//   	},
+//   })
+//
+// Experimental.
+type IotEventsPutMessageActionProps struct {
+	// The IAM role that allows access to AWS service.
+	// Experimental.
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	// Whether to process the event actions as a batch.
+	//
+	// When batchMode is true, you can't specify a messageId.
+	//
+	// When batchMode is true and the rule SQL statement evaluates to an Array,
+	// each Array element is treated as a separate message when Events by calling BatchPutMessage.
+	// The resulting array can't have more than 10 messages.
+	// Experimental.
+	BatchMode *bool `field:"optional" json:"batchMode" yaml:"batchMode"`
+	// The ID of the message.
+	//
+	// When batchMode is true, you can't specify a messageId--a new UUID value will be assigned.
+	// Assign a value to this property to ensure that only one input (message) with a given messageId will be processed by an AWS IoT Events detector.
+	// Experimental.
+	MessageId *string `field:"optional" json:"messageId" yaml:"messageId"`
+}
+
 // The action to put the record from an MQTT message to republish another MQTT topic.
 //
 // Example:
@@ -550,9 +674,6 @@ const (
 // Experimental.
 type IotRepublishMqttAction interface {
 	awscdkiotalpha.IAction
-	// Returns the topic rule action specification.
-	// Experimental.
-	Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
 }
 
 // The jsii proxy struct for IotRepublishMqttAction
@@ -584,19 +705,6 @@ func NewIotRepublishMqttAction_Override(i IotRepublishMqttAction, topic *string,
 		[]interface{}{topic, props},
 		i,
 	)
-}
-
-func (i *jsiiProxy_IotRepublishMqttAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
-	var returns *awscdkiotalpha.ActionConfig
-
-	_jsii_.Invoke(
-		i,
-		"bind",
-		[]interface{}{rule},
-		&returns,
-	)
-
-	return returns
 }
 
 // Configuration properties of an action to republish MQTT messages.
@@ -643,9 +751,6 @@ type IotRepublishMqttActionProps struct {
 // Experimental.
 type KinesisPutRecordAction interface {
 	awscdkiotalpha.IAction
-	// Returns the topic rule action specification.
-	// Experimental.
-	Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
 }
 
 // The jsii proxy struct for KinesisPutRecordAction
@@ -677,19 +782,6 @@ func NewKinesisPutRecordAction_Override(k KinesisPutRecordAction, stream awskine
 		[]interface{}{stream, props},
 		k,
 	)
-}
-
-func (k *jsiiProxy_KinesisPutRecordAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
-	var returns *awscdkiotalpha.ActionConfig
-
-	_jsii_.Invoke(
-		k,
-		"bind",
-		[]interface{}{rule},
-		&returns,
-	)
-
-	return returns
 }
 
 // Configuration properties of an action for the Kinesis Data stream.
@@ -742,9 +834,6 @@ type KinesisPutRecordActionProps struct {
 // Experimental.
 type LambdaFunctionAction interface {
 	awscdkiotalpha.IAction
-	// Returns the topic rule action specification.
-	// Experimental.
-	Bind(topicRule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
 }
 
 // The jsii proxy struct for LambdaFunctionAction
@@ -776,19 +865,6 @@ func NewLambdaFunctionAction_Override(l LambdaFunctionAction, func_ awslambda.IF
 		[]interface{}{func_},
 		l,
 	)
-}
-
-func (l *jsiiProxy_LambdaFunctionAction) Bind(topicRule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
-	var returns *awscdkiotalpha.ActionConfig
-
-	_jsii_.Invoke(
-		l,
-		"bind",
-		[]interface{}{topicRule},
-		&returns,
-	)
-
-	return returns
 }
 
 // MQTT Quality of Service (QoS) indicates the level of assurance for delivery of an MQTT Message.
@@ -840,9 +916,6 @@ const (
 // Experimental.
 type S3PutObjectAction interface {
 	awscdkiotalpha.IAction
-	// Returns the topic rule action specification.
-	// Experimental.
-	Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
 }
 
 // The jsii proxy struct for S3PutObjectAction
@@ -874,19 +947,6 @@ func NewS3PutObjectAction_Override(s S3PutObjectAction, bucket awss3.IBucket, pr
 		[]interface{}{bucket, props},
 		s,
 	)
-}
-
-func (s *jsiiProxy_S3PutObjectAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
-	var returns *awscdkiotalpha.ActionConfig
-
-	_jsii_.Invoke(
-		s,
-		"bind",
-		[]interface{}{rule},
-		&returns,
-	)
-
-	return returns
 }
 
 // Configuration properties of an action for s3.
@@ -973,9 +1033,6 @@ const (
 // Experimental.
 type SnsTopicAction interface {
 	awscdkiotalpha.IAction
-	// Returns the topic rule action specification.
-	// Experimental.
-	Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
 }
 
 // The jsii proxy struct for SnsTopicAction
@@ -1007,19 +1064,6 @@ func NewSnsTopicAction_Override(s SnsTopicAction, topic awssns.ITopic, props *Sn
 		[]interface{}{topic, props},
 		s,
 	)
-}
-
-func (s *jsiiProxy_SnsTopicAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
-	var returns *awscdkiotalpha.ActionConfig
-
-	_jsii_.Invoke(
-		s,
-		"bind",
-		[]interface{}{rule},
-		&returns,
-	)
-
-	return returns
 }
 
 // Configuration options for the SNS topic action.
@@ -1073,9 +1117,6 @@ type SnsTopicActionProps struct {
 // Experimental.
 type SqsQueueAction interface {
 	awscdkiotalpha.IAction
-	// Returns the topic rule action specification.
-	// Experimental.
-	Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
 }
 
 // The jsii proxy struct for SqsQueueAction
@@ -1107,19 +1148,6 @@ func NewSqsQueueAction_Override(s SqsQueueAction, queue awssqs.IQueue, props *Sq
 		[]interface{}{queue, props},
 		s,
 	)
-}
-
-func (s *jsiiProxy_SqsQueueAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
-	var returns *awscdkiotalpha.ActionConfig
-
-	_jsii_.Invoke(
-		s,
-		"bind",
-		[]interface{}{rule},
-		&returns,
-	)
-
-	return returns
 }
 
 // Configuration properties of an action for SQS.

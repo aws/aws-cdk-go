@@ -148,7 +148,7 @@ type myNestedStack struct {
 	nestedStack
 }
 
-func newMyNestedStack(scope Construct, id *string, props nestedStackProps) *myNestedStack {
+func newMyNestedStack(scope construct, id *string, props nestedStackProps) *myNestedStack {
 	this := &myNestedStack{}
 	cfn.NewNestedStack_Override(this, scope, id, props)
 
@@ -160,7 +160,7 @@ type myParentStack struct {
 	stack
 }
 
-func newMyParentStack(scope Construct, id *string, props stackProps) *myParentStack {
+func newMyParentStack(scope construct, id *string, props stackProps) *myParentStack {
 	this := &myParentStack{}
 	newStack_Override(this, scope, id, props)
 
@@ -409,14 +409,14 @@ relationship between all resources in the scope of `constructA` and all
 resources in the scope of `constructB`.
 
 If you want a single object to represent a set of constructs that are not
-necessarily in the same scope, you can use a `ConcreteDependable`. The
+necessarily in the same scope, you can use a `DependencyGroup`. The
 following creates a single object that represents a dependency on two
 constructs, `constructB` and `constructC`:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
 // Declare the dependable object
-bAndC := awscdk.NewConcreteDependable()
+bAndC := constructs.NewDependencyGroup()
 bAndC.add(constructB)
 bAndC.add(constructC)
 
@@ -519,7 +519,7 @@ examples ensures that only a single SNS topic is defined:
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
-func getOrCreate(scope Construct) topic {
+func getOrCreate(scope *construct) topic {
 	stack := awscdk.stack.of(*scope)
 	uniqueid := "GloballyUniqueIdForSingleton" // For example, a UUID from `uuidgen`
 	existing := stack.node.tryFindChild(uniqueid)

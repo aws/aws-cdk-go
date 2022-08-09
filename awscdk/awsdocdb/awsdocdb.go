@@ -71,7 +71,10 @@ type BackupProps struct {
 //   	port: jsii.Number(123),
 //   	preferredBackupWindow: jsii.String("preferredBackupWindow"),
 //   	preferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
+//   	restoreToTime: jsii.String("restoreToTime"),
+//   	restoreType: jsii.String("restoreType"),
 //   	snapshotIdentifier: jsii.String("snapshotIdentifier"),
+//   	sourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
 //   	storageEncrypted: jsii.Boolean(false),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -79,6 +82,7 @@ type BackupProps struct {
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	useLatestRestorableTime: jsii.Boolean(false),
 //   	vpcSecurityGroupIds: []*string{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
@@ -231,6 +235,12 @@ type CfnDBCluster interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// `AWS::DocDB::DBCluster.RestoreToTime`.
+	RestoreToTime() *string
+	SetRestoreToTime(val *string)
+	// `AWS::DocDB::DBCluster.RestoreType`.
+	RestoreType() *string
+	SetRestoreType(val *string)
 	// The identifier for the snapshot or cluster snapshot to restore from.
 	//
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a cluster snapshot. However, you can use only the ARN to specify a snapshot.
@@ -240,6 +250,9 @@ type CfnDBCluster interface {
 	// - Must match the identifier of an existing snapshot.
 	SnapshotIdentifier() *string
 	SetSnapshotIdentifier(val *string)
+	// `AWS::DocDB::DBCluster.SourceDBClusterIdentifier`.
+	SourceDbClusterIdentifier() *string
+	SetSourceDbClusterIdentifier(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -262,6 +275,9 @@ type CfnDBCluster interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// `AWS::DocDB::DBCluster.UseLatestRestorableTime`.
+	UseLatestRestorableTime() interface{}
+	SetUseLatestRestorableTime(val interface{})
 	// A list of EC2 VPC security groups to associate with this cluster.
 	VpcSecurityGroupIds() *[]*string
 	SetVpcSecurityGroupIds(val *[]*string)
@@ -641,11 +657,41 @@ func (j *jsiiProxy_CfnDBCluster) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) RestoreToTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"restoreToTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) RestoreType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"restoreType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) SnapshotIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"snapshotIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) SourceDbClusterIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceDbClusterIdentifier",
 		&returns,
 	)
 	return returns
@@ -696,6 +742,16 @@ func (j *jsiiProxy_CfnDBCluster) UpdatedProperties() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) UseLatestRestorableTime() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"useLatestRestorableTime",
 		&returns,
 	)
 	return returns
@@ -858,6 +914,22 @@ func (j *jsiiProxy_CfnDBCluster) SetPreferredMaintenanceWindow(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDBCluster) SetRestoreToTime(val *string) {
+	_jsii_.Set(
+		j,
+		"restoreToTime",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster) SetRestoreType(val *string) {
+	_jsii_.Set(
+		j,
+		"restoreType",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDBCluster) SetSnapshotIdentifier(val *string) {
 	_jsii_.Set(
 		j,
@@ -866,10 +938,26 @@ func (j *jsiiProxy_CfnDBCluster) SetSnapshotIdentifier(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDBCluster) SetSourceDbClusterIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceDbClusterIdentifier",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDBCluster) SetStorageEncrypted(val interface{}) {
 	_jsii_.Set(
 		j,
 		"storageEncrypted",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster) SetUseLatestRestorableTime(val interface{}) {
+	_jsii_.Set(
+		j,
+		"useLatestRestorableTime",
 		val,
 	)
 }
@@ -1825,7 +1913,10 @@ type CfnDBClusterParameterGroupProps struct {
 //   	port: jsii.Number(123),
 //   	preferredBackupWindow: jsii.String("preferredBackupWindow"),
 //   	preferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
+//   	restoreToTime: jsii.String("restoreToTime"),
+//   	restoreType: jsii.String("restoreType"),
 //   	snapshotIdentifier: jsii.String("snapshotIdentifier"),
+//   	sourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
 //   	storageEncrypted: jsii.Boolean(false),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -1833,6 +1924,7 @@ type CfnDBClusterParameterGroupProps struct {
 //   			value: jsii.String("value"),
 //   		},
 //   	},
+//   	useLatestRestorableTime: jsii.Boolean(false),
 //   	vpcSecurityGroupIds: []*string{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
@@ -1928,6 +2020,10 @@ type CfnDBClusterProps struct {
 	//
 	// Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	// `AWS::DocDB::DBCluster.RestoreToTime`.
+	RestoreToTime *string `field:"optional" json:"restoreToTime" yaml:"restoreToTime"`
+	// `AWS::DocDB::DBCluster.RestoreType`.
+	RestoreType *string `field:"optional" json:"restoreType" yaml:"restoreType"`
 	// The identifier for the snapshot or cluster snapshot to restore from.
 	//
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a cluster snapshot. However, you can use only the ARN to specify a snapshot.
@@ -1936,10 +2032,14 @@ type CfnDBClusterProps struct {
 	//
 	// - Must match the identifier of an existing snapshot.
 	SnapshotIdentifier *string `field:"optional" json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
+	// `AWS::DocDB::DBCluster.SourceDBClusterIdentifier`.
+	SourceDbClusterIdentifier *string `field:"optional" json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
 	// Specifies whether the cluster is encrypted.
 	StorageEncrypted interface{} `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The tags to be assigned to the cluster.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// `AWS::DocDB::DBCluster.UseLatestRestorableTime`.
+	UseLatestRestorableTime interface{} `field:"optional" json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`
 	// A list of EC2 VPC security groups to associate with this cluster.
 	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }

@@ -23,13 +23,13 @@ AWS IoT Events can trigger actions when it detects a specified event or transiti
 
 Currently supported are:
 
+* Use timer
 * Set variable to detector instanse
 * Invoke a Lambda function
 
-## Set variable to detector instanse
+## Use timer
 
-The code snippet below creates an Action that set variable to detector instanse
-when it is triggered.
+The code snippet below creates an Action that creates the timer with duration in seconds.
 
 ```go
 // Example automatically generated from non-compiling source. May contain errors.
@@ -45,10 +45,92 @@ state := iotevents.NewState(&stateProps{
 			eventName: jsii.String("test-event"),
 			condition: iotevents.expression.currentInput(input),
 			actions: []iAction{
-				actions,
-				[]interface{}{
-					actions.NewSetVariableAction(jsii.String("MyVariable"), iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature"))),
-				},
+				actions.NewSetTimerAction(jsii.String("MyTimer"), map[string]interface{}{
+					"duration": cdk.Duration_seconds(jsii.Number(60)),
+				}),
+			},
+		},
+	},
+})
+```
+
+Setting duration by [IoT Events Expression](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html):
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+actions.NewSetTimerAction(jsii.String("MyTimer"), map[string]interface{}{
+	"durationExpression": iotevents.Expression_inputAttribute(input, jsii.String("payload.durationSeconds")),
+})
+```
+
+And the timer can be reset and cleared. Below is an example of general
+[Device HeartBeat](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-examples-dhb.html)
+Detector Model:
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+online := iotevents.NewState(map[string]interface{}{
+	"stateName": jsii.String("Online"),
+	"onEnter": []map[string]interface{}{
+		map[string]interface{}{
+			"eventName": jsii.String("enter-event"),
+			"condition": iotevents.Expression_currentInput(input),
+			"actions": []interface{}{
+				actions.NewSetTimerAction(jsii.String("MyTimer"), map[string]interface{}{
+					"duration": cdk.Duration_seconds(jsii.Number(60)),
+				}),
+			},
+		},
+	},
+	"onInput": []map[string]interface{}{
+		map[string]interface{}{
+			"eventName": jsii.String("input-event"),
+			"condition": iotevents.Expression_currentInput(input),
+			"actions": []interface{}{
+				actions.NewResetTimerAction(jsii.String("MyTimer")),
+			},
+		},
+	},
+	"onExit": []map[string]interface{}{
+		map[string]interface{}{
+			"eventName": jsii.String("exit-event"),
+			"actions": []interface{}{
+				actions.NewClearTimerAction(jsii.String("MyTimer")),
+			},
+		},
+	},
+})
+offline := iotevents.NewState(map[string]*string{
+	"stateName": jsii.String("Offline"),
+})
+
+online.transitionTo(offline, map[string]interface{}{
+	"when": iotevents.Expression_timeout(jsii.String("MyTimer")),
+})
+offline.transitionTo(online, map[string]interface{}{
+	"when": iotevents.Expression_currentInput(input),
+})
+```
+
+## Set variable to detector instanse
+
+The code snippet below creates an Action that set variable to detector instanse
+when it is triggered.
+
+```go
+import iotevents "github.com/aws/aws-cdk-go/awscdkioteventsalpha"
+import actions "github.com/aws/aws-cdk-go/awscdkioteventsactionsalpha"
+
+var input iInput
+
+state := iotevents.NewState(&stateProps{
+	stateName: jsii.String("MyState"),
+	onEnter: []event{
+		&event{
+			eventName: jsii.String("test-event"),
+			condition: iotevents.expression.currentInput(input),
+			actions: []iAction{
+				actions.NewSetVariableAction(jsii.String("MyVariable"), iotevents.*expression.inputAttribute(input, jsii.String("payload.temperature"))),
 			},
 		},
 	},

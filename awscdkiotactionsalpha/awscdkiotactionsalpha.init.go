@@ -10,9 +10,7 @@ func init() {
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.CloudWatchLogsAction",
 		reflect.TypeOf((*CloudWatchLogsAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_CloudWatchLogsAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
@@ -26,9 +24,7 @@ func init() {
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.CloudWatchPutMetricAction",
 		reflect.TypeOf((*CloudWatchPutMetricAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_CloudWatchPutMetricAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
@@ -42,9 +38,7 @@ func init() {
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.CloudWatchSetAlarmStateAction",
 		reflect.TypeOf((*CloudWatchSetAlarmStateAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_CloudWatchSetAlarmStateAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
@@ -60,11 +54,23 @@ func init() {
 		reflect.TypeOf((*CommonActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iot-actions-alpha.DynamoDBv2PutItemAction",
+		reflect.TypeOf((*DynamoDBv2PutItemAction)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			j := jsiiProxy_DynamoDBv2PutItemAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-iot-actions-alpha.DynamoDBv2PutItemActionProps",
+		reflect.TypeOf((*DynamoDBv2PutItemActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.FirehosePutRecordAction",
 		reflect.TypeOf((*FirehosePutRecordAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_FirehosePutRecordAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
@@ -86,11 +92,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iot-actions-alpha.IotEventsPutMessageAction",
+		reflect.TypeOf((*IotEventsPutMessageAction)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			j := jsiiProxy_IotEventsPutMessageAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-iot-actions-alpha.IotEventsPutMessageActionProps",
+		reflect.TypeOf((*IotEventsPutMessageActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.IotRepublishMqttAction",
 		reflect.TypeOf((*IotRepublishMqttAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_IotRepublishMqttAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
@@ -104,9 +122,7 @@ func init() {
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.KinesisPutRecordAction",
 		reflect.TypeOf((*KinesisPutRecordAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_KinesisPutRecordAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
@@ -120,9 +136,7 @@ func init() {
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.LambdaFunctionAction",
 		reflect.TypeOf((*LambdaFunctionAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_LambdaFunctionAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
@@ -140,9 +154,7 @@ func init() {
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.S3PutObjectAction",
 		reflect.TypeOf((*S3PutObjectAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_S3PutObjectAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
@@ -164,9 +176,7 @@ func init() {
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.SnsTopicAction",
 		reflect.TypeOf((*SnsTopicAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_SnsTopicAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
@@ -180,9 +190,7 @@ func init() {
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.SqsQueueAction",
 		reflect.TypeOf((*SqsQueueAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_SqsQueueAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)

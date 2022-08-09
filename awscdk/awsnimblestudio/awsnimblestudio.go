@@ -42,6 +42,8 @@ import (
 //   			mode: []*string{
 //   				jsii.String("mode"),
 //   			},
+//
+//   			// the properties below are optional
 //   			root: &streamingSessionStorageRootProperty{
 //   				linux: jsii.String("linux"),
 //   				windows: jsii.String("windows"),
@@ -774,6 +776,8 @@ func (c *jsiiProxy_CfnLaunchProfile) ValidateProperties(_properties interface{})
 //   		mode: []*string{
 //   			jsii.String("mode"),
 //   		},
+//
+//   		// the properties below are optional
 //   		root: &streamingSessionStorageRootProperty{
 //   			linux: jsii.String("linux"),
 //   			windows: jsii.String("windows"),
@@ -815,6 +819,8 @@ type CfnLaunchProfile_StreamConfigurationProperty struct {
 //   	mode: []*string{
 //   		jsii.String("mode"),
 //   	},
+//
+//   	// the properties below are optional
 //   	root: &streamingSessionStorageRootProperty{
 //   		linux: jsii.String("linux"),
 //   		windows: jsii.String("windows"),
@@ -825,7 +831,7 @@ type CfnLaunchProfile_StreamConfigurationSessionStorageProperty struct {
 	// Allows artists to upload files to their workstations.
 	//
 	// The only valid option is `UPLOAD` .
-	Mode *[]*string `field:"optional" json:"mode" yaml:"mode"`
+	Mode *[]*string `field:"required" json:"mode" yaml:"mode"`
 	// The configuration for the upload storage root of the streaming session.
 	Root interface{} `field:"optional" json:"root" yaml:"root"`
 }
@@ -880,6 +886,8 @@ type CfnLaunchProfile_StreamingSessionStorageRootProperty struct {
 //   			mode: []*string{
 //   				jsii.String("mode"),
 //   			},
+//
+//   			// the properties below are optional
 //   			root: &streamingSessionStorageRootProperty{
 //   				linux: jsii.String("linux"),
 //   				windows: jsii.String("windows"),

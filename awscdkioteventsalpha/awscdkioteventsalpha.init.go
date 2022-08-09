@@ -66,9 +66,7 @@ func init() {
 	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-iotevents-alpha.IAction",
 		reflect.TypeOf((*IAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			return &jsiiProxy_IAction{}
 		},

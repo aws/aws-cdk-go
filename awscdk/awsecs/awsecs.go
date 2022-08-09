@@ -749,6 +749,7 @@ type AsgCapacityProviderProps struct {
 //   			"environmentKey": jsii.String("environment"),
 //   		},
 //   		local: localBundling,
+//   		network: jsii.String("network"),
 //   		outputType: cdk.bundlingOutput_ARCHIVED,
 //   		securityOpt: jsii.String("securityOpt"),
 //   		user: jsii.String("user"),
@@ -1067,11 +1068,14 @@ func (a *jsiiProxy_AssetImage) Bind(scope constructs.Construct, containerDefinit
 //   }
 //
 type AssetImageProps struct {
-	// Glob patterns to exclude from the copy.
+	// File paths matching the patterns will be excluded.
+	//
+	// See `ignoreMode` to set the matching behavior.
+	// Has no effect on Assets bundled using the `bundling` property.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
-	// The ignore behavior to use for exclude patterns.
+	// The ignore behavior to use for `exclude` patterns.
 	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
@@ -13110,33 +13114,29 @@ const (
 // Constructs for types of container images.
 //
 // Example:
-//   var vpc vpc
+//   var cluster cluster
 //
-//
-//   cluster := ecs.NewCluster(this, jsii.String("FargateCPCluster"), &clusterProps{
-//   	vpc: vpc,
-//   	enableFargateCapacityProviders: jsii.Boolean(true),
-//   })
-//
-//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"))
-//
-//   taskDefinition.addContainer(jsii.String("web"), &containerDefinitionOptions{
-//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   })
-//
-//   ecs.NewFargateService(this, jsii.String("FargateService"), &fargateServiceProps{
+//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
 //   	cluster: cluster,
-//   	taskDefinition: taskDefinition,
-//   	capacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
-//   			capacityProvider: jsii.String("FARGATE_SPOT"),
-//   			weight: jsii.Number(2),
-//   		},
-//   		&capacityProviderStrategy{
-//   			capacityProvider: jsii.String("FARGATE"),
-//   			weight: jsii.Number(1),
-//   		},
+//   	memoryLimitMiB: jsii.Number(1024),
+//   	desiredCount: jsii.Number(1),
+//   	cpu: jsii.Number(512),
+//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
+//   })
+//
+//   scalableTarget := loadBalancedFargateService.service.autoScaleTaskCount(&enableScalingProps{
+//   	minCapacity: jsii.Number(1),
+//   	maxCapacity: jsii.Number(20),
+//   })
+//
+//   scalableTarget.scaleOnCpuUtilization(jsii.String("CpuScaling"), &cpuUtilizationScalingProps{
+//   	targetUtilizationPercent: jsii.Number(50),
+//   })
+//
+//   scalableTarget.scaleOnMemoryUtilization(jsii.String("MemoryScaling"), &memoryUtilizationScalingProps{
+//   	targetUtilizationPercent: jsii.Number(50),
 //   })
 //
 type ContainerImage interface {

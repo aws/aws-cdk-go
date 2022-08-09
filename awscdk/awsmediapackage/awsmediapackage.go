@@ -1568,6 +1568,7 @@ type CfnChannelProps struct {
 //   			// the properties below are optional
 //   			keyRotationIntervalSeconds: jsii.Number(123),
 //   		},
+//   		includeIframeOnlyStream: jsii.Boolean(false),
 //   		manifestLayout: jsii.String("manifestLayout"),
 //   		manifestWindowSeconds: jsii.Number(123),
 //   		minBufferTimeSeconds: jsii.Number(123),
@@ -2707,6 +2708,7 @@ type CfnOriginEndpoint_DashEncryptionProperty struct {
 //   		// the properties below are optional
 //   		keyRotationIntervalSeconds: jsii.Number(123),
 //   	},
+//   	includeIframeOnlyStream: jsii.Boolean(false),
 //   	manifestLayout: jsii.String("manifestLayout"),
 //   	manifestWindowSeconds: jsii.Number(123),
 //   	minBufferTimeSeconds: jsii.Number(123),
@@ -2747,6 +2749,8 @@ type CfnOriginEndpoint_DashPackageProperty struct {
 	AdTriggers *[]*string `field:"optional" json:"adTriggers" yaml:"adTriggers"`
 	// Parameters for encrypting content.
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
+	// `CfnOriginEndpoint.DashPackageProperty.IncludeIframeOnlyStream`.
+	IncludeIframeOnlyStream interface{} `field:"optional" json:"includeIframeOnlyStream" yaml:"includeIframeOnlyStream"`
 	// Determines the position of some tags in the manifest.
 	//
 	// Options:
@@ -3288,6 +3292,7 @@ type CfnOriginEndpoint_StreamSelectionProperty struct {
 //   			// the properties below are optional
 //   			keyRotationIntervalSeconds: jsii.Number(123),
 //   		},
+//   		includeIframeOnlyStream: jsii.Boolean(false),
 //   		manifestLayout: jsii.String("manifestLayout"),
 //   		manifestWindowSeconds: jsii.Number(123),
 //   		minBufferTimeSeconds: jsii.Number(123),

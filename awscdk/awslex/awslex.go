@@ -578,6 +578,7 @@ import (
 //
 //   							// the properties below are optional
 //   							allowInterrupt: jsii.Boolean(false),
+//   							messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
 //   						},
 //
 //   						// the properties below are optional
@@ -685,6 +686,7 @@ import (
 //
 //   									// the properties below are optional
 //   									allowInterrupt: jsii.Boolean(false),
+//   									messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
 //   								},
 //   								sampleUtterances: []interface{}{
 //   									&sampleUtteranceProperty{
@@ -2460,6 +2462,7 @@ type CfnBot_BotAliasLocaleSettingsProperty struct {
 //
 //   					// the properties below are optional
 //   					allowInterrupt: jsii.Boolean(false),
+//   					messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
 //   				},
 //
 //   				// the properties below are optional
@@ -2567,6 +2570,7 @@ type CfnBot_BotAliasLocaleSettingsProperty struct {
 //
 //   							// the properties below are optional
 //   							allowInterrupt: jsii.Boolean(false),
+//   							messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
 //   						},
 //   						sampleUtterances: []interface{}{
 //   							&sampleUtteranceProperty{
@@ -4038,6 +4042,7 @@ type CfnBot_IntentClosingSettingProperty struct {
 //
 //   		// the properties below are optional
 //   		allowInterrupt: jsii.Boolean(false),
+//   		messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
 //   	},
 //
 //   	// the properties below are optional
@@ -4586,6 +4591,7 @@ type CfnBot_IntentConfirmationSettingProperty struct {
 //
 //   			// the properties below are optional
 //   			allowInterrupt: jsii.Boolean(false),
+//   			messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
 //   		},
 //
 //   		// the properties below are optional
@@ -4693,6 +4699,7 @@ type CfnBot_IntentConfirmationSettingProperty struct {
 //
 //   					// the properties below are optional
 //   					allowInterrupt: jsii.Boolean(false),
+//   					messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
 //   				},
 //   				sampleUtterances: []interface{}{
 //   					&sampleUtteranceProperty{
@@ -5455,6 +5462,7 @@ type CfnBot_PostFulfillmentStatusSpecificationProperty struct {
 //
 //   	// the properties below are optional
 //   	allowInterrupt: jsii.Boolean(false),
+//   	messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
 //   }
 //
 type CfnBot_PromptSpecificationProperty struct {
@@ -5466,6 +5474,8 @@ type CfnBot_PromptSpecificationProperty struct {
 	MessageGroupsList interface{} `field:"required" json:"messageGroupsList" yaml:"messageGroupsList"`
 	// Indicates whether the user can interrupt a speech prompt from the bot.
 	AllowInterrupt interface{} `field:"optional" json:"allowInterrupt" yaml:"allowInterrupt"`
+	// `CfnBot.PromptSpecificationProperty.MessageSelectionStrategy`.
+	MessageSelectionStrategy *string `field:"optional" json:"messageSelectionStrategy" yaml:"messageSelectionStrategy"`
 }
 
 // Specifies a list of message groups that Amazon Lex uses to respond to user input.
@@ -5783,6 +5793,7 @@ type CfnBot_SlotPriorityProperty struct {
 //
 //   			// the properties below are optional
 //   			allowInterrupt: jsii.Boolean(false),
+//   			messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
 //   		},
 //   		sampleUtterances: []interface{}{
 //   			&sampleUtteranceProperty{
@@ -6208,6 +6219,7 @@ type CfnBot_SlotTypeValueProperty struct {
 //
 //   		// the properties below are optional
 //   		allowInterrupt: jsii.Boolean(false),
+//   		messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
 //   	},
 //   	sampleUtterances: []interface{}{
 //   		&sampleUtteranceProperty{
@@ -8657,6 +8669,7 @@ type CfnBotAliasProps struct {
 //
 //   							// the properties below are optional
 //   							allowInterrupt: jsii.Boolean(false),
+//   							messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
 //   						},
 //
 //   						// the properties below are optional
@@ -8764,6 +8777,7 @@ type CfnBotAliasProps struct {
 //
 //   									// the properties below are optional
 //   									allowInterrupt: jsii.Boolean(false),
+//   									messageSelectionStrategy: jsii.String("messageSelectionStrategy"),
 //   								},
 //   								sampleUtterances: []interface{}{
 //   									&sampleUtteranceProperty{

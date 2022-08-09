@@ -819,11 +819,15 @@ type S3EventSourceProps struct {
 // Use a self hosted Kafka installation as a streaming source for AWS Lambda.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // The secret that allows access to your self hosted Kafka cluster
 //   var secret secret
+//
+//   // (Optional) The secret containing the root CA certificate that your Kafka brokers use for TLS encryption
+//   var encryption secret
 //
 //   var myFunction function
 //
@@ -842,6 +846,7 @@ type S3EventSourceProps struct {
 //   	batchSize: jsii.Number(100),
 //   	 // default
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+//   	encryption: encryption,
 //   }))
 //
 type SelfManagedKafkaEventSource interface {
@@ -918,11 +923,15 @@ func (s *jsiiProxy_SelfManagedKafkaEventSource) EnrichMappingOptions(options *aw
 // If your Kafka cluster is only reachable via VPC make sure to configure it.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // The secret that allows access to your self hosted Kafka cluster
 //   var secret secret
+//
+//   // (Optional) The secret containing the root CA certificate that your Kafka brokers use for TLS encryption
+//   var encryption secret
 //
 //   var myFunction function
 //
@@ -941,6 +950,7 @@ func (s *jsiiProxy_SelfManagedKafkaEventSource) EnrichMappingOptions(options *aw
 //   	batchSize: jsii.Number(100),
 //   	 // default
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+//   	encryption: encryption,
 //   }))
 //
 type SelfManagedKafkaEventSourceProps struct {
@@ -973,6 +983,8 @@ type SelfManagedKafkaEventSourceProps struct {
 	BootstrapServers *[]*string `field:"required" json:"bootstrapServers" yaml:"bootstrapServers"`
 	// The authentication method for your Kafka cluster.
 	AuthenticationMethod AuthenticationMethod `field:"optional" json:"authenticationMethod" yaml:"authenticationMethod"`
+	// The secret with the root CA certificate used by your Kafka brokers for TLS encryption This field is required if your Kafka brokers use certificates signed by a private CA.
+	RootCACertificate awssecretsmanager.Secret `field:"optional" json:"rootCACertificate" yaml:"rootCACertificate"`
 	// If your Kafka brokers are only reachable via VPC, provide the security group here.
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// If your Kafka brokers are only reachable via VPC provide the VPC here.

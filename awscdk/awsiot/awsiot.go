@@ -1704,8 +1704,6 @@ type CfnAuthorizerProps struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var registrationConfig interface{}
-//
 //   cfnCACertificate := awscdk.Aws_iot.NewCfnCACertificate(this, jsii.String("MyCfnCACertificate"), &cfnCACertificateProps{
 //   	caCertificatePem: jsii.String("caCertificatePem"),
 //   	status: jsii.String("status"),
@@ -1713,7 +1711,11 @@ type CfnAuthorizerProps struct {
 //   	// the properties below are optional
 //   	autoRegistrationStatus: jsii.String("autoRegistrationStatus"),
 //   	certificateMode: jsii.String("certificateMode"),
-//   	registrationConfig: registrationConfig,
+//   	registrationConfig: &registrationConfigProperty{
+//   		roleArn: jsii.String("roleArn"),
+//   		templateBody: jsii.String("templateBody"),
+//   		templateName: jsii.String("templateName"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -2397,14 +2399,32 @@ func (c *jsiiProxy_CfnCACertificate) ValidateProperties(_properties interface{})
 	)
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   registrationConfigProperty := &registrationConfigProperty{
+//   	roleArn: jsii.String("roleArn"),
+//   	templateBody: jsii.String("templateBody"),
+//   	templateName: jsii.String("templateName"),
+//   }
+//
+type CfnCACertificate_RegistrationConfigProperty struct {
+	// `CfnCACertificate.RegistrationConfigProperty.RoleArn`.
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// `CfnCACertificate.RegistrationConfigProperty.TemplateBody`.
+	TemplateBody *string `field:"optional" json:"templateBody" yaml:"templateBody"`
+	// `CfnCACertificate.RegistrationConfigProperty.TemplateName`.
+	TemplateName *string `field:"optional" json:"templateName" yaml:"templateName"`
+}
+
 // Properties for defining a `CfnCACertificate`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var registrationConfig interface{}
 //
 //   cfnCACertificateProps := &cfnCACertificateProps{
 //   	caCertificatePem: jsii.String("caCertificatePem"),
@@ -2413,7 +2433,11 @@ func (c *jsiiProxy_CfnCACertificate) ValidateProperties(_properties interface{})
 //   	// the properties below are optional
 //   	autoRegistrationStatus: jsii.String("autoRegistrationStatus"),
 //   	certificateMode: jsii.String("certificateMode"),
-//   	registrationConfig: registrationConfig,
+//   	registrationConfig: &registrationConfigProperty{
+//   		roleArn: jsii.String("roleArn"),
+//   		templateBody: jsii.String("templateBody"),
+//   		templateName: jsii.String("templateName"),
+//   	},
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -9860,6 +9884,7 @@ type CfnPolicyProps struct {
 //   		},
 //   	},
 //   	templateName: jsii.String("templateName"),
+//   	templateType: jsii.String("templateType"),
 //   })
 //
 type CfnProvisioningTemplate interface {
@@ -9919,6 +9944,9 @@ type CfnProvisioningTemplate interface {
 	// The name of the fleet provisioning template.
 	TemplateName() *string
 	SetTemplateName(val *string)
+	// `AWS::IoT::ProvisioningTemplate.TemplateType`.
+	TemplateType() *string
+	SetTemplateType(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -10208,6 +10236,16 @@ func (j *jsiiProxy_CfnProvisioningTemplate) TemplateName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProvisioningTemplate) TemplateType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"templateType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProvisioningTemplate) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -10299,6 +10337,14 @@ func (j *jsiiProxy_CfnProvisioningTemplate) SetTemplateName(val *string) {
 	_jsii_.Set(
 		j,
 		"templateName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProvisioningTemplate) SetTemplateType(val *string) {
+	_jsii_.Set(
+		j,
+		"templateType",
 		val,
 	)
 }
@@ -10576,6 +10622,7 @@ type CfnProvisioningTemplate_ProvisioningHookProperty struct {
 //   		},
 //   	},
 //   	templateName: jsii.String("templateName"),
+//   	templateType: jsii.String("templateType"),
 //   }
 //
 type CfnProvisioningTemplateProps struct {
@@ -10595,6 +10642,8 @@ type CfnProvisioningTemplateProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the fleet provisioning template.
 	TemplateName *string `field:"optional" json:"templateName" yaml:"templateName"`
+	// `AWS::IoT::ProvisioningTemplate.TemplateType`.
+	TemplateType *string `field:"optional" json:"templateType" yaml:"templateType"`
 }
 
 // A CloudFormation `AWS::IoT::ResourceSpecificLogging`.

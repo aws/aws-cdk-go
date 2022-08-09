@@ -77,6 +77,7 @@ type ArtifactsBucketLocation struct {
 //   			"environmentKey": jsii.String("environment"),
 //   		},
 //   		local: localBundling,
+//   		network: jsii.String("network"),
 //   		outputType: cdk.bundlingOutput_ARCHIVED,
 //   		securityOpt: jsii.String("securityOpt"),
 //   		user: jsii.String("user"),

@@ -251,6 +251,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-redshift-alpha.LoggingProperties",
+		reflect.TypeOf((*LoggingProperties)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-redshift-alpha.Login",
 		reflect.TypeOf((*Login)(nil)).Elem(),
 	)

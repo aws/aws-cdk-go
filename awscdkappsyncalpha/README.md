@@ -305,6 +305,31 @@ route53.NewCnameRecord(this, jsii.String("CnameApiRecord"), &cnameRecordProps{
 })
 ```
 
+## Log Group
+
+AppSync automatically create a log group with the name `/aws/appsync/apis/<graphql_api_id>` upon deployment with
+log data set to never expire. If you want to set a different expiration period, use the `logConfig.retention` property.
+
+To obtain the GraphQL API's log group as a `logs.ILogGroup` use the `logGroup` property of the
+`GraphqlApi` construct.
+
+```go
+import logs "github.com/aws/aws-cdk-go/awscdk"
+
+
+logConfig := &logConfig{
+	retention: logs.retentionDays_ONE_WEEK,
+}
+
+appsync.NewGraphqlApi(this, jsii.String("api"), &graphqlApiProps{
+	authorizationConfig: &authorizationConfig{
+	},
+	name: jsii.String("myApi"),
+	schema: appsync.schema.fromAsset(path.join(__dirname, jsii.String("myApi.graphql"))),
+	logConfig: logConfig,
+})
+```
+
 ## Schema
 
 Every GraphQL Api needs a schema to define the Api. CDK offers `appsync.Schema`

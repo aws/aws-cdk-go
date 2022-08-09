@@ -783,6 +783,7 @@ const (
 //   			"environmentKey": jsii.String("environment"),
 //   		},
 //   		local: localBundling,
+//   		network: jsii.String("network"),
 //   		outputType: cdk.bundlingOutput_ARCHIVED,
 //   		securityOpt: jsii.String("securityOpt"),
 //   		user: jsii.String("user"),
@@ -871,6 +872,7 @@ type AssetOptions struct {
 //   			"environmentKey": jsii.String("environment"),
 //   		},
 //   		local: localBundling,
+//   		network: jsii.String("network"),
 //   		outputType: cdk.bundlingOutput_ARCHIVED,
 //   		securityOpt: jsii.String("securityOpt"),
 //   		user: jsii.String("user"),
@@ -1151,6 +1153,7 @@ func (a *jsiiProxy_AssetStaging) ToString() *string {
 //   			"environmentKey": jsii.String("environment"),
 //   		},
 //   		local: localBundling,
+//   		network: jsii.String("network"),
 //   		outputType: cdk.bundlingOutput_ARCHIVED,
 //   		securityOpt: jsii.String("securityOpt"),
 //   		user: jsii.String("user"),
@@ -1174,11 +1177,14 @@ func (a *jsiiProxy_AssetStaging) ToString() *string {
 //   }
 //
 type AssetStagingProps struct {
-	// Glob patterns to exclude from the copy.
+	// File paths matching the patterns will be excluded.
+	//
+	// See `ignoreMode` to set the matching behavior.
+	// Has no effect on Assets bundled using the `bundling` property.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	Follow SymlinkFollowMode `field:"optional" json:"follow" yaml:"follow"`
-	// The ignore behavior to use for exclude patterns.
+	// The ignore behavior to use for `exclude` patterns.
 	IgnoreMode IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
@@ -1638,17 +1644,19 @@ type BootstraplessSynthesizerProps struct {
 // Bundling options.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   asset := assets.NewAsset(this, jsii.String("BundledAsset"), &assetProps{
-//   	path: path.join(__dirname, jsii.String("markdown-asset")),
-//   	 // /asset-input and working directory in the container
+//   	path: jsii.String("/path/to/asset"),
 //   	bundling: &bundlingOptions{
-//   		image: awscdk.DockerImage.fromBuild(path.join(__dirname, jsii.String("alpine-markdown"))),
-//   		 // Build an image
+//   		image: ambda.runtime_PYTHON_3_9_BundlingImage,
 //   		command: []*string{
-//   			jsii.String("sh"),
+//   			jsii.String("bash"),
 //   			jsii.String("-c"),
-//   			jsii.String("\n            markdown index.md > /asset-output/index.html\n          "),
+//   			jsii.String("pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"),
 //   		},
+//   		securityOpt: jsii.String("no-new-privileges:true"),
+//   		 // https://docs.docker.com/engine/reference/commandline/run/#optional-security-options---security-opt
+//   		network: jsii.String("host"),
 //   	},
 //   })
 //
@@ -1675,6 +1683,8 @@ type BundlingOptions struct {
 	// if local bundling was performed. If `false` is returned, docker bundling
 	// will be done.
 	Local ILocalBundling `field:"optional" json:"local" yaml:"local"`
+	// Docker [Networking options](https://docs.docker.com/engine/reference/commandline/run/#connect-a-container-to-a-network---network).
+	Network *string `field:"optional" json:"network" yaml:"network"`
 	// The type of output that this bundling operation is producing.
 	OutputType BundlingOutput `field:"optional" json:"outputType" yaml:"outputType"`
 	// [Security configuration](https://docs.docker.com/engine/reference/run/#security-configuration) when running the docker container.
@@ -17887,11 +17897,14 @@ func ContextProvider_GetValue(scope constructs.Construct, options *GetContextVal
 //   }
 //
 type CopyOptions struct {
-	// Glob patterns to exclude from the copy.
+	// File paths matching the patterns will be excluded.
+	//
+	// See `ignoreMode` to set the matching behavior.
+	// Has no effect on Assets bundled using the `bundling` property.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	Follow SymlinkFollowMode `field:"optional" json:"follow" yaml:"follow"`
-	// The ignore behavior to use for exclude patterns.
+	// The ignore behavior to use for `exclude` patterns.
 	IgnoreMode IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 }
 
@@ -19536,6 +19549,7 @@ type DockerImageAssetSource struct {
 //   	environment: map[string]*string{
 //   		"environmentKey": jsii.String("environment"),
 //   	},
+//   	network: jsii.String("network"),
 //   	securityOpt: jsii.String("securityOpt"),
 //   	user: jsii.String("user"),
 //   	volumes: []dockerVolume{
@@ -19557,6 +19571,8 @@ type DockerRunOptions struct {
 	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
 	// The environment variables to pass to the container.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
+	// Docker [Networking options](https://docs.docker.com/engine/reference/commandline/run/#connect-a-container-to-a-network---network).
+	Network *string `field:"optional" json:"network" yaml:"network"`
 	// [Security configuration](https://docs.docker.com/engine/reference/run/#security-configuration) when running the docker container.
 	SecurityOpt *string `field:"optional" json:"securityOpt" yaml:"securityOpt"`
 	// The user to use when running the container.
@@ -20018,7 +20034,7 @@ type EncodingOptions struct {
 type Environment struct {
 	// The AWS account ID for this environment.
 	//
-	// This can be either a concrete value such as `585191031104` or `Aws.accountId` which
+	// This can be either a concrete value such as `585191031104` or `Aws.ACCOUNT_ID` which
 	// indicates that account ID will only be determined during deployment (it
 	// will resolve to the CloudFormation intrinsic `{"Ref":"AWS::AccountId"}`).
 	// Note that certain features, such as cross-stack references and
@@ -20027,11 +20043,11 @@ type Environment struct {
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The AWS region for this environment.
 	//
-	// This can be either a concrete value such as `eu-west-2` or `Aws.region`
+	// This can be either a concrete value such as `eu-west-2` or `Aws.REGION`
 	// which indicates that account ID will only be determined during deployment
 	// (it will resolve to the CloudFormation intrinsic `{"Ref":"AWS::Region"}`).
 	// Note that certain features, such as cross-stack references and
-	// environmental context providers require concerete region information and
+	// environmental context providers require concrete region information and
 	// will cause this stack to emit synthesis errors.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 }
@@ -20367,11 +20383,14 @@ type FileAssetSource struct {
 //   }
 //
 type FileCopyOptions struct {
-	// Glob patterns to exclude from the copy.
+	// File paths matching the patterns will be excluded.
+	//
+	// See `ignoreMode` to set the matching behavior.
+	// Has no effect on Assets bundled using the `bundling` property.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	FollowSymlinks SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
-	// The ignore behavior to use for exclude patterns.
+	// The ignore behavior to use for `exclude` patterns.
 	IgnoreMode IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 }
 
@@ -20392,11 +20411,14 @@ type FileCopyOptions struct {
 //   }
 //
 type FileFingerprintOptions struct {
-	// Glob patterns to exclude from the copy.
+	// File paths matching the patterns will be excluded.
+	//
+	// See `ignoreMode` to set the matching behavior.
+	// Has no effect on Assets bundled using the `bundling` property.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	FollowSymlinks SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
-	// The ignore behavior to use for exclude patterns.
+	// The ignore behavior to use for `exclude` patterns.
 	IgnoreMode IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
@@ -20535,11 +20557,14 @@ func FileSystem_Tmpdir() *string {
 //   }
 //
 type FingerprintOptions struct {
-	// Glob patterns to exclude from the copy.
+	// File paths matching the patterns will be excluded.
+	//
+	// See `ignoreMode` to set the matching behavior.
+	// Has no effect on Assets bundled using the `bundling` property.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	Follow SymlinkFollowMode `field:"optional" json:"follow" yaml:"follow"`
-	// The ignore behavior to use for exclude patterns.
+	// The ignore behavior to use for `exclude` patterns.
 	IgnoreMode IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
@@ -23587,9 +23612,9 @@ type NestedStack interface {
 	// This value is resolved according to the following rules:
 	//
 	// 1. The value provided to `env.account` when the stack is defined. This can
-	//     either be a concerete account (e.g. `585695031111`) or the
-	//     `Aws.accountId` token.
-	// 3. `Aws.accountId`, which represents the CloudFormation intrinsic reference
+	//     either be a concrete account (e.g. `585695031111`) or the
+	//     `Aws.ACCOUNT_ID` token.
+	// 3. `Aws.ACCOUNT_ID`, which represents the CloudFormation intrinsic reference
 	//     `{ "Ref": "AWS::AccountId" }` encoded as a string token.
 	//
 	// Preferably, you should use the return value as an opaque string and not
@@ -23630,7 +23655,7 @@ type NestedStack interface {
 	// environment.
 	//
 	// If either `stack.account` or `stack.region` are not concrete values (e.g.
-	// `Aws.account` or `Aws.region`) the special strings `unknown-account` and/or
+	// `Aws.ACCOUNT_ID` or `Aws.REGION`) the special strings `unknown-account` and/or
 	// `unknown-region` will be used respectively to indicate this stack is
 	// region/account-agnostic.
 	Environment() *string
@@ -23653,9 +23678,9 @@ type NestedStack interface {
 	// This value is resolved according to the following rules:
 	//
 	// 1. The value provided to `env.region` when the stack is defined. This can
-	//     either be a concerete region (e.g. `us-west-2`) or the `Aws.region`
+	//     either be a concerete region (e.g. `us-west-2`) or the `Aws.REGION`
 	//     token.
-	// 3. `Aws.region`, which is represents the CloudFormation intrinsic reference
+	// 3. `Aws.REGION`, which is represents the CloudFormation intrinsic reference
 	//     `{ "Ref": "AWS::Region" }` encoded as a string token.
 	//
 	// Preferably, you should use the return value as an opaque string and not
@@ -26218,9 +26243,9 @@ type Stack interface {
 	// This value is resolved according to the following rules:
 	//
 	// 1. The value provided to `env.account` when the stack is defined. This can
-	//     either be a concerete account (e.g. `585695031111`) or the
-	//     `Aws.accountId` token.
-	// 3. `Aws.accountId`, which represents the CloudFormation intrinsic reference
+	//     either be a concrete account (e.g. `585695031111`) or the
+	//     `Aws.ACCOUNT_ID` token.
+	// 3. `Aws.ACCOUNT_ID`, which represents the CloudFormation intrinsic reference
 	//     `{ "Ref": "AWS::AccountId" }` encoded as a string token.
 	//
 	// Preferably, you should use the return value as an opaque string and not
@@ -26261,7 +26286,7 @@ type Stack interface {
 	// environment.
 	//
 	// If either `stack.account` or `stack.region` are not concrete values (e.g.
-	// `Aws.account` or `Aws.region`) the special strings `unknown-account` and/or
+	// `Aws.ACCOUNT_ID` or `Aws.REGION`) the special strings `unknown-account` and/or
 	// `unknown-region` will be used respectively to indicate this stack is
 	// region/account-agnostic.
 	Environment() *string
@@ -26284,9 +26309,9 @@ type Stack interface {
 	// This value is resolved according to the following rules:
 	//
 	// 1. The value provided to `env.region` when the stack is defined. This can
-	//     either be a concerete region (e.g. `us-west-2`) or the `Aws.region`
+	//     either be a concerete region (e.g. `us-west-2`) or the `Aws.REGION`
 	//     token.
-	// 3. `Aws.region`, which is represents the CloudFormation intrinsic reference
+	// 3. `Aws.REGION`, which is represents the CloudFormation intrinsic reference
 	//     `{ "Ref": "AWS::Region" }` encoded as a string token.
 	//
 	// Preferably, you should use the return value as an opaque string and not
@@ -26315,7 +26340,7 @@ type Stack interface {
 	// scheme based on the construct path to ensure uniqueness.
 	//
 	// If you wish to obtain the deploy-time AWS::StackName intrinsic,
-	// you can use `Aws.stackName` directly.
+	// you can use `Aws.STACK_NAME` directly.
 	StackName() *string
 	// Synthesis method for this stack.
 	Synthesizer() IStackSynthesizer

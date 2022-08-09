@@ -261,11 +261,15 @@ The following code sets up a self managed Kafka cluster as an event source. User
 will need to be set up as described in [Managing access and permissions](https://docs.aws.amazon.com/lambda/latest/dg/smaa-permissions.html#smaa-permissions-add-secret).
 
 ```go
+// Example automatically generated from non-compiling source. May contain errors.
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 // The secret that allows access to your self hosted Kafka cluster
 var secret secret
+
+// (Optional) The secret containing the root CA certificate that your Kafka brokers use for TLS encryption
+var encryption secret
 
 var myFunction function
 
@@ -284,6 +288,7 @@ myFunction.addEventSource(awscdk.NewSelfManagedKafkaEventSource(&selfManagedKafk
 	batchSize: jsii.Number(100),
 	 // default
 	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+	encryption: encryption,
 }))
 ```
 

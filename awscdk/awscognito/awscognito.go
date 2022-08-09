@@ -11819,6 +11819,10 @@ type IUserPoolClient interface {
 	awscdk.IResource
 	// Name of the application client.
 	UserPoolClientId() *string
+	// The generated client secret.
+	//
+	// Only available if the "generateSecret" props is set to true.
+	UserPoolClientSecret() awscdk.SecretValue
 }
 
 // The jsii proxy for IUserPoolClient
@@ -11831,6 +11835,16 @@ func (j *jsiiProxy_IUserPoolClient) UserPoolClientId() *string {
 	_jsii_.Get(
 		j,
 		"userPoolClientId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPoolClient) UserPoolClientSecret() awscdk.SecretValue {
+	var returns awscdk.SecretValue
+	_jsii_.Get(
+		j,
+		"userPoolClientSecret",
 		&returns,
 	)
 	return returns
@@ -13839,6 +13853,10 @@ type UserPoolClient interface {
 	UserPoolClientId() *string
 	// The client name that was specified via the `userPoolClientName` property during initialization, throws an error otherwise.
 	UserPoolClientName() *string
+	// The generated client secret.
+	//
+	// Only available if the "generateSecret" props is set to true.
+	UserPoolClientSecret() awscdk.SecretValue
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -13938,6 +13956,16 @@ func (j *jsiiProxy_UserPoolClient) UserPoolClientName() *string {
 	_jsii_.Get(
 		j,
 		"userPoolClientName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UserPoolClient) UserPoolClientSecret() awscdk.SecretValue {
+	var returns awscdk.SecretValue
+	_jsii_.Get(
+		j,
+		"userPoolClientSecret",
 		&returns,
 	)
 	return returns

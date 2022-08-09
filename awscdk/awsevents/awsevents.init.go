@@ -756,6 +756,21 @@ func init() {
 			return &jsiiProxy_IRuleTarget{}
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_events.Match",
+		reflect.TypeOf((*Match)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "asList", GoMethod: "AsList"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Match{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResolvable)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.OAuthAuthorizationProps",
 		reflect.TypeOf((*OAuthAuthorizationProps)(nil)).Elem(),

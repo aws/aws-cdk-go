@@ -2684,6 +2684,9 @@ type CfnRegexPatternSetProps struct {
 //   							type: jsii.String("type"),
 //   						},
 //   					},
+//
+//   					// the properties below are optional
+//   					sensitivityLevel: jsii.String("sensitivityLevel"),
 //   				},
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
@@ -3908,6 +3911,9 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 //   						type: jsii.String("type"),
 //   					},
 //   				},
+//
+//   				// the properties below are optional
+//   				sensitivityLevel: jsii.String("sensitivityLevel"),
 //   			},
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
@@ -5184,6 +5190,9 @@ type CfnRuleGroup_LabelSummaryProperty struct {
 //   					type: jsii.String("type"),
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			sensitivityLevel: jsii.String("sensitivityLevel"),
 //   		},
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
@@ -5619,6 +5628,9 @@ type CfnRuleGroup_NotStatementProperty struct {
 //   						type: jsii.String("type"),
 //   					},
 //   				},
+//
+//   				// the properties below are optional
+//   				sensitivityLevel: jsii.String("sensitivityLevel"),
 //   			},
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
@@ -6075,6 +6087,9 @@ type CfnRuleGroup_OrStatementProperty struct {
 //   					type: jsii.String("type"),
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			sensitivityLevel: jsii.String("sensitivityLevel"),
 //   		},
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
@@ -6753,6 +6768,9 @@ type CfnRuleGroup_RuleActionProperty struct {
 //   					type: jsii.String("type"),
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			sensitivityLevel: jsii.String("sensitivityLevel"),
 //   		},
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
@@ -7045,6 +7063,9 @@ type CfnRuleGroup_SizeConstraintStatementProperty struct {
 //   			type: jsii.String("type"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	sensitivityLevel: jsii.String("sensitivityLevel"),
 //   }
 //
 type CfnRuleGroup_SqliMatchStatementProperty struct {
@@ -7054,6 +7075,8 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
+	// `CfnRuleGroup.SqliMatchStatementProperty.SensitivityLevel`.
+	SensitivityLevel *string `field:"optional" json:"sensitivityLevel" yaml:"sensitivityLevel"`
 }
 
 // The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
@@ -7421,6 +7444,9 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   							type: jsii.String("type"),
 //   						},
 //   					},
+//
+//   					// the properties below are optional
+//   					sensitivityLevel: jsii.String("sensitivityLevel"),
 //   				},
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
@@ -7914,6 +7940,9 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   						type: jsii.String("type"),
 //   					},
 //   				},
+//
+//   				// the properties below are optional
+//   				sensitivityLevel: jsii.String("sensitivityLevel"),
 //   			},
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
@@ -8319,6 +8348,9 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   							type: jsii.String("type"),
 //   						},
 //   					},
+//
+//   					// the properties below are optional
+//   					sensitivityLevel: jsii.String("sensitivityLevel"),
 //   				},
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
@@ -8726,6 +8758,9 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   						type: jsii.String("type"),
 //   					},
 //   				},
+//
+//   				// the properties below are optional
+//   				sensitivityLevel: jsii.String("sensitivityLevel"),
 //   			},
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
@@ -9022,6 +9057,9 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 //   				type: jsii.String("type"),
 //   			},
 //   		},
+//
+//   		// the properties below are optional
+//   		sensitivityLevel: jsii.String("sensitivityLevel"),
 //   	},
 //   	xssMatchStatement: &xssMatchStatementProperty{
 //   		fieldToMatch: &fieldToMatchProperty{
@@ -9741,6 +9779,9 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 //   							type: jsii.String("type"),
 //   						},
 //   					},
+//
+//   					// the properties below are optional
+//   					sensitivityLevel: jsii.String("sensitivityLevel"),
 //   				},
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
@@ -10330,6 +10371,9 @@ type CfnRuleGroupProps struct {
 //   							type: jsii.String("type"),
 //   						},
 //   					},
+//
+//   					// the properties below are optional
+//   					sensitivityLevel: jsii.String("sensitivityLevel"),
 //   				},
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
@@ -11667,6 +11711,9 @@ type CfnWebACL_AllowActionProperty struct {
 //   						type: jsii.String("type"),
 //   					},
 //   				},
+//
+//   				// the properties below are optional
+//   				sensitivityLevel: jsii.String("sensitivityLevel"),
 //   			},
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
@@ -13281,6 +13328,9 @@ type CfnWebACL_ManagedRuleGroupConfigProperty struct {
 //   					type: jsii.String("type"),
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			sensitivityLevel: jsii.String("sensitivityLevel"),
 //   		},
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
@@ -13773,6 +13823,9 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 //   					type: jsii.String("type"),
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			sensitivityLevel: jsii.String("sensitivityLevel"),
 //   		},
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
@@ -14243,6 +14296,9 @@ type CfnWebACL_NotStatementProperty struct {
 //   						type: jsii.String("type"),
 //   					},
 //   				},
+//
+//   				// the properties below are optional
+//   				sensitivityLevel: jsii.String("sensitivityLevel"),
 //   			},
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
@@ -14766,6 +14822,9 @@ type CfnWebACL_OverrideActionProperty struct {
 //   					type: jsii.String("type"),
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			sensitivityLevel: jsii.String("sensitivityLevel"),
 //   		},
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
@@ -15543,6 +15602,9 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 //   					type: jsii.String("type"),
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			sensitivityLevel: jsii.String("sensitivityLevel"),
 //   		},
 //   		xssMatchStatement: &xssMatchStatementProperty{
 //   			fieldToMatch: &fieldToMatchProperty{
@@ -15897,6 +15959,9 @@ type CfnWebACL_SizeConstraintStatementProperty struct {
 //   			type: jsii.String("type"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	sensitivityLevel: jsii.String("sensitivityLevel"),
 //   }
 //
 type CfnWebACL_SqliMatchStatementProperty struct {
@@ -15906,6 +15971,8 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 	//
 	// If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
+	// `CfnWebACL.SqliMatchStatementProperty.SensitivityLevel`.
+	SensitivityLevel *string `field:"optional" json:"sensitivityLevel" yaml:"sensitivityLevel"`
 }
 
 // The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
@@ -16309,6 +16376,9 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   							type: jsii.String("type"),
 //   						},
 //   					},
+//
+//   					// the properties below are optional
+//   					sensitivityLevel: jsii.String("sensitivityLevel"),
 //   				},
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
@@ -16836,6 +16906,9 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   						type: jsii.String("type"),
 //   					},
 //   				},
+//
+//   				// the properties below are optional
+//   				sensitivityLevel: jsii.String("sensitivityLevel"),
 //   			},
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
@@ -17278,6 +17351,9 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   						type: jsii.String("type"),
 //   					},
 //   				},
+//
+//   				// the properties below are optional
+//   				sensitivityLevel: jsii.String("sensitivityLevel"),
 //   			},
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
@@ -17718,6 +17794,9 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   							type: jsii.String("type"),
 //   						},
 //   					},
+//
+//   					// the properties below are optional
+//   					sensitivityLevel: jsii.String("sensitivityLevel"),
 //   				},
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{
@@ -18160,6 +18239,9 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   						type: jsii.String("type"),
 //   					},
 //   				},
+//
+//   				// the properties below are optional
+//   				sensitivityLevel: jsii.String("sensitivityLevel"),
 //   			},
 //   			xssMatchStatement: &xssMatchStatementProperty{
 //   				fieldToMatch: &fieldToMatchProperty{
@@ -18466,6 +18548,9 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 //   				type: jsii.String("type"),
 //   			},
 //   		},
+//
+//   		// the properties below are optional
+//   		sensitivityLevel: jsii.String("sensitivityLevel"),
 //   	},
 //   	xssMatchStatement: &xssMatchStatementProperty{
 //   		fieldToMatch: &fieldToMatchProperty{
@@ -19865,6 +19950,9 @@ type CfnWebACLAssociationProps struct {
 //   							type: jsii.String("type"),
 //   						},
 //   					},
+//
+//   					// the properties below are optional
+//   					sensitivityLevel: jsii.String("sensitivityLevel"),
 //   				},
 //   				xssMatchStatement: &xssMatchStatementProperty{
 //   					fieldToMatch: &fieldToMatchProperty{

@@ -1409,24 +1409,78 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 // Options for configuring a new container.
 //
 // Example:
-//   // One application load balancer with one listener and two target groups.
-//   var cluster cluster
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("Service"), &applicationMultipleTargetGroupsFargateServiceProps{
-//   	cluster: cluster,
-//   	memoryLimitMiB: jsii.Number(1024),
-//   	cpu: jsii.Number(512),
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
+//   	maxAzs: jsii.Number(1),
+//   })
+//   loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("myService"), &applicationMultipleTargetGroupsFargateServiceProps{
+//   	cluster: ecs.NewCluster(this, jsii.String("EcsCluster"), &clusterProps{
+//   		vpc: vpc,
+//   	}),
+//   	memoryLimitMiB: jsii.Number(256),
 //   	taskImageOptions: &applicationLoadBalancedTaskImageProps{
 //   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	enableExecuteCommand: jsii.Boolean(true),
+//   	loadBalancers: []applicationLoadBalancerProps{
+//   		&applicationLoadBalancerProps{
+//   			name: jsii.String("lb"),
+//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(400)),
+//   			domainName: jsii.String("api.example.com"),
+//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+//   				zoneName: jsii.String("example.com"),
+//   			}),
+//   			listeners: []applicationListenerProps{
+//   				&applicationListenerProps{
+//   					name: jsii.String("listener"),
+//   					protocol: awscdk.ApplicationProtocol_HTTPS,
+//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert"), jsii.String("helloworld")),
+//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+//   				},
+//   			},
+//   		},
+//   		&applicationLoadBalancerProps{
+//   			name: jsii.String("lb2"),
+//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(120)),
+//   			domainName: jsii.String("frontend.com"),
+//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+//   				zoneName: jsii.String("frontend.com"),
+//   			}),
+//   			listeners: []*applicationListenerProps{
+//   				&applicationListenerProps{
+//   					name: jsii.String("listener2"),
+//   					protocol: awscdk.ApplicationProtocol_HTTPS,
+//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert2"), jsii.String("helloworld")),
+//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+//   				},
+//   			},
+//   		},
 //   	},
 //   	targetGroups: []applicationTargetProps{
 //   		&applicationTargetProps{
 //   			containerPort: jsii.Number(80),
+//   			listener: jsii.String("listener"),
 //   		},
 //   		&applicationTargetProps{
 //   			containerPort: jsii.Number(90),
 //   			pathPattern: jsii.String("a/b/c"),
 //   			priority: jsii.Number(10),
+//   			listener: jsii.String("listener"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(443),
+//   			listener: jsii.String("listener2"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(80),
+//   			pathPattern: jsii.String("a/b/c"),
+//   			priority: jsii.Number(10),
+//   			listener: jsii.String("listener2"),
 //   		},
 //   	},
 //   })
@@ -1553,11 +1607,15 @@ type ApplicationMultipleTargetGroupsEc2Service interface {
 	// when updating an existing service, if one is not provided.
 	InternalDesiredCount() *float64
 	// The default listener for the service (first added listener).
+	// Deprecated: - Use `listeners` instead.
 	Listener() awselasticloadbalancingv2.ApplicationListener
+	// The listeners of the service.
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
-	SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener)
 	// The default Application Load Balancer for the service (first added load balancer).
+	// Deprecated: - Use `loadBalancers` instead.
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
+	// The load balancers of the service.
+	LoadBalancers() *[]awselasticloadbalancingv2.ApplicationLoadBalancer
 	LogDriver() awsecs.LogDriver
 	SetLogDriver(val awsecs.LogDriver)
 	// The tree node.
@@ -1565,9 +1623,10 @@ type ApplicationMultipleTargetGroupsEc2Service interface {
 	// The EC2 service in this construct.
 	Service() awsecs.Ec2Service
 	// The default target group for the service.
+	// Deprecated: - Use `targetGroups` instead.
 	TargetGroup() awselasticloadbalancingv2.ApplicationTargetGroup
+	// The target groups of the service.
 	TargetGroups() *[]awselasticloadbalancingv2.ApplicationTargetGroup
-	SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup)
 	// The EC2 Task Definition in this construct.
 	TaskDefinition() awsecs.Ec2TaskDefinition
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps)
@@ -1630,6 +1689,16 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) LoadBalancer() aws
 	_jsii_.Get(
 		j,
 		"loadBalancer",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) LoadBalancers() *[]awselasticloadbalancingv2.ApplicationLoadBalancer {
+	var returns *[]awselasticloadbalancingv2.ApplicationLoadBalancer
+	_jsii_.Get(
+		j,
+		"loadBalancers",
 		&returns,
 	)
 	return returns
@@ -1722,26 +1791,10 @@ func NewApplicationMultipleTargetGroupsEc2Service_Override(a ApplicationMultiple
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener) {
-	_jsii_.Set(
-		j,
-		"listeners",
-		val,
-	)
-}
-
 func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetLogDriver(val awsecs.LogDriver) {
 	_jsii_.Set(
 		j,
 		"logDriver",
-		val,
-	)
-}
-
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) {
-	_jsii_.Set(
-		j,
-		"targetGroups",
 		val,
 	)
 }
@@ -1953,24 +2006,78 @@ type ApplicationMultipleTargetGroupsEc2ServiceProps struct {
 // A Fargate service running on an ECS cluster fronted by an application load balancer.
 //
 // Example:
-//   // One application load balancer with one listener and two target groups.
-//   var cluster cluster
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("Service"), &applicationMultipleTargetGroupsFargateServiceProps{
-//   	cluster: cluster,
-//   	memoryLimitMiB: jsii.Number(1024),
-//   	cpu: jsii.Number(512),
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
+//   	maxAzs: jsii.Number(1),
+//   })
+//   loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("myService"), &applicationMultipleTargetGroupsFargateServiceProps{
+//   	cluster: ecs.NewCluster(this, jsii.String("EcsCluster"), &clusterProps{
+//   		vpc: vpc,
+//   	}),
+//   	memoryLimitMiB: jsii.Number(256),
 //   	taskImageOptions: &applicationLoadBalancedTaskImageProps{
 //   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	enableExecuteCommand: jsii.Boolean(true),
+//   	loadBalancers: []applicationLoadBalancerProps{
+//   		&applicationLoadBalancerProps{
+//   			name: jsii.String("lb"),
+//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(400)),
+//   			domainName: jsii.String("api.example.com"),
+//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+//   				zoneName: jsii.String("example.com"),
+//   			}),
+//   			listeners: []applicationListenerProps{
+//   				&applicationListenerProps{
+//   					name: jsii.String("listener"),
+//   					protocol: awscdk.ApplicationProtocol_HTTPS,
+//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert"), jsii.String("helloworld")),
+//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+//   				},
+//   			},
+//   		},
+//   		&applicationLoadBalancerProps{
+//   			name: jsii.String("lb2"),
+//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(120)),
+//   			domainName: jsii.String("frontend.com"),
+//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+//   				zoneName: jsii.String("frontend.com"),
+//   			}),
+//   			listeners: []*applicationListenerProps{
+//   				&applicationListenerProps{
+//   					name: jsii.String("listener2"),
+//   					protocol: awscdk.ApplicationProtocol_HTTPS,
+//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert2"), jsii.String("helloworld")),
+//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+//   				},
+//   			},
+//   		},
 //   	},
 //   	targetGroups: []applicationTargetProps{
 //   		&applicationTargetProps{
 //   			containerPort: jsii.Number(80),
+//   			listener: jsii.String("listener"),
 //   		},
 //   		&applicationTargetProps{
 //   			containerPort: jsii.Number(90),
 //   			pathPattern: jsii.String("a/b/c"),
 //   			priority: jsii.Number(10),
+//   			listener: jsii.String("listener"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(443),
+//   			listener: jsii.String("listener2"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(80),
+//   			pathPattern: jsii.String("a/b/c"),
+//   			priority: jsii.Number(10),
+//   			listener: jsii.String("listener2"),
 //   		},
 //   	},
 //   })
@@ -1987,11 +2094,15 @@ type ApplicationMultipleTargetGroupsFargateService interface {
 	// when updating an existing service, if one is not provided.
 	InternalDesiredCount() *float64
 	// The default listener for the service (first added listener).
+	// Deprecated: - Use `listeners` instead.
 	Listener() awselasticloadbalancingv2.ApplicationListener
+	// The listeners of the service.
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
-	SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener)
 	// The default Application Load Balancer for the service (first added load balancer).
+	// Deprecated: - Use `loadBalancers` instead.
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
+	// The load balancers of the service.
+	LoadBalancers() *[]awselasticloadbalancingv2.ApplicationLoadBalancer
 	LogDriver() awsecs.LogDriver
 	SetLogDriver(val awsecs.LogDriver)
 	// The tree node.
@@ -1999,9 +2110,10 @@ type ApplicationMultipleTargetGroupsFargateService interface {
 	// The Fargate service in this construct.
 	Service() awsecs.FargateService
 	// The default target group for the service.
+	// Deprecated: - Use `targetGroups` instead.
 	TargetGroup() awselasticloadbalancingv2.ApplicationTargetGroup
+	// The target groups of the service.
 	TargetGroups() *[]awselasticloadbalancingv2.ApplicationTargetGroup
-	SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup)
 	// The Fargate task definition in this construct.
 	TaskDefinition() awsecs.FargateTaskDefinition
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps)
@@ -2074,6 +2186,16 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) LoadBalancer()
 	_jsii_.Get(
 		j,
 		"loadBalancer",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) LoadBalancers() *[]awselasticloadbalancingv2.ApplicationLoadBalancer {
+	var returns *[]awselasticloadbalancingv2.ApplicationLoadBalancer
+	_jsii_.Get(
+		j,
+		"loadBalancers",
 		&returns,
 	)
 	return returns
@@ -2166,26 +2288,10 @@ func NewApplicationMultipleTargetGroupsFargateService_Override(a ApplicationMult
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener) {
-	_jsii_.Set(
-		j,
-		"listeners",
-		val,
-	)
-}
-
 func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) SetLogDriver(val awsecs.LogDriver) {
 	_jsii_.Set(
 		j,
 		"logDriver",
-		val,
-	)
-}
-
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) {
-	_jsii_.Set(
-		j,
-		"targetGroups",
 		val,
 	)
 }
@@ -2298,24 +2404,78 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) ToString() *st
 // The properties for the ApplicationMultipleTargetGroupsFargateService service.
 //
 // Example:
-//   // One application load balancer with one listener and two target groups.
-//   var cluster cluster
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("Service"), &applicationMultipleTargetGroupsFargateServiceProps{
-//   	cluster: cluster,
-//   	memoryLimitMiB: jsii.Number(1024),
-//   	cpu: jsii.Number(512),
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
+//   	maxAzs: jsii.Number(1),
+//   })
+//   loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("myService"), &applicationMultipleTargetGroupsFargateServiceProps{
+//   	cluster: ecs.NewCluster(this, jsii.String("EcsCluster"), &clusterProps{
+//   		vpc: vpc,
+//   	}),
+//   	memoryLimitMiB: jsii.Number(256),
 //   	taskImageOptions: &applicationLoadBalancedTaskImageProps{
 //   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	enableExecuteCommand: jsii.Boolean(true),
+//   	loadBalancers: []applicationLoadBalancerProps{
+//   		&applicationLoadBalancerProps{
+//   			name: jsii.String("lb"),
+//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(400)),
+//   			domainName: jsii.String("api.example.com"),
+//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+//   				zoneName: jsii.String("example.com"),
+//   			}),
+//   			listeners: []applicationListenerProps{
+//   				&applicationListenerProps{
+//   					name: jsii.String("listener"),
+//   					protocol: awscdk.ApplicationProtocol_HTTPS,
+//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert"), jsii.String("helloworld")),
+//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+//   				},
+//   			},
+//   		},
+//   		&applicationLoadBalancerProps{
+//   			name: jsii.String("lb2"),
+//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(120)),
+//   			domainName: jsii.String("frontend.com"),
+//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+//   				zoneName: jsii.String("frontend.com"),
+//   			}),
+//   			listeners: []*applicationListenerProps{
+//   				&applicationListenerProps{
+//   					name: jsii.String("listener2"),
+//   					protocol: awscdk.ApplicationProtocol_HTTPS,
+//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert2"), jsii.String("helloworld")),
+//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+//   				},
+//   			},
+//   		},
 //   	},
 //   	targetGroups: []applicationTargetProps{
 //   		&applicationTargetProps{
 //   			containerPort: jsii.Number(80),
+//   			listener: jsii.String("listener"),
 //   		},
 //   		&applicationTargetProps{
 //   			containerPort: jsii.Number(90),
 //   			pathPattern: jsii.String("a/b/c"),
 //   			priority: jsii.Number(10),
+//   			listener: jsii.String("listener"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(443),
+//   			listener: jsii.String("listener2"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(80),
+//   			pathPattern: jsii.String("a/b/c"),
+//   			priority: jsii.Number(10),
+//   			listener: jsii.String("listener2"),
 //   		},
 //   	},
 //   })
@@ -2414,17 +2574,21 @@ type ApplicationMultipleTargetGroupsServiceBase interface {
 	// when updating an existing service, if one is not provided.
 	InternalDesiredCount() *float64
 	// The default listener for the service (first added listener).
+	// Deprecated: - Use `listeners` instead.
 	Listener() awselasticloadbalancingv2.ApplicationListener
+	// The listeners of the service.
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
-	SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener)
 	// The default Application Load Balancer for the service (first added load balancer).
+	// Deprecated: - Use `loadBalancers` instead.
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
+	// The load balancers of the service.
+	LoadBalancers() *[]awselasticloadbalancingv2.ApplicationLoadBalancer
 	LogDriver() awsecs.LogDriver
 	SetLogDriver(val awsecs.LogDriver)
 	// The tree node.
 	Node() constructs.Node
+	// The target groups of the service.
 	TargetGroups() *[]awselasticloadbalancingv2.ApplicationTargetGroup
-	SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup)
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	FindListener(name *string) awselasticloadbalancingv2.ApplicationListener
@@ -2490,6 +2654,16 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) LoadBalancer() aw
 	return returns
 }
 
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) LoadBalancers() *[]awselasticloadbalancingv2.ApplicationLoadBalancer {
+	var returns *[]awselasticloadbalancingv2.ApplicationLoadBalancer
+	_jsii_.Get(
+		j,
+		"loadBalancers",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) LogDriver() awsecs.LogDriver {
 	var returns awsecs.LogDriver
 	_jsii_.Get(
@@ -2532,26 +2706,10 @@ func NewApplicationMultipleTargetGroupsServiceBase_Override(a ApplicationMultipl
 	)
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener) {
-	_jsii_.Set(
-		j,
-		"listeners",
-		val,
-	)
-}
-
 func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) SetLogDriver(val awsecs.LogDriver) {
 	_jsii_.Set(
 		j,
 		"logDriver",
-		val,
-	)
-}
-
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) {
-	_jsii_.Set(
-		j,
-		"targetGroups",
 		val,
 	)
 }
@@ -4212,11 +4370,15 @@ type NetworkMultipleTargetGroupsEc2Service interface {
 	// when updating an existing service, if one is not provided.
 	InternalDesiredCount() *float64
 	// The listener for the service.
+	// Deprecated: - Use `listeners` instead.
 	Listener() awselasticloadbalancingv2.NetworkListener
+	// The listeners of the service.
 	Listeners() *[]awselasticloadbalancingv2.NetworkListener
-	SetListeners(val *[]awselasticloadbalancingv2.NetworkListener)
 	// The Network Load Balancer for the service.
+	// Deprecated: - Use `loadBalancers` instead.
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
+	// The load balancers of the service.
+	LoadBalancers() *[]awselasticloadbalancingv2.NetworkLoadBalancer
 	LogDriver() awsecs.LogDriver
 	SetLogDriver(val awsecs.LogDriver)
 	// The tree node.
@@ -4224,9 +4386,10 @@ type NetworkMultipleTargetGroupsEc2Service interface {
 	// The EC2 service in this construct.
 	Service() awsecs.Ec2Service
 	// The default target group for the service.
+	// Deprecated: - Use `targetGroups` instead.
 	TargetGroup() awselasticloadbalancingv2.NetworkTargetGroup
+	// The target groups of the service.
 	TargetGroups() *[]awselasticloadbalancingv2.NetworkTargetGroup
-	SetTargetGroups(val *[]awselasticloadbalancingv2.NetworkTargetGroup)
 	// The EC2 Task Definition in this construct.
 	TaskDefinition() awsecs.Ec2TaskDefinition
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps)
@@ -4289,6 +4452,16 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) LoadBalancer() awselas
 	_jsii_.Get(
 		j,
 		"loadBalancer",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) LoadBalancers() *[]awselasticloadbalancingv2.NetworkLoadBalancer {
+	var returns *[]awselasticloadbalancingv2.NetworkLoadBalancer
+	_jsii_.Get(
+		j,
+		"loadBalancers",
 		&returns,
 	)
 	return returns
@@ -4381,26 +4554,10 @@ func NewNetworkMultipleTargetGroupsEc2Service_Override(n NetworkMultipleTargetGr
 	)
 }
 
-func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) SetListeners(val *[]awselasticloadbalancingv2.NetworkListener) {
-	_jsii_.Set(
-		j,
-		"listeners",
-		val,
-	)
-}
-
 func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) SetLogDriver(val awsecs.LogDriver) {
 	_jsii_.Set(
 		j,
 		"logDriver",
-		val,
-	)
-}
-
-func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) SetTargetGroups(val *[]awselasticloadbalancingv2.NetworkTargetGroup) {
-	_jsii_.Set(
-		j,
-		"targetGroups",
 		val,
 	)
 }
@@ -4683,11 +4840,15 @@ type NetworkMultipleTargetGroupsFargateService interface {
 	// when updating an existing service, if one is not provided.
 	InternalDesiredCount() *float64
 	// The listener for the service.
+	// Deprecated: - Use `listeners` instead.
 	Listener() awselasticloadbalancingv2.NetworkListener
+	// The listeners of the service.
 	Listeners() *[]awselasticloadbalancingv2.NetworkListener
-	SetListeners(val *[]awselasticloadbalancingv2.NetworkListener)
 	// The Network Load Balancer for the service.
+	// Deprecated: - Use `loadBalancers` instead.
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
+	// The load balancers of the service.
+	LoadBalancers() *[]awselasticloadbalancingv2.NetworkLoadBalancer
 	LogDriver() awsecs.LogDriver
 	SetLogDriver(val awsecs.LogDriver)
 	// The tree node.
@@ -4695,9 +4856,10 @@ type NetworkMultipleTargetGroupsFargateService interface {
 	// The Fargate service in this construct.
 	Service() awsecs.FargateService
 	// The default target group for the service.
+	// Deprecated: - Use `targetGroups` instead.
 	TargetGroup() awselasticloadbalancingv2.NetworkTargetGroup
+	// The target groups of the service.
 	TargetGroups() *[]awselasticloadbalancingv2.NetworkTargetGroup
-	SetTargetGroups(val *[]awselasticloadbalancingv2.NetworkTargetGroup)
 	// The Fargate task definition in this construct.
 	TaskDefinition() awsecs.FargateTaskDefinition
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps)
@@ -4770,6 +4932,16 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) LoadBalancer() aws
 	_jsii_.Get(
 		j,
 		"loadBalancer",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) LoadBalancers() *[]awselasticloadbalancingv2.NetworkLoadBalancer {
+	var returns *[]awselasticloadbalancingv2.NetworkLoadBalancer
+	_jsii_.Get(
+		j,
+		"loadBalancers",
 		&returns,
 	)
 	return returns
@@ -4862,26 +5034,10 @@ func NewNetworkMultipleTargetGroupsFargateService_Override(n NetworkMultipleTarg
 	)
 }
 
-func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) SetListeners(val *[]awselasticloadbalancingv2.NetworkListener) {
-	_jsii_.Set(
-		j,
-		"listeners",
-		val,
-	)
-}
-
 func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) SetLogDriver(val awsecs.LogDriver) {
 	_jsii_.Set(
 		j,
 		"logDriver",
-		val,
-	)
-}
-
-func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) SetTargetGroups(val *[]awselasticloadbalancingv2.NetworkTargetGroup) {
-	_jsii_.Set(
-		j,
-		"targetGroups",
 		val,
 	)
 }
@@ -5129,17 +5285,21 @@ type NetworkMultipleTargetGroupsServiceBase interface {
 	// when updating an existing service, if one is not provided.
 	InternalDesiredCount() *float64
 	// The listener for the service.
+	// Deprecated: - Use `listeners` instead.
 	Listener() awselasticloadbalancingv2.NetworkListener
+	// The listeners of the service.
 	Listeners() *[]awselasticloadbalancingv2.NetworkListener
-	SetListeners(val *[]awselasticloadbalancingv2.NetworkListener)
 	// The Network Load Balancer for the service.
+	// Deprecated: - Use `loadBalancers` instead.
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
+	// The load balancers of the service.
+	LoadBalancers() *[]awselasticloadbalancingv2.NetworkLoadBalancer
 	LogDriver() awsecs.LogDriver
 	SetLogDriver(val awsecs.LogDriver)
 	// The tree node.
 	Node() constructs.Node
+	// The target groups of the service.
 	TargetGroups() *[]awselasticloadbalancingv2.NetworkTargetGroup
-	SetTargetGroups(val *[]awselasticloadbalancingv2.NetworkTargetGroup)
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	FindListener(name *string) awselasticloadbalancingv2.NetworkListener
@@ -5205,6 +5365,16 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) LoadBalancer() awsela
 	return returns
 }
 
+func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) LoadBalancers() *[]awselasticloadbalancingv2.NetworkLoadBalancer {
+	var returns *[]awselasticloadbalancingv2.NetworkLoadBalancer
+	_jsii_.Get(
+		j,
+		"loadBalancers",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) LogDriver() awsecs.LogDriver {
 	var returns awsecs.LogDriver
 	_jsii_.Get(
@@ -5247,26 +5417,10 @@ func NewNetworkMultipleTargetGroupsServiceBase_Override(n NetworkMultipleTargetG
 	)
 }
 
-func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) SetListeners(val *[]awselasticloadbalancingv2.NetworkListener) {
-	_jsii_.Set(
-		j,
-		"listeners",
-		val,
-	)
-}
-
 func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) SetLogDriver(val awsecs.LogDriver) {
 	_jsii_.Set(
 		j,
 		"logDriver",
-		val,
-	)
-}
-
-func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) SetTargetGroups(val *[]awselasticloadbalancingv2.NetworkTargetGroup) {
-	_jsii_.Set(
-		j,
-		"targetGroups",
 		val,
 	)
 }

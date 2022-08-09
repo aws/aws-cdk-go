@@ -165,6 +165,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnCACertificate.RegistrationConfigProperty",
+		reflect.TypeOf((*CfnCACertificate_RegistrationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnCACertificateProps",
 		reflect.TypeOf((*CfnCACertificateProps)(nil)).Elem(),
 	)
@@ -720,6 +724,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "templateBody", GoGetter: "TemplateBody"},
 			_jsii_.MemberProperty{JsiiProperty: "templateName", GoGetter: "TemplateName"},
+			_jsii_.MemberProperty{JsiiProperty: "templateType", GoGetter: "TemplateType"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},

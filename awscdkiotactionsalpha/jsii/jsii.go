@@ -11,11 +11,12 @@ import (
 
 	awscdk                     "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	awscdkiotalpha             "github.com/aws/aws-cdk-go/awscdkiotalpha/v2/jsii"
+	awscdkioteventsalpha       "github.com/aws/aws-cdk-go/awscdkioteventsalpha/v2/jsii"
 	awscdkkinesisfirehosealpha "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha/v2/jsii"
 	constructs                 "github.com/aws/constructs-go/constructs/v10/jsii"
 )
 
-//go:embed aws-cdk-aws-iot-actions-alpha-2.36.0-alpha.0.tgz
+//go:embed aws-cdk-aws-iot-actions-alpha-2.37.0-alpha.0.tgz
 var tarball []byte
 
 // Initialize loads the necessary packages in the @jsii/kernel to support the enclosing module.
@@ -23,10 +24,11 @@ var tarball []byte
 func Initialize() {
 	// Ensure all dependencies are initialized
 	awscdkiotalpha.Initialize()
+	awscdkioteventsalpha.Initialize()
 	awscdkkinesisfirehosealpha.Initialize()
 	awscdk.Initialize()
 	constructs.Initialize()
 
 	// Load this library into the kernel
-	_jsii_.Load("@aws-cdk/aws-iot-actions-alpha", "2.36.0-alpha.0", tarball)
+	_jsii_.Load("@aws-cdk/aws-iot-actions-alpha", "2.37.0-alpha.0", tarball)
 }

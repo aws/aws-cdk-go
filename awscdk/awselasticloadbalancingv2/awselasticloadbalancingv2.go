@@ -2231,19 +2231,29 @@ type ApplicationLoadBalancerRedirectConfig struct {
 // Load balancing protocol for application load balancers.
 //
 // Example:
+//   var cluster cluster
+//   var taskDefinition taskDefinition
 //   var vpc vpc
 //
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
+//   	cluster: cluster,
+//   	taskDefinition: taskDefinition,
+//   })
 //
-//   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &applicationTargetGroupProps{
-//   	targetType: elbv2.targetType_IP,
-//   	port: jsii.Number(50051),
-//   	protocol: elbv2.applicationProtocol_HTTP,
-//   	protocolVersion: elbv2.applicationProtocolVersion_GRPC,
-//   	healthCheck: &healthCheck{
-//   		enabled: jsii.Boolean(true),
-//   		healthyGrpcCodes: jsii.String("0-99"),
-//   	},
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &applicationLoadBalancerProps{
 //   	vpc: vpc,
+//   	internetFacing: jsii.Boolean(true),
+//   })
+//   listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
+//   	port: jsii.Number(80),
+//   })
+//   service.registerLoadBalancerTargets(&ecsTarget{
+//   	containerName: jsii.String("web"),
+//   	containerPort: jsii.Number(80),
+//   	newTargetGroupId: jsii.String("ECS"),
+//   	listener: ecs.listenerConfig.applicationListener(listener, &addApplicationTargetsProps{
+//   		protocol: elbv2.applicationProtocol_HTTPS,
+//   	}),
 //   })
 //
 type ApplicationProtocol string
@@ -9747,19 +9757,19 @@ type ForwardOptions struct {
 // Properties for configuring a health check.
 //
 // Example:
-//   var cluster cluster
+//   var vpc vpc
 //
-//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
-//   	cluster: cluster,
-//   	memoryLimitMiB: jsii.Number(1024),
-//   	cpu: jsii.Number(512),
-//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
-//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//
+//   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &applicationTargetGroupProps{
+//   	targetType: elbv2.targetType_IP,
+//   	port: jsii.Number(50051),
+//   	protocol: elbv2.applicationProtocol_HTTP,
+//   	protocolVersion: elbv2.applicationProtocolVersion_GRPC,
+//   	healthCheck: &healthCheck{
+//   		enabled: jsii.Boolean(true),
+//   		healthyGrpcCodes: jsii.String("0-99"),
 //   	},
-//   })
-//
-//   loadBalancedFargateService.targetGroup.configureHealthCheck(&healthCheck{
-//   	path: jsii.String("/custom-health-path"),
+//   	vpc: vpc,
 //   })
 //
 type HealthCheck struct {
@@ -12932,12 +12942,101 @@ type NetworkWeightedTargetGroup struct {
 // Backend protocol for network load balancers and health checks.
 //
 // Example:
-//   listener := elbv2.networkListener.fromLookup(this, jsii.String("ALBListener"), &networkListenerLookupOptions{
-//   	loadBalancerTags: map[string]*string{
-//   		"Cluster": jsii.String("MyClusterName"),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
+//   	maxAzs: jsii.Number(1),
+//   })
+//
+//   loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("myService"), &applicationMultipleTargetGroupsFargateServiceProps{
+//   	cluster: ecs.NewCluster(this, jsii.String("EcsCluster"), &clusterProps{
+//   		vpc: vpc,
+//   	}),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	taskImageOptions: &applicationLoadBalancedTaskImageProps{
+//   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
-//   	listenerProtocol: elbv2.protocol_TCP,
-//   	listenerPort: jsii.Number(12345),
+//   	enableExecuteCommand: jsii.Boolean(true),
+//   	loadBalancers: []applicationLoadBalancerProps{
+//   		&applicationLoadBalancerProps{
+//   			name: jsii.String("lb"),
+//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(400)),
+//   			domainName: jsii.String("api.example.com"),
+//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+//   				zoneName: jsii.String("example.com"),
+//   			}),
+//   			listeners: []applicationListenerProps{
+//   				&applicationListenerProps{
+//   					name: jsii.String("listener"),
+//   					protocol: awscdk.ApplicationProtocol_HTTPS,
+//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert"), jsii.String("helloworld")),
+//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+//   				},
+//   			},
+//   		},
+//   		&applicationLoadBalancerProps{
+//   			name: jsii.String("lb2"),
+//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(120)),
+//   			domainName: jsii.String("frontend.com"),
+//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+//   				zoneName: jsii.String("frontend.com"),
+//   			}),
+//   			listeners: []*applicationListenerProps{
+//   				&applicationListenerProps{
+//   					name: jsii.String("listener2"),
+//   					protocol: awscdk.ApplicationProtocol_HTTPS,
+//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert2"), jsii.String("helloworld")),
+//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+//   				},
+//   			},
+//   		},
+//   	},
+//   	targetGroups: []applicationTargetProps{
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(80),
+//   			listener: jsii.String("listener"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(90),
+//   			pathPattern: jsii.String("a/b/c"),
+//   			priority: jsii.Number(10),
+//   			listener: jsii.String("listener"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(443),
+//   			listener: jsii.String("listener2"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(80),
+//   			pathPattern: jsii.String("a/b/c"),
+//   			priority: jsii.Number(10),
+//   			listener: jsii.String("listener2"),
+//   		},
+//   	},
+//   })
+//
+//   loadBalancedFargateService.targetGroups[0].configureHealthCheck(&healthCheck{
+//   	port: jsii.String("8050"),
+//   	protocol: awscdk.Protocol_HTTP,
+//   	healthyThresholdCount: jsii.Number(2),
+//   	unhealthyThresholdCount: jsii.Number(2),
+//   	timeout: awscdk.Duration.seconds(jsii.Number(10)),
+//   	interval: awscdk.Duration.seconds(jsii.Number(30)),
+//   	healthyHttpCodes: jsii.String("200"),
+//   })
+//
+//   loadBalancedFargateService.targetGroups[1].configureHealthCheck(&healthCheck{
+//   	port: jsii.String("8050"),
+//   	protocol: awscdk.Protocol_HTTP,
+//   	healthyThresholdCount: jsii.Number(2),
+//   	unhealthyThresholdCount: jsii.Number(2),
+//   	timeout: awscdk.Duration.seconds(jsii.Number(10)),
+//   	interval: awscdk.Duration.seconds(jsii.Number(30)),
+//   	healthyHttpCodes: jsii.String("200"),
 //   })
 //
 type Protocol string
@@ -13051,25 +13150,76 @@ type RedirectOptions struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpc vpc
-//   var cluster cluster
-//
-//
-//   domainZone := awscdk.HostedZone.fromLookup(this, jsii.String("Zone"), &hostedZoneProviderProps{
-//   	domainName: jsii.String("example.com"),
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
+//   	maxAzs: jsii.Number(1),
 //   })
-//   certificate := awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert"), jsii.String("arn:aws:acm:us-east-1:123456:certificate/abcdefg"))
-//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
-//   	vpc: vpc,
-//   	cluster: cluster,
-//   	certificate: certificate,
-//   	sslPolicy: awscdk.SslPolicy_RECOMMENDED,
-//   	domainName: jsii.String("api.example.com"),
-//   	domainZone: domainZone,
-//   	redirectHTTP: jsii.Boolean(true),
-//   	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+//   loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("myService"), &applicationMultipleTargetGroupsFargateServiceProps{
+//   	cluster: ecs.NewCluster(this, jsii.String("EcsCluster"), &clusterProps{
+//   		vpc: vpc,
+//   	}),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	taskImageOptions: &applicationLoadBalancedTaskImageProps{
 //   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	enableExecuteCommand: jsii.Boolean(true),
+//   	loadBalancers: []applicationLoadBalancerProps{
+//   		&applicationLoadBalancerProps{
+//   			name: jsii.String("lb"),
+//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(400)),
+//   			domainName: jsii.String("api.example.com"),
+//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+//   				zoneName: jsii.String("example.com"),
+//   			}),
+//   			listeners: []applicationListenerProps{
+//   				&applicationListenerProps{
+//   					name: jsii.String("listener"),
+//   					protocol: awscdk.ApplicationProtocol_HTTPS,
+//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert"), jsii.String("helloworld")),
+//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+//   				},
+//   			},
+//   		},
+//   		&applicationLoadBalancerProps{
+//   			name: jsii.String("lb2"),
+//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(120)),
+//   			domainName: jsii.String("frontend.com"),
+//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
+//   				zoneName: jsii.String("frontend.com"),
+//   			}),
+//   			listeners: []*applicationListenerProps{
+//   				&applicationListenerProps{
+//   					name: jsii.String("listener2"),
+//   					protocol: awscdk.ApplicationProtocol_HTTPS,
+//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert2"), jsii.String("helloworld")),
+//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
+//   				},
+//   			},
+//   		},
+//   	},
+//   	targetGroups: []applicationTargetProps{
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(80),
+//   			listener: jsii.String("listener"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(90),
+//   			pathPattern: jsii.String("a/b/c"),
+//   			priority: jsii.Number(10),
+//   			listener: jsii.String("listener"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(443),
+//   			listener: jsii.String("listener2"),
+//   		},
+//   		&applicationTargetProps{
+//   			containerPort: jsii.Number(80),
+//   			pathPattern: jsii.String("a/b/c"),
+//   			priority: jsii.Number(10),
+//   			listener: jsii.String("listener2"),
+//   		},
 //   	},
 //   })
 //

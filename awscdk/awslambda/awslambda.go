@@ -1507,11 +1507,14 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, o
 //   }
 //
 type AssetImageCodeProps struct {
-	// Glob patterns to exclude from the copy.
+	// File paths matching the patterns will be excluded.
+	//
+	// See `ignoreMode` to set the matching behavior.
+	// Has no effect on Assets bundled using the `bundling` property.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
-	// The ignore behavior to use for exclude patterns.
+	// The ignore behavior to use for `exclude` patterns.
 	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
@@ -20646,6 +20649,17 @@ func SourceAccessConfigurationType_SASL_SCRAM_512_AUTH() SourceAccessConfigurati
 	return returns
 }
 
+func SourceAccessConfigurationType_SERVER_ROOT_CA_CERTIFICATE() SourceAccessConfigurationType {
+	_init_.Initialize()
+	var returns SourceAccessConfigurationType
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
+		"SERVER_ROOT_CA_CERTIFICATE",
+		&returns,
+	)
+	return returns
+}
+
 func SourceAccessConfigurationType_VPC_SECURITY_GROUP() SourceAccessConfigurationType {
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
@@ -20674,21 +20688,22 @@ func SourceAccessConfigurationType_VPC_SUBNET() SourceAccessConfigurationType {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // The secret that allows access to your self hosted Kafka cluster
-//   var secret secret
-//
 //   var myFunction function
 //
 //
-//   // The list of Kafka brokers
-//   bootstrapServers := []*string{
-//   	"kafka-broker:9092",
-//   }
+//   // Your MSK cluster arn
+//   clusterArn := "arn:aws:kafka:us-east-1:0123456789019:cluster/SalesCluster/abcd1234-abcd-cafe-abab-9876543210ab-4"
 //
 //   // The Kafka topic you want to subscribe to
 //   topic := "some-cool-topic"
-//   myFunction.addEventSource(awscdk.NewSelfManagedKafkaEventSource(&selfManagedKafkaEventSourceProps{
-//   	bootstrapServers: bootstrapServers,
+//
+//   // The secret that allows access to your MSK cluster
+//   // You still have to make sure that it is associated with your cluster as described in the documentation
+//   secret := awscdk.NewSecret(this, jsii.String("Secret"), &secretProps{
+//   	secretName: jsii.String("AmazonMSK_KafkaSecret"),
+//   })
+//   myFunction.addEventSource(awscdk.NewManagedKafkaEventSource(&managedKafkaEventSourceProps{
+//   	clusterArn: jsii.String(clusterArn),
 //   	topic: topic,
 //   	secret: secret,
 //   	batchSize: jsii.Number(100),

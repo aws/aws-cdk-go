@@ -15963,24 +15963,23 @@ type PolicyDocumentProps struct {
 // Properties for defining an IAM inline policy document.
 //
 // Example:
-//   var postAuthFn function
+//   var books resource
+//   var iamUser user
 //
 //
-//   userpool := cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
-//   	lambdaTriggers: &userPoolTriggers{
-//   		postAuthentication: postAuthFn,
-//   	},
+//   getBooks := books.addMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &methodOptions{
+//   	authorizationType: apigateway.authorizationType_IAM,
 //   })
 //
-//   // provide permissions to describe the user pool scoped to the ARN the user pool
-//   postAuthFn.role.attachInlinePolicy(iam.NewPolicy(this, jsii.String("userpool-policy"), &policyProps{
+//   iamUser.attachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowBooks"), &policyProps{
 //   	statements: []policyStatement{
 //   		iam.NewPolicyStatement(&policyStatementProps{
 //   			actions: []*string{
-//   				jsii.String("cognito-idp:DescribeUserPool"),
+//   				jsii.String("execute-api:Invoke"),
 //   			},
+//   			effect: iam.effect_ALLOW,
 //   			resources: []*string{
-//   				userpool.userPoolArn,
+//   				getBooks.methodArn,
 //   			},
 //   		}),
 //   	},
@@ -19740,12 +19739,14 @@ type UnknownPrincipalProps struct {
 // Define a new IAM user.
 //
 // Example:
-//   user := iam.NewUser(this, jsii.String("MyUser")) // or User.fromUserName(stack, 'User', 'johnsmith');
-//   group := iam.NewGroup(this, jsii.String("MyGroup")) // or Group.fromGroupArn(stack, 'Group', 'arn:aws:iam::account-id:group/group-name');
+//   var definition iChainable
+//   user := iam.NewUser(this, jsii.String("MyUser"))
+//   stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
+//   	definition: definition,
+//   })
 //
-//   user.addToGroup(group)
-//   // or
-//   group.addUser(user)
+//   //give user permission to send task success to the state machine
+//   stateMachine.grant(user, jsii.String("states:SendTaskSuccess"))
 //
 type User interface {
 	awscdk.Resource

@@ -19,8 +19,8 @@ import (
 // Specifies options for fine-grained access control.
 //
 // Example:
-//   domain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_0(),
+//   domain := awscdk.NewDomain(this, jsii.String("Domain"), &domainProps{
+//   	version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 //   	enforceHttps: jsii.Boolean(true),
 //   	nodeToNodeEncryption: jsii.Boolean(true),
 //   	encryptionAtRest: &encryptionAtRestOptions{
@@ -57,8 +57,8 @@ type AdvancedSecurityOptions struct {
 // Configures the capacity of the cluster such as the instance type and the number of instances.
 //
 // Example:
-//   domain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_0(),
+//   domain := awscdk.NewDomain(this, jsii.String("Domain"), &domainProps{
+//   	version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 //   	capacity: &capacityConfig{
 //   		masterNodes: jsii.Number(2),
 //   		warmNodes: jsii.Number(2),
@@ -1592,8 +1592,8 @@ type CognitoOptions struct {
 // Configures a custom domain endpoint for the Amazon OpenSearch Service domain.
 //
 // Example:
-//   opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_0(),
+//   awscdk.NewDomain(this, jsii.String("Domain"), &domainProps{
+//   	version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 //   	customEndpoint: &customEndpointOptions{
 //   		domainName: jsii.String("search.example.com"),
 //   	},
@@ -1611,8 +1611,8 @@ type CustomEndpointOptions struct {
 // Provides an Amazon OpenSearch Service domain.
 //
 // Example:
-//   domain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_0(),
+//   domain := awscdk.NewDomain(this, jsii.String("Domain"), &domainProps{
+//   	version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 //   	ebs: &ebsOptions{
 //   		volumeSize: jsii.Number(100),
 //   		volumeType: ec2.ebsDeviceVolumeType_GENERAL_PURPOSE_SSD,
@@ -2420,14 +2420,12 @@ func (d *jsiiProxy_Domain) ToString() *string {
 // Reference to an Amazon OpenSearch Service domain.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   domainAttributes := &domainAttributes{
-//   	domainArn: jsii.String("domainArn"),
-//   	domainEndpoint: jsii.String("domainEndpoint"),
-//   }
+//   domainArn := awscdk.Fn.importValue(jsii.String("another-cf-stack-export-domain-arn"))
+//   domainEndpoint := awscdk.Fn.importValue(jsii.String("another-cf-stack-export-domain-endpoint"))
+//   domain := awscdk.Domain.fromDomainAttributes(this, jsii.String("ImportedDomain"), &domainAttributes{
+//   	domainArn: jsii.String(domainArn),
+//   	domainEndpoint: jsii.String(domainEndpoint),
+//   })
 //
 type DomainAttributes struct {
 	// The ARN of the Amazon OpenSearch Service domain.
@@ -2439,8 +2437,8 @@ type DomainAttributes struct {
 // Properties for an Amazon OpenSearch Service domain.
 //
 // Example:
-//   domain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_0(),
+//   domain := awscdk.NewDomain(this, jsii.String("Domain"), &domainProps{
+//   	version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 //   	ebs: &ebsOptions{
 //   		volumeSize: jsii.Number(100),
 //   		volumeType: ec2.ebsDeviceVolumeType_GENERAL_PURPOSE_SSD,
@@ -2544,8 +2542,8 @@ type DomainProps struct {
 // in the Amazon Elastic Compute Cloud Developer Guide.
 //
 // Example:
-//   prodDomain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_0(),
+//   prodDomain := awscdk.NewDomain(this, jsii.String("Domain"), &domainProps{
+//   	version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 //   	capacity: &capacityConfig{
 //   		masterNodes: jsii.Number(5),
 //   		dataNodes: jsii.Number(20),
@@ -2590,8 +2588,8 @@ type EbsOptions struct {
 // not update an existing one. Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
 //
 // Example:
-//   domain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_0(),
+//   domain := awscdk.NewDomain(this, jsii.String("Domain"), &domainProps{
+//   	version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 //   	enforceHttps: jsii.Boolean(true),
 //   	nodeToNodeEncryption: jsii.Boolean(true),
 //   	encryptionAtRest: &encryptionAtRestOptions{
@@ -2618,8 +2616,8 @@ type EncryptionAtRestOptions struct {
 // OpenSearch version.
 //
 // Example:
-//   domain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_0(),
+//   domain := awscdk.NewDomain(this, jsii.String("Domain"), &domainProps{
+//   	version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 //   	ebs: &ebsOptions{
 //   		volumeSize: jsii.Number(100),
 //   		volumeType: ec2.ebsDeviceVolumeType_GENERAL_PURPOSE_SSD,
@@ -3372,8 +3370,8 @@ func (j *jsiiProxy_IDomain) DomainName() *string {
 // Configures log settings for the domain.
 //
 // Example:
-//   prodDomain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_0(),
+//   prodDomain := awscdk.NewDomain(this, jsii.String("Domain"), &domainProps{
+//   	version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 //   	capacity: &capacityConfig{
 //   		masterNodes: jsii.Number(5),
 //   		dataNodes: jsii.Number(20),
@@ -3431,8 +3429,8 @@ const (
 // Specifies zone awareness configuration options.
 //
 // Example:
-//   prodDomain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
-//   	version: opensearch.engineVersion_OPENSEARCH_1_0(),
+//   prodDomain := awscdk.NewDomain(this, jsii.String("Domain"), &domainProps{
+//   	version: awscdk.EngineVersion_OPENSEARCH_1_0(),
 //   	capacity: &capacityConfig{
 //   		masterNodes: jsii.Number(5),
 //   		dataNodes: jsii.Number(20),

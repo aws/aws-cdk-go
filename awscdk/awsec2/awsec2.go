@@ -74627,6 +74627,7 @@ func InitFile_Symlink(fileName *string, target *string, options *InitFileOptions
 //   			"environmentKey": jsii.String("environment"),
 //   		},
 //   		local: localBundling,
+//   		network: jsii.String("network"),
 //   		outputType: cdk.bundlingOutput_ARCHIVED,
 //   		securityOpt: jsii.String("securityOpt"),
 //   		user: jsii.String("user"),
@@ -74706,11 +74707,14 @@ type InitFileAssetOptions struct {
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
 	Bundling *awscdk.BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
-	// Glob patterns to exclude from the copy.
+	// File paths matching the patterns will be excluded.
+	//
+	// See `ignoreMode` to set the matching behavior.
+	// Has no effect on Assets bundled using the `bundling` property.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
-	// The ignore behavior to use for exclude patterns.
+	// The ignore behavior to use for `exclude` patterns.
 	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// A list of principals that should be able to read this asset from S3.
 	//
@@ -75448,6 +75452,7 @@ func InitSource_FromUrl(targetDirectory *string, url *string, options *InitSourc
 //   			"environmentKey": jsii.String("environment"),
 //   		},
 //   		local: localBundling,
+//   		network: jsii.String("network"),
 //   		outputType: cdk.bundlingOutput_ARCHIVED,
 //   		securityOpt: jsii.String("securityOpt"),
 //   		user: jsii.String("user"),
@@ -75503,11 +75508,14 @@ type InitSourceAssetOptions struct {
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
 	Bundling *awscdk.BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
-	// Glob patterns to exclude from the copy.
+	// File paths matching the patterns will be excluded.
+	//
+	// See `ignoreMode` to set the matching behavior.
+	// Has no effect on Assets bundled using the `bundling` property.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
-	// The ignore behavior to use for exclude patterns.
+	// The ignore behavior to use for `exclude` patterns.
 	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// A list of principals that should be able to read this asset from S3.
 	//
@@ -87244,29 +87252,38 @@ type VpcLookupOptions struct {
 // Configuration for Vpc.
 //
 // Example:
-//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
-//   	cidr: jsii.String("10.0.0.0/16"),
+//   // create a cloud9 ec2 environment in a new VPC
+//   vpc := ec2.NewVpc(this, jsii.String("VPC"), &vpcProps{
+//   	maxAzs: jsii.Number(3),
 //   })
-//
-//   vpcConnector := apprunner.NewVpcConnector(this, jsii.String("VpcConnector"), &vpcConnectorProps{
+//   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env"), &ec2EnvironmentProps{
 //   	vpc: vpc,
-//   	vpcSubnets: vpc.selectSubnets(&subnetSelection{
-//   		subnetType: ec2.subnetType_PUBLIC,
-//   	}),
-//   	vpcConnectorName: jsii.String("MyVpcConnector"),
+//   	imageId: cloud9.imageId_AMAZON_LINUX_2,
 //   })
 //
-//   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
-//   	source: apprunner.source.fromEcrPublic(&ecrPublicProps{
-//   		imageConfiguration: &imageConfiguration{
-//   			port: jsii.Number(8000),
-//   		},
-//   		imageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
-//   	}),
-//   	vpcConnector: vpcConnector,
+//   // or create the cloud9 environment in the default VPC with specific instanceType
+//   defaultVpc := ec2.vpc.fromLookup(this, jsii.String("DefaultVPC"), &vpcLookupOptions{
+//   	isDefault: jsii.Boolean(true),
+//   })
+//   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &ec2EnvironmentProps{
+//   	vpc: defaultVpc,
+//   	instanceType: ec2.NewInstanceType(jsii.String("t3.large")),
+//   	imageId: cloud9.*imageId_AMAZON_LINUX_2,
+//   })
+//
+//   // or specify in a different subnetSelection
+//   c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &ec2EnvironmentProps{
+//   	vpc: vpc,
+//   	subnetSelection: &subnetSelection{
+//   		subnetType: ec2.subnetType_PRIVATE_WITH_NAT,
+//   	},
+//   	imageId: cloud9.*imageId_AMAZON_LINUX_2,
+//   })
+//
+//   // print the Cloud9 IDE URL in the output
+//   // print the Cloud9 IDE URL in the output
+//   awscdk.NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
+//   	value: c9env.ideUrl,
 //   })
 //
 type VpcProps struct {

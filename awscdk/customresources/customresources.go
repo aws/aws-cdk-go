@@ -325,17 +325,6 @@ func AwsCustomResourcePolicy_ANY_RESOURCE() *[]*string {
 //   getParameter.getResponseField(jsii.String("Parameter.Value"))
 //
 type AwsCustomResourceProps struct {
-	// The policy that will be added to the execution role of the Lambda function implementing this custom resource provider.
-	//
-	// The custom resource also implements `iam.IGrantable`, making it possible
-	// to use the `grantXxx()` methods.
-	//
-	// As this custom resource uses a singleton Lambda function, it's important
-	// to note the that function's role will eventually accumulate the
-	// permissions/grants from all resources.
-	// See: Policy.fromSdkCalls
-	//
-	Policy AwsCustomResourcePolicy `field:"required" json:"policy" yaml:"policy"`
 	// A name for the singleton Lambda function implementing this custom resource.
 	//
 	// The function name will remain the same after the first AwsCustomResource is created in a stack.
@@ -352,6 +341,21 @@ type AwsCustomResourceProps struct {
 	OnDelete *AwsSdkCall `field:"optional" json:"onDelete" yaml:"onDelete"`
 	// The AWS SDK call to make when the resource is updated.
 	OnUpdate *AwsSdkCall `field:"optional" json:"onUpdate" yaml:"onUpdate"`
+	// The policy that will be added to the execution role of the Lambda function implementing this custom resource provider.
+	//
+	// The custom resource also implements `iam.IGrantable`, making it possible
+	// to use the `grantXxx()` methods.
+	//
+	// As this custom resource uses a singleton Lambda function, it's important
+	// to note the that function's role will eventually accumulate the
+	// permissions/grants from all resources.
+	//
+	// Note that a policy must be specified if `role` is not provided, as
+	// by default a new role is created which requires policy changes to access
+	// resources.
+	// See: Policy.fromSdkCalls
+	//
+	Policy AwsCustomResourcePolicy `field:"optional" json:"policy" yaml:"policy"`
 	// Cloudformation Resource type.
 	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 	// The execution role for the singleton Lambda function implementing this custom resource provider.

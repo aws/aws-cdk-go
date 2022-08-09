@@ -235,27 +235,11 @@ type ActionConfig struct {
 // An abstract action for TopicRule.
 // Experimental.
 type IAction interface {
-	// Returns the topic rule action specification.
-	// Experimental.
-	Bind(topicRule ITopicRule) *ActionConfig
 }
 
 // The jsii proxy for IAction
 type jsiiProxy_IAction struct {
 	_ byte // padding
-}
-
-func (i *jsiiProxy_IAction) Bind(topicRule ITopicRule) *ActionConfig {
-	var returns *ActionConfig
-
-	_jsii_.Invoke(
-		i,
-		"bind",
-		[]interface{}{topicRule},
-		&returns,
-	)
-
-	return returns
 }
 
 // Represents an AWS IoT Rule.
@@ -298,13 +282,16 @@ func (j *jsiiProxy_ITopicRule) TopicRuleName() *string {
 // Defines AWS IoT SQL.
 //
 // Example:
-//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
+//   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
-//   iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
-//   	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
+//
+//   topic := sns.NewTopic(this, jsii.String("MyTopic"))
+//
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
+//   	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
 //   	actions: []iAction{
-//   		actions.NewS3PutObjectAction(bucket, &s3PutObjectActionProps{
-//   			accessControl: s3.bucketAccessControl_PUBLIC_READ,
+//   		actions.NewSnsTopicAction(topic, &snsTopicActionProps{
+//   			messageFormat: actions.snsActionMessageFormat_JSON,
 //   		}),
 //   	},
 //   })
@@ -430,13 +417,16 @@ type IotSqlConfig struct {
 // Defines an AWS IoT Rule in this stack.
 //
 // Example:
-//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
+//   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
-//   iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
-//   	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
+//
+//   topic := sns.NewTopic(this, jsii.String("MyTopic"))
+//
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
+//   	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
 //   	actions: []iAction{
-//   		actions.NewS3PutObjectAction(bucket, &s3PutObjectActionProps{
-//   			accessControl: s3.bucketAccessControl_PUBLIC_READ,
+//   		actions.NewSnsTopicAction(topic, &snsTopicActionProps{
+//   			messageFormat: actions.snsActionMessageFormat_JSON,
 //   		}),
 //   	},
 //   })
@@ -760,13 +750,16 @@ func (t *jsiiProxy_TopicRule) ToString() *string {
 // Properties for defining an AWS IoT Rule.
 //
 // Example:
-//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
+//   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
-//   iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
-//   	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
+//
+//   topic := sns.NewTopic(this, jsii.String("MyTopic"))
+//
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
+//   	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
 //   	actions: []iAction{
-//   		actions.NewS3PutObjectAction(bucket, &s3PutObjectActionProps{
-//   			accessControl: s3.bucketAccessControl_PUBLIC_READ,
+//   		actions.NewSnsTopicAction(topic, &snsTopicActionProps{
+//   			messageFormat: actions.snsActionMessageFormat_JSON,
 //   		}),
 //   	},
 //   })

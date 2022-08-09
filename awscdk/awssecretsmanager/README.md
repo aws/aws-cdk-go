@@ -6,31 +6,38 @@ import secretsmanager "github.com/aws/aws-cdk-go/awscdk"
 
 ## Create a new Secret in a Stack
 
-In order to have SecretsManager generate a new secret value automatically,
-you can get started with the following:
+To have SecretsManager generate a new secret value automatically,
+follow this example:
 
 ```go
-// Default secret
+var vpc vpc
+
+
+// Simple secret
 secret := secretsmanager.NewSecret(this, jsii.String("Secret"))
-// Using the default secret
-// Using the default secret
-iam.NewUser(this, jsii.String("User"), &userProps{
-	password: secret.secretValue,
+// Using the secret
+instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &databaseInstanceProps{
+	engine: rds.databaseInstanceEngine_POSTGRES(),
+	credentials: rds.credentials.fromSecret(secret),
+	vpc: vpc,
 })
-// Templated secret
+// Templated secret with username and password fields
 templatedSecret := secretsmanager.NewSecret(this, jsii.String("TemplatedSecret"), &secretProps{
 	generateSecretString: &secretStringGenerator{
 		secretStringTemplate: jSON.stringify(map[string]*string{
-			"username": jsii.String("user"),
+			"username": jsii.String("postgres"),
 		}),
 		generateStringKey: jsii.String("password"),
 	},
 })
-// Using the templated secret
-// Using the templated secret
-iam.NewUser(this, jsii.String("OtherUser"), &userProps{
-	userName: templatedSecret.secretValueFromJson(jsii.String("username")).toString(),
-	password: templatedSecret.secretValueFromJson(jsii.String("password")),
+// Using the templated secret as credentials
+instance2 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance2"), &databaseInstanceProps{
+	engine: rds.*databaseInstanceEngine_POSTGRES(),
+	credentials: map[string]interface{}{
+		"username": templatedSecret.secretValueFromJson(jsii.String("username")).toString(),
+		"password": templatedSecret.secretValueFromJson(jsii.String("password")),
+	},
+	vpc: vpc,
 })
 ```
 
@@ -51,7 +58,7 @@ secret := secretsmanager.secret.fromSecretAttributes(this, jsii.String("Imported
 SecretsManager secret values can only be used in select set of properties. For the
 list of properties, see [the CloudFormation Dynamic References documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html).
 
-A secret can set `RemovalPolicy`. If it set to `RETAIN`, that removing a secret will fail.
+A secret can set `RemovalPolicy`. If it set to `RETAIN`, removing that secret will fail.
 
 ## Grant permission to use the secret to a role
 

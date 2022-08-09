@@ -8,11 +8,19 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iotevents-actions-alpha.ClearTimerAction",
+		reflect.TypeOf((*ClearTimerAction)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			j := jsiiProxy_ClearTimerAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkioteventsalphaIAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iotevents-actions-alpha.LambdaInvokeAction",
 		reflect.TypeOf((*LambdaInvokeAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_LambdaInvokeAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkioteventsalphaIAction)
@@ -20,15 +28,41 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iotevents-actions-alpha.ResetTimerAction",
+		reflect.TypeOf((*ResetTimerAction)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			j := jsiiProxy_ResetTimerAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkioteventsalphaIAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iotevents-actions-alpha.SetTimerAction",
+		reflect.TypeOf((*SetTimerAction)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			j := jsiiProxy_SetTimerAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkioteventsalphaIAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iotevents-actions-alpha.SetVariableAction",
 		reflect.TypeOf((*SetVariableAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
+		nil, // no members
 		func() interface{} {
 			j := jsiiProxy_SetVariableAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkioteventsalphaIAction)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iotevents-actions-alpha.TimerDuration",
+		reflect.TypeOf((*TimerDuration)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_TimerDuration{}
 		},
 	)
 }

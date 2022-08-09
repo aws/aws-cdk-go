@@ -76,6 +76,18 @@ func init() {
 		reflect.TypeOf((*HttpUserPoolAuthorizerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-apigatewayv2-authorizers-alpha.WebSocketIamAuthorizer",
+		reflect.TypeOf((*WebSocketIamAuthorizer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WebSocketIamAuthorizer{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaIWebSocketRouteAuthorizer)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-apigatewayv2-authorizers-alpha.WebSocketLambdaAuthorizer",
 		reflect.TypeOf((*WebSocketLambdaAuthorizer)(nil)).Elem(),
 		[]_jsii_.Member{

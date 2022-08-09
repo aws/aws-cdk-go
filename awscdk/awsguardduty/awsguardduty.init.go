@@ -61,8 +61,16 @@ func init() {
 		reflect.TypeOf((*CfnDetector_CFNKubernetesConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_guardduty.CfnDetector.CFNMalwareProtectionConfigurationProperty",
+		reflect.TypeOf((*CfnDetector_CFNMalwareProtectionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_guardduty.CfnDetector.CFNS3LogsConfigurationProperty",
 		reflect.TypeOf((*CfnDetector_CFNS3LogsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_guardduty.CfnDetector.CFNScanEc2InstanceWithFindingsConfigurationProperty",
+		reflect.TypeOf((*CfnDetector_CFNScanEc2InstanceWithFindingsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_guardduty.CfnDetectorProps",
