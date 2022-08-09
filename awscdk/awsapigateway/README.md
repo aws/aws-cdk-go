@@ -102,22 +102,6 @@ item.addMethod(jsii.String("GET")) // GET /items/{item}
 item.addMethod(jsii.String("DELETE"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")))
 ```
 
-Additionally, `integrationOptions` can be supplied to explicitly define
-options of the Lambda integration:
-
-```go
-var backend function
-
-
-api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &lambdaRestApiProps{
-	handler: backend,
-	integrationOptions: &lambdaIntegrationOptions{
-		allowTestInvoke: jsii.Boolean(false),
-		timeout: awscdk.Duration.seconds(jsii.Number(1)),
-	},
-})
-```
-
 ## AWS StepFunctions backed APIs
 
 You can use Amazon API Gateway with AWS Step Functions as the backend integration, specifically Synchronous Express Workflows.
@@ -606,7 +590,7 @@ have to define your models and mappings for the request, response, and integrati
 
 ```go
 hello := lambda.NewFunction(this, jsii.String("hello"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
+	runtime: lambda.runtime_NODEJS_12_X(),
 	handler: jsii.String("hello.handler"),
 	code: lambda.code.fromAsset(jsii.String("lambda")),
 })
@@ -1646,19 +1630,13 @@ in your openApi file.
 ## Metrics
 
 The API Gateway service sends metrics around the performance of Rest APIs to Amazon CloudWatch.
-These metrics can be referred to using the metric APIs available on the `RestApi`, `Stage` and `Method` constructs.
-Note that detailed metrics must be enabled for a stage to use the `Method` metrics.
-Read more about [API Gateway metrics](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html), including enabling detailed metrics.
-The APIs with the `metric` prefix can be used to get reference to specific metrics for this API. For example:
+These metrics can be referred to using the metric APIs available on the `RestApi` construct.
+The APIs with the `metric` prefix can be used to get reference to specific metrics for this API. For example,
+the method below refers to the client side errors metric for this API.
 
 ```go
 api := apigateway.NewRestApi(this, jsii.String("my-api"))
-stage := api.deploymentStage
-method := api.root.addMethod(jsii.String("GET"))
-
-clientErrorApiMetric := api.metricClientError()
-serverErrorStageMetric := stage.metricServerError()
-latencyMethodMetric := method.metricLatency(stage)
+clientErrorMetric := api.metricClientError()
 ```
 
 ## APIGateway v2

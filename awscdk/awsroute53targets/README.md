@@ -19,11 +19,10 @@ This library contains Route53 Alias Record targets for:
 * API Gateway V2 custom domains
 
   ```go
-  // Example automatically generated from non-compiling source. May contain errors.
   import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
 
   var zone hostedZone
-  var domainName apigwv2.DomainName
+  var domainName domainName
 
 
   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{

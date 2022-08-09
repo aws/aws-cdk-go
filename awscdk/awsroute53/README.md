@@ -129,27 +129,6 @@ Constructs are available for A, AAAA, CAA, CNAME, MX, NS, SRV and TXT records.
 Use the `CaaAmazonRecord` construct to easily restrict certificate authorities
 allowed to issue certificates for a domain to Amazon only.
 
-### Working with existing record sets
-
-Use the `deleteExisting` prop to delete an existing record set before deploying the new one.
-This is useful if you want to minimize downtime and avoid "manual" actions while deploying a
-stack with a record set that already exists. This is typically the case for record sets that
-are not already "owned" by CloudFormation or "owned" by another stack or construct that is
-going to be deleted (migration).
-
-```go
-var myZone hostedZone
-
-
-route53.NewARecord(this, jsii.String("ARecord"), &aRecordProps{
-	zone: myZone,
-	target: route53.recordTarget.fromIpAddresses(jsii.String("1.2.3.4"), jsii.String("5.6.7.8")),
-	deleteExisting: jsii.Boolean(true),
-})
-```
-
-### Cross Account Zone Delegation
-
 To add a NS record to a HostedZone in different account you can do the following:
 
 In the account containing the parent hosted zone:
