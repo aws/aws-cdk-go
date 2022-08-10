@@ -385,18 +385,21 @@ Make the following modifications to your CDK application to migrate to the `@aws
   For example:
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   version := es.elasticsearchVersion_V7_1()
   ```
 
   ...becomes...
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   version := opensearch.engineVersion_ELASTICSEARCH_7_1()
   ```
 * Replace the `cognitoKibanaAuth` property of `DomainProps` with `cognitoDashboardsAuth`.
   For example:
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   es.NewDomain(this, jsii.String("Domain"), &domainProps{
   	cognitoKibanaAuth: &cognitoOptions{
   		identityPoolId: jsii.String("test-identity-pool-id"),
@@ -410,6 +413,7 @@ Make the following modifications to your CDK application to migrate to the `@aws
   ...becomes...
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
   	cognitoDashboardsAuth: &cognitoOptions{
   		identityPoolId: jsii.String("test-identity-pool-id"),
@@ -423,6 +427,7 @@ Make the following modifications to your CDK application to migrate to the `@aws
   For example:
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   es.NewDomain(this, jsii.String("Domain"), &domainProps{
   	capacity: &capacityConfig{
   		masterNodeInstanceType: jsii.String("r5.large.elasticsearch"),
@@ -434,6 +439,7 @@ Make the following modifications to your CDK application to migrate to the `@aws
   ...becomes...
 
   ```go
+  // Example automatically generated from non-compiling source. May contain errors.
   opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
   	capacity: &capacityConfig{
   		masterNodeInstanceType: jsii.String("r5.large.search"),
