@@ -984,7 +984,7 @@ type SelfManagedKafkaEventSourceProps struct {
 	// The authentication method for your Kafka cluster.
 	AuthenticationMethod AuthenticationMethod `field:"optional" json:"authenticationMethod" yaml:"authenticationMethod"`
 	// The secret with the root CA certificate used by your Kafka brokers for TLS encryption This field is required if your Kafka brokers use certificates signed by a private CA.
-	RootCACertificate awssecretsmanager.Secret `field:"optional" json:"rootCACertificate" yaml:"rootCACertificate"`
+	RootCACertificate awssecretsmanager.ISecret `field:"optional" json:"rootCACertificate" yaml:"rootCACertificate"`
 	// If your Kafka brokers are only reachable via VPC, provide the security group here.
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// If your Kafka brokers are only reachable via VPC provide the VPC here.

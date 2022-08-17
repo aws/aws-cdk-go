@@ -3302,15 +3302,12 @@ const (
 //   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   topic := sns.NewTopic(this, jsii.String("MyTopic"))
-//
-//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
-//   	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
-//   	actions: []iAction{
-//   		actions.NewSnsTopicAction(topic, &snsTopicActionProps{
-//   			messageFormat: actions.snsActionMessageFormat_JSON,
-//   		}),
-//   	},
+//   dlt := sns.NewTopic(this, jsii.String("DLQ"))
+//   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
+//   	runtime: lambda.runtime_NODEJS_16_X(),
+//   	handler: jsii.String("index.handler"),
+//   	code: lambda.code.fromInline(jsii.String("// your code here")),
+//   	deadLetterTopic: dlt,
 //   })
 //
 type Topic interface {

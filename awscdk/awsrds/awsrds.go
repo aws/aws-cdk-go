@@ -300,6 +300,39 @@ func AuroraEngineVersion_VER_1_22_2() AuroraEngineVersion {
 	return returns
 }
 
+func AuroraEngineVersion_VER_1_22_3() AuroraEngineVersion {
+	_init_.Initialize()
+	var returns AuroraEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"VER_1_22_3",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraEngineVersion_VER_1_22_4() AuroraEngineVersion {
+	_init_.Initialize()
+	var returns AuroraEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"VER_1_22_4",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraEngineVersion_VER_1_22_5() AuroraEngineVersion {
+	_init_.Initialize()
+	var returns AuroraEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"VER_1_22_5",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraEngineVersion_VER_10A() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
@@ -340,6 +373,8 @@ type AuroraMysqlClusterEngineProps struct {
 }
 
 // The versions for the Aurora MySQL cluster engine (those returned by {@link DatabaseClusterEngine.auroraMysql}).
+//
+// https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/Welcome.html
 //
 // Example:
 //   var vpc vpc
@@ -598,6 +633,72 @@ func AuroraMysqlEngineVersion_VER_2_07_2() AuroraMysqlEngineVersion {
 	return returns
 }
 
+func AuroraMysqlEngineVersion_VER_2_07_3() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"VER_2_07_3",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraMysqlEngineVersion_VER_2_07_4() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"VER_2_07_4",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraMysqlEngineVersion_VER_2_07_5() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"VER_2_07_5",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraMysqlEngineVersion_VER_2_07_6() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"VER_2_07_6",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraMysqlEngineVersion_VER_2_07_7() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"VER_2_07_7",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraMysqlEngineVersion_VER_2_07_8() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"VER_2_07_8",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraMysqlEngineVersion_VER_2_08_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
@@ -626,6 +727,28 @@ func AuroraMysqlEngineVersion_VER_2_08_2() AuroraMysqlEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_08_2",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraMysqlEngineVersion_VER_2_08_3() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"VER_2_08_3",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraMysqlEngineVersion_VER_2_08_4() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"VER_2_08_4",
 		&returns,
 	)
 	return returns
@@ -792,6 +915,8 @@ type AuroraPostgresEngineFeatures struct {
 }
 
 // The versions for the Aurora PostgreSQL cluster engine (those returned by {@link DatabaseClusterEngine.auroraPostgres}).
+//
+// https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.html
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -1218,6 +1343,17 @@ func AuroraPostgresEngineVersion_VER_13_7() AuroraPostgresEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
 		"VER_13_7",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_14_3() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_14_3",
 		&returns,
 	)
 	return returns
@@ -3965,9 +4101,6 @@ type CfnDBClusterProps struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDBInstance := awscdk.Aws_rds.NewCfnDBInstance(this, jsii.String("MyCfnDBInstance"), &cfnDBInstanceProps{
-//   	dbInstanceClass: jsii.String("dbInstanceClass"),
-//
-//   	// the properties below are optional
 //   	allocatedStorage: jsii.String("allocatedStorage"),
 //   	allowMajorVersionUpgrade: jsii.Boolean(false),
 //   	associatedRoles: []interface{}{
@@ -3983,6 +4116,7 @@ type CfnDBClusterProps struct {
 //   	characterSetName: jsii.String("characterSetName"),
 //   	copyTagsToSnapshot: jsii.Boolean(false),
 //   	dbClusterIdentifier: jsii.String("dbClusterIdentifier"),
+//   	dbInstanceClass: jsii.String("dbInstanceClass"),
 //   	dbInstanceIdentifier: jsii.String("dbInstanceIdentifier"),
 //   	dbName: jsii.String("dbName"),
 //   	dbParameterGroupName: jsii.String("dbParameterGroupName"),
@@ -4121,6 +4255,7 @@ type CfnDBInstance interface {
 	//
 	// For example: `mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
 	AttrEndpointAddress() *string
+	AttrEndpointHostedZoneId() *string
 	// The port number on which the database accepts connections.
 	//
 	// For example: `3306`.
@@ -4988,6 +5123,16 @@ func (j *jsiiProxy_CfnDBInstance) AttrEndpointAddress() *string {
 	_jsii_.Get(
 		j,
 		"attrEndpointAddress",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) AttrEndpointHostedZoneId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEndpointHostedZoneId",
 		&returns,
 	)
 	return returns
@@ -6274,6 +6419,26 @@ type CfnDBInstance_DBInstanceRoleProperty struct {
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   endpointProperty := &endpointProperty{
+//   	address: jsii.String("address"),
+//   	hostedZoneId: jsii.String("hostedZoneId"),
+//   	port: jsii.String("port"),
+//   }
+//
+type CfnDBInstance_EndpointProperty struct {
+	// `CfnDBInstance.EndpointProperty.Address`.
+	Address *string `field:"optional" json:"address" yaml:"address"`
+	// `CfnDBInstance.EndpointProperty.HostedZoneId`.
+	HostedZoneId *string `field:"optional" json:"hostedZoneId" yaml:"hostedZoneId"`
+	// `CfnDBInstance.EndpointProperty.Port`.
+	Port *string `field:"optional" json:"port" yaml:"port"`
+}
+
 // The `ProcessorFeature` property type specifies the processor features of a DB instance class status.
 //
 // Example:
@@ -6303,9 +6468,6 @@ type CfnDBInstance_ProcessorFeatureProperty struct {
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDBInstanceProps := &cfnDBInstanceProps{
-//   	dbInstanceClass: jsii.String("dbInstanceClass"),
-//
-//   	// the properties below are optional
 //   	allocatedStorage: jsii.String("allocatedStorage"),
 //   	allowMajorVersionUpgrade: jsii.Boolean(false),
 //   	associatedRoles: []interface{}{
@@ -6321,6 +6483,7 @@ type CfnDBInstance_ProcessorFeatureProperty struct {
 //   	characterSetName: jsii.String("characterSetName"),
 //   	copyTagsToSnapshot: jsii.Boolean(false),
 //   	dbClusterIdentifier: jsii.String("dbClusterIdentifier"),
+//   	dbInstanceClass: jsii.String("dbInstanceClass"),
 //   	dbInstanceIdentifier: jsii.String("dbInstanceIdentifier"),
 //   	dbName: jsii.String("dbName"),
 //   	dbParameterGroupName: jsii.String("dbParameterGroupName"),
@@ -6381,10 +6544,6 @@ type CfnDBInstance_ProcessorFeatureProperty struct {
 //   }
 //
 type CfnDBInstanceProps struct {
-	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.
-	//
-	// For the full list of DB instance classes, and availability for your engine, see [DB Instance Class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide.* For more information about DB instance class pricing and AWS Region support for DB instance classes, see [Amazon RDS Pricing](https://docs.aws.amazon.com/rds/pricing/) .
-	DbInstanceClass *string `field:"required" json:"dbInstanceClass" yaml:"dbInstanceClass"`
 	// The amount of storage (in gigabytes) to be initially allocated for the database instance.
 	//
 	// > If any value is set in the `Iops` parameter, `AllocatedStorage` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the `Iops` value (in 1,000 IOPS increments), then you must also increase the `AllocatedStorage` value (in 100-GiB increments).
@@ -6511,6 +6670,10 @@ type CfnDBInstanceProps struct {
 	CopyTagsToSnapshot interface{} `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// The identifier of the DB cluster that the instance will belong to.
 	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
+	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.
+	//
+	// For the full list of DB instance classes, and availability for your engine, see [DB Instance Class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide.* For more information about DB instance class pricing and AWS Region support for DB instance classes, see [Amazon RDS Pricing](https://docs.aws.amazon.com/rds/pricing/) .
+	DbInstanceClass *string `field:"optional" json:"dbInstanceClass" yaml:"dbInstanceClass"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .

@@ -988,6 +988,8 @@ func init() {
 		map[string]interface{}{
 			"HTTP1_1": HttpVersion_HTTP1_1,
 			"HTTP2": HttpVersion_HTTP2,
+			"HTTP2_AND_3": HttpVersion_HTTP2_AND_3,
+			"HTTP3": HttpVersion_HTTP3,
 		},
 	)
 	_jsii_.RegisterInterface(

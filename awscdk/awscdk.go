@@ -140,33 +140,53 @@ func (a *jsiiProxy_Annotations) AddWarning(message *string) {
 // the AWS cloud.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import path "github.com/aws-samples/dummy/path"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   app := cdk.NewApp()
-//   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
+//   /*
+//    * Stack verification steps:
+//    * * `curl -s -o /dev/null -w "%{http_code}" <url>` should return 401
+//    * * `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: deny' <url>` should return 403
+//    * * `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: allow' <url>` should return 200
+//    */
 //
-//   namespace := servicediscovery.NewPublicDnsNamespace(stack, jsii.String("Namespace"), &publicDnsNamespaceProps{
-//   	name: jsii.String("foobar.com"),
+//   app := awscdk.NewApp()
+//   stack := awscdk.NewStack(app, jsii.String("TokenAuthorizerInteg"))
+//
+//   authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &functionProps{
+//   	runtime: lambda.runtime_NODEJS_14_X(),
+//   	handler: jsii.String("index.handler"),
+//   	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
 //   })
 //
-//   service := namespace.createService(jsii.String("Service"), &dnsServiceProps{
-//   	name: jsii.String("foo"),
-//   	dnsRecordType: servicediscovery.dnsRecordType_A,
-//   	dnsTtl: cdk.duration.seconds(jsii.Number(30)),
-//   	healthCheck: &healthCheckConfig{
-//   		type: servicediscovery.healthCheckType_HTTPS,
-//   		resourcePath: jsii.String("/healthcheck"),
-//   		failureThreshold: jsii.Number(2),
+//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"), &restApiProps{
+//   	cloudWatchRole: jsii.Boolean(true),
+//   })
+//
+//   authorizer := awscdk.NewTokenAuthorizer(stack, jsii.String("MyAuthorizer"), &tokenAuthorizerProps{
+//   	handler: authorizerFn,
+//   })
+//
+//   restapi.root.addMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&integrationOptions{
+//   	integrationResponses: []integrationResponse{
+//   		&integrationResponse{
+//   			statusCode: jsii.String("200"),
+//   		},
 //   	},
+//   	passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
+//   	requestTemplates: map[string]*string{
+//   		"application/json": jsii.String("{ \"statusCode\": 200 }"),
+//   	},
+//   }), &methodOptions{
+//   	methodResponses: []methodResponse{
+//   		&methodResponse{
+//   			statusCode: jsii.String("200"),
+//   		},
+//   	},
+//   	authorizer: authorizer,
 //   })
-//
-//   service.registerIpInstance(jsii.String("IpInstance"), &ipInstanceBaseProps{
-//   	ipv4: jsii.String("54.239.25.192"),
-//   	port: jsii.Number(443),
-//   })
-//
-//   app.synth()
 //
 // See: https://docs.aws.amazon.com/cdk/latest/guide/apps.html
 //
@@ -23470,6 +23490,7 @@ func Names_UniqueResourceName(construct constructs.IConstruct, options *UniqueRe
 //   	newStack_Override(this, scope, jsii.String("integ-restapi-import-RootStack"))
 //
 //   	restApi := awscdk.NewRestApi(this, jsii.String("RestApi"), &restApiProps{
+//   		cloudWatchRole: jsii.Boolean(true),
 //   		deploy: jsii.Boolean(false),
 //   	})
 //   	restApi.root.addMethod(jsii.String("ANY"))
@@ -24401,6 +24422,7 @@ func (n *jsiiProxy_NestedStack) ToString() *string {
 //   	newStack_Override(this, scope, jsii.String("integ-restapi-import-RootStack"))
 //
 //   	restApi := awscdk.NewRestApi(this, jsii.String("RestApi"), &restApiProps{
+//   		cloudWatchRole: jsii.Boolean(true),
 //   		deploy: jsii.Boolean(false),
 //   	})
 //   	restApi.root.addMethod(jsii.String("ANY"))

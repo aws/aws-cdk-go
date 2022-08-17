@@ -17581,8 +17581,6 @@ type UserPoolSESOptions struct {
 	// and the region that SES is configured is different than the
 	// region in which the UserPool is deployed, you must specify that
 	// region here.
-	//
-	// Must be 'us-east-1', 'us-west-2', or 'eu-west-1'.
 	SesRegion *string `field:"optional" json:"sesRegion" yaml:"sesRegion"`
 	// SES Verified custom domain to be used to verify the identity.
 	SesVerifiedDomain *string `field:"optional" json:"sesVerifiedDomain" yaml:"sesVerifiedDomain"`

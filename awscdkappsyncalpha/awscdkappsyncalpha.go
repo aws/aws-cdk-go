@@ -1871,7 +1871,7 @@ func (d *jsiiProxy_Directive) ToString() *string {
 //   route53.NewCnameRecord(this, jsii.String("CnameApiRecord"), &cnameRecordProps{
 //   	recordName: jsii.String("api"),
 //   	zone: zone,
-//   	domainName: myDomainName,
+//   	domainName: api.appSyncDomainName,
 //   })
 //
 // Experimental.
@@ -3324,6 +3324,9 @@ type GraphqlApi interface {
 	// the configured API key, if present.
 	// Experimental.
 	ApiKey() *string
+	// The AppSyncDomainName of the associated custom domain.
+	// Experimental.
+	AppSyncDomainName() *string
 	// the ARN of the API.
 	// Experimental.
 	Arn() *string
@@ -3492,6 +3495,16 @@ func (j *jsiiProxy_GraphqlApi) ApiKey() *string {
 	_jsii_.Get(
 		j,
 		"apiKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GraphqlApi) AppSyncDomainName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"appSyncDomainName",
 		&returns,
 	)
 	return returns

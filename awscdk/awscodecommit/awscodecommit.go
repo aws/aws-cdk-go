@@ -1489,6 +1489,10 @@ func (j *jsiiProxy_IRepository) Stack() awscdk.Stack {
 //   })
 //
 type OnCommitOptions struct {
+	// The scope to use if the source of the rule and its target are in different Stacks (but in the same account & region).
+	//
+	// This helps dealing with cycles that often arise in these situations.
+	CrossStackScope constructs.Construct `field:"optional" json:"crossStackScope" yaml:"crossStackScope"`
 	// A description of the rule's purpose.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.

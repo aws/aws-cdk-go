@@ -622,14 +622,25 @@ type CfnNotificationChannelProps struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityServicePolicyData interface{}
-//
 //   cfnPolicy := awscdk.Aws_fms.NewCfnPolicy(this, jsii.String("MyCfnPolicy"), &cfnPolicyProps{
 //   	excludeResourceTags: jsii.Boolean(false),
 //   	policyName: jsii.String("policyName"),
 //   	remediationEnabled: jsii.Boolean(false),
 //   	resourceType: jsii.String("resourceType"),
-//   	securityServicePolicyData: securityServicePolicyData,
+//   	securityServicePolicyData: &securityServicePolicyDataProperty{
+//   		type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		managedServiceData: jsii.String("managedServiceData"),
+//   		policyOption: &policyOptionProperty{
+//   			networkFirewallPolicy: &networkFirewallPolicyProperty{
+//   				firewallDeploymentModel: jsii.String("firewallDeploymentModel"),
+//   			},
+//   			thirdPartyFirewallPolicy: &thirdPartyFirewallPolicyProperty{
+//   				firewallDeploymentModel: jsii.String("firewallDeploymentModel"),
+//   			},
+//   		},
+//   	},
 //
 //   	// the properties below are optional
 //   	deleteAllPolicyResources: jsii.Boolean(false),
@@ -1587,6 +1598,41 @@ type CfnPolicy_IEMapProperty struct {
 	Orgunit *[]*string `field:"optional" json:"orgunit" yaml:"orgunit"`
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   networkFirewallPolicyProperty := &networkFirewallPolicyProperty{
+//   	firewallDeploymentModel: jsii.String("firewallDeploymentModel"),
+//   }
+//
+type CfnPolicy_NetworkFirewallPolicyProperty struct {
+	// `CfnPolicy.NetworkFirewallPolicyProperty.FirewallDeploymentModel`.
+	FirewallDeploymentModel *string `field:"required" json:"firewallDeploymentModel" yaml:"firewallDeploymentModel"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   policyOptionProperty := &policyOptionProperty{
+//   	networkFirewallPolicy: &networkFirewallPolicyProperty{
+//   		firewallDeploymentModel: jsii.String("firewallDeploymentModel"),
+//   	},
+//   	thirdPartyFirewallPolicy: &thirdPartyFirewallPolicyProperty{
+//   		firewallDeploymentModel: jsii.String("firewallDeploymentModel"),
+//   	},
+//   }
+//
+type CfnPolicy_PolicyOptionProperty struct {
+	// `CfnPolicy.PolicyOptionProperty.NetworkFirewallPolicy`.
+	NetworkFirewallPolicy interface{} `field:"optional" json:"networkFirewallPolicy" yaml:"networkFirewallPolicy"`
+	// `CfnPolicy.PolicyOptionProperty.ThirdPartyFirewallPolicy`.
+	ThirdPartyFirewallPolicy interface{} `field:"optional" json:"thirdPartyFirewallPolicy" yaml:"thirdPartyFirewallPolicy"`
+}
+
 // A collection of key:value pairs associated with an AWS resource.
 //
 // The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
@@ -1635,6 +1681,49 @@ type CfnPolicy_ResourceTagProperty struct {
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   securityServicePolicyDataProperty := &securityServicePolicyDataProperty{
+//   	type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	managedServiceData: jsii.String("managedServiceData"),
+//   	policyOption: &policyOptionProperty{
+//   		networkFirewallPolicy: &networkFirewallPolicyProperty{
+//   			firewallDeploymentModel: jsii.String("firewallDeploymentModel"),
+//   		},
+//   		thirdPartyFirewallPolicy: &thirdPartyFirewallPolicyProperty{
+//   			firewallDeploymentModel: jsii.String("firewallDeploymentModel"),
+//   		},
+//   	},
+//   }
+//
+type CfnPolicy_SecurityServicePolicyDataProperty struct {
+	// `CfnPolicy.SecurityServicePolicyDataProperty.Type`.
+	Type *string `field:"required" json:"type" yaml:"type"`
+	// `CfnPolicy.SecurityServicePolicyDataProperty.ManagedServiceData`.
+	ManagedServiceData *string `field:"optional" json:"managedServiceData" yaml:"managedServiceData"`
+	// `CfnPolicy.SecurityServicePolicyDataProperty.PolicyOption`.
+	PolicyOption interface{} `field:"optional" json:"policyOption" yaml:"policyOption"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   thirdPartyFirewallPolicyProperty := &thirdPartyFirewallPolicyProperty{
+//   	firewallDeploymentModel: jsii.String("firewallDeploymentModel"),
+//   }
+//
+type CfnPolicy_ThirdPartyFirewallPolicyProperty struct {
+	// `CfnPolicy.ThirdPartyFirewallPolicyProperty.FirewallDeploymentModel`.
+	FirewallDeploymentModel *string `field:"required" json:"firewallDeploymentModel" yaml:"firewallDeploymentModel"`
+}
+
 // Properties for defining a `CfnPolicy`.
 //
 // Example:
@@ -1642,14 +1731,25 @@ type CfnPolicy_ResourceTagProperty struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityServicePolicyData interface{}
-//
 //   cfnPolicyProps := &cfnPolicyProps{
 //   	excludeResourceTags: jsii.Boolean(false),
 //   	policyName: jsii.String("policyName"),
 //   	remediationEnabled: jsii.Boolean(false),
 //   	resourceType: jsii.String("resourceType"),
-//   	securityServicePolicyData: securityServicePolicyData,
+//   	securityServicePolicyData: &securityServicePolicyDataProperty{
+//   		type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		managedServiceData: jsii.String("managedServiceData"),
+//   		policyOption: &policyOptionProperty{
+//   			networkFirewallPolicy: &networkFirewallPolicyProperty{
+//   				firewallDeploymentModel: jsii.String("firewallDeploymentModel"),
+//   			},
+//   			thirdPartyFirewallPolicy: &thirdPartyFirewallPolicyProperty{
+//   				firewallDeploymentModel: jsii.String("firewallDeploymentModel"),
+//   			},
+//   		},
+//   	},
 //
 //   	// the properties below are optional
 //   	deleteAllPolicyResources: jsii.Boolean(false),

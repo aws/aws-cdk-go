@@ -1117,6 +1117,24 @@ func CodePipeline_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Return whether the given object extends {@link PipelineBase}.
+//
+// We do attribute detection since we can't reliably use 'instanceof'.
+func CodePipeline_IsPipeline(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.pipelines.CodePipeline",
+		"isPipeline",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CodePipeline) AddStage(stage awscdk.Stage, options *AddStageOpts) StageDeployment {
 	var returns StageDeployment
 
@@ -2987,6 +3005,24 @@ func PipelineBase_IsConstruct(x interface{}) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.pipelines.PipelineBase",
 		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object extends {@link PipelineBase}.
+//
+// We do attribute detection since we can't reliably use 'instanceof'.
+func PipelineBase_IsPipeline(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.pipelines.PipelineBase",
+		"isPipeline",
 		[]interface{}{x},
 		&returns,
 	)

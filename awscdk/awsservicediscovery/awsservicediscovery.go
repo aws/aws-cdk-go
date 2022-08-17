@@ -4770,6 +4770,60 @@ type CnameInstanceProps struct {
 	Service IService `field:"required" json:"service" yaml:"service"`
 }
 
+// Specifies information about the discovery type of a service.
+//
+// Example:
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//
+//   app := cdk.NewApp()
+//   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
+//
+//   vpc := ec2.NewVpc(stack, jsii.String("Vpc"), &vpcProps{
+//   	maxAzs: jsii.Number(2),
+//   })
+//
+//   namespace := servicediscovery.NewPrivateDnsNamespace(stack, jsii.String("Namespace"), &privateDnsNamespaceProps{
+//   	name: jsii.String("boobar.com"),
+//   	vpc: vpc,
+//   })
+//
+//   service := namespace.createService(jsii.String("Service"), &dnsServiceProps{
+//   	dnsRecordType: servicediscovery.dnsRecordType_A_AAAA,
+//   	dnsTtl: cdk.duration.seconds(jsii.Number(30)),
+//   	loadBalancer: jsii.Boolean(true),
+//   })
+//
+//   loadbalancer := elbv2.NewApplicationLoadBalancer(stack, jsii.String("LB"), &applicationLoadBalancerProps{
+//   	vpc: vpc,
+//   	internetFacing: jsii.Boolean(true),
+//   })
+//
+//   service.registerLoadBalancer(jsii.String("Loadbalancer"), loadbalancer)
+//
+//   arnService := namespace.createService(jsii.String("ArnService"), &dnsServiceProps{
+//   	discoveryType: servicediscovery.discoveryType_API,
+//   })
+//
+//   arnService.registerNonIpInstance(jsii.String("NonIpInstance"), &nonIpInstanceBaseProps{
+//   	customAttributes: map[string]*string{
+//   		"arn": jsii.String("arn://"),
+//   	},
+//   })
+//
+//   app.synth()
+//
+type DiscoveryType string
+
+const (
+	// Instances are discoverable via API only.
+	DiscoveryType_API DiscoveryType = "API"
+	// Instances are discoverable via DNS or API.
+	DiscoveryType_DNS_AND_API DiscoveryType = "DNS_AND_API"
+)
+
 // Example:
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
@@ -4859,6 +4913,8 @@ type DnsServiceProps struct {
 	HealthCheck *HealthCheckConfig `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Controls how instances within this service can be discovered.
+	DiscoveryType DiscoveryType `field:"optional" json:"discoveryType" yaml:"discoveryType"`
 	// The DNS type of the record that you want AWS Cloud Map to create.
 	//
 	// Supported record types
@@ -5575,6 +5631,8 @@ type jsiiProxy_IPublicDnsNamespace struct {
 
 type IService interface {
 	awscdk.IResource
+	// The discovery type used by the service.
+	DiscoveryType() DiscoveryType
 	// The DnsRecordType used by the service.
 	DnsRecordType() DnsRecordType
 	// The namespace for the Cloudmap Service.
@@ -5592,6 +5650,16 @@ type IService interface {
 // The jsii proxy for IService
 type jsiiProxy_IService struct {
 	internal.Type__awscdkIResource
+}
+
+func (j *jsiiProxy_IService) DiscoveryType() DiscoveryType {
+	var returns DiscoveryType
+	_jsii_.Get(
+		j,
+		"discoveryType",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_IService) DnsRecordType() DnsRecordType {
@@ -7694,6 +7762,8 @@ const (
 type Service interface {
 	awscdk.Resource
 	IService
+	// The discovery type used by this service.
+	DiscoveryType() DiscoveryType
 	// The DnsRecordType used by the service.
 	DnsRecordType() DnsRecordType
 	// The environment this resource belongs to.
@@ -7767,6 +7837,16 @@ type Service interface {
 type jsiiProxy_Service struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IService
+}
+
+func (j *jsiiProxy_Service) DiscoveryType() DiscoveryType {
+	var returns DiscoveryType
+	_jsii_.Get(
+		j,
+		"discoveryType",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Service) DnsRecordType() DnsRecordType {
@@ -8099,6 +8179,9 @@ func (s *jsiiProxy_Service) ToString() *string {
 //   	serviceArn: jsii.String("serviceArn"),
 //   	serviceId: jsii.String("serviceId"),
 //   	serviceName: jsii.String("serviceName"),
+//
+//   	// the properties below are optional
+//   	discoveryType: awscdk.*Aws_servicediscovery.discoveryType_API,
 //   }
 //
 type ServiceAttributes struct {
@@ -8108,6 +8191,7 @@ type ServiceAttributes struct {
 	ServiceArn *string `field:"required" json:"serviceArn" yaml:"serviceArn"`
 	ServiceId *string `field:"required" json:"serviceId" yaml:"serviceId"`
 	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
+	DiscoveryType DiscoveryType `field:"optional" json:"discoveryType" yaml:"discoveryType"`
 }
 
 // Example:
@@ -8126,7 +8210,8 @@ type ServiceAttributes struct {
 //   		failureThreshold: jsii.Number(123),
 //   	},
 //   	description: jsii.String("description"),
-//   	dnsRecordType: awscdk.Aws_servicediscovery.dnsRecordType_A,
+//   	discoveryType: awscdk.Aws_servicediscovery.discoveryType_API,
+//   	dnsRecordType: awscdk.*Aws_servicediscovery.dnsRecordType_A,
 //   	dnsTtl: cdk.duration.minutes(jsii.Number(30)),
 //   	healthCheck: &healthCheckConfig{
 //   		failureThreshold: jsii.Number(123),
@@ -8155,6 +8240,8 @@ type ServiceProps struct {
 	HealthCheck *HealthCheckConfig `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Controls how instances within this service can be discovered.
+	DiscoveryType DiscoveryType `field:"optional" json:"discoveryType" yaml:"discoveryType"`
 	// The DNS type of the record that you want AWS Cloud Map to create.
 	//
 	// Supported record types

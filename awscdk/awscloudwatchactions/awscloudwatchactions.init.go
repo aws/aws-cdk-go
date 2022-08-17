@@ -98,4 +98,16 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudwatch_actions.SsmIncidentAction",
+		reflect.TypeOf((*SsmIncidentAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_SsmIncidentAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscloudwatchIAlarmAction)
+			return &j
+		},
+	)
 }

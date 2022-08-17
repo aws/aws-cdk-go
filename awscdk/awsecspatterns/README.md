@@ -891,6 +891,24 @@ loadBalancedFargateService.targetGroups[1].configureHealthCheck(&healthCheck{
 })
 ```
 
+### Set runtimePlatform for ApplicationLoadBalancedFargateService
+
+```go
+var cluster cluster
+
+applicationLoadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
+	cluster: cluster,
+	memoryLimitMiB: jsii.Number(512),
+	taskImageOptions: &applicationLoadBalancedTaskImageOptions{
+		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	},
+	runtimePlatform: &runtimePlatform{
+		cpuArchitecture: ecs.cpuArchitecture_ARM64(),
+		operatingSystemFamily: ecs.operatingSystemFamily_LINUX(),
+	},
+})
+```
+
 ### Set PlatformVersion for ScheduledFargateTask
 
 ```go

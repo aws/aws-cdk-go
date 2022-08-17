@@ -7139,6 +7139,8 @@ type CfnEventSubscriptionProps struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var targetAction interface{}
+//
 //   cfnScheduledAction := awscdk.Aws_redshift.NewCfnScheduledAction(this, jsii.String("MyCfnScheduledAction"), &cfnScheduledActionProps{
 //   	scheduledActionName: jsii.String("scheduledActionName"),
 //
@@ -7149,23 +7151,7 @@ type CfnEventSubscriptionProps struct {
 //   	schedule: jsii.String("schedule"),
 //   	scheduledActionDescription: jsii.String("scheduledActionDescription"),
 //   	startTime: jsii.String("startTime"),
-//   	targetAction: &scheduledActionTypeProperty{
-//   		pauseCluster: &pauseClusterMessageProperty{
-//   			clusterIdentifier: jsii.String("clusterIdentifier"),
-//   		},
-//   		resizeCluster: &resizeClusterMessageProperty{
-//   			clusterIdentifier: jsii.String("clusterIdentifier"),
-//
-//   			// the properties below are optional
-//   			classic: jsii.Boolean(false),
-//   			clusterType: jsii.String("clusterType"),
-//   			nodeType: jsii.String("nodeType"),
-//   			numberOfNodes: jsii.Number(123),
-//   		},
-//   		resumeCluster: &resumeClusterMessageProperty{
-//   			clusterIdentifier: jsii.String("clusterIdentifier"),
-//   		},
-//   	},
+//   	targetAction: targetAction,
 //   })
 //
 type CfnScheduledAction interface {
@@ -7892,120 +7878,14 @@ func (c *jsiiProxy_CfnScheduledAction) ValidateProperties(_properties interface{
 	)
 }
 
-// Describes a pause cluster operation.
-//
-// For example, a scheduled action to run the `PauseCluster` API operation.
-//
-// Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   pauseClusterMessageProperty := &pauseClusterMessageProperty{
-//   	clusterIdentifier: jsii.String("clusterIdentifier"),
-//   }
-//
-type CfnScheduledAction_PauseClusterMessageProperty struct {
-	// The identifier of the cluster to be paused.
-	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
-}
-
-// Describes a resize cluster operation.
-//
-// For example, a scheduled action to run the `ResizeCluster` API operation.
-//
-// Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   resizeClusterMessageProperty := &resizeClusterMessageProperty{
-//   	clusterIdentifier: jsii.String("clusterIdentifier"),
-//
-//   	// the properties below are optional
-//   	classic: jsii.Boolean(false),
-//   	clusterType: jsii.String("clusterType"),
-//   	nodeType: jsii.String("nodeType"),
-//   	numberOfNodes: jsii.Number(123),
-//   }
-//
-type CfnScheduledAction_ResizeClusterMessageProperty struct {
-	// The unique identifier for the cluster to resize.
-	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
-	// A boolean value indicating whether the resize operation is using the classic resize process.
-	//
-	// If you don't provide this parameter or set the value to `false` , the resize type is elastic.
-	Classic interface{} `field:"optional" json:"classic" yaml:"classic"`
-	// The new cluster type for the specified cluster.
-	ClusterType *string `field:"optional" json:"clusterType" yaml:"clusterType"`
-	// The new node type for the nodes you are adding.
-	//
-	// If not specified, the cluster's current node type is used.
-	NodeType *string `field:"optional" json:"nodeType" yaml:"nodeType"`
-	// The new number of nodes for the cluster.
-	//
-	// If not specified, the cluster's current number of nodes is used.
-	NumberOfNodes *float64 `field:"optional" json:"numberOfNodes" yaml:"numberOfNodes"`
-}
-
-// Describes a resume cluster operation.
-//
-// For example, a scheduled action to run the `ResumeCluster` API operation.
-//
-// Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   resumeClusterMessageProperty := &resumeClusterMessageProperty{
-//   	clusterIdentifier: jsii.String("clusterIdentifier"),
-//   }
-//
-type CfnScheduledAction_ResumeClusterMessageProperty struct {
-	// The identifier of the cluster to be resumed.
-	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
-}
-
-// The action type that specifies an Amazon Redshift API operation that is supported by the Amazon Redshift scheduler.
-//
-// Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   scheduledActionTypeProperty := &scheduledActionTypeProperty{
-//   	pauseCluster: &pauseClusterMessageProperty{
-//   		clusterIdentifier: jsii.String("clusterIdentifier"),
-//   	},
-//   	resizeCluster: &resizeClusterMessageProperty{
-//   		clusterIdentifier: jsii.String("clusterIdentifier"),
-//
-//   		// the properties below are optional
-//   		classic: jsii.Boolean(false),
-//   		clusterType: jsii.String("clusterType"),
-//   		nodeType: jsii.String("nodeType"),
-//   		numberOfNodes: jsii.Number(123),
-//   	},
-//   	resumeCluster: &resumeClusterMessageProperty{
-//   		clusterIdentifier: jsii.String("clusterIdentifier"),
-//   	},
-//   }
-//
-type CfnScheduledAction_ScheduledActionTypeProperty struct {
-	// An action that runs a `PauseCluster` API operation.
-	PauseCluster interface{} `field:"optional" json:"pauseCluster" yaml:"pauseCluster"`
-	// An action that runs a `ResizeCluster` API operation.
-	ResizeCluster interface{} `field:"optional" json:"resizeCluster" yaml:"resizeCluster"`
-	// An action that runs a `ResumeCluster` API operation.
-	ResumeCluster interface{} `field:"optional" json:"resumeCluster" yaml:"resumeCluster"`
-}
-
 // Properties for defining a `CfnScheduledAction`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var targetAction interface{}
 //
 //   cfnScheduledActionProps := &cfnScheduledActionProps{
 //   	scheduledActionName: jsii.String("scheduledActionName"),
@@ -8017,23 +7897,7 @@ type CfnScheduledAction_ScheduledActionTypeProperty struct {
 //   	schedule: jsii.String("schedule"),
 //   	scheduledActionDescription: jsii.String("scheduledActionDescription"),
 //   	startTime: jsii.String("startTime"),
-//   	targetAction: &scheduledActionTypeProperty{
-//   		pauseCluster: &pauseClusterMessageProperty{
-//   			clusterIdentifier: jsii.String("clusterIdentifier"),
-//   		},
-//   		resizeCluster: &resizeClusterMessageProperty{
-//   			clusterIdentifier: jsii.String("clusterIdentifier"),
-//
-//   			// the properties below are optional
-//   			classic: jsii.Boolean(false),
-//   			clusterType: jsii.String("clusterType"),
-//   			nodeType: jsii.String("nodeType"),
-//   			numberOfNodes: jsii.Number(123),
-//   		},
-//   		resumeCluster: &resumeClusterMessageProperty{
-//   			clusterIdentifier: jsii.String("clusterIdentifier"),
-//   		},
-//   	},
+//   	targetAction: targetAction,
 //   }
 //
 type CfnScheduledActionProps struct {

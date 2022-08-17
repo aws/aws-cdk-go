@@ -20422,7 +20422,9 @@ type IntegrationConfig struct {
 //   	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 //   })
 //
-//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
+//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"), &restApiProps{
+//   	cloudWatchRole: jsii.Boolean(true),
+//   })
 //
 //   authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
 //   	handler: authorizerFn,
@@ -22551,6 +22553,7 @@ type MethodDeploymentOptions struct {
 
 // Example:
 //   api := apigateway.NewRestApi(this, jsii.String("books"), &restApiProps{
+//   	cloudWatchRole: jsii.Boolean(true),
 //   	deployOptions: &stageOptions{
 //   		loggingLevel: apigateway.methodLoggingLevel_INFO,
 //   		dataTraceEnabled: jsii.Boolean(true),
@@ -22823,7 +22826,9 @@ type MethodResponse struct {
 //   	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 //   })
 //
-//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
+//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"), &restApiProps{
+//   	cloudWatchRole: jsii.Boolean(true),
+//   })
 //
 //   authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
 //   	handler: authorizerFn,
@@ -23430,7 +23435,9 @@ type ModelProps struct {
 //   	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 //   })
 //
-//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
+//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"), &restApiProps{
+//   	cloudWatchRole: jsii.Boolean(true),
+//   })
 //
 //   authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
 //   	handler: authorizerFn,
@@ -27473,6 +27480,7 @@ func (r *jsiiProxy_RestApi) UrlForPath(path *string) *string {
 //   	newStack_Override(this, scope, jsii.String("integ-restapi-import-RootStack"))
 //
 //   	restApi := awscdk.NewRestApi(this, jsii.String("RestApi"), &restApiProps{
+//   		cloudWatchRole: jsii.Boolean(true),
 //   		deploy: jsii.Boolean(false),
 //   	})
 //   	restApi.root.addMethod(jsii.String("ANY"))

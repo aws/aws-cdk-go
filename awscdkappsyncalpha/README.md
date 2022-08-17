@@ -301,7 +301,7 @@ zone := route53.hostedZone.fromHostedZoneAttributes(this, jsii.String("HostedZon
 route53.NewCnameRecord(this, jsii.String("CnameApiRecord"), &cnameRecordProps{
 	recordName: jsii.String("api"),
 	zone: zone,
-	domainName: myDomainName,
+	domainName: api.appSyncDomainName,
 })
 ```
 

@@ -381,6 +381,8 @@ type ApplicationLoadBalancedEc2ServiceProps struct {
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
 	HealthCheckGracePeriod awscdk.Duration `field:"optional" json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The load balancer idle timeout, in seconds.
+	//
+	// Can be between 1 and 4000 seconds.
 	IdleTimeout awscdk.Duration `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Listener port of the application load balancer that will serve traffic to the service.
 	ListenerPort *float64 `field:"optional" json:"listenerPort" yaml:"listenerPort"`
@@ -824,6 +826,8 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
 	HealthCheckGracePeriod awscdk.Duration `field:"optional" json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The load balancer idle timeout, in seconds.
+	//
+	// Can be between 1 and 4000 seconds.
 	IdleTimeout awscdk.Duration `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Listener port of the application load balancer that will serve traffic to the service.
 	ListenerPort *float64 `field:"optional" json:"listenerPort" yaml:"listenerPort"`
@@ -879,8 +883,6 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
-	// Determines whether the service will be assigned a public IP address.
-	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -920,14 +922,18 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
 	PlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
-	// The security groups to associate with the service.
-	//
-	// If you do not specify a security group, a new security group is created.
-	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// The runtime platform of the task definition.
+	RuntimePlatform *awsecs.RuntimePlatform `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`
 	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
 	//
 	// [disable-awslint:ref-via-interface].
 	TaskDefinition awsecs.FargateTaskDefinition `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
+	// Determines whether the service will be assigned a public IP address.
+	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
+	// The security groups to associate with the service.
+	//
+	// If you do not specify a security group, a new security group is created.
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The subnets to associate with the service.
 	TaskSubnets *awsec2.SubnetSelection `field:"optional" json:"taskSubnets" yaml:"taskSubnets"`
 }
@@ -1280,6 +1286,8 @@ type ApplicationLoadBalancedServiceBaseProps struct {
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
 	HealthCheckGracePeriod awscdk.Duration `field:"optional" json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
 	// The load balancer idle timeout, in seconds.
+	//
+	// Can be between 1 and 4000 seconds.
 	IdleTimeout awscdk.Duration `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// Listener port of the application load balancer that will serve traffic to the service.
 	ListenerPort *float64 `field:"optional" json:"listenerPort" yaml:"listenerPort"`
@@ -2516,8 +2524,6 @@ type ApplicationMultipleTargetGroupsFargateServiceProps struct {
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
-	// Determines whether the service will be assigned a public IP address.
-	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -2557,10 +2563,14 @@ type ApplicationMultipleTargetGroupsFargateServiceProps struct {
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
 	PlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
-	// The task definition to use for tasks in the service. Only one of TaskDefinition or TaskImageOptions must be specified.
+	// The runtime platform of the task definition.
+	RuntimePlatform *awsecs.RuntimePlatform `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`
+	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
 	//
 	// [disable-awslint:ref-via-interface].
 	TaskDefinition awsecs.FargateTaskDefinition `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
+	// Determines whether the service will be assigned a public IP address.
+	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 }
 
 // The base class for ApplicationMultipleTargetGroupsEc2Service and ApplicationMultipleTargetGroupsFargateService classes.
@@ -3014,6 +3024,75 @@ type ApplicationTargetProps struct {
 	//
 	// Only applicable when using application load balancers.
 	Protocol awsecs.Protocol `field:"optional" json:"protocol" yaml:"protocol"`
+}
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var cpuArchitecture cpuArchitecture
+//   var fargateTaskDefinition fargateTaskDefinition
+//   var operatingSystemFamily operatingSystemFamily
+//
+//   fargateServiceBaseProps := &fargateServiceBaseProps{
+//   	cpu: jsii.Number(123),
+//   	memoryLimitMiB: jsii.Number(123),
+//   	platformVersion: awscdk.Aws_ecs.fargatePlatformVersion_LATEST,
+//   	runtimePlatform: &runtimePlatform{
+//   		cpuArchitecture: cpuArchitecture,
+//   		operatingSystemFamily: operatingSystemFamily,
+//   	},
+//   	taskDefinition: fargateTaskDefinition,
+//   }
+//
+type FargateServiceBaseProps struct {
+	// The number of cpu units used by the task.
+	//
+	// Valid values, which determines your range of valid values for the memory parameter:
+	//
+	// 256 (.25 vCPU) - Available memory values: 0.5GB, 1GB, 2GB
+	//
+	// 512 (.5 vCPU) - Available memory values: 1GB, 2GB, 3GB, 4GB
+	//
+	// 1024 (1 vCPU) - Available memory values: 2GB, 3GB, 4GB, 5GB, 6GB, 7GB, 8GB
+	//
+	// 2048 (2 vCPU) - Available memory values: Between 4GB and 16GB in 1GB increments
+	//
+	// 4096 (4 vCPU) - Available memory values: Between 8GB and 30GB in 1GB increments
+	//
+	// This default is set in the underlying FargateTaskDefinition construct.
+	Cpu *float64 `field:"optional" json:"cpu" yaml:"cpu"`
+	// The amount (in MiB) of memory used by the task.
+	//
+	// This field is required and you must use one of the following values, which determines your range of valid values
+	// for the cpu parameter:
+	//
+	// 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available cpu values: 256 (.25 vCPU)
+	//
+	// 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available cpu values: 512 (.5 vCPU)
+	//
+	// 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available cpu values: 1024 (1 vCPU)
+	//
+	// Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available cpu values: 2048 (2 vCPU)
+	//
+	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
+	//
+	// This default is set in the underlying FargateTaskDefinition construct.
+	MemoryLimitMiB *float64 `field:"optional" json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
+	// The platform version on which to run your service.
+	//
+	// If one is not specified, the LATEST platform version is used by default. For more information, see
+	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
+	// in the Amazon Elastic Container Service Developer Guide.
+	PlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
+	// The runtime platform of the task definition.
+	RuntimePlatform *awsecs.RuntimePlatform `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`
+	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
+	//
+	// [disable-awslint:ref-via-interface].
+	TaskDefinition awsecs.FargateTaskDefinition `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // Properties to define an network listener.
@@ -3740,8 +3819,6 @@ type NetworkLoadBalancedFargateServiceProps struct {
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
-	// Determines whether the service will be assigned a public IP address.
-	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -3781,10 +3858,14 @@ type NetworkLoadBalancedFargateServiceProps struct {
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
 	PlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
+	// The runtime platform of the task definition.
+	RuntimePlatform *awsecs.RuntimePlatform `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`
 	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
 	//
 	// [disable-awslint:ref-via-interface].
 	TaskDefinition awsecs.FargateTaskDefinition `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
+	// Determines whether the service will be assigned a public IP address.
+	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The subnets to associate with the service.
 	TaskSubnets *awsec2.SubnetSelection `field:"optional" json:"taskSubnets" yaml:"taskSubnets"`
 }
@@ -5227,8 +5308,6 @@ type NetworkMultipleTargetGroupsFargateServiceProps struct {
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
-	// Determines whether the service will be assigned a public IP address.
-	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -5268,10 +5347,14 @@ type NetworkMultipleTargetGroupsFargateServiceProps struct {
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
 	PlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
-	// The task definition to use for tasks in the service. Only one of TaskDefinition or TaskImageOptions must be specified.
+	// The runtime platform of the task definition.
+	RuntimePlatform *awsecs.RuntimePlatform `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`
+	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
 	//
 	// [disable-awslint:ref-via-interface].
 	TaskDefinition awsecs.FargateTaskDefinition `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
+	// Determines whether the service will be assigned a public IP address.
+	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 }
 
 // The base class for NetworkMultipleTargetGroupsEc2Service and NetworkMultipleTargetGroupsFargateService classes.
@@ -6521,12 +6604,6 @@ type QueueProcessingFargateServiceProps struct {
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
-	// Specifies whether the task's elastic network interface receives a public IP address.
-	//
-	// If true, each task will receive a public IP address.
-	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
-	// Optional name for the container added.
-	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:
@@ -6543,22 +6620,20 @@ type QueueProcessingFargateServiceProps struct {
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
 	Cpu *float64 `field:"optional" json:"cpu" yaml:"cpu"`
-	// The health check command and associated configuration parameters for the container.
-	HealthCheck *awsecs.HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// The amount (in MiB) of memory used by the task.
 	//
 	// This field is required and you must use one of the following values, which determines your range of valid values
 	// for the cpu parameter:
 	//
-	// 0.5GB, 1GB, 2GB - Available cpu values: 256 (.25 vCPU)
+	// 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available cpu values: 256 (.25 vCPU)
 	//
-	// 1GB, 2GB, 3GB, 4GB - Available cpu values: 512 (.5 vCPU)
+	// 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available cpu values: 512 (.5 vCPU)
 	//
-	// 2GB, 3GB, 4GB, 5GB, 6GB, 7GB, 8GB - Available cpu values: 1024 (1 vCPU)
+	// 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available cpu values: 1024 (1 vCPU)
 	//
-	// Between 4GB and 16GB in 1GB increments - Available cpu values: 2048 (2 vCPU)
+	// Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available cpu values: 2048 (2 vCPU)
 	//
-	// Between 8GB and 30GB in 1GB increments - Available cpu values: 4096 (4 vCPU)
+	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
 	MemoryLimitMiB *float64 `field:"optional" json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
@@ -6568,6 +6643,20 @@ type QueueProcessingFargateServiceProps struct {
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
 	PlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
+	// The runtime platform of the task definition.
+	RuntimePlatform *awsecs.RuntimePlatform `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`
+	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
+	//
+	// [disable-awslint:ref-via-interface].
+	TaskDefinition awsecs.FargateTaskDefinition `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
+	// Specifies whether the task's elastic network interface receives a public IP address.
+	//
+	// If true, each task will receive a public IP address.
+	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
+	// Optional name for the container added.
+	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
+	// The health check command and associated configuration parameters for the container.
+	HealthCheck *awsecs.HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.
@@ -7650,11 +7739,35 @@ type ScheduledFargateTaskImageOptions struct {
 	//
 	// This default is set in the underlying FargateTaskDefinition construct.
 	Cpu *float64 `field:"optional" json:"cpu" yaml:"cpu"`
-	// The hard limit (in MiB) of memory to present to the container.
+	// The amount (in MiB) of memory used by the task.
 	//
-	// If your container attempts to exceed the allocated memory, the container
-	// is terminated.
+	// This field is required and you must use one of the following values, which determines your range of valid values
+	// for the cpu parameter:
+	//
+	// 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available cpu values: 256 (.25 vCPU)
+	//
+	// 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available cpu values: 512 (.5 vCPU)
+	//
+	// 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available cpu values: 1024 (1 vCPU)
+	//
+	// Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available cpu values: 2048 (2 vCPU)
+	//
+	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
+	//
+	// This default is set in the underlying FargateTaskDefinition construct.
 	MemoryLimitMiB *float64 `field:"optional" json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
+	// The platform version on which to run your service.
+	//
+	// If one is not specified, the LATEST platform version is used by default. For more information, see
+	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
+	// in the Amazon Elastic Container Service Developer Guide.
+	PlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
+	// The runtime platform of the task definition.
+	RuntimePlatform *awsecs.RuntimePlatform `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`
+	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
+	//
+	// [disable-awslint:ref-via-interface].
+	TaskDefinition awsecs.FargateTaskDefinition `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
 }
 
 // The properties for the ScheduledFargateTask task.
@@ -7699,12 +7812,51 @@ type ScheduledFargateTaskProps struct {
 	//
 	// If a vpc is specified, the cluster construct should be omitted. Alternatively, you can omit both vpc and cluster.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
+	// The number of cpu units used by the task.
+	//
+	// Valid values, which determines your range of valid values for the memory parameter:
+	//
+	// 256 (.25 vCPU) - Available memory values: 0.5GB, 1GB, 2GB
+	//
+	// 512 (.5 vCPU) - Available memory values: 1GB, 2GB, 3GB, 4GB
+	//
+	// 1024 (1 vCPU) - Available memory values: 2GB, 3GB, 4GB, 5GB, 6GB, 7GB, 8GB
+	//
+	// 2048 (2 vCPU) - Available memory values: Between 4GB and 16GB in 1GB increments
+	//
+	// 4096 (4 vCPU) - Available memory values: Between 8GB and 30GB in 1GB increments
+	//
+	// This default is set in the underlying FargateTaskDefinition construct.
+	Cpu *float64 `field:"optional" json:"cpu" yaml:"cpu"`
+	// The amount (in MiB) of memory used by the task.
+	//
+	// This field is required and you must use one of the following values, which determines your range of valid values
+	// for the cpu parameter:
+	//
+	// 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available cpu values: 256 (.25 vCPU)
+	//
+	// 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available cpu values: 512 (.5 vCPU)
+	//
+	// 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available cpu values: 1024 (1 vCPU)
+	//
+	// Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available cpu values: 2048 (2 vCPU)
+	//
+	// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available cpu values: 4096 (4 vCPU)
+	//
+	// This default is set in the underlying FargateTaskDefinition construct.
+	MemoryLimitMiB *float64 `field:"optional" json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The platform version on which to run your service.
 	//
 	// If one is not specified, the LATEST platform version is used by default. For more information, see
 	// [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
 	PlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
+	// The runtime platform of the task definition.
+	RuntimePlatform *awsecs.RuntimePlatform `field:"optional" json:"runtimePlatform" yaml:"runtimePlatform"`
+	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
+	//
+	// [disable-awslint:ref-via-interface].
+	TaskDefinition awsecs.FargateTaskDefinition `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
 	// The properties to define if using an existing TaskDefinition in this construct.
 	//
 	// ScheduledFargateTaskDefinitionOptions or ScheduledFargateTaskImageOptions must be defined, but not both.

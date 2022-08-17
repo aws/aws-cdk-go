@@ -48,3 +48,50 @@ the subscribed queue.
   }
 }
 ```
+
+* @aws-cdk/aws-apigateway:disableCloudWatchRole
+
+Enable this feature flag to change the default behavior for aws-apigateway.RestApi and aws-apigateway.SpecRestApi
+to *not* create a CloudWatch role and Account. There is only a single ApiGateway account per AWS
+environment which means that each time you create a RestApi in your account the ApiGateway account
+is overwritten. If at some point the newest RestApi is deleted, the ApiGateway Account and CloudWatch
+role will also be deleted, breaking any existing ApiGateways that were depending on them.
+
+When this flag is enabled you should either create the ApiGateway account and CloudWatch role
+separately *or* only enable the cloudWatchRole on a single RestApi.
+
+*cdk.json*
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-apigateway:disableCloudWatchRole": true
+  }
+}
+```
+
+* `@aws-cdk/core:enablePartitionLiterals`
+
+Enable this feature flag to have `Stack.partition` return a literal string for a stack's partition
+when the stack has a known region configured.  If the region is undefined, or set to an unknown value, the
+`Stack.partition` will be the CloudFormation intrinsic value `AWS::Partition`.  Without this feature flag,
+`Stack.partition` always returns the CloudFormation intrinsic value `AWS::Partition`.
+
+This feature will often simplify ARN strings in CDK generated templates, for example:
+
+```yaml
+ Principal:
+   AWS:
+     Fn::Join:
+       - ""
+       - - "arn:"
+         - Ref: AWS::Partition
+         - :iam::123456789876:root
+```
+
+becomes:
+
+```yaml
+ Principal:
+   AWS: "arn:aws:iam::123456789876:root"
+```

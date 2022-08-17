@@ -673,7 +673,7 @@ type jsiiProxy_InterfaceVpcEndpointTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-func NewInterfaceVpcEndpointTarget(vpcEndpoint awsec2.IInterfaceVpcEndpoint) InterfaceVpcEndpointTarget {
+func NewInterfaceVpcEndpointTarget(vpcEndpoint awsec2.InterfaceVpcEndpoint) InterfaceVpcEndpointTarget {
 	_init_.Initialize()
 
 	j := jsiiProxy_InterfaceVpcEndpointTarget{}
@@ -687,7 +687,7 @@ func NewInterfaceVpcEndpointTarget(vpcEndpoint awsec2.IInterfaceVpcEndpoint) Int
 	return &j
 }
 
-func NewInterfaceVpcEndpointTarget_Override(i InterfaceVpcEndpointTarget, vpcEndpoint awsec2.IInterfaceVpcEndpoint) {
+func NewInterfaceVpcEndpointTarget_Override(i InterfaceVpcEndpointTarget, vpcEndpoint awsec2.InterfaceVpcEndpoint) {
 	_init_.Initialize()
 
 	_jsii_.Create(

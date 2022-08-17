@@ -359,6 +359,14 @@ func init() {
 		reflect.TypeOf((*CnameInstanceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_servicediscovery.DiscoveryType",
+		reflect.TypeOf((*DiscoveryType)(nil)).Elem(),
+		map[string]interface{}{
+			"API": DiscoveryType_API,
+			"DNS_AND_API": DiscoveryType_DNS_AND_API,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_servicediscovery.DnsRecordType",
 		reflect.TypeOf((*DnsRecordType)(nil)).Elem(),
 		map[string]interface{}{
@@ -525,6 +533,7 @@ func init() {
 		reflect.TypeOf((*IService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "discoveryType", GoGetter: "DiscoveryType"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsRecordType", GoGetter: "DnsRecordType"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "namespace", GoGetter: "Namespace"},
@@ -728,6 +737,7 @@ func init() {
 		reflect.TypeOf((*Service)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "discoveryType", GoGetter: "DiscoveryType"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsRecordType", GoGetter: "DnsRecordType"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},

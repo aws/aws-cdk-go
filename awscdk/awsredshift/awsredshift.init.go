@@ -499,22 +499,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_redshift.CfnScheduledAction.PauseClusterMessageProperty",
-		reflect.TypeOf((*CfnScheduledAction_PauseClusterMessageProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_redshift.CfnScheduledAction.ResizeClusterMessageProperty",
-		reflect.TypeOf((*CfnScheduledAction_ResizeClusterMessageProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_redshift.CfnScheduledAction.ResumeClusterMessageProperty",
-		reflect.TypeOf((*CfnScheduledAction_ResumeClusterMessageProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_redshift.CfnScheduledAction.ScheduledActionTypeProperty",
-		reflect.TypeOf((*CfnScheduledAction_ScheduledActionTypeProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_redshift.CfnScheduledActionProps",
 		reflect.TypeOf((*CfnScheduledActionProps)(nil)).Elem(),
 	)

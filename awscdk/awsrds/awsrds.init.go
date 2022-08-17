@@ -222,6 +222,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "associatedRoles", GoGetter: "AssociatedRoles"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointAddress", GoGetter: "AttrEndpointAddress"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEndpointHostedZoneId", GoGetter: "AttrEndpointHostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointPort", GoGetter: "AttrEndpointPort"},
 			_jsii_.MemberProperty{JsiiProperty: "autoMinorVersionUpgrade", GoGetter: "AutoMinorVersionUpgrade"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
@@ -301,6 +302,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.CfnDBInstance.DBInstanceRoleProperty",
 		reflect.TypeOf((*CfnDBInstance_DBInstanceRoleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_rds.CfnDBInstance.EndpointProperty",
+		reflect.TypeOf((*CfnDBInstance_EndpointProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.CfnDBInstance.ProcessorFeatureProperty",

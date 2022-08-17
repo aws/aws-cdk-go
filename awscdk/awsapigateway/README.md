@@ -268,6 +268,7 @@ func newRootStack(scope construct) *rootStack {
 	newStack_Override(this, scope, jsii.String("integ-restapi-import-RootStack"))
 
 	restApi := awscdk.NewRestApi(this, jsii.String("RestApi"), &restApiProps{
+		cloudWatchRole: jsii.Boolean(true),
 		deploy: jsii.Boolean(false),
 	})
 	restApi.root.addMethod(jsii.String("ANY"))
@@ -944,7 +945,9 @@ authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &
 	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
 })
 
-restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
+restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"), &restApiProps{
+	cloudWatchRole: jsii.Boolean(true),
+})
 
 authorizer := awscdk.NewTokenAuthorizer(stack, jsii.String("MyAuthorizer"), &tokenAuthorizerProps{
 	handler: authorizerFn,
@@ -1036,7 +1039,9 @@ authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &
 	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 })
 
-restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
+restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"), &restApiProps{
+	cloudWatchRole: jsii.Boolean(true),
+})
 
 authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
 	handler: authorizerFn,
@@ -1142,18 +1147,29 @@ API.
 The following example will configure API Gateway to emit logs and data traces to
 AWS CloudWatch for all API calls:
 
-> By default, an IAM role will be created and associated with API Gateway to
-> allow it to write logs and metrics to AWS CloudWatch unless `cloudWatchRole` is
-> set to `false`.
+> Note: whether or not this is enabled or disabled by default is controlled by the
+> `@aws-cdk/aws-apigateway:disableCloudWatchRole` feature flag. When this feature flag
+> is set to `false` the default behavior will set `cloudWatchRole=true`
+
+This is controlled via the `@aws-cdk/aws-apigateway:disableCloudWatchRole` feature flag and
+is disabled by default. When enabled (or `@aws-cdk/aws-apigateway:disableCloudWatchRole=false`),
+an IAM role will be created and associated with API Gateway to allow it to write logs and metrics to AWS CloudWatch.
 
 ```go
 api := apigateway.NewRestApi(this, jsii.String("books"), &restApiProps{
+	cloudWatchRole: jsii.Boolean(true),
 	deployOptions: &stageOptions{
 		loggingLevel: apigateway.methodLoggingLevel_INFO,
 		dataTraceEnabled: jsii.Boolean(true),
 	},
 })
 ```
+
+> Note: there can only be a single apigateway.CfnAccount per AWS environment
+> so if you create multiple `RestApi`s with `cloudWatchRole=true` each new `RestApi`
+> will overwrite the `CfnAccount`. It is recommended to set `cloudWatchRole=false`
+> (the default behavior if `@aws-cdk/aws-apigateway:disableCloudWatchRole` is enabled)
+> and only create a single CloudWatch role and account per environment.
 
 ### Deep dive: Invalidation of deployments
 

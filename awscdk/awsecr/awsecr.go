@@ -3772,11 +3772,14 @@ type LifecycleRule struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import constructs "github.com/aws/constructs-go/constructs"
 //
+//   var construct construct
 //   var detail interface{}
 //   var ruleTarget iRuleTarget
 //
 //   onCloudTrailImagePushedOptions := &onCloudTrailImagePushedOptions{
+//   	crossStackScope: construct,
 //   	description: jsii.String("description"),
 //   	eventPattern: &eventPattern{
 //   		account: []*string{
@@ -3813,6 +3816,10 @@ type LifecycleRule struct {
 //   }
 //
 type OnCloudTrailImagePushedOptions struct {
+	// The scope to use if the source of the rule and its target are in different Stacks (but in the same account & region).
+	//
+	// This helps dealing with cycles that often arise in these situations.
+	CrossStackScope constructs.Construct `field:"optional" json:"crossStackScope" yaml:"crossStackScope"`
 	// A description of the rule's purpose.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
@@ -3838,11 +3845,14 @@ type OnCloudTrailImagePushedOptions struct {
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import constructs "github.com/aws/constructs-go/constructs"
 //
+//   var construct construct
 //   var detail interface{}
 //   var ruleTarget iRuleTarget
 //
 //   onImageScanCompletedOptions := &onImageScanCompletedOptions{
+//   	crossStackScope: construct,
 //   	description: jsii.String("description"),
 //   	eventPattern: &eventPattern{
 //   		account: []*string{
@@ -3881,6 +3891,10 @@ type OnCloudTrailImagePushedOptions struct {
 //   }
 //
 type OnImageScanCompletedOptions struct {
+	// The scope to use if the source of the rule and its target are in different Stacks (but in the same account & region).
+	//
+	// This helps dealing with cycles that often arise in these situations.
+	CrossStackScope constructs.Construct `field:"optional" json:"crossStackScope" yaml:"crossStackScope"`
 	// A description of the rule's purpose.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.

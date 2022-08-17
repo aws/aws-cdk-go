@@ -1272,12 +1272,16 @@ type GoFunctionProps struct {
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
+	// This is required when `vpcSubnets` is specified.
 	// Experimental.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
-	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
-	// requires a NAT gateway, so picking Public subnets is not allowed.
+	// This requires `vpc` to be specified in order for interfaces to actually be
+	// placed in the subnets. If `vpc` is not specify, this will raise an error.
+	//
+	// Note: Internet access for Lambda Functions requires a NAT Gateway, so picking
+	// public subnets is not allowed (unless `allowPublicSubnet` is set to `true`).
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The path to the folder or file that contains the main application entry point files for the project.

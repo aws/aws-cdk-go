@@ -32,6 +32,58 @@ secretValueVersionFromToken := ssm.stringParameter.fromSecureStringParameterAttr
 })
 ```
 
+### Lookup existing parameters
+
+You can also use an existing parameter by looking up the parameter from the AWS environment.
+This method uses AWS API calls to lookup the value from SSM during synthesis.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+stringValue := ssm.stringParameter.valueFromLookup(stack, jsii.String("/My/Public/Parameter"))
+```
+
+When using `valueFromLookup` an initial value of 'dummy-value-for-${parameterName}'
+(`dummy-value-for-/My/Public/Parameter` in the above example)
+is returned prior to the lookup being performed. This can lead to errors if you are using this
+value in places that require a certain format. For example if you have stored the ARN for a SNS
+topic in a SSM Parameter which you want to lookup and provide to `Topic.fromTopicArn()`
+
+```go
+arnLookup := ssm.stringParameter.valueFromLookup(this, jsii.String("/my/topic/arn"))
+sns.topic.fromTopicArn(this, jsii.String("Topic"), arnLookup)
+```
+
+Initially `arnLookup` will be equal to `dummy-value-for-/my/topic/arn` which will cause
+`Topic.fromTopicArn` to throw an error indicating that the value is not in `arn` format.
+
+For these use cases you need to handle the `dummy-value` in your code. For example:
+
+```go
+arnLookup := ssm.stringParameter.valueFromLookup(this, jsii.String("/my/topic/arn"))
+var arnLookupValue string
+if arnLookup.includes(jsii.String("dummy-value")) {
+	arnLookupValue = this.formatArn(&arnComponents{
+		service: jsii.String("sns"),
+		resource: jsii.String("topic"),
+		resourceName: arnLookup,
+	})
+} else {
+	arnLookupValue = arnLookup
+}
+
+sns.topic.fromTopicArn(this, jsii.String("Topic"), arnLookupValue)
+```
+
+Alternatively, if the property supports tokens you can convert the parameter value into a token
+to be resolved *after* the lookup has been completed.
+
+```go
+arnLookup := ssm.stringParameter.valueFromLookup(this, jsii.String("/my/role/arn"))
+iam.role.fromRoleArn(this, jsii.String("role"), awscdk.Lazy.string(map[string]produce{
+	"produce": () => arnLookup,
+}))
+```
+
 ## Creating new SSM Parameters in your CDK app
 
 You can create either `ssm.StringParameter` or `ssm.StringListParameter`s in

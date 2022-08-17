@@ -7687,7 +7687,7 @@ type CfnRecordSetProps struct {
 //   route53.NewCnameRecord(this, jsii.String("CnameApiRecord"), &cnameRecordProps{
 //   	recordName: jsii.String("api"),
 //   	zone: zone,
-//   	domainName: myDomainName,
+//   	domainName: api.appSyncDomainName,
 //   })
 //
 type CnameRecord interface {
@@ -7981,7 +7981,7 @@ func (c *jsiiProxy_CnameRecord) ToString() *string {
 //   route53.NewCnameRecord(this, jsii.String("CnameApiRecord"), &cnameRecordProps{
 //   	recordName: jsii.String("api"),
 //   	zone: zone,
-//   	domainName: myDomainName,
+//   	domainName: api.appSyncDomainName,
 //   })
 //
 type CnameRecordProps struct {

@@ -220,6 +220,10 @@ func init() {
 		reflect.TypeOf((*ApplicationTargetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs_patterns.FargateServiceBaseProps",
+		reflect.TypeOf((*FargateServiceBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs_patterns.NetworkListenerProps",
 		reflect.TypeOf((*NetworkListenerProps)(nil)).Elem(),
 	)

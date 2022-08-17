@@ -106,12 +106,28 @@ func init() {
 		reflect.TypeOf((*CfnPolicy_IEMapProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fms.CfnPolicy.NetworkFirewallPolicyProperty",
+		reflect.TypeOf((*CfnPolicy_NetworkFirewallPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fms.CfnPolicy.PolicyOptionProperty",
+		reflect.TypeOf((*CfnPolicy_PolicyOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fms.CfnPolicy.PolicyTagProperty",
 		reflect.TypeOf((*CfnPolicy_PolicyTagProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fms.CfnPolicy.ResourceTagProperty",
 		reflect.TypeOf((*CfnPolicy_ResourceTagProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fms.CfnPolicy.SecurityServicePolicyDataProperty",
+		reflect.TypeOf((*CfnPolicy_SecurityServicePolicyDataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fms.CfnPolicy.ThirdPartyFirewallPolicyProperty",
+		reflect.TypeOf((*CfnPolicy_ThirdPartyFirewallPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fms.CfnPolicyProps",

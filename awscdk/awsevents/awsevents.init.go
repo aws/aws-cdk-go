@@ -631,6 +631,10 @@ func init() {
 		"aws-cdk-lib.aws_events.EventBusProps",
 		reflect.TypeOf((*EventBusProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events.EventCommonOptions",
+		reflect.TypeOf((*EventCommonOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events.EventField",
 		reflect.TypeOf((*EventField)(nil)).Elem(),

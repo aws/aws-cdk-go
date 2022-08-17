@@ -17293,6 +17293,7 @@ type CfnIPAMAllocationProps struct {
 //   		},
 //   	},
 //   	autoImport: jsii.Boolean(false),
+//   	awsService: jsii.String("awsService"),
 //   	description: jsii.String("description"),
 //   	locale: jsii.String("locale"),
 //   	provisionedCidrs: []interface{}{
@@ -17361,6 +17362,9 @@ type CfnIPAMPool interface {
 	// A locale must be set on the pool for this feature to work.
 	AutoImport() interface{}
 	SetAutoImport(val interface{})
+	// `AWS::EC2::IPAMPool.AwsService`.
+	AwsService() *string
+	SetAwsService(val *string)
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -17688,6 +17692,16 @@ func (j *jsiiProxy_CfnIPAMPool) AutoImport() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAMPool) AwsService() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"awsService",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAMPool) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -17929,6 +17943,14 @@ func (j *jsiiProxy_CfnIPAMPool) SetAutoImport(val interface{}) {
 	_jsii_.Set(
 		j,
 		"autoImport",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAMPool) SetAwsService(val *string) {
+	_jsii_.Set(
+		j,
+		"awsService",
 		val,
 	)
 }
@@ -18248,6 +18270,7 @@ type CfnIPAMPool_ProvisionedCidrProperty struct {
 //   		},
 //   	},
 //   	autoImport: jsii.Boolean(false),
+//   	awsService: jsii.String("awsService"),
 //   	description: jsii.String("description"),
 //   	locale: jsii.String("locale"),
 //   	provisionedCidrs: []interface{}{
@@ -18292,6 +18315,8 @@ type CfnIPAMPoolProps struct {
 	//
 	// A locale must be set on the pool for this feature to work.
 	AutoImport interface{} `field:"optional" json:"autoImport" yaml:"autoImport"`
+	// `AWS::EC2::IPAMPool.AwsService`.
+	AwsService *string `field:"optional" json:"awsService" yaml:"awsService"`
 	// The description of the IPAM pool.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The locale of the IPAM pool.
@@ -76506,6 +76531,10 @@ const (
 	InstanceClass_PARALLEL3_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "PARALLEL3_NVME_DRIVE_HIGH_PERFORMANCE"
 	// Parallel-processing optimized instances with local NVME drive for high performance computing, 3rd generation.
 	InstanceClass_P3DN InstanceClass = "P3DN"
+	// Parallel-processing optimized instances with local NVME drive, extended, 4th generation (in developer preview).
+	InstanceClass_PARALLEL4_NVME_DRIVE_EXTENDED InstanceClass = "PARALLEL4_NVME_DRIVE_EXTENDED"
+	// Parallel-processing optimized instances with local NVME drive, extended, 4th generation (in developer preview).
+	InstanceClass_P4DE InstanceClass = "P4DE"
 	// Parallel-processing optimized instances, 4th generation.
 	InstanceClass_PARALLEL4 InstanceClass = "PARALLEL4"
 	// Parallel-processing optimized instances, 4th generation.

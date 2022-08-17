@@ -746,6 +746,22 @@ func Bucket_FromBucketName(scope constructs.Construct, id *string, bucketName *s
 	return returns
 }
 
+// Create a mutable {@link IBucket} based on a low-level {@link CfnBucket}.
+func Bucket_FromCfnBucket(cfnBucket CfnBucket) IBucket {
+	_init_.Initialize()
+
+	var returns IBucket
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.Bucket",
+		"fromCfnBucket",
+		[]interface{}{cfnBucket},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`
@@ -2308,6 +2324,8 @@ const (
 //
 type BucketPolicy interface {
 	awscdk.Resource
+	// The Bucket this Policy applies to.
+	Bucket() IBucket
 	// A policy document containing permissions to add to the specified bucket.
 	//
 	// For more information, see Access Policy Language Overview in the Amazon
@@ -2357,6 +2375,16 @@ type BucketPolicy interface {
 // The jsii proxy struct for BucketPolicy
 type jsiiProxy_BucketPolicy struct {
 	internal.Type__awscdkResource
+}
+
+func (j *jsiiProxy_BucketPolicy) Bucket() IBucket {
+	var returns IBucket
+	_jsii_.Get(
+		j,
+		"bucket",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_BucketPolicy) Document() awsiam.PolicyDocument {
@@ -2432,6 +2460,22 @@ func NewBucketPolicy_Override(b BucketPolicy, scope constructs.Construct, id *st
 		[]interface{}{scope, id, props},
 		b,
 	)
+}
+
+// Create a mutable {@link BucketPolicy} from a {@link CfnBucketPolicy}.
+func BucketPolicy_FromCfnBucketPolicy(cfnBucketPolicy CfnBucketPolicy) BucketPolicy {
+	_init_.Initialize()
+
+	var returns BucketPolicy
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.BucketPolicy",
+		"fromCfnBucketPolicy",
+		[]interface{}{cfnBucketPolicy},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks if `x` is a construct.
@@ -11123,11 +11167,14 @@ const (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import constructs "github.com/aws/constructs-go/constructs"
 //
+//   var construct construct
 //   var detail interface{}
 //   var ruleTarget iRuleTarget
 //
 //   onCloudTrailBucketEventOptions := &onCloudTrailBucketEventOptions{
+//   	crossStackScope: construct,
 //   	description: jsii.String("description"),
 //   	eventPattern: &eventPattern{
 //   		account: []*string{
@@ -11166,6 +11213,10 @@ const (
 //   }
 //
 type OnCloudTrailBucketEventOptions struct {
+	// The scope to use if the source of the rule and its target are in different Stacks (but in the same account & region).
+	//
+	// This helps dealing with cycles that often arise in these situations.
+	CrossStackScope constructs.Construct `field:"optional" json:"crossStackScope" yaml:"crossStackScope"`
 	// A description of the rule's purpose.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
