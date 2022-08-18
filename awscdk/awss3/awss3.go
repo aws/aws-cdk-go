@@ -3,39 +3,31 @@ package awss3
 import (
 	"time"
 
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awss3/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyBlockedBucket"), &bucketProps{
 //   	blockPublicAccess: s3.blockPublicAccess_BLOCK_ALL(),
 //   })
 //
-// Experimental.
 type BlockPublicAccess interface {
-	// Experimental.
 	BlockPublicAcls() *bool
-	// Experimental.
 	SetBlockPublicAcls(val *bool)
-	// Experimental.
 	BlockPublicPolicy() *bool
-	// Experimental.
 	SetBlockPublicPolicy(val *bool)
-	// Experimental.
 	IgnorePublicAcls() *bool
-	// Experimental.
 	SetIgnorePublicAcls(val *bool)
-	// Experimental.
 	RestrictPublicBuckets() *bool
-	// Experimental.
 	SetRestrictPublicBuckets(val *bool)
 }
 
@@ -85,14 +77,13 @@ func (j *jsiiProxy_BlockPublicAccess) RestrictPublicBuckets() *bool {
 }
 
 
-// Experimental.
 func NewBlockPublicAccess(options *BlockPublicAccessOptions) BlockPublicAccess {
 	_init_.Initialize()
 
 	j := jsiiProxy_BlockPublicAccess{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.BlockPublicAccess",
+		"aws-cdk-lib.aws_s3.BlockPublicAccess",
 		[]interface{}{options},
 		&j,
 	)
@@ -100,12 +91,11 @@ func NewBlockPublicAccess(options *BlockPublicAccessOptions) BlockPublicAccess {
 	return &j
 }
 
-// Experimental.
 func NewBlockPublicAccess_Override(b BlockPublicAccess, options *BlockPublicAccessOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.BlockPublicAccess",
+		"aws-cdk-lib.aws_s3.BlockPublicAccess",
 		[]interface{}{options},
 		b,
 	)
@@ -147,7 +137,7 @@ func BlockPublicAccess_BLOCK_ACLS() BlockPublicAccess {
 	_init_.Initialize()
 	var returns BlockPublicAccess
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.BlockPublicAccess",
+		"aws-cdk-lib.aws_s3.BlockPublicAccess",
 		"BLOCK_ACLS",
 		&returns,
 	)
@@ -158,7 +148,7 @@ func BlockPublicAccess_BLOCK_ALL() BlockPublicAccess {
 	_init_.Initialize()
 	var returns BlockPublicAccess
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.BlockPublicAccess",
+		"aws-cdk-lib.aws_s3.BlockPublicAccess",
 		"BLOCK_ALL",
 		&returns,
 	)
@@ -166,33 +156,29 @@ func BlockPublicAccess_BLOCK_ALL() BlockPublicAccess {
 }
 
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyBlockedBucket"), &bucketProps{
 //   	blockPublicAccess: s3.NewBlockPublicAccess(&blockPublicAccessOptions{
 //   		blockPublicPolicy: jsii.Boolean(true),
 //   	}),
 //   })
 //
-// Experimental.
 type BlockPublicAccessOptions struct {
 	// Whether to block public ACLs.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-options
 	//
-	// Experimental.
 	BlockPublicAcls *bool `field:"optional" json:"blockPublicAcls" yaml:"blockPublicAcls"`
 	// Whether to block public policy.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-options
 	//
-	// Experimental.
 	BlockPublicPolicy *bool `field:"optional" json:"blockPublicPolicy" yaml:"blockPublicPolicy"`
 	// Whether to ignore public ACLs.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-options
 	//
-	// Experimental.
 	IgnorePublicAcls *bool `field:"optional" json:"ignorePublicAcls" yaml:"ignorePublicAcls"`
 	// Whether to restrict public access.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-options
 	//
-	// Experimental.
 	RestrictPublicBuckets *bool `field:"optional" json:"restrictPublicBuckets" yaml:"restrictPublicBuckets"`
 }
 
@@ -202,56 +188,38 @@ type BlockPublicAccessOptions struct {
 // BucketResource.
 //
 // Example:
-//   var ecrRepository repository
-//
-//
-//   codebuild.NewProject(this, jsii.String("Project"), &projectProps{
-//   	environment: &buildEnvironment{
-//   		buildImage: codebuild.windowsBuildImage.fromEcrRepository(ecrRepository, jsii.String("v1.0"), codebuild.windowsImageType_SERVER_2019),
-//   		// optional certificate to include in the build image
-//   		certificate: &buildEnvironmentCertificate{
-//   			bucket: s3.bucket.fromBucketName(this, jsii.String("Bucket"), jsii.String("my-bucket")),
-//   			objectKey: jsii.String("path/to/cert.pem"),
-//   		},
-//   	},
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   NewBucket(*scope, jsii.String("Bucket"), map[string]interface{}{
+//   	"blockPublicAccess": BlockPublicAccess_BLOCK_ALL,
+//   	"encryption": BucketEncryption_S3_MANAGED,
+//   	"enforceSSL": jsii.Boolean(true),
+//   	"versioned": jsii.Boolean(true),
+//   	"removalPolicy": RemovalPolicy_RETAIN,
 //   })
 //
-// Experimental.
 type Bucket interface {
 	BucketBase
 	// Indicates if a bucket resource policy should automatically created upon the first call to `addToResourcePolicy`.
-	// Experimental.
 	AutoCreatePolicy() *bool
-	// Experimental.
 	SetAutoCreatePolicy(val *bool)
 	// The ARN of the bucket.
-	// Experimental.
 	BucketArn() *string
 	// The IPv4 DNS name of the specified bucket.
-	// Experimental.
 	BucketDomainName() *string
 	// The IPv6 DNS name of the specified bucket.
-	// Experimental.
 	BucketDualStackDomainName() *string
 	// The name of the bucket.
-	// Experimental.
 	BucketName() *string
 	// The regional domain name of the specified bucket.
-	// Experimental.
 	BucketRegionalDomainName() *string
 	// The Domain name of the static website.
-	// Experimental.
 	BucketWebsiteDomainName() *string
 	// The URL of the static website.
-	// Experimental.
 	BucketWebsiteUrl() *string
 	// Whether to disallow public access.
-	// Experimental.
 	DisallowPublicAccess() *bool
-	// Experimental.
 	SetDisallowPublicAccess(val *bool)
 	// Optional KMS encryption key associated with this bucket.
-	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
 	//
@@ -261,17 +229,12 @@ type Bucket interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// If this bucket has been configured for static website hosting.
-	// Experimental.
 	IsWebsite() *bool
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	NotificationsHandlerRole() awsiam.IRole
-	// Experimental.
 	SetNotificationsHandlerRole(val awsiam.IRole)
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
@@ -280,21 +243,16 @@ type Bucket interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The resource policy associated with this bucket.
 	//
 	// If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
 	// first call to addToResourcePolicy(s).
-	// Experimental.
 	Policy() BucketPolicy
-	// Experimental.
 	SetPolicy(val BucketPolicy)
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Adds a cross-origin access configuration for objects in an Amazon S3 bucket.
-	// Experimental.
 	AddCorsRule(rule *CorsRule)
 	// Adds a bucket notification event destination.
 	//
@@ -305,28 +263,22 @@ type Bucket interface {
 	//
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
 	//
-	// Experimental.
 	AddEventNotification(event EventType, dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Add an inventory configuration.
-	// Experimental.
 	AddInventory(inventory *Inventory)
 	// Add a lifecycle rule to the bucket.
-	// Experimental.
 	AddLifecycleRule(rule *LifecycleRule)
 	// Adds a metrics configuration for the CloudWatch request metrics from the bucket.
-	// Experimental.
 	AddMetric(metric *BucketMetrics)
 	// Subscribes a destination to receive notifications when an object is created in the bucket.
 	//
 	// This is identical to calling
 	// `onEvent(EventType.OBJECT_CREATED)`.
-	// Experimental.
 	AddObjectCreatedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Subscribes a destination to receive notifications when an object is removed from the bucket.
 	//
 	// This is identical to calling
 	// `onEvent(EventType.OBJECT_REMOVED)`.
-	// Experimental.
 	AddObjectRemovedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
 	//
@@ -341,7 +293,6 @@ type Bucket interface {
 	// should always check this value to make sure that the operation was
 	// actually carried out. Otherwise, synthesis and deploy will terminate
 	// silently, which may be confusing.
-	// Experimental.
 	AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
@@ -352,7 +303,6 @@ type Bucket interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 	//
@@ -361,11 +311,20 @@ type Bucket interface {
 	// If you need to specify a keyPattern with multiple components, concatenate them into a single string, e.g.:
 	//
 	// arnForObjects(`home/${team}/${user}/*`).
-	// Experimental.
 	ArnForObjects(keyPattern *string) *string
-	// Experimental.
+	// Enables event bridge notification, causing all events below to be sent to EventBridge:.
+	//
+	// - Object Deleted (DeleteObject)
+	// - Object Deleted (Lifecycle expiration)
+	// - Object Restore Initiated
+	// - Object Restore Completed
+	// - Object Restore Expired
+	// - Object Storage Class Changed
+	// - Object Access Tier Changed
+	// - Object ACL Updated
+	// - Object Tags Added
+	// - Object Tags Deleted.
 	EnableEventBridgeNotification()
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -373,17 +332,14 @@ type Bucket interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
-	// Experimental.
 	GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Allows unrestricted access to objects from this bucket.
 	//
@@ -405,26 +361,22 @@ type Bucket interface {
 	// Note that if this `IBucket` refers to an existing bucket, possibly not
 	// managed by CloudFormation, this method will have no effect, since it's
 	// impossible to modify the policy of an existing bucket.
-	// Experimental.
 	GrantPublicAccess(keyPrefix *string, allowedActions ...*string) awsiam.Grant
 	// Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
 	//
 	// If encryption is used, permission to use the key to encrypt the contents
 	// of written files will also be granted to the same principal.
-	// Experimental.
 	GrantPut(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 	//
 	// If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
 	// calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
 	// in this case, if you need to modify object ACLs, call this method explicitly.
-	// Experimental.
 	GrantPutAcl(identity awsiam.IGrantable, objectsKeyPattern *string) awsiam.Grant
 	// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 	//
 	// If encryption is used, permission to use the key to decrypt the contents
 	// of the bucket will also be granted to the same principal.
-	// Experimental.
 	GrantRead(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 	//
@@ -438,7 +390,6 @@ type Bucket interface {
 	// in the `context` key of your cdk.json file.
 	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
 	// use the {@link grantPutAcl} method.
-	// Experimental.
 	GrantReadWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grant write permissions to this bucket to an IAM principal.
 	//
@@ -452,13 +403,11 @@ type Bucket interface {
 	// in the `context` key of your cdk.json file.
 	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
 	// use the {@link grantPutAcl} method.
-	// Experimental.
 	GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Define a CloudWatch event that triggers when something happens to this repository.
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
-	// Experimental.
 	OnCloudTrailEvent(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	// Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 	//
@@ -468,7 +417,6 @@ type Bucket interface {
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
-	// Experimental.
 	OnCloudTrailPutObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	// Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 	//
@@ -481,58 +429,15 @@ type Bucket interface {
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
-	// Experimental.
 	OnCloudTrailWriteObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// The S3 URL of an S3 object. For example:.
 	//
 	// - `s3://onlybucket`
 	// - `s3://bucket/key`.
 	//
 	// Returns: an ObjectS3Url token.
-	// Experimental.
 	S3UrlForObject(key *string) *string
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
 	// The https Transfer Acceleration URL of an S3 object.
 	//
@@ -543,7 +448,6 @@ type Bucket interface {
 	// - `https://bucket.s3-accelerate.amazonaws.com/key`
 	//
 	// Returns: an TransferAccelerationUrl token.
-	// Experimental.
 	TransferAccelerationUrlForObject(key *string, options *TransferAccelerationUrlOptions) *string
 	// The https URL of an S3 object. Specify `regional: false` at the options for non-regional URLs. For example:.
 	//
@@ -552,14 +456,7 @@ type Bucket interface {
 	// - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 	//
 	// Returns: an ObjectS3Url token.
-	// Experimental.
 	UrlForObject(key *string) *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	// Experimental.
-	Validate() *[]*string
 	// The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 	//
 	// - `https://only-bucket.s3.us-west-1.amazonaws.com`
@@ -568,7 +465,6 @@ type Bucket interface {
 	// - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
 	//
 	// Returns: an ObjectS3Url token.
-	// Experimental.
 	VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string
 }
 
@@ -697,8 +593,8 @@ func (j *jsiiProxy_Bucket) IsWebsite() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_Bucket) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Bucket) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -748,14 +644,13 @@ func (j *jsiiProxy_Bucket) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewBucket(scope constructs.Construct, id *string, props *BucketProps) Bucket {
 	_init_.Initialize()
 
 	j := jsiiProxy_Bucket{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -763,12 +658,11 @@ func NewBucket(scope constructs.Construct, id *string, props *BucketProps) Bucke
 	return &j
 }
 
-// Experimental.
 func NewBucket_Override(b Bucket, scope constructs.Construct, id *string, props *BucketProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		[]interface{}{scope, id, props},
 		b,
 	)
@@ -806,14 +700,13 @@ func (j *jsiiProxy_Bucket) SetPolicy(val BucketPolicy) {
 	)
 }
 
-// Experimental.
 func Bucket_FromBucketArn(scope constructs.Construct, id *string, bucketArn *string) IBucket {
 	_init_.Initialize()
 
 	var returns IBucket
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		"fromBucketArn",
 		[]interface{}{scope, id, bucketArn},
 		&returns,
@@ -823,14 +716,13 @@ func Bucket_FromBucketArn(scope constructs.Construct, id *string, bucketArn *str
 }
 
 // Creates a Bucket construct that represents an external bucket.
-// Experimental.
 func Bucket_FromBucketAttributes(scope constructs.Construct, id *string, attrs *BucketAttributes) IBucket {
 	_init_.Initialize()
 
 	var returns IBucket
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		"fromBucketAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -839,14 +731,13 @@ func Bucket_FromBucketAttributes(scope constructs.Construct, id *string, attrs *
 	return returns
 }
 
-// Experimental.
 func Bucket_FromBucketName(scope constructs.Construct, id *string, bucketName *string) IBucket {
 	_init_.Initialize()
 
 	var returns IBucket
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		"fromBucketName",
 		[]interface{}{scope, id, bucketName},
 		&returns,
@@ -855,15 +746,46 @@ func Bucket_FromBucketName(scope constructs.Construct, id *string, bucketName *s
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Create a mutable {@link IBucket} based on a low-level {@link CfnBucket}.
+func Bucket_FromCfnBucket(cfnBucket CfnBucket) IBucket {
+	_init_.Initialize()
+
+	var returns IBucket
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.Bucket",
+		"fromCfnBucket",
+		[]interface{}{cfnBucket},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func Bucket_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -872,15 +794,30 @@ func Bucket_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func Bucket_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func Bucket_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func Bucket_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.Bucket",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -890,12 +827,11 @@ func Bucket_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 // Thrown an exception if the given bucket name is not valid.
-// Experimental.
 func Bucket_ValidateBucketName(physicalName *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		"validateBucketName",
 		[]interface{}{physicalName},
 	)
@@ -1188,43 +1124,6 @@ func (b *jsiiProxy_Bucket) OnCloudTrailWriteObject(id *string, options *OnCloudT
 	return returns
 }
 
-func (b *jsiiProxy_Bucket) OnPrepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (b *jsiiProxy_Bucket) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (b *jsiiProxy_Bucket) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (b *jsiiProxy_Bucket) Prepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (b *jsiiProxy_Bucket) S3UrlForObject(key *string) *string {
 	var returns *string
 
@@ -1236,14 +1135,6 @@ func (b *jsiiProxy_Bucket) S3UrlForObject(key *string) *string {
 	)
 
 	return returns
-}
-
-func (b *jsiiProxy_Bucket) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"synthesize",
-		[]interface{}{session},
-	)
 }
 
 func (b *jsiiProxy_Bucket) ToString() *string {
@@ -1285,19 +1176,6 @@ func (b *jsiiProxy_Bucket) UrlForObject(key *string) *string {
 	return returns
 }
 
-func (b *jsiiProxy_Bucket) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (b *jsiiProxy_Bucket) VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string {
 	var returns *string
 
@@ -1314,70 +1192,81 @@ func (b *jsiiProxy_Bucket) VirtualHostedUrlForObject(key *string, options *Virtu
 // Default bucket access control types.
 //
 // Example:
-//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
+//   websiteBucket := s3.NewBucket(this, jsii.String("WebsiteBucket"), &bucketProps{
+//   	websiteIndexDocument: jsii.String("index.html"),
+//   	publicReadAccess: jsii.Boolean(true),
+//   })
 //
-//   iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
-//   	sql: iot.iotSql.fromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
-//   	actions: []iAction{
-//   		actions.NewS3PutObjectAction(bucket, &s3PutObjectActionProps{
-//   			accessControl: s3.bucketAccessControl_PUBLIC_READ,
-//   		}),
+//   s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &bucketDeploymentProps{
+//   	sources: []iSource{
+//   		s3deploy.source.asset(jsii.String("./website-dist")),
 //   	},
+//   	destinationBucket: websiteBucket,
+//   	destinationKeyPrefix: jsii.String("web/static"),
+//   	 // optional prefix in destination bucket
+//   	metadata: &userDefinedObjectMetadata{
+//   		a: jsii.String("1"),
+//   		b: jsii.String("2"),
+//   	},
+//   	 // user-defined metadata
+//
+//   	// system-defined metadata
+//   	contentType: jsii.String("text/html"),
+//   	contentLanguage: jsii.String("en"),
+//   	storageClass: s3deploy.storageClass_INTELLIGENT_TIERING,
+//   	serverSideEncryption: s3deploy.serverSideEncryption_AES_256,
+//   	cacheControl: []cacheControl{
+//   		s3deploy.*cacheControl.setPublic(),
+//   		s3deploy.*cacheControl.maxAge(awscdk.Duration.hours(jsii.Number(1))),
+//   	},
+//   	accessControl: s3.bucketAccessControl_BUCKET_OWNER_FULL_CONTROL,
 //   })
 //
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html
 //
-// Experimental.
 type BucketAccessControl string
 
 const (
 	// Owner gets FULL_CONTROL.
 	//
 	// No one else has access rights.
-	// Experimental.
 	BucketAccessControl_PRIVATE BucketAccessControl = "PRIVATE"
 	// Owner gets FULL_CONTROL.
 	//
 	// The AllUsers group gets READ access.
-	// Experimental.
 	BucketAccessControl_PUBLIC_READ BucketAccessControl = "PUBLIC_READ"
 	// Owner gets FULL_CONTROL.
 	//
 	// The AllUsers group gets READ and WRITE access.
 	// Granting this on a bucket is generally not recommended.
-	// Experimental.
 	BucketAccessControl_PUBLIC_READ_WRITE BucketAccessControl = "PUBLIC_READ_WRITE"
 	// Owner gets FULL_CONTROL.
 	//
 	// The AuthenticatedUsers group gets READ access.
-	// Experimental.
 	BucketAccessControl_AUTHENTICATED_READ BucketAccessControl = "AUTHENTICATED_READ"
 	// The LogDelivery group gets WRITE and READ_ACP permissions on the bucket.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html
 	//
-	// Experimental.
 	BucketAccessControl_LOG_DELIVERY_WRITE BucketAccessControl = "LOG_DELIVERY_WRITE"
 	// Object owner gets FULL_CONTROL.
 	//
 	// Bucket owner gets READ access.
 	// If you specify this canned ACL when creating a bucket, Amazon S3 ignores it.
-	// Experimental.
 	BucketAccessControl_BUCKET_OWNER_READ BucketAccessControl = "BUCKET_OWNER_READ"
 	// Both the object owner and the bucket owner get FULL_CONTROL over the object.
 	//
 	// If you specify this canned ACL when creating a bucket, Amazon S3 ignores it.
-	// Experimental.
 	BucketAccessControl_BUCKET_OWNER_FULL_CONTROL BucketAccessControl = "BUCKET_OWNER_FULL_CONTROL"
 	// Owner gets FULL_CONTROL.
 	//
 	// Amazon EC2 gets READ access to GET an Amazon Machine Image (AMI) bundle from Amazon S3.
-	// Experimental.
 	BucketAccessControl_AWS_EXEC_READ BucketAccessControl = "AWS_EXEC_READ"
 )
 
 // A reference to a bucket outside this stack.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myLambda function
 //
 //   bucket := s3.bucket.fromBucketAttributes(this, jsii.String("ImportedBucket"), &bucketAttributes{
@@ -1389,22 +1278,17 @@ const (
 //   	prefix: jsii.String("home/myusername/*"),
 //   })
 //
-// Experimental.
 type BucketAttributes struct {
 	// The account this existing bucket belongs to.
-	// Experimental.
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The ARN of the bucket.
 	//
 	// At least one of bucketArn or bucketName must be
 	// defined in order to initialize a bucket ref.
-	// Experimental.
 	BucketArn *string `field:"optional" json:"bucketArn" yaml:"bucketArn"`
 	// The domain name of the bucket.
-	// Experimental.
 	BucketDomainName *string `field:"optional" json:"bucketDomainName" yaml:"bucketDomainName"`
 	// The IPv6 DNS name of the specified bucket.
-	// Experimental.
 	BucketDualStackDomainName *string `field:"optional" json:"bucketDualStackDomainName" yaml:"bucketDualStackDomainName"`
 	// The name of the bucket.
 	//
@@ -1412,30 +1296,22 @@ type BucketAttributes struct {
 	// name will be parsed from the ARN. Otherwise, the name is optional, but
 	// some features that require the bucket name such as auto-creating a bucket
 	// policy, won't work.
-	// Experimental.
 	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// The regional domain name of the specified bucket.
-	// Experimental.
 	BucketRegionalDomainName *string `field:"optional" json:"bucketRegionalDomainName" yaml:"bucketRegionalDomainName"`
 	// The format of the website URL of the bucket.
 	//
 	// This should be true for
 	// regions launched since 2014.
-	// Experimental.
 	BucketWebsiteNewUrlFormat *bool `field:"optional" json:"bucketWebsiteNewUrlFormat" yaml:"bucketWebsiteNewUrlFormat"`
 	// The website URL of the bucket (if static web hosting is enabled).
-	// Experimental.
 	BucketWebsiteUrl *string `field:"optional" json:"bucketWebsiteUrl" yaml:"bucketWebsiteUrl"`
-	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// If this bucket has been configured for static website hosting.
-	// Experimental.
 	IsWebsite *bool `field:"optional" json:"isWebsite" yaml:"isWebsite"`
 	// The role to be used by the notifications handler.
-	// Experimental.
 	NotificationsHandlerRole awsiam.IRole `field:"optional" json:"notificationsHandlerRole" yaml:"notificationsHandlerRole"`
 	// The region this existing bucket is in.
-	// Experimental.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 
@@ -1453,43 +1329,30 @@ type BucketAttributes struct {
 //
 //    const ref = myBucket.export();
 //    Bucket.import(this, 'MyImportedBucket', ref);
-// Experimental.
 type BucketBase interface {
 	awscdk.Resource
 	IBucket
 	// Indicates if a bucket resource policy should automatically created upon the first call to `addToResourcePolicy`.
-	// Experimental.
 	AutoCreatePolicy() *bool
-	// Experimental.
 	SetAutoCreatePolicy(val *bool)
 	// The ARN of the bucket.
-	// Experimental.
 	BucketArn() *string
 	// The IPv4 DNS name of the specified bucket.
-	// Experimental.
 	BucketDomainName() *string
 	// The IPv6 DNS name of the specified bucket.
-	// Experimental.
 	BucketDualStackDomainName() *string
 	// The name of the bucket.
-	// Experimental.
 	BucketName() *string
 	// The regional domain name of the specified bucket.
-	// Experimental.
 	BucketRegionalDomainName() *string
 	// The Domain name of the static website.
-	// Experimental.
 	BucketWebsiteDomainName() *string
 	// The URL of the static website.
-	// Experimental.
 	BucketWebsiteUrl() *string
 	// Whether to disallow public access.
-	// Experimental.
 	DisallowPublicAccess() *bool
-	// Experimental.
 	SetDisallowPublicAccess(val *bool)
 	// Optional KMS encryption key associated with this bucket.
-	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
 	//
@@ -1499,17 +1362,12 @@ type BucketBase interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// If this bucket has been configured for static website hosting.
-	// Experimental.
 	IsWebsite() *bool
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
-	// Experimental.
+	// The tree node.
+	Node() constructs.Node
 	NotificationsHandlerRole() awsiam.IRole
-	// Experimental.
 	SetNotificationsHandlerRole(val awsiam.IRole)
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
@@ -1518,22 +1376,19 @@ type BucketBase interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The resource policy associated with this bucket.
 	//
 	// If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
 	// first call to addToResourcePolicy(s).
-	// Experimental.
 	Policy() BucketPolicy
-	// Experimental.
 	SetPolicy(val BucketPolicy)
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Adds a bucket notification event destination.
 	//
 	// Example:
+	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   var myLambda function
 	//
 	//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
@@ -1543,19 +1398,16 @@ type BucketBase interface {
 	//
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
 	//
-	// Experimental.
 	AddEventNotification(event EventType, dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Subscribes a destination to receive notifications when an object is created in the bucket.
 	//
 	// This is identical to calling
 	// `onEvent(EventType.OBJECT_CREATED)`.
-	// Experimental.
 	AddObjectCreatedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Subscribes a destination to receive notifications when an object is removed from the bucket.
 	//
 	// This is identical to calling
 	// `onEvent(EventType.OBJECT_REMOVED)`.
-	// Experimental.
 	AddObjectRemovedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
 	//
@@ -1570,7 +1422,6 @@ type BucketBase interface {
 	// should always check this value to make sure that the operation was
 	// actually carried out. Otherwise, synthesis and deploy will terminate
 	// silently, which may be confusing.
-	// Experimental.
 	AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
@@ -1581,7 +1432,6 @@ type BucketBase interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 	//
@@ -1590,11 +1440,20 @@ type BucketBase interface {
 	// If you need to specify a keyPattern with multiple components, concatenate them into a single string, e.g.:
 	//
 	// arnForObjects(`home/${team}/${user}/*`).
-	// Experimental.
 	ArnForObjects(keyPattern *string) *string
-	// Experimental.
+	// Enables event bridge notification, causing all events below to be sent to EventBridge:.
+	//
+	// - Object Deleted (DeleteObject)
+	// - Object Deleted (Lifecycle expiration)
+	// - Object Restore Initiated
+	// - Object Restore Completed
+	// - Object Restore Expired
+	// - Object Storage Class Changed
+	// - Object Access Tier Changed
+	// - Object ACL Updated
+	// - Object Tags Added
+	// - Object Tags Deleted.
 	EnableEventBridgeNotification()
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -1602,17 +1461,14 @@ type BucketBase interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
-	// Experimental.
 	GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Allows unrestricted access to objects from this bucket.
 	//
@@ -1634,26 +1490,22 @@ type BucketBase interface {
 	// Note that if this `IBucket` refers to an existing bucket, possibly not
 	// managed by CloudFormation, this method will have no effect, since it's
 	// impossible to modify the policy of an existing bucket.
-	// Experimental.
 	GrantPublicAccess(keyPrefix *string, allowedActions ...*string) awsiam.Grant
 	// Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
 	//
 	// If encryption is used, permission to use the key to encrypt the contents
 	// of written files will also be granted to the same principal.
-	// Experimental.
 	GrantPut(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 	//
 	// If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
 	// calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
 	// in this case, if you need to modify object ACLs, call this method explicitly.
-	// Experimental.
 	GrantPutAcl(identity awsiam.IGrantable, objectsKeyPattern *string) awsiam.Grant
 	// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 	//
 	// If encryption is used, permission to use the key to decrypt the contents
 	// of the bucket will also be granted to the same principal.
-	// Experimental.
 	GrantRead(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 	//
@@ -1667,7 +1519,6 @@ type BucketBase interface {
 	// in the `context` key of your cdk.json file.
 	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
 	// use the {@link grantPutAcl} method.
-	// Experimental.
 	GrantReadWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grant write permissions to this bucket to an IAM principal.
 	//
@@ -1681,13 +1532,11 @@ type BucketBase interface {
 	// in the `context` key of your cdk.json file.
 	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
 	// use the {@link grantPutAcl} method.
-	// Experimental.
 	GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Define a CloudWatch event that triggers when something happens to this repository.
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
-	// Experimental.
 	OnCloudTrailEvent(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	// Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 	//
@@ -1697,7 +1546,6 @@ type BucketBase interface {
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
-	// Experimental.
 	OnCloudTrailPutObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	// Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 	//
@@ -1710,58 +1558,15 @@ type BucketBase interface {
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
-	// Experimental.
 	OnCloudTrailWriteObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// The S3 URL of an S3 object. For example:.
 	//
 	// - `s3://onlybucket`
 	// - `s3://bucket/key`.
 	//
 	// Returns: an ObjectS3Url token.
-	// Experimental.
 	S3UrlForObject(key *string) *string
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
 	// The https Transfer Acceleration URL of an S3 object.
 	//
@@ -1772,7 +1577,6 @@ type BucketBase interface {
 	// - `https://bucket.s3-accelerate.amazonaws.com/key`
 	//
 	// Returns: an TransferAccelerationUrl token.
-	// Experimental.
 	TransferAccelerationUrlForObject(key *string, options *TransferAccelerationUrlOptions) *string
 	// The https URL of an S3 object. Specify `regional: false` at the options for non-regional URLs. For example:.
 	//
@@ -1781,14 +1585,7 @@ type BucketBase interface {
 	// - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 	//
 	// Returns: an ObjectS3Url token.
-	// Experimental.
 	UrlForObject(key *string) *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	// Experimental.
-	Validate() *[]*string
 	// The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 	//
 	// - `https://only-bucket.s3.us-west-1.amazonaws.com`
@@ -1797,7 +1594,6 @@ type BucketBase interface {
 	// - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
 	//
 	// Returns: an ObjectS3Url token.
-	// Experimental.
 	VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string
 }
 
@@ -1927,8 +1723,8 @@ func (j *jsiiProxy_BucketBase) IsWebsite() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_BucketBase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_BucketBase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1978,12 +1774,11 @@ func (j *jsiiProxy_BucketBase) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewBucketBase_Override(b BucketBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.BucketBase",
+		"aws-cdk-lib.aws_s3.BucketBase",
 		[]interface{}{scope, id, props},
 		b,
 	)
@@ -2021,15 +1816,30 @@ func (j *jsiiProxy_BucketBase) SetPolicy(val BucketPolicy) {
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func BucketBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.BucketBase",
+		"aws-cdk-lib.aws_s3.BucketBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2038,15 +1848,30 @@ func BucketBase_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func BucketBase_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func BucketBase_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.BucketBase",
+		"aws-cdk-lib.aws_s3.BucketBase",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func BucketBase_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.BucketBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2310,43 +2135,6 @@ func (b *jsiiProxy_BucketBase) OnCloudTrailWriteObject(id *string, options *OnCl
 	return returns
 }
 
-func (b *jsiiProxy_BucketBase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (b *jsiiProxy_BucketBase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (b *jsiiProxy_BucketBase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (b *jsiiProxy_BucketBase) Prepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (b *jsiiProxy_BucketBase) S3UrlForObject(key *string) *string {
 	var returns *string
 
@@ -2358,14 +2146,6 @@ func (b *jsiiProxy_BucketBase) S3UrlForObject(key *string) *string {
 	)
 
 	return returns
-}
-
-func (b *jsiiProxy_BucketBase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"synthesize",
-		[]interface{}{session},
-	)
 }
 
 func (b *jsiiProxy_BucketBase) ToString() *string {
@@ -2407,19 +2187,6 @@ func (b *jsiiProxy_BucketBase) UrlForObject(key *string) *string {
 	return returns
 }
 
-func (b *jsiiProxy_BucketBase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (b *jsiiProxy_BucketBase) VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string {
 	var returns *string
 
@@ -2436,6 +2203,7 @@ func (b *jsiiProxy_BucketBase) VirtualHostedUrlForObject(key *string, options *V
 // What kind of server-side encryption to apply to this bucket.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyEncryptedBucket"), &bucketProps{
 //   	encryption: s3.bucketEncryption_KMS,
 //   })
@@ -2443,23 +2211,18 @@ func (b *jsiiProxy_BucketBase) VirtualHostedUrlForObject(key *string, options *V
 //   // you can access the encryption key:
 //   assert(bucket.encryptionKey instanceof kms.key)
 //
-// Experimental.
 type BucketEncryption string
 
 const (
 	// Objects in the bucket are not encrypted.
-	// Experimental.
 	BucketEncryption_UNENCRYPTED BucketEncryption = "UNENCRYPTED"
 	// Server-side KMS encryption with a master key managed by KMS.
-	// Experimental.
 	BucketEncryption_KMS_MANAGED BucketEncryption = "KMS_MANAGED"
 	// Server-side encryption with a master key managed by S3.
-	// Experimental.
 	BucketEncryption_S3_MANAGED BucketEncryption = "S3_MANAGED"
 	// Server-side encryption with a KMS key managed by the user.
 	//
 	// If `encryptionKey` is specified, this key will be used, otherwise, one will be defined.
-	// Experimental.
 	BucketEncryption_KMS BucketEncryption = "KMS"
 )
 
@@ -2482,18 +2245,14 @@ const (
 //   	},
 //   }
 //
-// Experimental.
 type BucketMetrics struct {
 	// The ID used to identify the metrics configuration.
-	// Experimental.
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The prefix that an object must have to be included in the metrics results.
-	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// Specifies a list of tag filters to use as a metrics configuration filter.
 	//
 	// The metrics configuration includes only objects that meet the filter's criteria.
-	// Experimental.
 	TagFilters *map[string]interface{} `field:"optional" json:"tagFilters" yaml:"tagFilters"`
 }
 
@@ -2502,8 +2261,8 @@ type BucketMetrics struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import constructs "github.com/aws/constructs-go/constructs"
 //
 //   var dependable iDependable
 //
@@ -2517,29 +2276,21 @@ type BucketMetrics struct {
 //   	},
 //   }
 //
-// Experimental.
 type BucketNotificationDestinationConfig struct {
 	// The ARN of the destination (i.e. Lambda, SNS, SQS).
-	// Experimental.
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The notification type.
-	// Experimental.
 	Type BucketNotificationDestinationType `field:"required" json:"type" yaml:"type"`
 	// Any additional dependencies that should be resolved before the bucket notification can be configured (for example, the SNS Topic Policy resource).
-	// Experimental.
-	Dependencies *[]awscdk.IDependable `field:"optional" json:"dependencies" yaml:"dependencies"`
+	Dependencies *[]constructs.IDependable `field:"optional" json:"dependencies" yaml:"dependencies"`
 }
 
 // Supported types of notification destinations.
-// Experimental.
 type BucketNotificationDestinationType string
 
 const (
-	// Experimental.
 	BucketNotificationDestinationType_LAMBDA BucketNotificationDestinationType = "LAMBDA"
-	// Experimental.
 	BucketNotificationDestinationType_QUEUE BucketNotificationDestinationType = "QUEUE"
-	// Experimental.
 	BucketNotificationDestinationType_TOPIC BucketNotificationDestinationType = "TOPIC"
 )
 
@@ -2559,7 +2310,7 @@ const (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
@@ -2568,17 +2319,17 @@ const (
 //   	bucket: bucket,
 //
 //   	// the properties below are optional
-//   	removalPolicy: monocdk.removalPolicy_DESTROY,
+//   	removalPolicy: cdk.removalPolicy_DESTROY,
 //   })
 //
-// Experimental.
 type BucketPolicy interface {
 	awscdk.Resource
+	// The Bucket this Policy applies to.
+	Bucket() IBucket
 	// A policy document containing permissions to add to the specified bucket.
 	//
 	// For more information, see Access Policy Language Overview in the Amazon
 	// Simple Storage Service Developer Guide.
-	// Experimental.
 	Document() awsiam.PolicyDocument
 	// The environment this resource belongs to.
 	//
@@ -2588,11 +2339,9 @@ type BucketPolicy interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -2600,15 +2349,11 @@ type BucketPolicy interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Sets the removal policy for the BucketPolicy.
-	// Experimental.
 	ApplyRemovalPolicy(removalPolicy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -2616,71 +2361,30 @@ type BucketPolicy interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for BucketPolicy
 type jsiiProxy_BucketPolicy struct {
 	internal.Type__awscdkResource
+}
+
+func (j *jsiiProxy_BucketPolicy) Bucket() IBucket {
+	var returns IBucket
+	_jsii_.Get(
+		j,
+		"bucket",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_BucketPolicy) Document() awsiam.PolicyDocument {
@@ -2703,8 +2407,8 @@ func (j *jsiiProxy_BucketPolicy) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_BucketPolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_BucketPolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2734,14 +2438,13 @@ func (j *jsiiProxy_BucketPolicy) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewBucketPolicy(scope constructs.Construct, id *string, props *BucketPolicyProps) BucketPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_BucketPolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.BucketPolicy",
+		"aws-cdk-lib.aws_s3.BucketPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2749,26 +2452,56 @@ func NewBucketPolicy(scope constructs.Construct, id *string, props *BucketPolicy
 	return &j
 }
 
-// Experimental.
 func NewBucketPolicy_Override(b BucketPolicy, scope constructs.Construct, id *string, props *BucketPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.BucketPolicy",
+		"aws-cdk-lib.aws_s3.BucketPolicy",
 		[]interface{}{scope, id, props},
 		b,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Create a mutable {@link BucketPolicy} from a {@link CfnBucketPolicy}.
+func BucketPolicy_FromCfnBucketPolicy(cfnBucketPolicy CfnBucketPolicy) BucketPolicy {
+	_init_.Initialize()
+
+	var returns BucketPolicy
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.BucketPolicy",
+		"fromCfnBucketPolicy",
+		[]interface{}{cfnBucketPolicy},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func BucketPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.BucketPolicy",
+		"aws-cdk-lib.aws_s3.BucketPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2777,15 +2510,30 @@ func BucketPolicy_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func BucketPolicy_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func BucketPolicy_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.BucketPolicy",
+		"aws-cdk-lib.aws_s3.BucketPolicy",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func BucketPolicy_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3.BucketPolicy",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2841,51 +2589,6 @@ func (b *jsiiProxy_BucketPolicy) GetResourceNameAttribute(nameAttr *string) *str
 	return returns
 }
 
-func (b *jsiiProxy_BucketPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (b *jsiiProxy_BucketPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (b *jsiiProxy_BucketPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (b *jsiiProxy_BucketPolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (b *jsiiProxy_BucketPolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (b *jsiiProxy_BucketPolicy) ToString() *string {
 	var returns *string
 
@@ -2899,23 +2602,10 @@ func (b *jsiiProxy_BucketPolicy) ToString() *string {
 	return returns
 }
 
-func (b *jsiiProxy_BucketPolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
@@ -2924,20 +2614,18 @@ func (b *jsiiProxy_BucketPolicy) Validate() *[]*string {
 //   	bucket: bucket,
 //
 //   	// the properties below are optional
-//   	removalPolicy: monocdk.removalPolicy_DESTROY,
+//   	removalPolicy: cdk.removalPolicy_DESTROY,
 //   }
 //
-// Experimental.
 type BucketPolicyProps struct {
 	// The Amazon S3 bucket that the policy applies to.
-	// Experimental.
 	Bucket IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// Policy to apply when the policy is removed from this stack.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   sourceBucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 //   	versioned: jsii.Boolean(true),
 //   })
@@ -2957,10 +2645,8 @@ type BucketPolicyProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type BucketProps struct {
 	// Specifies a canned ACL that grants predefined permissions to the bucket.
-	// Experimental.
 	AccessControl BucketAccessControl `field:"optional" json:"accessControl" yaml:"accessControl"`
 	// Whether all objects should be automatically deleted when the bucket is removed from the stack or when the stack is deleted.
 	//
@@ -2970,110 +2656,85 @@ type BucketProps struct {
 	// switching this to `false` in a CDK version *before* `1.126.0` will lead to
 	// all objects in the bucket being deleted. Be sure to update your bucket resources
 	// by deploying with CDK version `1.126.0` or later **before** switching this value to `false`.
-	// Experimental.
 	AutoDeleteObjects *bool `field:"optional" json:"autoDeleteObjects" yaml:"autoDeleteObjects"`
 	// The block public access configuration of this bucket.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html
 	//
-	// Experimental.
 	BlockPublicAccess BlockPublicAccess `field:"optional" json:"blockPublicAccess" yaml:"blockPublicAccess"`
 	// Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket.
 	//
 	// Only relevant, when Encryption is set to {@link BucketEncryption.KMS}
-	// Experimental.
 	BucketKeyEnabled *bool `field:"optional" json:"bucketKeyEnabled" yaml:"bucketKeyEnabled"`
 	// Physical name of this bucket.
-	// Experimental.
 	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// The CORS configuration of this bucket.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html
 	//
-	// Experimental.
 	Cors *[]*CorsRule `field:"optional" json:"cors" yaml:"cors"`
 	// The kind of server-side encryption to apply to this bucket.
 	//
 	// If you choose KMS, you can specify a KMS key via `encryptionKey`. If
 	// encryption key is not specified, a key will automatically be created.
-	// Experimental.
 	Encryption BucketEncryption `field:"optional" json:"encryption" yaml:"encryption"`
 	// External KMS key to use for bucket encryption.
 	//
 	// The 'encryption' property must be either not specified or set to "Kms".
 	// An error will be emitted if encryption is set to "Unencrypted" or
 	// "Managed".
-	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Enforces SSL for requests.
 	//
 	// S3.5 of the AWS Foundational Security Best Practices Regarding S3.
 	// See: https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-ssl-requests-only.html
 	//
-	// Experimental.
 	EnforceSSL *bool `field:"optional" json:"enforceSSL" yaml:"enforceSSL"`
 	// Whether this bucket should send notifications to Amazon EventBridge or not.
-	// Experimental.
 	EventBridgeEnabled *bool `field:"optional" json:"eventBridgeEnabled" yaml:"eventBridgeEnabled"`
 	// Inteligent Tiering Configurations.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html
 	//
-	// Experimental.
 	IntelligentTieringConfigurations *[]*IntelligentTieringConfiguration `field:"optional" json:"intelligentTieringConfigurations" yaml:"intelligentTieringConfigurations"`
 	// The inventory configuration of the bucket.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html
 	//
-	// Experimental.
 	Inventories *[]*Inventory `field:"optional" json:"inventories" yaml:"inventories"`
 	// Rules that define how Amazon S3 manages objects during their lifetime.
-	// Experimental.
 	LifecycleRules *[]*LifecycleRule `field:"optional" json:"lifecycleRules" yaml:"lifecycleRules"`
 	// The metrics configuration of this bucket.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html
 	//
-	// Experimental.
 	Metrics *[]*BucketMetrics `field:"optional" json:"metrics" yaml:"metrics"`
 	// The role to be used by the notifications handler.
-	// Experimental.
 	NotificationsHandlerRole awsiam.IRole `field:"optional" json:"notificationsHandlerRole" yaml:"notificationsHandlerRole"`
 	// The objectOwnership of the bucket.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html
 	//
-	// Experimental.
 	ObjectOwnership ObjectOwnership `field:"optional" json:"objectOwnership" yaml:"objectOwnership"`
 	// Grants public read access to all objects in the bucket.
 	//
 	// Similar to calling `bucket.grantPublicAccess()`
-	// Experimental.
 	PublicReadAccess *bool `field:"optional" json:"publicReadAccess" yaml:"publicReadAccess"`
 	// Policy to apply when the bucket is removed from this stack.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Destination bucket for the server access logs.
-	// Experimental.
 	ServerAccessLogsBucket IBucket `field:"optional" json:"serverAccessLogsBucket" yaml:"serverAccessLogsBucket"`
 	// Optional log file prefix to use for the bucket's access logs.
 	//
 	// If defined without "serverAccessLogsBucket", enables access logs to current bucket with this prefix.
-	// Experimental.
 	ServerAccessLogsPrefix *string `field:"optional" json:"serverAccessLogsPrefix" yaml:"serverAccessLogsPrefix"`
 	// Whether this bucket should have transfer acceleration turned on or not.
-	// Experimental.
 	TransferAcceleration *bool `field:"optional" json:"transferAcceleration" yaml:"transferAcceleration"`
 	// Whether this bucket should have versioning turned on or not.
-	// Experimental.
 	Versioned *bool `field:"optional" json:"versioned" yaml:"versioned"`
 	// The name of the error document (e.g. "404.html") for the website. `websiteIndexDocument` must also be set if this is set.
-	// Experimental.
 	WebsiteErrorDocument *string `field:"optional" json:"websiteErrorDocument" yaml:"websiteErrorDocument"`
 	// The name of the index document (e.g. "index.html") for the website. Enables static website hosting for this bucket.
-	// Experimental.
 	WebsiteIndexDocument *string `field:"optional" json:"websiteIndexDocument" yaml:"websiteIndexDocument"`
 	// Specifies the redirect behavior of all requests to a website endpoint of a bucket.
 	//
 	// If you specify this property, you can't specify "websiteIndexDocument", "websiteErrorDocument" nor , "websiteRoutingRules".
-	// Experimental.
 	WebsiteRedirect *RedirectTarget `field:"optional" json:"websiteRedirect" yaml:"websiteRedirect"`
 	// Rules that define when a redirect is applied and the redirect behavior.
-	// Experimental.
 	WebsiteRoutingRules *[]*RoutingRule `field:"optional" json:"websiteRoutingRules" yaml:"websiteRoutingRules"`
 }
 
@@ -3126,16 +2787,13 @@ type CfnAccessPoint interface {
 	Bucket() *string
 	SetBucket(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -3146,16 +2804,14 @@ type CfnAccessPoint interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of this access point.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The access point policy associated with this access point.
 	Policy() interface{}
 	SetPolicy(val interface{})
@@ -3171,30 +2827,33 @@ type CfnAccessPoint interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// The Virtual Private Cloud (VPC) configuration for this access point, if one exists.
 	VpcConfiguration() interface{}
 	SetVpcConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3203,7 +2862,6 @@ type CfnAccessPoint interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -3248,15 +2906,12 @@ type CfnAccessPoint interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -3266,14 +2921,17 @@ type CfnAccessPoint interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -3282,74 +2940,21 @@ type CfnAccessPoint interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -3469,8 +3074,8 @@ func (j *jsiiProxy_CfnAccessPoint) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPoint) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnAccessPoint) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3539,6 +3144,16 @@ func (j *jsiiProxy_CfnAccessPoint) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccessPoint) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccessPoint) VpcConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -3551,13 +3166,13 @@ func (j *jsiiProxy_CfnAccessPoint) VpcConfiguration() interface{} {
 
 
 // Create a new `AWS::S3::AccessPoint`.
-func NewCfnAccessPoint(scope awscdk.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
+func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAccessPoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3566,11 +3181,11 @@ func NewCfnAccessPoint(scope awscdk.Construct, id *string, props *CfnAccessPoint
 }
 
 // Create a new `AWS::S3::AccessPoint`.
-func NewCfnAccessPoint_Override(c CfnAccessPoint, scope awscdk.Construct, id *string, props *CfnAccessPointProps) {
+func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id *string, props *CfnAccessPointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3630,14 +3245,13 @@ func (j *jsiiProxy_CfnAccessPoint) SetVpcConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAccessPoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3647,14 +3261,13 @@ func CfnAccessPoint_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAccessPoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3663,15 +3276,30 @@ func CfnAccessPoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnAccessPoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3684,7 +3312,7 @@ func CfnAccessPoint_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3781,48 +3409,11 @@ func (c *jsiiProxy_CfnAccessPoint) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnAccessPoint) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnAccessPoint) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnAccessPoint) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnAccessPoint) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnAccessPoint) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3852,33 +3443,12 @@ func (c *jsiiProxy_CfnAccessPoint) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnAccessPoint) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnAccessPoint) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnAccessPoint) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4084,11 +3654,9 @@ type CfnBucket interface {
 	BucketName() *string
 	SetBucketName(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket.
 	//
@@ -4098,7 +3666,6 @@ type CfnBucket interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// Defines how Amazon S3 handles Intelligent-Tiering storage.
 	IntelligentTieringConfigurations() interface{}
@@ -4125,16 +3692,14 @@ type CfnBucket interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket.
 	//
 	// If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html) .
 	MetricsConfigurations() interface{}
 	SetMetricsConfigurations(val interface{})
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Configuration that defines how Amazon S3 handles bucket notifications.
 	NotificationConfiguration() interface{}
 	SetNotificationConfiguration(val interface{})
@@ -4162,7 +3727,6 @@ type CfnBucket interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// Configuration for replicating objects in an S3 bucket.
 	//
@@ -4174,16 +3738,22 @@ type CfnBucket interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
 	Tags() awscdk.TagManager
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Enables multiple versions of all objects in this bucket.
 	//
 	// You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
@@ -4195,13 +3765,11 @@ type CfnBucket interface {
 	WebsiteConfiguration() interface{}
 	SetWebsiteConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4210,7 +3778,6 @@ type CfnBucket interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -4255,15 +3822,12 @@ type CfnBucket interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -4273,14 +3837,17 @@ type CfnBucket interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -4289,74 +3856,21 @@ type CfnBucket interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -4576,8 +4090,8 @@ func (j *jsiiProxy_CfnBucket) MetricsConfigurations() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucket) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnBucket) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4686,6 +4200,16 @@ func (j *jsiiProxy_CfnBucket) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBucket) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBucket) VersioningConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -4708,13 +4232,13 @@ func (j *jsiiProxy_CfnBucket) WebsiteConfiguration() interface{} {
 
 
 // Create a new `AWS::S3::Bucket`.
-func NewCfnBucket(scope awscdk.Construct, id *string, props *CfnBucketProps) CfnBucket {
+func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps) CfnBucket {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBucket{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnBucket",
+		"aws-cdk-lib.aws_s3.CfnBucket",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4723,11 +4247,11 @@ func NewCfnBucket(scope awscdk.Construct, id *string, props *CfnBucketProps) Cfn
 }
 
 // Create a new `AWS::S3::Bucket`.
-func NewCfnBucket_Override(c CfnBucket, scope awscdk.Construct, id *string, props *CfnBucketProps) {
+func NewCfnBucket_Override(c CfnBucket, scope constructs.Construct, id *string, props *CfnBucketProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnBucket",
+		"aws-cdk-lib.aws_s3.CfnBucket",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4891,14 +4415,13 @@ func (j *jsiiProxy_CfnBucket) SetWebsiteConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnBucket_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnBucket",
+		"aws-cdk-lib.aws_s3.CfnBucket",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4908,14 +4431,13 @@ func CfnBucket_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnBucket_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnBucket",
+		"aws-cdk-lib.aws_s3.CfnBucket",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4924,15 +4446,30 @@ func CfnBucket_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnBucket_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnBucket",
+		"aws-cdk-lib.aws_s3.CfnBucket",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4945,7 +4482,7 @@ func CfnBucket_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.CfnBucket",
+		"aws-cdk-lib.aws_s3.CfnBucket",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5042,48 +4579,11 @@ func (c *jsiiProxy_CfnBucket) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnBucket) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnBucket) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnBucket) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnBucket) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnBucket) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5113,33 +4613,12 @@ func (c *jsiiProxy_CfnBucket) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnBucket) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnBucket) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnBucket) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7221,16 +6700,13 @@ type CfnBucketPolicy interface {
 	Bucket() *string
 	SetBucket(val *string)
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -7241,11 +6717,9 @@ type CfnBucketPolicy interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// A policy document containing permissions to add to the specified bucket.
 	//
 	// In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM. For more information, see the AWS::IAM::Policy [PolicyDocument](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument) resource description in this guide and [Access Policy Language Overview](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the *Amazon S3 User Guide* .
@@ -7255,27 +6729,30 @@ type CfnBucketPolicy interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7284,7 +6761,6 @@ type CfnBucketPolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -7329,15 +6805,12 @@ type CfnBucketPolicy interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -7347,14 +6820,17 @@ type CfnBucketPolicy interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -7363,74 +6839,21 @@ type CfnBucketPolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -7500,8 +6923,8 @@ func (j *jsiiProxy_CfnBucketPolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucketPolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnBucketPolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7550,15 +6973,25 @@ func (j *jsiiProxy_CfnBucketPolicy) UpdatedProperites() *map[string]interface{} 
 	return returns
 }
 
+func (j *jsiiProxy_CfnBucketPolicy) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::S3::BucketPolicy`.
-func NewCfnBucketPolicy(scope awscdk.Construct, id *string, props *CfnBucketPolicyProps) CfnBucketPolicy {
+func NewCfnBucketPolicy(scope constructs.Construct, id *string, props *CfnBucketPolicyProps) CfnBucketPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBucketPolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnBucketPolicy",
+		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7567,11 +7000,11 @@ func NewCfnBucketPolicy(scope awscdk.Construct, id *string, props *CfnBucketPoli
 }
 
 // Create a new `AWS::S3::BucketPolicy`.
-func NewCfnBucketPolicy_Override(c CfnBucketPolicy, scope awscdk.Construct, id *string, props *CfnBucketPolicyProps) {
+func NewCfnBucketPolicy_Override(c CfnBucketPolicy, scope constructs.Construct, id *string, props *CfnBucketPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnBucketPolicy",
+		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7599,14 +7032,13 @@ func (j *jsiiProxy_CfnBucketPolicy) SetPolicyDocument(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnBucketPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnBucketPolicy",
+		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7616,14 +7048,13 @@ func CfnBucketPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnBucketPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnBucketPolicy",
+		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7632,15 +7063,30 @@ func CfnBucketPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnBucketPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnBucketPolicy",
+		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7653,7 +7099,7 @@ func CfnBucketPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.CfnBucketPolicy",
+		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7750,48 +7196,11 @@ func (c *jsiiProxy_CfnBucketPolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnBucketPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnBucketPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnBucketPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnBucketPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnBucketPolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -7821,33 +7230,12 @@ func (c *jsiiProxy_CfnBucketPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnBucketPolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnBucketPolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnBucketPolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7889,390 +7277,17 @@ type CfnBucketPolicyProps struct {
 // Properties for defining a `CfnBucket`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   rawBucket := s3.NewCfnBucket(this, jsii.String("Bucket"), &cfnBucketProps{
+//   })
+//   // -or-
+//   rawBucketAlt := myBucket.node.defaultChild.(cfnBucket)
 //
-//   cfnBucketProps := &cfnBucketProps{
-//   	accelerateConfiguration: &accelerateConfigurationProperty{
-//   		accelerationStatus: jsii.String("accelerationStatus"),
-//   	},
-//   	accessControl: jsii.String("accessControl"),
-//   	analyticsConfigurations: []interface{}{
-//   		&analyticsConfigurationProperty{
-//   			id: jsii.String("id"),
-//   			storageClassAnalysis: &storageClassAnalysisProperty{
-//   				dataExport: &dataExportProperty{
-//   					destination: &destinationProperty{
-//   						bucketArn: jsii.String("bucketArn"),
-//   						format: jsii.String("format"),
-//
-//   						// the properties below are optional
-//   						bucketAccountId: jsii.String("bucketAccountId"),
-//   						prefix: jsii.String("prefix"),
-//   					},
-//   					outputSchemaVersion: jsii.String("outputSchemaVersion"),
-//   				},
-//   			},
-//
-//   			// the properties below are optional
-//   			prefix: jsii.String("prefix"),
-//   			tagFilters: []interface{}{
-//   				&tagFilterProperty{
-//   					key: jsii.String("key"),
-//   					value: jsii.String("value"),
-//   				},
-//   			},
-//   		},
-//   	},
-//   	bucketEncryption: &bucketEncryptionProperty{
-//   		serverSideEncryptionConfiguration: []interface{}{
-//   			&serverSideEncryptionRuleProperty{
-//   				bucketKeyEnabled: jsii.Boolean(false),
-//   				serverSideEncryptionByDefault: &serverSideEncryptionByDefaultProperty{
-//   					sseAlgorithm: jsii.String("sseAlgorithm"),
-//
-//   					// the properties below are optional
-//   					kmsMasterKeyId: jsii.String("kmsMasterKeyId"),
-//   				},
-//   			},
-//   		},
-//   	},
-//   	bucketName: jsii.String("bucketName"),
-//   	corsConfiguration: &corsConfigurationProperty{
-//   		corsRules: []interface{}{
-//   			&corsRuleProperty{
-//   				allowedMethods: []*string{
-//   					jsii.String("allowedMethods"),
-//   				},
-//   				allowedOrigins: []*string{
-//   					jsii.String("allowedOrigins"),
-//   				},
-//
-//   				// the properties below are optional
-//   				allowedHeaders: []*string{
-//   					jsii.String("allowedHeaders"),
-//   				},
-//   				exposedHeaders: []*string{
-//   					jsii.String("exposedHeaders"),
-//   				},
-//   				id: jsii.String("id"),
-//   				maxAge: jsii.Number(123),
-//   			},
-//   		},
-//   	},
-//   	intelligentTieringConfigurations: []interface{}{
-//   		&intelligentTieringConfigurationProperty{
-//   			id: jsii.String("id"),
-//   			status: jsii.String("status"),
-//   			tierings: []interface{}{
-//   				&tieringProperty{
-//   					accessTier: jsii.String("accessTier"),
-//   					days: jsii.Number(123),
-//   				},
-//   			},
-//
-//   			// the properties below are optional
-//   			prefix: jsii.String("prefix"),
-//   			tagFilters: []interface{}{
-//   				&tagFilterProperty{
-//   					key: jsii.String("key"),
-//   					value: jsii.String("value"),
-//   				},
-//   			},
-//   		},
-//   	},
-//   	inventoryConfigurations: []interface{}{
-//   		&inventoryConfigurationProperty{
-//   			destination: &destinationProperty{
-//   				bucketArn: jsii.String("bucketArn"),
-//   				format: jsii.String("format"),
-//
-//   				// the properties below are optional
-//   				bucketAccountId: jsii.String("bucketAccountId"),
-//   				prefix: jsii.String("prefix"),
-//   			},
-//   			enabled: jsii.Boolean(false),
-//   			id: jsii.String("id"),
-//   			includedObjectVersions: jsii.String("includedObjectVersions"),
-//   			scheduleFrequency: jsii.String("scheduleFrequency"),
-//
-//   			// the properties below are optional
-//   			optionalFields: []*string{
-//   				jsii.String("optionalFields"),
-//   			},
-//   			prefix: jsii.String("prefix"),
-//   		},
-//   	},
-//   	lifecycleConfiguration: &lifecycleConfigurationProperty{
-//   		rules: []interface{}{
-//   			&ruleProperty{
-//   				status: jsii.String("status"),
-//
-//   				// the properties below are optional
-//   				abortIncompleteMultipartUpload: &abortIncompleteMultipartUploadProperty{
-//   					daysAfterInitiation: jsii.Number(123),
-//   				},
-//   				expirationDate: NewDate(),
-//   				expirationInDays: jsii.Number(123),
-//   				expiredObjectDeleteMarker: jsii.Boolean(false),
-//   				id: jsii.String("id"),
-//   				noncurrentVersionExpiration: &noncurrentVersionExpirationProperty{
-//   					noncurrentDays: jsii.Number(123),
-//
-//   					// the properties below are optional
-//   					newerNoncurrentVersions: jsii.Number(123),
-//   				},
-//   				noncurrentVersionExpirationInDays: jsii.Number(123),
-//   				noncurrentVersionTransition: &noncurrentVersionTransitionProperty{
-//   					storageClass: jsii.String("storageClass"),
-//   					transitionInDays: jsii.Number(123),
-//
-//   					// the properties below are optional
-//   					newerNoncurrentVersions: jsii.Number(123),
-//   				},
-//   				noncurrentVersionTransitions: []interface{}{
-//   					&noncurrentVersionTransitionProperty{
-//   						storageClass: jsii.String("storageClass"),
-//   						transitionInDays: jsii.Number(123),
-//
-//   						// the properties below are optional
-//   						newerNoncurrentVersions: jsii.Number(123),
-//   					},
-//   				},
-//   				objectSizeGreaterThan: jsii.Number(123),
-//   				objectSizeLessThan: jsii.Number(123),
-//   				prefix: jsii.String("prefix"),
-//   				tagFilters: []interface{}{
-//   					&tagFilterProperty{
-//   						key: jsii.String("key"),
-//   						value: jsii.String("value"),
-//   					},
-//   				},
-//   				transition: &transitionProperty{
-//   					storageClass: jsii.String("storageClass"),
-//
-//   					// the properties below are optional
-//   					transitionDate: NewDate(),
-//   					transitionInDays: jsii.Number(123),
-//   				},
-//   				transitions: []interface{}{
-//   					&transitionProperty{
-//   						storageClass: jsii.String("storageClass"),
-//
-//   						// the properties below are optional
-//   						transitionDate: NewDate(),
-//   						transitionInDays: jsii.Number(123),
-//   					},
-//   				},
-//   			},
-//   		},
-//   	},
-//   	loggingConfiguration: &loggingConfigurationProperty{
-//   		destinationBucketName: jsii.String("destinationBucketName"),
-//   		logFilePrefix: jsii.String("logFilePrefix"),
-//   	},
-//   	metricsConfigurations: []interface{}{
-//   		&metricsConfigurationProperty{
-//   			id: jsii.String("id"),
-//
-//   			// the properties below are optional
-//   			accessPointArn: jsii.String("accessPointArn"),
-//   			prefix: jsii.String("prefix"),
-//   			tagFilters: []interface{}{
-//   				&tagFilterProperty{
-//   					key: jsii.String("key"),
-//   					value: jsii.String("value"),
-//   				},
-//   			},
-//   		},
-//   	},
-//   	notificationConfiguration: &notificationConfigurationProperty{
-//   		eventBridgeConfiguration: &eventBridgeConfigurationProperty{
-//   			eventBridgeEnabled: jsii.Boolean(false),
-//   		},
-//   		lambdaConfigurations: []interface{}{
-//   			&lambdaConfigurationProperty{
-//   				event: jsii.String("event"),
-//   				function: jsii.String("function"),
-//
-//   				// the properties below are optional
-//   				filter: &notificationFilterProperty{
-//   					s3Key: &s3KeyFilterProperty{
-//   						rules: []interface{}{
-//   							&filterRuleProperty{
-//   								name: jsii.String("name"),
-//   								value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
-//   			},
-//   		},
-//   		queueConfigurations: []interface{}{
-//   			&queueConfigurationProperty{
-//   				event: jsii.String("event"),
-//   				queue: jsii.String("queue"),
-//
-//   				// the properties below are optional
-//   				filter: &notificationFilterProperty{
-//   					s3Key: &s3KeyFilterProperty{
-//   						rules: []interface{}{
-//   							&filterRuleProperty{
-//   								name: jsii.String("name"),
-//   								value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
-//   			},
-//   		},
-//   		topicConfigurations: []interface{}{
-//   			&topicConfigurationProperty{
-//   				event: jsii.String("event"),
-//   				topic: jsii.String("topic"),
-//
-//   				// the properties below are optional
-//   				filter: &notificationFilterProperty{
-//   					s3Key: &s3KeyFilterProperty{
-//   						rules: []interface{}{
-//   							&filterRuleProperty{
-//   								name: jsii.String("name"),
-//   								value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   				},
-//   			},
-//   		},
-//   	},
-//   	objectLockConfiguration: &objectLockConfigurationProperty{
-//   		objectLockEnabled: jsii.String("objectLockEnabled"),
-//   		rule: &objectLockRuleProperty{
-//   			defaultRetention: &defaultRetentionProperty{
-//   				days: jsii.Number(123),
-//   				mode: jsii.String("mode"),
-//   				years: jsii.Number(123),
-//   			},
-//   		},
-//   	},
-//   	objectLockEnabled: jsii.Boolean(false),
-//   	ownershipControls: &ownershipControlsProperty{
-//   		rules: []interface{}{
-//   			&ownershipControlsRuleProperty{
-//   				objectOwnership: jsii.String("objectOwnership"),
-//   			},
-//   		},
-//   	},
-//   	publicAccessBlockConfiguration: &publicAccessBlockConfigurationProperty{
-//   		blockPublicAcls: jsii.Boolean(false),
-//   		blockPublicPolicy: jsii.Boolean(false),
-//   		ignorePublicAcls: jsii.Boolean(false),
-//   		restrictPublicBuckets: jsii.Boolean(false),
-//   	},
-//   	replicationConfiguration: &replicationConfigurationProperty{
-//   		role: jsii.String("role"),
-//   		rules: []interface{}{
-//   			&replicationRuleProperty{
-//   				destination: &replicationDestinationProperty{
-//   					bucket: jsii.String("bucket"),
-//
-//   					// the properties below are optional
-//   					accessControlTranslation: &accessControlTranslationProperty{
-//   						owner: jsii.String("owner"),
-//   					},
-//   					account: jsii.String("account"),
-//   					encryptionConfiguration: &encryptionConfigurationProperty{
-//   						replicaKmsKeyId: jsii.String("replicaKmsKeyId"),
-//   					},
-//   					metrics: &metricsProperty{
-//   						status: jsii.String("status"),
-//
-//   						// the properties below are optional
-//   						eventThreshold: &replicationTimeValueProperty{
-//   							minutes: jsii.Number(123),
-//   						},
-//   					},
-//   					replicationTime: &replicationTimeProperty{
-//   						status: jsii.String("status"),
-//   						time: &replicationTimeValueProperty{
-//   							minutes: jsii.Number(123),
-//   						},
-//   					},
-//   					storageClass: jsii.String("storageClass"),
-//   				},
-//   				status: jsii.String("status"),
-//
-//   				// the properties below are optional
-//   				deleteMarkerReplication: &deleteMarkerReplicationProperty{
-//   					status: jsii.String("status"),
-//   				},
-//   				filter: &replicationRuleFilterProperty{
-//   					and: &replicationRuleAndOperatorProperty{
-//   						prefix: jsii.String("prefix"),
-//   						tagFilters: []interface{}{
-//   							&tagFilterProperty{
-//   								key: jsii.String("key"),
-//   								value: jsii.String("value"),
-//   							},
-//   						},
-//   					},
-//   					prefix: jsii.String("prefix"),
-//   					tagFilter: &tagFilterProperty{
-//   						key: jsii.String("key"),
-//   						value: jsii.String("value"),
-//   					},
-//   				},
-//   				id: jsii.String("id"),
-//   				prefix: jsii.String("prefix"),
-//   				priority: jsii.Number(123),
-//   				sourceSelectionCriteria: &sourceSelectionCriteriaProperty{
-//   					replicaModifications: &replicaModificationsProperty{
-//   						status: jsii.String("status"),
-//   					},
-//   					sseKmsEncryptedObjects: &sseKmsEncryptedObjectsProperty{
-//   						status: jsii.String("status"),
-//   					},
-//   				},
-//   			},
-//   		},
-//   	},
-//   	tags: []cfnTag{
-//   		&cfnTag{
-//   			key: jsii.String("key"),
-//   			value: jsii.String("value"),
-//   		},
-//   	},
-//   	versioningConfiguration: &versioningConfigurationProperty{
-//   		status: jsii.String("status"),
-//   	},
-//   	websiteConfiguration: &websiteConfigurationProperty{
-//   		errorDocument: jsii.String("errorDocument"),
-//   		indexDocument: jsii.String("indexDocument"),
-//   		redirectAllRequestsTo: &redirectAllRequestsToProperty{
-//   			hostName: jsii.String("hostName"),
-//
-//   			// the properties below are optional
-//   			protocol: jsii.String("protocol"),
-//   		},
-//   		routingRules: []interface{}{
-//   			&routingRuleProperty{
-//   				redirectRule: &redirectRuleProperty{
-//   					hostName: jsii.String("hostName"),
-//   					httpRedirectCode: jsii.String("httpRedirectCode"),
-//   					protocol: jsii.String("protocol"),
-//   					replaceKeyPrefixWith: jsii.String("replaceKeyPrefixWith"),
-//   					replaceKeyWith: jsii.String("replaceKeyWith"),
-//   				},
-//
-//   				// the properties below are optional
-//   				routingRuleCondition: &routingRuleConditionProperty{
-//   					httpErrorCodeReturnedEquals: jsii.String("httpErrorCodeReturnedEquals"),
-//   					keyPrefixEquals: jsii.String("keyPrefixEquals"),
-//   				},
-//   			},
-//   		},
-//   	},
+//   // then
+//   rawBucket.cfnOptions.condition = awscdk.NewCfnCondition(this, jsii.String("EnableBucket"), &cfnConditionProps{
+//   })
+//   rawBucket.cfnOptions.metadata = map[string]interface{}{
+//   	"metadataKey": jsii.String("MetadataValue"),
 //   }
 //
 type CfnBucketProps struct {
@@ -8393,16 +7408,13 @@ type CfnMultiRegionAccessPoint interface {
 	// The timestamp of when the Multi-Region Access Point is created.
 	AttrCreatedAt() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -8413,14 +7425,12 @@ type CfnMultiRegionAccessPoint interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the Multi-Region Access Point.
 	Name() *string
 	SetName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The PublicAccessBlock configuration that you want to apply to this Multi-Region Access Point.
 	//
 	// You can enable the configuration options in any combination. For more information about when Amazon S3 considers an object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide* .
@@ -8430,7 +7440,6 @@ type CfnMultiRegionAccessPoint interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// A collection of the Regions and buckets associated with the Multi-Region Access Point.
 	Regions() interface{}
@@ -8438,22 +7447,26 @@ type CfnMultiRegionAccessPoint interface {
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8462,7 +7475,6 @@ type CfnMultiRegionAccessPoint interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -8507,15 +7519,12 @@ type CfnMultiRegionAccessPoint interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -8525,14 +7534,17 @@ type CfnMultiRegionAccessPoint interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -8541,74 +7553,21 @@ type CfnMultiRegionAccessPoint interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -8698,8 +7657,8 @@ func (j *jsiiProxy_CfnMultiRegionAccessPoint) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMultiRegionAccessPoint) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnMultiRegionAccessPoint) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8758,15 +7717,25 @@ func (j *jsiiProxy_CfnMultiRegionAccessPoint) UpdatedProperites() *map[string]in
 	return returns
 }
 
+func (j *jsiiProxy_CfnMultiRegionAccessPoint) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::S3::MultiRegionAccessPoint`.
-func NewCfnMultiRegionAccessPoint(scope awscdk.Construct, id *string, props *CfnMultiRegionAccessPointProps) CfnMultiRegionAccessPoint {
+func NewCfnMultiRegionAccessPoint(scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointProps) CfnMultiRegionAccessPoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnMultiRegionAccessPoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnMultiRegionAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8775,11 +7744,11 @@ func NewCfnMultiRegionAccessPoint(scope awscdk.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::S3::MultiRegionAccessPoint`.
-func NewCfnMultiRegionAccessPoint_Override(c CfnMultiRegionAccessPoint, scope awscdk.Construct, id *string, props *CfnMultiRegionAccessPointProps) {
+func NewCfnMultiRegionAccessPoint_Override(c CfnMultiRegionAccessPoint, scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnMultiRegionAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8815,14 +7784,13 @@ func (j *jsiiProxy_CfnMultiRegionAccessPoint) SetRegions(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnMultiRegionAccessPoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnMultiRegionAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPoint",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8832,14 +7800,13 @@ func CfnMultiRegionAccessPoint_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnMultiRegionAccessPoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnMultiRegionAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPoint",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8848,15 +7815,30 @@ func CfnMultiRegionAccessPoint_IsCfnResource(construct constructs.IConstruct) *b
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnMultiRegionAccessPoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnMultiRegionAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8869,7 +7851,7 @@ func CfnMultiRegionAccessPoint_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.CfnMultiRegionAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPoint",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8966,48 +7948,11 @@ func (c *jsiiProxy_CfnMultiRegionAccessPoint) Inspect(inspector awscdk.TreeInspe
 	)
 }
 
-func (c *jsiiProxy_CfnMultiRegionAccessPoint) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnMultiRegionAccessPoint) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnMultiRegionAccessPoint) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnMultiRegionAccessPoint) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnMultiRegionAccessPoint) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -9037,33 +7982,12 @@ func (c *jsiiProxy_CfnMultiRegionAccessPoint) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnMultiRegionAccessPoint) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnMultiRegionAccessPoint) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnMultiRegionAccessPoint) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9169,16 +8093,13 @@ type CfnMultiRegionAccessPointPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -9189,14 +8110,12 @@ type CfnMultiRegionAccessPointPolicy interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
 	// The name of the Multi-Region Access Point.
 	MrapName() *string
 	SetMrapName(val *string)
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The access policy associated with the Multi-Region Access Point.
 	Policy() interface{}
 	SetPolicy(val interface{})
@@ -9204,27 +8123,30 @@ type CfnMultiRegionAccessPointPolicy interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -9233,7 +8155,6 @@ type CfnMultiRegionAccessPointPolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -9278,15 +8199,12 @@ type CfnMultiRegionAccessPointPolicy interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -9296,14 +8214,17 @@ type CfnMultiRegionAccessPointPolicy interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -9312,74 +8233,21 @@ type CfnMultiRegionAccessPointPolicy interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -9449,8 +8317,8 @@ func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) MrapName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -9499,15 +8367,25 @@ func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) UpdatedProperites() *map[str
 	return returns
 }
 
+func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::S3::MultiRegionAccessPointPolicy`.
-func NewCfnMultiRegionAccessPointPolicy(scope awscdk.Construct, id *string, props *CfnMultiRegionAccessPointPolicyProps) CfnMultiRegionAccessPointPolicy {
+func NewCfnMultiRegionAccessPointPolicy(scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointPolicyProps) CfnMultiRegionAccessPointPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnMultiRegionAccessPointPolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnMultiRegionAccessPointPolicy",
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPointPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9516,11 +8394,11 @@ func NewCfnMultiRegionAccessPointPolicy(scope awscdk.Construct, id *string, prop
 }
 
 // Create a new `AWS::S3::MultiRegionAccessPointPolicy`.
-func NewCfnMultiRegionAccessPointPolicy_Override(c CfnMultiRegionAccessPointPolicy, scope awscdk.Construct, id *string, props *CfnMultiRegionAccessPointPolicyProps) {
+func NewCfnMultiRegionAccessPointPolicy_Override(c CfnMultiRegionAccessPointPolicy, scope constructs.Construct, id *string, props *CfnMultiRegionAccessPointPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnMultiRegionAccessPointPolicy",
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPointPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -9548,14 +8426,13 @@ func (j *jsiiProxy_CfnMultiRegionAccessPointPolicy) SetPolicy(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnMultiRegionAccessPointPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnMultiRegionAccessPointPolicy",
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPointPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -9565,14 +8442,13 @@ func CfnMultiRegionAccessPointPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnMultiRegionAccessPointPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnMultiRegionAccessPointPolicy",
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPointPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -9581,15 +8457,30 @@ func CfnMultiRegionAccessPointPolicy_IsCfnResource(construct constructs.IConstru
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnMultiRegionAccessPointPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnMultiRegionAccessPointPolicy",
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPointPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9602,7 +8493,7 @@ func CfnMultiRegionAccessPointPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.CfnMultiRegionAccessPointPolicy",
+		"aws-cdk-lib.aws_s3.CfnMultiRegionAccessPointPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -9699,48 +8590,11 @@ func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) Inspect(inspector awscdk.Tre
 	)
 }
 
-func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -9770,33 +8624,12 @@ func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9964,16 +8797,13 @@ type CfnStorageLens interface {
 	// This property is read-only.
 	AttrStorageLensConfigurationStorageLensArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -9984,41 +8814,42 @@ type CfnStorageLens interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// This resource contains the details Amazon S3 Storage Lens configuration.
 	StorageLensConfiguration() interface{}
 	SetStorageLensConfiguration(val interface{})
 	// A set of tags (key–value pairs) to associate with the Storage Lens configuration.
 	Tags() awscdk.TagManager
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -10027,7 +8858,6 @@ type CfnStorageLens interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -10072,15 +8902,12 @@ type CfnStorageLens interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -10090,14 +8917,17 @@ type CfnStorageLens interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -10106,74 +8936,21 @@ type CfnStorageLens interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -10243,8 +9020,8 @@ func (j *jsiiProxy_CfnStorageLens) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageLens) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnStorageLens) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -10303,15 +9080,25 @@ func (j *jsiiProxy_CfnStorageLens) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStorageLens) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::S3::StorageLens`.
-func NewCfnStorageLens(scope awscdk.Construct, id *string, props *CfnStorageLensProps) CfnStorageLens {
+func NewCfnStorageLens(scope constructs.Construct, id *string, props *CfnStorageLensProps) CfnStorageLens {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStorageLens{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnStorageLens",
+		"aws-cdk-lib.aws_s3.CfnStorageLens",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10320,11 +9107,11 @@ func NewCfnStorageLens(scope awscdk.Construct, id *string, props *CfnStorageLens
 }
 
 // Create a new `AWS::S3::StorageLens`.
-func NewCfnStorageLens_Override(c CfnStorageLens, scope awscdk.Construct, id *string, props *CfnStorageLensProps) {
+func NewCfnStorageLens_Override(c CfnStorageLens, scope constructs.Construct, id *string, props *CfnStorageLensProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnStorageLens",
+		"aws-cdk-lib.aws_s3.CfnStorageLens",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -10344,14 +9131,13 @@ func (j *jsiiProxy_CfnStorageLens) SetStorageLensConfiguration(val interface{}) 
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnStorageLens_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnStorageLens",
+		"aws-cdk-lib.aws_s3.CfnStorageLens",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -10361,14 +9147,13 @@ func CfnStorageLens_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnStorageLens_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnStorageLens",
+		"aws-cdk-lib.aws_s3.CfnStorageLens",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -10377,15 +9162,30 @@ func CfnStorageLens_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnStorageLens_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnStorageLens",
+		"aws-cdk-lib.aws_s3.CfnStorageLens",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10398,7 +9198,7 @@ func CfnStorageLens_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.CfnStorageLens",
+		"aws-cdk-lib.aws_s3.CfnStorageLens",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -10495,48 +9295,11 @@ func (c *jsiiProxy_CfnStorageLens) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnStorageLens) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnStorageLens) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnStorageLens) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnStorageLens) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnStorageLens) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -10566,33 +9329,12 @@ func (c *jsiiProxy_CfnStorageLens) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnStorageLens) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnStorageLens) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnStorageLens) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -11095,31 +9837,25 @@ type CfnStorageLensProps struct {
 //   	maxAge: jsii.Number(123),
 //   }
 //
-// Experimental.
 type CorsRule struct {
 	// An HTTP method that you allow the origin to execute.
-	// Experimental.
 	AllowedMethods *[]HttpMethods `field:"required" json:"allowedMethods" yaml:"allowedMethods"`
 	// One or more origins you want customers to be able to access the bucket from.
-	// Experimental.
 	AllowedOrigins *[]*string `field:"required" json:"allowedOrigins" yaml:"allowedOrigins"`
 	// Headers that are specified in the Access-Control-Request-Headers header.
-	// Experimental.
 	AllowedHeaders *[]*string `field:"optional" json:"allowedHeaders" yaml:"allowedHeaders"`
 	// One or more headers in the response that you want customers to be able to access from their applications.
-	// Experimental.
 	ExposedHeaders *[]*string `field:"optional" json:"exposedHeaders" yaml:"exposedHeaders"`
 	// A unique identifier for this rule.
-	// Experimental.
 	Id *string `field:"optional" json:"id" yaml:"id"`
 	// The time in seconds that your browser is to cache the preflight response for the specified resource.
-	// Experimental.
 	MaxAge *float64 `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 
 // Notification event types.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myQueue queue
 //
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
@@ -11129,7 +9865,6 @@ type CorsRule struct {
 //   	suffix: jsii.String(".jpg"),
 //   })
 //
-// Experimental.
 type EventType string
 
 const (
@@ -11140,7 +9875,6 @@ const (
 	// using a specific API, or you can use the s3:ObjectCreated:* event type to
 	// request notification regardless of the API that was used to create an
 	// object.
-	// Experimental.
 	EventType_OBJECT_CREATED EventType = "OBJECT_CREATED"
 	// Amazon S3 APIs such as PUT, POST, and COPY can create an object.
 	//
@@ -11149,7 +9883,6 @@ const (
 	// using a specific API, or you can use the s3:ObjectCreated:* event type to
 	// request notification regardless of the API that was used to create an
 	// object.
-	// Experimental.
 	EventType_OBJECT_CREATED_PUT EventType = "OBJECT_CREATED_PUT"
 	// Amazon S3 APIs such as PUT, POST, and COPY can create an object.
 	//
@@ -11158,7 +9891,6 @@ const (
 	// using a specific API, or you can use the s3:ObjectCreated:* event type to
 	// request notification regardless of the API that was used to create an
 	// object.
-	// Experimental.
 	EventType_OBJECT_CREATED_POST EventType = "OBJECT_CREATED_POST"
 	// Amazon S3 APIs such as PUT, POST, and COPY can create an object.
 	//
@@ -11167,7 +9899,6 @@ const (
 	// using a specific API, or you can use the s3:ObjectCreated:* event type to
 	// request notification regardless of the API that was used to create an
 	// object.
-	// Experimental.
 	EventType_OBJECT_CREATED_COPY EventType = "OBJECT_CREATED_COPY"
 	// Amazon S3 APIs such as PUT, POST, and COPY can create an object.
 	//
@@ -11176,7 +9907,6 @@ const (
 	// using a specific API, or you can use the s3:ObjectCreated:* event type to
 	// request notification regardless of the API that was used to create an
 	// object.
-	// Experimental.
 	EventType_OBJECT_CREATED_COMPLETE_MULTIPART_UPLOAD EventType = "OBJECT_CREATED_COMPLETE_MULTIPART_UPLOAD"
 	// By using the ObjectRemoved event types, you can enable notification when an object or a batch of objects is removed from a bucket.
 	//
@@ -11190,7 +9920,6 @@ const (
 	//
 	// You will not receive event notifications from automatic deletes from
 	// lifecycle policies or from failed operations.
-	// Experimental.
 	EventType_OBJECT_REMOVED EventType = "OBJECT_REMOVED"
 	// By using the ObjectRemoved event types, you can enable notification when an object or a batch of objects is removed from a bucket.
 	//
@@ -11204,7 +9933,6 @@ const (
 	//
 	// You will not receive event notifications from automatic deletes from
 	// lifecycle policies or from failed operations.
-	// Experimental.
 	EventType_OBJECT_REMOVED_DELETE EventType = "OBJECT_REMOVED_DELETE"
 	// By using the ObjectRemoved event types, you can enable notification when an object or a batch of objects is removed from a bucket.
 	//
@@ -11218,104 +9946,80 @@ const (
 	//
 	// You will not receive event notifications from automatic deletes from
 	// lifecycle policies or from failed operations.
-	// Experimental.
 	EventType_OBJECT_REMOVED_DELETE_MARKER_CREATED EventType = "OBJECT_REMOVED_DELETE_MARKER_CREATED"
 	// Using restore object event types you can receive notifications for initiation and completion when restoring objects from the S3 Glacier storage class.
 	//
 	// You use s3:ObjectRestore:Post to request notification of object restoration
 	// initiation.
-	// Experimental.
 	EventType_OBJECT_RESTORE_POST EventType = "OBJECT_RESTORE_POST"
 	// Using restore object event types you can receive notifications for initiation and completion when restoring objects from the S3 Glacier storage class.
 	//
 	// You use s3:ObjectRestore:Completed to request notification of
 	// restoration completion.
-	// Experimental.
 	EventType_OBJECT_RESTORE_COMPLETED EventType = "OBJECT_RESTORE_COMPLETED"
 	// Using restore object event types you can receive notifications for initiation and completion when restoring objects from the S3 Glacier storage class.
 	//
 	// You use s3:ObjectRestore:Delete to request notification of
 	// restoration completion.
-	// Experimental.
 	EventType_OBJECT_RESTORE_DELETE EventType = "OBJECT_RESTORE_DELETE"
 	// You can use this event type to request Amazon S3 to send a notification message when Amazon S3 detects that an object of the RRS storage class is lost.
-	// Experimental.
 	EventType_REDUCED_REDUNDANCY_LOST_OBJECT EventType = "REDUCED_REDUNDANCY_LOST_OBJECT"
 	// You receive this notification event when an object that was eligible for replication using Amazon S3 Replication Time Control failed to replicate.
-	// Experimental.
 	EventType_REPLICATION_OPERATION_FAILED_REPLICATION EventType = "REPLICATION_OPERATION_FAILED_REPLICATION"
 	// You receive this notification event when an object that was eligible for replication using Amazon S3 Replication Time Control exceeded the 15-minute threshold for replication.
-	// Experimental.
 	EventType_REPLICATION_OPERATION_MISSED_THRESHOLD EventType = "REPLICATION_OPERATION_MISSED_THRESHOLD"
 	// You receive this notification event for an object that was eligible for replication using the Amazon S3 Replication Time Control feature replicated after the 15-minute threshold.
-	// Experimental.
 	EventType_REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD EventType = "REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD"
 	// You receive this notification event for an object that was eligible for replication using Amazon S3 Replication Time Control but is no longer tracked by replication metrics.
-	// Experimental.
 	EventType_REPLICATION_OPERATION_NOT_TRACKED EventType = "REPLICATION_OPERATION_NOT_TRACKED"
 	// By using the LifecycleExpiration event types, you can receive a notification when Amazon S3 deletes an object based on your S3 Lifecycle configuration.
-	// Experimental.
 	EventType_LIFECYCLE_EXPIRATION EventType = "LIFECYCLE_EXPIRATION"
 	// The s3:LifecycleExpiration:Delete event type notifies you when an object in an unversioned bucket is deleted.
 	//
 	// It also notifies you when an object version is permanently deleted by an
 	// S3 Lifecycle configuration.
-	// Experimental.
 	EventType_LIFECYCLE_EXPIRATION_DELETE EventType = "LIFECYCLE_EXPIRATION_DELETE"
 	// The s3:LifecycleExpiration:DeleteMarkerCreated event type notifies you when S3 Lifecycle creates a delete marker when a current version of an object in versioned bucket is deleted.
-	// Experimental.
 	EventType_LIFECYCLE_EXPIRATION_DELETE_MARKER_CREATED EventType = "LIFECYCLE_EXPIRATION_DELETE_MARKER_CREATED"
 	// You receive this notification event when an object is transitioned to another Amazon S3 storage class by an S3 Lifecycle configuration.
-	// Experimental.
 	EventType_LIFECYCLE_TRANSITION EventType = "LIFECYCLE_TRANSITION"
 	// You receive this notification event when an object within the S3 Intelligent-Tiering storage class moved to the Archive Access tier or Deep Archive Access tier.
-	// Experimental.
 	EventType_INTELLIGENT_TIERING EventType = "INTELLIGENT_TIERING"
 	// By using the ObjectTagging event types, you can enable notification when an object tag is added or deleted from an object.
-	// Experimental.
 	EventType_OBJECT_TAGGING EventType = "OBJECT_TAGGING"
 	// The s3:ObjectTagging:Put event type notifies you when a tag is PUT on an object or an existing tag is updated.
-	// Experimental.
 	EventType_OBJECT_TAGGING_PUT EventType = "OBJECT_TAGGING_PUT"
 	// The s3:ObjectTagging:Delete event type notifies you when a tag is removed from an object.
-	// Experimental.
 	EventType_OBJECT_TAGGING_DELETE EventType = "OBJECT_TAGGING_DELETE"
 	// You receive this notification event when an ACL is PUT on an object or when an existing ACL is changed.
 	//
 	// An event is not generated when a request results in no change to an
 	// object’s ACL.
-	// Experimental.
 	EventType_OBJECT_ACL_PUT EventType = "OBJECT_ACL_PUT"
 )
 
 // All http request methods.
-// Experimental.
 type HttpMethods string
 
 const (
 	// The GET method requests a representation of the specified resource.
-	// Experimental.
 	HttpMethods_GET HttpMethods = "GET"
 	// The PUT method replaces all current representations of the target resource with the request payload.
-	// Experimental.
 	HttpMethods_PUT HttpMethods = "PUT"
 	// The HEAD method asks for a response identical to that of a GET request, but without the response body.
-	// Experimental.
 	HttpMethods_HEAD HttpMethods = "HEAD"
 	// The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.
-	// Experimental.
 	HttpMethods_POST HttpMethods = "POST"
 	// The DELETE method deletes the specified resource.
-	// Experimental.
 	HttpMethods_DELETE HttpMethods = "DELETE"
 )
 
-// Experimental.
 type IBucket interface {
 	awscdk.IResource
 	// Adds a bucket notification event destination.
 	//
 	// Example:
+	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   var myLambda function
 	//
 	//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
@@ -11325,19 +10029,16 @@ type IBucket interface {
 	//
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
 	//
-	// Experimental.
 	AddEventNotification(event EventType, dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Subscribes a destination to receive notifications when an object is created in the bucket.
 	//
 	// This is identical to calling
 	// `onEvent(s3.EventType.OBJECT_CREATED)`.
-	// Experimental.
 	AddObjectCreatedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Subscribes a destination to receive notifications when an object is removed from the bucket.
 	//
 	// This is identical to calling
 	// `onEvent(EventType.OBJECT_REMOVED)`.
-	// Experimental.
 	AddObjectRemovedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
 	//
@@ -11352,15 +10053,25 @@ type IBucket interface {
 	// should always check this value to make sure that the operation was
 	// actually carried out. Otherwise, synthesis and deploy will terminate
 	// silently, which may be confusing.
-	// Experimental.
 	AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 	//
 	// To represent all keys, specify ``"*"``.
-	// Experimental.
 	ArnForObjects(keyPattern *string) *string
+	// Enables event bridge notification, causing all events below to be sent to EventBridge:.
+	//
+	// - Object Deleted (DeleteObject)
+	// - Object Deleted (Lifecycle expiration)
+	// - Object Restore Initiated
+	// - Object Restore Completed
+	// - Object Restore Expired
+	// - Object Storage Class Changed
+	// - Object Access Tier Changed
+	// - Object ACL Updated
+	// - Object Tags Added
+	// - Object Tags Deleted.
+	EnableEventBridgeNotification()
 	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
-	// Experimental.
 	GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Allows unrestricted access to objects from this bucket.
 	//
@@ -11380,26 +10091,22 @@ type IBucket interface {
 	//      grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
 	//
 	// Returns: The `iam.PolicyStatement` object, which can be used to apply e.g. conditions.
-	// Experimental.
 	GrantPublicAccess(keyPrefix *string, allowedActions ...*string) awsiam.Grant
 	// Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
 	//
 	// If encryption is used, permission to use the key to encrypt the contents
 	// of written files will also be granted to the same principal.
-	// Experimental.
 	GrantPut(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 	//
 	// If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
 	// calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
 	// in this case, if you need to modify object ACLs, call this method explicitly.
-	// Experimental.
 	GrantPutAcl(identity awsiam.IGrantable, objectsKeyPattern *string) awsiam.Grant
 	// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 	//
 	// If encryption is used, permission to use the key to decrypt the contents
 	// of the bucket will also be granted to the same principal.
-	// Experimental.
 	GrantRead(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 	//
@@ -11413,7 +10120,6 @@ type IBucket interface {
 	// in the `context` key of your cdk.json file.
 	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
 	// use the {@link grantPutAcl} method.
-	// Experimental.
 	GrantReadWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grant write permissions to this bucket to an IAM principal.
 	//
@@ -11427,13 +10133,11 @@ type IBucket interface {
 	// in the `context` key of your cdk.json file.
 	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
 	// use the {@link grantPutAcl} method.
-	// Experimental.
 	GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Defines a CloudWatch event that triggers when something happens to this bucket.
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
-	// Experimental.
 	OnCloudTrailEvent(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	// Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 	//
@@ -11443,7 +10147,6 @@ type IBucket interface {
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
-	// Experimental.
 	OnCloudTrailPutObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	// Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 	//
@@ -11456,7 +10159,6 @@ type IBucket interface {
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
 	// that captures the event. This method will not create the Trail.
-	// Experimental.
 	OnCloudTrailWriteObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	// The S3 URL of an S3 object.
 	//
@@ -11465,7 +10167,6 @@ type IBucket interface {
 	// - `s3://bucket/key`.
 	//
 	// Returns: an ObjectS3Url token.
-	// Experimental.
 	S3UrlForObject(key *string) *string
 	// The https Transfer Acceleration URL of an S3 object.
 	//
@@ -11476,7 +10177,6 @@ type IBucket interface {
 	// - `https://bucket.s3-accelerate.amazonaws.com/key`
 	//
 	// Returns: an TransferAccelerationUrl token.
-	// Experimental.
 	TransferAccelerationUrlForObject(key *string, options *TransferAccelerationUrlOptions) *string
 	// The https URL of an S3 object. For example:.
 	//
@@ -11485,7 +10185,6 @@ type IBucket interface {
 	// - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 	//
 	// Returns: an ObjectS3Url token.
-	// Experimental.
 	UrlForObject(key *string) *string
 	// The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 	//
@@ -11495,42 +10194,30 @@ type IBucket interface {
 	// - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
 	//
 	// Returns: an ObjectS3Url token.
-	// Experimental.
 	VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string
 	// The ARN of the bucket.
-	// Experimental.
 	BucketArn() *string
 	// The IPv4 DNS name of the specified bucket.
-	// Experimental.
 	BucketDomainName() *string
 	// The IPv6 DNS name of the specified bucket.
-	// Experimental.
 	BucketDualStackDomainName() *string
 	// The name of the bucket.
-	// Experimental.
 	BucketName() *string
 	// The regional domain name of the specified bucket.
-	// Experimental.
 	BucketRegionalDomainName() *string
 	// The Domain name of the static website.
-	// Experimental.
 	BucketWebsiteDomainName() *string
 	// The URL of the static website.
-	// Experimental.
 	BucketWebsiteUrl() *string
 	// Optional KMS encryption key associated with this bucket.
-	// Experimental.
 	EncryptionKey() awskms.IKey
 	// If this bucket has been configured for static website hosting.
-	// Experimental.
 	IsWebsite() *bool
 	// The resource policy associated with this bucket.
 	//
 	// If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
 	// first call to addToResourcePolicy(s).
-	// Experimental.
 	Policy() BucketPolicy
-	// Experimental.
 	SetPolicy(p BucketPolicy)
 }
 
@@ -11602,6 +10289,14 @@ func (i *jsiiProxy_IBucket) ArnForObjects(keyPattern *string) *string {
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_IBucket) EnableEventBridgeNotification() {
+	_jsii_.InvokeVoid(
+		i,
+		"enableEventBridgeNotification",
+		nil, // no parameters
+	)
 }
 
 func (i *jsiiProxy_IBucket) GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
@@ -11900,15 +10595,13 @@ func (j *jsiiProxy_IBucket) SetPolicy(val BucketPolicy) {
 }
 
 // Implemented by constructs that can be used as bucket notification destinations.
-// Experimental.
 type IBucketNotificationDestination interface {
 	// Registers this resource to receive notifications for the specified bucket.
 	//
 	// This method will only be called once for each destination/bucket
 	// pair and the result will be cached, so there is no need to implement
 	// idempotency in each destination.
-	// Experimental.
-	Bind(scope awscdk.Construct, bucket IBucket) *BucketNotificationDestinationConfig
+	Bind(scope constructs.Construct, bucket IBucket) *BucketNotificationDestinationConfig
 }
 
 // The jsii proxy for IBucketNotificationDestination
@@ -11916,7 +10609,7 @@ type jsiiProxy_IBucketNotificationDestination struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_IBucketNotificationDestination) Bind(scope awscdk.Construct, bucket IBucket) *BucketNotificationDestinationConfig {
+func (i *jsiiProxy_IBucketNotificationDestination) Bind(scope constructs.Construct, bucket IBucket) *BucketNotificationDestinationConfig {
 	var returns *BucketNotificationDestinationConfig
 
 	_jsii_.Invoke(
@@ -11934,17 +10627,15 @@ func (i *jsiiProxy_IBucketNotificationDestination) Bind(scope awscdk.Construct, 
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var duration duration
 //
 //   intelligentTieringConfiguration := &intelligentTieringConfiguration{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
-//   	archiveAccessTierTime: duration,
-//   	deepArchiveAccessTierTime: duration,
+//   	archiveAccessTierTime: cdk.duration.minutes(jsii.Number(30)),
+//   	deepArchiveAccessTierTime: cdk.*duration.minutes(jsii.Number(30)),
 //   	prefix: jsii.String("prefix"),
 //   	tags: []tag{
 //   		&tag{
@@ -11954,22 +10645,16 @@ func (i *jsiiProxy_IBucketNotificationDestination) Bind(scope awscdk.Construct, 
 //   	},
 //   }
 //
-// Experimental.
 type IntelligentTieringConfiguration struct {
 	// Configuration name.
-	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// When enabled, Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 90 days to the Archive Access tier.
-	// Experimental.
 	ArchiveAccessTierTime awscdk.Duration `field:"optional" json:"archiveAccessTierTime" yaml:"archiveAccessTierTime"`
 	// When enabled, Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 180 days to the Deep Archive Access tier.
-	// Experimental.
 	DeepArchiveAccessTierTime awscdk.Duration `field:"optional" json:"deepArchiveAccessTierTime" yaml:"deepArchiveAccessTierTime"`
 	// Add a filter to limit the scope of this configuration to a single prefix.
-	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// You can limit the scope of this rule to the key value pairs added below.
-	// Experimental.
 	Tags *[]*Tag `field:"optional" json:"tags" yaml:"tags"`
 }
 
@@ -12005,37 +10690,29 @@ type IntelligentTieringConfiguration struct {
 //
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html
 //
-// Experimental.
 type Inventory struct {
 	// The destination of the inventory.
-	// Experimental.
 	Destination *InventoryDestination `field:"required" json:"destination" yaml:"destination"`
 	// Whether the inventory is enabled or disabled.
-	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The format of the inventory.
-	// Experimental.
 	Format InventoryFormat `field:"optional" json:"format" yaml:"format"`
 	// Frequency at which the inventory should be generated.
-	// Experimental.
 	Frequency InventoryFrequency `field:"optional" json:"frequency" yaml:"frequency"`
 	// If the inventory should contain all the object versions or only the current one.
-	// Experimental.
 	IncludeObjectVersions InventoryObjectVersion `field:"optional" json:"includeObjectVersions" yaml:"includeObjectVersions"`
 	// The inventory configuration ID.
-	// Experimental.
 	InventoryId *string `field:"optional" json:"inventoryId" yaml:"inventoryId"`
 	// The inventory will only include objects that meet the prefix filter criteria.
-	// Experimental.
 	ObjectsPrefix *string `field:"optional" json:"objectsPrefix" yaml:"objectsPrefix"`
 	// A list of optional fields to be included in the inventory result.
-	// Experimental.
 	OptionalFields *[]*string `field:"optional" json:"optionalFields" yaml:"optionalFields"`
 }
 
 // The destination of the inventory.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   inventoryBucket := s3.NewBucket(this, jsii.String("InventoryBucket"))
 //
 //   dataBucket := s3.NewBucket(this, jsii.String("DataBucket"), &bucketProps{
@@ -12058,41 +10735,34 @@ type Inventory struct {
 //   	},
 //   })
 //
-// Experimental.
 type InventoryDestination struct {
 	// Bucket where all inventories will be saved in.
-	// Experimental.
 	Bucket IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The account ID that owns the destination S3 bucket.
 	//
 	// If no account ID is provided, the owner is not validated before exporting data.
 	// It's recommended to set an account ID to prevent problems if the destination bucket ownership changes.
-	// Experimental.
 	BucketOwner *string `field:"optional" json:"bucketOwner" yaml:"bucketOwner"`
 	// The prefix to be used when saving the inventory.
-	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // All supported inventory list formats.
-// Experimental.
 type InventoryFormat string
 
 const (
 	// Generate the inventory list as CSV.
-	// Experimental.
 	InventoryFormat_CSV InventoryFormat = "CSV"
 	// Generate the inventory list as Parquet.
-	// Experimental.
 	InventoryFormat_PARQUET InventoryFormat = "PARQUET"
 	// Generate the inventory list as ORC.
-	// Experimental.
 	InventoryFormat_ORC InventoryFormat = "ORC"
 )
 
 // All supported inventory frequencies.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   inventoryBucket := s3.NewBucket(this, jsii.String("InventoryBucket"))
 //
 //   dataBucket := s3.NewBucket(this, jsii.String("DataBucket"), &bucketProps{
@@ -12115,21 +10785,19 @@ const (
 //   	},
 //   })
 //
-// Experimental.
 type InventoryFrequency string
 
 const (
 	// A report is generated every day.
-	// Experimental.
 	InventoryFrequency_DAILY InventoryFrequency = "DAILY"
 	// A report is generated every Sunday (UTC timezone) after the initial report.
-	// Experimental.
 	InventoryFrequency_WEEKLY InventoryFrequency = "WEEKLY"
 )
 
 // Inventory version support.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   inventoryBucket := s3.NewBucket(this, jsii.String("InventoryBucket"))
 //
 //   dataBucket := s3.NewBucket(this, jsii.String("DataBucket"), &bucketProps{
@@ -12152,15 +10820,12 @@ const (
 //   	},
 //   })
 //
-// Experimental.
 type InventoryObjectVersion string
 
 const (
 	// Includes all versions of each object in the report.
-	// Experimental.
 	InventoryObjectVersion_ALL InventoryObjectVersion = "ALL"
 	// Includes only the current version of each object in the report.
-	// Experimental.
 	InventoryObjectVersion_CURRENT InventoryObjectVersion = "CURRENT"
 )
 
@@ -12169,26 +10834,25 @@ const (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var storageClass storageClass
 //   var tagFilters interface{}
 //
 //   lifecycleRule := &lifecycleRule{
-//   	abortIncompleteMultipartUploadAfter: duration,
+//   	abortIncompleteMultipartUploadAfter: cdk.duration.minutes(jsii.Number(30)),
 //   	enabled: jsii.Boolean(false),
-//   	expiration: duration,
+//   	expiration: cdk.*duration.minutes(jsii.Number(30)),
 //   	expirationDate: NewDate(),
 //   	expiredObjectDeleteMarker: jsii.Boolean(false),
 //   	id: jsii.String("id"),
-//   	noncurrentVersionExpiration: duration,
+//   	noncurrentVersionExpiration: cdk.*duration.minutes(jsii.Number(30)),
 //   	noncurrentVersionsToRetain: jsii.Number(123),
 //   	noncurrentVersionTransitions: []noncurrentVersionTransition{
 //   		&noncurrentVersionTransition{
 //   			storageClass: storageClass,
-//   			transitionAfter: duration,
+//   			transitionAfter: cdk.*duration.minutes(jsii.Number(30)),
 //
 //   			// the properties below are optional
 //   			noncurrentVersionsToRetain: jsii.Number(123),
@@ -12205,13 +10869,12 @@ const (
 //   			storageClass: storageClass,
 //
 //   			// the properties below are optional
-//   			transitionAfter: duration,
+//   			transitionAfter: cdk.*duration.minutes(jsii.Number(30)),
 //   			transitionDate: NewDate(),
 //   		},
 //   	},
 //   }
 //
-// Experimental.
 type LifecycleRule struct {
 	// Specifies a lifecycle rule that aborts incomplete multipart uploads to an Amazon S3 bucket.
 	//
@@ -12219,17 +10882,14 @@ type LifecycleRule struct {
 	// rule that aborts incomplete multipart uploads to an Amazon S3 bucket.
 	// When Amazon S3 aborts a multipart upload, it deletes all parts
 	// associated with the multipart upload.
-	// Experimental.
 	AbortIncompleteMultipartUploadAfter awscdk.Duration `field:"optional" json:"abortIncompleteMultipartUploadAfter" yaml:"abortIncompleteMultipartUploadAfter"`
 	// Whether this rule is enabled.
-	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon Glacier.
 	//
 	// If you specify an expiration and transition time, you must use the same
 	// time unit for both properties (either in days or by date). The
 	// expiration time must also be later than the transition time.
-	// Experimental.
 	Expiration awscdk.Duration `field:"optional" json:"expiration" yaml:"expiration"`
 	// Indicates when objects are deleted from Amazon S3 and Amazon Glacier.
 	//
@@ -12238,17 +10898,14 @@ type LifecycleRule struct {
 	// If you specify an expiration and transition time, you must use the same
 	// time unit for both properties (either in days or by date). The
 	// expiration time must also be later than the transition time.
-	// Experimental.
 	ExpirationDate *time.Time `field:"optional" json:"expirationDate" yaml:"expirationDate"`
 	// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions.
 	//
 	// If set to true, the delete marker will be expired.
-	// Experimental.
 	ExpiredObjectDeleteMarker *bool `field:"optional" json:"expiredObjectDeleteMarker" yaml:"expiredObjectDeleteMarker"`
 	// A unique identifier for this rule.
 	//
 	// The value cannot be more than 255 characters.
-	// Experimental.
 	Id *string `field:"optional" json:"id" yaml:"id"`
 	// Time between when a new version of the object is uploaded to the bucket and when old versions of the object expire.
 	//
@@ -12258,13 +10915,11 @@ type LifecycleRule struct {
 	// expire, Amazon S3 permanently deletes them. If you specify a transition
 	// and expiration time, the expiration time must be later than the
 	// transition time.
-	// Experimental.
 	NoncurrentVersionExpiration awscdk.Duration `field:"optional" json:"noncurrentVersionExpiration" yaml:"noncurrentVersionExpiration"`
 	// Indicates a maximum number of noncurrent versions to retain.
 	//
 	// If there are this many more noncurrent versions,
 	// Amazon S3 permanently deletes them.
-	// Experimental.
 	NoncurrentVersionsToRetain *float64 `field:"optional" json:"noncurrentVersionsToRetain" yaml:"noncurrentVersionsToRetain"`
 	// One or more transition rules that specify when non-current objects transition to a specified storage class.
 	//
@@ -12272,59 +10927,165 @@ type LifecycleRule struct {
 	//
 	// If you specify a transition and expiration time, the expiration time
 	// must be later than the transition time.
-	// Experimental.
 	NoncurrentVersionTransitions *[]*NoncurrentVersionTransition `field:"optional" json:"noncurrentVersionTransitions" yaml:"noncurrentVersionTransitions"`
 	// Specifies the minimum object size in bytes for this rule to apply to.
-	// Experimental.
 	ObjectSizeGreaterThan *float64 `field:"optional" json:"objectSizeGreaterThan" yaml:"objectSizeGreaterThan"`
 	// Specifies the maximum object size in bytes for this rule to apply to.
-	// Experimental.
 	ObjectSizeLessThan *float64 `field:"optional" json:"objectSizeLessThan" yaml:"objectSizeLessThan"`
 	// Object key prefix that identifies one or more objects to which this rule applies.
-	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// The TagFilter property type specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
-	// Experimental.
 	TagFilters *map[string]interface{} `field:"optional" json:"tagFilters" yaml:"tagFilters"`
 	// One or more transition rules that specify when an object transitions to a specified storage class.
 	//
 	// If you specify an expiration and transition time, you must use the same
 	// time unit for both properties (either in days or by date). The
 	// expiration time must also be later than the transition time.
-	// Experimental.
 	Transitions *[]*Transition `field:"optional" json:"transitions" yaml:"transitions"`
 }
 
 // An interface that represents the location of a specific object in an S3 Bucket.
 //
 // Example:
-//   startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Athena Start Query"), &athenaStartQueryExecutionProps{
-//   	queryString: sfn.jsonPath.format(jsii.String("select contacts where year={};"), sfn.*jsonPath.stringAt(jsii.String("$.year"))),
-//   	queryExecutionContext: &queryExecutionContext{
-//   		databaseName: jsii.String("interactions"),
+//   lambdaStack := cdk.NewStack(app, jsii.String("LambdaStack"))
+//   lambdaCode := lambda.code.fromCfnParameters()
+//   lambda.NewFunction(lambdaStack, jsii.String("Lambda"), &functionProps{
+//   	code: lambdaCode,
+//   	handler: jsii.String("index.handler"),
+//   	runtime: lambda.runtime_NODEJS_14_X(),
+//   })
+//   // other resources that your Lambda needs, added to the lambdaStack...
+//
+//   pipelineStack := cdk.NewStack(app, jsii.String("PipelineStack"))
+//   pipeline := codepipeline.NewPipeline(pipelineStack, jsii.String("Pipeline"))
+//
+//   // add the source code repository containing this code to your Pipeline,
+//   // and the source code of the Lambda Function, if they're separate
+//   cdkSourceOutput := codepipeline.NewArtifact()
+//   cdkSourceAction := codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   	repository: codecommit.NewRepository(pipelineStack, jsii.String("CdkCodeRepo"), &repositoryProps{
+//   		repositoryName: jsii.String("CdkCodeRepo"),
+//   	}),
+//   	actionName: jsii.String("CdkCode_Source"),
+//   	output: cdkSourceOutput,
+//   })
+//   lambdaSourceOutput := codepipeline.NewArtifact()
+//   lambdaSourceAction := codepipeline_actions.NewCodeCommitSourceAction(&codeCommitSourceActionProps{
+//   	repository: codecommit.NewRepository(pipelineStack, jsii.String("LambdaCodeRepo"), &repositoryProps{
+//   		repositoryName: jsii.String("LambdaCodeRepo"),
+//   	}),
+//   	actionName: jsii.String("LambdaCode_Source"),
+//   	output: lambdaSourceOutput,
+//   })
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Source"),
+//   	actions: []iAction{
+//   		cdkSourceAction,
+//   		lambdaSourceAction,
 //   	},
-//   	resultConfiguration: &resultConfiguration{
-//   		encryptionConfiguration: &encryptionConfiguration{
-//   			encryptionOption: tasks.encryptionOption_S3_MANAGED,
-//   		},
-//   		outputLocation: &location{
-//   			bucketName: jsii.String("mybucket"),
-//   			objectKey: jsii.String("myprefix"),
-//   		},
-//   	},
-//   	integrationPattern: sfn.integrationPattern_RUN_JOB,
 //   })
 //
-// Experimental.
+//   // synthesize the Lambda CDK template, using CodeBuild
+//   // the below values are just examples, assuming your CDK code is in TypeScript/JavaScript -
+//   // adjust the build environment and/or commands accordingly
+//   cdkBuildProject := codebuild.NewProject(pipelineStack, jsii.String("CdkBuildProject"), &projectProps{
+//   	environment: &buildEnvironment{
+//   		buildImage: codebuild.linuxBuildImage_UBUNTU_14_04_NODEJS_10_1_0(),
+//   	},
+//   	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
+//   		"version": jsii.String("0.2"),
+//   		"phases": map[string]map[string]*string{
+//   			"install": map[string]*string{
+//   				"commands": jsii.String("npm install"),
+//   			},
+//   			"build": map[string][]*string{
+//   				"commands": []*string{
+//   					jsii.String("npm run build"),
+//   					jsii.String("npm run cdk synth LambdaStack -- -o ."),
+//   				},
+//   			},
+//   		},
+//   		"artifacts": map[string]*string{
+//   			"files": jsii.String("LambdaStack.template.yaml"),
+//   		},
+//   	}),
+//   })
+//   cdkBuildOutput := codepipeline.NewArtifact()
+//   cdkBuildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
+//   	actionName: jsii.String("CDK_Build"),
+//   	project: cdkBuildProject,
+//   	input: cdkSourceOutput,
+//   	outputs: []artifact{
+//   		cdkBuildOutput,
+//   	},
+//   })
+//
+//   // build your Lambda code, using CodeBuild
+//   // again, this example assumes your Lambda is written in TypeScript/JavaScript -
+//   // make sure to adjust the build environment and/or commands if they don't match your specific situation
+//   lambdaBuildProject := codebuild.NewProject(pipelineStack, jsii.String("LambdaBuildProject"), &projectProps{
+//   	environment: &buildEnvironment{
+//   		buildImage: codebuild.*linuxBuildImage_UBUNTU_14_04_NODEJS_10_1_0(),
+//   	},
+//   	buildSpec: codebuild.*buildSpec.fromObject(map[string]interface{}{
+//   		"version": jsii.String("0.2"),
+//   		"phases": map[string]map[string]*string{
+//   			"install": map[string]*string{
+//   				"commands": jsii.String("npm install"),
+//   			},
+//   			"build": map[string]*string{
+//   				"commands": jsii.String("npm run build"),
+//   			},
+//   		},
+//   		"artifacts": map[string][]*string{
+//   			"files": []*string{
+//   				jsii.String("index.js"),
+//   				jsii.String("node_modules/**/*"),
+//   			},
+//   		},
+//   	}),
+//   })
+//   lambdaBuildOutput := codepipeline.NewArtifact()
+//   lambdaBuildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
+//   	actionName: jsii.String("Lambda_Build"),
+//   	project: lambdaBuildProject,
+//   	input: lambdaSourceOutput,
+//   	outputs: []*artifact{
+//   		lambdaBuildOutput,
+//   	},
+//   })
+//
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Build"),
+//   	actions: []*iAction{
+//   		cdkBuildAction,
+//   		lambdaBuildAction,
+//   	},
+//   })
+//
+//   // finally, deploy your Lambda Stack
+//   pipeline.addStage(&stageOptions{
+//   	stageName: jsii.String("Deploy"),
+//   	actions: []*iAction{
+//   		codepipeline_actions.NewCloudFormationCreateUpdateStackAction(&cloudFormationCreateUpdateStackActionProps{
+//   			actionName: jsii.String("Lambda_CFN_Deploy"),
+//   			templatePath: cdkBuildOutput.atPath(jsii.String("LambdaStack.template.yaml")),
+//   			stackName: jsii.String("LambdaStackDeployedName"),
+//   			adminPermissions: jsii.Boolean(true),
+//   			parameterOverrides: lambdaCode.assign(lambdaBuildOutput.s3Location),
+//   			extraInputs: []*artifact{
+//   				lambdaBuildOutput,
+//   			},
+//   		}),
+//   	},
+//   })
+//
 type Location struct {
 	// The name of the S3 Bucket the object is in.
-	// Experimental.
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The path inside the Bucket where the object is located at.
-	// Experimental.
 	ObjectKey *string `field:"required" json:"objectKey" yaml:"objectKey"`
 	// The S3 object version.
-	// Experimental.
 	ObjectVersion *string `field:"optional" json:"objectVersion" yaml:"objectVersion"`
 }
 
@@ -12333,36 +11094,32 @@ type Location struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var storageClass storageClass
 //
 //   noncurrentVersionTransition := &noncurrentVersionTransition{
 //   	storageClass: storageClass,
-//   	transitionAfter: duration,
+//   	transitionAfter: cdk.duration.minutes(jsii.Number(30)),
 //
 //   	// the properties below are optional
 //   	noncurrentVersionsToRetain: jsii.Number(123),
 //   }
 //
-// Experimental.
 type NoncurrentVersionTransition struct {
 	// The storage class to which you want the object to transition.
-	// Experimental.
 	StorageClass StorageClass `field:"required" json:"storageClass" yaml:"storageClass"`
 	// Indicates the number of days after creation when objects are transitioned to the specified storage class.
-	// Experimental.
 	TransitionAfter awscdk.Duration `field:"required" json:"transitionAfter" yaml:"transitionAfter"`
 	// Indicates the number of noncurrent version objects to be retained.
 	//
 	// Can be up to 100 noncurrent versions retained.
-	// Experimental.
 	NoncurrentVersionsToRetain *float64 `field:"optional" json:"noncurrentVersionsToRetain" yaml:"noncurrentVersionsToRetain"`
 }
 
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myQueue queue
 //
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
@@ -12372,26 +11129,23 @@ type NoncurrentVersionTransition struct {
 //   	suffix: jsii.String(".jpg"),
 //   })
 //
-// Experimental.
 type NotificationKeyFilter struct {
 	// S3 keys must have the specified prefix.
-	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// S3 keys must have the specified suffix.
-	// Experimental.
 	Suffix *string `field:"optional" json:"suffix" yaml:"suffix"`
 }
 
 // The ObjectOwnership of the bucket.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 //   	objectOwnership: s3.objectOwnership_OBJECT_WRITER,
 //   })
 //
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html
 //
-// Experimental.
 type ObjectOwnership string
 
 const (
@@ -12399,13 +11153,10 @@ const (
 	//
 	// ACLs no longer affect permissions to data in the S3 bucket.
 	// The bucket uses policies to define access control.
-	// Experimental.
 	ObjectOwnership_BUCKET_OWNER_ENFORCED ObjectOwnership = "BUCKET_OWNER_ENFORCED"
 	// Objects uploaded to the bucket change ownership to the bucket owner .
-	// Experimental.
 	ObjectOwnership_BUCKET_OWNER_PREFERRED ObjectOwnership = "BUCKET_OWNER_PREFERRED"
 	// The uploading account will own the object.
-	// Experimental.
 	ObjectOwnership_OBJECT_WRITER ObjectOwnership = "OBJECT_WRITER"
 )
 
@@ -12416,11 +11167,14 @@ const (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import constructs "github.com/aws/constructs-go/constructs"
 //
+//   var construct construct
 //   var detail interface{}
 //   var ruleTarget iRuleTarget
 //
 //   onCloudTrailBucketEventOptions := &onCloudTrailBucketEventOptions{
+//   	crossStackScope: construct,
 //   	description: jsii.String("description"),
 //   	eventPattern: &eventPattern{
 //   		account: []*string{
@@ -12458,10 +11212,12 @@ const (
 //   	target: ruleTarget,
 //   }
 //
-// Experimental.
 type OnCloudTrailBucketEventOptions struct {
+	// The scope to use if the source of the rule and its target are in different Stacks (but in the same account & region).
+	//
+	// This helps dealing with cycles that often arise in these situations.
+	CrossStackScope constructs.Construct `field:"optional" json:"crossStackScope" yaml:"crossStackScope"`
 	// A description of the rule's purpose.
-	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
@@ -12470,22 +11226,19 @@ type OnCloudTrailBucketEventOptions struct {
 	// on top of that filtering.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
-	// Experimental.
 	EventPattern *awsevents.EventPattern `field:"optional" json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
-	// Experimental.
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// The target to register for the event.
-	// Experimental.
 	Target awsevents.IRuleTarget `field:"optional" json:"target" yaml:"target"`
 	// Only watch changes to these object paths.
-	// Experimental.
 	Paths *[]*string `field:"optional" json:"paths" yaml:"paths"`
 }
 
 // All http request methods.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyRedirectedBucket"), &bucketProps{
 //   	websiteRoutingRules: []routingRule{
 //   		&routingRule{
@@ -12501,36 +11254,32 @@ type OnCloudTrailBucketEventOptions struct {
 //   	},
 //   })
 //
-// Experimental.
 type RedirectProtocol string
 
 const (
-	// Experimental.
 	RedirectProtocol_HTTP RedirectProtocol = "HTTP"
-	// Experimental.
 	RedirectProtocol_HTTPS RedirectProtocol = "HTTPS"
 )
 
 // Specifies a redirect behavior of all requests to a website endpoint of a bucket.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyRedirectedBucket"), &bucketProps{
 //   	websiteRedirect: &redirectTarget{
 //   		hostName: jsii.String("www.example.com"),
 //   	},
 //   })
 //
-// Experimental.
 type RedirectTarget struct {
 	// Name of the host where requests are redirected.
-	// Experimental.
 	HostName *string `field:"required" json:"hostName" yaml:"hostName"`
 	// Protocol to use when redirecting requests.
-	// Experimental.
 	Protocol RedirectProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 }
 
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyRedirectedBucket"), &bucketProps{
 //   	websiteRoutingRules: []routingRule{
 //   		&routingRule{
@@ -12546,11 +11295,8 @@ type RedirectTarget struct {
 //   	},
 //   })
 //
-// Experimental.
 type ReplaceKey interface {
-	// Experimental.
 	PrefixWithKey() *string
-	// Experimental.
 	WithKey() *string
 }
 
@@ -12581,14 +11327,13 @@ func (j *jsiiProxy_ReplaceKey) WithKey() *string {
 
 
 // The object key prefix to use in the redirect request.
-// Experimental.
 func ReplaceKey_PrefixWith(keyReplacement *string) ReplaceKey {
 	_init_.Initialize()
 
 	var returns ReplaceKey
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.ReplaceKey",
+		"aws-cdk-lib.aws_s3.ReplaceKey",
 		"prefixWith",
 		[]interface{}{keyReplacement},
 		&returns,
@@ -12598,14 +11343,13 @@ func ReplaceKey_PrefixWith(keyReplacement *string) ReplaceKey {
 }
 
 // The specific object key to use in the redirect request.
-// Experimental.
 func ReplaceKey_With(keyReplacement *string) ReplaceKey {
 	_init_.Initialize()
 
 	var returns ReplaceKey
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.ReplaceKey",
+		"aws-cdk-lib.aws_s3.ReplaceKey",
 		"with",
 		[]interface{}{keyReplacement},
 		&returns,
@@ -12636,26 +11380,21 @@ func ReplaceKey_With(keyReplacement *string) ReplaceKey {
 //
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html
 //
-// Experimental.
 type RoutingRule struct {
 	// Specifies a condition that must be met for the specified redirect to apply.
-	// Experimental.
 	Condition *RoutingRuleCondition `field:"optional" json:"condition" yaml:"condition"`
 	// The host name to use in the redirect request.
-	// Experimental.
 	HostName *string `field:"optional" json:"hostName" yaml:"hostName"`
 	// The HTTP redirect code to use on the response.
-	// Experimental.
 	HttpRedirectCode *string `field:"optional" json:"httpRedirectCode" yaml:"httpRedirectCode"`
 	// Protocol to use when redirecting requests.
-	// Experimental.
 	Protocol RedirectProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// Specifies the object key prefix to use in the redirect request.
-	// Experimental.
 	ReplaceKey ReplaceKey `field:"optional" json:"replaceKey" yaml:"replaceKey"`
 }
 
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyRedirectedBucket"), &bucketProps{
 //   	websiteRoutingRules: []routingRule{
 //   		&routingRule{
@@ -12671,25 +11410,23 @@ type RoutingRule struct {
 //   	},
 //   })
 //
-// Experimental.
 type RoutingRuleCondition struct {
 	// The HTTP error code when the redirect is applied.
 	//
 	// In the event of an error, if the error code equals this value, then the specified redirect is applied.
 	//
 	// If both condition properties are specified, both must be true for the redirect to be applied.
-	// Experimental.
 	HttpErrorCodeReturnedEquals *string `field:"optional" json:"httpErrorCodeReturnedEquals" yaml:"httpErrorCodeReturnedEquals"`
 	// The object key name prefix when the redirect is applied.
 	//
 	// If both condition properties are specified, both must be true for the redirect to be applied.
-	// Experimental.
 	KeyPrefixEquals *string `field:"optional" json:"keyPrefixEquals" yaml:"keyPrefixEquals"`
 }
 
 // Storage class to move an object to.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &bucketProps{
 //   	lifecycleRules: []lifecycleRule{
 //   		&lifecycleRule{
@@ -12728,11 +11465,8 @@ type RoutingRuleCondition struct {
 //   	},
 //   })
 //
-// Experimental.
 type StorageClass interface {
-	// Experimental.
 	Value() *string
-	// Experimental.
 	ToString() *string
 }
 
@@ -12752,14 +11486,13 @@ func (j *jsiiProxy_StorageClass) Value() *string {
 }
 
 
-// Experimental.
 func NewStorageClass(value *string) StorageClass {
 	_init_.Initialize()
 
 	j := jsiiProxy_StorageClass{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		[]interface{}{value},
 		&j,
 	)
@@ -12767,12 +11500,11 @@ func NewStorageClass(value *string) StorageClass {
 	return &j
 }
 
-// Experimental.
 func NewStorageClass_Override(s StorageClass, value *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		[]interface{}{value},
 		s,
 	)
@@ -12782,7 +11514,7 @@ func StorageClass_DEEP_ARCHIVE() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"DEEP_ARCHIVE",
 		&returns,
 	)
@@ -12793,7 +11525,7 @@ func StorageClass_GLACIER() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"GLACIER",
 		&returns,
 	)
@@ -12804,7 +11536,7 @@ func StorageClass_GLACIER_INSTANT_RETRIEVAL() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"GLACIER_INSTANT_RETRIEVAL",
 		&returns,
 	)
@@ -12815,7 +11547,7 @@ func StorageClass_INFREQUENT_ACCESS() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"INFREQUENT_ACCESS",
 		&returns,
 	)
@@ -12826,7 +11558,7 @@ func StorageClass_INTELLIGENT_TIERING() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"INTELLIGENT_TIERING",
 		&returns,
 	)
@@ -12837,7 +11569,7 @@ func StorageClass_ONE_ZONE_INFREQUENT_ACCESS() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"ONE_ZONE_INFREQUENT_ACCESS",
 		&returns,
 	)
@@ -12869,13 +11601,10 @@ func (s *jsiiProxy_StorageClass) ToString() *string {
 //   	value: jsii.String("value"),
 //   }
 //
-// Experimental.
 type Tag struct {
 	// key to e tagged.
-	// Experimental.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// additional value.
-	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
@@ -12890,10 +11619,8 @@ type Tag struct {
 //   	dualStack: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type TransferAccelerationUrlOptions struct {
 	// Dual-stack support to connect to the bucket over IPv6.
-	// Experimental.
 	DualStack *bool `field:"optional" json:"dualStack" yaml:"dualStack"`
 }
 
@@ -12902,38 +11629,34 @@ type TransferAccelerationUrlOptions struct {
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
 //   var storageClass storageClass
 //
 //   transition := &transition{
 //   	storageClass: storageClass,
 //
 //   	// the properties below are optional
-//   	transitionAfter: duration,
+//   	transitionAfter: cdk.duration.minutes(jsii.Number(30)),
 //   	transitionDate: NewDate(),
 //   }
 //
-// Experimental.
 type Transition struct {
 	// The storage class to which you want the object to transition.
-	// Experimental.
 	StorageClass StorageClass `field:"required" json:"storageClass" yaml:"storageClass"`
 	// Indicates the number of days after creation when objects are transitioned to the specified storage class.
-	// Experimental.
 	TransitionAfter awscdk.Duration `field:"optional" json:"transitionAfter" yaml:"transitionAfter"`
 	// Indicates when objects are transitioned to the specified storage class.
 	//
 	// The date value must be in ISO 8601 format. The time is always midnight UTC.
-	// Experimental.
 	TransitionDate *time.Time `field:"optional" json:"transitionDate" yaml:"transitionDate"`
 }
 
 // Options for creating Virtual-Hosted style URL.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //   bucket.urlForObject(jsii.String("objectname")) // Path-Style URL
 //   bucket.virtualHostedUrlForObject(jsii.String("objectname")) // Virtual Hosted-Style URL
@@ -12941,10 +11664,8 @@ type Transition struct {
 //   	regional: jsii.Boolean(false),
 //   })
 //
-// Experimental.
 type VirtualHostedStyleUrlOptions struct {
 	// Specifies the URL includes the region.
-	// Experimental.
 	Regional *bool `field:"optional" json:"regional" yaml:"regional"`
 }
 

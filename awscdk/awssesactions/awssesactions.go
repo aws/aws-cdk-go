@@ -1,15 +1,15 @@
 package awssesactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awsses"
-	"github.com/aws/aws-cdk-go/awscdk/awssesactions/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 )
 
 // Adds a header to the received email.
@@ -53,11 +53,9 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type AddHeader interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	// Experimental.
 	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
@@ -66,14 +64,13 @@ type jsiiProxy_AddHeader struct {
 	internal.Type__awssesIReceiptRuleAction
 }
 
-// Experimental.
 func NewAddHeader(props *AddHeaderProps) AddHeader {
 	_init_.Initialize()
 
 	j := jsiiProxy_AddHeader{}
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.AddHeader",
+		"aws-cdk-lib.aws_ses_actions.AddHeader",
 		[]interface{}{props},
 		&j,
 	)
@@ -81,12 +78,11 @@ func NewAddHeader(props *AddHeaderProps) AddHeader {
 	return &j
 }
 
-// Experimental.
 func NewAddHeader_Override(a AddHeader, props *AddHeaderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.AddHeader",
+		"aws-cdk-lib.aws_ses_actions.AddHeader",
 		[]interface{}{props},
 		a,
 	)
@@ -146,20 +142,17 @@ func (a *jsiiProxy_AddHeader) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRul
 //   	},
 //   })
 //
-// Experimental.
 type AddHeaderProps struct {
 	// The name of the header to add.
 	//
 	// Must be between 1 and 50 characters,
 	// inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters
 	// and dashes only.
-	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value of the header to add.
 	//
 	// Must be less than 2048 characters,
 	// and must not contain newline characters ("\r" or "\n").
-	// Experimental.
 	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
@@ -182,11 +175,9 @@ type AddHeaderProps struct {
 //   	topic: topic,
 //   })
 //
-// Experimental.
 type Bounce interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	// Experimental.
 	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
@@ -195,14 +186,13 @@ type jsiiProxy_Bounce struct {
 	internal.Type__awssesIReceiptRuleAction
 }
 
-// Experimental.
 func NewBounce(props *BounceProps) Bounce {
 	_init_.Initialize()
 
 	j := jsiiProxy_Bounce{}
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.Bounce",
+		"aws-cdk-lib.aws_ses_actions.Bounce",
 		[]interface{}{props},
 		&j,
 	)
@@ -210,12 +200,11 @@ func NewBounce(props *BounceProps) Bounce {
 	return &j
 }
 
-// Experimental.
 func NewBounce_Override(b Bounce, props *BounceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.Bounce",
+		"aws-cdk-lib.aws_ses_actions.Bounce",
 		[]interface{}{props},
 		b,
 	)
@@ -253,19 +242,15 @@ func (b *jsiiProxy_Bounce) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleAc
 //   	topic: topic,
 //   }
 //
-// Experimental.
 type BounceProps struct {
 	// The email address of the sender of the bounced email.
 	//
 	// This is the address
 	// from which the bounce message will be sent.
-	// Experimental.
 	Sender *string `field:"required" json:"sender" yaml:"sender"`
 	// The template containing the message, reply code and status code.
-	// Experimental.
 	Template BounceTemplate `field:"required" json:"template" yaml:"template"`
 	// The SNS topic to notify when the bounce action is taken.
-	// Experimental.
 	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 
@@ -278,9 +263,7 @@ type BounceProps struct {
 //
 //   bounceTemplate := awscdk.Aws_ses_actions.bounceTemplate_MAILBOX_DOES_NOT_EXIST()
 //
-// Experimental.
 type BounceTemplate interface {
-	// Experimental.
 	Props() *BounceTemplateProps
 }
 
@@ -300,14 +283,13 @@ func (j *jsiiProxy_BounceTemplate) Props() *BounceTemplateProps {
 }
 
 
-// Experimental.
 func NewBounceTemplate(props *BounceTemplateProps) BounceTemplate {
 	_init_.Initialize()
 
 	j := jsiiProxy_BounceTemplate{}
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.BounceTemplate",
+		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
 		[]interface{}{props},
 		&j,
 	)
@@ -315,12 +297,11 @@ func NewBounceTemplate(props *BounceTemplateProps) BounceTemplate {
 	return &j
 }
 
-// Experimental.
 func NewBounceTemplate_Override(b BounceTemplate, props *BounceTemplateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.BounceTemplate",
+		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
 		[]interface{}{props},
 		b,
 	)
@@ -330,7 +311,7 @@ func BounceTemplate_MAILBOX_DOES_NOT_EXIST() BounceTemplate {
 	_init_.Initialize()
 	var returns BounceTemplate
 	_jsii_.StaticGet(
-		"monocdk.aws_ses_actions.BounceTemplate",
+		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
 		"MAILBOX_DOES_NOT_EXIST",
 		&returns,
 	)
@@ -341,7 +322,7 @@ func BounceTemplate_MAILBOX_FULL() BounceTemplate {
 	_init_.Initialize()
 	var returns BounceTemplate
 	_jsii_.StaticGet(
-		"monocdk.aws_ses_actions.BounceTemplate",
+		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
 		"MAILBOX_FULL",
 		&returns,
 	)
@@ -352,7 +333,7 @@ func BounceTemplate_MESSAGE_CONTENT_REJECTED() BounceTemplate {
 	_init_.Initialize()
 	var returns BounceTemplate
 	_jsii_.StaticGet(
-		"monocdk.aws_ses_actions.BounceTemplate",
+		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
 		"MESSAGE_CONTENT_REJECTED",
 		&returns,
 	)
@@ -363,7 +344,7 @@ func BounceTemplate_MESSAGE_TOO_LARGE() BounceTemplate {
 	_init_.Initialize()
 	var returns BounceTemplate
 	_jsii_.StaticGet(
-		"monocdk.aws_ses_actions.BounceTemplate",
+		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
 		"MESSAGE_TOO_LARGE",
 		&returns,
 	)
@@ -374,7 +355,7 @@ func BounceTemplate_TEMPORARY_FAILURE() BounceTemplate {
 	_init_.Initialize()
 	var returns BounceTemplate
 	_jsii_.StaticGet(
-		"monocdk.aws_ses_actions.BounceTemplate",
+		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
 		"TEMPORARY_FAILURE",
 		&returns,
 	)
@@ -396,33 +377,26 @@ func BounceTemplate_TEMPORARY_FAILURE() BounceTemplate {
 //   	statusCode: jsii.String("statusCode"),
 //   }
 //
-// Experimental.
 type BounceTemplateProps struct {
 	// Human-readable text to include in the bounce message.
-	// Experimental.
 	Message *string `field:"required" json:"message" yaml:"message"`
 	// The SMTP reply code, as defined by RFC 5321.
 	// See: https://tools.ietf.org/html/rfc5321
 	//
-	// Experimental.
 	SmtpReplyCode *string `field:"required" json:"smtpReplyCode" yaml:"smtpReplyCode"`
 	// The SMTP enhanced status code, as defined by RFC 3463.
 	// See: https://tools.ietf.org/html/rfc3463
 	//
-	// Experimental.
 	StatusCode *string `field:"optional" json:"statusCode" yaml:"statusCode"`
 }
 
 // The type of email encoding to use for a SNS action.
-// Experimental.
 type EmailEncoding string
 
 const (
 	// Base 64.
-	// Experimental.
 	EmailEncoding_BASE64 EmailEncoding = "BASE64"
 	// UTF-8.
-	// Experimental.
 	EmailEncoding_UTF8 EmailEncoding = "UTF8"
 )
 
@@ -446,11 +420,9 @@ const (
 //   	topic: topic,
 //   })
 //
-// Experimental.
 type Lambda interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	// Experimental.
 	Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
@@ -459,14 +431,13 @@ type jsiiProxy_Lambda struct {
 	internal.Type__awssesIReceiptRuleAction
 }
 
-// Experimental.
 func NewLambda(props *LambdaProps) Lambda {
 	_init_.Initialize()
 
 	j := jsiiProxy_Lambda{}
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.Lambda",
+		"aws-cdk-lib.aws_ses_actions.Lambda",
 		[]interface{}{props},
 		&j,
 	)
@@ -474,12 +445,11 @@ func NewLambda(props *LambdaProps) Lambda {
 	return &j
 }
 
-// Experimental.
 func NewLambda_Override(l Lambda, props *LambdaProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.Lambda",
+		"aws-cdk-lib.aws_ses_actions.Lambda",
 		[]interface{}{props},
 		l,
 	)
@@ -499,19 +469,16 @@ func (l *jsiiProxy_Lambda) Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleAct
 }
 
 // The type of invocation to use for a Lambda Action.
-// Experimental.
 type LambdaInvocationType string
 
 const (
 	// The function will be invoked asynchronously.
-	// Experimental.
 	LambdaInvocationType_EVENT LambdaInvocationType = "EVENT"
 	// The function will be invoked sychronously.
 	//
 	// Use RequestResponse only when
 	// you want to make a mail flow decision, such as whether to stop the receipt
 	// rule or the receipt rule set.
-	// Experimental.
 	LambdaInvocationType_REQUEST_RESPONSE LambdaInvocationType = "REQUEST_RESPONSE"
 )
 
@@ -535,16 +502,12 @@ const (
 //   	topic: topic,
 //   }
 //
-// Experimental.
 type LambdaProps struct {
 	// The Lambda function to invoke.
-	// Experimental.
 	Function awslambda.IFunction `field:"required" json:"function" yaml:"function"`
 	// The invocation type of the Lambda function.
-	// Experimental.
 	InvocationType LambdaInvocationType `field:"optional" json:"invocationType" yaml:"invocationType"`
 	// The SNS topic to notify when the Lambda action is taken.
-	// Experimental.
 	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 
@@ -589,11 +552,9 @@ type LambdaProps struct {
 //   	},
 //   })
 //
-// Experimental.
 type S3 interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	// Experimental.
 	Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
@@ -602,14 +563,13 @@ type jsiiProxy_S3 struct {
 	internal.Type__awssesIReceiptRuleAction
 }
 
-// Experimental.
 func NewS3(props *S3Props) S3 {
 	_init_.Initialize()
 
 	j := jsiiProxy_S3{}
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.S3",
+		"aws-cdk-lib.aws_ses_actions.S3",
 		[]interface{}{props},
 		&j,
 	)
@@ -617,12 +577,11 @@ func NewS3(props *S3Props) S3 {
 	return &j
 }
 
-// Experimental.
 func NewS3_Override(s S3, props *S3Props) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.S3",
+		"aws-cdk-lib.aws_ses_actions.S3",
 		[]interface{}{props},
 		s,
 	)
@@ -682,19 +641,14 @@ func (s *jsiiProxy_S3) Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionC
 //   	},
 //   })
 //
-// Experimental.
 type S3Props struct {
 	// The S3 bucket that incoming email will be saved to.
-	// Experimental.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The master key that SES should use to encrypt your emails before saving them to the S3 bucket.
-	// Experimental.
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The key prefix of the S3 bucket.
-	// Experimental.
 	ObjectKeyPrefix *string `field:"optional" json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
 	// The SNS topic to notify when the S3 action is taken.
-	// Experimental.
 	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 
@@ -739,11 +693,9 @@ type S3Props struct {
 //   	},
 //   })
 //
-// Experimental.
 type Sns interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	// Experimental.
 	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
@@ -752,14 +704,13 @@ type jsiiProxy_Sns struct {
 	internal.Type__awssesIReceiptRuleAction
 }
 
-// Experimental.
 func NewSns(props *SnsProps) Sns {
 	_init_.Initialize()
 
 	j := jsiiProxy_Sns{}
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.Sns",
+		"aws-cdk-lib.aws_ses_actions.Sns",
 		[]interface{}{props},
 		&j,
 	)
@@ -767,12 +718,11 @@ func NewSns(props *SnsProps) Sns {
 	return &j
 }
 
-// Experimental.
 func NewSns_Override(s Sns, props *SnsProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.Sns",
+		"aws-cdk-lib.aws_ses_actions.Sns",
 		[]interface{}{props},
 		s,
 	)
@@ -832,13 +782,10 @@ func (s *jsiiProxy_Sns) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActio
 //   	},
 //   })
 //
-// Experimental.
 type SnsProps struct {
 	// The SNS topic to notify.
-	// Experimental.
 	Topic awssns.ITopic `field:"required" json:"topic" yaml:"topic"`
 	// The encoding to use for the email within the Amazon SNS notification.
-	// Experimental.
 	Encoding EmailEncoding `field:"optional" json:"encoding" yaml:"encoding"`
 }
 
@@ -856,11 +803,9 @@ type SnsProps struct {
 //   	topic: topic,
 //   })
 //
-// Experimental.
 type Stop interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	// Experimental.
 	Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
 }
 
@@ -869,14 +814,13 @@ type jsiiProxy_Stop struct {
 	internal.Type__awssesIReceiptRuleAction
 }
 
-// Experimental.
 func NewStop(props *StopProps) Stop {
 	_init_.Initialize()
 
 	j := jsiiProxy_Stop{}
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.Stop",
+		"aws-cdk-lib.aws_ses_actions.Stop",
 		[]interface{}{props},
 		&j,
 	)
@@ -884,12 +828,11 @@ func NewStop(props *StopProps) Stop {
 	return &j
 }
 
-// Experimental.
 func NewStop_Override(s Stop, props *StopProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ses_actions.Stop",
+		"aws-cdk-lib.aws_ses_actions.Stop",
 		[]interface{}{props},
 		s,
 	)
@@ -922,10 +865,8 @@ func (s *jsiiProxy_Stop) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActi
 //   	topic: topic,
 //   }
 //
-// Experimental.
 type StopProps struct {
 	// The SNS topic to notify when the stop action is taken.
-	// Experimental.
 	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 

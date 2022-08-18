@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.alexa_ask.CfnSkill",
+		"aws-cdk-lib.alexa_ask.CfnSkill",
 		reflect.TypeOf((*CfnSkill)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -28,20 +28,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "skillPackage", GoGetter: "SkillPackage"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vendorId", GoGetter: "VendorId"},
 		},
@@ -53,19 +48,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.alexa_ask.CfnSkill.AuthenticationConfigurationProperty",
+		"aws-cdk-lib.alexa_ask.CfnSkill.AuthenticationConfigurationProperty",
 		reflect.TypeOf((*CfnSkill_AuthenticationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.alexa_ask.CfnSkill.OverridesProperty",
+		"aws-cdk-lib.alexa_ask.CfnSkill.OverridesProperty",
 		reflect.TypeOf((*CfnSkill_OverridesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.alexa_ask.CfnSkill.SkillPackageProperty",
+		"aws-cdk-lib.alexa_ask.CfnSkill.SkillPackageProperty",
 		reflect.TypeOf((*CfnSkill_SkillPackageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.alexa_ask.CfnSkillProps",
+		"aws-cdk-lib.alexa_ask.CfnSkillProps",
 		reflect.TypeOf((*CfnSkillProps)(nil)).Elem(),
 	)
 }

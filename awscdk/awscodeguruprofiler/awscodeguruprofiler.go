@@ -1,13 +1,13 @@
 package awscodeguruprofiler
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodeguruprofiler/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::CodeGuruProfiler::ProfilingGroup`.
@@ -61,11 +61,9 @@ type CfnProfilingGroup interface {
 	// The full Amazon Resource Name (ARN) for that profiling group.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
-	// Experimental.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
-	// Experimental.
 	CfnResourceType() *string
 	// The compute platform of the profiling group.
 	//
@@ -75,7 +73,6 @@ type CfnProfilingGroup interface {
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -86,11 +83,9 @@ type CfnProfilingGroup interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The name of the profiling group.
 	ProfilingGroupName() *string
 	SetProfilingGroupName(val *string)
@@ -98,29 +93,32 @@ type CfnProfilingGroup interface {
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
-	// Experimental.
 	Ref() *string
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() awscdk.Stack
 	// A list of tags to add to the created profiling group.
 	Tags() awscdk.TagManager
+	// Deprecated.
+	// Deprecated: use `updatedProperties`
+	//
+	// Return properties modified after initiation
+	//
+	// Resources that expose mutable properties should override this function to
+	// collect and return the properties object for this resource.
+	UpdatedProperites() *map[string]interface{}
 	// Return properties modified after initiation.
 	//
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
-	// Experimental.
-	UpdatedProperites() *map[string]interface{}
+	UpdatedProperties() *map[string]interface{}
 	// Syntactic sugar for `addOverride(path, undefined)`.
-	// Experimental.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
 	// This can be used for resources across stacks (or nested stack) boundaries
 	// and the dependency will automatically be transferred to the relevant scope.
-	// Experimental.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -129,7 +127,6 @@ type CfnProfilingGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	AddMetadata(key *string, value interface{})
 	// Adds an override to the synthesized CloudFormation resource.
 	//
@@ -174,15 +171,12 @@ type CfnProfilingGroup interface {
 	// for CloudFormation. If you pass CDK classes or structs, they will be
 	// rendered with lowercased key names, and CloudFormation will reject the
 	// template.
-	// Experimental.
 	AddOverride(path *string, value interface{})
 	// Adds an override that deletes the value of a property from the resource definition.
-	// Experimental.
 	AddPropertyDeletionOverride(propertyPath *string)
 	// Adds an override to a resource property.
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
-	// Experimental.
 	AddPropertyOverride(propertyPath *string, value interface{})
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
@@ -192,14 +186,17 @@ type CfnProfilingGroup interface {
 	// to be replaced.
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+	// cases, a snapshot can be taken of the resource prior to deletion
+	// (`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+	// can be found in the following link:.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
+	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 	// in case there is no generated attribute.
-	// Experimental.
 	GetAtt(attributeName *string) awscdk.Reference
 	// Retrieve a value value from the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -208,74 +205,21 @@ type CfnProfilingGroup interface {
 	// metadata ends up in the stack template under the resource, whereas CDK
 	// node metadata ends up in the Cloud Assembly.
 	//
-	// Experimental.
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
 	//
 	// Returns: `true` if the resource should be included or `false` is the resource
 	// should be omitted.
-	// Experimental.
 	ShouldSynthesize() *bool
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
 	//
 	// Returns: a string representation of this resource.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
-	// Experimental.
 	ValidateProperties(_properties interface{})
 }
 
@@ -375,8 +319,8 @@ func (j *jsiiProxy_CfnProfilingGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfilingGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnProfilingGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -435,15 +379,25 @@ func (j *jsiiProxy_CfnProfilingGroup) UpdatedProperites() *map[string]interface{
 	return returns
 }
 
+func (j *jsiiProxy_CfnProfilingGroup) UpdatedProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::CodeGuruProfiler::ProfilingGroup`.
-func NewCfnProfilingGroup(scope awscdk.Construct, id *string, props *CfnProfilingGroupProps) CfnProfilingGroup {
+func NewCfnProfilingGroup(scope constructs.Construct, id *string, props *CfnProfilingGroupProps) CfnProfilingGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnProfilingGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_codeguruprofiler.CfnProfilingGroup",
+		"aws-cdk-lib.aws_codeguruprofiler.CfnProfilingGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -452,11 +406,11 @@ func NewCfnProfilingGroup(scope awscdk.Construct, id *string, props *CfnProfilin
 }
 
 // Create a new `AWS::CodeGuruProfiler::ProfilingGroup`.
-func NewCfnProfilingGroup_Override(c CfnProfilingGroup, scope awscdk.Construct, id *string, props *CfnProfilingGroupProps) {
+func NewCfnProfilingGroup_Override(c CfnProfilingGroup, scope constructs.Construct, id *string, props *CfnProfilingGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codeguruprofiler.CfnProfilingGroup",
+		"aws-cdk-lib.aws_codeguruprofiler.CfnProfilingGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -500,14 +454,13 @@ func (j *jsiiProxy_CfnProfilingGroup) SetProfilingGroupName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnProfilingGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codeguruprofiler.CfnProfilingGroup",
+		"aws-cdk-lib.aws_codeguruprofiler.CfnProfilingGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -517,14 +470,13 @@ func CfnProfilingGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnProfilingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codeguruprofiler.CfnProfilingGroup",
+		"aws-cdk-lib.aws_codeguruprofiler.CfnProfilingGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -533,15 +485,30 @@ func CfnProfilingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnProfilingGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codeguruprofiler.CfnProfilingGroup",
+		"aws-cdk-lib.aws_codeguruprofiler.CfnProfilingGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -554,7 +521,7 @@ func CfnProfilingGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codeguruprofiler.CfnProfilingGroup",
+		"aws-cdk-lib.aws_codeguruprofiler.CfnProfilingGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -651,48 +618,11 @@ func (c *jsiiProxy_CfnProfilingGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-func (c *jsiiProxy_CfnProfilingGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnProfilingGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnProfilingGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnProfilingGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnProfilingGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -722,33 +652,12 @@ func (c *jsiiProxy_CfnProfilingGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-func (c *jsiiProxy_CfnProfilingGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnProfilingGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnProfilingGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -846,20 +755,16 @@ type CfnProfilingGroupProps struct {
 //   	computePlatform: codeguruprofiler.computePlatform_AWS_LAMBDA,
 //   })
 //
-// Experimental.
 type ComputePlatform string
 
 const (
 	// Use AWS_LAMBDA if your application runs on AWS Lambda.
-	// Experimental.
 	ComputePlatform_AWS_LAMBDA ComputePlatform = "AWS_LAMBDA"
 	// Use Default if your application runs on a compute platform that is not AWS Lambda, such an Amazon EC2 instance, an on-premises server, or a different platform.
-	// Experimental.
 	ComputePlatform_DEFAULT ComputePlatform = "DEFAULT"
 )
 
 // IResource represents a Profiling Group.
-// Experimental.
 type IProfilingGroup interface {
 	awscdk.IResource
 	// Grant access to publish profiling information to the Profiling Group to the given identity.
@@ -868,7 +773,6 @@ type IProfilingGroup interface {
 	//
 	//   - codeguru-profiler:ConfigureAgent
 	// - codeguru-profiler:PostAgentProfile.
-	// Experimental.
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant access to read profiling information from the Profiling Group to the given identity.
 	//
@@ -876,10 +780,8 @@ type IProfilingGroup interface {
 	//
 	//   - codeguru-profiler:GetProfile
 	// - codeguru-profiler:DescribeProfilingGroup.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// A name for the profiling group.
-	// Experimental.
 	ProfilingGroupName() *string
 }
 
@@ -935,7 +837,6 @@ func (j *jsiiProxy_IProfilingGroup) ProfilingGroupName() *string {
 //   profilingGroup := codeguruprofiler.NewProfilingGroup(this, jsii.String("MyProfilingGroup"))
 //   profilingGroup.grantPublish(publishAppRole)
 //
-// Experimental.
 type ProfilingGroup interface {
 	awscdk.Resource
 	IProfilingGroup
@@ -947,11 +848,9 @@ type ProfilingGroup interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -959,16 +858,12 @@ type ProfilingGroup interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// The ARN of the Profiling Group.
-	// Experimental.
 	ProfilingGroupArn() *string
 	// The name of the Profiling Group.
-	// Experimental.
 	ProfilingGroupName() *string
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
 	//
@@ -979,9 +874,7 @@ type ProfilingGroup interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -989,14 +882,12 @@ type ProfilingGroup interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant access to publish profiling information to the Profiling Group to the given identity.
 	//
@@ -1004,7 +895,6 @@ type ProfilingGroup interface {
 	//
 	//   - codeguru-profiler:ConfigureAgent
 	// - codeguru-profiler:PostAgentProfile.
-	// Experimental.
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant access to read profiling information from the Profiling Group to the given identity.
 	//
@@ -1012,59 +902,9 @@ type ProfilingGroup interface {
 	//
 	//   - codeguru-profiler:GetProfile
 	// - codeguru-profiler:DescribeProfilingGroup.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ProfilingGroup
@@ -1083,8 +923,8 @@ func (j *jsiiProxy_ProfilingGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ProfilingGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ProfilingGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1134,14 +974,13 @@ func (j *jsiiProxy_ProfilingGroup) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewProfilingGroup(scope constructs.Construct, id *string, props *ProfilingGroupProps) ProfilingGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_ProfilingGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_codeguruprofiler.ProfilingGroup",
+		"aws-cdk-lib.aws_codeguruprofiler.ProfilingGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1149,26 +988,24 @@ func NewProfilingGroup(scope constructs.Construct, id *string, props *ProfilingG
 	return &j
 }
 
-// Experimental.
 func NewProfilingGroup_Override(p ProfilingGroup, scope constructs.Construct, id *string, props *ProfilingGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codeguruprofiler.ProfilingGroup",
+		"aws-cdk-lib.aws_codeguruprofiler.ProfilingGroup",
 		[]interface{}{scope, id, props},
 		p,
 	)
 }
 
 // Import an existing Profiling Group provided an ARN.
-// Experimental.
 func ProfilingGroup_FromProfilingGroupArn(scope constructs.Construct, id *string, profilingGroupArn *string) IProfilingGroup {
 	_init_.Initialize()
 
 	var returns IProfilingGroup
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codeguruprofiler.ProfilingGroup",
+		"aws-cdk-lib.aws_codeguruprofiler.ProfilingGroup",
 		"fromProfilingGroupArn",
 		[]interface{}{scope, id, profilingGroupArn},
 		&returns,
@@ -1178,14 +1015,13 @@ func ProfilingGroup_FromProfilingGroupArn(scope constructs.Construct, id *string
 }
 
 // Import an existing Profiling Group provided a Profiling Group Name.
-// Experimental.
 func ProfilingGroup_FromProfilingGroupName(scope constructs.Construct, id *string, profilingGroupName *string) IProfilingGroup {
 	_init_.Initialize()
 
 	var returns IProfilingGroup
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codeguruprofiler.ProfilingGroup",
+		"aws-cdk-lib.aws_codeguruprofiler.ProfilingGroup",
 		"fromProfilingGroupName",
 		[]interface{}{scope, id, profilingGroupName},
 		&returns,
@@ -1194,15 +1030,30 @@ func ProfilingGroup_FromProfilingGroupName(scope constructs.Construct, id *strin
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func ProfilingGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codeguruprofiler.ProfilingGroup",
+		"aws-cdk-lib.aws_codeguruprofiler.ProfilingGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1211,15 +1062,30 @@ func ProfilingGroup_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func ProfilingGroup_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func ProfilingGroup_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codeguruprofiler.ProfilingGroup",
+		"aws-cdk-lib.aws_codeguruprofiler.ProfilingGroup",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func ProfilingGroup_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codeguruprofiler.ProfilingGroup",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1301,70 +1167,12 @@ func (p *jsiiProxy_ProfilingGroup) GrantRead(grantee awsiam.IGrantable) awsiam.G
 	return returns
 }
 
-func (p *jsiiProxy_ProfilingGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		p,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (p *jsiiProxy_ProfilingGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		p,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (p *jsiiProxy_ProfilingGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		p,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (p *jsiiProxy_ProfilingGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		p,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (p *jsiiProxy_ProfilingGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		p,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (p *jsiiProxy_ProfilingGroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		p,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (p *jsiiProxy_ProfilingGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		p,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1379,13 +1187,10 @@ func (p *jsiiProxy_ProfilingGroup) Validate() *[]*string {
 //   	computePlatform: codeguruprofiler.computePlatform_AWS_LAMBDA,
 //   })
 //
-// Experimental.
 type ProfilingGroupProps struct {
 	// The compute platform of the profiling group.
-	// Experimental.
 	ComputePlatform ComputePlatform `field:"optional" json:"computePlatform" yaml:"computePlatform"`
 	// A name for the profiling group.
-	// Experimental.
 	ProfilingGroupName *string `field:"optional" json:"profilingGroupName" yaml:"profilingGroupName"`
 }
 
