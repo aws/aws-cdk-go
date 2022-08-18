@@ -81,7 +81,7 @@ The following code filters events for S3 from a specific AWS account and trigger
 ```go
 myFunctionHandler := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
 	code: lambda.code.fromAsset(jsii.String("resource/myfunction")),
-	runtime: lambda.runtime_NODEJS_14_X(),
+	runtime: lambda.runtime_NODEJS_12_X(),
 	handler: jsii.String("index.handler"),
 })
 
@@ -175,7 +175,7 @@ configures logging of Lambda data events for a specific Function.
 ```go
 trail := cloudtrail.NewTrail(this, jsii.String("MyAmazingCloudTrail"))
 amazingFunction := lambda.NewFunction(this, jsii.String("AnAmazingFunction"), &functionProps{
-	runtime: lambda.runtime_NODEJS_14_X(),
+	runtime: lambda.runtime_NODEJS_12_X(),
 	handler: jsii.String("hello.handler"),
 	code: lambda.code.fromAsset(jsii.String("lambda")),
 })
