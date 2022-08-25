@@ -1,7 +1,7 @@
 package awscognito
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,6 +16,7 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type UserPoolEmail interface {
 }
 
@@ -24,24 +25,26 @@ type jsiiProxy_UserPoolEmail struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewUserPoolEmail_Override(u UserPoolEmail) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cognito.UserPoolEmail",
+		"monocdk.aws_cognito.UserPoolEmail",
 		nil, // no parameters
 		u,
 	)
 }
 
 // Send email using Cognito.
+// Experimental.
 func UserPoolEmail_WithCognito(replyTo *string) UserPoolEmail {
 	_init_.Initialize()
 
 	var returns UserPoolEmail
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cognito.UserPoolEmail",
+		"monocdk.aws_cognito.UserPoolEmail",
 		"withCognito",
 		[]interface{}{replyTo},
 		&returns,
@@ -51,13 +54,14 @@ func UserPoolEmail_WithCognito(replyTo *string) UserPoolEmail {
 }
 
 // Send email using SES.
+// Experimental.
 func UserPoolEmail_WithSES(options *UserPoolSESOptions) UserPoolEmail {
 	_init_.Initialize()
 
 	var returns UserPoolEmail
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cognito.UserPoolEmail",
+		"monocdk.aws_cognito.UserPoolEmail",
 		"withSES",
 		[]interface{}{options},
 		&returns,

@@ -1,14 +1,14 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodecommit"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipelineactions"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awscodecommit"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipelineactions"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
 // Factory for CodePipeline source steps.
@@ -31,31 +31,40 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type CodePipelineSource interface {
 	Step
 	ICodePipelineActionFactory
 	// Return the steps this step depends on, based on the FileSets it requires.
+	// Experimental.
 	Dependencies() *[]Step
 	// The list of FileSets consumed by this Step.
+	// Experimental.
 	DependencyFileSets() *[]FileSet
 	// Identifier for this step.
+	// Experimental.
 	Id() *string
 	// Whether or not this is a Source step.
 	//
 	// What it means to be a Source step depends on the engine.
+	// Experimental.
 	IsSource() *bool
 	// The primary FileSet produced by this Step.
 	//
 	// Not all steps produce an output FileSet--if they do
 	// you can substitute the `Step` object for the `FileSet` object.
+	// Experimental.
 	PrimaryOutput() FileSet
 	// Add an additional FileSet to the set of file sets required by this step.
 	//
 	// This will lead to a dependency on the producer of that file set.
+	// Experimental.
 	AddDependencyFileSet(fs FileSet)
 	// Add a dependency on another step.
+	// Experimental.
 	AddStepDependency(step Step)
 	// Configure the given FileSet as the primary output of this step.
+	// Experimental.
 	ConfigurePrimaryOutput(fs FileSet)
 	// Crawl the given structure for references to StepOutputs and add dependencies on all steps found.
 	//
@@ -63,9 +72,12 @@ type CodePipelineSource interface {
 	// passes in as construction properties. The format of the structure passed in
 	// here does not have to correspond exactly to what gets rendered into the
 	// engine, it just needs to contain the same data.
+	// Experimental.
 	DiscoverReferencedOutputs(structure interface{})
+	// Experimental.
 	GetAction(output awscodepipeline.Artifact, actionName *string, runOrder *float64, variablesNamespace *string) awscodepipelineactions.Action
 	// Create the desired Action and add it to the pipeline.
+	// Experimental.
 	ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult
 	// Return an attribute of the current source revision.
 	//
@@ -92,8 +104,10 @@ type CodePipelineSource interface {
 	//
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-variables.html#reference-variables-list
 	//
+	// Experimental.
 	SourceAttribute(name *string) *string
 	// Return a string representation of this Step.
+	// Experimental.
 	ToString() *string
 }
 
@@ -154,11 +168,12 @@ func (j *jsiiProxy_CodePipelineSource) PrimaryOutput() FileSet {
 }
 
 
+// Experimental.
 func NewCodePipelineSource_Override(c CodePipelineSource, id *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		[]interface{}{id},
 		c,
 	)
@@ -174,13 +189,14 @@ func NewCodePipelineSource_Override(c CodePipelineSource, id *string) {
 //
 //   pipelines.codePipelineSource.codeCommit(repository, jsii.String("main"))
 //
+// Experimental.
 func CodePipelineSource_CodeCommit(repository awscodecommit.IRepository, branch *string, props *CodeCommitSourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		"codeCommit",
 		[]interface{}{repository, branch, props},
 		&returns,
@@ -212,13 +228,14 @@ func CodePipelineSource_CodeCommit(repository awscodecommit.IRepository, branch 
 // `codeBuildCloneOutput`.
 // See: https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html
 //
+// Experimental.
 func CodePipelineSource_Connection(repoString *string, branch *string, props *ConnectionSourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		"connection",
 		[]interface{}{repoString, branch, props},
 		&returns,
@@ -236,13 +253,14 @@ func CodePipelineSource_Connection(repoString *string, branch *string, props *Co
 //   	imageTag: jsii.String("latest"),
 //   })
 //
+// Experimental.
 func CodePipelineSource_Ecr(repository awsecr.IRepository, props *ECRSourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		"ecr",
 		[]interface{}{repository, props},
 		&returns,
@@ -266,9 +284,6 @@ func CodePipelineSource_Ecr(repository awsecr.IRepository, props *ECRSourceOptio
 // Authentication will be done by a secret called `github-token` in AWS
 // Secrets Manager (unless specified otherwise).
 //
-// If you rotate the value in the Secret, you must also change at least one property
-// on the Pipeline, to force CloudFormation to re-read the secret.
-//
 // The token should have these permissions:
 //
 // * **repo** - to read the repository
@@ -276,13 +291,14 @@ func CodePipelineSource_Ecr(repository awsecr.IRepository, props *ECRSourceOptio
 //
 // If you need access to symlinks or the repository history, use a source of type
 // `connection` instead.
+// Experimental.
 func CodePipelineSource_GitHub(repoString *string, branch *string, props *GitHubSourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		"gitHub",
 		[]interface{}{repoString, branch, props},
 		&returns,
@@ -298,13 +314,14 @@ func CodePipelineSource_GitHub(repoString *string, branch *string, props *GitHub
 //
 //   pipelines.codePipelineSource.s3(bucket, jsii.String("path/to/file.zip"))
 //
+// Experimental.
 func CodePipelineSource_S3(bucket awss3.IBucket, objectKey *string, props *S3SourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		"s3",
 		[]interface{}{bucket, objectKey, props},
 		&returns,
@@ -318,13 +335,14 @@ func CodePipelineSource_S3(bucket awss3.IBucket, objectKey *string, props *S3Sou
 // If you need more fine-grained step ordering, use the `addStepDependency()`
 // API. For example, if you want `secondStep` to occur after `firstStep`, call
 // `secondStep.addStepDependency(firstStep)`.
+// Experimental.
 func CodePipelineSource_Sequence(steps *[]Step) *[]Step {
 	_init_.Initialize()
 
 	var returns *[]Step
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		"sequence",
 		[]interface{}{steps},
 		&returns,

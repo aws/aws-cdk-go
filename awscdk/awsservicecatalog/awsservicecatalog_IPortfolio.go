@@ -3,58 +3,74 @@ package awsservicecatalog
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsservicecatalog/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
 )
 
 // A Service Catalog portfolio.
+// Experimental.
 type IPortfolio interface {
 	awscdk.IResource
 	// Associate portfolio with the given product.
+	// Experimental.
 	AddProduct(product IProduct)
 	// Associate Tag Options.
 	//
 	// A TagOption is a key-value pair managed in AWS Service Catalog.
 	// It is not an AWS tag, but serves as a template for creating an AWS tag based on the TagOption.
+	// Experimental.
 	AssociateTagOptions(tagOptions TagOptions)
 	// Set provisioning rules for the product.
+	// Experimental.
 	ConstrainCloudFormationParameters(product IProduct, options *CloudFormationRuleConstraintOptions)
 	// Add a Resource Update Constraint.
+	// Experimental.
 	ConstrainTagUpdates(product IProduct, options *TagUpdateConstraintOptions)
 	// Configure deployment options using AWS Cloudformation StackSets.
+	// Experimental.
 	DeployWithStackSets(product IProduct, options *StackSetsConstraintOptions)
 	// Associate portfolio with an IAM Group.
+	// Experimental.
 	GiveAccessToGroup(group awsiam.IGroup)
 	// Associate portfolio with an IAM Role.
+	// Experimental.
 	GiveAccessToRole(role awsiam.IRole)
 	// Associate portfolio with an IAM User.
+	// Experimental.
 	GiveAccessToUser(user awsiam.IUser)
 	// Add notifications for supplied topics on the provisioned product.
+	// Experimental.
 	NotifyOnStackEvents(product IProduct, topic awssns.ITopic, options *CommonConstraintOptions)
 	// Force users to assume a certain role when launching a product.
 	//
 	// This sets the launch role using the role arn which is tied to the account this role exists in.
 	// This is useful if you will be provisioning products from the account where this role exists.
 	// If you intend to share the portfolio across accounts, use a local launch role.
+	// Experimental.
 	SetLaunchRole(product IProduct, launchRole awsiam.IRole, options *CommonConstraintOptions)
 	// Force users to assume a certain role when launching a product.
 	//
 	// The role name will be referenced by in the local account and must be set explicitly.
 	// This is useful when sharing the portfolio with multiple accounts.
+	// Experimental.
 	SetLocalLaunchRole(product IProduct, launchRole awsiam.IRole, options *CommonConstraintOptions)
 	// Force users to assume a certain role when launching a product.
 	//
 	// The role will be referenced by name in the local account instead of a static role arn.
 	// A role with this name will automatically be created and assumable by Service Catalog in this account.
 	// This is useful when sharing the portfolio with multiple accounts.
+	// Experimental.
 	SetLocalLaunchRoleName(product IProduct, launchRoleName *string, options *CommonConstraintOptions) awsiam.IRole
 	// Initiate a portfolio share with another account.
+	// Experimental.
 	ShareWithAccount(accountId *string, options *PortfolioShareOptions)
 	// The ARN of the portfolio.
+	// Experimental.
 	PortfolioArn() *string
 	// The ID of the portfolio.
+	// Experimental.
 	PortfolioId() *string
 }
 

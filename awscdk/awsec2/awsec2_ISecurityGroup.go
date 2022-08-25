@@ -3,12 +3,12 @@ package awsec2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2/internal"
 )
 
 // Interface for security group-like objects.
+// Experimental.
 type ISecurityGroup interface {
 	IPeer
 	awscdk.IResource
@@ -19,6 +19,7 @@ type ISecurityGroup interface {
 	// rule object is created under the current SecurityGroup object. If true and the
 	// peer is also a SecurityGroup, the rule object is created under the remote
 	// SecurityGroup object.
+	// Experimental.
 	AddEgressRule(peer IPeer, connection Port, description *string, remoteRule *bool)
 	// Add an ingress rule for the current security group.
 	//
@@ -27,10 +28,13 @@ type ISecurityGroup interface {
 	// rule object is created under the current SecurityGroup object. If true and the
 	// peer is also a SecurityGroup, the rule object is created under the remote
 	// SecurityGroup object.
+	// Experimental.
 	AddIngressRule(peer IPeer, connection Port, description *string, remoteRule *bool)
 	// Whether the SecurityGroup has been configured to allow all outbound traffic.
+	// Experimental.
 	AllowAllOutbound() *bool
 	// ID for the current security group.
+	// Experimental.
 	SecurityGroupId() *string
 }
 
@@ -140,8 +144,8 @@ func (j *jsiiProxy_ISecurityGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ISecurityGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ISecurityGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

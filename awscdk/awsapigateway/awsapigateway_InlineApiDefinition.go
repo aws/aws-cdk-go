@@ -1,12 +1,12 @@
 package awsapigateway
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 )
 
 // OpenAPI specification from an inline JSON object.
@@ -20,15 +20,18 @@ import (
 //
 //   inlineApiDefinition := awscdk.Aws_apigateway.NewInlineApiDefinition(definition)
 //
+// Experimental.
 type InlineApiDefinition interface {
 	ApiDefinition
 	// Called when the specification is initialized to allow this object to bind to the stack, add resources and have fun.
-	Bind(_scope constructs.Construct) *ApiDefinitionConfig
+	// Experimental.
+	Bind(_scope awscdk.Construct) *ApiDefinitionConfig
 	// Called after the CFN RestApi resource has been created to allow the Api Definition to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	BindAfterCreate(_scope constructs.Construct, _restApi IRestApi)
+	// Experimental.
+	BindAfterCreate(_scope awscdk.Construct, _restApi IRestApi)
 }
 
 // The jsii proxy struct for InlineApiDefinition
@@ -36,13 +39,14 @@ type jsiiProxy_InlineApiDefinition struct {
 	jsiiProxy_ApiDefinition
 }
 
+// Experimental.
 func NewInlineApiDefinition(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_InlineApiDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigateway.InlineApiDefinition",
+		"monocdk.aws_apigateway.InlineApiDefinition",
 		[]interface{}{definition},
 		&j,
 	)
@@ -50,24 +54,26 @@ func NewInlineApiDefinition(definition interface{}) InlineApiDefinition {
 	return &j
 }
 
+// Experimental.
 func NewInlineApiDefinition_Override(i InlineApiDefinition, definition interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigateway.InlineApiDefinition",
+		"monocdk.aws_apigateway.InlineApiDefinition",
 		[]interface{}{definition},
 		i,
 	)
 }
 
 // Loads the API specification from a local disk asset.
+// Experimental.
 func InlineApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) AssetApiDefinition {
 	_init_.Initialize()
 
 	var returns AssetApiDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.InlineApiDefinition",
+		"monocdk.aws_apigateway.InlineApiDefinition",
 		"fromAsset",
 		[]interface{}{file, options},
 		&returns,
@@ -77,13 +83,14 @@ func InlineApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptio
 }
 
 // Creates an API definition from a specification file in an S3 bucket.
+// Experimental.
 func InlineApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
 	var returns S3ApiDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.InlineApiDefinition",
+		"monocdk.aws_apigateway.InlineApiDefinition",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -139,13 +146,14 @@ func InlineApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVer
 //       },
 //     });
 //
+// Experimental.
 func InlineApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
 	var returns InlineApiDefinition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_apigateway.InlineApiDefinition",
+		"monocdk.aws_apigateway.InlineApiDefinition",
 		"fromInline",
 		[]interface{}{definition},
 		&returns,
@@ -154,7 +162,7 @@ func InlineApiDefinition_FromInline(definition interface{}) InlineApiDefinition 
 	return returns
 }
 
-func (i *jsiiProxy_InlineApiDefinition) Bind(_scope constructs.Construct) *ApiDefinitionConfig {
+func (i *jsiiProxy_InlineApiDefinition) Bind(_scope awscdk.Construct) *ApiDefinitionConfig {
 	var returns *ApiDefinitionConfig
 
 	_jsii_.Invoke(
@@ -167,7 +175,7 @@ func (i *jsiiProxy_InlineApiDefinition) Bind(_scope constructs.Construct) *ApiDe
 	return returns
 }
 
-func (i *jsiiProxy_InlineApiDefinition) BindAfterCreate(_scope constructs.Construct, _restApi IRestApi) {
+func (i *jsiiProxy_InlineApiDefinition) BindAfterCreate(_scope awscdk.Construct, _restApi IRestApi) {
 	_jsii_.InvokeVoid(
 		i,
 		"bindAfterCreate",

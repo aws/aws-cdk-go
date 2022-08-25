@@ -3,19 +3,23 @@ package awsbackup
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsbackup/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // A backup vault.
+// Experimental.
 type IBackupVault interface {
 	awscdk.IResource
 	// Grant the actions defined in actions to the given grantee on this backup vault.
+	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// The ARN of the backup vault.
+	// Experimental.
 	BackupVaultArn() *string
 	// The name of a logical container where backups are stored.
+	// Experimental.
 	BackupVaultName() *string
 }
 

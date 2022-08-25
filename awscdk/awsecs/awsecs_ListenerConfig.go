@@ -1,10 +1,10 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
 )
 
 // Base class for configuring listener when registering targets.
@@ -35,8 +35,10 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type ListenerConfig interface {
 	// Create and attach a target group to listener.
+	// Experimental.
 	AddTargets(id *string, target *LoadBalancerTargetOptions, service BaseService)
 }
 
@@ -45,24 +47,26 @@ type jsiiProxy_ListenerConfig struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewListenerConfig_Override(l ListenerConfig) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.ListenerConfig",
+		"monocdk.aws_ecs.ListenerConfig",
 		nil, // no parameters
 		l,
 	)
 }
 
 // Create a config for adding target group to ALB listener.
+// Experimental.
 func ListenerConfig_ApplicationListener(listener awselasticloadbalancingv2.ApplicationListener, props *awselasticloadbalancingv2.AddApplicationTargetsProps) ListenerConfig {
 	_init_.Initialize()
 
 	var returns ListenerConfig
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ListenerConfig",
+		"monocdk.aws_ecs.ListenerConfig",
 		"applicationListener",
 		[]interface{}{listener, props},
 		&returns,
@@ -72,13 +76,14 @@ func ListenerConfig_ApplicationListener(listener awselasticloadbalancingv2.Appli
 }
 
 // Create a config for adding target group to NLB listener.
+// Experimental.
 func ListenerConfig_NetworkListener(listener awselasticloadbalancingv2.NetworkListener, props *awselasticloadbalancingv2.AddNetworkTargetsProps) ListenerConfig {
 	_init_.Initialize()
 
 	var returns ListenerConfig
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.ListenerConfig",
+		"monocdk.aws_ecs.ListenerConfig",
 		"networkListener",
 		[]interface{}{listener, props},
 		&returns,

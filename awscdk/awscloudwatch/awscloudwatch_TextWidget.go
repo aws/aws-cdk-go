@@ -1,7 +1,7 @@
 package awscloudwatch
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -15,23 +15,34 @@ import (
 //   	markdown: jsii.String("# Key Performance Indicators"),
 //   }))
 //
+// Experimental.
 type TextWidget interface {
 	ConcreteWidget
 	// The amount of vertical grid units the widget will take up.
+	// Experimental.
 	Height() *float64
 	// Any warnings that are produced as a result of putting together this widget.
+	// Experimental.
 	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
+	// Experimental.
 	Width() *float64
+	// Experimental.
 	X() *float64
+	// Experimental.
 	SetX(val *float64)
+	// Experimental.
 	Y() *float64
+	// Experimental.
 	SetY(val *float64)
 	// Copy the warnings from the given metric.
+	// Experimental.
 	CopyMetricWarnings(ms ...IMetric)
 	// Place the widget at a given position.
+	// Experimental.
 	Position(x *float64, y *float64)
 	// Return the widget JSON for use in the dashboard.
+	// Experimental.
 	ToJson() *[]interface{}
 }
 
@@ -91,13 +102,14 @@ func (j *jsiiProxy_TextWidget) Y() *float64 {
 }
 
 
+// Experimental.
 func NewTextWidget(props *TextWidgetProps) TextWidget {
 	_init_.Initialize()
 
 	j := jsiiProxy_TextWidget{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch.TextWidget",
+		"monocdk.aws_cloudwatch.TextWidget",
 		[]interface{}{props},
 		&j,
 	)
@@ -105,11 +117,12 @@ func NewTextWidget(props *TextWidgetProps) TextWidget {
 	return &j
 }
 
+// Experimental.
 func NewTextWidget_Override(t TextWidget, props *TextWidgetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch.TextWidget",
+		"monocdk.aws_cloudwatch.TextWidget",
 		[]interface{}{props},
 		t,
 	)

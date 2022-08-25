@@ -1,7 +1,7 @@
 package awsconfig
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -28,14 +28,19 @@ import (
 //   	ruleScope: config.*ruleScope.fromTag(jsii.String("Cost Center"), jsii.String("MyApp")),
 //   })
 //
+// Experimental.
 type RuleScope interface {
 	// tag key applied to resources that will trigger evaluation of a rule.
+	// Experimental.
 	Key() *string
 	// ID of the only AWS resource that will trigger evaluation of a rule.
+	// Experimental.
 	ResourceId() *string
 	// Resource types that will trigger evaluation of a rule.
+	// Experimental.
 	ResourceTypes() *[]ResourceType
 	// tag value applied to resources that will trigger evaluation of a rule.
+	// Experimental.
 	Value() *string
 }
 
@@ -86,13 +91,14 @@ func (j *jsiiProxy_RuleScope) Value() *string {
 
 
 // restricts scope of changes to a specific resource type or resource identifier.
+// Experimental.
 func RuleScope_FromResource(resourceType ResourceType, resourceId *string) RuleScope {
 	_init_.Initialize()
 
 	var returns RuleScope
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.RuleScope",
+		"monocdk.aws_config.RuleScope",
 		"fromResource",
 		[]interface{}{resourceType, resourceId},
 		&returns,
@@ -102,13 +108,14 @@ func RuleScope_FromResource(resourceType ResourceType, resourceId *string) RuleS
 }
 
 // restricts scope of changes to specific resource types.
+// Experimental.
 func RuleScope_FromResources(resourceTypes *[]ResourceType) RuleScope {
 	_init_.Initialize()
 
 	var returns RuleScope
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.RuleScope",
+		"monocdk.aws_config.RuleScope",
 		"fromResources",
 		[]interface{}{resourceTypes},
 		&returns,
@@ -118,13 +125,14 @@ func RuleScope_FromResources(resourceTypes *[]ResourceType) RuleScope {
 }
 
 // restricts scope of changes to a specific tag.
+// Experimental.
 func RuleScope_FromTag(key *string, value *string) RuleScope {
 	_init_.Initialize()
 
 	var returns RuleScope
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.RuleScope",
+		"monocdk.aws_config.RuleScope",
 		"fromTag",
 		[]interface{}{key, value},
 		&returns,

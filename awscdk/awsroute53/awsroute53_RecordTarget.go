@@ -1,28 +1,30 @@
 package awsroute53
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // Type union for a record that accepts multiple types of target.
 //
 // Example:
-//   import apigw "github.com/aws/aws-cdk-go/awscdk"
+//   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var zone hostedZone
-//   var restApi lambdaRestApi
+//   var myZone hostedZone
+//   var distribution cloudFrontWebDistribution
 //
-//
-//   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
-//   	zone: zone,
-//   	target: route53.recordTarget.fromAlias(targets.NewApiGateway(restApi)),
+//   route53.NewAaaaRecord(this, jsii.String("Alias"), &aaaaRecordProps{
+//   	zone: myZone,
+//   	target: route53.recordTarget.fromAlias(targets.NewCloudFrontTarget(distribution)),
 //   })
 //
+// Experimental.
 type RecordTarget interface {
 	// alias for targets such as CloudFront distribution to route traffic to.
+	// Experimental.
 	AliasTarget() IAliasRecordTarget
 	// correspond with the chosen record type (e.g. for 'A' Type, specify one or more IP addresses).
+	// Experimental.
 	Values() *[]*string
 }
 
@@ -52,13 +54,14 @@ func (j *jsiiProxy_RecordTarget) Values() *[]*string {
 }
 
 
+// Experimental.
 func NewRecordTarget(values *[]*string, aliasTarget IAliasRecordTarget) RecordTarget {
 	_init_.Initialize()
 
 	j := jsiiProxy_RecordTarget{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.RecordTarget",
+		"monocdk.aws_route53.RecordTarget",
 		[]interface{}{values, aliasTarget},
 		&j,
 	)
@@ -66,24 +69,26 @@ func NewRecordTarget(values *[]*string, aliasTarget IAliasRecordTarget) RecordTa
 	return &j
 }
 
+// Experimental.
 func NewRecordTarget_Override(r RecordTarget, values *[]*string, aliasTarget IAliasRecordTarget) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53.RecordTarget",
+		"monocdk.aws_route53.RecordTarget",
 		[]interface{}{values, aliasTarget},
 		r,
 	)
 }
 
 // Use an alias as target.
+// Experimental.
 func RecordTarget_FromAlias(aliasTarget IAliasRecordTarget) RecordTarget {
 	_init_.Initialize()
 
 	var returns RecordTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.RecordTarget",
+		"monocdk.aws_route53.RecordTarget",
 		"fromAlias",
 		[]interface{}{aliasTarget},
 		&returns,
@@ -93,6 +98,7 @@ func RecordTarget_FromAlias(aliasTarget IAliasRecordTarget) RecordTarget {
 }
 
 // Use ip addresses as target.
+// Experimental.
 func RecordTarget_FromIpAddresses(ipAddresses ...*string) RecordTarget {
 	_init_.Initialize()
 
@@ -104,7 +110,7 @@ func RecordTarget_FromIpAddresses(ipAddresses ...*string) RecordTarget {
 	var returns RecordTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.RecordTarget",
+		"monocdk.aws_route53.RecordTarget",
 		"fromIpAddresses",
 		args,
 		&returns,
@@ -114,6 +120,7 @@ func RecordTarget_FromIpAddresses(ipAddresses ...*string) RecordTarget {
 }
 
 // Use string values as target.
+// Experimental.
 func RecordTarget_FromValues(values ...*string) RecordTarget {
 	_init_.Initialize()
 
@@ -125,7 +132,7 @@ func RecordTarget_FromValues(values ...*string) RecordTarget {
 	var returns RecordTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53.RecordTarget",
+		"monocdk.aws_route53.RecordTarget",
 		"fromValues",
 		args,
 		&returns,

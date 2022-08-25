@@ -1,13 +1,13 @@
 package awslambdadestinations
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdadestinations/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslambdadestinations/internal"
 )
 
 // Use an Event Bridge event bus as a Lambda destination.
@@ -24,10 +24,12 @@ import (
 //
 //   eventBridgeDestination := awscdk.Aws_lambda_destinations.NewEventBridgeDestination(eventBus)
 //
+// Experimental.
 type EventBridgeDestination interface {
 	awslambda.IDestination
 	// Returns a destination configuration.
-	Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
+	// Experimental.
+	Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
 }
 
 // The jsii proxy struct for EventBridgeDestination
@@ -35,13 +37,14 @@ type jsiiProxy_EventBridgeDestination struct {
 	internal.Type__awslambdaIDestination
 }
 
+// Experimental.
 func NewEventBridgeDestination(eventBus awsevents.IEventBus) EventBridgeDestination {
 	_init_.Initialize()
 
 	j := jsiiProxy_EventBridgeDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_destinations.EventBridgeDestination",
+		"monocdk.aws_lambda_destinations.EventBridgeDestination",
 		[]interface{}{eventBus},
 		&j,
 	)
@@ -49,17 +52,18 @@ func NewEventBridgeDestination(eventBus awsevents.IEventBus) EventBridgeDestinat
 	return &j
 }
 
+// Experimental.
 func NewEventBridgeDestination_Override(e EventBridgeDestination, eventBus awsevents.IEventBus) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_destinations.EventBridgeDestination",
+		"monocdk.aws_lambda_destinations.EventBridgeDestination",
 		[]interface{}{eventBus},
 		e,
 	)
 }
 
-func (e *jsiiProxy_EventBridgeDestination) Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+func (e *jsiiProxy_EventBridgeDestination) Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
 	var returns *awslambda.DestinationConfig
 
 	_jsii_.Invoke(

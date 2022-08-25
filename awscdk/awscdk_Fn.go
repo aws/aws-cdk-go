@@ -1,8 +1,8 @@
-// Version 2 of the AWS Cloud Development Kit library
+// An experiment to bundle the entire CDK into a single module
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -33,6 +33,7 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type Fn interface {
 }
 
@@ -47,13 +48,14 @@ type jsiiProxy_Fn struct {
 // Amazon EC2 instances by way of the UserData property.
 //
 // Returns: a token represented as a string.
+// Experimental.
 func Fn_Base64(data *string) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"base64",
 		[]interface{}{data},
 		&returns,
@@ -65,13 +67,14 @@ func Fn_Base64(data *string) *string {
 // The intrinsic function ``Fn::Cidr`` returns the specified Cidr address block.
 //
 // Returns: a token represented as a string.
+// Experimental.
 func Fn_Cidr(ipBlock *string, count *float64, sizeMask *string) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"cidr",
 		[]interface{}{ipBlock, count, sizeMask},
 		&returns,
@@ -87,6 +90,7 @@ func Fn_Cidr(ipBlock *string, count *float64, sizeMask *string) *[]*string {
 // 1.
 //
 // Returns: an FnCondition token.
+// Experimental.
 func Fn_ConditionAnd(conditions ...ICfnConditionExpression) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
@@ -98,7 +102,7 @@ func Fn_ConditionAnd(conditions ...ICfnConditionExpression) ICfnRuleConditionExp
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"conditionAnd",
 		args,
 		&returns,
@@ -110,13 +114,14 @@ func Fn_ConditionAnd(conditions ...ICfnConditionExpression) ICfnRuleConditionExp
 // Returns true if a specified string matches at least one value in a list of strings.
 //
 // Returns: an FnCondition token.
+// Experimental.
 func Fn_ConditionContains(listOfStrings *[]*string, value *string) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"conditionContains",
 		[]interface{}{listOfStrings, value},
 		&returns,
@@ -128,13 +133,14 @@ func Fn_ConditionContains(listOfStrings *[]*string, value *string) ICfnRuleCondi
 // Returns true if a specified string matches all values in a list.
 //
 // Returns: an FnCondition token.
+// Experimental.
 func Fn_ConditionEachMemberEquals(listOfStrings *[]*string, value *string) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"conditionEachMemberEquals",
 		[]interface{}{listOfStrings, value},
 		&returns,
@@ -146,13 +152,14 @@ func Fn_ConditionEachMemberEquals(listOfStrings *[]*string, value *string) ICfnR
 // Returns true if each member in a list of strings matches at least one value in a second list of strings.
 //
 // Returns: an FnCondition token.
+// Experimental.
 func Fn_ConditionEachMemberIn(stringsToCheck *[]*string, stringsToMatch *[]*string) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"conditionEachMemberIn",
 		[]interface{}{stringsToCheck, stringsToMatch},
 		&returns,
@@ -167,13 +174,14 @@ func Fn_ConditionEachMemberIn(stringsToCheck *[]*string, stringsToMatch *[]*stri
 // or false if they aren't.
 //
 // Returns: an FnCondition token.
+// Experimental.
 func Fn_ConditionEquals(lhs interface{}, rhs interface{}) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"conditionEquals",
 		[]interface{}{lhs, rhs},
 		&returns,
@@ -191,13 +199,14 @@ func Fn_ConditionEquals(lhs interface{}, rhs interface{}) ICfnRuleConditionExpre
 // pseudo parameter as a return value to remove the corresponding property.
 //
 // Returns: an FnCondition token.
+// Experimental.
 func Fn_ConditionIf(conditionId *string, valueIfTrue interface{}, valueIfFalse interface{}) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"conditionIf",
 		[]interface{}{conditionId, valueIfTrue, valueIfFalse},
 		&returns,
@@ -211,13 +220,14 @@ func Fn_ConditionIf(conditionId *string, valueIfTrue interface{}, valueIfFalse i
 // ``Fn::Not`` acts as a NOT operator.
 //
 // Returns: an FnCondition token.
+// Experimental.
 func Fn_ConditionNot(condition ICfnConditionExpression) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"conditionNot",
 		[]interface{}{condition},
 		&returns,
@@ -233,6 +243,7 @@ func Fn_ConditionNot(condition ICfnConditionExpression) ICfnRuleConditionExpress
 // 1.
 //
 // Returns: an FnCondition token.
+// Experimental.
 func Fn_ConditionOr(conditions ...ICfnConditionExpression) ICfnRuleConditionExpression {
 	_init_.Initialize()
 
@@ -244,7 +255,7 @@ func Fn_ConditionOr(conditions ...ICfnConditionExpression) ICfnRuleConditionExpr
 	var returns ICfnRuleConditionExpression
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"conditionOr",
 		args,
 		&returns,
@@ -256,13 +267,14 @@ func Fn_ConditionOr(conditions ...ICfnConditionExpression) ICfnRuleConditionExpr
 // The intrinsic function ``Fn::FindInMap`` returns the value corresponding to keys in a two-level map that is declared in the Mappings section.
 //
 // Returns: a token represented as a string.
+// Experimental.
 func Fn_FindInMap(mapName *string, topLevelKey *string, secondLevelKey *string) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"findInMap",
 		[]interface{}{mapName, topLevelKey, secondLevelKey},
 		&returns,
@@ -274,13 +286,14 @@ func Fn_FindInMap(mapName *string, topLevelKey *string, secondLevelKey *string) 
 // The ``Fn::GetAtt`` intrinsic function returns the value of an attribute from a resource in the template.
 //
 // Returns: an IResolvable object.
+// Experimental.
 func Fn_GetAtt(logicalNameOfResource *string, attributeName *string) IResolvable {
 	_init_.Initialize()
 
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"getAtt",
 		[]interface{}{logicalNameOfResource, attributeName},
 		&returns,
@@ -298,13 +311,14 @@ func Fn_GetAtt(logicalNameOfResource *string, attributeName *string) IResolvable
 // Zones for a specified region.
 //
 // Returns: a token represented as a string array.
+// Experimental.
 func Fn_GetAzs(region *string) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"getAzs",
 		[]interface{}{region},
 		&returns,
@@ -322,13 +336,14 @@ func Fn_GetAzs(region *string) *[]*string {
 // `Fn.importListValue(exportName, assumedLength)` is the same as
 // `Fn.split(',', Fn.importValue(exportName), assumedLength)`,
 // but easier to read and impossible to forget to pass `assumedLength`.
+// Experimental.
 func Fn_ImportListValue(sharedValueToImport *string, assumedLength *float64, delimiter *string) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"importListValue",
 		[]interface{}{sharedValueToImport, assumedLength, delimiter},
 		&returns,
@@ -344,13 +359,14 @@ func Fn_ImportListValue(sharedValueToImport *string, assumedLength *float64, del
 // exports VPC security group values and Stack B imports them.
 //
 // Returns: a token represented as a string.
+// Experimental.
 func Fn_ImportValue(sharedValueToImport *string) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"importValue",
 		[]interface{}{sharedValueToImport},
 		&returns,
@@ -365,13 +381,14 @@ func Fn_ImportValue(sharedValueToImport *string) *string {
 // string, the set of values are concatenated with no delimiter.
 //
 // Returns: a token represented as a string.
+// Experimental.
 func Fn_Join(delimiter *string, listOfValues *[]*string) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"join",
 		[]interface{}{delimiter, listOfValues},
 		&returns,
@@ -381,13 +398,14 @@ func Fn_Join(delimiter *string, listOfValues *[]*string) *string {
 }
 
 // Given an url, parse the domain name.
+// Experimental.
 func Fn_ParseDomainName(url *string) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"parseDomainName",
 		[]interface{}{url},
 		&returns,
@@ -399,13 +417,14 @@ func Fn_ParseDomainName(url *string) *string {
 // The ``Ref`` intrinsic function returns the value of the specified parameter or resource.
 //
 // Note that it doesn't validate the logicalName, it mainly serves paremeter/resource reference defined in a ``CfnInclude`` template.
+// Experimental.
 func Fn_Ref(logicalName *string) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"ref",
 		[]interface{}{logicalName},
 		&returns,
@@ -417,13 +436,14 @@ func Fn_Ref(logicalName *string) *string {
 // Returns all values for a specified parameter type.
 //
 // Returns: a token represented as a string array.
+// Experimental.
 func Fn_RefAll(parameterType *string) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"refAll",
 		[]interface{}{parameterType},
 		&returns,
@@ -435,13 +455,14 @@ func Fn_RefAll(parameterType *string) *[]*string {
 // The intrinsic function ``Fn::Select`` returns a single object from a list of objects by index.
 //
 // Returns: a token represented as a string.
+// Experimental.
 func Fn_Select(index *float64, array *[]*string) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"select",
 		[]interface{}{index, array},
 		&returns,
@@ -488,13 +509,14 @@ func Fn_Select(index *float64, array *[]*string) *string {
 // at the expense of having to know and fix the length of the list.
 //
 // Returns: a token represented as a string array.
+// Experimental.
 func Fn_Split(delimiter *string, source *string, assumedLength *float64) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"split",
 		[]interface{}{delimiter, source, assumedLength},
 		&returns,
@@ -510,13 +532,14 @@ func Fn_Split(delimiter *string, source *string, assumedLength *float64) *[]*str
 // until you create or update a stack.
 //
 // Returns: a token represented as a string.
+// Experimental.
 func Fn_Sub(body *string, variables *map[string]*string) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"sub",
 		[]interface{}{body, variables},
 		&returns,
@@ -530,13 +553,14 @@ func Fn_Sub(body *string, variables *map[string]*string) *string {
 // Returns: a token representing the transform expression.
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-transform.html
 //
+// Experimental.
 func Fn_Transform(macroName *string, parameters *map[string]interface{}) IResolvable {
 	_init_.Initialize()
 
 	var returns IResolvable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"transform",
 		[]interface{}{macroName, parameters},
 		&returns,
@@ -548,13 +572,14 @@ func Fn_Transform(macroName *string, parameters *map[string]interface{}) IResolv
 // Returns an attribute value or list of values for a specific parameter and attribute.
 //
 // Returns: a token represented as a string.
+// Experimental.
 func Fn_ValueOf(parameterOrLogicalId *string, attribute *string) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"valueOf",
 		[]interface{}{parameterOrLogicalId, attribute},
 		&returns,
@@ -566,13 +591,14 @@ func Fn_ValueOf(parameterOrLogicalId *string, attribute *string) *string {
 // Returns a list of all attribute values for a given parameter type and attribute.
 //
 // Returns: a token represented as a string array.
+// Experimental.
 func Fn_ValueOfAll(parameterType *string, attribute *string) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Fn",
+		"monocdk.Fn",
 		"valueOfAll",
 		[]interface{}{parameterType, attribute},
 		&returns,

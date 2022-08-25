@@ -13,10 +13,13 @@ package awscloudfront
 //   	functionName: jsii.String("functionName"),
 //   }
 //
+// Experimental.
 type FunctionAttributes struct {
 	// The ARN of the function.
+	// Experimental.
 	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// The name of the function.
+	// Experimental.
 	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 }
 

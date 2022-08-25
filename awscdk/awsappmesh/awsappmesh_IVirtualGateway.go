@@ -3,23 +3,29 @@ package awsappmesh
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Interface which all Virtual Gateway based classes must implement.
+// Experimental.
 type IVirtualGateway interface {
 	awscdk.IResource
 	// Utility method to add a new GatewayRoute to the VirtualGateway.
+	// Experimental.
 	AddGatewayRoute(id *string, route *GatewayRouteBaseProps) GatewayRoute
 	// Grants the given entity `appmesh:StreamAggregatedResources`.
+	// Experimental.
 	GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant
 	// The Mesh which the VirtualGateway belongs to.
+	// Experimental.
 	Mesh() IMesh
 	// The Amazon Resource Name (ARN) for the VirtualGateway.
+	// Experimental.
 	VirtualGatewayArn() *string
 	// Name of the VirtualGateway.
+	// Experimental.
 	VirtualGatewayName() *string
 }
 

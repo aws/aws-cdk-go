@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_sam.CfnApi",
+		"monocdk.aws_sam.CfnApi",
 		reflect.TypeOf((*CfnApi)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessLogSetting", GoGetter: "AccessLogSetting"},
@@ -44,18 +44,23 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "models", GoGetter: "Models"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "openApiVersion", GoGetter: "OpenApiVersion"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stageName", GoGetter: "StageName"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "tracingEnabled", GoGetter: "TracingEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "variables", GoGetter: "Variables"},
 		},
@@ -67,47 +72,47 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnApi.AccessLogSettingProperty",
+		"monocdk.aws_sam.CfnApi.AccessLogSettingProperty",
 		reflect.TypeOf((*CfnApi_AccessLogSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnApi.AuthProperty",
+		"monocdk.aws_sam.CfnApi.AuthProperty",
 		reflect.TypeOf((*CfnApi_AuthProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnApi.CanarySettingProperty",
+		"monocdk.aws_sam.CfnApi.CanarySettingProperty",
 		reflect.TypeOf((*CfnApi_CanarySettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnApi.CorsConfigurationProperty",
+		"monocdk.aws_sam.CfnApi.CorsConfigurationProperty",
 		reflect.TypeOf((*CfnApi_CorsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnApi.DomainConfigurationProperty",
+		"monocdk.aws_sam.CfnApi.DomainConfigurationProperty",
 		reflect.TypeOf((*CfnApi_DomainConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnApi.EndpointConfigurationProperty",
+		"monocdk.aws_sam.CfnApi.EndpointConfigurationProperty",
 		reflect.TypeOf((*CfnApi_EndpointConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnApi.MutualTlsAuthenticationProperty",
+		"monocdk.aws_sam.CfnApi.MutualTlsAuthenticationProperty",
 		reflect.TypeOf((*CfnApi_MutualTlsAuthenticationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnApi.Route53ConfigurationProperty",
+		"monocdk.aws_sam.CfnApi.Route53ConfigurationProperty",
 		reflect.TypeOf((*CfnApi_Route53ConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnApi.S3LocationProperty",
+		"monocdk.aws_sam.CfnApi.S3LocationProperty",
 		reflect.TypeOf((*CfnApi_S3LocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnApiProps",
+		"monocdk.aws_sam.CfnApiProps",
 		reflect.TypeOf((*CfnApiProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_sam.CfnApplication",
+		"monocdk.aws_sam.CfnApplication",
 		reflect.TypeOf((*CfnApplication)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -128,17 +133,22 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notificationArns", GoGetter: "NotificationArns"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "timeoutInMinutes", GoGetter: "TimeoutInMinutes"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -149,15 +159,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnApplication.ApplicationLocationProperty",
+		"monocdk.aws_sam.CfnApplication.ApplicationLocationProperty",
 		reflect.TypeOf((*CfnApplication_ApplicationLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnApplicationProps",
+		"monocdk.aws_sam.CfnApplicationProps",
 		reflect.TypeOf((*CfnApplicationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_sam.CfnFunction",
+		"monocdk.aws_sam.CfnFunction",
 		reflect.TypeOf((*CfnFunction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -197,10 +207,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "memorySize", GoGetter: "MemorySize"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "packageType", GoGetter: "PackageType"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionsBoundary", GoGetter: "PermissionsBoundary"},
 			_jsii_.MemberProperty{JsiiProperty: "policies", GoGetter: "Policies"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "provisionedConcurrencyConfig", GoGetter: "ProvisionedConcurrencyConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -209,12 +223,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "runtime", GoGetter: "Runtime"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "tracing", GoGetter: "Tracing"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "versionDescription", GoGetter: "VersionDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcConfig", GoGetter: "VpcConfig"},
@@ -227,215 +242,215 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.AlexaSkillEventProperty",
+		"monocdk.aws_sam.CfnFunction.AlexaSkillEventProperty",
 		reflect.TypeOf((*CfnFunction_AlexaSkillEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.ApiEventProperty",
+		"monocdk.aws_sam.CfnFunction.ApiEventProperty",
 		reflect.TypeOf((*CfnFunction_ApiEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.AuthProperty",
+		"monocdk.aws_sam.CfnFunction.AuthProperty",
 		reflect.TypeOf((*CfnFunction_AuthProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.AuthResourcePolicyProperty",
+		"monocdk.aws_sam.CfnFunction.AuthResourcePolicyProperty",
 		reflect.TypeOf((*CfnFunction_AuthResourcePolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.BucketSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.BucketSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_BucketSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.CloudWatchEventEventProperty",
+		"monocdk.aws_sam.CfnFunction.CloudWatchEventEventProperty",
 		reflect.TypeOf((*CfnFunction_CloudWatchEventEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.CloudWatchLogsEventProperty",
+		"monocdk.aws_sam.CfnFunction.CloudWatchLogsEventProperty",
 		reflect.TypeOf((*CfnFunction_CloudWatchLogsEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.CollectionSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.CollectionSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_CollectionSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.DeadLetterQueueProperty",
+		"monocdk.aws_sam.CfnFunction.DeadLetterQueueProperty",
 		reflect.TypeOf((*CfnFunction_DeadLetterQueueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.DeploymentPreferenceProperty",
+		"monocdk.aws_sam.CfnFunction.DeploymentPreferenceProperty",
 		reflect.TypeOf((*CfnFunction_DeploymentPreferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.DestinationConfigProperty",
+		"monocdk.aws_sam.CfnFunction.DestinationConfigProperty",
 		reflect.TypeOf((*CfnFunction_DestinationConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.DestinationProperty",
+		"monocdk.aws_sam.CfnFunction.DestinationProperty",
 		reflect.TypeOf((*CfnFunction_DestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.DomainSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.DomainSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_DomainSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.DynamoDBEventProperty",
+		"monocdk.aws_sam.CfnFunction.DynamoDBEventProperty",
 		reflect.TypeOf((*CfnFunction_DynamoDBEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.EmptySAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.EmptySAMPTProperty",
 		reflect.TypeOf((*CfnFunction_EmptySAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.EventBridgeRuleEventProperty",
+		"monocdk.aws_sam.CfnFunction.EventBridgeRuleEventProperty",
 		reflect.TypeOf((*CfnFunction_EventBridgeRuleEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.EventInvokeConfigProperty",
+		"monocdk.aws_sam.CfnFunction.EventInvokeConfigProperty",
 		reflect.TypeOf((*CfnFunction_EventInvokeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.EventInvokeDestinationConfigProperty",
+		"monocdk.aws_sam.CfnFunction.EventInvokeDestinationConfigProperty",
 		reflect.TypeOf((*CfnFunction_EventInvokeDestinationConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.EventSourceProperty",
+		"monocdk.aws_sam.CfnFunction.EventSourceProperty",
 		reflect.TypeOf((*CfnFunction_EventSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.FileSystemConfigProperty",
+		"monocdk.aws_sam.CfnFunction.FileSystemConfigProperty",
 		reflect.TypeOf((*CfnFunction_FileSystemConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.FunctionEnvironmentProperty",
+		"monocdk.aws_sam.CfnFunction.FunctionEnvironmentProperty",
 		reflect.TypeOf((*CfnFunction_FunctionEnvironmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.FunctionSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.FunctionSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_FunctionSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.HooksProperty",
+		"monocdk.aws_sam.CfnFunction.HooksProperty",
 		reflect.TypeOf((*CfnFunction_HooksProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.IAMPolicyDocumentProperty",
+		"monocdk.aws_sam.CfnFunction.IAMPolicyDocumentProperty",
 		reflect.TypeOf((*CfnFunction_IAMPolicyDocumentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.IdentitySAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.IdentitySAMPTProperty",
 		reflect.TypeOf((*CfnFunction_IdentitySAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.ImageConfigProperty",
+		"monocdk.aws_sam.CfnFunction.ImageConfigProperty",
 		reflect.TypeOf((*CfnFunction_ImageConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.IoTRuleEventProperty",
+		"monocdk.aws_sam.CfnFunction.IoTRuleEventProperty",
 		reflect.TypeOf((*CfnFunction_IoTRuleEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.KeySAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.KeySAMPTProperty",
 		reflect.TypeOf((*CfnFunction_KeySAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.KinesisEventProperty",
+		"monocdk.aws_sam.CfnFunction.KinesisEventProperty",
 		reflect.TypeOf((*CfnFunction_KinesisEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.LogGroupSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.LogGroupSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_LogGroupSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.ParameterNameSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.ParameterNameSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_ParameterNameSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.ProvisionedConcurrencyConfigProperty",
+		"monocdk.aws_sam.CfnFunction.ProvisionedConcurrencyConfigProperty",
 		reflect.TypeOf((*CfnFunction_ProvisionedConcurrencyConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.QueueSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.QueueSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_QueueSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.RequestModelProperty",
+		"monocdk.aws_sam.CfnFunction.RequestModelProperty",
 		reflect.TypeOf((*CfnFunction_RequestModelProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.RequestParameterProperty",
+		"monocdk.aws_sam.CfnFunction.RequestParameterProperty",
 		reflect.TypeOf((*CfnFunction_RequestParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.S3EventProperty",
+		"monocdk.aws_sam.CfnFunction.S3EventProperty",
 		reflect.TypeOf((*CfnFunction_S3EventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.S3KeyFilterProperty",
+		"monocdk.aws_sam.CfnFunction.S3KeyFilterProperty",
 		reflect.TypeOf((*CfnFunction_S3KeyFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.S3KeyFilterRuleProperty",
+		"monocdk.aws_sam.CfnFunction.S3KeyFilterRuleProperty",
 		reflect.TypeOf((*CfnFunction_S3KeyFilterRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.S3LocationProperty",
+		"monocdk.aws_sam.CfnFunction.S3LocationProperty",
 		reflect.TypeOf((*CfnFunction_S3LocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.S3NotificationFilterProperty",
+		"monocdk.aws_sam.CfnFunction.S3NotificationFilterProperty",
 		reflect.TypeOf((*CfnFunction_S3NotificationFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.SAMPolicyTemplateProperty",
+		"monocdk.aws_sam.CfnFunction.SAMPolicyTemplateProperty",
 		reflect.TypeOf((*CfnFunction_SAMPolicyTemplateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.SNSEventProperty",
+		"monocdk.aws_sam.CfnFunction.SNSEventProperty",
 		reflect.TypeOf((*CfnFunction_SNSEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.SQSEventProperty",
+		"monocdk.aws_sam.CfnFunction.SQSEventProperty",
 		reflect.TypeOf((*CfnFunction_SQSEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.ScheduleEventProperty",
+		"monocdk.aws_sam.CfnFunction.ScheduleEventProperty",
 		reflect.TypeOf((*CfnFunction_ScheduleEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.SecretArnSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.SecretArnSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_SecretArnSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.StateMachineSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.StateMachineSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_StateMachineSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.StreamSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.StreamSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_StreamSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.TableSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.TableSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_TableSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.TableStreamSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.TableStreamSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_TableStreamSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.TopicSAMPTProperty",
+		"monocdk.aws_sam.CfnFunction.TopicSAMPTProperty",
 		reflect.TypeOf((*CfnFunction_TopicSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunction.VpcConfigProperty",
+		"monocdk.aws_sam.CfnFunction.VpcConfigProperty",
 		reflect.TypeOf((*CfnFunction_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnFunctionProps",
+		"monocdk.aws_sam.CfnFunctionProps",
 		reflect.TypeOf((*CfnFunctionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_sam.CfnHttpApi",
+		"monocdk.aws_sam.CfnHttpApi",
 		reflect.TypeOf((*CfnHttpApi)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessLogSetting", GoGetter: "AccessLogSetting"},
@@ -464,7 +479,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "routeSettings", GoGetter: "RouteSettings"},
@@ -472,10 +491,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stageName", GoGetter: "StageName"},
 			_jsii_.MemberProperty{JsiiProperty: "stageVariables", GoGetter: "StageVariables"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -486,43 +506,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnHttpApi.AccessLogSettingProperty",
+		"monocdk.aws_sam.CfnHttpApi.AccessLogSettingProperty",
 		reflect.TypeOf((*CfnHttpApi_AccessLogSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnHttpApi.CorsConfigurationObjectProperty",
+		"monocdk.aws_sam.CfnHttpApi.CorsConfigurationObjectProperty",
 		reflect.TypeOf((*CfnHttpApi_CorsConfigurationObjectProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnHttpApi.HttpApiAuthProperty",
+		"monocdk.aws_sam.CfnHttpApi.HttpApiAuthProperty",
 		reflect.TypeOf((*CfnHttpApi_HttpApiAuthProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnHttpApi.HttpApiDomainConfigurationProperty",
+		"monocdk.aws_sam.CfnHttpApi.HttpApiDomainConfigurationProperty",
 		reflect.TypeOf((*CfnHttpApi_HttpApiDomainConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnHttpApi.MutualTlsAuthenticationProperty",
+		"monocdk.aws_sam.CfnHttpApi.MutualTlsAuthenticationProperty",
 		reflect.TypeOf((*CfnHttpApi_MutualTlsAuthenticationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnHttpApi.Route53ConfigurationProperty",
+		"monocdk.aws_sam.CfnHttpApi.Route53ConfigurationProperty",
 		reflect.TypeOf((*CfnHttpApi_Route53ConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnHttpApi.RouteSettingsProperty",
+		"monocdk.aws_sam.CfnHttpApi.RouteSettingsProperty",
 		reflect.TypeOf((*CfnHttpApi_RouteSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnHttpApi.S3LocationProperty",
+		"monocdk.aws_sam.CfnHttpApi.S3LocationProperty",
 		reflect.TypeOf((*CfnHttpApi_S3LocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnHttpApiProps",
+		"monocdk.aws_sam.CfnHttpApiProps",
 		reflect.TypeOf((*CfnHttpApiProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_sam.CfnLayerVersion",
+		"monocdk.aws_sam.CfnLayerVersion",
 		reflect.TypeOf((*CfnLayerVersion)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -546,15 +566,20 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "licenseInfo", GoGetter: "LicenseInfo"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "retentionPolicy", GoGetter: "RetentionPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -565,15 +590,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnLayerVersion.S3LocationProperty",
+		"monocdk.aws_sam.CfnLayerVersion.S3LocationProperty",
 		reflect.TypeOf((*CfnLayerVersion_S3LocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnLayerVersionProps",
+		"monocdk.aws_sam.CfnLayerVersionProps",
 		reflect.TypeOf((*CfnLayerVersionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_sam.CfnSimpleTable",
+		"monocdk.aws_sam.CfnSimpleTable",
 		reflect.TypeOf((*CfnSimpleTable)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -592,7 +617,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "primaryKey", GoGetter: "PrimaryKey"},
 			_jsii_.MemberProperty{JsiiProperty: "provisionedThroughput", GoGetter: "ProvisionedThroughput"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
@@ -600,11 +629,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sseSpecification", GoGetter: "SseSpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -615,23 +645,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnSimpleTable.PrimaryKeyProperty",
+		"monocdk.aws_sam.CfnSimpleTable.PrimaryKeyProperty",
 		reflect.TypeOf((*CfnSimpleTable_PrimaryKeyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnSimpleTable.ProvisionedThroughputProperty",
+		"monocdk.aws_sam.CfnSimpleTable.ProvisionedThroughputProperty",
 		reflect.TypeOf((*CfnSimpleTable_ProvisionedThroughputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnSimpleTable.SSESpecificationProperty",
+		"monocdk.aws_sam.CfnSimpleTable.SSESpecificationProperty",
 		reflect.TypeOf((*CfnSimpleTable_SSESpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnSimpleTableProps",
+		"monocdk.aws_sam.CfnSimpleTableProps",
 		reflect.TypeOf((*CfnSimpleTableProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_sam.CfnStateMachine",
+		"monocdk.aws_sam.CfnStateMachine",
 		reflect.TypeOf((*CfnStateMachine)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -656,20 +686,25 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "permissionsBoundaries", GoGetter: "PermissionsBoundaries"},
 			_jsii_.MemberProperty{JsiiProperty: "policies", GoGetter: "Policies"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "tracing", GoGetter: "Tracing"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -680,63 +715,63 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.ApiEventProperty",
+		"monocdk.aws_sam.CfnStateMachine.ApiEventProperty",
 		reflect.TypeOf((*CfnStateMachine_ApiEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.CloudWatchEventEventProperty",
+		"monocdk.aws_sam.CfnStateMachine.CloudWatchEventEventProperty",
 		reflect.TypeOf((*CfnStateMachine_CloudWatchEventEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.CloudWatchLogsLogGroupProperty",
+		"monocdk.aws_sam.CfnStateMachine.CloudWatchLogsLogGroupProperty",
 		reflect.TypeOf((*CfnStateMachine_CloudWatchLogsLogGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.EventBridgeRuleEventProperty",
+		"monocdk.aws_sam.CfnStateMachine.EventBridgeRuleEventProperty",
 		reflect.TypeOf((*CfnStateMachine_EventBridgeRuleEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.EventSourceProperty",
+		"monocdk.aws_sam.CfnStateMachine.EventSourceProperty",
 		reflect.TypeOf((*CfnStateMachine_EventSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.FunctionSAMPTProperty",
+		"monocdk.aws_sam.CfnStateMachine.FunctionSAMPTProperty",
 		reflect.TypeOf((*CfnStateMachine_FunctionSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.IAMPolicyDocumentProperty",
+		"monocdk.aws_sam.CfnStateMachine.IAMPolicyDocumentProperty",
 		reflect.TypeOf((*CfnStateMachine_IAMPolicyDocumentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.LogDestinationProperty",
+		"monocdk.aws_sam.CfnStateMachine.LogDestinationProperty",
 		reflect.TypeOf((*CfnStateMachine_LogDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.LoggingConfigurationProperty",
+		"monocdk.aws_sam.CfnStateMachine.LoggingConfigurationProperty",
 		reflect.TypeOf((*CfnStateMachine_LoggingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.S3LocationProperty",
+		"monocdk.aws_sam.CfnStateMachine.S3LocationProperty",
 		reflect.TypeOf((*CfnStateMachine_S3LocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.SAMPolicyTemplateProperty",
+		"monocdk.aws_sam.CfnStateMachine.SAMPolicyTemplateProperty",
 		reflect.TypeOf((*CfnStateMachine_SAMPolicyTemplateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.ScheduleEventProperty",
+		"monocdk.aws_sam.CfnStateMachine.ScheduleEventProperty",
 		reflect.TypeOf((*CfnStateMachine_ScheduleEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.StateMachineSAMPTProperty",
+		"monocdk.aws_sam.CfnStateMachine.StateMachineSAMPTProperty",
 		reflect.TypeOf((*CfnStateMachine_StateMachineSAMPTProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachine.TracingConfigurationProperty",
+		"monocdk.aws_sam.CfnStateMachine.TracingConfigurationProperty",
 		reflect.TypeOf((*CfnStateMachine_TracingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sam.CfnStateMachineProps",
+		"monocdk.aws_sam.CfnStateMachineProps",
 		reflect.TypeOf((*CfnStateMachineProps)(nil)).Elem(),
 	)
 }

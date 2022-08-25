@@ -1,10 +1,10 @@
 package awscodebuild
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Source provider definition for a CodeBuild Project.
@@ -18,20 +18,25 @@ import (
 //   	webhookTriggersBatchBuild: jsii.Boolean(true),
 //   	 // optional, default is false
 //   	webhookFilters: []filterGroup{
-//   		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("main")).andCommitMessageIs(jsii.String("the commit message")),
+//   		codebuild.*filterGroup.inEventOf(codebuild.eventAction_PUSH).andBranchIs(jsii.String("master")).andCommitMessageIs(jsii.String("the commit message")),
 //   	},
 //   })
 //
+// Experimental.
 type Source interface {
 	ISource
+	// Experimental.
 	BadgeSupported() *bool
+	// Experimental.
 	Identifier() *string
+	// Experimental.
 	Type() *string
 	// Called by the project when the source is added so that the source can perform binding operations on the source.
 	//
 	// For example, it can grant permissions to the
 	// code build project to read from the S3 bucket.
-	Bind(_scope constructs.Construct, _project IProject) *SourceConfig
+	// Experimental.
+	Bind(_scope awscdk.Construct, _project IProject) *SourceConfig
 }
 
 // The jsii proxy struct for Source
@@ -70,23 +75,25 @@ func (j *jsiiProxy_Source) Type() *string {
 }
 
 
+// Experimental.
 func NewSource_Override(s Source, props *SourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codebuild.Source",
+		"monocdk.aws_codebuild.Source",
 		[]interface{}{props},
 		s,
 	)
 }
 
+// Experimental.
 func Source_BitBucket(props *BitBucketSourceProps) ISource {
 	_init_.Initialize()
 
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.Source",
+		"monocdk.aws_codebuild.Source",
 		"bitBucket",
 		[]interface{}{props},
 		&returns,
@@ -95,13 +102,14 @@ func Source_BitBucket(props *BitBucketSourceProps) ISource {
 	return returns
 }
 
+// Experimental.
 func Source_CodeCommit(props *CodeCommitSourceProps) ISource {
 	_init_.Initialize()
 
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.Source",
+		"monocdk.aws_codebuild.Source",
 		"codeCommit",
 		[]interface{}{props},
 		&returns,
@@ -110,13 +118,14 @@ func Source_CodeCommit(props *CodeCommitSourceProps) ISource {
 	return returns
 }
 
+// Experimental.
 func Source_GitHub(props *GitHubSourceProps) ISource {
 	_init_.Initialize()
 
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.Source",
+		"monocdk.aws_codebuild.Source",
 		"gitHub",
 		[]interface{}{props},
 		&returns,
@@ -125,13 +134,14 @@ func Source_GitHub(props *GitHubSourceProps) ISource {
 	return returns
 }
 
+// Experimental.
 func Source_GitHubEnterprise(props *GitHubEnterpriseSourceProps) ISource {
 	_init_.Initialize()
 
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.Source",
+		"monocdk.aws_codebuild.Source",
 		"gitHubEnterprise",
 		[]interface{}{props},
 		&returns,
@@ -140,13 +150,14 @@ func Source_GitHubEnterprise(props *GitHubEnterpriseSourceProps) ISource {
 	return returns
 }
 
+// Experimental.
 func Source_S3(props *S3SourceProps) ISource {
 	_init_.Initialize()
 
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codebuild.Source",
+		"monocdk.aws_codebuild.Source",
 		"s3",
 		[]interface{}{props},
 		&returns,
@@ -155,7 +166,7 @@ func Source_S3(props *S3SourceProps) ISource {
 	return returns
 }
 
-func (s *jsiiProxy_Source) Bind(_scope constructs.Construct, _project IProject) *SourceConfig {
+func (s *jsiiProxy_Source) Bind(_scope awscdk.Construct, _project IProject) *SourceConfig {
 	var returns *SourceConfig
 
 	_jsii_.Invoke(

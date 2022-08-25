@@ -3,29 +3,35 @@ package awsdocdb
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdocdb/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsdocdb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
 )
 
 // Create a clustered database with a given number of instances.
+// Experimental.
 type IDatabaseCluster interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// The endpoint to use for read/write operations.
+	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
+	// Experimental.
 	ClusterIdentifier() *string
 	// Endpoint to use for load-balanced read-only operations.
+	// Experimental.
 	ClusterReadEndpoint() Endpoint
 	// Endpoints which address each individual replica.
+	// Experimental.
 	InstanceEndpoints() *[]Endpoint
 	// Identifiers of the replicas.
+	// Experimental.
 	InstanceIdentifiers() *[]*string
 	// The security group for this database cluster.
+	// Experimental.
 	SecurityGroupId() *string
 }
 
@@ -137,8 +143,8 @@ func (j *jsiiProxy_IDatabaseCluster) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IDatabaseCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IDatabaseCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

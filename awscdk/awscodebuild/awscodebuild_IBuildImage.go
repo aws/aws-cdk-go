@@ -3,32 +3,41 @@ package awscodebuild
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
 )
 
 // Represents a Docker image used for the CodeBuild Project builds.
 //
 // Use the concrete subclasses, either:
 // {@link LinuxBuildImage} or {@link WindowsBuildImage}.
+// Experimental.
 type IBuildImage interface {
 	// Make a buildspec to run the indicated script.
+	// Experimental.
 	RunScriptBuildspec(entrypoint *string) BuildSpec
 	// Allows the image a chance to validate whether the passed configuration is correct.
+	// Experimental.
 	Validate(buildEnvironment *BuildEnvironment) *[]*string
 	// The default {@link ComputeType} to use with this image, if one was not specified in {@link BuildEnvironment#computeType} explicitly.
+	// Experimental.
 	DefaultComputeType() ComputeType
 	// The Docker image identifier that the build environment uses.
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html
 	//
+	// Experimental.
 	ImageId() *string
 	// The type of principal that CodeBuild will use to pull this build Docker image.
+	// Experimental.
 	ImagePullPrincipalType() ImagePullPrincipalType
 	// An optional ECR repository that the image is hosted in.
+	// Experimental.
 	Repository() awsecr.IRepository
 	// The secretsManagerCredentials for access to a private registry.
+	// Experimental.
 	SecretsManagerCredentials() awssecretsmanager.ISecret
 	// The type of build environment.
+	// Experimental.
 	Type() *string
 }
 

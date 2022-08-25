@@ -1,16 +1,15 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Used to generate specs with different protocols for a GatewayRoute.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   var gateway virtualGateway
 //   var virtualService virtualService
 //
@@ -26,12 +25,14 @@ import (
 //   	}),
 //   })
 //
+// Experimental.
 type GatewayRouteSpec interface {
 	// Called when the GatewayRouteSpec type is initialized.
 	//
 	// Can be used to enforce
 	// mutual exclusivity with future properties.
-	Bind(scope constructs.Construct) *GatewayRouteSpecConfig
+	// Experimental.
+	Bind(scope awscdk.Construct) *GatewayRouteSpecConfig
 }
 
 // The jsii proxy struct for GatewayRouteSpec
@@ -39,24 +40,26 @@ type jsiiProxy_GatewayRouteSpec struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewGatewayRouteSpec_Override(g GatewayRouteSpec) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteSpec",
+		"monocdk.aws_appmesh.GatewayRouteSpec",
 		nil, // no parameters
 		g,
 	)
 }
 
 // Creates an gRPC Based GatewayRoute.
+// Experimental.
 func GatewayRouteSpec_Grpc(options *GrpcGatewayRouteSpecOptions) GatewayRouteSpec {
 	_init_.Initialize()
 
 	var returns GatewayRouteSpec
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteSpec",
+		"monocdk.aws_appmesh.GatewayRouteSpec",
 		"grpc",
 		[]interface{}{options},
 		&returns,
@@ -66,13 +69,14 @@ func GatewayRouteSpec_Grpc(options *GrpcGatewayRouteSpecOptions) GatewayRouteSpe
 }
 
 // Creates an HTTP Based GatewayRoute.
+// Experimental.
 func GatewayRouteSpec_Http(options *HttpGatewayRouteSpecOptions) GatewayRouteSpec {
 	_init_.Initialize()
 
 	var returns GatewayRouteSpec
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteSpec",
+		"monocdk.aws_appmesh.GatewayRouteSpec",
 		"http",
 		[]interface{}{options},
 		&returns,
@@ -82,13 +86,14 @@ func GatewayRouteSpec_Http(options *HttpGatewayRouteSpecOptions) GatewayRouteSpe
 }
 
 // Creates an HTTP2 Based GatewayRoute.
+// Experimental.
 func GatewayRouteSpec_Http2(options *HttpGatewayRouteSpecOptions) GatewayRouteSpec {
 	_init_.Initialize()
 
 	var returns GatewayRouteSpec
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_appmesh.GatewayRouteSpec",
+		"monocdk.aws_appmesh.GatewayRouteSpec",
 		"http2",
 		[]interface{}{options},
 		&returns,
@@ -97,7 +102,7 @@ func GatewayRouteSpec_Http2(options *HttpGatewayRouteSpecOptions) GatewayRouteSp
 	return returns
 }
 
-func (g *jsiiProxy_GatewayRouteSpec) Bind(scope constructs.Construct) *GatewayRouteSpecConfig {
+func (g *jsiiProxy_GatewayRouteSpec) Bind(scope awscdk.Construct) *GatewayRouteSpecConfig {
 	var returns *GatewayRouteSpecConfig
 
 	_jsii_.Invoke(

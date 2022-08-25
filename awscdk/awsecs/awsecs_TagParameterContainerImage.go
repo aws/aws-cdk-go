@@ -1,12 +1,12 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
 )
 
 // A special type of {@link ContainerImage} that uses an ECR repository for the image, but a CloudFormation Parameter for the tag of the image in that repository.
@@ -221,14 +221,18 @@ import (
 //
 // See: #tagParameterName.
 //
+// Experimental.
 type TagParameterContainerImage interface {
 	ContainerImage
 	// Returns the name of the CloudFormation Parameter that represents the tag of the image in the ECR repository.
+	// Experimental.
 	TagParameterName() *string
 	// Returns the value of the CloudFormation Parameter that represents the tag of the image in the ECR repository.
+	// Experimental.
 	TagParameterValue() *string
 	// Called when the image is used by a ContainerDefinition.
-	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig
 }
 
 // The jsii proxy struct for TagParameterContainerImage
@@ -257,13 +261,14 @@ func (j *jsiiProxy_TagParameterContainerImage) TagParameterValue() *string {
 }
 
 
+// Experimental.
 func NewTagParameterContainerImage(repository awsecr.IRepository) TagParameterContainerImage {
 	_init_.Initialize()
 
 	j := jsiiProxy_TagParameterContainerImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		[]interface{}{repository},
 		&j,
 	)
@@ -271,11 +276,12 @@ func NewTagParameterContainerImage(repository awsecr.IRepository) TagParameterCo
 	return &j
 }
 
+// Experimental.
 func NewTagParameterContainerImage_Override(t TagParameterContainerImage, repository awsecr.IRepository) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		[]interface{}{repository},
 		t,
 	)
@@ -285,13 +291,14 @@ func NewTagParameterContainerImage_Override(t TagParameterContainerImage, reposi
 //
 // If you already have a `DockerImageAsset` instance, you can use the
 // `ContainerImage.fromDockerImageAsset` method instead.
+// Experimental.
 func TagParameterContainerImage_FromAsset(directory *string, props *AssetImageProps) AssetImage {
 	_init_.Initialize()
 
 	var returns AssetImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		"fromAsset",
 		[]interface{}{directory, props},
 		&returns,
@@ -301,13 +308,14 @@ func TagParameterContainerImage_FromAsset(directory *string, props *AssetImagePr
 }
 
 // Use an existing `DockerImageAsset` for this container image.
+// Experimental.
 func TagParameterContainerImage_FromDockerImageAsset(asset awsecrassets.DockerImageAsset) ContainerImage {
 	_init_.Initialize()
 
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		"fromDockerImageAsset",
 		[]interface{}{asset},
 		&returns,
@@ -317,13 +325,14 @@ func TagParameterContainerImage_FromDockerImageAsset(asset awsecrassets.DockerIm
 }
 
 // Reference an image in an ECR repository.
+// Experimental.
 func TagParameterContainerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) EcrImage {
 	_init_.Initialize()
 
 	var returns EcrImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
 		&returns,
@@ -333,13 +342,14 @@ func TagParameterContainerImage_FromEcrRepository(repository awsecr.IRepository,
 }
 
 // Reference an image on DockerHub or another online registry.
+// Experimental.
 func TagParameterContainerImage_FromRegistry(name *string, props *RepositoryImageProps) RepositoryImage {
 	_init_.Initialize()
 
 	var returns RepositoryImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		"fromRegistry",
 		[]interface{}{name, props},
 		&returns,
@@ -352,13 +362,14 @@ func TagParameterContainerImage_FromRegistry(name *string, props *RepositoryImag
 //
 // Use this method if the container image has already been created by another process (e.g. jib)
 // and you want to add it as a container image asset.
+// Experimental.
 func TagParameterContainerImage_FromTarball(tarballFile *string) ContainerImage {
 	_init_.Initialize()
 
 	var returns ContainerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.TagParameterContainerImage",
+		"monocdk.aws_ecs.TagParameterContainerImage",
 		"fromTarball",
 		[]interface{}{tarballFile},
 		&returns,
@@ -367,7 +378,7 @@ func TagParameterContainerImage_FromTarball(tarballFile *string) ContainerImage 
 	return returns
 }
 
-func (t *jsiiProxy_TagParameterContainerImage) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
+func (t *jsiiProxy_TagParameterContainerImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
 	var returns *ContainerImageConfig
 
 	_jsii_.Invoke(

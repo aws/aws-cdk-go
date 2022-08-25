@@ -1,7 +1,7 @@
 package awscognito
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -38,9 +38,11 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type NumberAttribute interface {
 	ICustomAttribute
 	// Bind this custom attribute type to the values as expected by CloudFormation.
+	// Experimental.
 	Bind() *CustomAttributeConfig
 }
 
@@ -49,13 +51,14 @@ type jsiiProxy_NumberAttribute struct {
 	jsiiProxy_ICustomAttribute
 }
 
+// Experimental.
 func NewNumberAttribute(props *NumberAttributeProps) NumberAttribute {
 	_init_.Initialize()
 
 	j := jsiiProxy_NumberAttribute{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cognito.NumberAttribute",
+		"monocdk.aws_cognito.NumberAttribute",
 		[]interface{}{props},
 		&j,
 	)
@@ -63,11 +66,12 @@ func NewNumberAttribute(props *NumberAttributeProps) NumberAttribute {
 	return &j
 }
 
+// Experimental.
 func NewNumberAttribute_Override(n NumberAttribute, props *NumberAttributeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cognito.NumberAttribute",
+		"monocdk.aws_cognito.NumberAttribute",
 		[]interface{}{props},
 		n,
 	)

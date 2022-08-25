@@ -5,16 +5,22 @@ import (
 )
 
 // A single dashboard widget.
+// Experimental.
 type IWidget interface {
 	// Place the widget at a given position.
+	// Experimental.
 	Position(x *float64, y *float64)
 	// Return the widget JSON for use in the dashboard.
+	// Experimental.
 	ToJson() *[]interface{}
 	// The amount of vertical grid units the widget will take up.
+	// Experimental.
 	Height() *float64
 	// Any warnings that are produced as a result of putting together this widget.
+	// Experimental.
 	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
+	// Experimental.
 	Width() *float64
 }
 

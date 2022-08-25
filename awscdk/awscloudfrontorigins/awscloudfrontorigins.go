@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudfront_origins.HttpOrigin",
+		"monocdk.aws_cloudfront_origins.HttpOrigin",
 		reflect.TypeOf((*HttpOrigin)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -22,11 +22,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront_origins.HttpOriginProps",
+		"monocdk.aws_cloudfront_origins.HttpOriginProps",
 		reflect.TypeOf((*HttpOriginProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudfront_origins.LoadBalancerV2Origin",
+		"monocdk.aws_cloudfront_origins.LoadBalancerV2Origin",
 		reflect.TypeOf((*LoadBalancerV2Origin)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -40,11 +40,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront_origins.LoadBalancerV2OriginProps",
+		"monocdk.aws_cloudfront_origins.LoadBalancerV2OriginProps",
 		reflect.TypeOf((*LoadBalancerV2OriginProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudfront_origins.OriginGroup",
+		"monocdk.aws_cloudfront_origins.OriginGroup",
 		reflect.TypeOf((*OriginGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -56,11 +56,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront_origins.OriginGroupProps",
+		"monocdk.aws_cloudfront_origins.OriginGroupProps",
 		reflect.TypeOf((*OriginGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudfront_origins.RestApiOrigin",
+		"monocdk.aws_cloudfront_origins.RestApiOrigin",
 		reflect.TypeOf((*RestApiOrigin)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -74,11 +74,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront_origins.RestApiOriginProps",
+		"monocdk.aws_cloudfront_origins.RestApiOriginProps",
 		reflect.TypeOf((*RestApiOriginProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloudfront_origins.S3Origin",
+		"monocdk.aws_cloudfront_origins.S3Origin",
 		reflect.TypeOf((*S3Origin)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -90,7 +90,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudfront_origins.S3OriginProps",
+		"monocdk.aws_cloudfront_origins.S3OriginProps",
 		reflect.TypeOf((*S3OriginProps)(nil)).Elem(),
 	)
 }

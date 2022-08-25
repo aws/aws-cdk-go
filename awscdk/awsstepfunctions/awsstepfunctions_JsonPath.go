@@ -1,31 +1,32 @@
 package awsstepfunctions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Extract a field from the State Machine data or context that gets passed around between states.
 //
 // Example:
-//   submitJobActivity := sfn.NewActivity(this, jsii.String("SubmitJob"))
+//   var fn function
 //
-//   tasks.NewStepFunctionsInvokeActivity(this, jsii.String("Submit Job"), &stepFunctionsInvokeActivityProps{
-//   	activity: submitJobActivity,
-//   	parameters: map[string]interface{}{
-//   		"comment": jsii.String("Selecting what I care about."),
-//   		"MyDetails": map[string]interface{}{
-//   			"size": sfn.JsonPath.stringAt(jsii.String("$.product.details.size")),
-//   			"exists": sfn.JsonPath.stringAt(jsii.String("$.product.availability")),
-//   			"StaticValue": jsii.String("foo"),
+//   tasks.NewLambdaInvoke(this, jsii.String("Invoke Handler"), &lambdaInvokeProps{
+//   	lambdaFunction: fn,
+//   	resultSelector: map[string]interface{}{
+//   		"lambdaOutput": sfn.JsonPath.stringAt(jsii.String("$.Payload")),
+//   		"invokeRequestId": sfn.JsonPath.stringAt(jsii.String("$.SdkResponseMetadata.RequestId")),
+//   		"staticValue": map[string]*string{
+//   			"foo": jsii.String("bar"),
 //   		},
+//   		"stateName": sfn.JsonPath.stringAt(jsii.String("$.State.Name")),
 //   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-paths.html
 //
+// Experimental.
 type JsonPath interface {
 }
 
@@ -45,6 +46,7 @@ type jsiiProxy_JsonPath struct {
 // expression, you do not need to use this function.
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
 //
+// Experimental.
 func JsonPath_Array(values ...*string) *string {
 	_init_.Initialize()
 
@@ -56,7 +58,7 @@ func JsonPath_Array(values ...*string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"array",
 		args,
 		&returns,
@@ -76,6 +78,7 @@ func JsonPath_Array(values ...*string) *string {
 // ```.
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
 //
+// Experimental.
 func JsonPath_Format(formatString *string, values ...*string) *string {
 	_init_.Initialize()
 
@@ -87,7 +90,7 @@ func JsonPath_Format(formatString *string, values ...*string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"format",
 		args,
 		&returns,
@@ -97,13 +100,14 @@ func JsonPath_Format(formatString *string, values ...*string) *string {
 }
 
 // Determines if the indicated string is an encoded JSON path.
+// Experimental.
 func JsonPath_IsEncodedJsonPath(value *string) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"isEncodedJsonPath",
 		[]interface{}{value},
 		&returns,
@@ -124,13 +128,14 @@ func JsonPath_IsEncodedJsonPath(value *string) *bool {
 // ```.
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
 //
+// Experimental.
 func JsonPath_JsonToString(value interface{}) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"jsonToString",
 		[]interface{}{value},
 		&returns,
@@ -140,13 +145,14 @@ func JsonPath_JsonToString(value interface{}) *string {
 }
 
 // Instead of using a literal string list, get the value from a JSON path.
+// Experimental.
 func JsonPath_ListAt(path *string) *[]*string {
 	_init_.Initialize()
 
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"listAt",
 		[]interface{}{path},
 		&returns,
@@ -156,13 +162,14 @@ func JsonPath_ListAt(path *string) *[]*string {
 }
 
 // Instead of using a literal number, get the value from a JSON path.
+// Experimental.
 func JsonPath_NumberAt(path *string) *float64 {
 	_init_.Initialize()
 
 	var returns *float64
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"numberAt",
 		[]interface{}{path},
 		&returns,
@@ -172,13 +179,14 @@ func JsonPath_NumberAt(path *string) *float64 {
 }
 
 // Reference a complete (complex) object in a JSON path location.
+// Experimental.
 func JsonPath_ObjectAt(path *string) awscdk.IResolvable {
 	_init_.Initialize()
 
 	var returns awscdk.IResolvable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"objectAt",
 		[]interface{}{path},
 		&returns,
@@ -188,13 +196,14 @@ func JsonPath_ObjectAt(path *string) awscdk.IResolvable {
 }
 
 // Instead of using a literal string, get the value from a JSON path.
+// Experimental.
 func JsonPath_StringAt(path *string) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"stringAt",
 		[]interface{}{path},
 		&returns,
@@ -215,13 +224,14 @@ func JsonPath_StringAt(path *string) *string {
 // ```.
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html
 //
+// Experimental.
 func JsonPath_StringToJson(jsonString *string) awscdk.IResolvable {
 	_init_.Initialize()
 
 	var returns awscdk.IResolvable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"stringToJson",
 		[]interface{}{jsonString},
 		&returns,
@@ -234,7 +244,7 @@ func JsonPath_DISCARD() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"DISCARD",
 		&returns,
 	)
@@ -245,7 +255,7 @@ func JsonPath_EntireContext() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"entireContext",
 		&returns,
 	)
@@ -256,7 +266,7 @@ func JsonPath_EntirePayload() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"entirePayload",
 		&returns,
 	)
@@ -267,7 +277,7 @@ func JsonPath_TaskToken() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"taskToken",
 		&returns,
 	)

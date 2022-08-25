@@ -1,53 +1,120 @@
 package awsecspatterns
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecspatterns/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/awsecspatterns/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // The base class for QueueProcessingEc2Service and QueueProcessingFargateService services.
+// Experimental.
 type QueueProcessingServiceBase interface {
-	constructs.Construct
+	awscdk.Construct
 	// The cluster where your service will be deployed.
+	// Experimental.
 	Cluster() awsecs.ICluster
 	// The dead letter queue for the primary SQS queue.
+	// Experimental.
 	DeadLetterQueue() awssqs.IQueue
+	// The minimum number of tasks to run.
+	// Deprecated: - Use `minCapacity` instead.
+	DesiredCount() *float64
 	// Environment variables that will include the queue name.
+	// Experimental.
 	Environment() *map[string]*string
 	// The AwsLogDriver to use for logging if logging is enabled.
+	// Experimental.
 	LogDriver() awsecs.LogDriver
 	// The maximum number of instances for autoscaling to scale up to.
+	// Experimental.
 	MaxCapacity() *float64
 	// The minimum number of instances for autoscaling to scale down to.
+	// Experimental.
 	MinCapacity() *float64
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// The scaling interval for autoscaling based off an SQS Queue size.
+	// Experimental.
 	ScalingSteps() *[]*awsapplicationautoscaling.ScalingInterval
 	// The secret environment variables.
+	// Experimental.
 	Secrets() *map[string]awsecs.Secret
 	// The SQS queue that the service will process from.
+	// Experimental.
 	SqsQueue() awssqs.IQueue
 	// Configure autoscaling based off of CPU utilization as well as the number of messages visible in the SQS queue.
+	// Experimental.
 	ConfigureAutoscalingForService(service awsecs.BaseService)
 	// Returns the default cluster.
+	// Experimental.
 	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	// Grant SQS permissions to an ECS service.
+	// Experimental.
 	GrantPermissionsToService(service awsecs.BaseService)
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for QueueProcessingServiceBase
 type jsiiProxy_QueueProcessingServiceBase struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
 func (j *jsiiProxy_QueueProcessingServiceBase) Cluster() awsecs.ICluster {
@@ -65,6 +132,16 @@ func (j *jsiiProxy_QueueProcessingServiceBase) DeadLetterQueue() awssqs.IQueue {
 	_jsii_.Get(
 		j,
 		"deadLetterQueue",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_QueueProcessingServiceBase) DesiredCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -110,8 +187,8 @@ func (j *jsiiProxy_QueueProcessingServiceBase) MinCapacity() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_QueueProcessingServiceBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_QueueProcessingServiceBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -152,40 +229,26 @@ func (j *jsiiProxy_QueueProcessingServiceBase) SqsQueue() awssqs.IQueue {
 
 
 // Constructs a new instance of the QueueProcessingServiceBase class.
+// Experimental.
 func NewQueueProcessingServiceBase_Override(q QueueProcessingServiceBase, scope constructs.Construct, id *string, props *QueueProcessingServiceBaseProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs_patterns.QueueProcessingServiceBase",
+		"monocdk.aws_ecs_patterns.QueueProcessingServiceBase",
 		[]interface{}{scope, id, props},
 		q,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func QueueProcessingServiceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs_patterns.QueueProcessingServiceBase",
+		"monocdk.aws_ecs_patterns.QueueProcessingServiceBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -223,12 +286,70 @@ func (q *jsiiProxy_QueueProcessingServiceBase) GrantPermissionsToService(service
 	)
 }
 
+func (q *jsiiProxy_QueueProcessingServiceBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (q *jsiiProxy_QueueProcessingServiceBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (q *jsiiProxy_QueueProcessingServiceBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (q *jsiiProxy_QueueProcessingServiceBase) Prepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (q *jsiiProxy_QueueProcessingServiceBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (q *jsiiProxy_QueueProcessingServiceBase) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		q,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (q *jsiiProxy_QueueProcessingServiceBase) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

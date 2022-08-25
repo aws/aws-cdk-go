@@ -1,7 +1,7 @@
 package awscodepipeline
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -64,9 +64,13 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type ArtifactPath interface {
+	// Experimental.
 	Artifact() Artifact
+	// Experimental.
 	FileName() *string
+	// Experimental.
 	Location() *string
 }
 
@@ -106,13 +110,14 @@ func (j *jsiiProxy_ArtifactPath) Location() *string {
 }
 
 
+// Experimental.
 func NewArtifactPath(artifact Artifact, fileName *string) ArtifactPath {
 	_init_.Initialize()
 
 	j := jsiiProxy_ArtifactPath{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.ArtifactPath",
+		"monocdk.aws_codepipeline.ArtifactPath",
 		[]interface{}{artifact, fileName},
 		&j,
 	)
@@ -120,23 +125,25 @@ func NewArtifactPath(artifact Artifact, fileName *string) ArtifactPath {
 	return &j
 }
 
+// Experimental.
 func NewArtifactPath_Override(a ArtifactPath, artifact Artifact, fileName *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline.ArtifactPath",
+		"monocdk.aws_codepipeline.ArtifactPath",
 		[]interface{}{artifact, fileName},
 		a,
 	)
 }
 
+// Experimental.
 func ArtifactPath_ArtifactPath(artifactName *string, fileName *string) ArtifactPath {
 	_init_.Initialize()
 
 	var returns ArtifactPath
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_codepipeline.ArtifactPath",
+		"monocdk.aws_codepipeline.ArtifactPath",
 		"artifactPath",
 		[]interface{}{artifactName, fileName},
 		&returns,

@@ -3,52 +3,60 @@ package awscodebuild
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscodebuild/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
+// Experimental.
 type IProject interface {
 	awsec2.IConnectable
 	awsiam.IGrantable
 	awscodestarnotifications.INotificationRuleSource
 	awscdk.IResource
+	// Experimental.
 	AddToRolePolicy(policyStatement awsiam.PolicyStatement)
 	// Enable batch builds.
 	//
 	// Returns an object contining the batch service role if batch builds
 	// could be enabled.
+	// Experimental.
 	EnableBatchBuilds() *BatchBuildConfig
 	// Returns: a CloudWatch metric associated with this build project.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Measures the number of builds triggered.
 	//
 	// Units: Count
 	//
 	// Valid CloudWatch statistics: Sum.
+	// Experimental.
 	MetricBuilds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Measures the duration of all builds over time.
 	//
 	// Units: Seconds
 	//
 	// Valid CloudWatch statistics: Average (recommended), Maximum, Minimum.
+	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Measures the number of builds that failed because of client error or because of a timeout.
 	//
 	// Units: Count
 	//
 	// Valid CloudWatch statistics: Sum.
+	// Experimental.
 	MetricFailedBuilds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Measures the number of successful builds.
 	//
 	// Units: Count
 	//
 	// Valid CloudWatch statistics: Sum.
+	// Experimental.
 	MetricSucceededBuilds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Defines a CodeStar Notification rule triggered when the project events emitted by you specified, it very similar to `onEvent` API.
 	//
@@ -56,24 +64,32 @@ type IProject interface {
 	// `notifyOnBuildFailed` to define rules for these specific event emitted.
 	//
 	// Returns: CodeStar Notifications rule associated with this build project.
+	// Experimental.
 	NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *ProjectNotifyOnOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar notification rule which triggers when a build fails.
+	// Experimental.
 	NotifyOnBuildFailed(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar notification rule which triggers when a build completes successfully.
+	// Experimental.
 	NotifyOnBuildSucceeded(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines an event rule which triggers when a build fails.
+	// Experimental.
 	OnBuildFailed(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines an event rule which triggers when a build starts.
+	// Experimental.
 	OnBuildStarted(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines an event rule which triggers when a build completes successfully.
+	// Experimental.
 	OnBuildSucceeded(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule triggered when something happens with this project.
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-build-notifications.html
 	//
+	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule that triggers upon phase change of this build project.
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-build-notifications.html
 	//
+	// Experimental.
 	OnPhaseChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule triggered when the build project state changes.
 	//
@@ -99,14 +115,18 @@ type IProject interface {
 	// use the static fields on the `StateChangeEvent` class.
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-build-notifications.html
 	//
+	// Experimental.
 	OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// The ARN of this Project.
+	// Experimental.
 	ProjectArn() *string
 	// The human-visible name of this Project.
+	// Experimental.
 	ProjectName() *string
 	// The IAM service Role of this Project.
 	//
 	// Undefined for imported Projects.
+	// Experimental.
 	Role() awsiam.IRole
 }
 
@@ -402,8 +422,8 @@ func (j *jsiiProxy_IProject) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IProject) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IProject) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

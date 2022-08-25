@@ -1,17 +1,16 @@
 package awslambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 )
 
-// Lambda code from an inline string.
+// Lambda code from an inline string (limited to 4KiB).
 //
 // Example:
 //   layer := lambda.NewLayerVersion(stack, jsii.String("MyLayer"), &layerVersionProps{
@@ -42,16 +41,20 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type InlineCode interface {
 	Code
 	// Determines whether this Code is inline code or not.
+	// Experimental.
 	IsInline() *bool
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	Bind(_scope constructs.Construct) *CodeConfig
+	// Experimental.
+	Bind(_scope awscdk.Construct) *CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
+	// Experimental.
 	BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions)
 }
 
@@ -71,13 +74,14 @@ func (j *jsiiProxy_InlineCode) IsInline() *bool {
 }
 
 
+// Experimental.
 func NewInlineCode(code *string) InlineCode {
 	_init_.Initialize()
 
 	j := jsiiProxy_InlineCode{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.InlineCode",
+		"monocdk.aws_lambda.InlineCode",
 		[]interface{}{code},
 		&j,
 	)
@@ -85,24 +89,77 @@ func NewInlineCode(code *string) InlineCode {
 	return &j
 }
 
+// Experimental.
 func NewInlineCode_Override(i InlineCode, code *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.InlineCode",
+		"monocdk.aws_lambda.InlineCode",
 		[]interface{}{code},
 		i,
 	)
 }
 
+// DEPRECATED.
+// Deprecated: use `fromAsset`.
+func InlineCode_Asset(path *string) AssetCode {
+	_init_.Initialize()
+
+	var returns AssetCode
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.InlineCode",
+		"asset",
+		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+// DEPRECATED.
+// Deprecated: use `fromBucket`.
+func InlineCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
+	_init_.Initialize()
+
+	var returns S3Code
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.InlineCode",
+		"bucket",
+		[]interface{}{bucket, key, objectVersion},
+		&returns,
+	)
+
+	return returns
+}
+
+// DEPRECATED.
+// Deprecated: use `fromCfnParameters`.
+func InlineCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
+	_init_.Initialize()
+
+	var returns CfnParametersCode
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.InlineCode",
+		"cfnParameters",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
 // Loads the function code from a local disk path.
+// Experimental.
 func InlineCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.InlineCode",
+		"monocdk.aws_lambda.InlineCode",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -112,13 +169,14 @@ func InlineCode_FromAsset(path *string, options *awss3assets.AssetOptions) Asset
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
+// Experimental.
 func InlineCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
 	var returns AssetImageCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.InlineCode",
+		"monocdk.aws_lambda.InlineCode",
 		"fromAssetImage",
 		[]interface{}{directory, props},
 		&returns,
@@ -128,13 +186,14 @@ func InlineCode_FromAssetImage(directory *string, props *AssetImageCodeProps) As
 }
 
 // Lambda handler code as an S3 object.
+// Experimental.
 func InlineCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.InlineCode",
+		"monocdk.aws_lambda.InlineCode",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -146,13 +205,14 @@ func InlineCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *str
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`.
+// Experimental.
 func InlineCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
 	var returns CfnParametersCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.InlineCode",
+		"monocdk.aws_lambda.InlineCode",
 		"fromCfnParameters",
 		[]interface{}{props},
 		&returns,
@@ -165,13 +225,14 @@ func InlineCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCo
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
+// Experimental.
 func InlineCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.InlineCode",
+		"monocdk.aws_lambda.InlineCode",
 		"fromDockerBuild",
 		[]interface{}{path, options},
 		&returns,
@@ -181,13 +242,14 @@ func InlineCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) 
 }
 
 // Use an existing ECR image as the Lambda code.
+// Experimental.
 func InlineCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
 	var returns EcrImageCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.InlineCode",
+		"monocdk.aws_lambda.InlineCode",
 		"fromEcrImage",
 		[]interface{}{repository, props},
 		&returns,
@@ -199,13 +261,14 @@ func InlineCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeP
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
+// Experimental.
 func InlineCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.InlineCode",
+		"monocdk.aws_lambda.InlineCode",
 		"fromInline",
 		[]interface{}{code},
 		&returns,
@@ -214,7 +277,24 @@ func InlineCode_FromInline(code *string) InlineCode {
 	return returns
 }
 
-func (i *jsiiProxy_InlineCode) Bind(_scope constructs.Construct) *CodeConfig {
+// DEPRECATED.
+// Deprecated: use `fromInline`.
+func InlineCode_Inline(code *string) InlineCode {
+	_init_.Initialize()
+
+	var returns InlineCode
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_lambda.InlineCode",
+		"inline",
+		[]interface{}{code},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_InlineCode) Bind(_scope awscdk.Construct) *CodeConfig {
 	var returns *CodeConfig
 
 	_jsii_.Invoke(

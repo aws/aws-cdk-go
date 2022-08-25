@@ -1,11 +1,11 @@
 package awssnssubscriptions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssnssubscriptions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awssnssubscriptions/internal"
 )
 
 // Use a URL as a subscription target.
@@ -19,9 +19,11 @@ import (
 //
 // See: https://docs.aws.amazon.com/sns/latest/dg/sns-http-https-endpoint-as-subscriber.html
 //
+// Experimental.
 type UrlSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration for a URL to subscribe to an SNS topic.
+	// Experimental.
 	Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
@@ -30,13 +32,14 @@ type jsiiProxy_UrlSubscription struct {
 	internal.Type__awssnsITopicSubscription
 }
 
+// Experimental.
 func NewUrlSubscription(url *string, props *UrlSubscriptionProps) UrlSubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_UrlSubscription{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.UrlSubscription",
+		"monocdk.aws_sns_subscriptions.UrlSubscription",
 		[]interface{}{url, props},
 		&j,
 	)
@@ -44,11 +47,12 @@ func NewUrlSubscription(url *string, props *UrlSubscriptionProps) UrlSubscriptio
 	return &j
 }
 
+// Experimental.
 func NewUrlSubscription_Override(u UrlSubscription, url *string, props *UrlSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.UrlSubscription",
+		"monocdk.aws_sns_subscriptions.UrlSubscription",
 		[]interface{}{url, props},
 		u,
 	)

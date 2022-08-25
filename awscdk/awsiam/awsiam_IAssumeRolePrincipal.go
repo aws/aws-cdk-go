@@ -11,12 +11,14 @@ import (
 //
 // If that control is necessary, they can implement `IAssumeRolePrincipal` to get full
 // access to a Role's AssumeRolePolicyDocument.
+// Experimental.
 type IAssumeRolePrincipal interface {
 	IPrincipal
 	// Add the princpial to the AssumeRolePolicyDocument.
 	//
 	// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 	// permissions to assume the given role.
+	// Experimental.
 	AddToAssumeRolePolicy(document PolicyDocument)
 }
 

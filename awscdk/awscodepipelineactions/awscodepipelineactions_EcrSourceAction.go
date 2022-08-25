@@ -1,12 +1,12 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 )
 
 // The ECR Repository source CodePipeline Action.
@@ -16,7 +16,6 @@ import (
 // captures the ECR event.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var ecrRepository repository
@@ -37,22 +36,30 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type EcrSourceAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
 	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
 	// This is a renamed version of the {@link IAction.actionProperties} property.
+	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The variables emitted by this action.
+	// Experimental.
 	Variables() *EcrSourceVariables
 	// The callback invoked when this Action is added to a Pipeline.
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the {@link IAction.bind} method.
-	Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	// Experimental.
+	Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -92,13 +99,14 @@ func (j *jsiiProxy_EcrSourceAction) Variables() *EcrSourceVariables {
 }
 
 
+// Experimental.
 func NewEcrSourceAction(props *EcrSourceActionProps) EcrSourceAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_EcrSourceAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.EcrSourceAction",
+		"monocdk.aws_codepipeline_actions.EcrSourceAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -106,17 +114,18 @@ func NewEcrSourceAction(props *EcrSourceActionProps) EcrSourceAction {
 	return &j
 }
 
+// Experimental.
 func NewEcrSourceAction_Override(e EcrSourceAction, props *EcrSourceActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.EcrSourceAction",
+		"monocdk.aws_codepipeline_actions.EcrSourceAction",
 		[]interface{}{props},
 		e,
 	)
 }
 
-func (e *jsiiProxy_EcrSourceAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (e *jsiiProxy_EcrSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -129,13 +138,13 @@ func (e *jsiiProxy_EcrSourceAction) Bind(scope constructs.Construct, stage awsco
 	return returns
 }
 
-func (e *jsiiProxy_EcrSourceAction) Bound(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (e *jsiiProxy_EcrSourceAction) Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
 		e,
 		"bound",
-		[]interface{}{scope, stage, options},
+		[]interface{}{_scope, stage, options},
 		&returns,
 	)
 

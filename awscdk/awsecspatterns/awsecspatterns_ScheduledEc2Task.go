@@ -1,14 +1,15 @@
 package awsecspatterns
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awseventstargets"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A scheduled EC2 task that will be initiated off of CloudWatch Events.
@@ -32,36 +33,97 @@ import (
 //   	ruleName: jsii.String("sample-scheduled-task-rule"),
 //   })
 //
+// Experimental.
 type ScheduledEc2Task interface {
 	ScheduledTaskBase
 	// The name of the cluster that hosts the service.
+	// Experimental.
 	Cluster() awsecs.ICluster
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The minimum value is 1.
+	// Experimental.
 	DesiredTaskCount() *float64
 	// The CloudWatch Events rule for the service.
+	// Experimental.
 	EventRule() awsevents.Rule
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// In what subnets to place the task's ENIs.
 	//
 	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking).
+	// Experimental.
 	SubnetSelection() *awsec2.SubnetSelection
 	// The ECS task in this construct.
+	// Experimental.
 	Task() awseventstargets.EcsTask
 	// The EC2 task definition in this construct.
+	// Experimental.
 	TaskDefinition() awsecs.Ec2TaskDefinition
 	// Adds task as a target of the scheduled event rule.
+	// Experimental.
 	AddTaskAsTarget(ecsTaskTarget awseventstargets.EcsTask)
 	// Create an ECS task using the task definition provided and add it to the scheduled event rule.
+	// Experimental.
 	AddTaskDefinitionToEventTarget(taskDefinition awsecs.TaskDefinition) awseventstargets.EcsTask
 	// Create an AWS Log Driver with the provided streamPrefix.
+	// Experimental.
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	// Returns the default cluster.
-	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
+	// Experimental.
+	GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ScheduledEc2Task
@@ -99,8 +161,8 @@ func (j *jsiiProxy_ScheduledEc2Task) EventRule() awsevents.Rule {
 	return returns
 }
 
-func (j *jsiiProxy_ScheduledEc2Task) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ScheduledEc2Task) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -141,13 +203,14 @@ func (j *jsiiProxy_ScheduledEc2Task) TaskDefinition() awsecs.Ec2TaskDefinition {
 
 
 // Constructs a new instance of the ScheduledEc2Task class.
+// Experimental.
 func NewScheduledEc2Task(scope constructs.Construct, id *string, props *ScheduledEc2TaskProps) ScheduledEc2Task {
 	_init_.Initialize()
 
 	j := jsiiProxy_ScheduledEc2Task{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs_patterns.ScheduledEc2Task",
+		"monocdk.aws_ecs_patterns.ScheduledEc2Task",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -156,40 +219,26 @@ func NewScheduledEc2Task(scope constructs.Construct, id *string, props *Schedule
 }
 
 // Constructs a new instance of the ScheduledEc2Task class.
+// Experimental.
 func NewScheduledEc2Task_Override(s ScheduledEc2Task, scope constructs.Construct, id *string, props *ScheduledEc2TaskProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs_patterns.ScheduledEc2Task",
+		"monocdk.aws_ecs_patterns.ScheduledEc2Task",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func ScheduledEc2Task_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs_patterns.ScheduledEc2Task",
+		"monocdk.aws_ecs_patterns.ScheduledEc2Task",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -232,7 +281,7 @@ func (s *jsiiProxy_ScheduledEc2Task) CreateAWSLogDriver(prefix *string) awsecs.A
 	return returns
 }
 
-func (s *jsiiProxy_ScheduledEc2Task) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+func (s *jsiiProxy_ScheduledEc2Task) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -245,12 +294,70 @@ func (s *jsiiProxy_ScheduledEc2Task) GetDefaultCluster(scope constructs.Construc
 	return returns
 }
 
+func (s *jsiiProxy_ScheduledEc2Task) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ScheduledEc2Task) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (s *jsiiProxy_ScheduledEc2Task) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ScheduledEc2Task) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (s *jsiiProxy_ScheduledEc2Task) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (s *jsiiProxy_ScheduledEc2Task) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ScheduledEc2Task) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

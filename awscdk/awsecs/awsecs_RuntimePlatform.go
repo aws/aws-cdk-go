@@ -26,10 +26,13 @@ package awsecs
 //   	image: ecs.containerImage.fromRegistry(jsii.String("mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019")),
 //   })
 //
+// Experimental.
 type RuntimePlatform struct {
 	// The CpuArchitecture for Fargate Runtime Platform.
+	// Experimental.
 	CpuArchitecture CpuArchitecture `field:"optional" json:"cpuArchitecture" yaml:"cpuArchitecture"`
 	// The operating system for Fargate Runtime Platform.
+	// Experimental.
 	OperatingSystemFamily OperatingSystemFamily `field:"optional" json:"operatingSystemFamily" yaml:"operatingSystemFamily"`
 }
 

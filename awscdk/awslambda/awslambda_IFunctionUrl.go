@@ -3,19 +3,23 @@ package awslambda
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda/internal"
 )
 
 // A Lambda function Url.
+// Experimental.
 type IFunctionUrl interface {
 	awscdk.IResource
 	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// Experimental.
 	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
 	// The ARN of the function this URL refers to.
+	// Experimental.
 	FunctionArn() *string
 	// The url of the Lambda function.
+	// Experimental.
 	Url() *string
 }
 

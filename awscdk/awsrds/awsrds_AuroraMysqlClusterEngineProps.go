@@ -24,8 +24,10 @@ package awsrds
 //   	},
 //   })
 //
+// Experimental.
 type AuroraMysqlClusterEngineProps struct {
 	// The version of the Aurora MySQL cluster engine.
+	// Experimental.
 	Version AuroraMysqlEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

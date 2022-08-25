@@ -3,24 +3,30 @@ package awsec2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2/internal"
 )
 
+// Experimental.
 type ISubnet interface {
 	awscdk.IResource
 	// Associate a Network ACL with this subnet.
+	// Experimental.
 	AssociateNetworkAcl(id *string, acl INetworkAcl)
 	// The Availability Zone the subnet is located in.
+	// Experimental.
 	AvailabilityZone() *string
 	// Dependable that can be depended upon to force internet connectivity established on the VPC.
-	InternetConnectivityEstablished() constructs.IDependable
+	// Experimental.
+	InternetConnectivityEstablished() awscdk.IDependable
 	// The IPv4 CIDR block for this subnet.
+	// Experimental.
 	Ipv4CidrBlock() *string
 	// The route table for this subnet.
+	// Experimental.
 	RouteTable() IRouteTable
 	// The subnetId for this particular subnet.
+	// Experimental.
 	SubnetId() *string
 }
 
@@ -47,8 +53,8 @@ func (j *jsiiProxy_ISubnet) AvailabilityZone() *string {
 	return returns
 }
 
-func (j *jsiiProxy_ISubnet) InternetConnectivityEstablished() constructs.IDependable {
-	var returns constructs.IDependable
+func (j *jsiiProxy_ISubnet) InternetConnectivityEstablished() awscdk.IDependable {
+	var returns awscdk.IDependable
 	_jsii_.Get(
 		j,
 		"internetConnectivityEstablished",

@@ -3,20 +3,22 @@ package awsiam
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam/internal"
 )
 
 // A construct that represents an IAM principal, such as a user, group or role.
+// Experimental.
 type IIdentity interface {
 	IPrincipal
 	awscdk.IResource
 	// Attaches a managed policy to this principal.
+	// Experimental.
 	AddManagedPolicy(policy IManagedPolicy)
 	// Attaches an inline policy to this principal.
 	//
 	// This is the same as calling `policy.addToXxx(principal)`.
+	// Experimental.
 	AttachInlinePolicy(policy Policy)
 }
 
@@ -40,6 +42,19 @@ func (i *jsiiProxy_IIdentity) AttachInlinePolicy(policy Policy) {
 		"attachInlinePolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (i *jsiiProxy_IIdentity) AddToPolicy(statement PolicyStatement) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		i,
+		"addToPolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
 }
 
 func (i *jsiiProxy_IIdentity) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
@@ -93,8 +108,8 @@ func (j *jsiiProxy_IIdentity) GrantPrincipal() IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IIdentity) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IIdentity) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",

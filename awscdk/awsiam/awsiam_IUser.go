@@ -7,13 +7,17 @@ import (
 // Represents an IAM user.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html
 //
+// Experimental.
 type IUser interface {
 	IIdentity
 	// Adds this user to a group.
+	// Experimental.
 	AddToGroup(group IGroup)
 	// The user's ARN.
+	// Experimental.
 	UserArn() *string
 	// The user's name.
+	// Experimental.
 	UserName() *string
 }
 

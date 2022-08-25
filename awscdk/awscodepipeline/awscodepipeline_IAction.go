@@ -3,8 +3,8 @@ package awscodepipeline
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 )
 
 // A Pipeline Action.
@@ -12,14 +12,18 @@ import (
 // If you want to implement this interface,
 // consider extending the {@link Action} class,
 // which contains some common logic.
+// Experimental.
 type IAction interface {
 	// The callback invoked when this Action is added to a Pipeline.
-	Bind(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
+	// Experimental.
+	Bind(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
+	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
 	// Note that this accessor will be called before the {@link bind} callback.
+	// Experimental.
 	ActionProperties() *ActionProperties
 }
 
@@ -28,7 +32,7 @@ type jsiiProxy_IAction struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_IAction) Bind(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
+func (i *jsiiProxy_IAction) Bind(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
 	var returns *ActionConfig
 
 	_jsii_.Invoke(

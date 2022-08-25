@@ -1,20 +1,20 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctionstasks/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctionstasks/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Call HTTP API endpoint as a Task.
 //
 // Example:
-//   // Example automatically generated from non-compiling source. May contain errors.
 //   import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
@@ -27,107 +27,206 @@ import (
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-api-gateway.html
 //
+// Experimental.
 type CallApiGatewayHttpApiEndpoint interface {
 	awsstepfunctions.TaskStateBase
+	// Experimental.
 	ApiEndpoint() *string
+	// Experimental.
 	ArnForExecuteApi() *string
+	// Experimental.
 	Branches() *[]awsstepfunctions.StateGraph
+	// Experimental.
 	Comment() *string
+	// Experimental.
 	DefaultChoice() awsstepfunctions.State
+	// Experimental.
 	SetDefaultChoice(val awsstepfunctions.State)
 	// Continuable states of this Chainable.
+	// Experimental.
 	EndStates() *[]awsstepfunctions.INextable
 	// Descriptive identifier for this chainable.
+	// Experimental.
 	Id() *string
+	// Experimental.
 	InputPath() *string
+	// Experimental.
 	Iteration() awsstepfunctions.StateGraph
+	// Experimental.
 	SetIteration(val awsstepfunctions.StateGraph)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
+	// Experimental.
 	OutputPath() *string
+	// Experimental.
 	Parameters() *map[string]interface{}
+	// Experimental.
 	ResultPath() *string
+	// Experimental.
 	ResultSelector() *map[string]interface{}
+	// Experimental.
 	StageName() *string
 	// First state of this Chainable.
+	// Experimental.
 	StartState() awsstepfunctions.State
 	// Tokenized string that evaluates to the state's ID.
+	// Experimental.
 	StateId() *string
+	// Experimental.
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
+	// Experimental.
 	TaskPolicies() *[]awsiam.PolicyStatement
 	// Add a paralle branch to this state.
+	// Experimental.
 	AddBranch(branch awsstepfunctions.StateGraph)
 	// Add a recovery handler for this state.
 	//
 	// When a particular error occurs, execution will continue at the error
 	// handler instead of failing the state machine execution.
+	// Experimental.
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
+	// Experimental.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
 	// Add a map iterator to this state.
+	// Experimental.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
+	// Experimental.
 	AddPrefix(x *string)
 	// Add retry configuration for this state.
 	//
 	// This controls if and how the execution will be retried if a particular
 	// error occurs.
+	// Experimental.
 	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
+	// Experimental.
 	BindToGraph(graph awsstepfunctions.StateGraph)
+	// Experimental.
 	CreatePolicyStatements() *[]awsiam.PolicyStatement
 	// Make the indicated state the default choice transition of this state.
+	// Experimental.
 	MakeDefault(def awsstepfunctions.State)
 	// Make the indicated state the default transition of this state.
+	// Experimental.
 	MakeNext(next awsstepfunctions.State)
 	// Return the given named metric for this Task.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity fails.
+	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times the heartbeat times out for this activity.
+	// Experimental.
 	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the Task starts and the time it closes.
+	// Experimental.
 	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is scheduled.
+	// Experimental.
 	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, for which the activity stays in the schedule state.
+	// Experimental.
 	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity is started.
+	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity succeeds.
+	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
+	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of times this activity times out.
+	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
+	// Experimental.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
 	// Render parallel branches in ASL JSON format.
+	// Experimental.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
+	// Experimental.
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	// Experimental.
 	RenderInputOutput() interface{}
 	// Render map iterator in ASL JSON format.
+	// Experimental.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
+	// Experimental.
 	RenderNextEnd() interface{}
 	// Render ResultSelector in ASL JSON format.
+	// Experimental.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
+	// Experimental.
 	RenderRetryCatch() interface{}
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Return the Amazon States Language object for this state.
+	// Experimental.
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
-	// Allows the state to validate itself.
-	ValidateState() *[]*string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 	// Called whenever this state is bound to a graph.
 	//
 	// Can be overridden by subclasses.
+	// Experimental.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -226,8 +325,8 @@ func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) Iteration() awsstepfunctions.S
 	return returns
 }
 
-func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -327,13 +426,14 @@ func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) TaskPolicies() *[]awsiam.Polic
 }
 
 
+// Experimental.
 func NewCallApiGatewayHttpApiEndpoint(scope constructs.Construct, id *string, props *CallApiGatewayHttpApiEndpointProps) CallApiGatewayHttpApiEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CallApiGatewayHttpApiEndpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -341,11 +441,12 @@ func NewCallApiGatewayHttpApiEndpoint(scope constructs.Construct, id *string, pr
 	return &j
 }
 
+// Experimental.
 func NewCallApiGatewayHttpApiEndpoint_Override(c CallApiGatewayHttpApiEndpoint, scope constructs.Construct, id *string, props *CallApiGatewayHttpApiEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -368,13 +469,14 @@ func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) SetIteration(val awsstepfuncti
 }
 
 // Return only the states that allow chaining from an array of states.
+// Experimental.
 func CallApiGatewayHttpApiEndpoint_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -384,13 +486,14 @@ func CallApiGatewayHttpApiEndpoint_FilterNextables(states *[]awsstepfunctions.St
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
+// Experimental.
 func CallApiGatewayHttpApiEndpoint_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -402,13 +505,14 @@ func CallApiGatewayHttpApiEndpoint_FindReachableEndStates(start awsstepfunctions
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
+// Experimental.
 func CallApiGatewayHttpApiEndpoint_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
 	_init_.Initialize()
 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -417,30 +521,15 @@ func CallApiGatewayHttpApiEndpoint_FindReachableStates(start awsstepfunctions.St
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Return whether the given object is a Construct.
+// Experimental.
 func CallApiGatewayHttpApiEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -450,11 +539,12 @@ func CallApiGatewayHttpApiEndpoint_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
+// Experimental.
 func CallApiGatewayHttpApiEndpoint_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -698,6 +788,43 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) Next(next awsstepfunctions.ICh
 	return returns
 }
 
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -789,6 +916,14 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) RenderRetryCatch() interface{}
 	return returns
 }
 
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -815,12 +950,12 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) ToString() *string {
 	return returns
 }
 
-func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) ValidateState() *[]*string {
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

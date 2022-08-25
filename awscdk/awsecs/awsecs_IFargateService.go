@@ -2,6 +2,7 @@ package awsecs
 
 
 // The interface for a service using the Fargate launch type on an ECS cluster.
+// Experimental.
 type IFargateService interface {
 	IService
 }

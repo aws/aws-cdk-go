@@ -95,14 +95,18 @@ package awsrds
 //   	},
 //   })
 //
+// Experimental.
 type StorageType string
 
 const (
 	// Standard.
+	// Experimental.
 	StorageType_STANDARD StorageType = "STANDARD"
 	// General purpose (SSD).
+	// Experimental.
 	StorageType_GP2 StorageType = "GP2"
 	// Provisioned IOPS (SSD).
+	// Experimental.
 	StorageType_IO1 StorageType = "IO1"
 )
 

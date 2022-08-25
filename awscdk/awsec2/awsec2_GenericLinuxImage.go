@@ -1,10 +1,10 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Construct a Linux machine image from an AMI map.
@@ -33,10 +33,12 @@ import (
 //   	"eu-west-1": jsii.String("ami-12345678"),
 //   })
 //
+// Experimental.
 type GenericLinuxImage interface {
 	IMachineImage
 	// Return the image to use in the given context.
-	GetImage(scope constructs.Construct) *MachineImageConfig
+	// Experimental.
+	GetImage(scope awscdk.Construct) *MachineImageConfig
 }
 
 // The jsii proxy struct for GenericLinuxImage
@@ -44,13 +46,14 @@ type jsiiProxy_GenericLinuxImage struct {
 	jsiiProxy_IMachineImage
 }
 
+// Experimental.
 func NewGenericLinuxImage(amiMap *map[string]*string, props *GenericLinuxImageProps) GenericLinuxImage {
 	_init_.Initialize()
 
 	j := jsiiProxy_GenericLinuxImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.GenericLinuxImage",
+		"monocdk.aws_ec2.GenericLinuxImage",
 		[]interface{}{amiMap, props},
 		&j,
 	)
@@ -58,17 +61,18 @@ func NewGenericLinuxImage(amiMap *map[string]*string, props *GenericLinuxImagePr
 	return &j
 }
 
+// Experimental.
 func NewGenericLinuxImage_Override(g GenericLinuxImage, amiMap *map[string]*string, props *GenericLinuxImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ec2.GenericLinuxImage",
+		"monocdk.aws_ec2.GenericLinuxImage",
 		[]interface{}{amiMap, props},
 		g,
 	)
 }
 
-func (g *jsiiProxy_GenericLinuxImage) GetImage(scope constructs.Construct) *MachineImageConfig {
+func (g *jsiiProxy_GenericLinuxImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
 	var returns *MachineImageConfig
 
 	_jsii_.Invoke(

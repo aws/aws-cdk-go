@@ -1,95 +1,43 @@
 package awsecspatterns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 )
 
 // Options for configuring a new container.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   // One application load balancer with one listener and two target groups.
+//   var cluster cluster
 //
-//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &vpcProps{
-//   	maxAzs: jsii.Number(1),
-//   })
-//   loadBalancedFargateService := ecsPatterns.NewApplicationMultipleTargetGroupsFargateService(this, jsii.String("myService"), &applicationMultipleTargetGroupsFargateServiceProps{
-//   	cluster: ecs.NewCluster(this, jsii.String("EcsCluster"), &clusterProps{
-//   		vpc: vpc,
-//   	}),
+//   loadBalancedEc2Service := ecsPatterns.NewApplicationMultipleTargetGroupsEc2Service(this, jsii.String("Service"), &applicationMultipleTargetGroupsEc2ServiceProps{
+//   	cluster: cluster,
 //   	memoryLimitMiB: jsii.Number(256),
 //   	taskImageOptions: &applicationLoadBalancedTaskImageProps{
 //   		image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
-//   	enableExecuteCommand: jsii.Boolean(true),
-//   	loadBalancers: []applicationLoadBalancerProps{
-//   		&applicationLoadBalancerProps{
-//   			name: jsii.String("lb"),
-//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(400)),
-//   			domainName: jsii.String("api.example.com"),
-//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
-//   				zoneName: jsii.String("example.com"),
-//   			}),
-//   			listeners: []applicationListenerProps{
-//   				&applicationListenerProps{
-//   					name: jsii.String("listener"),
-//   					protocol: awscdk.ApplicationProtocol_HTTPS,
-//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert"), jsii.String("helloworld")),
-//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
-//   				},
-//   			},
-//   		},
-//   		&applicationLoadBalancerProps{
-//   			name: jsii.String("lb2"),
-//   			idleTimeout: awscdk.Duration.seconds(jsii.Number(120)),
-//   			domainName: jsii.String("frontend.com"),
-//   			domainZone: awscdk.NewPublicHostedZone(this, jsii.String("HostedZone"), &publicHostedZoneProps{
-//   				zoneName: jsii.String("frontend.com"),
-//   			}),
-//   			listeners: []*applicationListenerProps{
-//   				&applicationListenerProps{
-//   					name: jsii.String("listener2"),
-//   					protocol: awscdk.ApplicationProtocol_HTTPS,
-//   					certificate: awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert2"), jsii.String("helloworld")),
-//   					sslPolicy: awscdk.SslPolicy_TLS12_EXT,
-//   				},
-//   			},
-//   		},
-//   	},
 //   	targetGroups: []applicationTargetProps{
 //   		&applicationTargetProps{
 //   			containerPort: jsii.Number(80),
-//   			listener: jsii.String("listener"),
 //   		},
 //   		&applicationTargetProps{
 //   			containerPort: jsii.Number(90),
 //   			pathPattern: jsii.String("a/b/c"),
 //   			priority: jsii.Number(10),
-//   			listener: jsii.String("listener"),
-//   		},
-//   		&applicationTargetProps{
-//   			containerPort: jsii.Number(443),
-//   			listener: jsii.String("listener2"),
-//   		},
-//   		&applicationTargetProps{
-//   			containerPort: jsii.Number(80),
-//   			pathPattern: jsii.String("a/b/c"),
-//   			priority: jsii.Number(10),
-//   			listener: jsii.String("listener2"),
 //   		},
 //   	},
 //   })
 //
+// Experimental.
 type ApplicationLoadBalancedTaskImageProps struct {
 	// The image used to start a container.
 	//
 	// Image or taskDefinition must be specified, not both.
+	// Experimental.
 	Image awsecs.ContainerImage `field:"required" json:"image" yaml:"image"`
 	// The container name value to be specified in the task definition.
+	// Experimental.
 	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 	// A list of port numbers on the container that is bound to the user-specified or automatically assigned host port.
 	//
@@ -101,24 +49,33 @@ type ApplicationLoadBalancedTaskImageProps struct {
 	//
 	// For more information, see
 	// [hostPort](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html#ECS-Type-PortMapping-hostPort).
+	// Experimental.
 	ContainerPorts *[]*float64 `field:"optional" json:"containerPorts" yaml:"containerPorts"`
 	// A key/value map of labels to add to the container.
+	// Experimental.
 	DockerLabels *map[string]*string `field:"optional" json:"dockerLabels" yaml:"dockerLabels"`
 	// Flag to indicate whether to enable logging.
+	// Experimental.
 	EnableLogging *bool `field:"optional" json:"enableLogging" yaml:"enableLogging"`
 	// The environment variables to pass to the container.
+	// Experimental.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The name of the task execution IAM role that grants the Amazon ECS container agent permission to call AWS APIs on your behalf.
+	// Experimental.
 	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The name of a family that this task definition is registered to.
 	//
 	// A family groups multiple versions of a task definition.
+	// Experimental.
 	Family *string `field:"optional" json:"family" yaml:"family"`
 	// The log driver to use.
+	// Experimental.
 	LogDriver awsecs.LogDriver `field:"optional" json:"logDriver" yaml:"logDriver"`
 	// The secrets to expose to the container as an environment variable.
+	// Experimental.
 	Secrets *map[string]awsecs.Secret `field:"optional" json:"secrets" yaml:"secrets"`
 	// The name of the task IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
 	TaskRole awsiam.IRole `field:"optional" json:"taskRole" yaml:"taskRole"`
 }
 

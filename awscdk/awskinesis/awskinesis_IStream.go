@@ -3,34 +3,40 @@ package awskinesis
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesis/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
 )
 
 // A Kinesis Stream.
+// Experimental.
 type IStream interface {
 	awscdk.IResource
 	// Grant the indicated permissions on this stream to the provided IAM principal.
+	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant read permissions for this stream and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to ues the key to decrypt the
 	// contents of the stream will also be granted.
+	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants read/write permissions for this stream and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to use the key for
 	// encrypt/decrypt will also be granted.
+	// Experimental.
 	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for this stream and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to ues the key to encrypt the
 	// contents of the stream will also be granted.
+	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Return stream metric based from its metric name.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records retrieved from the shard, measured over the specified time period.
 	//
@@ -39,6 +45,7 @@ type IStream interface {
 	// period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricGetRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of bytes retrieved from the Kinesis stream, measured over the specified time period.
 	//
@@ -47,6 +54,7 @@ type IStream interface {
 	// period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricGetRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The age of the last record in all GetRecords calls made against a Kinesis stream, measured over the specified time period.
 	//
@@ -55,14 +63,17 @@ type IStream interface {
 	// applications. A value of zero indicates that the records being read are completely caught up with the stream.
 	//
 	// The metric defaults to maximum over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricGetRecordsIteratorAgeMilliseconds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time taken per GetRecords operation, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricGetRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of successful GetRecords operations per stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricGetRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of bytes successfully put to the Kinesis stream over the specified time period.
 	//
@@ -71,6 +82,7 @@ type IStream interface {
 	// single put operation for the stream in the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records successfully put to the Kinesis stream over the specified time period.
 	//
@@ -79,44 +91,54 @@ type IStream interface {
 	// records in a single put operation for the stream in the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricIncomingRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of bytes put to the Kinesis stream using the PutRecord operation over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricPutRecordBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time taken per PutRecord operation, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricPutRecordLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of bytes put to the Kinesis stream using the PutRecords operation over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricPutRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records rejected due to internal failures in a PutRecords operation per Kinesis data stream, measured over the specified time period.
 	//
 	// Occasional internal failures are to be expected and should be retried.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricPutRecordsFailedRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time taken per PutRecords operation, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricPutRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of PutRecords operations where at least one record succeeded, per Kinesis stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricPutRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of successful records in a PutRecords operation per Kinesis data stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricPutRecordsSuccessfulRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records rejected due to throttling in a PutRecords operation per Kinesis data stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricPutRecordsThrottledRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total number of records sent in a PutRecords operation per Kinesis data stream, measured over the specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricPutRecordsTotalRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of successful PutRecord operations per Kinesis stream, measured over the specified time period.
 	//
@@ -124,6 +146,7 @@ type IStream interface {
 	// reflects the percentage of successful writes to a stream.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricPutRecordSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of GetRecords calls throttled for the stream over the specified time period.
 	//
@@ -137,6 +160,7 @@ type IStream interface {
 	// time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricReadProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of records rejected due to throttling for the stream over the specified time period.
 	//
@@ -150,12 +174,16 @@ type IStream interface {
 	// specified time period.
 	//
 	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
 	MetricWriteProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Optional KMS encryption key associated with this stream.
+	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The ARN of the stream.
+	// Experimental.
 	StreamArn() *string
 	// The name of the stream.
+	// Experimental.
 	StreamName() *string
 }
 

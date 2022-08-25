@@ -16,14 +16,18 @@ package awsecs
 //   	machineImage: ecs.ecsOptimizedImage.amazonLinux2(ecs.amiHardwareType_ARM),
 //   })
 //
+// Experimental.
 type AmiHardwareType string
 
 const (
 	// Use the standard Amazon ECS-optimized AMI.
+	// Experimental.
 	AmiHardwareType_STANDARD AmiHardwareType = "STANDARD"
 	// Use the Amazon ECS GPU-optimized AMI.
+	// Experimental.
 	AmiHardwareType_GPU AmiHardwareType = "GPU"
 	// Use the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI.
+	// Experimental.
 	AmiHardwareType_ARM AmiHardwareType = "ARM"
 )
 

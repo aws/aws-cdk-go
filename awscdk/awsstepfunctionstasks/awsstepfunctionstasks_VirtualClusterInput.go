@@ -1,10 +1,10 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
 )
 
 // Class that returns a virtual cluster's id depending on input type.
@@ -30,8 +30,10 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type VirtualClusterInput interface {
 	// The VirtualCluster Id.
+	// Experimental.
 	Id() *string
 }
 
@@ -52,13 +54,14 @@ func (j *jsiiProxy_VirtualClusterInput) Id() *string {
 
 
 // Input for a virtualClusterId from a Task Input.
+// Experimental.
 func VirtualClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) VirtualClusterInput {
 	_init_.Initialize()
 
 	var returns VirtualClusterInput
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.VirtualClusterInput",
+		"monocdk.aws_stepfunctions_tasks.VirtualClusterInput",
 		"fromTaskInput",
 		[]interface{}{taskInput},
 		&returns,
@@ -68,13 +71,14 @@ func VirtualClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) Vir
 }
 
 // Input for virtualClusterId from a literal string.
+// Experimental.
 func VirtualClusterInput_FromVirtualClusterId(virtualClusterId *string) VirtualClusterInput {
 	_init_.Initialize()
 
 	var returns VirtualClusterInput
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.VirtualClusterInput",
+		"monocdk.aws_stepfunctions_tasks.VirtualClusterInput",
 		"fromVirtualClusterId",
 		[]interface{}{virtualClusterId},
 		&returns,

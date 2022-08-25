@@ -13,10 +13,13 @@ package awsecs
 //   	sharedMemorySize: jsii.Number(123),
 //   }
 //
+// Experimental.
 type LinuxParametersProps struct {
 	// Specifies whether to run an init process inside the container that forwards signals and reaps processes.
+	// Experimental.
 	InitProcessEnabled *bool `field:"optional" json:"initProcessEnabled" yaml:"initProcessEnabled"`
 	// The value for the size (in MiB) of the /dev/shm volume.
+	// Experimental.
 	SharedMemorySize *float64 `field:"optional" json:"sharedMemorySize" yaml:"sharedMemorySize"`
 }
 

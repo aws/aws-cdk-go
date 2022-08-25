@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.Action",
+		"monocdk.aws_codepipeline_actions.Action",
 		reflect.TypeOf((*Action)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -25,7 +25,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.AlexaSkillDeployAction",
+		"monocdk.aws_codepipeline_actions.AlexaSkillDeployAction",
 		reflect.TypeOf((*AlexaSkillDeployAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -42,28 +42,52 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.AlexaSkillDeployActionProps",
+		"monocdk.aws_codepipeline_actions.AlexaSkillDeployActionProps",
 		reflect.TypeOf((*AlexaSkillDeployActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.BaseJenkinsProvider",
+		"monocdk.aws_codepipeline_actions.BaseJenkinsProvider",
 		reflect.TypeOf((*BaseJenkinsProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "providerName", GoGetter: "ProviderName"},
 			_jsii_.MemberProperty{JsiiProperty: "serverUrl", GoGetter: "ServerUrl"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BaseJenkinsProvider{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IJenkinsProvider)
 			return &j
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"monocdk.aws_codepipeline_actions.BitBucketSourceAction",
+		reflect.TypeOf((*BitBucketSourceAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+		},
+		func() interface{} {
+			j := jsiiProxy_BitBucketSourceAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscodepipelineIAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_codepipeline_actions.BitBucketSourceActionProps",
+		reflect.TypeOf((*BitBucketSourceActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_codepipeline_actions.CacheControl",
 		reflect.TypeOf((*CacheControl)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
@@ -73,7 +97,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationCreateReplaceChangeSetAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationCreateReplaceChangeSetAction",
 		reflect.TypeOf((*CloudFormationCreateReplaceChangeSetAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -92,11 +116,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationCreateReplaceChangeSetActionProps",
+		"monocdk.aws_codepipeline_actions.CloudFormationCreateReplaceChangeSetActionProps",
 		reflect.TypeOf((*CloudFormationCreateReplaceChangeSetActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationCreateUpdateStackAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationCreateUpdateStackAction",
 		reflect.TypeOf((*CloudFormationCreateUpdateStackAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -115,11 +139,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationCreateUpdateStackActionProps",
+		"monocdk.aws_codepipeline_actions.CloudFormationCreateUpdateStackActionProps",
 		reflect.TypeOf((*CloudFormationCreateUpdateStackActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeleteStackAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationDeleteStackAction",
 		reflect.TypeOf((*CloudFormationDeleteStackAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -138,11 +162,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeleteStackActionProps",
+		"monocdk.aws_codepipeline_actions.CloudFormationDeleteStackActionProps",
 		reflect.TypeOf((*CloudFormationDeleteStackActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationDeployStackInstancesAction",
 		reflect.TypeOf((*CloudFormationDeployStackInstancesAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -159,11 +183,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackInstancesActionProps",
+		"monocdk.aws_codepipeline_actions.CloudFormationDeployStackInstancesActionProps",
 		reflect.TypeOf((*CloudFormationDeployStackInstancesActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackSetAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationDeployStackSetAction",
 		reflect.TypeOf((*CloudFormationDeployStackSetAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -180,11 +204,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationDeployStackSetActionProps",
+		"monocdk.aws_codepipeline_actions.CloudFormationDeployStackSetActionProps",
 		reflect.TypeOf((*CloudFormationDeployStackSetActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationExecuteChangeSetAction",
+		"monocdk.aws_codepipeline_actions.CloudFormationExecuteChangeSetAction",
 		reflect.TypeOf((*CloudFormationExecuteChangeSetAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -201,11 +225,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CloudFormationExecuteChangeSetActionProps",
+		"monocdk.aws_codepipeline_actions.CloudFormationExecuteChangeSetActionProps",
 		reflect.TypeOf((*CloudFormationExecuteChangeSetActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeBuildAction",
+		"monocdk.aws_codepipeline_actions.CodeBuildAction",
 		reflect.TypeOf((*CodeBuildAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -223,11 +247,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeBuildActionProps",
+		"monocdk.aws_codepipeline_actions.CodeBuildActionProps",
 		reflect.TypeOf((*CodeBuildActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeBuildActionType",
+		"monocdk.aws_codepipeline_actions.CodeBuildActionType",
 		reflect.TypeOf((*CodeBuildActionType)(nil)).Elem(),
 		map[string]interface{}{
 			"BUILD": CodeBuildActionType_BUILD,
@@ -235,7 +259,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeCommitSourceAction",
+		"monocdk.aws_codepipeline_actions.CodeCommitSourceAction",
 		reflect.TypeOf((*CodeCommitSourceAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -253,15 +277,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeCommitSourceActionProps",
+		"monocdk.aws_codepipeline_actions.CodeCommitSourceActionProps",
 		reflect.TypeOf((*CodeCommitSourceActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeCommitSourceVariables",
+		"monocdk.aws_codepipeline_actions.CodeCommitSourceVariables",
 		reflect.TypeOf((*CodeCommitSourceVariables)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeCommitTrigger",
+		"monocdk.aws_codepipeline_actions.CodeCommitTrigger",
 		reflect.TypeOf((*CodeCommitTrigger)(nil)).Elem(),
 		map[string]interface{}{
 			"NONE": CodeCommitTrigger_NONE,
@@ -270,11 +294,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeDeployEcsContainerImageInput",
+		"monocdk.aws_codepipeline_actions.CodeDeployEcsContainerImageInput",
 		reflect.TypeOf((*CodeDeployEcsContainerImageInput)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeDeployEcsDeployAction",
+		"monocdk.aws_codepipeline_actions.CodeDeployEcsDeployAction",
 		reflect.TypeOf((*CodeDeployEcsDeployAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -291,11 +315,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeDeployEcsDeployActionProps",
+		"monocdk.aws_codepipeline_actions.CodeDeployEcsDeployActionProps",
 		reflect.TypeOf((*CodeDeployEcsDeployActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeDeployServerDeployAction",
+		"monocdk.aws_codepipeline_actions.CodeDeployServerDeployAction",
 		reflect.TypeOf((*CodeDeployServerDeployAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -312,11 +336,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeDeployServerDeployActionProps",
+		"monocdk.aws_codepipeline_actions.CodeDeployServerDeployActionProps",
 		reflect.TypeOf((*CodeDeployServerDeployActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
+		"monocdk.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
 		reflect.TypeOf((*CodeStarConnectionsSourceAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -334,19 +358,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeStarConnectionsSourceActionProps",
+		"monocdk.aws_codepipeline_actions.CodeStarConnectionsSourceActionProps",
 		reflect.TypeOf((*CodeStarConnectionsSourceActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CodeStarSourceVariables",
+		"monocdk.aws_codepipeline_actions.CodeStarSourceVariables",
 		reflect.TypeOf((*CodeStarSourceVariables)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.CommonCloudFormationStackSetOptions",
+		"monocdk.aws_codepipeline_actions.CommonCloudFormationStackSetOptions",
 		reflect.TypeOf((*CommonCloudFormationStackSetOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.EcrSourceAction",
+		"monocdk.aws_codepipeline_actions.EcrSourceAction",
 		reflect.TypeOf((*EcrSourceAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -364,15 +388,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.EcrSourceActionProps",
+		"monocdk.aws_codepipeline_actions.EcrSourceActionProps",
 		reflect.TypeOf((*EcrSourceActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.EcrSourceVariables",
+		"monocdk.aws_codepipeline_actions.EcrSourceVariables",
 		reflect.TypeOf((*EcrSourceVariables)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.EcsDeployAction",
+		"monocdk.aws_codepipeline_actions.EcsDeployAction",
 		reflect.TypeOf((*EcsDeployAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -389,11 +413,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.EcsDeployActionProps",
+		"monocdk.aws_codepipeline_actions.EcsDeployActionProps",
 		reflect.TypeOf((*EcsDeployActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.GitHubSourceAction",
+		"monocdk.aws_codepipeline_actions.GitHubSourceAction",
 		reflect.TypeOf((*GitHubSourceAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -411,15 +435,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.GitHubSourceActionProps",
+		"monocdk.aws_codepipeline_actions.GitHubSourceActionProps",
 		reflect.TypeOf((*GitHubSourceActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.GitHubSourceVariables",
+		"monocdk.aws_codepipeline_actions.GitHubSourceVariables",
 		reflect.TypeOf((*GitHubSourceVariables)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_codepipeline_actions.GitHubTrigger",
+		"monocdk.aws_codepipeline_actions.GitHubTrigger",
 		reflect.TypeOf((*GitHubTrigger)(nil)).Elem(),
 		map[string]interface{}{
 			"NONE": GitHubTrigger_NONE,
@@ -428,7 +452,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_codepipeline_actions.IJenkinsProvider",
+		"monocdk.aws_codepipeline_actions.IJenkinsProvider",
 		reflect.TypeOf((*IJenkinsProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -438,12 +462,12 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IJenkinsProvider{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIConstruct)
 			return &j
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.JenkinsAction",
+		"monocdk.aws_codepipeline_actions.JenkinsAction",
 		reflect.TypeOf((*JenkinsAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -460,11 +484,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.JenkinsActionProps",
+		"monocdk.aws_codepipeline_actions.JenkinsActionProps",
 		reflect.TypeOf((*JenkinsActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_codepipeline_actions.JenkinsActionType",
+		"monocdk.aws_codepipeline_actions.JenkinsActionType",
 		reflect.TypeOf((*JenkinsActionType)(nil)).Elem(),
 		map[string]interface{}{
 			"BUILD": JenkinsActionType_BUILD,
@@ -472,13 +496,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.JenkinsProvider",
+		"monocdk.aws_codepipeline_actions.JenkinsProvider",
 		reflect.TypeOf((*JenkinsProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "providerName", GoGetter: "ProviderName"},
 			_jsii_.MemberProperty{JsiiProperty: "serverUrl", GoGetter: "ServerUrl"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 		},
 		func() interface{} {
@@ -488,15 +518,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.JenkinsProviderAttributes",
+		"monocdk.aws_codepipeline_actions.JenkinsProviderAttributes",
 		reflect.TypeOf((*JenkinsProviderAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.JenkinsProviderProps",
+		"monocdk.aws_codepipeline_actions.JenkinsProviderProps",
 		reflect.TypeOf((*JenkinsProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.LambdaInvokeAction",
+		"monocdk.aws_codepipeline_actions.LambdaInvokeAction",
 		reflect.TypeOf((*LambdaInvokeAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -514,11 +544,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.LambdaInvokeActionProps",
+		"monocdk.aws_codepipeline_actions.LambdaInvokeActionProps",
 		reflect.TypeOf((*LambdaInvokeActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.ManualApprovalAction",
+		"monocdk.aws_codepipeline_actions.ManualApprovalAction",
 		reflect.TypeOf((*ManualApprovalAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -537,15 +567,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.ManualApprovalActionProps",
+		"monocdk.aws_codepipeline_actions.ManualApprovalActionProps",
 		reflect.TypeOf((*ManualApprovalActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.OrganizationsDeploymentProps",
+		"monocdk.aws_codepipeline_actions.OrganizationsDeploymentProps",
 		reflect.TypeOf((*OrganizationsDeploymentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.S3DeployAction",
+		"monocdk.aws_codepipeline_actions.S3DeployAction",
 		reflect.TypeOf((*S3DeployAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -562,11 +592,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.S3DeployActionProps",
+		"monocdk.aws_codepipeline_actions.S3DeployActionProps",
 		reflect.TypeOf((*S3DeployActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.S3SourceAction",
+		"monocdk.aws_codepipeline_actions.S3SourceAction",
 		reflect.TypeOf((*S3SourceAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -584,15 +614,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.S3SourceActionProps",
+		"monocdk.aws_codepipeline_actions.S3SourceActionProps",
 		reflect.TypeOf((*S3SourceActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.S3SourceVariables",
+		"monocdk.aws_codepipeline_actions.S3SourceVariables",
 		reflect.TypeOf((*S3SourceVariables)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_codepipeline_actions.S3Trigger",
+		"monocdk.aws_codepipeline_actions.S3Trigger",
 		reflect.TypeOf((*S3Trigger)(nil)).Elem(),
 		map[string]interface{}{
 			"NONE": S3Trigger_NONE,
@@ -601,11 +631,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.SelfManagedDeploymentProps",
+		"monocdk.aws_codepipeline_actions.SelfManagedDeploymentProps",
 		reflect.TypeOf((*SelfManagedDeploymentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.ServiceCatalogDeployActionBeta1",
+		"monocdk.aws_codepipeline_actions.ServiceCatalogDeployActionBeta1",
 		reflect.TypeOf((*ServiceCatalogDeployActionBeta1)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -622,11 +652,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.ServiceCatalogDeployActionBeta1Props",
+		"monocdk.aws_codepipeline_actions.ServiceCatalogDeployActionBeta1Props",
 		reflect.TypeOf((*ServiceCatalogDeployActionBeta1Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
+		"monocdk.aws_codepipeline_actions.StackInstances",
 		reflect.TypeOf((*StackInstances)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -634,7 +664,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetDeploymentModel",
+		"monocdk.aws_codepipeline_actions.StackSetDeploymentModel",
 		reflect.TypeOf((*StackSetDeploymentModel)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -642,7 +672,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetOrganizationsAutoDeployment",
+		"monocdk.aws_codepipeline_actions.StackSetOrganizationsAutoDeployment",
 		reflect.TypeOf((*StackSetOrganizationsAutoDeployment)(nil)).Elem(),
 		map[string]interface{}{
 			"ENABLED": StackSetOrganizationsAutoDeployment_ENABLED,
@@ -651,7 +681,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetParameters",
+		"monocdk.aws_codepipeline_actions.StackSetParameters",
 		reflect.TypeOf((*StackSetParameters)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -659,7 +689,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.StackSetTemplate",
+		"monocdk.aws_codepipeline_actions.StackSetTemplate",
 		reflect.TypeOf((*StackSetTemplate)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -667,7 +697,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.StateMachineInput",
+		"monocdk.aws_codepipeline_actions.StateMachineInput",
 		reflect.TypeOf((*StateMachineInput)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "input", GoGetter: "Input"},
@@ -679,7 +709,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.StepFunctionInvokeAction",
+		"monocdk.aws_codepipeline_actions.StepFunctionInvokeAction",
 		reflect.TypeOf((*StepFunctionInvokeAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
@@ -696,7 +726,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.StepFunctionsInvokeActionProps",
+		"monocdk.aws_codepipeline_actions.StepFunctionsInvokeActionProps",
 		reflect.TypeOf((*StepFunctionsInvokeActionProps)(nil)).Elem(),
 	)
 }

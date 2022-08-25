@@ -1,13 +1,14 @@
 package awsecspatterns
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An EC2 service running on an ECS cluster fronted by an application load balancer.
@@ -34,46 +35,113 @@ import (
 //   	},
 //   })
 //
+// Experimental.
 type ApplicationMultipleTargetGroupsEc2Service interface {
 	ApplicationMultipleTargetGroupsServiceBase
 	// The cluster that hosts the service.
+	// Experimental.
 	Cluster() awsecs.ICluster
+	// The desired number of instantiations of the task definition to keep running on the service.
+	// Deprecated: - Use `internalDesiredCount` instead.
+	DesiredCount() *float64
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The default is 1 for all new services and uses the existing services desired count
 	// when updating an existing service, if one is not provided.
+	// Experimental.
 	InternalDesiredCount() *float64
 	// The default listener for the service (first added listener).
-	// Deprecated: - Use `listeners` instead.
+	// Experimental.
 	Listener() awselasticloadbalancingv2.ApplicationListener
-	// The listeners of the service.
+	// Experimental.
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
+	// Experimental.
+	SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener)
 	// The default Application Load Balancer for the service (first added load balancer).
-	// Deprecated: - Use `loadBalancers` instead.
+	// Experimental.
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
-	// The load balancers of the service.
-	LoadBalancers() *[]awselasticloadbalancingv2.ApplicationLoadBalancer
+	// Experimental.
 	LogDriver() awsecs.LogDriver
+	// Experimental.
 	SetLogDriver(val awsecs.LogDriver)
-	// The tree node.
-	Node() constructs.Node
+	// The construct tree node associated with this construct.
+	// Experimental.
+	Node() awscdk.ConstructNode
 	// The EC2 service in this construct.
+	// Experimental.
 	Service() awsecs.Ec2Service
 	// The default target group for the service.
-	// Deprecated: - Use `targetGroups` instead.
+	// Experimental.
 	TargetGroup() awselasticloadbalancingv2.ApplicationTargetGroup
-	// The target groups of the service.
+	// Experimental.
 	TargetGroups() *[]awselasticloadbalancingv2.ApplicationTargetGroup
+	// Experimental.
+	SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup)
 	// The EC2 Task Definition in this construct.
+	// Experimental.
 	TaskDefinition() awsecs.Ec2TaskDefinition
+	// Experimental.
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps)
+	// Experimental.
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
+	// Experimental.
 	FindListener(name *string) awselasticloadbalancingv2.ApplicationListener
 	// Returns the default cluster.
+	// Experimental.
 	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	OnPrepare()
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	OnSynthesize(session constructs.ISynthesisSession)
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	OnValidate() *[]*string
+	// Perform final modifications before synthesis.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// final changes before synthesis. prepare() will be called after child
+	// constructs have been prepared.
+	//
+	// This is an advanced framework feature. Only use this if you
+	// understand the implications.
+	// Experimental.
+	Prepare()
+	// Experimental.
 	RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup
+	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+	//
+	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+	// as they participate in synthesizing the cloud assembly.
+	// Experimental.
+	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
+	// Experimental.
 	ToString() *string
+	// Validate the current construct.
+	//
+	// This method can be implemented by derived constructs in order to perform
+	// validation logic. It is called on all constructs before synthesis.
+	//
+	// Returns: An array of validation error messages, or an empty array if the construct is valid.
+	// Experimental.
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationMultipleTargetGroupsEc2Service
@@ -86,6 +154,16 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Cluster() awsecs.I
 	_jsii_.Get(
 		j,
 		"cluster",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) DesiredCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -131,16 +209,6 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) LoadBalancer() aws
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) LoadBalancers() *[]awselasticloadbalancingv2.ApplicationLoadBalancer {
-	var returns *[]awselasticloadbalancingv2.ApplicationLoadBalancer
-	_jsii_.Get(
-		j,
-		"loadBalancers",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) LogDriver() awsecs.LogDriver {
 	var returns awsecs.LogDriver
 	_jsii_.Get(
@@ -151,8 +219,8 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) LogDriver() awsecs
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -203,13 +271,14 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) TaskDefinition() a
 
 
 // Constructs a new instance of the ApplicationMultipleTargetGroupsEc2Service class.
+// Experimental.
 func NewApplicationMultipleTargetGroupsEc2Service(scope constructs.Construct, id *string, props *ApplicationMultipleTargetGroupsEc2ServiceProps) ApplicationMultipleTargetGroupsEc2Service {
 	_init_.Initialize()
 
 	j := jsiiProxy_ApplicationMultipleTargetGroupsEc2Service{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsEc2Service",
+		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsEc2Service",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -218,13 +287,22 @@ func NewApplicationMultipleTargetGroupsEc2Service(scope constructs.Construct, id
 }
 
 // Constructs a new instance of the ApplicationMultipleTargetGroupsEc2Service class.
+// Experimental.
 func NewApplicationMultipleTargetGroupsEc2Service_Override(a ApplicationMultipleTargetGroupsEc2Service, scope constructs.Construct, id *string, props *ApplicationMultipleTargetGroupsEc2ServiceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsEc2Service",
+		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsEc2Service",
 		[]interface{}{scope, id, props},
 		a,
+	)
+}
+
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener) {
+	_jsii_.Set(
+		j,
+		"listeners",
+		val,
 	)
 }
 
@@ -236,30 +314,23 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetLogDriver(val a
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup) {
+	_jsii_.Set(
+		j,
+		"targetGroups",
+		val,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
 func ApplicationMultipleTargetGroupsEc2Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsEc2Service",
+		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsEc2Service",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -315,6 +386,43 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) GetDefaultCluster(
 	return returns
 }
 
+func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup {
 	var returns awselasticloadbalancingv2.ApplicationTargetGroup
 
@@ -328,12 +436,33 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) RegisterECSTargets
 	return returns
 }
 
+func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		a,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

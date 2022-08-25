@@ -1,10 +1,10 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Deployment of a single `Stage`.
@@ -15,7 +15,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var stack stack
@@ -48,20 +48,28 @@ import (
 //   	stageName: jsii.String("stageName"),
 //   })
 //
+// Experimental.
 type StageDeployment interface {
 	// Additional steps that are run after all of the stacks in the stage.
+	// Experimental.
 	Post() *[]Step
 	// Additional steps that are run before any of the stacks in the stage.
+	// Experimental.
 	Pre() *[]Step
 	// The stacks deployed in this stage.
+	// Experimental.
 	Stacks() *[]StackDeployment
 	// Instructions for additional steps that are run at stack level.
+	// Experimental.
 	StackSteps() *[]*StackSteps
 	// The display name of this stage.
+	// Experimental.
 	StageName() *string
 	// Add an additional step to run after all of the stacks in this stage.
+	// Experimental.
 	AddPost(steps ...Step)
 	// Add an additional step to run before any of the stacks in this stage.
+	// Experimental.
 	AddPre(steps ...Step)
 }
 
@@ -125,13 +133,14 @@ func (j *jsiiProxy_StageDeployment) StageName() *string {
 //
 // Synthesizes the target stage, and deployes the stacks found inside
 // in dependency order.
+// Experimental.
 func StageDeployment_FromStage(stage awscdk.Stage, props *StageDeploymentProps) StageDeployment {
 	_init_.Initialize()
 
 	var returns StageDeployment
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.StageDeployment",
+		"monocdk.pipelines.StageDeployment",
 		"fromStage",
 		[]interface{}{stage, props},
 		&returns,

@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -30,6 +30,7 @@ import (
 //   	image: ecs.containerImage.fromRegistry(jsii.String("mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019")),
 //   })
 //
+// Experimental.
 type CpuArchitecture interface {
 }
 
@@ -41,13 +42,14 @@ type jsiiProxy_CpuArchitecture struct {
 // Other cpu architecture.
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-runtimeplatform.html#cfn-ecs-taskdefinition-runtimeplatform-cpuarchitecture for all available cpu architecture.
 //
+// Experimental.
 func CpuArchitecture_Of(cpuArchitecture *string) CpuArchitecture {
 	_init_.Initialize()
 
 	var returns CpuArchitecture
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecs.CpuArchitecture",
+		"monocdk.aws_ecs.CpuArchitecture",
 		"of",
 		[]interface{}{cpuArchitecture},
 		&returns,
@@ -60,7 +62,7 @@ func CpuArchitecture_ARM64() CpuArchitecture {
 	_init_.Initialize()
 	var returns CpuArchitecture
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.CpuArchitecture",
+		"monocdk.aws_ecs.CpuArchitecture",
 		"ARM64",
 		&returns,
 	)
@@ -71,7 +73,7 @@ func CpuArchitecture_X86_64() CpuArchitecture {
 	_init_.Initialize()
 	var returns CpuArchitecture
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ecs.CpuArchitecture",
+		"monocdk.aws_ecs.CpuArchitecture",
 		"X86_64",
 		&returns,
 	)

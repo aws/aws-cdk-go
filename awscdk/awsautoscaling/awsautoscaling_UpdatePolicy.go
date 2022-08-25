@@ -1,7 +1,7 @@
 package awsautoscaling
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,6 +14,7 @@ import (
 //
 //   updatePolicy := awscdk.Aws_autoscaling.updatePolicy.replacingUpdate()
 //
+// Experimental.
 type UpdatePolicy interface {
 }
 
@@ -22,24 +23,26 @@ type jsiiProxy_UpdatePolicy struct {
 	_ byte // padding
 }
 
+// Experimental.
 func NewUpdatePolicy_Override(u UpdatePolicy) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_autoscaling.UpdatePolicy",
+		"monocdk.aws_autoscaling.UpdatePolicy",
 		nil, // no parameters
 		u,
 	)
 }
 
 // Create a new AutoScalingGroup and switch over to it.
+// Experimental.
 func UpdatePolicy_ReplacingUpdate() UpdatePolicy {
 	_init_.Initialize()
 
 	var returns UpdatePolicy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_autoscaling.UpdatePolicy",
+		"monocdk.aws_autoscaling.UpdatePolicy",
 		"replacingUpdate",
 		nil, // no parameters
 		&returns,
@@ -49,13 +52,14 @@ func UpdatePolicy_ReplacingUpdate() UpdatePolicy {
 }
 
 // Replace the instances in the AutoScalingGroup one by one, or in batches.
+// Experimental.
 func UpdatePolicy_RollingUpdate(options *RollingUpdateOptions) UpdatePolicy {
 	_init_.Initialize()
 
 	var returns UpdatePolicy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_autoscaling.UpdatePolicy",
+		"monocdk.aws_autoscaling.UpdatePolicy",
 		"rollingUpdate",
 		[]interface{}{options},
 		&returns,
