@@ -1,398 +1,43 @@
 package awss3assets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
-	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+	"reflect"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// An asset represents a local file or directory, which is automatically uploaded to S3 and then can be referenced within a CDK application.
-//
-// Example:
-//   asset := assets.NewAsset(this, jsii.String("BundledAsset"), &assetProps{
-//   	path: path.join(__dirname, jsii.String("markdown-asset")),
-//   	 // /asset-input and working directory in the container
-//   	bundling: &bundlingOptions{
-//   		image: awscdk.DockerImage.fromBuild(path.join(__dirname, jsii.String("alpine-markdown"))),
-//   		 // Build an image
-//   		command: []*string{
-//   			jsii.String("sh"),
-//   			jsii.String("-c"),
-//   			jsii.String("\n            markdown index.md > /asset-output/index.html\n          "),
-//   		},
-//   	},
-//   })
-//
-type Asset interface {
-	constructs.Construct
-	awscdk.IAsset
-	// A hash of this asset, which is available at construction time.
-	//
-	// As this is a plain string, it
-	// can be used in construct IDs in order to enforce creation of a new resource when the content
-	// hash has changed.
-	AssetHash() *string
-	// The path to the asset, relative to the current Cloud Assembly.
-	//
-	// If asset staging is disabled, this will just be the original path.
-	// If asset staging is enabled it will be the staged path.
-	AssetPath() *string
-	// The S3 bucket in which this asset resides.
-	Bucket() awss3.IBucket
-	// Attribute which represents the S3 HTTP URL of this asset.
-	//
-	// For example, `https://s3.us-west-1.amazonaws.com/bucket/key`
-	HttpUrl() *string
-	// Indicates if this asset is a single file.
-	//
-	// Allows constructs to ensure that the
-	// correct file type was used.
-	IsFile() *bool
-	// Indicates if this asset is a zip archive.
-	//
-	// Allows constructs to ensure that the
-	// correct file type was used.
-	IsZipArchive() *bool
-	// The tree node.
-	Node() constructs.Node
-	// Attribute that represents the name of the bucket this asset exists in.
-	S3BucketName() *string
-	// Attribute which represents the S3 object key of this asset.
-	S3ObjectKey() *string
-	// Attribute which represents the S3 URL of this asset.
-	//
-	// For example, `s3://bucket/key`.
-	S3ObjectUrl() *string
-	// Adds CloudFormation template metadata to the specified resource with information that indicates which resource property is mapped to this local asset.
-	//
-	// This can be used by tools such as SAM CLI to provide local
-	// experience such as local invocation and debugging of Lambda functions.
-	//
-	// Asset metadata will only be included if the stack is synthesized with the
-	// "aws:cdk:enable-asset-metadata" context key defined, which is the default
-	// behavior when synthesizing via the CDK Toolkit.
-	// See: https://github.com/aws/aws-cdk/issues/1432
-	//
-	AddResourceMetadata(resource awscdk.CfnResource, resourceProperty *string)
-	// Grants read permissions to the principal on the assets bucket.
-	GrantRead(grantee awsiam.IGrantable)
-	// Returns a string representation of this construct.
-	ToString() *string
-}
-
-// The jsii proxy struct for Asset
-type jsiiProxy_Asset struct {
-	internal.Type__constructsConstruct
-	internal.Type__awscdkIAsset
-}
-
-func (j *jsiiProxy_Asset) AssetHash() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"assetHash",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) AssetPath() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"assetPath",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) Bucket() awss3.IBucket {
-	var returns awss3.IBucket
-	_jsii_.Get(
-		j,
-		"bucket",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) HttpUrl() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"httpUrl",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) IsFile() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"isFile",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) IsZipArchive() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"isZipArchive",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) Node() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) S3BucketName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"s3BucketName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) S3ObjectKey() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"s3ObjectKey",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) S3ObjectUrl() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"s3ObjectUrl",
-		&returns,
-	)
-	return returns
-}
-
-
-func NewAsset(scope constructs.Construct, id *string, props *AssetProps) Asset {
-	_init_.Initialize()
-
-	j := jsiiProxy_Asset{}
-
-	_jsii_.Create(
+func init() {
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_s3_assets.Asset",
-		[]interface{}{scope, id, props},
-		&j,
+		reflect.TypeOf((*Asset)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addResourceMetadata", GoMethod: "AddResourceMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "assetHash", GoGetter: "AssetHash"},
+			_jsii_.MemberProperty{JsiiProperty: "assetPath", GoGetter: "AssetPath"},
+			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "httpUrl", GoGetter: "HttpUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "isFile", GoGetter: "IsFile"},
+			_jsii_.MemberProperty{JsiiProperty: "isZipArchive", GoGetter: "IsZipArchive"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "s3BucketName", GoGetter: "S3BucketName"},
+			_jsii_.MemberProperty{JsiiProperty: "s3ObjectKey", GoGetter: "S3ObjectKey"},
+			_jsii_.MemberProperty{JsiiProperty: "s3ObjectUrl", GoGetter: "S3ObjectUrl"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Asset{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIAsset)
+			return &j
+		},
 	)
-
-	return &j
-}
-
-func NewAsset_Override(a Asset, scope constructs.Construct, id *string, props *AssetProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_s3_assets.Asset",
-		[]interface{}{scope, id, props},
-		a,
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3_assets.AssetOptions",
+		reflect.TypeOf((*AssetOptions)(nil)).Elem(),
 	)
-}
-
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-func Asset_IsConstruct(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_s3_assets.Asset",
-		"isConstruct",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_Asset) AddResourceMetadata(resource awscdk.CfnResource, resourceProperty *string) {
-	_jsii_.InvokeVoid(
-		a,
-		"addResourceMetadata",
-		[]interface{}{resource, resourceProperty},
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3_assets.AssetProps",
+		reflect.TypeOf((*AssetProps)(nil)).Elem(),
 	)
 }
-
-func (a *jsiiProxy_Asset) GrantRead(grantee awsiam.IGrantable) {
-	_jsii_.InvokeVoid(
-		a,
-		"grantRead",
-		[]interface{}{grantee},
-	)
-}
-
-func (a *jsiiProxy_Asset) ToString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		a,
-		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Example:
-//   lambda.NewFunction(this, jsii.String("Function"), &functionProps{
-//   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("my-python-handler")), &assetOptions{
-//   		bundling: &bundlingOptions{
-//   			image: lambda.runtime_PYTHON_3_9().bundlingImage,
-//   			command: []*string{
-//   				jsii.String("bash"),
-//   				jsii.String("-c"),
-//   				jsii.String("pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"),
-//   			},
-//   		},
-//   	}),
-//   	runtime: lambda.*runtime_PYTHON_3_9(),
-//   	handler: jsii.String("index.handler"),
-//   })
-//
-type AssetOptions struct {
-	// Specify a custom hash for this asset.
-	//
-	// If `assetHashType` is set it must
-	// be set to `AssetHashType.CUSTOM`. For consistency, this custom hash will
-	// be SHA256 hashed and encoded as hex. The resulting hash will be the asset
-	// hash.
-	//
-	// NOTE: the hash is used in order to identify a specific revision of the asset, and
-	// used for optimizing and caching deployment activities related to this asset such as
-	// packaging, uploading to Amazon S3, etc. If you chose to customize the hash, you will
-	// need to make sure it is updated every time the asset changes, or otherwise it is
-	// possible that some deployments will not be invalidated.
-	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
-	// Specifies the type of hash to calculate for this asset.
-	//
-	// If `assetHash` is configured, this option must be `undefined` or
-	// `AssetHashType.CUSTOM`.
-	AssetHashType awscdk.AssetHashType `field:"optional" json:"assetHashType" yaml:"assetHashType"`
-	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
-	//
-	// The asset path will be mounted at `/asset-input`. The Docker
-	// container is responsible for putting content at `/asset-output`.
-	// The content at `/asset-output` will be zipped and used as the
-	// final asset.
-	Bundling *awscdk.BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
-	// File paths matching the patterns will be excluded.
-	//
-	// See `ignoreMode` to set the matching behavior.
-	// Has no effect on Assets bundled using the `bundling` property.
-	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
-	// A strategy for how to handle symlinks.
-	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
-	// The ignore behavior to use for `exclude` patterns.
-	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
-	// A list of principals that should be able to read this asset from S3.
-	//
-	// You can use `asset.grantRead(principal)` to grant read permissions later.
-	Readers *[]awsiam.IGrantable `field:"optional" json:"readers" yaml:"readers"`
-}
-
-// Example:
-//   asset := assets.NewAsset(this, jsii.String("BundledAsset"), &assetProps{
-//   	path: path.join(__dirname, jsii.String("markdown-asset")),
-//   	 // /asset-input and working directory in the container
-//   	bundling: &bundlingOptions{
-//   		image: awscdk.DockerImage.fromBuild(path.join(__dirname, jsii.String("alpine-markdown"))),
-//   		 // Build an image
-//   		command: []*string{
-//   			jsii.String("sh"),
-//   			jsii.String("-c"),
-//   			jsii.String("\n            markdown index.md > /asset-output/index.html\n          "),
-//   		},
-//   	},
-//   })
-//
-type AssetProps struct {
-	// Specify a custom hash for this asset.
-	//
-	// If `assetHashType` is set it must
-	// be set to `AssetHashType.CUSTOM`. For consistency, this custom hash will
-	// be SHA256 hashed and encoded as hex. The resulting hash will be the asset
-	// hash.
-	//
-	// NOTE: the hash is used in order to identify a specific revision of the asset, and
-	// used for optimizing and caching deployment activities related to this asset such as
-	// packaging, uploading to Amazon S3, etc. If you chose to customize the hash, you will
-	// need to make sure it is updated every time the asset changes, or otherwise it is
-	// possible that some deployments will not be invalidated.
-	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
-	// Specifies the type of hash to calculate for this asset.
-	//
-	// If `assetHash` is configured, this option must be `undefined` or
-	// `AssetHashType.CUSTOM`.
-	AssetHashType awscdk.AssetHashType `field:"optional" json:"assetHashType" yaml:"assetHashType"`
-	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
-	//
-	// The asset path will be mounted at `/asset-input`. The Docker
-	// container is responsible for putting content at `/asset-output`.
-	// The content at `/asset-output` will be zipped and used as the
-	// final asset.
-	Bundling *awscdk.BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
-	// File paths matching the patterns will be excluded.
-	//
-	// See `ignoreMode` to set the matching behavior.
-	// Has no effect on Assets bundled using the `bundling` property.
-	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
-	// A strategy for how to handle symlinks.
-	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
-	// The ignore behavior to use for `exclude` patterns.
-	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
-	// A list of principals that should be able to read this asset from S3.
-	//
-	// You can use `asset.grantRead(principal)` to grant read permissions later.
-	Readers *[]awsiam.IGrantable `field:"optional" json:"readers" yaml:"readers"`
-	// The disk location of the asset.
-	//
-	// The path should refer to one of the following:
-	// - A regular file or a .zip file, in which case the file will be uploaded as-is to S3.
-	// - A directory, in which case it will be archived into a .zip file and uploaded to S3.
-	Path *string `field:"required" json:"path" yaml:"path"`
-}
-

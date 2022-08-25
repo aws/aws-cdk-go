@@ -453,6 +453,20 @@ dashboard.addWidgets(cloudwatch.NewSingleValueWidget(&singleValueWidgetProps{
 }))
 ```
 
+Sparkline allows you to glance the trend of a metric by displaying a simplified linegraph below the value. You can't use `sparkline: true` together with `setPeriodToTimeRange: true`
+
+```go
+var dashboard dashboard
+
+
+dashboard.addWidgets(cloudwatch.NewSingleValueWidget(&singleValueWidgetProps{
+	metrics: []iMetric{
+	},
+
+	sparkline: jsii.Boolean(true),
+}))
+```
+
 ### Text widget
 
 A text widget shows an arbitrary piece of MarkDown. Use this to add explanations

@@ -185,6 +185,48 @@ myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &co
 })
 ```
 
+Note that if your launch template explicitly specifies network interfaces,
+for example to use an Elastic Fabric Adapter, you must use those security groups rather
+than allow the `ComputeEnvironment` to define them.  This is done by setting
+`useNetworkInterfaceSecurityGroups` in the launch template property of the environment.
+For example:
+
+```go
+var vpc vpc
+
+
+efaSecurityGroup := ec2.NewSecurityGroup(this, jsii.String("EFASecurityGroup"), &securityGroupProps{
+	vpc: vpc,
+})
+
+launchTemplateEFA := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &cfnLaunchTemplateProps{
+	launchTemplateName: jsii.String("LaunchTemplateName"),
+	launchTemplateData: &launchTemplateDataProperty{
+		networkInterfaces: []interface{}{
+			&networkInterfaceProperty{
+				deviceIndex: jsii.Number(0),
+				subnetId: vpc.privateSubnets[jsii.Number(0)].subnetId,
+				interfaceType: jsii.String("efa"),
+				groups: []*string{
+					efaSecurityGroup.securityGroupId,
+				},
+			},
+		},
+	},
+})
+
+computeEnvironmentEFA := batch.NewComputeEnvironment(this, jsii.String("EFAComputeEnv"), &computeEnvironmentProps{
+	managed: jsii.Boolean(true),
+	computeResources: &computeResources{
+		vpc: vpc,
+		launchTemplate: &launchTemplateSpecification{
+			launchTemplateName: string(launchTemplateEFA.launchTemplateName),
+			useNetworkInterfaceSecurityGroups: jsii.Boolean(true),
+		},
+	},
+})
+```
+
 ### Importing an existing Compute Environment
 
 To import an existing batch compute environment, call `ComputeEnvironment.fromComputeEnvironmentArn()`.

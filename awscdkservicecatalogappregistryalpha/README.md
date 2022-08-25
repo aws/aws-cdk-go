@@ -25,6 +25,10 @@ enables organizations to create and manage repositores of applications and assoc
 
   * [Associating application with an attribute group](#attribute-group-association)
   * [Associating application with a stack](#resource-association)
+* [Sharing](#sharing)
+
+  * [Sharing an application](#sharing-an-application)
+  * [Sharing an attribute group](#sharing-an-attribute-group)
 
 The `@aws-cdk/aws-servicecatalogappregistry` package contains resources that enable users to automate governance and management of their AWS resources at scale.
 
@@ -114,4 +118,86 @@ var application application
 app := awscdk.NewApp()
 myStack := awscdk.Newstack(app, jsii.String("MyStack"))
 application.associateStack(myStack)
+```
+
+## Sharing
+
+You can share your AppRegistry applications and attribute groups with AWS Organizations, Organizational Units (OUs), AWS accounts within an organization, as well as IAM roles and users. AppRegistry requires that AWS Organizations is enabled in an account before deploying a share of an application or attribute group.
+
+### Sharing an application
+
+```go
+import iam "github.com/aws/aws-cdk-go/awscdk"
+var application application
+var myRole iRole
+var myUser iUser
+
+application.shareApplication(&shareOptions{
+	accounts: []*string{
+		jsii.String("123456789012"),
+	},
+	organizationArns: []*string{
+		jsii.String("arn:aws:organizations::123456789012:organization/o-my-org-id"),
+	},
+	roles: []*iRole{
+		myRole,
+	},
+	users: []*iUser{
+		myUser,
+	},
+})
+```
+
+E.g., sharing an application with multiple accounts and allowing the accounts to associate resources to the application.
+
+```go
+import iam "github.com/aws/aws-cdk-go/awscdk"
+var application application
+
+application.shareApplication(&shareOptions{
+	accounts: []*string{
+		jsii.String("123456789012"),
+		jsii.String("234567890123"),
+	},
+	sharePermission: appreg.sharePermission_ALLOW_ACCESS,
+})
+```
+
+### Sharing an attribute group
+
+```go
+import iam "github.com/aws/aws-cdk-go/awscdk"
+var attributeGroup attributeGroup
+var myRole iRole
+var myUser iUser
+
+attributeGroup.shareAttributeGroup(&shareOptions{
+	accounts: []*string{
+		jsii.String("123456789012"),
+	},
+	organizationArns: []*string{
+		jsii.String("arn:aws:organizations::123456789012:organization/o-my-org-id"),
+	},
+	roles: []*iRole{
+		myRole,
+	},
+	users: []*iUser{
+		myUser,
+	},
+})
+```
+
+E.g., sharing an application with multiple accounts and allowing the accounts to associate applications to the attribute group.
+
+```go
+import iam "github.com/aws/aws-cdk-go/awscdk"
+var attributeGroup attributeGroup
+
+attributeGroup.shareAttributeGroup(&shareOptions{
+	accounts: []*string{
+		jsii.String("123456789012"),
+		jsii.String("234567890123"),
+	},
+	sharePermission: appreg.sharePermission_ALLOW_ACCESS,
+})
 ```
