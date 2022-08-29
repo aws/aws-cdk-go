@@ -30,26 +30,22 @@ package awsstepfunctions
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html
 //
-// Experimental.
 type IntegrationPattern string
 
 const (
 	// Step Functions will wait for an HTTP response and then progress to the next state.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-default
 	//
-	// Experimental.
 	IntegrationPattern_REQUEST_RESPONSE IntegrationPattern = "REQUEST_RESPONSE"
 	// Step Functions can wait for a request to complete before progressing to the next state.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync
 	//
-	// Experimental.
 	IntegrationPattern_RUN_JOB IntegrationPattern = "RUN_JOB"
 	// Callback tasks provide a way to pause a workflow until a task token is returned.
 	//
 	// You must set a task token when using the callback pattern.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern_WAIT_FOR_TASK_TOKEN IntegrationPattern = "WAIT_FOR_TASK_TOKEN"
 )
 

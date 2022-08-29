@@ -1,8 +1,8 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -11,26 +11,22 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fragmentConcatenator iFragmentConcatenator
 //
-//   defaultTokenResolver := monocdk.NewDefaultTokenResolver(fragmentConcatenator)
+//   defaultTokenResolver := cdk.NewDefaultTokenResolver(fragmentConcatenator)
 //
-// Experimental.
 type DefaultTokenResolver interface {
 	ITokenResolver
 	// Resolve a tokenized list.
-	// Experimental.
 	ResolveList(xs *[]*string, context IResolveContext) interface{}
 	// Resolve string fragments to Tokens.
-	// Experimental.
 	ResolveString(fragments TokenizedStringFragments, context IResolveContext) interface{}
 	// Default Token resolution.
 	//
 	// Resolve the Token, recurse into whatever it returns,
 	// then finally post-process it.
-	// Experimental.
 	ResolveToken(t IResolvable, context IResolveContext, postProcessor IPostProcessor) interface{}
 }
 
@@ -39,14 +35,13 @@ type jsiiProxy_DefaultTokenResolver struct {
 	jsiiProxy_ITokenResolver
 }
 
-// Experimental.
 func NewDefaultTokenResolver(concat IFragmentConcatenator) DefaultTokenResolver {
 	_init_.Initialize()
 
 	j := jsiiProxy_DefaultTokenResolver{}
 
 	_jsii_.Create(
-		"monocdk.DefaultTokenResolver",
+		"aws-cdk-lib.DefaultTokenResolver",
 		[]interface{}{concat},
 		&j,
 	)
@@ -54,12 +49,11 @@ func NewDefaultTokenResolver(concat IFragmentConcatenator) DefaultTokenResolver 
 	return &j
 }
 
-// Experimental.
 func NewDefaultTokenResolver_Override(d DefaultTokenResolver, concat IFragmentConcatenator) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.DefaultTokenResolver",
+		"aws-cdk-lib.DefaultTokenResolver",
 		[]interface{}{concat},
 		d,
 	)

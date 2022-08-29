@@ -1,10 +1,10 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // The base class for log drivers.
@@ -21,11 +21,9 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type LogDriver interface {
 	// Called when the log driver is configured on a container.
-	// Experimental.
-	Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *LogDriverConfig
+	Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for LogDriver
@@ -33,26 +31,24 @@ type jsiiProxy_LogDriver struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewLogDriver_Override(l LogDriver) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.LogDriver",
+		"aws-cdk-lib.aws_ecs.LogDriver",
 		nil, // no parameters
 		l,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
-// Experimental.
 func LogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.LogDriver",
+		"aws-cdk-lib.aws_ecs.LogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -61,7 +57,7 @@ func LogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-func (l *jsiiProxy_LogDriver) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *LogDriverConfig {
+func (l *jsiiProxy_LogDriver) Bind(scope constructs.Construct, containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

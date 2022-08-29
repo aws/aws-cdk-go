@@ -37,7 +37,6 @@ package pipelines
 //   	},
 //   })
 //
-// Experimental.
 type ConnectionSourceOptions struct {
 	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
 	//
@@ -46,7 +45,6 @@ type ConnectionSourceOptions struct {
 	//
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
 	//
-	// Experimental.
 	ConnectionArn *string `field:"required" json:"connectionArn" yaml:"connectionArn"`
 	// If this is set, the next CodeBuild job clones the repository (instead of CodePipeline downloading the files).
 	//
@@ -56,7 +54,6 @@ type ConnectionSourceOptions struct {
 	// **Note**: if this option is true, only CodeBuild jobs can use the output artifact.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
 	//
-	// Experimental.
 	CodeBuildCloneOutput *bool `field:"optional" json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
 	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
 	//
@@ -64,7 +61,6 @@ type ConnectionSourceOptions struct {
 	// the default value is true, and the field does not display by default.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html
 	//
-	// Experimental.
 	TriggerOnPush *bool `field:"optional" json:"triggerOnPush" yaml:"triggerOnPush"`
 }
 

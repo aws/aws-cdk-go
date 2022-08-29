@@ -1,7 +1,7 @@
 package awscloudwatch
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -9,45 +9,32 @@ import (
 //
 // Example:
 //   var dashboard dashboard
-//   var visitorCount metric
-//   var purchaseCount metric
 //
 //
 //   dashboard.addWidgets(cloudwatch.NewSingleValueWidget(&singleValueWidgetProps{
 //   	metrics: []iMetric{
-//   		visitorCount,
-//   		purchaseCount,
 //   	},
+//
+//   	fullPrecision: jsii.Boolean(true),
 //   }))
 //
-// Experimental.
 type SingleValueWidget interface {
 	ConcreteWidget
 	// The amount of vertical grid units the widget will take up.
-	// Experimental.
 	Height() *float64
 	// Any warnings that are produced as a result of putting together this widget.
-	// Experimental.
 	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
-	// Experimental.
 	Width() *float64
-	// Experimental.
 	X() *float64
-	// Experimental.
 	SetX(val *float64)
-	// Experimental.
 	Y() *float64
-	// Experimental.
 	SetY(val *float64)
 	// Copy the warnings from the given metric.
-	// Experimental.
 	CopyMetricWarnings(ms ...IMetric)
 	// Place the widget at a given position.
-	// Experimental.
 	Position(x *float64, y *float64)
 	// Return the widget JSON for use in the dashboard.
-	// Experimental.
 	ToJson() *[]interface{}
 }
 
@@ -107,14 +94,13 @@ func (j *jsiiProxy_SingleValueWidget) Y() *float64 {
 }
 
 
-// Experimental.
 func NewSingleValueWidget(props *SingleValueWidgetProps) SingleValueWidget {
 	_init_.Initialize()
 
 	j := jsiiProxy_SingleValueWidget{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudwatch.SingleValueWidget",
+		"aws-cdk-lib.aws_cloudwatch.SingleValueWidget",
 		[]interface{}{props},
 		&j,
 	)
@@ -122,12 +108,11 @@ func NewSingleValueWidget(props *SingleValueWidgetProps) SingleValueWidget {
 	return &j
 }
 
-// Experimental.
 func NewSingleValueWidget_Override(s SingleValueWidget, props *SingleValueWidgetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudwatch.SingleValueWidget",
+		"aws-cdk-lib.aws_cloudwatch.SingleValueWidget",
 		[]interface{}{props},
 		s,
 	)

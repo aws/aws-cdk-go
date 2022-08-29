@@ -1,7 +1,7 @@
 package awslambdaeventsources
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Example:
@@ -22,7 +22,6 @@ import (
 //   	reportBatchItemFailures: jsii.Boolean(true),
 //   }))
 //
-// Experimental.
 type SqsEventSourceProps struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
@@ -31,20 +30,16 @@ type SqsEventSourceProps struct {
 	//
 	// Valid Range: Minimum value of 1. Maximum value of 10.
 	// If `maxBatchingWindow` is configured, this value can go up to 10,000.
-	// Experimental.
 	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the SQS event source mapping should be enabled.
-	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Valid Range: Minimum value of 0 minutes. Maximum value of 5 minutes.
-	// Experimental.
 	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-batchfailurereporting
 	//
-	// Experimental.
 	ReportBatchItemFailures *bool `field:"optional" json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 }
 

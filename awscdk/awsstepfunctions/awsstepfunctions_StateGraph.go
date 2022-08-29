@@ -1,11 +1,11 @@
 package awsstepfunctions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // A collection of connected states.
@@ -38,40 +38,30 @@ import (
 //
 //   stateGraph := awscdk.Aws_stepfunctions.NewStateGraph(state, jsii.String("graphDescription"))
 //
-// Experimental.
 type StateGraph interface {
 	// The accumulated policy statements.
-	// Experimental.
 	PolicyStatements() *[]awsiam.PolicyStatement
 	// state that gets executed when the state machine is launched.
-	// Experimental.
 	StartState() State
 	// Set a timeout to render into the graph JSON.
 	//
 	// Read/write. Only makes sense on the top-level graph, subgraphs
 	// do not support this feature.
-	// Experimental.
 	Timeout() awscdk.Duration
-	// Experimental.
 	SetTimeout(val awscdk.Duration)
 	// Register a Policy Statement used by states in this graph.
-	// Experimental.
 	RegisterPolicyStatement(statement awsiam.PolicyStatement)
 	// Register a state as part of this graph.
 	//
 	// Called by State.bindToGraph().
-	// Experimental.
 	RegisterState(state State)
 	// Register this graph as a child of the given graph.
 	//
 	// Resource changes will be bubbled up to the given graph.
-	// Experimental.
 	RegisterSuperGraph(graph StateGraph)
 	// Return the Amazon States Language JSON for this graph.
-	// Experimental.
 	ToGraphJson() *map[string]interface{}
 	// Return a string description of this graph.
-	// Experimental.
 	ToString() *string
 }
 
@@ -111,14 +101,13 @@ func (j *jsiiProxy_StateGraph) Timeout() awscdk.Duration {
 }
 
 
-// Experimental.
 func NewStateGraph(startState State, graphDescription *string) StateGraph {
 	_init_.Initialize()
 
 	j := jsiiProxy_StateGraph{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions.StateGraph",
+		"aws-cdk-lib.aws_stepfunctions.StateGraph",
 		[]interface{}{startState, graphDescription},
 		&j,
 	)
@@ -126,12 +115,11 @@ func NewStateGraph(startState State, graphDescription *string) StateGraph {
 	return &j
 }
 
-// Experimental.
 func NewStateGraph_Override(s StateGraph, startState State, graphDescription *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions.StateGraph",
+		"aws-cdk-lib.aws_stepfunctions.StateGraph",
 		[]interface{}{startState, graphDescription},
 		s,
 	)

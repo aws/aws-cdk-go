@@ -1,59 +1,42 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
-	"github.com/aws/aws-cdk-go/awscdk/awsssm"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm"
 )
 
 // A secret environment variable.
 //
 // Example:
 //   var secret secret
-//   var dbSecret secret
 //   var parameter stringParameter
-//   var taskDefinition taskDefinition
-//   var s3Bucket bucket
 //
 //
-//   newContainer := taskDefinition.addContainer(jsii.String("container"), &containerDefinitionOptions{
-//   	image: ecs.containerImage.fromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	memoryLimitMiB: jsii.Number(1024),
-//   	environment: map[string]*string{
-//   		 // clear text, not for sensitive data
-//   		"STAGE": jsii.String("prod"),
-//   	},
-//   	environmentFiles: []environmentFile{
-//   		ecs.*environmentFile.fromAsset(jsii.String("./demo-env-file.env")),
-//   		ecs.*environmentFile.fromBucket(s3Bucket, jsii.String("assets/demo-env-file.env")),
-//   	},
-//   	secrets: map[string]secret{
-//   		 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store at container start-up.
-//   		"SECRET": ecs.*secret.fromSecretsManager(secret),
-//   		"DB_PASSWORD": ecs.*secret.fromSecretsManager(dbSecret, jsii.String("password")),
-//   		 // Reference a specific JSON field, (requires platform version 1.4.0 or later for Fargate tasks)
-//   		"API_KEY": ecs.*secret.fromSecretsManagerVersion(secret, &SecretVersionInfo{
-//   			"versionId": jsii.String("12345"),
-//   		}, jsii.String("apiKey")),
-//   		 // Reference a specific version of the secret by its version id or version stage (requires platform version 1.4.0 or later for Fargate tasks)
-//   		"PARAMETER": ecs.*secret.fromSsmParameter(parameter),
-//   	},
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//   taskDefinition.addContainer(jsii.String("TheContainer"), &containerDefinitionOptions{
+//   	image: ecs.containerImage.fromRegistry(jsii.String("example-image")),
+//   	memoryLimitMiB: jsii.Number(256),
+//   	logging: ecs.logDrivers.firelens(&fireLensLogDriverProps{
+//   		options: map[string]interface{}{
+//   		},
+//   		secretOptions: map[string]secret{
+//   			 // Retrieved from AWS Secrets Manager or AWS Systems Manager Parameter Store
+//   			"apikey": ecs.*secret.fromSecretsManager(secret),
+//   			"host": ecs.*secret.fromSsmParameter(parameter),
+//   		},
+//   	}),
 //   })
-//   newContainer.addEnvironment(jsii.String("QUEUE_NAME"), jsii.String("MyQueue"))
 //
-// Experimental.
 type Secret interface {
 	// The ARN of the secret.
-	// Experimental.
 	Arn() *string
 	// Whether this secret uses a specific JSON field.
-	// Experimental.
 	HasField() *bool
 	// Grants reading the secret to a principal.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 }
 
@@ -83,26 +66,24 @@ func (j *jsiiProxy_Secret) HasField() *bool {
 }
 
 
-// Experimental.
 func NewSecret_Override(s Secret) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.Secret",
+		"aws-cdk-lib.aws_ecs.Secret",
 		nil, // no parameters
 		s,
 	)
 }
 
 // Creates a environment variable value from a secret stored in AWS Secrets Manager.
-// Experimental.
 func Secret_FromSecretsManager(secret awssecretsmanager.ISecret, field *string) Secret {
 	_init_.Initialize()
 
 	var returns Secret
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.Secret",
+		"aws-cdk-lib.aws_ecs.Secret",
 		"fromSecretsManager",
 		[]interface{}{secret, field},
 		&returns,
@@ -112,14 +93,13 @@ func Secret_FromSecretsManager(secret awssecretsmanager.ISecret, field *string) 
 }
 
 // Creates a environment variable value from a secret stored in AWS Secrets Manager.
-// Experimental.
 func Secret_FromSecretsManagerVersion(secret awssecretsmanager.ISecret, versionInfo *SecretVersionInfo, field *string) Secret {
 	_init_.Initialize()
 
 	var returns Secret
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.Secret",
+		"aws-cdk-lib.aws_ecs.Secret",
 		"fromSecretsManagerVersion",
 		[]interface{}{secret, versionInfo, field},
 		&returns,
@@ -129,14 +109,13 @@ func Secret_FromSecretsManagerVersion(secret awssecretsmanager.ISecret, versionI
 }
 
 // Creates an environment variable value from a parameter stored in AWS Systems Manager Parameter Store.
-// Experimental.
 func Secret_FromSsmParameter(parameter awsssm.IParameter) Secret {
 	_init_.Initialize()
 
 	var returns Secret
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.Secret",
+		"aws-cdk-lib.aws_ecs.Secret",
 		"fromSsmParameter",
 		[]interface{}{parameter},
 		&returns,

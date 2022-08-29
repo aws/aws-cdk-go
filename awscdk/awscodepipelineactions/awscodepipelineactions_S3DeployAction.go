@@ -1,17 +1,18 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Deploys the sourceArtifact to Amazon S3.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   sourceOutput := codepipeline.NewArtifact()
 //   targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //
@@ -28,27 +29,20 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type S3DeployAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
 	// Note that this accessor will be called before the {@link bind} callback.
-	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
 	// This is a renamed version of the {@link IAction.actionProperties} property.
-	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The callback invoked when this Action is added to a Pipeline.
-	// Experimental.
-	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the {@link IAction.bind} method.
-	// Experimental.
-	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
-	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
-	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -78,14 +72,13 @@ func (j *jsiiProxy_S3DeployAction) ProvidedActionProperties() *awscodepipeline.A
 }
 
 
-// Experimental.
 func NewS3DeployAction(props *S3DeployActionProps) S3DeployAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_S3DeployAction{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.S3DeployAction",
+		"aws-cdk-lib.aws_codepipeline_actions.S3DeployAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -93,18 +86,17 @@ func NewS3DeployAction(props *S3DeployActionProps) S3DeployAction {
 	return &j
 }
 
-// Experimental.
 func NewS3DeployAction_Override(s S3DeployAction, props *S3DeployActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.S3DeployAction",
+		"aws-cdk-lib.aws_codepipeline_actions.S3DeployAction",
 		[]interface{}{props},
 		s,
 	)
 }
 
-func (s *jsiiProxy_S3DeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_S3DeployAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -117,7 +109,7 @@ func (s *jsiiProxy_S3DeployAction) Bind(scope awscdk.Construct, stage awscodepip
 	return returns
 }
 
-func (s *jsiiProxy_S3DeployAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_S3DeployAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(

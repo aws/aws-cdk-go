@@ -16,15 +16,12 @@ package awseks
 //   	capacityType: eks.capacityType_SPOT,
 //   })
 //
-// Experimental.
 type CapacityType string
 
 const (
 	// spot instances.
-	// Experimental.
 	CapacityType_SPOT CapacityType = "SPOT"
 	// on-demand instances.
-	// Experimental.
 	CapacityType_ON_DEMAND CapacityType = "ON_DEMAND"
 )
 

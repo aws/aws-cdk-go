@@ -3,14 +3,12 @@ package awsautoscaling
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for autoscaling lifecycle hook targets.
-// Experimental.
 type ILifecycleHookTarget interface {
 	// Called when this object is used as the target of a lifecycle hook.
-	// Experimental.
 	Bind(scope constructs.Construct, options *BindHookTargetOptions) *LifecycleHookTargetConfig
 }
 

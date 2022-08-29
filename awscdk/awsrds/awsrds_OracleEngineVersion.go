@@ -1,11 +1,17 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// The versions for the Oracle instance engines (those returned by {@link DatabaseInstanceEngine.oracleSe2} and {@link DatabaseInstanceEngine.oracleEe}).
+// The versions for the Oracle instance engines.
+//
+// Those returned by the following list.
+// - {@link DatabaseInstanceEngine.oracleSe2}
+// - {@link DatabaseInstanceEngine.oracleSe2Cdb}
+// - {@link DatabaseInstanceEngine.oracleEe}
+// - {@link DatabaseInstanceEngine.oracleEeCdb}.
 //
 // Example:
 //   var vpc vpc
@@ -24,13 +30,10 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type OracleEngineVersion interface {
 	// The full version string, for example, "19.0.0.0.ru-2019-10.rur-2019-10.r1".
-	// Experimental.
 	OracleFullVersion() *string
 	// The major version of the engine, for example, "19".
-	// Experimental.
 	OracleMajorVersion() *string
 }
 
@@ -61,14 +64,13 @@ func (j *jsiiProxy_OracleEngineVersion) OracleMajorVersion() *string {
 
 
 // Creates a new OracleEngineVersion with an arbitrary version.
-// Experimental.
 func OracleEngineVersion_Of(oracleFullVersion *string, oracleMajorVersion *string) OracleEngineVersion {
 	_init_.Initialize()
 
 	var returns OracleEngineVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"of",
 		[]interface{}{oracleFullVersion, oracleMajorVersion},
 		&returns,
@@ -81,7 +83,7 @@ func OracleEngineVersion_VER_12_1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1",
 		&returns,
 	)
@@ -92,7 +94,7 @@ func OracleEngineVersion_VER_12_1_0_2_V1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V1",
 		&returns,
 	)
@@ -103,7 +105,7 @@ func OracleEngineVersion_VER_12_1_0_2_V10() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V10",
 		&returns,
 	)
@@ -114,7 +116,7 @@ func OracleEngineVersion_VER_12_1_0_2_V11() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V11",
 		&returns,
 	)
@@ -125,7 +127,7 @@ func OracleEngineVersion_VER_12_1_0_2_V12() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V12",
 		&returns,
 	)
@@ -136,7 +138,7 @@ func OracleEngineVersion_VER_12_1_0_2_V13() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V13",
 		&returns,
 	)
@@ -147,7 +149,7 @@ func OracleEngineVersion_VER_12_1_0_2_V14() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V14",
 		&returns,
 	)
@@ -158,7 +160,7 @@ func OracleEngineVersion_VER_12_1_0_2_V15() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V15",
 		&returns,
 	)
@@ -169,7 +171,7 @@ func OracleEngineVersion_VER_12_1_0_2_V16() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V16",
 		&returns,
 	)
@@ -180,7 +182,7 @@ func OracleEngineVersion_VER_12_1_0_2_V17() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V17",
 		&returns,
 	)
@@ -191,7 +193,7 @@ func OracleEngineVersion_VER_12_1_0_2_V18() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V18",
 		&returns,
 	)
@@ -202,7 +204,7 @@ func OracleEngineVersion_VER_12_1_0_2_V19() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V19",
 		&returns,
 	)
@@ -213,7 +215,7 @@ func OracleEngineVersion_VER_12_1_0_2_V2() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V2",
 		&returns,
 	)
@@ -224,7 +226,7 @@ func OracleEngineVersion_VER_12_1_0_2_V20() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V20",
 		&returns,
 	)
@@ -235,7 +237,7 @@ func OracleEngineVersion_VER_12_1_0_2_V21() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V21",
 		&returns,
 	)
@@ -246,7 +248,7 @@ func OracleEngineVersion_VER_12_1_0_2_V22() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V22",
 		&returns,
 	)
@@ -257,7 +259,7 @@ func OracleEngineVersion_VER_12_1_0_2_V23() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V23",
 		&returns,
 	)
@@ -268,7 +270,7 @@ func OracleEngineVersion_VER_12_1_0_2_V24() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V24",
 		&returns,
 	)
@@ -279,7 +281,7 @@ func OracleEngineVersion_VER_12_1_0_2_V3() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V3",
 		&returns,
 	)
@@ -290,7 +292,7 @@ func OracleEngineVersion_VER_12_1_0_2_V4() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V4",
 		&returns,
 	)
@@ -301,7 +303,7 @@ func OracleEngineVersion_VER_12_1_0_2_V5() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V5",
 		&returns,
 	)
@@ -312,7 +314,7 @@ func OracleEngineVersion_VER_12_1_0_2_V6() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V6",
 		&returns,
 	)
@@ -323,7 +325,7 @@ func OracleEngineVersion_VER_12_1_0_2_V7() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V7",
 		&returns,
 	)
@@ -334,7 +336,7 @@ func OracleEngineVersion_VER_12_1_0_2_V8() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V8",
 		&returns,
 	)
@@ -345,7 +347,7 @@ func OracleEngineVersion_VER_12_1_0_2_V9() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V9",
 		&returns,
 	)
@@ -356,7 +358,7 @@ func OracleEngineVersion_VER_12_2() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_2",
 		&returns,
 	)
@@ -367,7 +369,7 @@ func OracleEngineVersion_VER_12_2_0_1_2018_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2018_10_R1",
 		&returns,
 	)
@@ -378,7 +380,7 @@ func OracleEngineVersion_VER_12_2_0_1_2019_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2019_01_R1",
 		&returns,
 	)
@@ -389,7 +391,7 @@ func OracleEngineVersion_VER_12_2_0_1_2019_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2019_04_R1",
 		&returns,
 	)
@@ -400,7 +402,7 @@ func OracleEngineVersion_VER_12_2_0_1_2019_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2019_07_R1",
 		&returns,
 	)
@@ -411,7 +413,7 @@ func OracleEngineVersion_VER_12_2_0_1_2019_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2019_10_R1",
 		&returns,
 	)
@@ -422,7 +424,7 @@ func OracleEngineVersion_VER_12_2_0_1_2020_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2020_01_R1",
 		&returns,
 	)
@@ -433,7 +435,7 @@ func OracleEngineVersion_VER_12_2_0_1_2020_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2020_04_R1",
 		&returns,
 	)
@@ -444,7 +446,7 @@ func OracleEngineVersion_VER_12_2_0_1_2020_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2020_07_R1",
 		&returns,
 	)
@@ -455,7 +457,7 @@ func OracleEngineVersion_VER_12_2_0_1_2020_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2020_10_R1",
 		&returns,
 	)
@@ -466,7 +468,7 @@ func OracleEngineVersion_VER_12_2_0_1_2021_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2021_01_R1",
 		&returns,
 	)
@@ -477,7 +479,7 @@ func OracleEngineVersion_VER_12_2_0_1_2021_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2021_04_R1",
 		&returns,
 	)
@@ -488,7 +490,7 @@ func OracleEngineVersion_VER_18() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_18",
 		&returns,
 	)
@@ -499,7 +501,7 @@ func OracleEngineVersion_VER_18_0_0_0_2019_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2019_07_R1",
 		&returns,
 	)
@@ -510,7 +512,7 @@ func OracleEngineVersion_VER_18_0_0_0_2019_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2019_10_R1",
 		&returns,
 	)
@@ -521,7 +523,7 @@ func OracleEngineVersion_VER_18_0_0_0_2020_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2020_01_R1",
 		&returns,
 	)
@@ -532,7 +534,7 @@ func OracleEngineVersion_VER_18_0_0_0_2020_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2020_04_R1",
 		&returns,
 	)
@@ -543,7 +545,7 @@ func OracleEngineVersion_VER_18_0_0_0_2020_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2020_07_R1",
 		&returns,
 	)
@@ -554,7 +556,7 @@ func OracleEngineVersion_VER_19() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_19",
 		&returns,
 	)
@@ -565,7 +567,7 @@ func OracleEngineVersion_VER_19_0_0_0_2019_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2019_07_R1",
 		&returns,
 	)
@@ -576,7 +578,7 @@ func OracleEngineVersion_VER_19_0_0_0_2019_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2019_10_R1",
 		&returns,
 	)
@@ -587,7 +589,7 @@ func OracleEngineVersion_VER_19_0_0_0_2020_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2020_01_R1",
 		&returns,
 	)
@@ -598,7 +600,7 @@ func OracleEngineVersion_VER_19_0_0_0_2020_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2020_04_R1",
 		&returns,
 	)
@@ -609,7 +611,7 @@ func OracleEngineVersion_VER_19_0_0_0_2020_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2020_07_R1",
 		&returns,
 	)
@@ -620,7 +622,7 @@ func OracleEngineVersion_VER_19_0_0_0_2020_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2020_10_R1",
 		&returns,
 	)
@@ -631,7 +633,7 @@ func OracleEngineVersion_VER_19_0_0_0_2021_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2021_01_R1",
 		&returns,
 	)
@@ -642,7 +644,7 @@ func OracleEngineVersion_VER_19_0_0_0_2021_01_R2() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2021_01_R2",
 		&returns,
 	)
@@ -653,8 +655,63 @@ func OracleEngineVersion_VER_19_0_0_0_2021_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.OracleEngineVersion",
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2021_04_R1",
+		&returns,
+	)
+	return returns
+}
+
+func OracleEngineVersion_VER_19_0_0_0_2021_07_R1() OracleEngineVersion {
+	_init_.Initialize()
+	var returns OracleEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"VER_19_0_0_0_2021_07_R1",
+		&returns,
+	)
+	return returns
+}
+
+func OracleEngineVersion_VER_19_0_0_0_2021_10_R1() OracleEngineVersion {
+	_init_.Initialize()
+	var returns OracleEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"VER_19_0_0_0_2021_10_R1",
+		&returns,
+	)
+	return returns
+}
+
+func OracleEngineVersion_VER_19_0_0_0_2022_01_R1() OracleEngineVersion {
+	_init_.Initialize()
+	var returns OracleEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"VER_19_0_0_0_2022_01_R1",
+		&returns,
+	)
+	return returns
+}
+
+func OracleEngineVersion_VER_21() OracleEngineVersion {
+	_init_.Initialize()
+	var returns OracleEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"VER_21",
+		&returns,
+	)
+	return returns
+}
+
+func OracleEngineVersion_VER_21_0_0_0_2022_01_R1() OracleEngineVersion {
+	_init_.Initialize()
+	var returns OracleEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"VER_21_0_0_0_2022_01_R1",
 		&returns,
 	)
 	return returns

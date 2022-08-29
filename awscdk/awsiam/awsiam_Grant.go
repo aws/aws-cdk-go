@@ -1,11 +1,11 @@
 package awsiam
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Result of a grant() operation.
@@ -14,6 +14,7 @@ import (
 // required to call the Grant factory functions.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var instance instance
 //   var volume volume
 //
@@ -25,35 +26,29 @@ import (
 //   	instance,
 //   })
 //
-// Experimental.
 type Grant interface {
-	awscdk.IDependable
+	constructs.IDependable
 	// The statement that was added to the principal's policy.
 	//
 	// Can be accessed to (e.g.) add additional conditions to the statement.
-	// Experimental.
 	PrincipalStatement() PolicyStatement
 	// The statement that was added to the resource policy.
 	//
 	// Can be accessed to (e.g.) add additional conditions to the statement.
-	// Experimental.
 	ResourceStatement() PolicyStatement
 	// Whether the grant operation was successful.
-	// Experimental.
 	Success() *bool
 	// Make sure this grant is applied before the given constructs are deployed.
 	//
 	// The same as construct.node.addDependency(grant), but slightly nicer to read.
-	// Experimental.
-	ApplyBefore(constructs ...awscdk.IConstruct)
+	ApplyBefore(constructs ...constructs.IConstruct)
 	// Throw an error if this grant wasn't successful.
-	// Experimental.
 	AssertSuccess()
 }
 
 // The jsii proxy struct for Grant
 type jsiiProxy_Grant struct {
-	internal.Type__awscdkIDependable
+	internal.Type__constructsIDependable
 }
 
 func (j *jsiiProxy_Grant) PrincipalStatement() PolicyStatement {
@@ -91,14 +86,13 @@ func (j *jsiiProxy_Grant) Success() *bool {
 //
 // Absence of a principal leads to a warning, but failing to add
 // the permissions to a present principal is not an error.
-// Experimental.
 func Grant_AddToPrincipal(options *GrantOnPrincipalOptions) Grant {
 	_init_.Initialize()
 
 	var returns Grant
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iam.Grant",
+		"aws-cdk-lib.aws_iam.Grant",
 		"addToPrincipal",
 		[]interface{}{options},
 		&returns,
@@ -114,14 +108,13 @@ func Grant_AddToPrincipal(options *GrantOnPrincipalOptions) Grant {
 // never fail.
 //
 // Statement will be the resource statement.
-// Experimental.
 func Grant_AddToPrincipalAndResource(options *GrantOnPrincipalAndResourceOptions) Grant {
 	_init_.Initialize()
 
 	var returns Grant
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iam.Grant",
+		"aws-cdk-lib.aws_iam.Grant",
 		"addToPrincipalAndResource",
 		[]interface{}{options},
 		&returns,
@@ -142,14 +135,13 @@ func Grant_AddToPrincipalAndResource(options *GrantOnPrincipalAndResourceOptions
 // - Trying to grant permissions to an absent principal (possible in the
 //    case of imported resources) leads to a warning being added to the
 //    resource construct.
-// Experimental.
 func Grant_AddToPrincipalOrResource(options *GrantWithResourceOptions) Grant {
 	_init_.Initialize()
 
 	var returns Grant
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iam.Grant",
+		"aws-cdk-lib.aws_iam.Grant",
 		"addToPrincipalOrResource",
 		[]interface{}{options},
 		&returns,
@@ -162,14 +154,13 @@ func Grant_AddToPrincipalOrResource(options *GrantWithResourceOptions) Grant {
 //
 // This can be used for e.g. imported resources where you may not be able to modify
 // the resource's policy or some underlying policy which you don't know about.
-// Experimental.
 func Grant_Drop(grantee IGrantable, _intent *string) Grant {
 	_init_.Initialize()
 
 	var returns Grant
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_iam.Grant",
+		"aws-cdk-lib.aws_iam.Grant",
 		"drop",
 		[]interface{}{grantee, _intent},
 		&returns,
@@ -178,7 +169,7 @@ func Grant_Drop(grantee IGrantable, _intent *string) Grant {
 	return returns
 }
 
-func (g *jsiiProxy_Grant) ApplyBefore(constructs ...awscdk.IConstruct) {
+func (g *jsiiProxy_Grant) ApplyBefore(constructs ...constructs.IConstruct) {
 	args := []interface{}{}
 	for _, a := range constructs {
 		args = append(args, a)

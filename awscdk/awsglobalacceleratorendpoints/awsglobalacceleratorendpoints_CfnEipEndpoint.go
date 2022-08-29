@@ -1,12 +1,12 @@
 package awsglobalacceleratorendpoints
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalaccelerator"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalacceleratorendpoints/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalacceleratorendpoints/internal"
 )
 
 // Use an EC2 Instance as a Global Accelerator Endpoint.
@@ -24,16 +24,13 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type CfnEipEndpoint interface {
 	awsglobalaccelerator.IEndpoint
 	// The region where the endpoint is located.
 	//
 	// If the region cannot be determined, `undefined` is returned.
-	// Experimental.
 	Region() *string
 	// Render the endpoint to an endpoint configuration.
-	// Experimental.
 	RenderEndpointConfiguration() interface{}
 }
 
@@ -53,14 +50,13 @@ func (j *jsiiProxy_CfnEipEndpoint) Region() *string {
 }
 
 
-// Experimental.
 func NewCfnEipEndpoint(eip awsec2.CfnEIP, options *CfnEipEndpointProps) CfnEipEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEipEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.CfnEipEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.CfnEipEndpoint",
 		[]interface{}{eip, options},
 		&j,
 	)
@@ -68,12 +64,11 @@ func NewCfnEipEndpoint(eip awsec2.CfnEIP, options *CfnEipEndpointProps) CfnEipEn
 	return &j
 }
 
-// Experimental.
 func NewCfnEipEndpoint_Override(c CfnEipEndpoint, eip awsec2.CfnEIP, options *CfnEipEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.CfnEipEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.CfnEipEndpoint",
 		[]interface{}{eip, options},
 		c,
 	)

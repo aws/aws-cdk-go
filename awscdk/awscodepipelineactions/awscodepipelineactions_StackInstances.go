@@ -1,15 +1,16 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 )
 
 // Where Stack Instances will be created from the StackSet.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var pipeline pipeline
 //   var sourceOutput artifact
 //
@@ -51,7 +52,6 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type StackInstances interface {
 }
 
@@ -60,12 +60,11 @@ type jsiiProxy_StackInstances struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewStackInstances_Override(s StackInstances) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.StackInstances",
+		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
 		nil, // no parameters
 		s,
 	)
@@ -88,14 +87,13 @@ func NewStackInstances_Override(s StackInstances) {
 //
 // If this is set of Organizational Units, you must have selected `StackSetDeploymentModel.organizations()`
 // as deployment model.
-// Experimental.
 func StackInstances_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath, regions *[]*string) StackInstances {
 	_init_.Initialize()
 
 	var returns StackInstances
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.StackInstances",
+		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
 		"fromArtifactPath",
 		[]interface{}{artifactPath, regions},
 		&returns,
@@ -112,14 +110,13 @@ func StackInstances_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath, 
 // > have exactly the same behavior, and you can use them interchangeably if you want.
 // > The only difference between them is that your code clearly indicates what entity
 // > it's working with.
-// Experimental.
 func StackInstances_InAccounts(accounts *[]*string, regions *[]*string) StackInstances {
 	_init_.Initialize()
 
 	var returns StackInstances
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.StackInstances",
+		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
 		"inAccounts",
 		[]interface{}{accounts, regions},
 		&returns,
@@ -139,14 +136,13 @@ func StackInstances_InAccounts(accounts *[]*string, regions *[]*string) StackIns
 // > have exactly the same behavior, and you can use them interchangeably if you want.
 // > The only difference between them is that your code clearly indicates what entity
 // > it's working with.
-// Experimental.
 func StackInstances_InOrganizationalUnits(ous *[]*string, regions *[]*string) StackInstances {
 	_init_.Initialize()
 
 	var returns StackInstances
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.StackInstances",
+		"aws-cdk-lib.aws_codepipeline_actions.StackInstances",
 		"inOrganizationalUnits",
 		[]interface{}{ous, regions},
 		&returns,

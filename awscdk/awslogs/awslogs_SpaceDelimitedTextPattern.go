@@ -1,7 +1,7 @@
 package awslogs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -12,16 +12,12 @@ import (
 //   // result code is not equal to 200.
 //   pattern := logs.filterPattern.spaceDelimited(jsii.String("time"), jsii.String("component"), jsii.String("..."), jsii.String("result_code"), jsii.String("latency")).whereString(jsii.String("component"), jsii.String("="), jsii.String("HttpServer")).whereNumber(jsii.String("result_code"), jsii.String("!="), jsii.Number(200))
 //
-// Experimental.
 type SpaceDelimitedTextPattern interface {
 	IFilterPattern
-	// Experimental.
 	LogPatternString() *string
 	// Restrict where the pattern applies.
-	// Experimental.
 	WhereNumber(columnName *string, comparison *string, value *float64) SpaceDelimitedTextPattern
 	// Restrict where the pattern applies.
-	// Experimental.
 	WhereString(columnName *string, comparison *string, value *string) SpaceDelimitedTextPattern
 }
 
@@ -41,14 +37,13 @@ func (j *jsiiProxy_SpaceDelimitedTextPattern) LogPatternString() *string {
 }
 
 
-// Experimental.
 func NewSpaceDelimitedTextPattern(columns *[]*string, restrictions *map[string]*[]*ColumnRestriction) SpaceDelimitedTextPattern {
 	_init_.Initialize()
 
 	j := jsiiProxy_SpaceDelimitedTextPattern{}
 
 	_jsii_.Create(
-		"monocdk.aws_logs.SpaceDelimitedTextPattern",
+		"aws-cdk-lib.aws_logs.SpaceDelimitedTextPattern",
 		[]interface{}{columns, restrictions},
 		&j,
 	)
@@ -56,12 +51,11 @@ func NewSpaceDelimitedTextPattern(columns *[]*string, restrictions *map[string]*
 	return &j
 }
 
-// Experimental.
 func NewSpaceDelimitedTextPattern_Override(s SpaceDelimitedTextPattern, columns *[]*string, restrictions *map[string]*[]*ColumnRestriction) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_logs.SpaceDelimitedTextPattern",
+		"aws-cdk-lib.aws_logs.SpaceDelimitedTextPattern",
 		[]interface{}{columns, restrictions},
 		s,
 	)
@@ -74,14 +68,13 @@ func NewSpaceDelimitedTextPattern_Override(s SpaceDelimitedTextPattern, columns 
 // argument in the constructor. Since we're returning a copy on every mutation, and we
 // don't want to re-validate the same things on every construction, we provide a limited
 // set of mutator functions and only validate the new data every time.
-// Experimental.
 func SpaceDelimitedTextPattern_Construct(columns *[]*string) SpaceDelimitedTextPattern {
 	_init_.Initialize()
 
 	var returns SpaceDelimitedTextPattern
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_logs.SpaceDelimitedTextPattern",
+		"aws-cdk-lib.aws_logs.SpaceDelimitedTextPattern",
 		"construct",
 		[]interface{}{columns},
 		&returns,

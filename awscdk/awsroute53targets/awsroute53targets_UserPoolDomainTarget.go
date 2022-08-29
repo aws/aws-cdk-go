@@ -1,12 +1,12 @@
 package awsroute53targets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscognito"
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53targets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53targets/internal"
 )
 
 // Use a user pool domain as an alias record target.
@@ -22,11 +22,9 @@ import (
 //   	target: route53.recordTarget.fromAlias(targets.NewUserPoolDomainTarget(domain)),
 //   })
 //
-// Experimental.
 type UserPoolDomainTarget interface {
 	awsroute53.IAliasRecordTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	// Experimental.
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
@@ -35,14 +33,13 @@ type jsiiProxy_UserPoolDomainTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
 func NewUserPoolDomainTarget(domain awscognito.UserPoolDomain) UserPoolDomainTarget {
 	_init_.Initialize()
 
 	j := jsiiProxy_UserPoolDomainTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.UserPoolDomainTarget",
+		"aws-cdk-lib.aws_route53_targets.UserPoolDomainTarget",
 		[]interface{}{domain},
 		&j,
 	)
@@ -50,12 +47,11 @@ func NewUserPoolDomainTarget(domain awscognito.UserPoolDomain) UserPoolDomainTar
 	return &j
 }
 
-// Experimental.
 func NewUserPoolDomainTarget_Override(u UserPoolDomainTarget, domain awscognito.UserPoolDomain) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.UserPoolDomainTarget",
+		"aws-cdk-lib.aws_route53_targets.UserPoolDomainTarget",
 		[]interface{}{domain},
 		u,
 	)

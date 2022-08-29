@@ -1,13 +1,14 @@
 package awscodebuild
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // BuildSpec for CodeBuild projects.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   // later:
 //   var project pipelineProject
 //   sourceOutput := codepipeline.NewArtifact()
@@ -42,13 +43,10 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type BuildSpec interface {
 	// Whether the buildspec is directly available or deferred until build-time.
-	// Experimental.
 	IsImmediate() *bool
 	// Render the represented BuildSpec.
-	// Experimental.
 	ToBuildSpec() *string
 }
 
@@ -68,25 +66,23 @@ func (j *jsiiProxy_BuildSpec) IsImmediate() *bool {
 }
 
 
-// Experimental.
 func NewBuildSpec_Override(b BuildSpec) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codebuild.BuildSpec",
+		"aws-cdk-lib.aws_codebuild.BuildSpec",
 		nil, // no parameters
 		b,
 	)
 }
 
-// Experimental.
 func BuildSpec_FromObject(value *map[string]interface{}) BuildSpec {
 	_init_.Initialize()
 
 	var returns BuildSpec
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codebuild.BuildSpec",
+		"aws-cdk-lib.aws_codebuild.BuildSpec",
 		"fromObject",
 		[]interface{}{value},
 		&returns,
@@ -96,14 +92,13 @@ func BuildSpec_FromObject(value *map[string]interface{}) BuildSpec {
 }
 
 // Create a buildspec from an object that will be rendered as YAML in the resulting CloudFormation template.
-// Experimental.
 func BuildSpec_FromObjectToYaml(value *map[string]interface{}) BuildSpec {
 	_init_.Initialize()
 
 	var returns BuildSpec
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codebuild.BuildSpec",
+		"aws-cdk-lib.aws_codebuild.BuildSpec",
 		"fromObjectToYaml",
 		[]interface{}{value},
 		&returns,
@@ -115,14 +110,13 @@ func BuildSpec_FromObjectToYaml(value *map[string]interface{}) BuildSpec {
 // Use a file from the source as buildspec.
 //
 // Use this if you want to use a file different from 'buildspec.yml'`
-// Experimental.
 func BuildSpec_FromSourceFilename(filename *string) BuildSpec {
 	_init_.Initialize()
 
 	var returns BuildSpec
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codebuild.BuildSpec",
+		"aws-cdk-lib.aws_codebuild.BuildSpec",
 		"fromSourceFilename",
 		[]interface{}{filename},
 		&returns,

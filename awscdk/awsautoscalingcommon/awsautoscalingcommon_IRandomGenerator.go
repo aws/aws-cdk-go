@@ -4,11 +4,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// Experimental.
 type IRandomGenerator interface {
-	// Experimental.
 	NextBoolean() *bool
-	// Experimental.
 	NextInt(min *float64, max *float64) *float64
 }
 

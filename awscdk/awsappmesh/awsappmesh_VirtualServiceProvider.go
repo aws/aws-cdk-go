@@ -1,15 +1,16 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents the properties needed to define the provider for a VirtualService.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //
@@ -25,10 +26,8 @@ import (
 //
 //   node.addBackend(appmesh.backend.virtualService(virtualService))
 //
-// Experimental.
 type VirtualServiceProvider interface {
 	// Enforces mutual exclusivity for VirtualService provider types.
-	// Experimental.
 	Bind(_construct constructs.Construct) *VirtualServiceProviderConfig
 }
 
@@ -37,12 +36,11 @@ type jsiiProxy_VirtualServiceProvider struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewVirtualServiceProvider_Override(v VirtualServiceProvider) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appmesh.VirtualServiceProvider",
+		"aws-cdk-lib.aws_appmesh.VirtualServiceProvider",
 		nil, // no parameters
 		v,
 	)
@@ -52,14 +50,13 @@ func NewVirtualServiceProvider_Override(v VirtualServiceProvider) {
 //
 // This provides no routing capabilities
 // and should only be used as a placeholder.
-// Experimental.
 func VirtualServiceProvider_None(mesh IMesh) VirtualServiceProvider {
 	_init_.Initialize()
 
 	var returns VirtualServiceProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.VirtualServiceProvider",
+		"aws-cdk-lib.aws_appmesh.VirtualServiceProvider",
 		"none",
 		[]interface{}{mesh},
 		&returns,
@@ -69,14 +66,13 @@ func VirtualServiceProvider_None(mesh IMesh) VirtualServiceProvider {
 }
 
 // Returns a VirtualNode based Provider for a VirtualService.
-// Experimental.
 func VirtualServiceProvider_VirtualNode(virtualNode IVirtualNode) VirtualServiceProvider {
 	_init_.Initialize()
 
 	var returns VirtualServiceProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.VirtualServiceProvider",
+		"aws-cdk-lib.aws_appmesh.VirtualServiceProvider",
 		"virtualNode",
 		[]interface{}{virtualNode},
 		&returns,
@@ -86,14 +82,13 @@ func VirtualServiceProvider_VirtualNode(virtualNode IVirtualNode) VirtualService
 }
 
 // Returns a VirtualRouter based Provider for a VirtualService.
-// Experimental.
 func VirtualServiceProvider_VirtualRouter(virtualRouter IVirtualRouter) VirtualServiceProvider {
 	_init_.Initialize()
 
 	var returns VirtualServiceProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.VirtualServiceProvider",
+		"aws-cdk-lib.aws_appmesh.VirtualServiceProvider",
 		"virtualRouter",
 		[]interface{}{virtualRouter},
 		&returns,

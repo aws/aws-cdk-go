@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -49,11 +49,9 @@ import (
 //
 // See: https://docs.aws.amazon.com/AmazonECS/latest/userguide/launch_types.html#launch-type-ec2
 //
-// Experimental.
 type EcsEc2LaunchTarget interface {
 	IEcsLaunchTarget
 	// Called when the EC2 launch type is configured on RunTask.
-	// Experimental.
 	Bind(_task EcsRunTask, launchTargetOptions *LaunchTargetBindOptions) *EcsLaunchTargetConfig
 }
 
@@ -62,14 +60,13 @@ type jsiiProxy_EcsEc2LaunchTarget struct {
 	jsiiProxy_IEcsLaunchTarget
 }
 
-// Experimental.
 func NewEcsEc2LaunchTarget(options *EcsEc2LaunchTargetOptions) EcsEc2LaunchTarget {
 	_init_.Initialize()
 
 	j := jsiiProxy_EcsEc2LaunchTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
 		[]interface{}{options},
 		&j,
 	)
@@ -77,12 +74,11 @@ func NewEcsEc2LaunchTarget(options *EcsEc2LaunchTargetOptions) EcsEc2LaunchTarge
 	return &j
 }
 
-// Experimental.
 func NewEcsEc2LaunchTarget_Override(e EcsEc2LaunchTarget, options *EcsEc2LaunchTargetOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
 		[]interface{}{options},
 		e,
 	)

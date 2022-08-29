@@ -3,35 +3,30 @@ package awselasticloadbalancingv2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An application load balancer.
-// Experimental.
 type IApplicationLoadBalancer interface {
 	awsec2.IConnectable
 	ILoadBalancerV2
 	// Add a new listener to this load balancer.
-	// Experimental.
 	AddListener(id *string, props *BaseApplicationListenerProps) ApplicationListener
 	// The IP Address Type for this load balancer.
-	// Experimental.
 	IpAddressType() IpAddressType
 	// A list of listeners that have been added to the load balancer.
 	//
 	// This list is only valid for owned constructs.
-	// Experimental.
 	Listeners() *[]ApplicationListener
 	// The ARN of this load balancer.
-	// Experimental.
 	LoadBalancerArn() *string
 	// The VPC this load balancer has been created in (if available).
 	//
 	// If this interface is the result of an import call to fromApplicationLoadBalancerAttributes,
 	// the vpc attribute will be undefined unless specified in the optional properties of that method.
-	// Experimental.
 	Vpc() awsec2.IVpc
 }
 
@@ -142,8 +137,8 @@ func (j *jsiiProxy_IApplicationLoadBalancer) LoadBalancerDnsName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IApplicationLoadBalancer) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_IApplicationLoadBalancer) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",

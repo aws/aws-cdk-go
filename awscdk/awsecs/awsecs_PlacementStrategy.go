@@ -1,7 +1,7 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -49,10 +49,8 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type PlacementStrategy interface {
 	// Return the placement JSON.
-	// Experimental.
 	ToJson() *[]*CfnService_PlacementStrategyProperty
 }
 
@@ -62,14 +60,13 @@ type jsiiProxy_PlacementStrategy struct {
 }
 
 // Places tasks on the container instances with the least available capacity of the specified resource.
-// Experimental.
 func PlacementStrategy_PackedBy(resource BinPackResource) PlacementStrategy {
 	_init_.Initialize()
 
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.PlacementStrategy",
+		"aws-cdk-lib.aws_ecs.PlacementStrategy",
 		"packedBy",
 		[]interface{}{resource},
 		&returns,
@@ -81,14 +78,13 @@ func PlacementStrategy_PackedBy(resource BinPackResource) PlacementStrategy {
 // Places tasks on container instances with the least available amount of CPU capacity.
 //
 // This minimizes the number of instances in use.
-// Experimental.
 func PlacementStrategy_PackedByCpu() PlacementStrategy {
 	_init_.Initialize()
 
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.PlacementStrategy",
+		"aws-cdk-lib.aws_ecs.PlacementStrategy",
 		"packedByCpu",
 		nil, // no parameters
 		&returns,
@@ -100,14 +96,13 @@ func PlacementStrategy_PackedByCpu() PlacementStrategy {
 // Places tasks on container instances with the least available amount of memory capacity.
 //
 // This minimizes the number of instances in use.
-// Experimental.
 func PlacementStrategy_PackedByMemory() PlacementStrategy {
 	_init_.Initialize()
 
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.PlacementStrategy",
+		"aws-cdk-lib.aws_ecs.PlacementStrategy",
 		"packedByMemory",
 		nil, // no parameters
 		&returns,
@@ -117,14 +112,13 @@ func PlacementStrategy_PackedByMemory() PlacementStrategy {
 }
 
 // Places tasks randomly.
-// Experimental.
 func PlacementStrategy_Randomly() PlacementStrategy {
 	_init_.Initialize()
 
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.PlacementStrategy",
+		"aws-cdk-lib.aws_ecs.PlacementStrategy",
 		"randomly",
 		nil, // no parameters
 		&returns,
@@ -138,7 +132,6 @@ func PlacementStrategy_Randomly() PlacementStrategy {
 // You can use one of the built-in attributes found on `BuiltInAttributes`
 // or supply your own custom instance attributes. If more than one attribute
 // is supplied, spreading is done in order.
-// Experimental.
 func PlacementStrategy_SpreadAcross(fields ...*string) PlacementStrategy {
 	_init_.Initialize()
 
@@ -150,7 +143,7 @@ func PlacementStrategy_SpreadAcross(fields ...*string) PlacementStrategy {
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.PlacementStrategy",
+		"aws-cdk-lib.aws_ecs.PlacementStrategy",
 		"spreadAcross",
 		args,
 		&returns,
@@ -160,14 +153,13 @@ func PlacementStrategy_SpreadAcross(fields ...*string) PlacementStrategy {
 }
 
 // Places tasks evenly across all container instances in the cluster.
-// Experimental.
 func PlacementStrategy_SpreadAcrossInstances() PlacementStrategy {
 	_init_.Initialize()
 
 	var returns PlacementStrategy
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.PlacementStrategy",
+		"aws-cdk-lib.aws_ecs.PlacementStrategy",
 		"spreadAcrossInstances",
 		nil, // no parameters
 		&returns,

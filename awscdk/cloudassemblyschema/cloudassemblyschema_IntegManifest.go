@@ -141,13 +141,10 @@ package cloudassemblyschema
 //   	},
 //   }
 //
-// Experimental.
 type IntegManifest struct {
 	// test cases.
-	// Experimental.
 	TestCases *map[string]*TestCase `field:"required" json:"testCases" yaml:"testCases"`
 	// Version of the manifest.
-	// Experimental.
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// Enable lookups for this test.
 	//
@@ -155,13 +152,11 @@ type IntegManifest struct {
 	// then `stackUpdateWorkflow` must be set to false.
 	// Lookups should only be enabled when you are explicitely testing
 	// lookups.
-	// Experimental.
 	EnableLookups *bool `field:"optional" json:"enableLookups" yaml:"enableLookups"`
 	// Additional context to use when performing a synth.
 	//
 	// Any context provided here will override
 	// any default context.
-	// Experimental.
 	SynthContext *map[string]*string `field:"optional" json:"synthContext" yaml:"synthContext"`
 }
 

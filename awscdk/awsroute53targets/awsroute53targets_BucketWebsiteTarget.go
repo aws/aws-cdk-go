@@ -1,12 +1,12 @@
 package awsroute53targets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53targets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53targets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 )
 
 // Use a S3 as an alias record target.
@@ -40,11 +40,9 @@ import (
 //   	target: route53.recordTarget.fromAlias(targets.NewBucketWebsiteTarget(bucketWebsite)),
 //   })
 //
-// Experimental.
 type BucketWebsiteTarget interface {
 	awsroute53.IAliasRecordTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	// Experimental.
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
@@ -53,14 +51,13 @@ type jsiiProxy_BucketWebsiteTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
 func NewBucketWebsiteTarget(bucket awss3.IBucket) BucketWebsiteTarget {
 	_init_.Initialize()
 
 	j := jsiiProxy_BucketWebsiteTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.BucketWebsiteTarget",
+		"aws-cdk-lib.aws_route53_targets.BucketWebsiteTarget",
 		[]interface{}{bucket},
 		&j,
 	)
@@ -68,12 +65,11 @@ func NewBucketWebsiteTarget(bucket awss3.IBucket) BucketWebsiteTarget {
 	return &j
 }
 
-// Experimental.
 func NewBucketWebsiteTarget_Override(b BucketWebsiteTarget, bucket awss3.IBucket) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.BucketWebsiteTarget",
+		"aws-cdk-lib.aws_route53_targets.BucketWebsiteTarget",
 		[]interface{}{bucket},
 		b,
 	)

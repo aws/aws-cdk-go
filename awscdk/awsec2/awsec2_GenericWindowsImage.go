@@ -1,10 +1,10 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Construct a Windows machine image from an AMI map.
@@ -24,12 +24,10 @@ import (
 //   	userData: userData,
 //   })
 //
-// Experimental.
 type GenericWindowsImage interface {
 	IMachineImage
 	// Return the image to use in the given context.
-	// Experimental.
-	GetImage(scope awscdk.Construct) *MachineImageConfig
+	GetImage(scope constructs.Construct) *MachineImageConfig
 }
 
 // The jsii proxy struct for GenericWindowsImage
@@ -37,14 +35,13 @@ type jsiiProxy_GenericWindowsImage struct {
 	jsiiProxy_IMachineImage
 }
 
-// Experimental.
 func NewGenericWindowsImage(amiMap *map[string]*string, props *GenericWindowsImageProps) GenericWindowsImage {
 	_init_.Initialize()
 
 	j := jsiiProxy_GenericWindowsImage{}
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.GenericWindowsImage",
+		"aws-cdk-lib.aws_ec2.GenericWindowsImage",
 		[]interface{}{amiMap, props},
 		&j,
 	)
@@ -52,18 +49,17 @@ func NewGenericWindowsImage(amiMap *map[string]*string, props *GenericWindowsIma
 	return &j
 }
 
-// Experimental.
 func NewGenericWindowsImage_Override(g GenericWindowsImage, amiMap *map[string]*string, props *GenericWindowsImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.GenericWindowsImage",
+		"aws-cdk-lib.aws_ec2.GenericWindowsImage",
 		[]interface{}{amiMap, props},
 		g,
 	)
 }
 
-func (g *jsiiProxy_GenericWindowsImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
+func (g *jsiiProxy_GenericWindowsImage) GetImage(scope constructs.Construct) *MachineImageConfig {
 	var returns *MachineImageConfig
 
 	_jsii_.Invoke(

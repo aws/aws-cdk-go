@@ -1,12 +1,12 @@
 package awsglobalacceleratorendpoints
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalaccelerator"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalacceleratorendpoints/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalacceleratorendpoints/internal"
 )
 
 // Use an Application Load Balancer as a Global Accelerator Endpoint.
@@ -25,16 +25,13 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type ApplicationLoadBalancerEndpoint interface {
 	awsglobalaccelerator.IEndpoint
 	// The region where the endpoint is located.
 	//
 	// If the region cannot be determined, `undefined` is returned.
-	// Experimental.
 	Region() *string
 	// Render the endpoint to an endpoint configuration.
-	// Experimental.
 	RenderEndpointConfiguration() interface{}
 }
 
@@ -54,14 +51,13 @@ func (j *jsiiProxy_ApplicationLoadBalancerEndpoint) Region() *string {
 }
 
 
-// Experimental.
 func NewApplicationLoadBalancerEndpoint(loadBalancer awselasticloadbalancingv2.IApplicationLoadBalancer, options *ApplicationLoadBalancerEndpointOptions) ApplicationLoadBalancerEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_ApplicationLoadBalancerEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
 		[]interface{}{loadBalancer, options},
 		&j,
 	)
@@ -69,12 +65,11 @@ func NewApplicationLoadBalancerEndpoint(loadBalancer awselasticloadbalancingv2.I
 	return &j
 }
 
-// Experimental.
 func NewApplicationLoadBalancerEndpoint_Override(a ApplicationLoadBalancerEndpoint, loadBalancer awselasticloadbalancingv2.IApplicationLoadBalancer, options *ApplicationLoadBalancerEndpointOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
 		[]interface{}{loadBalancer, options},
 		a,
 	)

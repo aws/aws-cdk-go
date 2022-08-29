@@ -1,13 +1,14 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // A collection of configuration elements.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
@@ -61,13 +62,10 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type InitConfig interface {
 	// Add one or more elements to the config.
-	// Experimental.
 	Add(elements ...InitElement)
 	// Whether this configset has elements or not.
-	// Experimental.
 	IsEmpty() *bool
 }
 
@@ -76,14 +74,13 @@ type jsiiProxy_InitConfig struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewInitConfig(elements *[]InitElement) InitConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_InitConfig{}
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.InitConfig",
+		"aws-cdk-lib.aws_ec2.InitConfig",
 		[]interface{}{elements},
 		&j,
 	)
@@ -91,12 +88,11 @@ func NewInitConfig(elements *[]InitElement) InitConfig {
 	return &j
 }
 
-// Experimental.
 func NewInitConfig_Override(i InitConfig, elements *[]InitElement) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.InitConfig",
+		"aws-cdk-lib.aws_ec2.InitConfig",
 		[]interface{}{elements},
 		i,
 	)

@@ -5,23 +5,17 @@ import (
 )
 
 // A Role object.
-// Experimental.
 type IRole interface {
 	IIdentity
 	// Grant the actions defined in actions to the identity Principal on this resource.
-	// Experimental.
 	Grant(grantee IPrincipal, actions ...*string) Grant
 	// Grant permissions to the given principal to assume this role.
-	// Experimental.
 	GrantAssumeRole(grantee IPrincipal) Grant
 	// Grant permissions to the given principal to pass this role.
-	// Experimental.
 	GrantPassRole(grantee IPrincipal) Grant
 	// Returns the ARN of this role.
-	// Experimental.
 	RoleArn() *string
 	// Returns the name of this role.
-	// Experimental.
 	RoleName() *string
 }
 

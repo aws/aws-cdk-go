@@ -1,8 +1,8 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -11,7 +11,6 @@ import (
 // Since pseudo parameters need to be anchored to a stack somewhere in the
 // construct tree, this class takes an scope parameter; the pseudo parameter
 // values can be obtained as properties from an scoped object.
-// Experimental.
 type Aws interface {
 }
 
@@ -24,7 +23,7 @@ func Aws_ACCOUNT_ID() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.Aws",
+		"aws-cdk-lib.Aws",
 		"ACCOUNT_ID",
 		&returns,
 	)
@@ -35,7 +34,7 @@ func Aws_NO_VALUE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.Aws",
+		"aws-cdk-lib.Aws",
 		"NO_VALUE",
 		&returns,
 	)
@@ -46,7 +45,7 @@ func Aws_NOTIFICATION_ARNS() *[]*string {
 	_init_.Initialize()
 	var returns *[]*string
 	_jsii_.StaticGet(
-		"monocdk.Aws",
+		"aws-cdk-lib.Aws",
 		"NOTIFICATION_ARNS",
 		&returns,
 	)
@@ -57,7 +56,7 @@ func Aws_PARTITION() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.Aws",
+		"aws-cdk-lib.Aws",
 		"PARTITION",
 		&returns,
 	)
@@ -68,7 +67,7 @@ func Aws_REGION() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.Aws",
+		"aws-cdk-lib.Aws",
 		"REGION",
 		&returns,
 	)
@@ -79,7 +78,7 @@ func Aws_STACK_ID() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.Aws",
+		"aws-cdk-lib.Aws",
 		"STACK_ID",
 		&returns,
 	)
@@ -90,7 +89,7 @@ func Aws_STACK_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.Aws",
+		"aws-cdk-lib.Aws",
 		"STACK_NAME",
 		&returns,
 	)
@@ -101,7 +100,7 @@ func Aws_URL_SUFFIX() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.Aws",
+		"aws-cdk-lib.Aws",
 		"URL_SUFFIX",
 		&returns,
 	)

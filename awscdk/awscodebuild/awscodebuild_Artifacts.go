@@ -1,10 +1,10 @@
 package awscodebuild
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Artifacts definition for a CodeBuild Project.
@@ -26,20 +26,16 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type Artifacts interface {
 	IArtifacts
 	// The artifact identifier.
 	//
 	// This property is required on secondary artifacts.
-	// Experimental.
 	Identifier() *string
 	// The CodeBuild type of this artifact.
-	// Experimental.
 	Type() *string
 	// Callback when an Artifacts class is used in a CodeBuild Project.
-	// Experimental.
-	Bind(_scope awscdk.Construct, _project IProject) *ArtifactsConfig
+	Bind(_scope constructs.Construct, _project IProject) *ArtifactsConfig
 }
 
 // The jsii proxy struct for Artifacts
@@ -68,25 +64,23 @@ func (j *jsiiProxy_Artifacts) Type() *string {
 }
 
 
-// Experimental.
 func NewArtifacts_Override(a Artifacts, props *ArtifactsProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codebuild.Artifacts",
+		"aws-cdk-lib.aws_codebuild.Artifacts",
 		[]interface{}{props},
 		a,
 	)
 }
 
-// Experimental.
 func Artifacts_S3(props *S3ArtifactsProps) IArtifacts {
 	_init_.Initialize()
 
 	var returns IArtifacts
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codebuild.Artifacts",
+		"aws-cdk-lib.aws_codebuild.Artifacts",
 		"s3",
 		[]interface{}{props},
 		&returns,
@@ -95,7 +89,7 @@ func Artifacts_S3(props *S3ArtifactsProps) IArtifacts {
 	return returns
 }
 
-func (a *jsiiProxy_Artifacts) Bind(_scope awscdk.Construct, _project IProject) *ArtifactsConfig {
+func (a *jsiiProxy_Artifacts) Bind(_scope constructs.Construct, _project IProject) *ArtifactsConfig {
 	var returns *ArtifactsConfig
 
 	_jsii_.Invoke(

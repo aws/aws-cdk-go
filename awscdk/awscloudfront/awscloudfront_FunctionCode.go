@@ -1,7 +1,7 @@
 package awscloudfront
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -25,10 +25,8 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type FunctionCode interface {
 	// renders the function code.
-	// Experimental.
 	Render() *string
 }
 
@@ -37,12 +35,11 @@ type jsiiProxy_FunctionCode struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewFunctionCode_Override(f FunctionCode) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront.FunctionCode",
+		"aws-cdk-lib.aws_cloudfront.FunctionCode",
 		nil, // no parameters
 		f,
 	)
@@ -51,14 +48,13 @@ func NewFunctionCode_Override(f FunctionCode) {
 // Code from external file for function.
 //
 // Returns: code object with contents from file.
-// Experimental.
 func FunctionCode_FromFile(options *FileCodeOptions) FunctionCode {
 	_init_.Initialize()
 
 	var returns FunctionCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudfront.FunctionCode",
+		"aws-cdk-lib.aws_cloudfront.FunctionCode",
 		"fromFile",
 		[]interface{}{options},
 		&returns,
@@ -70,14 +66,13 @@ func FunctionCode_FromFile(options *FileCodeOptions) FunctionCode {
 // Inline code for function.
 //
 // Returns: code object with inline code.
-// Experimental.
 func FunctionCode_FromInline(code *string) FunctionCode {
 	_init_.Initialize()
 
 	var returns FunctionCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloudfront.FunctionCode",
+		"aws-cdk-lib.aws_cloudfront.FunctionCode",
 		"fromInline",
 		[]interface{}{code},
 		&returns,

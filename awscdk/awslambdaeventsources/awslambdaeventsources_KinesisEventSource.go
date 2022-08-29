@@ -1,11 +1,11 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awskinesis"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
 // Use an Amazon Kinesis stream as an event source for AWS Lambda.
@@ -24,20 +24,14 @@ import (
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
 //   }))
 //
-// Experimental.
 type KinesisEventSource interface {
 	StreamEventSource
 	// The identifier for this EventSourceMapping.
-	// Experimental.
 	EventSourceMappingId() *string
-	// Experimental.
 	Props() *StreamEventSourceProps
-	// Experimental.
 	Stream() awskinesis.IStream
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
-	// Experimental.
 	Bind(target awslambda.IFunction)
-	// Experimental.
 	EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions
 }
 
@@ -77,14 +71,13 @@ func (j *jsiiProxy_KinesisEventSource) Stream() awskinesis.IStream {
 }
 
 
-// Experimental.
 func NewKinesisEventSource(stream awskinesis.IStream, props *KinesisEventSourceProps) KinesisEventSource {
 	_init_.Initialize()
 
 	j := jsiiProxy_KinesisEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.KinesisEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.KinesisEventSource",
 		[]interface{}{stream, props},
 		&j,
 	)
@@ -92,12 +85,11 @@ func NewKinesisEventSource(stream awskinesis.IStream, props *KinesisEventSourceP
 	return &j
 }
 
-// Experimental.
 func NewKinesisEventSource_Override(k KinesisEventSource, stream awskinesis.IStream, props *KinesisEventSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.KinesisEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.KinesisEventSource",
 		[]interface{}{stream, props},
 		k,
 	)

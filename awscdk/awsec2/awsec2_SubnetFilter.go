@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,10 +16,8 @@ import (
 //   	jsii.String("availabilityZones"),
 //   })
 //
-// Experimental.
 type SubnetFilter interface {
 	// Executes the subnet filtering logic, returning a filtered set of subnets.
-	// Experimental.
 	SelectSubnets(_subnets *[]ISubnet) *[]ISubnet
 }
 
@@ -28,26 +26,24 @@ type jsiiProxy_SubnetFilter struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewSubnetFilter_Override(s SubnetFilter) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.SubnetFilter",
+		"aws-cdk-lib.aws_ec2.SubnetFilter",
 		nil, // no parameters
 		s,
 	)
 }
 
 // Chooses subnets which are in one of the given availability zones.
-// Experimental.
 func SubnetFilter_AvailabilityZones(availabilityZones *[]*string) SubnetFilter {
 	_init_.Initialize()
 
 	var returns SubnetFilter
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.SubnetFilter",
+		"aws-cdk-lib.aws_ec2.SubnetFilter",
 		"availabilityZones",
 		[]interface{}{availabilityZones},
 		&returns,
@@ -57,14 +53,13 @@ func SubnetFilter_AvailabilityZones(availabilityZones *[]*string) SubnetFilter {
 }
 
 // Chooses subnets which have the provided CIDR netmask.
-// Experimental.
 func SubnetFilter_ByCidrMask(mask *float64) SubnetFilter {
 	_init_.Initialize()
 
 	var returns SubnetFilter
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.SubnetFilter",
+		"aws-cdk-lib.aws_ec2.SubnetFilter",
 		"byCidrMask",
 		[]interface{}{mask},
 		&returns,
@@ -74,14 +69,13 @@ func SubnetFilter_ByCidrMask(mask *float64) SubnetFilter {
 }
 
 // Chooses subnets by id.
-// Experimental.
 func SubnetFilter_ByIds(subnetIds *[]*string) SubnetFilter {
 	_init_.Initialize()
 
 	var returns SubnetFilter
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.SubnetFilter",
+		"aws-cdk-lib.aws_ec2.SubnetFilter",
 		"byIds",
 		[]interface{}{subnetIds},
 		&returns,
@@ -91,14 +85,13 @@ func SubnetFilter_ByIds(subnetIds *[]*string) SubnetFilter {
 }
 
 // Chooses subnets which contain any of the specified IP addresses.
-// Experimental.
 func SubnetFilter_ContainsIpAddresses(ipv4addrs *[]*string) SubnetFilter {
 	_init_.Initialize()
 
 	var returns SubnetFilter
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.SubnetFilter",
+		"aws-cdk-lib.aws_ec2.SubnetFilter",
 		"containsIpAddresses",
 		[]interface{}{ipv4addrs},
 		&returns,
@@ -108,14 +101,13 @@ func SubnetFilter_ContainsIpAddresses(ipv4addrs *[]*string) SubnetFilter {
 }
 
 // Chooses subnets such that there is at most one per availability zone.
-// Experimental.
 func SubnetFilter_OnePerAz() SubnetFilter {
 	_init_.Initialize()
 
 	var returns SubnetFilter
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.SubnetFilter",
+		"aws-cdk-lib.aws_ec2.SubnetFilter",
 		"onePerAz",
 		nil, // no parameters
 		&returns,

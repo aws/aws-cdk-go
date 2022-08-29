@@ -1,8 +1,8 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -18,7 +18,7 @@ import (
 //   // Provide a Lambda function that will transform records before delivery, with custom
 //   // buffering and retry configuration
 //   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &functionProps{
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_14_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("process-records"))),
 //   })
@@ -36,35 +36,28 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type Size interface {
 	// Checks if size is a token or a resolvable object.
-	// Experimental.
 	IsUnresolved() *bool
 	// Return this storage as a total number of gibibytes.
 	//
 	// Returns: the quantity of bytes expressed in gibibytes.
-	// Experimental.
 	ToGibibytes(opts *SizeConversionOptions) *float64
 	// Return this storage as a total number of kibibytes.
 	//
 	// Returns: the quantity of bytes expressed in kibibytes.
-	// Experimental.
 	ToKibibytes(opts *SizeConversionOptions) *float64
 	// Return this storage as a total number of mebibytes.
 	//
 	// Returns: the quantity of bytes expressed in mebibytes.
-	// Experimental.
 	ToMebibytes(opts *SizeConversionOptions) *float64
 	// Return this storage as a total number of pebibytes.
 	//
 	// Returns: the quantity of bytes expressed in pebibytes.
-	// Experimental.
 	ToPebibytes(opts *SizeConversionOptions) *float64
 	// Return this storage as a total number of tebibytes.
 	//
 	// Returns: the quantity of bytes expressed in tebibytes.
-	// Experimental.
 	ToTebibytes(opts *SizeConversionOptions) *float64
 }
 
@@ -78,14 +71,13 @@ type jsiiProxy_Size struct {
 // 1 GiB = 1024 MiB.
 //
 // Returns: a new `Size` instance.
-// Experimental.
 func Size_Gibibytes(amount *float64) Size {
 	_init_.Initialize()
 
 	var returns Size
 
 	_jsii_.StaticInvoke(
-		"monocdk.Size",
+		"aws-cdk-lib.Size",
 		"gibibytes",
 		[]interface{}{amount},
 		&returns,
@@ -99,14 +91,13 @@ func Size_Gibibytes(amount *float64) Size {
 // 1 KiB = 1024 bytes.
 //
 // Returns: a new `Size` instance.
-// Experimental.
 func Size_Kibibytes(amount *float64) Size {
 	_init_.Initialize()
 
 	var returns Size
 
 	_jsii_.StaticInvoke(
-		"monocdk.Size",
+		"aws-cdk-lib.Size",
 		"kibibytes",
 		[]interface{}{amount},
 		&returns,
@@ -120,34 +111,14 @@ func Size_Kibibytes(amount *float64) Size {
 // 1 MiB = 1024 KiB.
 //
 // Returns: a new `Size` instance.
-// Experimental.
 func Size_Mebibytes(amount *float64) Size {
 	_init_.Initialize()
 
 	var returns Size
 
 	_jsii_.StaticInvoke(
-		"monocdk.Size",
+		"aws-cdk-lib.Size",
 		"mebibytes",
-		[]interface{}{amount},
-		&returns,
-	)
-
-	return returns
-}
-
-// Create a Storage representing an amount pebibytes.
-//
-// 1 PiB = 1024 TiB.
-// Deprecated: use `pebibytes` instead.
-func Size_Pebibyte(amount *float64) Size {
-	_init_.Initialize()
-
-	var returns Size
-
-	_jsii_.StaticInvoke(
-		"monocdk.Size",
-		"pebibyte",
 		[]interface{}{amount},
 		&returns,
 	)
@@ -160,14 +131,13 @@ func Size_Pebibyte(amount *float64) Size {
 // 1 PiB = 1024 TiB.
 //
 // Returns: a new `Size` instance.
-// Experimental.
 func Size_Pebibytes(amount *float64) Size {
 	_init_.Initialize()
 
 	var returns Size
 
 	_jsii_.StaticInvoke(
-		"monocdk.Size",
+		"aws-cdk-lib.Size",
 		"pebibytes",
 		[]interface{}{amount},
 		&returns,
@@ -181,14 +151,13 @@ func Size_Pebibytes(amount *float64) Size {
 // 1 TiB = 1024 GiB.
 //
 // Returns: a new `Size` instance.
-// Experimental.
 func Size_Tebibytes(amount *float64) Size {
 	_init_.Initialize()
 
 	var returns Size
 
 	_jsii_.StaticInvoke(
-		"monocdk.Size",
+		"aws-cdk-lib.Size",
 		"tebibytes",
 		[]interface{}{amount},
 		&returns,

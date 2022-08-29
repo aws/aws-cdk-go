@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -21,20 +21,17 @@ import (
 //   		 // optional, defaults to the set "\"@/" and is also used for eventually created rotations
 //   		secretName: jsii.String("/myapp/mydocdb/masteruser"),
 //   	},
-//   	instanceType: ec2.instanceType.of(ec2.instanceClass_R5, ec2.instanceSize_LARGE),
+//   	instanceType: ec2.instanceType.of(ec2.instanceClass_MEMORY5, ec2.instanceSize_LARGE),
 //   	vpcSubnets: &subnetSelection{
 //   		subnetType: ec2.subnetType_PUBLIC,
 //   	},
 //   	vpc: vpc,
 //   })
 //
-// Experimental.
 type InstanceType interface {
 	// The instance's CPU architecture.
-	// Experimental.
 	Architecture() InstanceArchitecture
 	// Return the instance type as a dotted string.
-	// Experimental.
 	ToString() *string
 }
 
@@ -54,14 +51,13 @@ func (j *jsiiProxy_InstanceType) Architecture() InstanceArchitecture {
 }
 
 
-// Experimental.
 func NewInstanceType(instanceTypeIdentifier *string) InstanceType {
 	_init_.Initialize()
 
 	j := jsiiProxy_InstanceType{}
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.InstanceType",
+		"aws-cdk-lib.aws_ec2.InstanceType",
 		[]interface{}{instanceTypeIdentifier},
 		&j,
 	)
@@ -69,12 +65,11 @@ func NewInstanceType(instanceTypeIdentifier *string) InstanceType {
 	return &j
 }
 
-// Experimental.
 func NewInstanceType_Override(i InstanceType, instanceTypeIdentifier *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.InstanceType",
+		"aws-cdk-lib.aws_ec2.InstanceType",
 		[]interface{}{instanceTypeIdentifier},
 		i,
 	)
@@ -86,14 +81,13 @@ func NewInstanceType_Override(i InstanceType, instanceTypeIdentifier *string) {
 //
 // Be aware that not all combinations of class and size are available, and not all
 // classes are available in all regions.
-// Experimental.
 func InstanceType_Of(instanceClass InstanceClass, instanceSize InstanceSize) InstanceType {
 	_init_.Initialize()
 
 	var returns InstanceType
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InstanceType",
+		"aws-cdk-lib.aws_ec2.InstanceType",
 		"of",
 		[]interface{}{instanceClass, instanceSize},
 		&returns,

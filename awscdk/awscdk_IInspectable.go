@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
@@ -6,10 +6,8 @@ import (
 )
 
 // Interface for examining a construct and exposing metadata.
-// Experimental.
 type IInspectable interface {
 	// Examines construct.
-	// Experimental.
 	Inspect(inspector TreeInspector)
 }
 

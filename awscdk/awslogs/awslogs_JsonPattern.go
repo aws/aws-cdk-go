@@ -1,7 +1,7 @@
 package awslogs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -13,12 +13,9 @@ import (
 //   // than 1000.
 //   pattern := logs.filterPattern.all(logs.filterPattern.stringValue(jsii.String("$.component"), jsii.String("="), jsii.String("HttpServer")), logs.filterPattern.any(logs.filterPattern.booleanValue(jsii.String("$.error"), jsii.Boolean(true)), logs.filterPattern.numberValue(jsii.String("$.latency"), jsii.String(">"), jsii.Number(1000))))
 //
-// Experimental.
 type JsonPattern interface {
 	IFilterPattern
-	// Experimental.
 	JsonPatternString() *string
-	// Experimental.
 	LogPatternString() *string
 }
 
@@ -48,12 +45,11 @@ func (j *jsiiProxy_JsonPattern) LogPatternString() *string {
 }
 
 
-// Experimental.
 func NewJsonPattern_Override(j JsonPattern, jsonPatternString *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_logs.JsonPattern",
+		"aws-cdk-lib.aws_logs.JsonPattern",
 		[]interface{}{jsonPatternString},
 		j,
 	)

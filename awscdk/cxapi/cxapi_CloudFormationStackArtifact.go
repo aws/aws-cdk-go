@@ -1,10 +1,10 @@
 package cxapi
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
 
 // Example:
@@ -67,28 +67,20 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type CloudFormationStackArtifact interface {
 	CloudArtifact
-	// Experimental.
 	Assembly() CloudAssembly
 	// Any assets associated with this stack.
-	// Experimental.
 	Assets() *[]interface{}
 	// The role that needs to be assumed to deploy the stack.
-	// Experimental.
 	AssumeRoleArn() *string
 	// External ID to use when assuming role for cloudformation deployments.
-	// Experimental.
 	AssumeRoleExternalId() *string
 	// Name of SSM parameter with bootstrap stack version.
-	// Experimental.
 	BootstrapStackVersionSsmParameter() *string
 	// The role that is passed to CloudFormation to execute the change set.
-	// Experimental.
 	CloudFormationExecutionRoleArn() *string
 	// Returns all the artifacts that this artifact depends on.
-	// Experimental.
 	Dependencies() *[]CloudArtifact
 	// A string that represents this stack.
 	//
@@ -96,66 +88,44 @@ type CloudFormationStackArtifact interface {
 	// interfaces. If the stackName has not been set explicitly, or has been set
 	// to artifactId, it will return the hierarchicalId of the stack. Otherwise,
 	// it will return something like "<hierarchicalId> (<stackName>)".
-	// Experimental.
 	DisplayName() *string
 	// The environment into which to deploy this artifact.
-	// Experimental.
 	Environment() *Environment
 	// An identifier that shows where this artifact is located in the tree of nested assemblies, based on their manifests.
 	//
 	// Defaults to the normal
 	// id. Should only be used in user interfaces.
-	// Experimental.
 	HierarchicalId() *string
-	// Experimental.
 	Id() *string
 	// The role to use to look up values from the target AWS account.
-	// Experimental.
 	LookupRole() *cloudassemblyschema.BootstrapRole
 	// The artifact's manifest.
-	// Experimental.
 	Manifest() *cloudassemblyschema.ArtifactManifest
 	// The set of messages extracted from the artifact's metadata.
-	// Experimental.
 	Messages() *[]*SynthesisMessage
-	// The physical name of this stack.
-	// Deprecated: renamed to `stackName`.
-	Name() *string
 	// The original name as defined in the CDK app.
-	// Experimental.
 	OriginalName() *string
 	// CloudFormation parameters to pass to the stack.
-	// Experimental.
 	Parameters() *map[string]*string
 	// Version of bootstrap stack required to deploy this stack.
-	// Experimental.
 	RequiresBootstrapStackVersion() *float64
 	// The physical name of this stack.
-	// Experimental.
 	StackName() *string
 	// If the stack template has already been included in the asset manifest, its asset URL.
-	// Experimental.
 	StackTemplateAssetObjectUrl() *string
 	// CloudFormation tags to pass to the stack.
-	// Experimental.
 	Tags() *map[string]*string
 	// The CloudFormation template for this stack.
-	// Experimental.
 	Template() interface{}
 	// The file name of the template.
-	// Experimental.
 	TemplateFile() *string
 	// Full path to the template file.
-	// Experimental.
 	TemplateFullPath() *string
 	// Whether termination protection is enabled for this stack.
-	// Experimental.
 	TerminationProtection() *bool
 	// Whether this stack should be validated by the CLI after synthesis.
-	// Experimental.
 	ValidateOnSynth() *bool
 	// Returns: all the metadata entries of a specific type in this artifact.
-	// Experimental.
 	FindMetadataByType(type_ *string) *[]*MetadataEntryResult
 }
 
@@ -304,16 +274,6 @@ func (j *jsiiProxy_CloudFormationStackArtifact) Messages() *[]*SynthesisMessage 
 	return returns
 }
 
-func (j *jsiiProxy_CloudFormationStackArtifact) Name() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"name",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CloudFormationStackArtifact) OriginalName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -425,14 +385,13 @@ func (j *jsiiProxy_CloudFormationStackArtifact) ValidateOnSynth() *bool {
 }
 
 
-// Experimental.
 func NewCloudFormationStackArtifact(assembly CloudAssembly, artifactId *string, artifact *cloudassemblyschema.ArtifactManifest) CloudFormationStackArtifact {
 	_init_.Initialize()
 
 	j := jsiiProxy_CloudFormationStackArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudFormationStackArtifact",
+		"aws-cdk-lib.cx_api.CloudFormationStackArtifact",
 		[]interface{}{assembly, artifactId, artifact},
 		&j,
 	)
@@ -440,12 +399,11 @@ func NewCloudFormationStackArtifact(assembly CloudAssembly, artifactId *string, 
 	return &j
 }
 
-// Experimental.
 func NewCloudFormationStackArtifact_Override(c CloudFormationStackArtifact, assembly CloudAssembly, artifactId *string, artifact *cloudassemblyschema.ArtifactManifest) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudFormationStackArtifact",
+		"aws-cdk-lib.cx_api.CloudFormationStackArtifact",
 		[]interface{}{assembly, artifactId, artifact},
 		c,
 	)
@@ -454,14 +412,13 @@ func NewCloudFormationStackArtifact_Override(c CloudFormationStackArtifact, asse
 // Returns a subclass of `CloudArtifact` based on the artifact type defined in the artifact manifest.
 //
 // Returns: the `CloudArtifact` that matches the artifact type or `undefined` if it's an artifact type that is unrecognized by this module.
-// Experimental.
 func CloudFormationStackArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.CloudFormationStackArtifact",
+		"aws-cdk-lib.cx_api.CloudFormationStackArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,

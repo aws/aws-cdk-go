@@ -1,24 +1,20 @@
 package awscloudfront
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a distribution origin, that describes the Amazon S3 bucket, HTTP server (for example, a web server), Amazon MediaStore, or other server from which CloudFront gets your files.
-// Experimental.
 type OriginBase interface {
 	IOrigin
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	// Experimental.
-	Bind(_scope awscdk.Construct, options *OriginBindOptions) *OriginBindConfig
-	// Experimental.
+	Bind(_scope constructs.Construct, options *OriginBindOptions) *OriginBindConfig
 	RenderCustomOriginConfig() *CfnDistribution_CustomOriginConfigProperty
-	// Experimental.
 	RenderS3OriginConfig() *CfnDistribution_S3OriginConfigProperty
 }
 
@@ -27,18 +23,17 @@ type jsiiProxy_OriginBase struct {
 	jsiiProxy_IOrigin
 }
 
-// Experimental.
 func NewOriginBase_Override(o OriginBase, domainName *string, props *OriginProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudfront.OriginBase",
+		"aws-cdk-lib.aws_cloudfront.OriginBase",
 		[]interface{}{domainName, props},
 		o,
 	)
 }
 
-func (o *jsiiProxy_OriginBase) Bind(_scope awscdk.Construct, options *OriginBindOptions) *OriginBindConfig {
+func (o *jsiiProxy_OriginBase) Bind(_scope constructs.Construct, options *OriginBindOptions) *OriginBindConfig {
 	var returns *OriginBindConfig
 
 	_jsii_.Invoke(

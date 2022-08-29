@@ -1,12 +1,12 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Example:
@@ -44,27 +44,20 @@ import (
 //   	variablesNamespace: jsii.String("variablesNamespace"),
 //   })
 //
-// Experimental.
 type CodeDeployEcsDeployAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
 	// Note that this accessor will be called before the {@link bind} callback.
-	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
 	// This is a renamed version of the {@link IAction.actionProperties} property.
-	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The callback invoked when this Action is added to a Pipeline.
-	// Experimental.
-	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the {@link IAction.bind} method.
-	// Experimental.
-	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
-	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
-	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -94,14 +87,13 @@ func (j *jsiiProxy_CodeDeployEcsDeployAction) ProvidedActionProperties() *awscod
 }
 
 
-// Experimental.
 func NewCodeDeployEcsDeployAction(props *CodeDeployEcsDeployActionProps) CodeDeployEcsDeployAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CodeDeployEcsDeployAction{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.CodeDeployEcsDeployAction",
+		"aws-cdk-lib.aws_codepipeline_actions.CodeDeployEcsDeployAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -109,18 +101,17 @@ func NewCodeDeployEcsDeployAction(props *CodeDeployEcsDeployActionProps) CodeDep
 	return &j
 }
 
-// Experimental.
 func NewCodeDeployEcsDeployAction_Override(c CodeDeployEcsDeployAction, props *CodeDeployEcsDeployActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.CodeDeployEcsDeployAction",
+		"aws-cdk-lib.aws_codepipeline_actions.CodeDeployEcsDeployAction",
 		[]interface{}{props},
 		c,
 	)
 }
 
-func (c *jsiiProxy_CodeDeployEcsDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeDeployEcsDeployAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -133,7 +124,7 @@ func (c *jsiiProxy_CodeDeployEcsDeployAction) Bind(scope awscdk.Construct, stage
 	return returns
 }
 
-func (c *jsiiProxy_CodeDeployEcsDeployAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (c *jsiiProxy_CodeDeployEcsDeployAction) Bound(_scope constructs.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(

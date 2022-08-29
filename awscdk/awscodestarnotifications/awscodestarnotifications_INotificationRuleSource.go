@@ -3,14 +3,12 @@ package awscodestarnotifications
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a notification source The source that allows CodeBuild and CodePipeline to associate with this rule.
-// Experimental.
 type INotificationRuleSource interface {
 	// Returns a source configuration for notification rule.
-	// Experimental.
 	BindAsNotificationRuleSource(scope constructs.Construct) *NotificationRuleSourceConfig
 }
 

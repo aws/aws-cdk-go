@@ -3,19 +3,16 @@ package awsapigateway
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsapigateway/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 )
 
 // A UsagePlan, either managed by this CDK app, or imported.
-// Experimental.
 type IUsagePlan interface {
 	awscdk.IResource
 	// Adds an ApiKey.
-	// Experimental.
 	AddApiKey(apiKey IApiKey, options *AddApiKeyOptions)
 	// Id of the usage plan.
-	// Experimental.
 	UsagePlanId() *string
 }
 

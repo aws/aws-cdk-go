@@ -1,10 +1,10 @@
 package awscertificatemanager
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
 )
 
 // How to validate a certificate.
@@ -18,13 +18,10 @@ import (
 //   	validation: acm.certificateValidation.fromDns(myHostedZone),
 //   })
 //
-// Experimental.
 type CertificateValidation interface {
 	// The validation method.
-	// Experimental.
 	Method() ValidationMethod
 	// Certification validation properties.
-	// Experimental.
 	Props() *CertificationValidationProps
 }
 
@@ -59,14 +56,13 @@ func (j *jsiiProxy_CertificateValidation) Props() *CertificationValidationProps 
 // IMPORTANT: If `hostedZone` is not specified, DNS records must be added
 // manually and the stack will not complete creating until the records are
 // added.
-// Experimental.
 func CertificateValidation_FromDns(hostedZone awsroute53.IHostedZone) CertificateValidation {
 	_init_.Initialize()
 
 	var returns CertificateValidation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_certificatemanager.CertificateValidation",
+		"aws-cdk-lib.aws_certificatemanager.CertificateValidation",
 		"fromDns",
 		[]interface{}{hostedZone},
 		&returns,
@@ -76,14 +72,13 @@ func CertificateValidation_FromDns(hostedZone awsroute53.IHostedZone) Certificat
 }
 
 // Validate the certificate with automatically created DNS records in multiple Amazon Route 53 hosted zones.
-// Experimental.
 func CertificateValidation_FromDnsMultiZone(hostedZones *map[string]awsroute53.IHostedZone) CertificateValidation {
 	_init_.Initialize()
 
 	var returns CertificateValidation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_certificatemanager.CertificateValidation",
+		"aws-cdk-lib.aws_certificatemanager.CertificateValidation",
 		"fromDnsMultiZone",
 		[]interface{}{hostedZones},
 		&returns,
@@ -107,14 +102,13 @@ func CertificateValidation_FromDnsMultiZone(hostedZones *map[string]awsroute53.I
 //   webmaster@domain.com
 //
 // For every domain that you register.
-// Experimental.
 func CertificateValidation_FromEmail(validationDomains *map[string]*string) CertificateValidation {
 	_init_.Initialize()
 
 	var returns CertificateValidation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_certificatemanager.CertificateValidation",
+		"aws-cdk-lib.aws_certificatemanager.CertificateValidation",
 		"fromEmail",
 		[]interface{}{validationDomains},
 		&returns,

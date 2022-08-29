@@ -1,7 +1,7 @@
 package awsiam
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -20,17 +20,13 @@ import (
 //
 //   starPrincipal := awscdk.Aws_iam.NewStarPrincipal()
 //
-// Experimental.
 type StarPrincipal interface {
 	PrincipalBase
 	// When this Principal is used in an AssumeRole policy, the action to use.
-	// Experimental.
 	AssumeRoleAction() *string
 	// The principal to grant permissions to.
-	// Experimental.
 	GrantPrincipal() IPrincipal
 	// Return the policy fragment that identifies this principal in a Policy.
-	// Experimental.
 	PolicyFragment() PrincipalPolicyFragment
 	// The AWS account ID of this principal.
 	//
@@ -38,30 +34,23 @@ type StarPrincipal interface {
 	// (for example, for service principals).
 	// Can be a Token - in that case,
 	// it's assumed to be AWS::AccountId.
-	// Experimental.
 	PrincipalAccount() *string
 	// Add the princpial to the AssumeRolePolicyDocument.
 	//
 	// Add the statements to the AssumeRolePolicyDocument necessary to give this principal
 	// permissions to assume the given role.
-	// Experimental.
 	AddToAssumeRolePolicy(document PolicyDocument)
 	// Add to the policy of this principal.
-	// Experimental.
 	AddToPolicy(statement PolicyStatement) *bool
 	// Add to the policy of this principal.
-	// Experimental.
 	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
 	// Return whether or not this principal is equal to the given principal.
-	// Experimental.
 	DedupeString() *string
 	// JSON-ify the principal.
 	//
 	// Used when JSON.stringify() is called
-	// Experimental.
 	ToJSON() *map[string]*[]*string
 	// Returns a string representation of an object.
-	// Experimental.
 	ToString() *string
 	// Returns a new PrincipalWithConditions using this principal as the base, with the passed conditions added.
 	//
@@ -69,12 +58,10 @@ type StarPrincipal interface {
 	// conditions parameter, the value from the conditions parameter will be used.
 	//
 	// Returns: a new PrincipalWithConditions object.
-	// Experimental.
 	WithConditions(conditions *map[string]interface{}) PrincipalBase
 	// Returns a new principal using this principal as the base, with session tags enabled.
 	//
 	// Returns: a new SessionTagsPrincipal object.
-	// Experimental.
 	WithSessionTags() PrincipalBase
 }
 
@@ -124,14 +111,13 @@ func (j *jsiiProxy_StarPrincipal) PrincipalAccount() *string {
 }
 
 
-// Experimental.
 func NewStarPrincipal() StarPrincipal {
 	_init_.Initialize()
 
 	j := jsiiProxy_StarPrincipal{}
 
 	_jsii_.Create(
-		"monocdk.aws_iam.StarPrincipal",
+		"aws-cdk-lib.aws_iam.StarPrincipal",
 		nil, // no parameters
 		&j,
 	)
@@ -139,12 +125,11 @@ func NewStarPrincipal() StarPrincipal {
 	return &j
 }
 
-// Experimental.
 func NewStarPrincipal_Override(s StarPrincipal) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_iam.StarPrincipal",
+		"aws-cdk-lib.aws_iam.StarPrincipal",
 		nil, // no parameters
 		s,
 	)

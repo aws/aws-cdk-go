@@ -3,10 +3,10 @@ package awselasticsearch
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticsearch/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 // An interface that represents an Elasticsearch domain - either created with the CDK, or an existing one.

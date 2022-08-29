@@ -1,7 +1,7 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -19,11 +19,9 @@ import (
 //
 // See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html
 //
-// Experimental.
 type ContainerDefinition interface {
 	IContainerDefinition
 	// Called when the ContainerDefinition type configured on Sagemaker Task.
-	// Experimental.
 	Bind(task ISageMakerTask) *ContainerDefinitionConfig
 }
 
@@ -32,14 +30,13 @@ type jsiiProxy_ContainerDefinition struct {
 	jsiiProxy_IContainerDefinition
 }
 
-// Experimental.
 func NewContainerDefinition(options *ContainerDefinitionOptions) ContainerDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_ContainerDefinition{}
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.ContainerDefinition",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ContainerDefinition",
 		[]interface{}{options},
 		&j,
 	)
@@ -47,12 +44,11 @@ func NewContainerDefinition(options *ContainerDefinitionOptions) ContainerDefini
 	return &j
 }
 
-// Experimental.
 func NewContainerDefinition_Override(c ContainerDefinition, options *ContainerDefinitionOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_stepfunctions_tasks.ContainerDefinition",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ContainerDefinition",
 		[]interface{}{options},
 		c,
 	)

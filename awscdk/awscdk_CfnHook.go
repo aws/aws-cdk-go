@@ -1,11 +1,11 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a CloudFormation resource.
@@ -20,13 +20,11 @@ import (
 //   codeDeployHook := hook.(cfnCodeDeployBlueGreenHook)
 //   codeDeployHook.serviceRole = myRole.roleArn
 //
-// Experimental.
 type CfnHook interface {
 	CfnElement
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
-	// Experimental.
 	CreationStack() *[]*string
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -37,75 +35,20 @@ type CfnHook interface {
 	//
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
-	// Experimental.
 	LogicalId() *string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
-	// Experimental.
 	Stack() Stack
 	// The type of the hook (for example, "AWS::CodeDeploy::BlueGreen").
-	// Experimental.
 	Type() *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// Experimental.
 	OverrideLogicalId(newLogicalId *string)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Experimental.
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for CfnHook
@@ -133,8 +76,8 @@ func (j *jsiiProxy_CfnHook) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHook) Node() ConstructNode {
-	var returns ConstructNode
+func (j *jsiiProxy_CfnHook) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -165,14 +108,13 @@ func (j *jsiiProxy_CfnHook) Type() *string {
 
 
 // Creates a new Hook object.
-// Experimental.
 func NewCfnHook(scope constructs.Construct, id *string, props *CfnHookProps) CfnHook {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnHook{}
 
 	_jsii_.Create(
-		"monocdk.CfnHook",
+		"aws-cdk-lib.CfnHook",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -181,12 +123,11 @@ func NewCfnHook(scope constructs.Construct, id *string, props *CfnHookProps) Cfn
 }
 
 // Creates a new Hook object.
-// Experimental.
 func NewCfnHook_Override(c CfnHook, scope constructs.Construct, id *string, props *CfnHookProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.CfnHook",
+		"aws-cdk-lib.CfnHook",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -198,14 +139,13 @@ func NewCfnHook_Override(c CfnHook, scope constructs.Construct, id *string, prop
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnHook_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.CfnHook",
+		"aws-cdk-lib.CfnHook",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -214,46 +154,32 @@ func CfnHook_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnHook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.CfnHook",
+		"aws-cdk-lib.CfnHook",
 		"isConstruct",
 		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnHook) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnHook) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnHook) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -265,14 +191,6 @@ func (c *jsiiProxy_CfnHook) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-func (c *jsiiProxy_CfnHook) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -289,33 +207,12 @@ func (c *jsiiProxy_CfnHook) RenderProperties(props *map[string]interface{}) *map
 	return returns
 }
 
-func (c *jsiiProxy_CfnHook) Synthesize(session ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (c *jsiiProxy_CfnHook) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnHook) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

@@ -1,10 +1,10 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A log driver that sends log information to journald Logs.
@@ -12,10 +12,8 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var duration duration
 //
 //   gelfLogDriver := awscdk.Aws_ecs.NewGelfLogDriver(&gelfLogDriverProps{
 //   	address: jsii.String("address"),
@@ -32,15 +30,13 @@ import (
 //   	},
 //   	tag: jsii.String("tag"),
 //   	tcpMaxReconnect: jsii.Number(123),
-//   	tcpReconnectDelay: duration,
+//   	tcpReconnectDelay: cdk.duration.minutes(jsii.Number(30)),
 //   })
 //
-// Experimental.
 type GelfLogDriver interface {
 	LogDriver
 	// Called when the log driver is configured on a container.
-	// Experimental.
-	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for GelfLogDriver
@@ -49,14 +45,13 @@ type jsiiProxy_GelfLogDriver struct {
 }
 
 // Constructs a new instance of the GelfLogDriver class.
-// Experimental.
 func NewGelfLogDriver(props *GelfLogDriverProps) GelfLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_GelfLogDriver{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.GelfLogDriver",
+		"aws-cdk-lib.aws_ecs.GelfLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -65,26 +60,24 @@ func NewGelfLogDriver(props *GelfLogDriverProps) GelfLogDriver {
 }
 
 // Constructs a new instance of the GelfLogDriver class.
-// Experimental.
 func NewGelfLogDriver_Override(g GelfLogDriver, props *GelfLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.GelfLogDriver",
+		"aws-cdk-lib.aws_ecs.GelfLogDriver",
 		[]interface{}{props},
 		g,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
-// Experimental.
 func GelfLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.GelfLogDriver",
+		"aws-cdk-lib.aws_ecs.GelfLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -93,7 +86,7 @@ func GelfLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-func (g *jsiiProxy_GelfLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (g *jsiiProxy_GelfLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

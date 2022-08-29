@@ -17,10 +17,8 @@ package awsiam
 //   	region: jsii.String("region"),
 //   }
 //
-// Experimental.
 type ServicePrincipalOpts struct {
 	// Additional conditions to add to the Service Principal.
-	// Experimental.
 	Conditions *map[string]interface{} `field:"optional" json:"conditions" yaml:"conditions"`
 	// The region in which the service is operating.
 	// Deprecated: You should not need to set this. The stack's region is always correct.

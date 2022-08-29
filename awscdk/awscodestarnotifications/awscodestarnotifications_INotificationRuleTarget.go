@@ -3,14 +3,12 @@ package awscodestarnotifications
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a notification target That allows AWS Chatbot and SNS topic to associate with this rule target.
-// Experimental.
 type INotificationRuleTarget interface {
 	// Returns a target configuration for notification rule.
-	// Experimental.
 	BindAsNotificationRuleTarget(scope constructs.Construct) *NotificationRuleTargetConfig
 }
 

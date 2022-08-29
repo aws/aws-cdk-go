@@ -3,15 +3,14 @@ package awsrds
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 )
 
 // A parameter group.
 //
 // Represents both a cluster parameter group,
 // and an instance parameter group.
-// Experimental.
 type IParameterGroup interface {
 	awscdk.IResource
 	// Adds a parameter to this group.
@@ -22,13 +21,10 @@ type IParameterGroup interface {
 	// Returns: true if the parameter was actually added
 	// (i.e., this ParameterGroup is not imported),
 	// false otherwise.
-	// Experimental.
 	AddParameter(key *string, value *string) *bool
 	// Method called when this Parameter Group is used when defining a database cluster.
-	// Experimental.
 	BindToCluster(options *ParameterGroupClusterBindOptions) *ParameterGroupClusterConfig
 	// Method called when this Parameter Group is used when defining a database instance.
-	// Experimental.
 	BindToInstance(options *ParameterGroupInstanceBindOptions) *ParameterGroupInstanceConfig
 }
 

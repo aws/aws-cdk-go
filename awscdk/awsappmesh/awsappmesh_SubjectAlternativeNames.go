@@ -1,15 +1,16 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Used to generate Subject Alternative Names Matchers.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //
 //
@@ -53,11 +54,9 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type SubjectAlternativeNames interface {
 	// Returns Subject Alternative Names Matcher based on method type.
-	// Experimental.
-	Bind(scope awscdk.Construct) *SubjectAlternativeNamesMatcherConfig
+	Bind(scope constructs.Construct) *SubjectAlternativeNamesMatcherConfig
 }
 
 // The jsii proxy struct for SubjectAlternativeNames
@@ -65,19 +64,17 @@ type jsiiProxy_SubjectAlternativeNames struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewSubjectAlternativeNames_Override(s SubjectAlternativeNames) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appmesh.SubjectAlternativeNames",
+		"aws-cdk-lib.aws_appmesh.SubjectAlternativeNames",
 		nil, // no parameters
 		s,
 	)
 }
 
 // The values of the SAN must match the specified values exactly.
-// Experimental.
 func SubjectAlternativeNames_MatchingExactly(names ...*string) SubjectAlternativeNames {
 	_init_.Initialize()
 
@@ -89,7 +86,7 @@ func SubjectAlternativeNames_MatchingExactly(names ...*string) SubjectAlternativ
 	var returns SubjectAlternativeNames
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.SubjectAlternativeNames",
+		"aws-cdk-lib.aws_appmesh.SubjectAlternativeNames",
 		"matchingExactly",
 		args,
 		&returns,
@@ -98,7 +95,7 @@ func SubjectAlternativeNames_MatchingExactly(names ...*string) SubjectAlternativ
 	return returns
 }
 
-func (s *jsiiProxy_SubjectAlternativeNames) Bind(scope awscdk.Construct) *SubjectAlternativeNamesMatcherConfig {
+func (s *jsiiProxy_SubjectAlternativeNames) Bind(scope constructs.Construct) *SubjectAlternativeNamesMatcherConfig {
 	var returns *SubjectAlternativeNamesMatcherConfig
 
 	_jsii_.Invoke(

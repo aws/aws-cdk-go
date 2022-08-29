@@ -1,12 +1,12 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awslambdaeventsources/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdaeventsources/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 )
 
 // An SQS dead letter queue destination configuration for a Lambda event source.
@@ -29,11 +29,9 @@ import (
 //   	retryAttempts: jsii.Number(10),
 //   }))
 //
-// Experimental.
 type SqsDlq interface {
 	awslambda.IEventSourceDlq
 	// Returns a destination configuration for the DLQ.
-	// Experimental.
 	Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig
 }
 
@@ -42,14 +40,13 @@ type jsiiProxy_SqsDlq struct {
 	internal.Type__awslambdaIEventSourceDlq
 }
 
-// Experimental.
 func NewSqsDlq(queue awssqs.IQueue) SqsDlq {
 	_init_.Initialize()
 
 	j := jsiiProxy_SqsDlq{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SqsDlq",
+		"aws-cdk-lib.aws_lambda_event_sources.SqsDlq",
 		[]interface{}{queue},
 		&j,
 	)
@@ -57,12 +54,11 @@ func NewSqsDlq(queue awssqs.IQueue) SqsDlq {
 	return &j
 }
 
-// Experimental.
 func NewSqsDlq_Override(s SqsDlq, queue awssqs.IQueue) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SqsDlq",
+		"aws-cdk-lib.aws_lambda_event_sources.SqsDlq",
 		[]interface{}{queue},
 		s,
 	)

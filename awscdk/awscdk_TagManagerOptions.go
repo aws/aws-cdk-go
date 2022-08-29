@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 
@@ -7,18 +7,16 @@ package awscdk
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   tagManagerOptions := &tagManagerOptions{
 //   	tagPropertyName: jsii.String("tagPropertyName"),
 //   }
 //
-// Experimental.
 type TagManagerOptions struct {
 	// The name of the property in CloudFormation for these tags.
 	//
 	// Normally this is `tags`, but Cognito UserPool uses UserPoolTags.
-	// Experimental.
 	TagPropertyName *string `field:"optional" json:"tagPropertyName" yaml:"tagPropertyName"`
 }
 

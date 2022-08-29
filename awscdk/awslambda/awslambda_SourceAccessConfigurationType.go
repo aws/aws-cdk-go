@@ -1,7 +1,7 @@
 package awslambda
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,12 +16,10 @@ import (
 //
 // See: https://docs.aws.amazon.com/lambda/latest/dg/API_SourceAccessConfiguration.html#SSS-Type-SourceAccessConfiguration-Type
 //
-// Experimental.
 type SourceAccessConfigurationType interface {
 	// The key to use in `SourceAccessConfigurationProperty.Type` property in CloudFormation.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-type
 	//
-	// Experimental.
 	Type() *string
 }
 
@@ -42,14 +40,13 @@ func (j *jsiiProxy_SourceAccessConfigurationType) Type() *string {
 
 
 // A custom source access configuration property.
-// Experimental.
 func SourceAccessConfigurationType_Of(name *string) SourceAccessConfigurationType {
 	_init_.Initialize()
 
 	var returns SourceAccessConfigurationType
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"of",
 		[]interface{}{name},
 		&returns,
@@ -62,7 +59,7 @@ func SourceAccessConfigurationType_BASIC_AUTH() SourceAccessConfigurationType {
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"BASIC_AUTH",
 		&returns,
 	)
@@ -73,7 +70,7 @@ func SourceAccessConfigurationType_CLIENT_CERTIFICATE_TLS_AUTH() SourceAccessCon
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"CLIENT_CERTIFICATE_TLS_AUTH",
 		&returns,
 	)
@@ -84,7 +81,7 @@ func SourceAccessConfigurationType_SASL_SCRAM_256_AUTH() SourceAccessConfigurati
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"SASL_SCRAM_256_AUTH",
 		&returns,
 	)
@@ -95,8 +92,19 @@ func SourceAccessConfigurationType_SASL_SCRAM_512_AUTH() SourceAccessConfigurati
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"SASL_SCRAM_512_AUTH",
+		&returns,
+	)
+	return returns
+}
+
+func SourceAccessConfigurationType_SERVER_ROOT_CA_CERTIFICATE() SourceAccessConfigurationType {
+	_init_.Initialize()
+	var returns SourceAccessConfigurationType
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
+		"SERVER_ROOT_CA_CERTIFICATE",
 		&returns,
 	)
 	return returns
@@ -106,7 +114,7 @@ func SourceAccessConfigurationType_VPC_SECURITY_GROUP() SourceAccessConfiguratio
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"VPC_SECURITY_GROUP",
 		&returns,
 	)
@@ -117,7 +125,7 @@ func SourceAccessConfigurationType_VPC_SUBNET() SourceAccessConfigurationType {
 	_init_.Initialize()
 	var returns SourceAccessConfigurationType
 	_jsii_.StaticGet(
-		"monocdk.aws_lambda.SourceAccessConfigurationType",
+		"aws-cdk-lib.aws_lambda.SourceAccessConfigurationType",
 		"VPC_SUBNET",
 		&returns,
 	)

@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -10,6 +10,7 @@ import (
 // Not supported for Windows systems.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
@@ -63,11 +64,9 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type InitGroup interface {
 	InitElement
 	// Returns the init element type for this element.
-	// Experimental.
 	ElementType() *string
 }
 
@@ -87,14 +86,13 @@ func (j *jsiiProxy_InitGroup) ElementType() *string {
 }
 
 
-// Experimental.
 func NewInitGroup(groupName *string, groupId *float64) InitGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_InitGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.InitGroup",
+		"aws-cdk-lib.aws_ec2.InitGroup",
 		[]interface{}{groupName, groupId},
 		&j,
 	)
@@ -102,26 +100,24 @@ func NewInitGroup(groupName *string, groupId *float64) InitGroup {
 	return &j
 }
 
-// Experimental.
 func NewInitGroup_Override(i InitGroup, groupName *string, groupId *float64) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.InitGroup",
+		"aws-cdk-lib.aws_ec2.InitGroup",
 		[]interface{}{groupName, groupId},
 		i,
 	)
 }
 
 // Create a group from its name, and optionally, group id.
-// Experimental.
 func InitGroup_FromName(groupName *string, groupId *float64) InitGroup {
 	_init_.Initialize()
 
 	var returns InitGroup
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitGroup",
+		"aws-cdk-lib.aws_ec2.InitGroup",
 		"fromName",
 		[]interface{}{groupName, groupId},
 		&returns,

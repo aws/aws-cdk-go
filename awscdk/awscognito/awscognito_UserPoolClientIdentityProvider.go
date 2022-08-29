@@ -1,7 +1,7 @@
 package awscognito
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -17,10 +17,8 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type UserPoolClientIdentityProvider interface {
 	// The name of the identity provider as recognized by CloudFormation property `SupportedIdentityProviders`.
-	// Experimental.
 	Name() *string
 }
 
@@ -41,14 +39,13 @@ func (j *jsiiProxy_UserPoolClientIdentityProvider) Name() *string {
 
 
 // Specify a provider not yet supported by the CDK.
-// Experimental.
 func UserPoolClientIdentityProvider_Custom(name *string) UserPoolClientIdentityProvider {
 	_init_.Initialize()
 
 	var returns UserPoolClientIdentityProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"custom",
 		[]interface{}{name},
 		&returns,
@@ -61,7 +58,7 @@ func UserPoolClientIdentityProvider_AMAZON() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"AMAZON",
 		&returns,
 	)
@@ -72,7 +69,7 @@ func UserPoolClientIdentityProvider_APPLE() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"APPLE",
 		&returns,
 	)
@@ -83,7 +80,7 @@ func UserPoolClientIdentityProvider_COGNITO() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"COGNITO",
 		&returns,
 	)
@@ -94,7 +91,7 @@ func UserPoolClientIdentityProvider_FACEBOOK() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"FACEBOOK",
 		&returns,
 	)
@@ -105,7 +102,7 @@ func UserPoolClientIdentityProvider_GOOGLE() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"GOOGLE",
 		&returns,
 	)

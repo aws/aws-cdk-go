@@ -1,7 +1,7 @@
 package awslogs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -20,10 +20,8 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type QueryString interface {
 	// String representation of this QueryString.
-	// Experimental.
 	ToString() *string
 }
 
@@ -32,14 +30,13 @@ type jsiiProxy_QueryString struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewQueryString(props *QueryStringProps) QueryString {
 	_init_.Initialize()
 
 	j := jsiiProxy_QueryString{}
 
 	_jsii_.Create(
-		"monocdk.aws_logs.QueryString",
+		"aws-cdk-lib.aws_logs.QueryString",
 		[]interface{}{props},
 		&j,
 	)
@@ -47,12 +44,11 @@ func NewQueryString(props *QueryStringProps) QueryString {
 	return &j
 }
 
-// Experimental.
 func NewQueryString_Override(q QueryString, props *QueryStringProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_logs.QueryString",
+		"aws-cdk-lib.aws_logs.QueryString",
 		[]interface{}{props},
 		q,
 	)

@@ -60,17 +60,14 @@ package awslambdanodejs
 //   	},
 //   })
 //
-// Experimental.
 type OutputFormat string
 
 const (
 	// CommonJS.
-	// Experimental.
 	OutputFormat_CJS OutputFormat = "CJS"
 	// ECMAScript module.
 	//
 	// Requires a running environment that supports `import` and `export` syntax.
-	// Experimental.
 	OutputFormat_ESM OutputFormat = "ESM"
 )
 

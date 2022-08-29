@@ -3,90 +3,73 @@ package awssns
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awssns/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an SNS topic.
-// Experimental.
 type ITopic interface {
 	awscodestarnotifications.INotificationRuleTarget
 	awscdk.IResource
 	// Subscribe some endpoint to this topic.
-	// Experimental.
-	AddSubscription(subscription ITopicSubscription)
+	AddSubscription(subscription ITopicSubscription) Subscription
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
 	// will be automatically created upon the first call to `addToPolicy`. If
 	// the topic is imported (`Topic.import`), then this is a no-op.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Grant topic publishing permissions to the given identity.
-	// Experimental.
 	GrantPublish(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Topic.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages published to your Amazon SNS topics.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfMessagesPublished(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages successfully delivered from your Amazon SNS topics to subscribing endpoints.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsDelivered(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that Amazon SNS failed to deliver.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that were rejected by subscription filter policies.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFilteredOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that were rejected by subscription filter policies because the messages' attributes are invalid.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFilteredOutInvalidAttributes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that were rejected by subscription filter policies because the messages have no attributes.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricNumberOfNotificationsFilteredOutNoMessageAttributes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the size of messages published through this topic.
 	//
 	// Average over 5 minutes.
-	// Experimental.
 	MetricPublishSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The charges you have accrued since the start of the current calendar month for sending SMS messages.
 	//
 	// Maximum over 5 minutes.
-	// Experimental.
 	MetricSMSMonthToDateSpentUSD(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The rate of successful SMS message deliveries.
 	//
 	// Sum over 5 minutes.
-	// Experimental.
 	MetricSMSSuccessRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Whether this topic is an Amazon SNS FIFO queue.
 	//
 	// If false, this is a standard topic.
-	// Experimental.
 	Fifo() *bool
 	// The ARN of the topic.
-	// Experimental.
 	TopicArn() *string
 	// The name of the topic.
-	// Experimental.
 	TopicName() *string
 }
 
@@ -96,12 +79,17 @@ type jsiiProxy_ITopic struct {
 	internal.Type__awscdkIResource
 }
 
-func (i *jsiiProxy_ITopic) AddSubscription(subscription ITopicSubscription) {
-	_jsii_.InvokeVoid(
+func (i *jsiiProxy_ITopic) AddSubscription(subscription ITopicSubscription) Subscription {
+	var returns Subscription
+
+	_jsii_.Invoke(
 		i,
 		"addSubscription",
 		[]interface{}{subscription},
+		&returns,
 	)
+
+	return returns
 }
 
 func (i *jsiiProxy_ITopic) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
@@ -321,8 +309,8 @@ func (j *jsiiProxy_ITopic) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ITopic) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ITopic) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",

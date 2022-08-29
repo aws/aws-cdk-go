@@ -1,7 +1,7 @@
 package awssigner
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -30,12 +30,10 @@ import (
 //
 // See: https://docs.aws.amazon.com/signer/latest/developerguide/gs-platform.html
 //
-// Experimental.
 type Platform interface {
 	// The id of signing platform.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
 	//
-	// Experimental.
 	PlatformId() *string
 }
 
@@ -59,7 +57,7 @@ func Platform_AMAZON_FREE_RTOS_DEFAULT() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"monocdk.aws_signer.Platform",
+		"aws-cdk-lib.aws_signer.Platform",
 		"AMAZON_FREE_RTOS_DEFAULT",
 		&returns,
 	)
@@ -70,7 +68,7 @@ func Platform_AMAZON_FREE_RTOS_TI_CC3220SF() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"monocdk.aws_signer.Platform",
+		"aws-cdk-lib.aws_signer.Platform",
 		"AMAZON_FREE_RTOS_TI_CC3220SF",
 		&returns,
 	)
@@ -81,7 +79,7 @@ func Platform_AWS_IOT_DEVICE_MANAGEMENT_SHA256_ECDSA() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"monocdk.aws_signer.Platform",
+		"aws-cdk-lib.aws_signer.Platform",
 		"AWS_IOT_DEVICE_MANAGEMENT_SHA256_ECDSA",
 		&returns,
 	)
@@ -92,7 +90,7 @@ func Platform_AWS_LAMBDA_SHA384_ECDSA() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"monocdk.aws_signer.Platform",
+		"aws-cdk-lib.aws_signer.Platform",
 		"AWS_LAMBDA_SHA384_ECDSA",
 		&returns,
 	)

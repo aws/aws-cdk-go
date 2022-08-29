@@ -1,11 +1,11 @@
 package awssnssubscriptions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/awssnssubscriptions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssnssubscriptions/internal"
 )
 
 // Use an email address as a subscription target.
@@ -18,11 +18,9 @@ import (
 //
 //   myTopic.addSubscription(subscriptions.NewEmailSubscription(emailAddress.valueAsString))
 //
-// Experimental.
 type EmailSubscription interface {
 	awssns.ITopicSubscription
 	// Returns a configuration for an email address to subscribe to an SNS topic.
-	// Experimental.
 	Bind(_topic awssns.ITopic) *awssns.TopicSubscriptionConfig
 }
 
@@ -31,14 +29,13 @@ type jsiiProxy_EmailSubscription struct {
 	internal.Type__awssnsITopicSubscription
 }
 
-// Experimental.
 func NewEmailSubscription(emailAddress *string, props *EmailSubscriptionProps) EmailSubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_EmailSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.EmailSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.EmailSubscription",
 		[]interface{}{emailAddress, props},
 		&j,
 	)
@@ -46,12 +43,11 @@ func NewEmailSubscription(emailAddress *string, props *EmailSubscriptionProps) E
 	return &j
 }
 
-// Experimental.
 func NewEmailSubscription_Override(e EmailSubscription, emailAddress *string, props *EmailSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.EmailSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.EmailSubscription",
 		[]interface{}{emailAddress, props},
 		e,
 	)

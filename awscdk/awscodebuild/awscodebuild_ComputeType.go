@@ -41,6 +41,9 @@ package awscodebuild
 //   		mySecurityGroup,
 //   	},
 //
+//   	// Control caching
+//   	cache: codebuild.cache.bucket(s3.NewBucket(this, jsii.String("Cache"))),
+//
 //   	// Additional policy statements for the execution role
 //   	rolePolicyStatements: []policyStatement{
 //   		iam.NewPolicyStatement(&policyStatementProps{
@@ -48,17 +51,12 @@ package awscodebuild
 //   	},
 //   })
 //
-// Experimental.
 type ComputeType string
 
 const (
-	// Experimental.
 	ComputeType_SMALL ComputeType = "SMALL"
-	// Experimental.
 	ComputeType_MEDIUM ComputeType = "MEDIUM"
-	// Experimental.
 	ComputeType_LARGE ComputeType = "LARGE"
-	// Experimental.
 	ComputeType_X2_LARGE ComputeType = "X2_LARGE"
 )
 

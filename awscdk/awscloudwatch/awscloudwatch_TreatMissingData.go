@@ -28,21 +28,16 @@ package awscloudwatch
 //   	})
 //   }
 //
-// Experimental.
 type TreatMissingData string
 
 const (
 	// Missing data points are treated as breaching the threshold.
-	// Experimental.
 	TreatMissingData_BREACHING TreatMissingData = "BREACHING"
 	// Missing data points are treated as being within the threshold.
-	// Experimental.
 	TreatMissingData_NOT_BREACHING TreatMissingData = "NOT_BREACHING"
 	// The current alarm state is maintained.
-	// Experimental.
 	TreatMissingData_IGNORE TreatMissingData = "IGNORE"
 	// The alarm does not consider missing data points when evaluating whether to change state.
-	// Experimental.
 	TreatMissingData_MISSING TreatMissingData = "MISSING"
 )
 

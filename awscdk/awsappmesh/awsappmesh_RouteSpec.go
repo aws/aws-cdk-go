@@ -1,15 +1,16 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Used to generate specs with different protocols for a RouteSpec.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var router virtualRouter
 //   var node virtualNode
 //
@@ -38,14 +39,12 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
 type RouteSpec interface {
 	// Called when the RouteSpec type is initialized.
 	//
 	// Can be used to enforce
 	// mutual exclusivity with future properties.
-	// Experimental.
-	Bind(scope awscdk.Construct) *RouteSpecConfig
+	Bind(scope constructs.Construct) *RouteSpecConfig
 }
 
 // The jsii proxy struct for RouteSpec
@@ -53,26 +52,24 @@ type jsiiProxy_RouteSpec struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewRouteSpec_Override(r RouteSpec) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appmesh.RouteSpec",
+		"aws-cdk-lib.aws_appmesh.RouteSpec",
 		nil, // no parameters
 		r,
 	)
 }
 
 // Creates a GRPC Based RouteSpec.
-// Experimental.
 func RouteSpec_Grpc(options *GrpcRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
 	var returns RouteSpec
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.RouteSpec",
+		"aws-cdk-lib.aws_appmesh.RouteSpec",
 		"grpc",
 		[]interface{}{options},
 		&returns,
@@ -82,14 +79,13 @@ func RouteSpec_Grpc(options *GrpcRouteSpecOptions) RouteSpec {
 }
 
 // Creates an HTTP Based RouteSpec.
-// Experimental.
 func RouteSpec_Http(options *HttpRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
 	var returns RouteSpec
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.RouteSpec",
+		"aws-cdk-lib.aws_appmesh.RouteSpec",
 		"http",
 		[]interface{}{options},
 		&returns,
@@ -99,14 +95,13 @@ func RouteSpec_Http(options *HttpRouteSpecOptions) RouteSpec {
 }
 
 // Creates an HTTP2 Based RouteSpec.
-// Experimental.
 func RouteSpec_Http2(options *HttpRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
 	var returns RouteSpec
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.RouteSpec",
+		"aws-cdk-lib.aws_appmesh.RouteSpec",
 		"http2",
 		[]interface{}{options},
 		&returns,
@@ -116,14 +111,13 @@ func RouteSpec_Http2(options *HttpRouteSpecOptions) RouteSpec {
 }
 
 // Creates a TCP Based RouteSpec.
-// Experimental.
 func RouteSpec_Tcp(options *TcpRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
 	var returns RouteSpec
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.RouteSpec",
+		"aws-cdk-lib.aws_appmesh.RouteSpec",
 		"tcp",
 		[]interface{}{options},
 		&returns,
@@ -132,7 +126,7 @@ func RouteSpec_Tcp(options *TcpRouteSpecOptions) RouteSpec {
 	return returns
 }
 
-func (r *jsiiProxy_RouteSpec) Bind(scope awscdk.Construct) *RouteSpecConfig {
+func (r *jsiiProxy_RouteSpec) Bind(scope constructs.Construct) *RouteSpecConfig {
 	var returns *RouteSpecConfig
 
 	_jsii_.Invoke(

@@ -1,12 +1,11 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Firelens log router.
@@ -14,11 +13,10 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var containerImage containerImage
-//   var duration duration
 //   var environmentFile environmentFile
 //   var linuxParameters linuxParameters
 //   var logDriver logDriver
@@ -78,10 +76,10 @@ import (
 //   		},
 //
 //   		// the properties below are optional
-//   		interval: duration,
+//   		interval: cdk.duration.minutes(jsii.Number(30)),
 //   		retries: jsii.Number(123),
-//   		startPeriod: duration,
-//   		timeout: duration,
+//   		startPeriod: cdk.*duration.minutes(jsii.Number(30)),
+//   		timeout: cdk.*duration.minutes(jsii.Number(30)),
 //   	},
 //   	hostname: jsii.String("hostname"),
 //   	inferenceAcceleratorResources: []*string{
@@ -105,8 +103,8 @@ import (
 //   	secrets: map[string]*secret{
 //   		"secretsKey": secret,
 //   	},
-//   	startTimeout: duration,
-//   	stopTimeout: duration,
+//   	startTimeout: cdk.*duration.minutes(jsii.Number(30)),
+//   	stopTimeout: cdk.*duration.minutes(jsii.Number(30)),
 //   	systemControls: []systemControl{
 //   		&systemControl{
 //   			namespace: jsii.String("namespace"),
@@ -117,20 +115,15 @@ import (
 //   	workingDirectory: jsii.String("workingDirectory"),
 //   })
 //
-// Experimental.
 type FirelensLogRouter interface {
 	ContainerDefinition
 	// An array dependencies defined for container startup and shutdown.
-	// Experimental.
 	ContainerDependencies() *[]*ContainerDependency
 	// The name of this container.
-	// Experimental.
 	ContainerName() *string
 	// The port the container will listen on.
-	// Experimental.
 	ContainerPort() *float64
 	// The environment files for this container.
-	// Experimental.
 	EnvironmentFiles() *[]*EnvironmentFileConfig
 	// Specifies whether the container will be marked essential.
 	//
@@ -140,144 +133,69 @@ type FirelensLogRouter interface {
 	// failure does not affect the rest of the containers in a task.
 	//
 	// If this parameter is omitted, a container is assumed to be essential.
-	// Experimental.
 	Essential() *bool
 	// Firelens configuration.
-	// Experimental.
 	FirelensConfig() *FirelensConfig
 	// The name of the image referenced by this container.
-	// Experimental.
 	ImageName() *string
 	// The inbound rules associated with the security group the task or service will use.
 	//
 	// This property is only used for tasks that use the awsvpc network mode.
-	// Experimental.
 	IngressPort() *float64
 	// The Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
-	// Experimental.
 	LinuxParameters() LinuxParameters
 	// The log configuration specification for the container.
-	// Experimental.
 	LogDriverConfig() *LogDriverConfig
 	// Whether there was at least one memory limit specified in this definition.
-	// Experimental.
 	MemoryLimitSpecified() *bool
 	// The mount points for data volumes in your container.
-	// Experimental.
 	MountPoints() *[]*MountPoint
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The list of port mappings for the container.
 	//
 	// Port mappings allow containers to access ports
 	// on the host container instance to send or receive traffic.
-	// Experimental.
 	PortMappings() *[]*PortMapping
 	// Whether this container definition references a specific JSON field of a secret stored in Secrets Manager.
-	// Experimental.
 	ReferencesSecretJsonField() *bool
 	// The name of the task definition that includes this container definition.
-	// Experimental.
 	TaskDefinition() TaskDefinition
 	// An array of ulimits to set in the container.
-	// Experimental.
 	Ulimits() *[]*Ulimit
 	// The data volumes to mount from another container in the same task definition.
-	// Experimental.
 	VolumesFrom() *[]*VolumeFrom
 	// This method adds one or more container dependencies to the container.
-	// Experimental.
 	AddContainerDependencies(containerDependencies ...*ContainerDependency)
 	// This method adds an environment variable to the container.
-	// Experimental.
 	AddEnvironment(name *string, value *string)
 	// This method adds one or more resources to the container.
-	// Experimental.
 	AddInferenceAcceleratorResource(inferenceAcceleratorResources ...*string)
 	// This method adds a link which allows containers to communicate with each other without the need for port mappings.
 	//
 	// This parameter is only supported if the task definition is using the bridge network mode.
 	// Warning: The --link flag is a legacy feature of Docker. It may eventually be removed.
-	// Experimental.
 	AddLink(container ContainerDefinition, alias *string)
 	// This method adds one or more mount points for data volumes to the container.
-	// Experimental.
 	AddMountPoints(mountPoints ...*MountPoint)
 	// This method adds one or more port mappings to the container.
-	// Experimental.
 	AddPortMappings(portMappings ...*PortMapping)
 	// This method mounts temporary disk space to the container.
 	//
 	// This adds the correct container mountPoint and task definition volume.
-	// Experimental.
 	AddScratch(scratch *ScratchSpace)
 	// This method adds the specified statement to the IAM task execution policy in the task definition.
-	// Experimental.
 	AddToExecutionPolicy(statement awsiam.PolicyStatement)
 	// This method adds one or more ulimits to the container.
-	// Experimental.
 	AddUlimits(ulimits ...*Ulimit)
 	// This method adds one or more volumes to the container.
-	// Experimental.
 	AddVolumesFrom(volumesFrom ...*VolumeFrom)
 	// Returns the host port for the requested container port if it exists.
-	// Experimental.
 	FindPortMapping(containerPort *float64, protocol Protocol) *PortMapping
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Render this container definition to a CloudFormation object.
-	// Experimental.
 	RenderContainerDefinition(_taskDefinition TaskDefinition) *CfnTaskDefinition_ContainerDefinitionProperty
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for FirelensLogRouter
@@ -405,8 +323,8 @@ func (j *jsiiProxy_FirelensLogRouter) MountPoints() *[]*MountPoint {
 	return returns
 }
 
-func (j *jsiiProxy_FirelensLogRouter) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_FirelensLogRouter) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -467,14 +385,13 @@ func (j *jsiiProxy_FirelensLogRouter) VolumesFrom() *[]*VolumeFrom {
 
 
 // Constructs a new instance of the FirelensLogRouter class.
-// Experimental.
 func NewFirelensLogRouter(scope constructs.Construct, id *string, props *FirelensLogRouterProps) FirelensLogRouter {
 	_init_.Initialize()
 
 	j := jsiiProxy_FirelensLogRouter{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.FirelensLogRouter",
+		"aws-cdk-lib.aws_ecs.FirelensLogRouter",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -483,26 +400,40 @@ func NewFirelensLogRouter(scope constructs.Construct, id *string, props *Firelen
 }
 
 // Constructs a new instance of the FirelensLogRouter class.
-// Experimental.
 func NewFirelensLogRouter_Override(f FirelensLogRouter, scope constructs.Construct, id *string, props *FirelensLogRouterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.FirelensLogRouter",
+		"aws-cdk-lib.aws_ecs.FirelensLogRouter",
 		[]interface{}{scope, id, props},
 		f,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func FirelensLogRouter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.FirelensLogRouter",
+		"aws-cdk-lib.aws_ecs.FirelensLogRouter",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -634,43 +565,6 @@ func (f *jsiiProxy_FirelensLogRouter) FindPortMapping(containerPort *float64, pr
 	return returns
 }
 
-func (f *jsiiProxy_FirelensLogRouter) OnPrepare() {
-	_jsii_.InvokeVoid(
-		f,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (f *jsiiProxy_FirelensLogRouter) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		f,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (f *jsiiProxy_FirelensLogRouter) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		f,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (f *jsiiProxy_FirelensLogRouter) Prepare() {
-	_jsii_.InvokeVoid(
-		f,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 func (f *jsiiProxy_FirelensLogRouter) RenderContainerDefinition(_taskDefinition TaskDefinition) *CfnTaskDefinition_ContainerDefinitionProperty {
 	var returns *CfnTaskDefinition_ContainerDefinitionProperty
 
@@ -684,33 +578,12 @@ func (f *jsiiProxy_FirelensLogRouter) RenderContainerDefinition(_taskDefinition 
 	return returns
 }
 
-func (f *jsiiProxy_FirelensLogRouter) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		f,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (f *jsiiProxy_FirelensLogRouter) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		f,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (f *jsiiProxy_FirelensLogRouter) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		f,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

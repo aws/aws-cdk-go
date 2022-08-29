@@ -1,10 +1,10 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // The class for App Mesh proxy configurations.
@@ -42,12 +42,10 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type AppMeshProxyConfiguration interface {
 	ProxyConfiguration
 	// Called when the proxy configuration is configured on a task definition.
-	// Experimental.
-	Bind(_scope awscdk.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty
+	Bind(_scope constructs.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty
 }
 
 // The jsii proxy struct for AppMeshProxyConfiguration
@@ -56,14 +54,13 @@ type jsiiProxy_AppMeshProxyConfiguration struct {
 }
 
 // Constructs a new instance of the AppMeshProxyConfiguration class.
-// Experimental.
 func NewAppMeshProxyConfiguration(props *AppMeshProxyConfigurationConfigProps) AppMeshProxyConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_AppMeshProxyConfiguration{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.AppMeshProxyConfiguration",
+		"aws-cdk-lib.aws_ecs.AppMeshProxyConfiguration",
 		[]interface{}{props},
 		&j,
 	)
@@ -72,18 +69,17 @@ func NewAppMeshProxyConfiguration(props *AppMeshProxyConfigurationConfigProps) A
 }
 
 // Constructs a new instance of the AppMeshProxyConfiguration class.
-// Experimental.
 func NewAppMeshProxyConfiguration_Override(a AppMeshProxyConfiguration, props *AppMeshProxyConfigurationConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.AppMeshProxyConfiguration",
+		"aws-cdk-lib.aws_ecs.AppMeshProxyConfiguration",
 		[]interface{}{props},
 		a,
 	)
 }
 
-func (a *jsiiProxy_AppMeshProxyConfiguration) Bind(_scope awscdk.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty {
+func (a *jsiiProxy_AppMeshProxyConfiguration) Bind(_scope constructs.Construct, _taskDefinition TaskDefinition) *CfnTaskDefinition_ProxyConfigurationProperty {
 	var returns *CfnTaskDefinition_ProxyConfigurationProperty
 
 	_jsii_.Invoke(

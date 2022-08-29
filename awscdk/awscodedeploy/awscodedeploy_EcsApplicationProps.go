@@ -12,10 +12,8 @@ package awscodedeploy
 //   	applicationName: jsii.String("applicationName"),
 //   }
 //
-// Experimental.
 type EcsApplicationProps struct {
 	// The physical, human-readable name of the CodeDeploy Application.
-	// Experimental.
 	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 }
 

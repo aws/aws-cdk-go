@@ -1,15 +1,15 @@
 package awseks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Defines an EKS cluster that runs entirely on AWS Fargate.
@@ -23,87 +23,69 @@ import (
 //   	version: eks.kubernetesVersion_V1_21(),
 //   })
 //
-// Experimental.
 type FargateCluster interface {
 	Cluster
 	// An IAM role with administrative permissions to create or update the cluster.
 	//
 	// This role also has `systems:master` permissions.
-	// Experimental.
 	AdminRole() awsiam.Role
 	// The ALB Controller construct defined for this cluster.
 	//
 	// Will be undefined if `albController` wasn't configured.
-	// Experimental.
 	AlbController() AlbController
 	// Lazily creates the AwsAuth resource, which manages AWS authentication mapping.
-	// Experimental.
 	AwsAuth() AwsAuth
 	// The AWS generated ARN for the Cluster resource.
 	//
 	// For example, `arn:aws:eks:us-west-2:666666666666:cluster/prod`.
-	// Experimental.
 	ClusterArn() *string
 	// The certificate-authority-data for your cluster.
-	// Experimental.
 	ClusterCertificateAuthorityData() *string
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
-	// Experimental.
 	ClusterEncryptionConfigKeyArn() *string
 	// The endpoint URL for the Cluster.
 	//
 	// This is the URL inside the kubeconfig file to use with kubectl
 	//
 	// For example, `https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com`
-	// Experimental.
 	ClusterEndpoint() *string
 	// A security group to associate with the Cluster Handler's Lambdas.
 	//
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
 	//
 	// Requires `placeClusterHandlerInVpc` to be set to true.
-	// Experimental.
 	ClusterHandlerSecurityGroup() awsec2.ISecurityGroup
 	// The Name of the created EKS Cluster.
-	// Experimental.
 	ClusterName() *string
 	// If this cluster is kubectl-enabled, returns the OpenID Connect issuer.
 	//
 	// This is because the values is only be retrieved by the API and not exposed
 	// by CloudFormation. If this cluster is not kubectl-enabled (i.e. uses the
 	// stock `CfnCluster`), this is `undefined`.
-	// Experimental.
 	ClusterOpenIdConnectIssuer() *string
 	// If this cluster is kubectl-enabled, returns the OpenID Connect issuer url.
 	//
 	// This is because the values is only be retrieved by the API and not exposed
 	// by CloudFormation. If this cluster is not kubectl-enabled (i.e. uses the
 	// stock `CfnCluster`), this is `undefined`.
-	// Experimental.
 	ClusterOpenIdConnectIssuerUrl() *string
 	// The cluster security group that was created by Amazon EKS for the cluster.
-	// Experimental.
 	ClusterSecurityGroup() awsec2.ISecurityGroup
 	// The id of the cluster security group that was created by Amazon EKS for the cluster.
-	// Experimental.
 	ClusterSecurityGroupId() *string
 	// Manages connection rules (Security Group Rules) for the cluster.
-	// Experimental.
 	Connections() awsec2.Connections
 	// The auto scaling group that hosts the default capacity for this cluster.
 	//
 	// This will be `undefined` if the `defaultCapacityType` is not `EC2` or
 	// `defaultCapacityType` is `EC2` but default capacity is set to 0.
-	// Experimental.
 	DefaultCapacity() awsautoscaling.AutoScalingGroup
 	// The node group that hosts the default capacity for this cluster.
 	//
 	// This will be `undefined` if the `defaultCapacityType` is `EC2` or
 	// `defaultCapacityType` is `NODEGROUP` but default capacity is set to 0.
-	// Experimental.
 	DefaultNodegroup() Nodegroup
 	// Fargate Profile that was created with the cluster.
-	// Experimental.
 	DefaultProfile() FargateProfile
 	// The environment this resource belongs to.
 	//
@@ -113,51 +95,40 @@ type FargateCluster interface {
 	// however, for imported resources
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
-	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// Custom environment variables when running `kubectl` against this cluster.
-	// Experimental.
 	KubectlEnvironment() *map[string]*string
 	// An IAM role that can perform kubectl operations against this cluster.
 	//
 	// The role should be mapped to the `system:masters` Kubernetes RBAC role.
 	//
 	// This role is directly passed to the lambda handler that sends Kube Ctl commands to the cluster.
-	// Experimental.
 	KubectlLambdaRole() awsiam.IRole
 	// The AWS Lambda layer that contains `kubectl`, `helm` and the AWS CLI.
 	//
 	// If
 	// undefined, a SAR app that contains this layer will be used.
-	// Experimental.
 	KubectlLayer() awslambda.ILayerVersion
 	// The amount of memory allocated to the kubectl provider's lambda function.
-	// Experimental.
 	KubectlMemory() awscdk.Size
 	// Subnets to host the `kubectl` compute resources.
-	// Experimental.
 	KubectlPrivateSubnets() *[]awsec2.ISubnet
 	// An IAM role that can perform kubectl operations against this cluster.
 	//
 	// The role should be mapped to the `system:masters` Kubernetes RBAC role.
-	// Experimental.
 	KubectlRole() awsiam.IRole
 	// A security group to use for `kubectl` execution.
-	// Experimental.
 	KubectlSecurityGroup() awsec2.ISecurityGroup
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() awscdk.ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// The AWS Lambda layer that contains the NPM dependency `proxy-agent`.
 	//
 	// If
 	// undefined, a SAR app that contains this layer will be used.
-	// Experimental.
 	OnEventLayer() awslambda.ILayerVersion
 	// An `OpenIdConnectProvider` resource associated with this cluster, and which can be used to link this cluster to AWS IAM.
 	//
 	// A provider will only be defined if this property is accessed (lazy initialization).
-	// Experimental.
 	OpenIdConnectProvider() awsiam.IOpenIdConnectProvider
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
@@ -166,19 +137,14 @@ type FargateCluster interface {
 	// - `undefined`, when a name should be generated by CloudFormation
 	// - a concrete name generated automatically during synthesis, in
 	//    cross-environment scenarios.
-	// Experimental.
 	PhysicalName() *string
 	// Determines if Kubernetes resources can be pruned automatically.
-	// Experimental.
 	Prune() *bool
 	// IAM role assumed by the EKS Control Plane.
-	// Experimental.
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
-	// Experimental.
 	Stack() awscdk.Stack
 	// The VPC in which this Cluster was created.
-	// Experimental.
 	Vpc() awsec2.IVpc
 	// Add nodes to this EKS cluster.
 	//
@@ -193,39 +159,32 @@ type FargateCluster interface {
 	// In addition, the [spot interrupt handler](https://github.com/awslabs/ec2-spot-labs/tree/master/ec2-spot-eks-solution/spot-termination-handler)
 	// daemon will be installed on all spot instances to handle
 	// [EC2 Spot Instance Termination Notices](https://aws.amazon.com/blogs/aws/new-ec2-spot-instance-termination-notices/).
-	// Experimental.
 	AddAutoScalingGroupCapacity(id *string, options *AutoScalingGroupCapacityOptions) awsautoscaling.AutoScalingGroup
 	// Defines a CDK8s chart in this cluster.
 	//
 	// Returns: a `KubernetesManifest` construct representing the chart.
-	// Experimental.
 	AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest
 	// Adds a Fargate profile to this cluster.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html
 	//
-	// Experimental.
 	AddFargateProfile(id *string, options *FargateProfileOptions) FargateProfile
 	// Defines a Helm chart in this cluster.
 	//
 	// Returns: a `HelmChart` construct.
-	// Experimental.
 	AddHelmChart(id *string, options *HelmChartOptions) HelmChart
 	// Defines a Kubernetes resource in this cluster.
 	//
 	// The manifest will be applied/deleted using kubectl as needed.
 	//
 	// Returns: a `KubernetesResource` object.
-	// Experimental.
 	AddManifest(id *string, manifest ...*map[string]interface{}) KubernetesManifest
 	// Add managed nodegroup to this Amazon EKS cluster.
 	//
 	// This method will create a new managed nodegroup and add into the capacity.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html
 	//
-	// Experimental.
 	AddNodegroupCapacity(id *string, options *NodegroupOptions) Nodegroup
 	// Creates a new service account with corresponding IAM Role (IRSA).
-	// Experimental.
 	AddServiceAccount(id *string, options *ServiceAccountOptions) ServiceAccount
 	// Apply the given removal policy to this resource.
 	//
@@ -236,7 +195,6 @@ type FargateCluster interface {
 	//
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Connect capacity in the form of an existing AutoScalingGroup to the EKS cluster.
 	//
@@ -254,12 +212,9 @@ type FargateCluster interface {
 	// Prefer to use `addAutoScalingGroupCapacity` if possible.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
 	//
-	// Experimental.
 	ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions)
-	// Experimental.
 	GeneratePhysicalName() *string
 	// Fetch the load balancer address of an ingress backed by a load balancer.
-	// Experimental.
 	GetIngressLoadBalancerAddress(ingressName *string, options *IngressLoadBalancerAddressOptions) *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -267,69 +222,17 @@ type FargateCluster interface {
 	// referenced across environments, `arnComponents` will be used to synthesize
 	// a concrete ARN with the resource's physical name. Make sure to reference
 	// `this.physicalName` in `arnComponents`.
-	// Experimental.
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
 	//
 	// Normally, this token will resolve to `nameAttr`, but if the resource is
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
-	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Fetch the load balancer address of a service of type 'LoadBalancer'.
-	// Experimental.
 	GetServiceLoadBalancerAddress(serviceName *string, options *ServiceLoadBalancerAddressOptions) *string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session awscdk.ISynthesisSession)
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for FargateCluster
@@ -587,8 +490,8 @@ func (j *jsiiProxy_FargateCluster) KubectlSecurityGroup() awsec2.ISecurityGroup 
 	return returns
 }
 
-func (j *jsiiProxy_FargateCluster) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_FargateCluster) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -668,14 +571,13 @@ func (j *jsiiProxy_FargateCluster) Vpc() awsec2.IVpc {
 }
 
 
-// Experimental.
 func NewFargateCluster(scope constructs.Construct, id *string, props *FargateClusterProps) FargateCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_FargateCluster{}
 
 	_jsii_.Create(
-		"monocdk.aws_eks.FargateCluster",
+		"aws-cdk-lib.aws_eks.FargateCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -683,26 +585,24 @@ func NewFargateCluster(scope constructs.Construct, id *string, props *FargateClu
 	return &j
 }
 
-// Experimental.
 func NewFargateCluster_Override(f FargateCluster, scope constructs.Construct, id *string, props *FargateClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_eks.FargateCluster",
+		"aws-cdk-lib.aws_eks.FargateCluster",
 		[]interface{}{scope, id, props},
 		f,
 	)
 }
 
 // Import an existing cluster.
-// Experimental.
 func FargateCluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs *ClusterAttributes) ICluster {
 	_init_.Initialize()
 
 	var returns ICluster
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_eks.FargateCluster",
+		"aws-cdk-lib.aws_eks.FargateCluster",
 		"fromClusterAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -711,15 +611,30 @@ func FargateCluster_FromClusterAttributes(scope constructs.Construct, id *string
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func FargateCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_eks.FargateCluster",
+		"aws-cdk-lib.aws_eks.FargateCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -728,15 +643,30 @@ func FargateCluster_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a Resource.
-// Experimental.
-func FargateCluster_IsResource(construct awscdk.IConstruct) *bool {
+// Returns true if the construct was created by CDK, and false otherwise.
+func FargateCluster_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_eks.FargateCluster",
+		"aws-cdk-lib.aws_eks.FargateCluster",
+		"isOwnedResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func FargateCluster_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_eks.FargateCluster",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -922,70 +852,12 @@ func (f *jsiiProxy_FargateCluster) GetServiceLoadBalancerAddress(serviceName *st
 	return returns
 }
 
-func (f *jsiiProxy_FargateCluster) OnPrepare() {
-	_jsii_.InvokeVoid(
-		f,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (f *jsiiProxy_FargateCluster) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		f,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (f *jsiiProxy_FargateCluster) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		f,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (f *jsiiProxy_FargateCluster) Prepare() {
-	_jsii_.InvokeVoid(
-		f,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-func (f *jsiiProxy_FargateCluster) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		f,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 func (f *jsiiProxy_FargateCluster) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		f,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (f *jsiiProxy_FargateCluster) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		f,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

@@ -1,13 +1,14 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // A services that be enabled, disabled or restarted when the instance is launched.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var myBucket bucket
 //
 //
@@ -25,11 +26,9 @@ import (
 //   	serviceRestartHandle: handle,
 //   }))
 //
-// Experimental.
 type InitService interface {
 	InitElement
 	// Returns the init element type for this element.
-	// Experimental.
 	ElementType() *string
 }
 
@@ -50,14 +49,13 @@ func (j *jsiiProxy_InitService) ElementType() *string {
 
 
 // Disable and stop the given service.
-// Experimental.
 func InitService_Disable(serviceName *string) InitService {
 	_init_.Initialize()
 
 	var returns InitService
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitService",
+		"aws-cdk-lib.aws_ec2.InitService",
 		"disable",
 		[]interface{}{serviceName},
 		&returns,
@@ -67,14 +65,13 @@ func InitService_Disable(serviceName *string) InitService {
 }
 
 // Enable and start the given service, optionally restarting it.
-// Experimental.
 func InitService_Enable(serviceName *string, options *InitServiceOptions) InitService {
 	_init_.Initialize()
 
 	var returns InitService
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.InitService",
+		"aws-cdk-lib.aws_ec2.InitService",
 		"enable",
 		[]interface{}{serviceName, options},
 		&returns,

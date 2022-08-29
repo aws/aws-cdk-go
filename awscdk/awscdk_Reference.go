@@ -1,41 +1,35 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An intrinsic Token that represents a reference to a construct.
 //
 // References are recorded.
-// Experimental.
 type Reference interface {
 	Intrinsic
 	// The captured stack trace which represents the location in which this token was created.
-	// Experimental.
 	CreationStack() *[]*string
-	// Experimental.
 	DisplayName() *string
-	// Experimental.
-	Target() IConstruct
+	Target() constructs.IConstruct
 	// Creates a throwable Error object that contains the token creation stack trace.
-	// Experimental.
 	NewError(message *string) interface{}
 	// Produce the Token's value at resolution time.
-	// Experimental.
 	Resolve(_context IResolveContext) interface{}
 	// Turn this Token into JSON.
 	//
 	// Called automatically when JSON.stringify() is called on a Token.
-	// Experimental.
 	ToJSON() interface{}
 	// Convert an instance of this Token to a string.
 	//
 	// This method will be called implicitly by language runtimes if the object
 	// is embedded into a string. We treat it the same as an explicit
 	// stringification.
-	// Experimental.
 	ToString() *string
 }
 
@@ -64,8 +58,8 @@ func (j *jsiiProxy_Reference) DisplayName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Reference) Target() IConstruct {
-	var returns IConstruct
+func (j *jsiiProxy_Reference) Target() constructs.IConstruct {
+	var returns constructs.IConstruct
 	_jsii_.Get(
 		j,
 		"target",
@@ -75,26 +69,24 @@ func (j *jsiiProxy_Reference) Target() IConstruct {
 }
 
 
-// Experimental.
-func NewReference_Override(r Reference, value interface{}, target IConstruct, displayName *string) {
+func NewReference_Override(r Reference, value interface{}, target constructs.IConstruct, displayName *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.Reference",
+		"aws-cdk-lib.Reference",
 		[]interface{}{value, target, displayName},
 		r,
 	)
 }
 
 // Check whether this is actually a Reference.
-// Experimental.
 func Reference_IsReference(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.Reference",
+		"aws-cdk-lib.Reference",
 		"isReference",
 		[]interface{}{x},
 		&returns,

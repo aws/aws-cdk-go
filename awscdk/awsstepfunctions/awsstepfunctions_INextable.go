@@ -5,12 +5,10 @@ import (
 )
 
 // Interface for states that can have 'next' states.
-// Experimental.
 type INextable interface {
 	// Go to the indicated state after this state.
 	//
 	// Returns: The chain of states built up.
-	// Experimental.
 	Next(state IChainable) Chain
 }
 

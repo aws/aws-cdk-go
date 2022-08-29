@@ -1,8 +1,8 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -28,9 +28,9 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cliCredentialsStackSynthesizer := monocdk.NewCliCredentialsStackSynthesizer(&cliCredentialsStackSynthesizerProps{
+//   cliCredentialsStackSynthesizer := cdk.NewCliCredentialsStackSynthesizer(&cliCredentialsStackSynthesizerProps{
 //   	bucketPrefix: jsii.String("bucketPrefix"),
 //   	dockerTagPrefix: jsii.String("dockerTagPrefix"),
 //   	fileAssetsBucketName: jsii.String("fileAssetsBucketName"),
@@ -38,35 +38,28 @@ import (
 //   	qualifier: jsii.String("qualifier"),
 //   })
 //
-// Experimental.
 type CliCredentialsStackSynthesizer interface {
 	StackSynthesizer
 	// Register a Docker Image Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
-	// Experimental.
 	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
 	// Register a File Asset.
 	//
 	// Returns the parameters that can be used to refer to the asset inside the template.
-	// Experimental.
 	AddFileAsset(asset *FileAssetSource) *FileAssetLocation
 	// Bind to the stack this environment is going to be used on.
 	//
 	// Must be called before any of the other methods are called.
-	// Experimental.
 	Bind(stack Stack)
 	// Write the stack artifact to the session.
 	//
 	// Use default settings to add a CloudFormationStackArtifact artifact to
 	// the given synthesis session.
-	// Experimental.
 	EmitStackArtifact(stack Stack, session ISynthesisSession, options *SynthesizeStackArtifactOptions)
 	// Synthesize the associated stack to the session.
-	// Experimental.
 	Synthesize(session ISynthesisSession)
 	// Have the stack write out its template.
-	// Experimental.
 	SynthesizeStackTemplate(stack Stack, session ISynthesisSession)
 }
 
@@ -75,14 +68,13 @@ type jsiiProxy_CliCredentialsStackSynthesizer struct {
 	jsiiProxy_StackSynthesizer
 }
 
-// Experimental.
 func NewCliCredentialsStackSynthesizer(props *CliCredentialsStackSynthesizerProps) CliCredentialsStackSynthesizer {
 	_init_.Initialize()
 
 	j := jsiiProxy_CliCredentialsStackSynthesizer{}
 
 	_jsii_.Create(
-		"monocdk.CliCredentialsStackSynthesizer",
+		"aws-cdk-lib.CliCredentialsStackSynthesizer",
 		[]interface{}{props},
 		&j,
 	)
@@ -90,12 +82,11 @@ func NewCliCredentialsStackSynthesizer(props *CliCredentialsStackSynthesizerProp
 	return &j
 }
 
-// Experimental.
 func NewCliCredentialsStackSynthesizer_Override(c CliCredentialsStackSynthesizer, props *CliCredentialsStackSynthesizerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.CliCredentialsStackSynthesizer",
+		"aws-cdk-lib.CliCredentialsStackSynthesizer",
 		[]interface{}{props},
 		c,
 	)

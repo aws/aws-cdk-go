@@ -12,14 +12,12 @@ package awscodepipelineactions
 //   	autoDeployment: awscdk.Aws_codepipeline_actions.stackSetOrganizationsAutoDeployment_ENABLED,
 //   }
 //
-// Experimental.
 type OrganizationsDeploymentProps struct {
 	// Automatically deploy to new accounts added to Organizational Units.
 	//
 	// Whether AWS CloudFormation StackSets automatically deploys to AWS
 	// Organizations accounts that are added to a target organization or
 	// organizational unit (OU).
-	// Experimental.
 	AutoDeployment StackSetOrganizationsAutoDeployment `field:"optional" json:"autoDeployment" yaml:"autoDeployment"`
 }
 

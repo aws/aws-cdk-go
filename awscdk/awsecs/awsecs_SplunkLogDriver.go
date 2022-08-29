@@ -1,10 +1,10 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A log driver that sends log information to splunk Logs.
@@ -12,11 +12,9 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var secret secret
-//   var secretValue secretValue
 //
 //   splunkLogDriver := awscdk.Aws_ecs.NewSplunkLogDriver(&splunkLogDriverProps{
 //   	url: jsii.String("url"),
@@ -40,16 +38,13 @@ import (
 //   	source: jsii.String("source"),
 //   	sourceType: jsii.String("sourceType"),
 //   	tag: jsii.String("tag"),
-//   	token: secretValue,
 //   	verifyConnection: jsii.Boolean(false),
 //   })
 //
-// Experimental.
 type SplunkLogDriver interface {
 	LogDriver
 	// Called when the log driver is configured on a container.
-	// Experimental.
-	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for SplunkLogDriver
@@ -58,14 +53,13 @@ type jsiiProxy_SplunkLogDriver struct {
 }
 
 // Constructs a new instance of the SplunkLogDriver class.
-// Experimental.
 func NewSplunkLogDriver(props *SplunkLogDriverProps) SplunkLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_SplunkLogDriver{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.SplunkLogDriver",
+		"aws-cdk-lib.aws_ecs.SplunkLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -74,26 +68,24 @@ func NewSplunkLogDriver(props *SplunkLogDriverProps) SplunkLogDriver {
 }
 
 // Constructs a new instance of the SplunkLogDriver class.
-// Experimental.
 func NewSplunkLogDriver_Override(s SplunkLogDriver, props *SplunkLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.SplunkLogDriver",
+		"aws-cdk-lib.aws_ecs.SplunkLogDriver",
 		[]interface{}{props},
 		s,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
-// Experimental.
 func SplunkLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.SplunkLogDriver",
+		"aws-cdk-lib.aws_ecs.SplunkLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -102,7 +94,7 @@ func SplunkLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-func (s *jsiiProxy_SplunkLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (s *jsiiProxy_SplunkLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

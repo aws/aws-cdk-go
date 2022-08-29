@@ -1,12 +1,12 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Environment file from S3.
@@ -21,12 +21,10 @@ import (
 //
 //   s3EnvironmentFile := awscdk.Aws_ecs.NewS3EnvironmentFile(bucket, jsii.String("key"), jsii.String("objectVersion"))
 //
-// Experimental.
 type S3EnvironmentFile interface {
 	EnvironmentFile
 	// Called when the container is initialized to allow this object to bind to the stack.
-	// Experimental.
-	Bind(_scope awscdk.Construct) *EnvironmentFileConfig
+	Bind(_scope constructs.Construct) *EnvironmentFileConfig
 }
 
 // The jsii proxy struct for S3EnvironmentFile
@@ -34,14 +32,13 @@ type jsiiProxy_S3EnvironmentFile struct {
 	jsiiProxy_EnvironmentFile
 }
 
-// Experimental.
 func NewS3EnvironmentFile(bucket awss3.IBucket, key *string, objectVersion *string) S3EnvironmentFile {
 	_init_.Initialize()
 
 	j := jsiiProxy_S3EnvironmentFile{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.S3EnvironmentFile",
+		"aws-cdk-lib.aws_ecs.S3EnvironmentFile",
 		[]interface{}{bucket, key, objectVersion},
 		&j,
 	)
@@ -49,26 +46,24 @@ func NewS3EnvironmentFile(bucket awss3.IBucket, key *string, objectVersion *stri
 	return &j
 }
 
-// Experimental.
 func NewS3EnvironmentFile_Override(s S3EnvironmentFile, bucket awss3.IBucket, key *string, objectVersion *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.S3EnvironmentFile",
+		"aws-cdk-lib.aws_ecs.S3EnvironmentFile",
 		[]interface{}{bucket, key, objectVersion},
 		s,
 	)
 }
 
 // Loads the environment file from a local disk path.
-// Experimental.
 func S3EnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOptions) AssetEnvironmentFile {
 	_init_.Initialize()
 
 	var returns AssetEnvironmentFile
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.S3EnvironmentFile",
+		"aws-cdk-lib.aws_ecs.S3EnvironmentFile",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -80,14 +75,13 @@ func S3EnvironmentFile_FromAsset(path *string, options *awss3assets.AssetOptions
 // Loads the environment file from an S3 bucket.
 //
 // Returns: `S3EnvironmentFile` associated with the specified S3 object.
-// Experimental.
 func S3EnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3EnvironmentFile {
 	_init_.Initialize()
 
 	var returns S3EnvironmentFile
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.S3EnvironmentFile",
+		"aws-cdk-lib.aws_ecs.S3EnvironmentFile",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -96,7 +90,7 @@ func S3EnvironmentFile_FromBucket(bucket awss3.IBucket, key *string, objectVersi
 	return returns
 }
 
-func (s *jsiiProxy_S3EnvironmentFile) Bind(_scope awscdk.Construct) *EnvironmentFileConfig {
+func (s *jsiiProxy_S3EnvironmentFile) Bind(_scope constructs.Construct) *EnvironmentFileConfig {
 	var returns *EnvironmentFileConfig
 
 	_jsii_.Invoke(

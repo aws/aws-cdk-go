@@ -1,7 +1,7 @@
 package assertions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,38 +16,29 @@ import (
 //
 //   matchResult := awscdk.Assertions.NewMatchResult(target)
 //
-// Experimental.
 type MatchResult interface {
 	// The number of failures.
-	// Experimental.
 	FailCount() *float64
 	// The target for which this result was generated.
-	// Experimental.
 	Target() interface{}
 	// Compose the results of a previous match as a subtree.
-	// Experimental.
 	Compose(id *string, inner MatchResult) MatchResult
 	// Prepare the result to be analyzed.
 	//
 	// This API *must* be called prior to analyzing these results.
-	// Experimental.
 	Finished() MatchResult
 	// Does the result contain any failures.
 	//
 	// If not, the result is a success.
-	// Experimental.
 	HasFailed() *bool
 	// DEPRECATED.
 	// Deprecated: use recordFailure().
 	Push(matcher Matcher, path *[]*string, message *string) MatchResult
 	// Record a capture against in this match result.
-	// Experimental.
 	RecordCapture(options *MatchCapture)
 	// Record a new failure into this result at a specific path.
-	// Experimental.
 	RecordFailure(failure *MatchFailure) MatchResult
 	// Get the list of failures as human readable strings.
-	// Experimental.
 	ToHumanStrings() *[]*string
 }
 
@@ -77,14 +68,13 @@ func (j *jsiiProxy_MatchResult) Target() interface{} {
 }
 
 
-// Experimental.
 func NewMatchResult(target interface{}) MatchResult {
 	_init_.Initialize()
 
 	j := jsiiProxy_MatchResult{}
 
 	_jsii_.Create(
-		"monocdk.assertions.MatchResult",
+		"aws-cdk-lib.assertions.MatchResult",
 		[]interface{}{target},
 		&j,
 	)
@@ -92,12 +82,11 @@ func NewMatchResult(target interface{}) MatchResult {
 	return &j
 }
 
-// Experimental.
 func NewMatchResult_Override(m MatchResult, target interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.assertions.MatchResult",
+		"aws-cdk-lib.assertions.MatchResult",
 		[]interface{}{target},
 		m,
 	)

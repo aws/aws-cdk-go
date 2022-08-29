@@ -1,10 +1,10 @@
 package awsecs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // FireLens enables you to use task definition parameters to route logs to an AWS service   or AWS Partner Network (APN) destination for log storage and analytics.
@@ -33,12 +33,10 @@ import (
 //   	tag: jsii.String("tag"),
 //   })
 //
-// Experimental.
 type FireLensLogDriver interface {
 	LogDriver
 	// Called when the log driver is configured on a container.
-	// Experimental.
-	Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
+	Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig
 }
 
 // The jsii proxy struct for FireLensLogDriver
@@ -47,14 +45,13 @@ type jsiiProxy_FireLensLogDriver struct {
 }
 
 // Constructs a new instance of the FireLensLogDriver class.
-// Experimental.
 func NewFireLensLogDriver(props *FireLensLogDriverProps) FireLensLogDriver {
 	_init_.Initialize()
 
 	j := jsiiProxy_FireLensLogDriver{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.FireLensLogDriver",
+		"aws-cdk-lib.aws_ecs.FireLensLogDriver",
 		[]interface{}{props},
 		&j,
 	)
@@ -63,26 +60,24 @@ func NewFireLensLogDriver(props *FireLensLogDriverProps) FireLensLogDriver {
 }
 
 // Constructs a new instance of the FireLensLogDriver class.
-// Experimental.
 func NewFireLensLogDriver_Override(f FireLensLogDriver, props *FireLensLogDriverProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs.FireLensLogDriver",
+		"aws-cdk-lib.aws_ecs.FireLensLogDriver",
 		[]interface{}{props},
 		f,
 	)
 }
 
 // Creates a log driver configuration that sends log information to CloudWatch Logs.
-// Experimental.
 func FireLensLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	_init_.Initialize()
 
 	var returns LogDriver
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs.FireLensLogDriver",
+		"aws-cdk-lib.aws_ecs.FireLensLogDriver",
 		"awsLogs",
 		[]interface{}{props},
 		&returns,
@@ -91,7 +86,7 @@ func FireLensLogDriver_AwsLogs(props *AwsLogDriverProps) LogDriver {
 	return returns
 }
 
-func (f *jsiiProxy_FireLensLogDriver) Bind(_scope awscdk.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
+func (f *jsiiProxy_FireLensLogDriver) Bind(_scope constructs.Construct, _containerDefinition ContainerDefinition) *LogDriverConfig {
 	var returns *LogDriverConfig
 
 	_jsii_.Invoke(

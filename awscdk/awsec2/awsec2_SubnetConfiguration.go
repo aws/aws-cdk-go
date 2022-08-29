@@ -10,7 +10,7 @@ package awsec2
 //
 //   subnetConfiguration := &subnetConfiguration{
 //   	name: jsii.String("name"),
-//   	subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
+//   	subnetType: awscdk.Aws_ec2.subnetType_PRIVATE_ISOLATED,
 //
 //   	// the properties below are optional
 //   	cidrMask: jsii.Number(123),
@@ -18,19 +18,16 @@ package awsec2
 //   	reserved: jsii.Boolean(false),
 //   }
 //
-// Experimental.
 type SubnetConfiguration struct {
 	// Logical name for the subnet group.
 	//
 	// This name can be used when selecting VPC subnets to distinguish
 	// between different subnet groups of the same type.
-	// Experimental.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of Subnet to configure.
 	//
 	// The Subnet type will control the ability to route and connect to the
 	// Internet.
-	// Experimental.
 	SubnetType SubnetType `field:"required" json:"subnetType" yaml:"subnetType"`
 	// The number of leading 1 bits in the routing mask.
 	//
@@ -38,10 +35,8 @@ type SubnetConfiguration struct {
 	// will be equal to `2^(32 - cidrMask) - 2`.
 	//
 	// Valid values are `16--28`.
-	// Experimental.
 	CidrMask *float64 `field:"optional" json:"cidrMask" yaml:"cidrMask"`
 	// Controls if a public IP is associated to an instance at launch.
-	// Experimental.
 	MapPublicIpOnLaunch *bool `field:"optional" json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
 	// Controls if subnet IP space needs to be reserved.
 	//
@@ -49,7 +44,6 @@ type SubnetConfiguration struct {
 	// resources are provisioned. This space is only dependent on the
 	// number of availability zones and on `cidrMask` - all other subnet
 	// properties are ignored.
-	// Experimental.
 	Reserved *bool `field:"optional" json:"reserved" yaml:"reserved"`
 }
 

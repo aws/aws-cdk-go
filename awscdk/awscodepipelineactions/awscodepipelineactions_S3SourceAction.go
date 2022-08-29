@@ -1,12 +1,12 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Source that is provided by a specific Amazon S3 object.
@@ -15,6 +15,7 @@ import (
 // a CloudTrail Trail in the account that captures the S3 event.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sourceBucket bucket
@@ -38,30 +39,22 @@ import (
 //   	trigger: codepipeline_actions.s3Trigger_EVENTS,
 //   })
 //
-// Experimental.
 type S3SourceAction interface {
 	Action
 	// The simple properties of the Action, like its Owner, name, etc.
 	//
 	// Note that this accessor will be called before the {@link bind} callback.
-	// Experimental.
 	ActionProperties() *awscodepipeline.ActionProperties
 	// This is a renamed version of the {@link IAction.actionProperties} property.
-	// Experimental.
 	ProvidedActionProperties() *awscodepipeline.ActionProperties
 	// The variables emitted by this action.
-	// Experimental.
 	Variables() *S3SourceVariables
 	// The callback invoked when this Action is added to a Pipeline.
-	// Experimental.
-	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// This is a renamed version of the {@link IAction.bind} method.
-	// Experimental.
-	Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
-	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
-	// Experimental.
 	VariableExpression(variableName *string) *string
 }
 
@@ -101,14 +94,13 @@ func (j *jsiiProxy_S3SourceAction) Variables() *S3SourceVariables {
 }
 
 
-// Experimental.
 func NewS3SourceAction(props *S3SourceActionProps) S3SourceAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_S3SourceAction{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.S3SourceAction",
+		"aws-cdk-lib.aws_codepipeline_actions.S3SourceAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -116,18 +108,17 @@ func NewS3SourceAction(props *S3SourceActionProps) S3SourceAction {
 	return &j
 }
 
-// Experimental.
 func NewS3SourceAction_Override(s S3SourceAction, props *S3SourceActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.S3SourceAction",
+		"aws-cdk-lib.aws_codepipeline_actions.S3SourceAction",
 		[]interface{}{props},
 		s,
 	)
 }
 
-func (s *jsiiProxy_S3SourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_S3SourceAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -140,7 +131,7 @@ func (s *jsiiProxy_S3SourceAction) Bind(scope awscdk.Construct, stage awscodepip
 	return returns
 }
 
-func (s *jsiiProxy_S3SourceAction) Bound(_scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_S3SourceAction) Bound(_scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(

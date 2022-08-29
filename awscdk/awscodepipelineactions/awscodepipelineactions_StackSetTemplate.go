@@ -1,15 +1,16 @@
 package awscodepipelineactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 )
 
 // The source of a StackSet template.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var pipeline pipeline
 //   var sourceOutput artifact
 //
@@ -51,7 +52,6 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type StackSetTemplate interface {
 }
 
@@ -60,26 +60,24 @@ type jsiiProxy_StackSetTemplate struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewStackSetTemplate_Override(s StackSetTemplate) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline_actions.StackSetTemplate",
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetTemplate",
 		nil, // no parameters
 		s,
 	)
 }
 
 // Use a file in an artifact as Stack Template.
-// Experimental.
 func StackSetTemplate_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath) StackSetTemplate {
 	_init_.Initialize()
 
 	var returns StackSetTemplate
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline_actions.StackSetTemplate",
+		"aws-cdk-lib.aws_codepipeline_actions.StackSetTemplate",
 		"fromArtifactPath",
 		[]interface{}{artifactPath},
 		&returns,

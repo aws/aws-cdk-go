@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
@@ -6,10 +6,8 @@ import (
 )
 
 // A Token that can post-process the complete resolved value, after resolve() has recursed over it.
-// Experimental.
 type IPostProcessor interface {
 	// Process the completely resolved value, after full recursion/resolution has happened.
-	// Experimental.
 	PostProcess(input interface{}, context IResolveContext) interface{}
 }
 

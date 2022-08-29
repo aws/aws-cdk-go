@@ -1,13 +1,14 @@
 package awsec2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // The type of resource to create the flow log for.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var vpc vpc
 //
 //
@@ -22,17 +23,12 @@ import (
 //   	destination: ec2.flowLogDestination.toCloudWatchLogs(logGroup, role),
 //   })
 //
-// Experimental.
 type FlowLogResourceType interface {
 	// The Id of the resource that the flow log should be attached to.
-	// Experimental.
 	ResourceId() *string
-	// Experimental.
 	SetResourceId(val *string)
 	// The type of resource to attach a flow log to.
-	// Experimental.
 	ResourceType() *string
-	// Experimental.
 	SetResourceType(val *string)
 }
 
@@ -62,12 +58,11 @@ func (j *jsiiProxy_FlowLogResourceType) ResourceType() *string {
 }
 
 
-// Experimental.
 func NewFlowLogResourceType_Override(f FlowLogResourceType) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ec2.FlowLogResourceType",
+		"aws-cdk-lib.aws_ec2.FlowLogResourceType",
 		nil, // no parameters
 		f,
 	)
@@ -90,14 +85,13 @@ func (j *jsiiProxy_FlowLogResourceType) SetResourceType(val *string) {
 }
 
 // The Network Interface to attach the Flow Log to.
-// Experimental.
 func FlowLogResourceType_FromNetworkInterfaceId(id *string) FlowLogResourceType {
 	_init_.Initialize()
 
 	var returns FlowLogResourceType
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.FlowLogResourceType",
+		"aws-cdk-lib.aws_ec2.FlowLogResourceType",
 		"fromNetworkInterfaceId",
 		[]interface{}{id},
 		&returns,
@@ -107,14 +101,13 @@ func FlowLogResourceType_FromNetworkInterfaceId(id *string) FlowLogResourceType 
 }
 
 // The subnet to attach the Flow Log to.
-// Experimental.
 func FlowLogResourceType_FromSubnet(subnet ISubnet) FlowLogResourceType {
 	_init_.Initialize()
 
 	var returns FlowLogResourceType
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.FlowLogResourceType",
+		"aws-cdk-lib.aws_ec2.FlowLogResourceType",
 		"fromSubnet",
 		[]interface{}{subnet},
 		&returns,
@@ -124,14 +117,13 @@ func FlowLogResourceType_FromSubnet(subnet ISubnet) FlowLogResourceType {
 }
 
 // The VPC to attach the Flow Log to.
-// Experimental.
 func FlowLogResourceType_FromVpc(vpc IVpc) FlowLogResourceType {
 	_init_.Initialize()
 
 	var returns FlowLogResourceType
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ec2.FlowLogResourceType",
+		"aws-cdk-lib.aws_ec2.FlowLogResourceType",
 		"fromVpc",
 		[]interface{}{vpc},
 		&returns,

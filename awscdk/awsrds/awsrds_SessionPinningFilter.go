@@ -1,7 +1,7 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -16,10 +16,8 @@ import (
 //
 // See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html#rds-proxy-pinning
 //
-// Experimental.
 type SessionPinningFilter interface {
 	// Filter name.
-	// Experimental.
 	FilterName() *string
 }
 
@@ -40,14 +38,13 @@ func (j *jsiiProxy_SessionPinningFilter) FilterName() *string {
 
 
 // custom filter.
-// Experimental.
 func SessionPinningFilter_Of(filterName *string) SessionPinningFilter {
 	_init_.Initialize()
 
 	var returns SessionPinningFilter
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_rds.SessionPinningFilter",
+		"aws-cdk-lib.aws_rds.SessionPinningFilter",
 		"of",
 		[]interface{}{filterName},
 		&returns,
@@ -60,7 +57,7 @@ func SessionPinningFilter_EXCLUDE_VARIABLE_SETS() SessionPinningFilter {
 	_init_.Initialize()
 	var returns SessionPinningFilter
 	_jsii_.StaticGet(
-		"monocdk.aws_rds.SessionPinningFilter",
+		"aws-cdk-lib.aws_rds.SessionPinningFilter",
 		"EXCLUDE_VARIABLE_SETS",
 		&returns,
 	)

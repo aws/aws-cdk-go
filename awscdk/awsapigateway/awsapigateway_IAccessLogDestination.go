@@ -5,10 +5,8 @@ import (
 )
 
 // Access log destination for a RestApi Stage.
-// Experimental.
 type IAccessLogDestination interface {
 	// Binds this destination to the RestApi Stage.
-	// Experimental.
 	Bind(stage IStage) *AccessLogDestinationConfig
 }
 

@@ -1,10 +1,10 @@
 package cxapi
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
 
 // Asset manifest is a description of a set of assets which need to be built and published.
@@ -69,39 +69,28 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type AssetManifestArtifact interface {
 	CloudArtifact
-	// Experimental.
 	Assembly() CloudAssembly
 	// Name of SSM parameter with bootstrap stack version.
-	// Experimental.
 	BootstrapStackVersionSsmParameter() *string
 	// Returns all the artifacts that this artifact depends on.
-	// Experimental.
 	Dependencies() *[]CloudArtifact
 	// The file name of the asset manifest.
-	// Experimental.
 	File() *string
 	// An identifier that shows where this artifact is located in the tree of nested assemblies, based on their manifests.
 	//
 	// Defaults to the normal
 	// id. Should only be used in user interfaces.
-	// Experimental.
 	HierarchicalId() *string
-	// Experimental.
 	Id() *string
 	// The artifact's manifest.
-	// Experimental.
 	Manifest() *cloudassemblyschema.ArtifactManifest
 	// The set of messages extracted from the artifact's metadata.
-	// Experimental.
 	Messages() *[]*SynthesisMessage
 	// Version of bootstrap stack required to deploy this stack.
-	// Experimental.
 	RequiresBootstrapStackVersion() *float64
 	// Returns: all the metadata entries of a specific type in this artifact.
-	// Experimental.
 	FindMetadataByType(type_ *string) *[]*MetadataEntryResult
 }
 
@@ -201,14 +190,13 @@ func (j *jsiiProxy_AssetManifestArtifact) RequiresBootstrapStackVersion() *float
 }
 
 
-// Experimental.
 func NewAssetManifestArtifact(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) AssetManifestArtifact {
 	_init_.Initialize()
 
 	j := jsiiProxy_AssetManifestArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.AssetManifestArtifact",
+		"aws-cdk-lib.cx_api.AssetManifestArtifact",
 		[]interface{}{assembly, name, artifact},
 		&j,
 	)
@@ -216,12 +204,11 @@ func NewAssetManifestArtifact(assembly CloudAssembly, name *string, artifact *cl
 	return &j
 }
 
-// Experimental.
 func NewAssetManifestArtifact_Override(a AssetManifestArtifact, assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.AssetManifestArtifact",
+		"aws-cdk-lib.cx_api.AssetManifestArtifact",
 		[]interface{}{assembly, name, artifact},
 		a,
 	)
@@ -230,14 +217,13 @@ func NewAssetManifestArtifact_Override(a AssetManifestArtifact, assembly CloudAs
 // Returns a subclass of `CloudArtifact` based on the artifact type defined in the artifact manifest.
 //
 // Returns: the `CloudArtifact` that matches the artifact type or `undefined` if it's an artifact type that is unrecognized by this module.
-// Experimental.
 func AssetManifestArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.AssetManifestArtifact",
+		"aws-cdk-lib.cx_api.AssetManifestArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,
@@ -261,14 +247,13 @@ func AssetManifestArtifact_FromManifest(assembly CloudAssembly, id *string, arti
 // library can be accidentally installed, and `instanceof` will behave
 // unpredictably. It is safest to avoid using `instanceof`, and using
 // this type-testing method instead.
-// Experimental.
 func AssetManifestArtifact_IsAssetManifestArtifact(art interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.AssetManifestArtifact",
+		"aws-cdk-lib.cx_api.AssetManifestArtifact",
 		"isAssetManifestArtifact",
 		[]interface{}{art},
 		&returns,

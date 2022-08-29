@@ -3,25 +3,20 @@ package awsrds
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface representing a database instance (as opposed to cluster) engine.
-// Experimental.
 type IInstanceEngine interface {
 	IEngine
 	// Method called when the engine is used to create a new instance.
-	// Experimental.
-	BindToInstance(scope awscdk.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig
+	BindToInstance(scope constructs.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig
 	// The application used by this engine to perform rotation for a multi-user scenario.
-	// Experimental.
 	MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// The application used by this engine to perform rotation for a single-user scenario.
-	// Experimental.
 	SingleUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// Whether this engine supports automatic backups of a read replica instance.
-	// Experimental.
 	SupportsReadReplicaBackups() *bool
 }
 
@@ -30,7 +25,7 @@ type jsiiProxy_IInstanceEngine struct {
 	jsiiProxy_IEngine
 }
 
-func (i *jsiiProxy_IInstanceEngine) BindToInstance(scope awscdk.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig {
+func (i *jsiiProxy_IInstanceEngine) BindToInstance(scope constructs.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig {
 	var returns *InstanceEngineConfig
 
 	_jsii_.Invoke(

@@ -3,68 +3,55 @@ package awssecretsmanager
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager/internal"
 )
 
 // A secret in AWS Secrets Manager.
-// Experimental.
 type ISecret interface {
 	awscdk.IResource
 	// Adds a rotation schedule to the secret.
-	// Experimental.
 	AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule
 	// Adds a statement to the IAM resource policy associated with this secret.
 	//
 	// If this secret was created in this stack, a resource policy will be
 	// automatically created upon the first call to `addToResourcePolicy`. If
 	// the secret is imported, then this is a no-op.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Attach a target to this secret.
 	//
 	// Returns: An attached secret.
-	// Experimental.
 	Attach(target ISecretAttachmentTarget) ISecret
 	// Denies the `DeleteSecret` action to all principals within the current account.
-	// Experimental.
 	DenyAccountRootDelete()
 	// Grants reading the secret value to some role.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant
 	// Grants writing and updating the secret value to some role.
-	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
-	// Experimental.
 	SecretValueFromJson(key *string) awscdk.SecretValue
 	// The customer-managed encryption key that is used to encrypt this secret, if any.
 	//
 	// When not specified, the default
 	// KMS key for the account and region is being used.
-	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The ARN of the secret in AWS Secrets Manager.
 	//
 	// Will return the full ARN if available, otherwise a partial arn.
 	// For secrets imported by the deprecated `fromSecretName`, it will return the `secretName`.
-	// Experimental.
 	SecretArn() *string
 	// The full ARN of the secret in AWS Secrets Manager, which is the ARN including the Secrets Manager-supplied 6-character suffix.
 	//
 	// This is equal to `secretArn` in most cases, but is undefined when a full ARN is not available (e.g., secrets imported by name).
-	// Experimental.
 	SecretFullArn() *string
 	// The name of the secret.
 	//
 	// For "owned" secrets, this will be the full resource name (secret name + suffix), unless the
 	// '@aws-cdk/aws-secretsmanager:parseOwnedSecretName' feature flag is set.
-	// Experimental.
 	SecretName() *string
 	// Retrieve the value of the stored secret as a `SecretValue`.
-	// Experimental.
 	SecretValue() awscdk.SecretValue
 }
 

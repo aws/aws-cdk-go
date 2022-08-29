@@ -1,12 +1,12 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
 )
 
 // Use a StepFunctions state machine as a target for Amazon EventBridge rules.
@@ -39,15 +39,12 @@ import (
 //   	role: role,
 //   }))
 //
-// Experimental.
 type SfnStateMachine interface {
 	awsevents.IRuleTarget
-	// Experimental.
 	Machine() awsstepfunctions.IStateMachine
 	// Returns a properties that are used in an Rule to trigger this State Machine.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sns-permissions
 	//
-	// Experimental.
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
 
@@ -67,14 +64,13 @@ func (j *jsiiProxy_SfnStateMachine) Machine() awsstepfunctions.IStateMachine {
 }
 
 
-// Experimental.
 func NewSfnStateMachine(machine awsstepfunctions.IStateMachine, props *SfnStateMachineProps) SfnStateMachine {
 	_init_.Initialize()
 
 	j := jsiiProxy_SfnStateMachine{}
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.SfnStateMachine",
+		"aws-cdk-lib.aws_events_targets.SfnStateMachine",
 		[]interface{}{machine, props},
 		&j,
 	)
@@ -82,12 +78,11 @@ func NewSfnStateMachine(machine awsstepfunctions.IStateMachine, props *SfnStateM
 	return &j
 }
 
-// Experimental.
 func NewSfnStateMachine_Override(s SfnStateMachine, machine awsstepfunctions.IStateMachine, props *SfnStateMachineProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_events_targets.SfnStateMachine",
+		"aws-cdk-lib.aws_events_targets.SfnStateMachine",
 		[]interface{}{machine, props},
 		s,
 	)

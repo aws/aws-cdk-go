@@ -1,7 +1,7 @@
 package awscloudwatch
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -19,34 +19,23 @@ import (
 //   	title: jsii.String("My lambda baked widget"),
 //   }))
 //
-// Experimental.
 type CustomWidget interface {
 	ConcreteWidget
 	// The amount of vertical grid units the widget will take up.
-	// Experimental.
 	Height() *float64
 	// Any warnings that are produced as a result of putting together this widget.
-	// Experimental.
 	Warnings() *[]*string
 	// The amount of horizontal grid units the widget will take up.
-	// Experimental.
 	Width() *float64
-	// Experimental.
 	X() *float64
-	// Experimental.
 	SetX(val *float64)
-	// Experimental.
 	Y() *float64
-	// Experimental.
 	SetY(val *float64)
 	// Copy the warnings from the given metric.
-	// Experimental.
 	CopyMetricWarnings(ms ...IMetric)
 	// Place the widget at a given position.
-	// Experimental.
 	Position(x *float64, y *float64)
 	// Return the widget JSON for use in the dashboard.
-	// Experimental.
 	ToJson() *[]interface{}
 }
 
@@ -106,14 +95,13 @@ func (j *jsiiProxy_CustomWidget) Y() *float64 {
 }
 
 
-// Experimental.
 func NewCustomWidget(props *CustomWidgetProps) CustomWidget {
 	_init_.Initialize()
 
 	j := jsiiProxy_CustomWidget{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloudwatch.CustomWidget",
+		"aws-cdk-lib.aws_cloudwatch.CustomWidget",
 		[]interface{}{props},
 		&j,
 	)
@@ -121,12 +109,11 @@ func NewCustomWidget(props *CustomWidgetProps) CustomWidget {
 	return &j
 }
 
-// Experimental.
 func NewCustomWidget_Override(c CustomWidget, props *CustomWidgetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloudwatch.CustomWidget",
+		"aws-cdk-lib.aws_cloudwatch.CustomWidget",
 		[]interface{}{props},
 		c,
 	)

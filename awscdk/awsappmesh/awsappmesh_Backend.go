@@ -1,15 +1,16 @@
 package awsappmesh
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Contains static factory methods to create backends.
 //
 // Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
 //   var mesh mesh
 //   var router virtualRouter
 //   var service service
@@ -43,11 +44,9 @@ import (
 //
 //   node.addBackend(appmesh.backend.virtualService(virtualService))
 //
-// Experimental.
 type Backend interface {
 	// Return backend config.
-	// Experimental.
-	Bind(_scope awscdk.Construct) *BackendConfig
+	Bind(_scope constructs.Construct) *BackendConfig
 }
 
 // The jsii proxy struct for Backend
@@ -55,26 +54,24 @@ type jsiiProxy_Backend struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewBackend_Override(b Backend) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_appmesh.Backend",
+		"aws-cdk-lib.aws_appmesh.Backend",
 		nil, // no parameters
 		b,
 	)
 }
 
 // Construct a Virtual Service backend.
-// Experimental.
 func Backend_VirtualService(virtualService IVirtualService, props *VirtualServiceBackendOptions) Backend {
 	_init_.Initialize()
 
 	var returns Backend
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_appmesh.Backend",
+		"aws-cdk-lib.aws_appmesh.Backend",
 		"virtualService",
 		[]interface{}{virtualService, props},
 		&returns,
@@ -83,7 +80,7 @@ func Backend_VirtualService(virtualService IVirtualService, props *VirtualServic
 	return returns
 }
 
-func (b *jsiiProxy_Backend) Bind(_scope awscdk.Construct) *BackendConfig {
+func (b *jsiiProxy_Backend) Bind(_scope constructs.Construct) *BackendConfig {
 	var returns *BackendConfig
 
 	_jsii_.Invoke(

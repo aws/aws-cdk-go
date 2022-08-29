@@ -1,12 +1,12 @@
 package awsglobalacceleratorendpoints
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalaccelerator"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalacceleratorendpoints/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalacceleratorendpoints/internal"
 )
 
 // Use a Network Load Balancer as a Global Accelerator Endpoint.
@@ -50,16 +50,13 @@ import (
 //   	},
 //   })
 //
-// Experimental.
 type NetworkLoadBalancerEndpoint interface {
 	awsglobalaccelerator.IEndpoint
 	// The region where the endpoint is located.
 	//
 	// If the region cannot be determined, `undefined` is returned.
-	// Experimental.
 	Region() *string
 	// Render the endpoint to an endpoint configuration.
-	// Experimental.
 	RenderEndpointConfiguration() interface{}
 }
 
@@ -79,14 +76,13 @@ func (j *jsiiProxy_NetworkLoadBalancerEndpoint) Region() *string {
 }
 
 
-// Experimental.
 func NewNetworkLoadBalancerEndpoint(loadBalancer awselasticloadbalancingv2.INetworkLoadBalancer, options *NetworkLoadBalancerEndpointProps) NetworkLoadBalancerEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_NetworkLoadBalancerEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
 		[]interface{}{loadBalancer, options},
 		&j,
 	)
@@ -94,12 +90,11 @@ func NewNetworkLoadBalancerEndpoint(loadBalancer awselasticloadbalancingv2.INetw
 	return &j
 }
 
-// Experimental.
 func NewNetworkLoadBalancerEndpoint_Override(n NetworkLoadBalancerEndpoint, loadBalancer awselasticloadbalancingv2.INetworkLoadBalancer, options *NetworkLoadBalancerEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
 		[]interface{}{loadBalancer, options},
 		n,
 	)

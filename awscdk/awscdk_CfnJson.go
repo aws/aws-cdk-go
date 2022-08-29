@@ -1,11 +1,12 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Captures a synthesis-time JSON object a CloudFormation reference which resolves during deployment to the resolved values of the JSON object.
@@ -21,97 +22,49 @@ import (
 // This construct is backed by a custom resource.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   tagParam := awscdk.NewCfnParameter(this, jsii.String("TagName"))
 //
-//   var value interface{}
-//
-//   cfnJson := monocdk.NewCfnJson(this, jsii.String("MyCfnJson"), &cfnJsonProps{
-//   	value: value,
+//   stringEquals := awscdk.NewCfnJson(this, jsii.String("ConditionJson"), &cfnJsonProps{
+//   	value: map[string]*bool{
+//   		fmt.Sprintf("aws:PrincipalTag/%v", tagParam.valueAsString): jsii.Boolean(true),
+//   	},
 //   })
 //
-// Experimental.
+//   principal := iam.NewAccountRootPrincipal().withConditions(map[string]interface{}{
+//   	"StringEquals": stringEquals,
+//   })
+//
+//   iam.NewRole(this, jsii.String("MyRole"), &roleProps{
+//   	assumedBy: principal,
+//   })
+//
 type CfnJson interface {
-	Construct
+	constructs.Construct
 	IResolvable
 	// The creation stack of this resolvable which will be appended to errors thrown during resolution.
 	//
 	// This may return an array with a single informational element indicating how
 	// to get this property populated, if it was skipped for performance reasons.
-	// Experimental.
 	CreationStack() *[]*string
-	// The construct tree node associated with this construct.
-	// Experimental.
-	Node() ConstructNode
+	// The tree node.
+	Node() constructs.Node
 	// An Fn::GetAtt to the JSON object passed through `value` and resolved during synthesis.
 	//
 	// Normally there is no need to use this property since `CfnJson` is an
 	// IResolvable, so it can be simply used as a value.
-	// Experimental.
 	Value() Reference
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	OnValidate() *[]*string
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	// Experimental.
-	Prepare()
 	// Produce the Token's value at resolution time.
-	// Experimental.
 	Resolve(_arg IResolveContext) interface{}
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	// Experimental.
-	Synthesize(session ISynthesisSession)
 	// This is required in case someone JSON.stringifys an object which refrences this object. Otherwise, we'll get a cyclic JSON reference.
-	// Experimental.
 	ToJSON() *string
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if the construct is valid.
-	// Experimental.
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for CfnJson
 type jsiiProxy_CfnJson struct {
-	jsiiProxy_Construct
+	internal.Type__constructsConstruct
 	jsiiProxy_IResolvable
 }
 
@@ -125,8 +78,8 @@ func (j *jsiiProxy_CfnJson) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnJson) Node() ConstructNode {
-	var returns ConstructNode
+func (j *jsiiProxy_CfnJson) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -146,14 +99,13 @@ func (j *jsiiProxy_CfnJson) Value() Reference {
 }
 
 
-// Experimental.
 func NewCfnJson(scope constructs.Construct, id *string, props *CfnJsonProps) CfnJson {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnJson{}
 
 	_jsii_.Create(
-		"monocdk.CfnJson",
+		"aws-cdk-lib.CfnJson",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -161,69 +113,46 @@ func NewCfnJson(scope constructs.Construct, id *string, props *CfnJsonProps) Cfn
 	return &j
 }
 
-// Experimental.
 func NewCfnJson_Override(c CfnJson, scope constructs.Construct, id *string, props *CfnJsonProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.CfnJson",
+		"aws-cdk-lib.CfnJson",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
 func CfnJson_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.CfnJson",
+		"aws-cdk-lib.CfnJson",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
 	)
 
 	return returns
-}
-
-func (c *jsiiProxy_CfnJson) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CfnJson) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CfnJson) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnJson) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
 }
 
 func (c *jsiiProxy_CfnJson) Resolve(_arg IResolveContext) interface{} {
@@ -237,14 +166,6 @@ func (c *jsiiProxy_CfnJson) Resolve(_arg IResolveContext) interface{} {
 	)
 
 	return returns
-}
-
-func (c *jsiiProxy_CfnJson) Synthesize(session ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
 }
 
 func (c *jsiiProxy_CfnJson) ToJSON() *string {
@@ -266,19 +187,6 @@ func (c *jsiiProxy_CfnJson) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (c *jsiiProxy_CfnJson) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

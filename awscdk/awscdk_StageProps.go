@@ -1,4 +1,4 @@
-// An experiment to bundle the entire CDK into a single module
+// Version 2 of the AWS Cloud Development Kit library
 package awscdk
 
 
@@ -35,7 +35,6 @@ package awscdk
 //   	},
 //   })
 //
-// Experimental.
 type StageProps struct {
 	// Default AWS environment (account/region) for `Stack`s in this `Stage`.
 	//
@@ -53,6 +52,7 @@ type StageProps struct {
 	// AWS partition, and other such enhancements.
 	//
 	// Example:
+	//   // Example automatically generated from non-compiling source. May contain errors.
 	//   // Use a concrete account and region to deploy this Stage to
 	//   // Use a concrete account and region to deploy this Stage to
 	//   awscdk.NewStage(app, jsii.String("Stage1"), &stageProps{
@@ -71,14 +71,12 @@ type StageProps struct {
 	//   	},
 	//   })
 	//
-	// Experimental.
 	Env *Environment `field:"optional" json:"env" yaml:"env"`
 	// The output directory into which to emit synthesized artifacts.
 	//
 	// Can only be specified if this stage is the root stage (the app). If this is
 	// specified and this stage is nested within another stage, an error will be
 	// thrown.
-	// Experimental.
 	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
 }
 

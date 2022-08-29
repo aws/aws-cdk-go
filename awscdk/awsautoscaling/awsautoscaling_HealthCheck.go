@@ -1,10 +1,10 @@
 package awsautoscaling
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // Health check settings.
@@ -12,20 +12,15 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var duration duration
-//
 //   healthCheck := awscdk.Aws_autoscaling.healthCheck.ec2(&ec2HealthCheckOptions{
-//   	grace: duration,
+//   	grace: cdk.duration.minutes(jsii.Number(30)),
 //   })
 //
-// Experimental.
 type HealthCheck interface {
-	// Experimental.
 	GracePeriod() awscdk.Duration
-	// Experimental.
 	Type() *string
 }
 
@@ -56,14 +51,13 @@ func (j *jsiiProxy_HealthCheck) Type() *string {
 
 
 // Use EC2 for health checks.
-// Experimental.
 func HealthCheck_Ec2(options *Ec2HealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.HealthCheck",
+		"aws-cdk-lib.aws_autoscaling.HealthCheck",
 		"ec2",
 		[]interface{}{options},
 		&returns,
@@ -75,14 +69,13 @@ func HealthCheck_Ec2(options *Ec2HealthCheckOptions) HealthCheck {
 // Use ELB for health checks.
 //
 // It considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
-// Experimental.
 func HealthCheck_Elb(options *ElbHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.HealthCheck",
+		"aws-cdk-lib.aws_autoscaling.HealthCheck",
 		"elb",
 		[]interface{}{options},
 		&returns,
